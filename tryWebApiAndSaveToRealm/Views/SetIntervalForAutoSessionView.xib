@@ -50,23 +50,23 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="CZJ-Ji-glj"/>
-                    <exclude reference="bJe-83-JnG"/>
                     <exclude reference="QUV-xp-mDR"/>
                     <exclude reference="ZVY-Ue-YIf"/>
+                    <exclude reference="CZJ-Ji-glj"/>
+                    <exclude reference="bJe-83-JnG"/>
                 </mask>
             </variation>
             <variation key="widthClass=compact">
                 <mask key="constraints">
+                    <include reference="QUV-xp-mDR"/>
+                    <include reference="ZVY-Ue-YIf"/>
+                    <exclude reference="hoc-fn-UlT"/>
+                    <exclude reference="zZP-lv-HaU"/>
                     <exclude reference="8U4-wQ-qon"/>
                     <include reference="CZJ-Ji-glj"/>
                     <include reference="bJe-83-JnG"/>
                     <exclude reference="edS-Mo-R4d"/>
                     <exclude reference="gHG-cy-8le"/>
-                    <include reference="QUV-xp-mDR"/>
-                    <include reference="ZVY-Ue-YIf"/>
-                    <exclude reference="hoc-fn-UlT"/>
-                    <exclude reference="zZP-lv-HaU"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="255.79710144927537" y="162.05357142857142"/>
