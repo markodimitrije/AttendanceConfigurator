@@ -194,6 +194,9 @@ class ScannerVC: UIViewController {
             settings.setSymbology(symbology, enabled: true)
         }
         
+        let symSettings = settings.settings(for: .code25)
+        symSettings.activeSymbolCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        
         // Create the barcode picker with the settings just created
         let barcodePicker = SBSBarcodePicker(settings:settings)
         barcodePicker.view.frame = self.scannerView.bounds
@@ -224,7 +227,7 @@ extension ScannerVC: SBSScanDelegate {
         let code = session.newlyRecognizedCodes[0]
         
         DispatchQueue.main.async { [weak self] in
-            self?.found(code: code.symbologyName, picker: picker)
+            self?.found(code: code.data ?? "", picker: picker)
         }
     }
 }
