@@ -24,11 +24,12 @@ class ResourcesState {
     }
     
     var shouldDownloadResources: Bool {
-        if resourcesDownloaded == nil || resourcesDownloaded == false {
-            return true
-        } else {
-            return false
-        }
+//        if resourcesDownloaded == nil || resourcesDownloaded == false {
+//            return true
+//        } else {
+//            return false
+//        }
+        return true // hard-coded
     }
     
     var oAppDidBecomeActive = BehaviorSubject<Void>.init(value: ())

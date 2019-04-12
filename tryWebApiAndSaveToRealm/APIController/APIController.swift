@@ -25,7 +25,8 @@ class ApiController {
     static var shared = ApiController()
     
     /// The api key to communicate with Navus
-    private let apiKey = "sv5NPptQyZHkBDx4fkMgNhO2Z4ONl4VP"
+    //private let apiKey = "sv5NPptQyZHkBDx4fkMgNhO2Z4ONl4VP"
+    private let apiKey = "Pl5oQFIFvC0VJK7xU5p8hOVVF5hHXP9H"
     
     init() {
         Logging.URLRequests = { request in
