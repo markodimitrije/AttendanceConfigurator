@@ -31,6 +31,7 @@ class BlocksVC: UIViewController {
     
     override func viewDidLoad() { super.viewDidLoad()
         bindUI()
+        navigationItem.title = "SESSIONS"
     }
     
     private func bindUI() {
@@ -72,8 +73,4 @@ class BlocksVC: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    //deinit { print("deinit/ BlocksVC") }
-    
 }
-
-
