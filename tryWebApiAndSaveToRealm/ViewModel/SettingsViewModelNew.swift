@@ -25,7 +25,7 @@ final class SettingsViewModel: ViewModelType {
         
         let autoSessionDriver = Driver.combineLatest(input.roomSelected.startWith(nil),
                                                      input.autoSelSessionSwitch.startWith(true),
-                                                     input.picker.startWith(MyTimeInterval.waitToMostRecentSession)) { (room, switchIsOn, interval) -> RealmBlock? in
+                                                     input.picker.startWith(MyTimeInterval.waitToMostRecentSession)) { (room, switchIsOn, interval) -> Block? in
             guard let roomId = room?.id else {return nil}
             if switchIsOn {
                 let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
@@ -64,7 +64,7 @@ final class SettingsViewModel: ViewModelType {
                                            input.saveSettingsTrigger.map {return true}])
         
         let finalSession = Driver.combineLatest(manualAndAutoSession, saveCancelTrig) {
-            (session, tap) -> RealmBlock? in
+            (session, tap) -> Block? in
                 if tap {
                     return session
                 } else {
@@ -98,7 +98,7 @@ extension SettingsViewModel {
         let cancelTrigger: Driver<Void>
         let saveSettingsTrigger: Driver<Void>
         let roomSelected: Driver<RealmRoom?>
-        let sessionSelected: Driver<RealmBlock?>
+        let sessionSelected: Driver<Block?>
         let autoSelSessionSwitch: Driver<Bool>
         let picker: Driver<TimeInterval>
 //        let internetConnection: Driver<Bool>
@@ -111,7 +111,7 @@ extension SettingsViewModel {
         let saveSettingsAllowed: Driver<Bool>
 //        let wiFiStaticTxt: Driver<String>
 //        let wiFiDynamicTxt: Driver<String>
-        let selectedBlock: Driver<RealmBlock?>
+        let selectedBlock: Driver<Block?>
         let sessionInfo: Driver<(Int, Int)?>
     }
 }

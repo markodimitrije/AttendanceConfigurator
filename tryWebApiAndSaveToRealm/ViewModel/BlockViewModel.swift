@@ -39,10 +39,10 @@ class BlockViewModel {
     
     // output 2 - expose your calculated stuff
     //var oAutomaticSession = BehaviorSubject<RealmBlock?>.init(value: nil)
-    var oAutomaticSession = BehaviorRelay<RealmBlock?>.init(value: nil)
+    var oAutomaticSession = BehaviorRelay<Block?>.init(value: nil)
     
     //var oAutomaticSessionDriver: SharedSequence<DriverSharingStrategy, RealmBlock?> {
-    var oAutomaticSessionDriver: Driver<RealmBlock?> {
+    var oAutomaticSessionDriver: Driver<Block?> {
         return oAutomaticSession.asDriver(onErrorJustReturn: nil)
     }
     
@@ -117,7 +117,9 @@ class BlockViewModel {
         
         if sessionAvailable {
             //oAutomaticSession.onNext(mostRecentSessionBlock) // radi za behaviourSubject
-            oAutomaticSession.accept(mostRecentSessionBlock)
+            //oAutomaticSession.accept(mostRecentSessionBlock)
+            let block = Block(with: mostRecentSessionBlock!)
+            oAutomaticSession.accept(block)
         } else {
             //oAutomaticSession.onNext(nil) // radi za behaviourSubject
             oAutomaticSession.accept(nil)

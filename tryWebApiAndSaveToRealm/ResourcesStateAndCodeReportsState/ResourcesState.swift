@@ -65,15 +65,6 @@ class ResourcesState {
                 sSelf.timer?.invalidate()
             })
             .disposed(by: bag)
-        
-//        oAppDidBecomeActive
-//            //.throttle(0.5, scheduler: MainScheduler.instance)
-//            .take(1) // emitj jedanput i postani finished (odlicno)
-//            .subscribe(onNext: { [weak self] event in
-//                guard let sSelf = self else {return}
-//                sSelf.downloadResources()
-//            })
-//            .disposed(by: bag)
     }
     
     @objc private func appDidBecomeActive() {
@@ -106,9 +97,7 @@ class ResourcesState {
         
     }
     
-    @objc private func appWillEnterBackground() {
-        
-        //        print("ResourcesState/ appWillEnterForeground is called")
+    @objc private func appWillEnterBackground() {// print("ResourcesState/ appWillEnterForeground is called")
         
         timer?.invalidate()
         //timer = nil

@@ -27,7 +27,7 @@ class AutoSelSessionViewModel {
     var switchState = BehaviorSubject<Bool>.init(value: true)
     
     // OUTPUT
-    var selectedSession = BehaviorSubject<RealmBlock?>.init(value: nil)
+    var selectedSession = BehaviorSubject<Block?>.init(value: nil)
     
     private func bindInputWithOutput() {
         // povezi se sa ostalim inputs i emituj na svoj output
@@ -81,7 +81,7 @@ class AutoSelSessionWithWaitIntervalViewModel {
     }
     
     // OUTPUT
-    var selectedSession = BehaviorSubject<RealmBlock?>.init(value: nil)
+    var selectedSession = BehaviorSubject<Block?>.init(value: nil)
     
     private func bindInputWithOutput() {
         

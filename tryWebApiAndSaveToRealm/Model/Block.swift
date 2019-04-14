@@ -36,6 +36,29 @@ class Block: Codable {
     var featured: Bool
     var updated_at: String
     var location_id: Int
+    init(with realmBlock: RealmBlock) {
+        self.id = realmBlock.id
+        self.name = realmBlock.name
+        self.subtitle = realmBlock.subtitle
+        self.type = realmBlock.type
+        self.external_type = realmBlock.external_type
+        self.starts_at = realmBlock.starts_at
+        self.ends_at = realmBlock.ends_at
+        self.code = realmBlock.code
+        self.chairperson = realmBlock.chairperson
+        self.block_category_id = realmBlock.block_category_id
+        self.imported_id = realmBlock.imported_id
+        self.has_presentation_on_timeline = realmBlock.has_presentation_on_timeline
+        self.has_available_presentation = realmBlock.has_available_presentation
+        self.has_dialog = realmBlock.has_dialog
+        self.survey = realmBlock.survey
+        self.sponsor_id = realmBlock.sponsor_id
+        self.topic_id = realmBlock.topic_id
+        self.tags = realmBlock.tags
+        self.featured = realmBlock.featured
+        self.updated_at = realmBlock.updated_at
+        self.location_id = realmBlock.location_id
+    }
 }
 
 class RealmBlock: Object {
@@ -57,9 +80,10 @@ class RealmBlock: Object {
     @objc dynamic var featured: Bool = false
     @objc dynamic var updated_at: String = ""
     @objc dynamic var location_id: Int = -1 // ref na location (room)
-    var block_category_id = RealmOptional<Int>()
-    var sponsor_id = RealmOptional<Int>()
-    var topic_id = RealmOptional<Int>()
+    //var block_category_id = RealmOptional<Int>()
+    var block_category_id: Int?
+    var sponsor_id: Int?
+    var topic_id: Int?
     
     @objc dynamic var owner: RealmRoom?
     
@@ -102,9 +126,9 @@ class RealmBlock: Object {
         self.updated_at = block.updated_at
         self.location_id = block.location_id
         
-        self.block_category_id = RealmOptional.init(block.block_category_id)
-        self.sponsor_id = RealmOptional.init(block.sponsor_id)
-        self.topic_id = RealmOptional.init(block.topic_id)
+        self.block_category_id = block.block_category_id
+        self.sponsor_id = block.sponsor_id
+        self.topic_id = block.topic_id
         
         owner = RealmRoom.getRoom(withId: self.location_id, withRealm: realm)
     }

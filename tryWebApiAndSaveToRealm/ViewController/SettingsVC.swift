@@ -39,11 +39,11 @@ class SettingsVC: UITableViewController {
     // INPUTS:
     
     let roomSelected = BehaviorSubject<RealmRoom?>.init(value: nil)
-    let sessionManuallySelected = BehaviorSubject<RealmBlock?>.init(value: nil)
+    let sessionManuallySelected = BehaviorSubject<Block?>.init(value: nil)
     
     // OUTPUTS:
     
-    let sessionSelected = BehaviorSubject<RealmBlock?>.init(value: nil)
+    let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
     
     var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
     
@@ -223,9 +223,10 @@ class SettingsVC: UITableViewController {
             navigationController?.pushViewController(blocksVC, animated: true)
             
             blocksVC.selectedRealmBlock
-                .subscribe(onNext: { [weak self] block in
+                .subscribe(onNext: { [weak self] rBlock in
                     guard let strongSelf = self else {return}
-                    print("room for selected block = \(block.owner!)")
+                    print("room for selected block = \(rBlock.owner!)")
+                    let block = Block(with: rBlock)
                     strongSelf.sessionManuallySelected.onNext(block)
                     strongSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })
