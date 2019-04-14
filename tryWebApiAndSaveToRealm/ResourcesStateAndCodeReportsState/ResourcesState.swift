@@ -66,19 +66,21 @@ class ResourcesState {
             })
             .disposed(by: bag)
         
-        oAppDidBecomeActive
-            //.throttle(0.5, scheduler: MainScheduler.instance)
-            .take(1) // emitj jedanput i postani finished (odlicno)
-            .subscribe(onNext: { [weak self] event in
-                guard let sSelf = self else {return}
-                sSelf.downloadResources()
-            })
-            .disposed(by: bag)
+//        oAppDidBecomeActive
+//            //.throttle(0.5, scheduler: MainScheduler.instance)
+//            .take(1) // emitj jedanput i postani finished (odlicno)
+//            .subscribe(onNext: { [weak self] event in
+//                guard let sSelf = self else {return}
+//                sSelf.downloadResources()
+//            })
+//            .disposed(by: bag)
     }
     
     @objc private func appDidBecomeActive() {
         
         oAppDidBecomeActive.onNext(())
+        
+        downloadResources()
         
         print("ResourcesState/ appDidBecomeActive/ appDidBecomeActive is called")
 
@@ -122,6 +124,8 @@ class ResourcesState {
                 guard let strongSelf = self else {return}
                 
                 if realmIsEmpty {
+                    
+                    print("realm je obrisan, fetch data sa weba...")
                     
                     strongSelf.fetchRoomsAndSaveToRealm()
                     strongSelf.fetchSessionsAndSaveToRealm()
