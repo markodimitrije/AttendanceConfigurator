@@ -14,14 +14,14 @@ import RealmSwift
 
 class DataAccess: NSObject {
     
-    private var _roomSelected = BehaviorRelay<RealmRoom?>.init(value: nil)
+    private var _roomSelected = BehaviorRelay<Room?>.init(value: nil)
     private var _blockSelected = BehaviorRelay<Block?>.init(value: nil)
     
     static var shared = DataAccess()
     
-    var output: Observable<(RealmRoom?, Block?)> {
-        return Observable.combineLatest(_roomSelected.asObservable(), _blockSelected.asObservable(), resultSelector: { (room, block) -> (RealmRoom?, Block?) in
-            print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id)")
+    var output: Observable<(Room?, Block?)> {
+        return Observable.combineLatest(_roomSelected.asObservable(), _blockSelected.asObservable(), resultSelector: { (room, block) -> (Room?, Block?) in
+//            print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id)")
             return (room, block)
         })
     }
@@ -38,16 +38,22 @@ class DataAccess: NSObject {
         guard let realm = try? Realm.init() else {return}
         
         if keyPath == "roomId" {
-            guard let roomId = UserDefaults.standard.value(forKey: keyPath) as? Int else {return}
+            guard let roomId = UserDefaults.standard.value(forKey: keyPath) as? Int,
+                let rRoom = RealmRoom.getRoom(withId: roomId, withRealm: realm) else {
+                    return
+            }
             
-            _roomSelected.accept(RealmRoom.getRoom(withId: roomId, withRealm: realm))
+            let room = Room(from: rRoom)
+            _roomSelected.accept(room)
             
         } else if keyPath == "sessionId" {
-            guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int else {return}
-            guard let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {return}
-                let block = Block.init(with: realmBlock)
-            _blockSelected.accept(block)
+            guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int,
+                let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {
+                    return
+            }
             
+            let block = Block.init(with: realmBlock)
+            _blockSelected.accept(block)
         }
         
     }

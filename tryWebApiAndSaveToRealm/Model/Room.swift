@@ -27,6 +27,20 @@ class Room: Codable {
     var party_id: Int?
     var order: Int
     var updated_at: String
+    init(from realRoom: RealmRoom) {
+        self.id = realRoom.id
+        self.name = realRoom.name
+        self.type = realRoom.type
+        self.color = realRoom.color
+        self.floor = realRoom.floor
+        self.imported_id = realRoom.imported_id
+        self.x_coord = realRoom.x_coord
+        self.y_coord = realRoom.y_coord
+        self.conference_id = realRoom.conference_id
+        self.party_id = realRoom.party_id
+        self.order = realRoom.order
+        self.updated_at = realRoom.updated_at
+    }
 }
 
 class RealmRoom: Object {
@@ -41,14 +55,13 @@ class RealmRoom: Object {
     @objc dynamic var conference_id: Int = 0
     @objc dynamic var order: Int = -1
     @objc dynamic var updated_at: String = ""
-    var party_id = RealmOptional<Int>()
+    var party_id: Int?
     
     //var blocks = List<RealmBlock>()
     
     func updateWith(room: Room) {
         self.id = room.id
         self.name = room.name
-        self.party_id = RealmOptional.init(room.party_id)
         self.type = room.type
         self.color = room.color
         self.floor = room.floor
@@ -58,6 +71,7 @@ class RealmRoom: Object {
         self.conference_id = room.conference_id
         self.order = room.order
         self.updated_at = room.updated_at
+        self.party_id = room.party_id
     }
     
     override static func primaryKey() -> String? {

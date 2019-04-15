@@ -100,14 +100,32 @@ class BlockViewModel {
         
         oBlocks = Observable.changeset(from: blocks)
         
-        let blocksByDay = sortBlocksByDay(blocksArray: blocks.toArray()) // private helper
+        //let blocksByDay = sortBlocksByDay(blocksArray: blocks.toArray()) // private helper
         
+        oBlocks
+            .subscribe(onNext: { (collection, changeset) in
+                print("collection = \(collection), changeset = \(changeset)")
+                
+                let blocksUpdated = self.sortBlocksByDay(blocksArray: collection.toArray())
+                
+                self.loadSectionsHeadersAndItems(blocksByDay: blocksUpdated)
+                
+            }).disposed(by: disposeBag)
+        
+//        sectionsHeadersAndItems = blocksByDay.map({ (blocks) -> SectionOfCustomData in
+//            let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
+//            let items = blocks.map {$0.starts_at + " " + $0.name}
+//            return SectionOfCustomData.init(header: sectionName, items: items)
+//        })
+        
+    }
+    
+    private func loadSectionsHeadersAndItems(blocksByDay: [[RealmBlock]]) {
         sectionsHeadersAndItems = blocksByDay.map({ (blocks) -> SectionOfCustomData in
             let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
             let items = blocks.map {$0.starts_at + " " + $0.name}
             return SectionOfCustomData.init(header: sectionName, items: items)
         })
-        
     }
     
     // ako ima bilo koji session u zadatom Room, na koji se ceka krace od 2 sata, emituj SessionId; ako nema, emituj nil.
