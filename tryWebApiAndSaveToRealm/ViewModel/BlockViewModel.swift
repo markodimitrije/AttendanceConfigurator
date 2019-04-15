@@ -19,7 +19,7 @@ class BlockViewModel {
     
     // ovi treba da su ti SUBJECTS! sta je poenta imati ih ovako ??
     
-    private (set) var blocks: Results<RealmBlock>! // ostavio sam zbog vc-a.. (nije dobro ovo)
+    private var blocks: Results<RealmBlock>! // ostavio sam zbog vc-a.. (nije dobro ovo)
 //    private (set) var blocksSortedByDate = [RealmBlock]()
 
     private (set) var sectionBlocks = [[RealmBlock]]() // niz nizova jer je tableView sa sections
@@ -33,12 +33,14 @@ class BlockViewModel {
     // output 1 - za prikazivanje blocks na tableView...
     
     var sectionsHeadersAndItems = [SectionOfCustomData]()
-    var oSectionsHeadersAndItems: Observable<[SectionOfCustomData]> {
-        return Observable.just(sectionsHeadersAndItems)
-    }
+//    var oSectionsHeadersAndItems: Observable<[SectionOfCustomData]> {
+//        print("oSectionsHeadersAndItems. objavljujem sectionsHeadersAndItems/count = \(sectionsHeadersAndItems.count) ")
+//        return Observable.just(sectionsHeadersAndItems)
+//    }
+    
+    var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
     
     // output 2 - expose your calculated stuff
-    //var oAutomaticSession = BehaviorSubject<RealmBlock?>.init(value: nil)
     var oAutomaticSession = BehaviorRelay<Block?>.init(value: nil)
     
     //var oAutomaticSessionDriver: SharedSequence<DriverSharingStrategy, RealmBlock?> {
@@ -92,23 +94,20 @@ class BlockViewModel {
                     .filter("type = 'Oral'")
                     .filter("location_id = %@", roomId)
         
-        sectionBlocks = sortBlocksByDay(blocksArray: blocks.toArray())
-        
-        blocksSortedByDate = blocks.toArray().sorted(by: {
-            return Date.parse($0.starts_at) < Date.parse($1.starts_at)
-        })
-        
         oBlocks = Observable.changeset(from: blocks)
-        
-        //let blocksByDay = sortBlocksByDay(blocksArray: blocks.toArray()) // private helper
         
         oBlocks
             .subscribe(onNext: { (collection, changeset) in
-                print("collection = \(collection), changeset = \(changeset)")
                 
-                let blocksUpdated = self.sortBlocksByDay(blocksArray: collection.toArray())
+                print("collection.count = \(collection.count), changeset = \(changeset)")
                 
-                self.loadSectionsHeadersAndItems(blocksByDay: blocksUpdated)
+                self.sectionBlocks = self.sortBlocksByDay(blocksArray: collection.toArray())
+                
+                self.blocksSortedByDate = collection.toArray().sorted(by: {
+                    return Date.parse($0.starts_at) < Date.parse($1.starts_at)
+                })
+                
+                self.loadSectionsHeadersAndItems(blocksByDay: self.sectionBlocks)
                 
             }).disposed(by: disposeBag)
         
@@ -126,6 +125,7 @@ class BlockViewModel {
             let items = blocks.map {$0.starts_at + " " + $0.name}
             return SectionOfCustomData.init(header: sectionName, items: items)
         })
+        oSectionsHeadersAndItems.accept(sectionsHeadersAndItems)
     }
     
     // ako ima bilo koji session u zadatom Room, na koji se ceka krace od 2 sata, emituj SessionId; ako nema, emituj nil.

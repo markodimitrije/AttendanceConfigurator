@@ -29,7 +29,7 @@
 		AD5814AF2189B1AC009C593F /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* CodeReport.swift */; };
 		AD61455A2191C6600075FD39 /* SetIntervalForAutoSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */; };
 		AD61455B2191C6600075FD39 /* SetIntervalForAutoSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */; };
-		AD69206121A6AC0900E3C0F2 /* SettingsViewModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69206021A6AC0900E3C0F2 /* SettingsViewModelNew.swift */; };
+		AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */; };
 		AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD121885AF2002BC579 /* RealmDataPersister.swift */; };
 		AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD42188623A002BC579 /* GlobalVars.swift */; };
 		AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD721887CCE002BC579 /* ResourcesState.swift */; };
@@ -51,7 +51,6 @@
 		AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AAE217B9D2000803BE2 /* BlocksVC.swift */; };
 		AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */; };
 		AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB4217BC6C000803BE2 /* SettingsVC.swift */; };
-		AD993AB7217BC79400803BE2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB6217BC79400803BE2 /* SettingsViewModel.swift */; };
 		AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */; };
 		AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */; };
 		AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */; };
@@ -102,7 +101,7 @@
 		AD5814AE2189B1AC009C593F /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetIntervalForAutoSessionView.xib; sourceTree = "<group>"; };
 		AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIntervalForAutoSessionView.swift; sourceTree = "<group>"; };
-		AD69206021A6AC0900E3C0F2 /* SettingsViewModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelNew.swift; sourceTree = "<group>"; };
+		AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD697BD121885AF2002BC579 /* RealmDataPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
 		AD697BD42188623A002BC579 /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
 		AD697BD721887CCE002BC579 /* ResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesState.swift; sourceTree = "<group>"; };
@@ -124,7 +123,6 @@
 		AD993AAE217B9D2000803BE2 /* BlocksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksVC.swift; sourceTree = "<group>"; };
 		AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModel.swift; sourceTree = "<group>"; };
 		AD993AB4217BC6C000803BE2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
-		AD993AB6217BC79400803BE2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStateManager.swift; sourceTree = "<group>"; };
 		AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStateReporter.swift; sourceTree = "<group>"; };
 		AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStateReporter.swift; sourceTree = "<group>"; };
@@ -220,8 +218,7 @@
 			children = (
 				AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */,
 				AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */,
-				AD993AB6217BC79400803BE2 /* SettingsViewModel.swift */,
-				AD69206021A6AC0900E3C0F2 /* SettingsViewModelNew.swift */,
+				AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */,
 				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
 				ADAE9C232189F57D00615125 /* AVSessionViewModel.swift */,
 				ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */,
@@ -543,7 +540,6 @@
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				ADAE9C302189F5F500615125 /* AVCaptureSession+Rx.swift in Sources */,
 				AD61455B2191C6600075FD39 /* SetIntervalForAutoSessionView.swift in Sources */,
-				AD993AB7217BC79400803BE2 /* SettingsViewModel.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
@@ -569,7 +565,7 @@
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
-				AD69206121A6AC0900E3C0F2 /* SettingsViewModelNew.swift in Sources */,
+				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
 				AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */,

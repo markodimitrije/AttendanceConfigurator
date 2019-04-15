@@ -21,13 +21,13 @@ class RoomsVC: UIViewController {
     
     let roomViewModel = RoomViewModel()
     
-    fileprivate let selRealmRoom = PublishSubject<RealmRoom>()
+    fileprivate let selRealmRoom = PublishSubject<Room>()
     
-    var selectedRealmRoom: Observable<RealmRoom> { // exposed selectedRoomId
+    var selectedRealmRoom: Observable<Room> { // exposed selectedRoomId
         return selRealmRoom.asObservable()
     }
     
-    var selRoomDriver: SharedSequence<DriverSharingStrategy, RealmRoom> {
+    var selRoomDriver: SharedSequence<DriverSharingStrategy, Room> {
         return selectedRealmRoom.asDriver(onErrorJustReturn: roomViewModel.getRoom(forSelectedTableIndex: 0))
     }
 

@@ -35,9 +35,8 @@ class RoomViewModel {
     
     // MARK:- calculators
     
-    func getRoom(forSelectedTableIndex index: Int) -> RealmRoom {
-        // mogao si check za index i rooms.count -> RealmRoom?
-        return rooms[index]
+    func getRoom(forSelectedTableIndex index: Int) -> Room {
+        return Room(from: rooms[index])
     }
     
     // MARK:- Private methods

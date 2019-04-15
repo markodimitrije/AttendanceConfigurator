@@ -38,7 +38,7 @@ class SettingsVC: UITableViewController {
     
     // INPUTS:
     
-    let roomSelected = BehaviorSubject<RealmRoom?>.init(value: nil)
+    let roomSelected = BehaviorSubject<Room?>.init(value: nil)
     let sessionManuallySelected = BehaviorSubject<Block?>.init(value: nil)
     
     // OUTPUTS:
@@ -222,11 +222,9 @@ class SettingsVC: UITableViewController {
             blocksVC.selectedRoomId = roomId
             navigationController?.pushViewController(blocksVC, animated: true)
             
-            blocksVC.selectedRealmBlock
-                .subscribe(onNext: { [weak self] rBlock in
+            blocksVC.selectedBlock
+                .subscribe(onNext: { [weak self] block in
                     guard let strongSelf = self else {return}
-                    print("room for selected block = \(String(describing: rBlock.owner))")
-                    let block = Block(with: rBlock)
                     strongSelf.sessionManuallySelected.onNext(block)
                     strongSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })

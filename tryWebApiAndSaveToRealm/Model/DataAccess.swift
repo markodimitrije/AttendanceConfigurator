@@ -42,7 +42,6 @@ class DataAccess: NSObject {
                 let rRoom = RealmRoom.getRoom(withId: roomId, withRealm: realm) else {
                     return
             }
-            
             let room = Room(from: rRoom)
             _roomSelected.accept(room)
             
@@ -51,7 +50,6 @@ class DataAccess: NSObject {
                 let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {
                     return
             }
-            
             let block = Block.init(with: realmBlock)
             _blockSelected.accept(block)
         }

@@ -38,7 +38,7 @@ extension Reactive where Base: UISwitch {
 
 extension Reactive where Base: UITableView {
     
-    var roomValidationSideEffects: Binder<RealmRoom?> {
+    var roomValidationSideEffects: Binder<Room?> {
         return Binder(self.base) { target, roomSelected in // _ je view (self)
             _ = target.visibleCells.filter {
                 target.indexPath(for: $0)?.section == 1

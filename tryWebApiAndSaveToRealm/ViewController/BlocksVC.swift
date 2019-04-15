@@ -22,9 +22,9 @@ class BlocksVC: UIViewController {
     
     lazy var blockViewModel = BlockViewModel(roomId: selectedRoomId)
     
-    fileprivate let selRealmBlock = PublishSubject<RealmBlock>()
-    var selectedRealmBlock: Observable<RealmBlock> { // exposed selRealmBlock
-        return selRealmBlock.asObservable()
+    fileprivate let selBlock = PublishSubject<Block>()
+    var selectedBlock: Observable<Block> { // exposed selRealmBlock
+        return selBlock.asObservable()
     }
     
     var selectedInterval = BehaviorRelay.init(value: MyTimeInterval.waitToMostRecentSession)
@@ -47,7 +47,7 @@ class BlocksVC: UIViewController {
             return dataSource.sectionModels[index].header
         }
         
-        Observable.just(blockViewModel.sectionsHeadersAndItems) // imas data u svom viewmodel
+        blockViewModel.oSectionsHeadersAndItems
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
@@ -55,8 +55,9 @@ class BlocksVC: UIViewController {
         tableView.rx.itemSelected // (**)
             .subscribe(onNext: { [weak self] ip in
                 guard let strongSelf = self else {return}
-                let selectedBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
-                strongSelf.selRealmBlock.onNext(selectedBlock)
+                let rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                let selectedBlock = Block(with: rBlock)
+                strongSelf.selBlock.onNext(selectedBlock)
                 strongSelf.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
