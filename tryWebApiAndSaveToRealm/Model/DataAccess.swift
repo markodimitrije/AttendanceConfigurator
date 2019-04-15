@@ -15,12 +15,12 @@ import RealmSwift
 class DataAccess: NSObject {
     
     private var _roomSelected = BehaviorRelay<RealmRoom?>.init(value: nil)
-    private var _blockSelected = BehaviorRelay<RealmBlock?>.init(value: nil)
+    private var _blockSelected = BehaviorRelay<Block?>.init(value: nil)
     
     static var shared = DataAccess()
     
-    var output: Observable<(RealmRoom?, RealmBlock?)> {
-        return Observable.combineLatest(_roomSelected.asObservable(), _blockSelected.asObservable(), resultSelector: { (room, block) -> (RealmRoom?, RealmBlock?) in
+    var output: Observable<(RealmRoom?, Block?)> {
+        return Observable.combineLatest(_roomSelected.asObservable(), _blockSelected.asObservable(), resultSelector: { (room, block) -> (RealmRoom?, Block?) in
             print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id)")
             return (room, block)
         })
@@ -44,8 +44,9 @@ class DataAccess: NSObject {
             
         } else if keyPath == "sessionId" {
             guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int else {return}
-            
-            _blockSelected.accept(RealmBlock.getBlock(withId: sessionId, withRealm: realm))
+            guard let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {return}
+                let block = Block.init(with: realmBlock)
+            _blockSelected.accept(block)
             
         }
         

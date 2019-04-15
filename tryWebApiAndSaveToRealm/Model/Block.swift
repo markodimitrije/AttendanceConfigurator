@@ -36,6 +36,24 @@ class Block: Codable {
     var featured: Bool
     var updated_at: String
     var location_id: Int
+    
+    var duration: String {
+        
+        let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
+        let timeEndsAt = Date.parseIntoTime(ends_at, outputWithSeconds: false)
+        
+        let calendar = Calendar.init(identifier: .gregorian)
+        
+        let timeDuration = timeStartsAt + "-" + timeEndsAt
+        
+        if calendar.isDateInToday(Date.parse(starts_at)) {
+            return timeDuration
+        } else {
+            return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
+        }
+        
+    }
+    
     init(with realmBlock: RealmBlock) {
         self.id = realmBlock.id
         self.name = realmBlock.name
