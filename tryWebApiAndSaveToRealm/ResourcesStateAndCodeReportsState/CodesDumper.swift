@@ -126,7 +126,6 @@ class CodesDumper {
         return ApiController.shared
             .reportMultipleCodes(reports: codeReports) // Observable<Bool>
             .map({ (success) -> Bool in
-//                print("reportSavedCodesToWeb.reported \(success)")
                 if success {
                     return true
                 } else {
