@@ -139,6 +139,7 @@ class SettingsVC: UITableViewController {
     private func bindReachability() {
         
         connectedToInternet()
+            .debug()
             .asDriver(onErrorJustReturn: false)
             .drive(wiFiConnectionView.rx.connected) // ovo je var tipa binder na xib-u
             .disposed(by: disposeBag)
