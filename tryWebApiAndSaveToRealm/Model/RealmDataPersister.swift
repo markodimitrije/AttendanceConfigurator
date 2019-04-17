@@ -139,16 +139,15 @@ struct RealmDataPersister {
                 
                 try realm.write {
                     realm.add(newCodeReport)
-//                    print("\(codeReport.code), \(codeReport.sessionId) saved to realm")
+                    print("\(codeReport.code), \(codeReport.sessionId) saved to realm")
                 }
             } catch {
                 return Observable<Bool>.just(false)
             }
         
+        } else {
+            print("saveToRealm.objekat, code = \(codeReport.code), \(codeReport.sessionId) vec postoji u bazi")
         }
-        //else {
-//            print("saveToRealm.objekat vec postoji u bazi")
-        //}
         
         return Observable<Bool>.just(true) // all good here
         

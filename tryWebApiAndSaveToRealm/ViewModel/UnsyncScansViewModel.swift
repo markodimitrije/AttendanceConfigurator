@@ -56,12 +56,14 @@ class UnsyncScansViewModel {
                         .subscribe(onNext: { (success) in
                             if success {
                                 codesDumper = nil
+                                print("codeReports JESTE success, obrisi codesDumper....")
+                            } else {
+                                print("codeReports nije success, nastavi da javljas....")
                             }
                         })
                         .disposed(by: sSelf.bag)
                 }
                  //izmesti na global ili gde mu je mesto
-                
             })
             .disposed(by: bag)
     }

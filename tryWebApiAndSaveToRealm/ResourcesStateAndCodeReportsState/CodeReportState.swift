@@ -60,8 +60,9 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                 obs
                     .subscribe(onNext: { (code, success) in
                         
-                        //sSelf.webNotified.value = (code, success) // postavi na svoj Output
                         sSelf.webNotified.accept((code, success)) // postavi na svoj Output
+                        
+                        print("EMITUJEM SUCCESS za code reported to web")
                         
                         if !success {
                             sSelf.codeReportFailed(code) // izmestac code
@@ -75,6 +76,8 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     }
     
     private func codeReportFailed(_ report: CodeReport) {
+        
+        print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
         _ = RealmDataPersister().saveToRealm(codeReport: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
