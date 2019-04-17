@@ -31,7 +31,7 @@ class UnsyncScansViewModel {
     // OUTPUT
     private (set) var syncControlAvailable = BehaviorSubject<Bool>.init(value: false)
     
-    private (set) var syncScansCount = BehaviorSubject<Int>.init(value: 0)
+    private (set) var syncScansCount = BehaviorSubject<Int>.init(value: RealmDataPersister.shared.getCodeReports().count)
     
     var syncFinished = BehaviorRelay<Bool>.init(value: false)
     
@@ -80,7 +80,9 @@ class UnsyncScansViewModel {
                 .debug()
                 .drive(syncScansCount)
                 .disposed(by: bag)
-        
+        if let value = try? syncScansCount.value() {
+            print("syncScansCount = \(value)")
+        }
         syncScansCount
             .map {$0 != 0}
             .asDriver(onErrorJustReturn: false) // netacno... a sta je uopste tacno u ovom slucaju ??

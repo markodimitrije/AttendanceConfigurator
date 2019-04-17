@@ -156,13 +156,30 @@ struct RealmDataPersister {
     
     // MARK: All data (delete)
     
-    func deleteDataIfAny() -> Observable<Bool> {
+    func deleteAllDataIfAny() -> Observable<Bool> {
         guard let realm = try? Realm() else {
             return Observable<Bool>.just(false) // treba da imas err za Realm...
         }
         do {
             try realm.write {
                 realm.deleteAll()
+            }
+        } catch {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        return Observable<Bool>.just(true) // all good
+    }
+    
+    func deleteRoomsAndSessionsIfAny() -> Observable<Bool> {
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        do {
+            try realm.write {
+                let rooms = realm.objects(RealmRoom.self)
+                realm.delete(rooms)
+                let blocks = realm.objects(RealmBlock.self)
+                realm.delete(blocks)
             }
         } catch {
             return Observable<Bool>.just(false) // treba da imas err za Realm...

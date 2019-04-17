@@ -33,10 +33,6 @@ class BlockViewModel {
     // output 1 - za prikazivanje blocks na tableView...
     
     var sectionsHeadersAndItems = [SectionOfCustomData]()
-//    var oSectionsHeadersAndItems: Observable<[SectionOfCustomData]> {
-//        print("oSectionsHeadersAndItems. objavljujem sectionsHeadersAndItems/count = \(sectionsHeadersAndItems.count) ")
-//        return Observable.just(sectionsHeadersAndItems)
-//    }
     
     var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
     
@@ -99,8 +95,6 @@ class BlockViewModel {
         oBlocks
             .subscribe(onNext: { (collection, changeset) in
                 
-                print("collection.count = \(collection.count), changeset = \(changeset)")
-                
                 self.sectionBlocks = self.sortBlocksByDay(blocksArray: collection.toArray())
                 
                 self.blocksSortedByDate = collection.toArray().sorted(by: {
@@ -110,12 +104,6 @@ class BlockViewModel {
                 self.loadSectionsHeadersAndItems(blocksByDay: self.sectionBlocks)
                 
             }).disposed(by: disposeBag)
-        
-//        sectionsHeadersAndItems = blocksByDay.map({ (blocks) -> SectionOfCustomData in
-//            let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
-//            let items = blocks.map {$0.starts_at + " " + $0.name}
-//            return SectionOfCustomData.init(header: sectionName, items: items)
-//        })
         
     }
     
@@ -134,12 +122,9 @@ class BlockViewModel {
         let sessionAvailable = autoSessionIsAvailable(inLessThan: interval)
         
         if sessionAvailable {
-            //oAutomaticSession.onNext(mostRecentSessionBlock) // radi za behaviourSubject
-            //oAutomaticSession.accept(mostRecentSessionBlock)
             let block = Block(with: mostRecentSessionBlock!)
             oAutomaticSession.accept(block)
         } else {
-            //oAutomaticSession.onNext(nil) // radi za behaviourSubject
             oAutomaticSession.accept(nil)
         }
         

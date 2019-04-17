@@ -107,7 +107,7 @@ class ResourcesState {
         
         //        print("fetchRoomsAndBlocksResources is called")
         
-        RealmDataPersister.shared.deleteDataIfAny()
+        RealmDataPersister.shared.deleteRoomsAndSessionsIfAny()
             .subscribe(onNext: { [weak self] (realmIsEmpty) in
                 
                 guard let strongSelf = self else {return}
