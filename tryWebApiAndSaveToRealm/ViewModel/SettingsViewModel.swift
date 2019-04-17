@@ -85,13 +85,13 @@ final class SettingsViewModel: ViewModelType {
         return Output(roomTxt: roomTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
-//                      wiFiStaticTxt: editing,
-//                      wiFiDynamicTxt: post,
                       selectedBlock: finalSession,
                       sessionInfo: sessionInfo
         )
     }
 }
+
+// SettingsViewModel ima direktno povezan wi-fi observer (nije dosledno kodu u ovoj klasi....)
 
 extension SettingsViewModel {
     struct Input {
@@ -101,16 +101,12 @@ extension SettingsViewModel {
         let sessionSelected: Driver<Block?>
         let autoSelSessionSwitch: Driver<Bool>
         let picker: Driver<TimeInterval>
-//        let internetConnection: Driver<Bool>
-//        let unsyncScans: Driver<Int>
     }
     
     struct Output {
         let roomTxt: Driver<String>
         let sessionTxt: Driver<String>
         let saveSettingsAllowed: Driver<Bool>
-//        let wiFiStaticTxt: Driver<String>
-//        let wiFiDynamicTxt: Driver<String>
         let selectedBlock: Driver<Block?>
         let sessionInfo: Driver<(Int, Int)?>
     }

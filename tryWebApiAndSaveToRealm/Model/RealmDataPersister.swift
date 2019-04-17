@@ -133,7 +133,7 @@ struct RealmDataPersister {
         
         let newCodeReport = RealmCodeReport.create(with: codeReport)
 
-        if realm.objects(RealmCodeReport.self).filter("code = %@", codeReport.code).isEmpty {
+        if realm.objects(RealmCodeReport.self).filter("code = %@ && sessionId = %@", codeReport.code, codeReport.sessionId).isEmpty {
             
             do { // ako nemas ovaj objekat kod sebe u bazi
                 

@@ -86,8 +86,6 @@ class WiFiConnectionView: UIView {
     
     fileprivate func updateColor(connected: Bool) {
         
-        print("update connection color!, connected = \(connected)")
-        
         let color = connected ? UIColor.wiFiConnected : UIColor.wiFiDisconnected
         
         wiFiConnectedConstLbl.textColor = color
