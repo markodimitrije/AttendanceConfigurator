@@ -211,7 +211,7 @@ class ResourcesState {
                     blocks.count > 0 else {return} // valid
                 
                 //RealmDataPersister.shared.deleteAllBlocks()
-                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmRoom.self])
+                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
                     .subscribe(onNext: { (success) in
                         
                         if success {

@@ -102,18 +102,6 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-//    private func bindBarCode() {
-//
-//        avSessionViewModel.oCode
-//            .subscribe(onNext: { [weak self] (barCodeValue) in
-//                guard let sSelf = self else {return}
-//
-//                sSelf.found(code: barCodeValue)
-//            })
-//            .disposed(by: disposeBag)
-//
-//    }
-    
     private func failed() { print("failed.....")
 
         self.alert(title: AlertInfo.Scan.ScanningNotSupported.title,
@@ -154,7 +142,7 @@ class ScannerVC: UIViewController {
         
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds))
         
-        delay(2.0) { // ovoliko traje anim kada prikazujes arrow
+        delay(0.5) { // ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async {
                 self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
                 picker.resumeScanning()

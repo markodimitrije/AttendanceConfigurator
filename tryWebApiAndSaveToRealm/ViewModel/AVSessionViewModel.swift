@@ -26,7 +26,7 @@ class AVSessionViewModel {
     var oCode: Observable<String> {
         return code
                 .asObservable()
-                .throttle(2.0, scheduler: MainScheduler.instance)
+                .throttle(0.5, scheduler: MainScheduler.instance)
     }
     
     init() {
