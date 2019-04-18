@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6ACBF2A7749C4FA7E483E5B1 /* Pods_tryWebApiAndSaveToRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2A027F7E2230A84A444BE3 /* Pods_tryWebApiAndSaveToRealm.framework */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
+		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
+		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191486218EEFC000CD5B2F /* CodesDumper.swift */; };
 		AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191488218EF09300CD5B2F /* CodeReportState.swift */; };
 		AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */; };
@@ -26,7 +28,7 @@
 		AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4CC2D921A5770A00222D5E /* Protocols.swift */; };
 		AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */; };
 		AD53A01F217B577500A3F9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD53A01D217B577500A3F9FC /* LaunchScreen.storyboard */; };
-		AD5814AF2189B1AC009C593F /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* CodeReport.swift */; };
+		AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */; };
 		AD61455A2191C6600075FD39 /* SetIntervalForAutoSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */; };
 		AD61455B2191C6600075FD39 /* SetIntervalForAutoSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */; };
 		AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */; };
@@ -79,6 +81,8 @@
 		42401D957459EB725DCF69A0 /* Pods-tryWebApiAndSaveToRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.release.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
+		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		AD191486218EEFC000CD5B2F /* CodesDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
 		AD191488218EF09300CD5B2F /* CodeReportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		AD53A011217B577400A3F9FC /* tryWebApiAndSaveToRealm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tryWebApiAndSaveToRealm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD53A01E217B577500A3F9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD53A020217B577500A3F9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD5814AE2189B1AC009C593F /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
+		AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodeReport.swift; sourceTree = "<group>"; };
 		AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetIntervalForAutoSessionView.xib; sourceTree = "<group>"; };
 		AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIntervalForAutoSessionView.swift; sourceTree = "<group>"; };
 		AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -178,6 +182,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7CED41BA2268825D00FFB34E /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				7CED41B8226881E700FFB34E /* SessionReport.swift */,
+				7CED41BB2268827700FFB34E /* CodeReport.swift */,
+				AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		AD24E303217F74C8008E35F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,10 +264,10 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7CED41BA2268825D00FFB34E /* Report */,
 				AD29521D217B5B23002DDE32 /* Model.swift */,
 				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
 				AD80EFFB217DCE27003CEDD0 /* Block.swift */,
-				AD5814AE2189B1AC009C593F /* CodeReport.swift */,
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */,
 			);
@@ -530,12 +544,13 @@
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
 				ADAE9C2F2189F5F500615125 /* RxAVCaptureVideoDataOutputSampleBufferDelegate.swift in Sources */,
-				AD5814AF2189B1AC009C593F /* CodeReport.swift in Sources */,
+				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
 				ADAE9C322189F5F500615125 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
+				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				ADAE9C302189F5F500615125 /* AVCaptureSession+Rx.swift in Sources */,
@@ -554,6 +569,7 @@
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
+				7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */,
 				ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */,
 				ADAE9C312189F5F500615125 /* RxAVCaptureDataOutputSynchronizerDelegate.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
