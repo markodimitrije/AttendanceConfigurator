@@ -103,27 +103,10 @@ class ResourcesState {
         //timer = nil
     }
     
-    @objc private func fetchRoomsAndBlocksResources() {
+    @objc private func fetchRoomsAndBlocksResources() { // print("fetchRoomsAndBlocksResources is called")
         
-        //        print("fetchRoomsAndBlocksResources is called")
-        
-        RealmDataPersister.shared.deleteRoomsAndSessionsIfAny()
-            .subscribe(onNext: { [weak self] (realmIsEmpty) in
-                
-                guard let strongSelf = self else {return}
-                
-                if realmIsEmpty {
-                    
-                    print("realm je obrisan, fetch data sa weba...")
-                    
-                    strongSelf.fetchRoomsAndSaveToRealm()
-                    strongSelf.fetchSessionsAndSaveToRealm()
-//                    strongSelf.fetchRoomsAndSaveToRealm_MOCK() // MOCK
-//                    strongSelf.fetchSessionsAndSaveToRealm_MOCK() // MOCK
-                    
-                }
-            })
-            .disposed(by: bag)
+        fetchRoomsAndSaveToRealm()
+        fetchSessionsAndSaveToRealm()
         
     }
     
@@ -183,9 +166,7 @@ class ResourcesState {
     }
     
     
-    private func fetchRoomsAndSaveToRealm() {
-        
-        //        print("fetchRoomsAndSaveToRealm is called")
+    private func fetchRoomsAndSaveToRealm() { // print("fetchRoomsAndSaveToRealm is called")
         
         let oRooms = ApiController.shared.getRooms(updated_from: nil,
                                                    with_pagination: 0,
@@ -195,22 +176,30 @@ class ResourcesState {
                 
                 guard let strongSelf = self else {return}
                 
-                RealmDataPersister.shared.saveToRealm(rooms: rooms)
+                guard rooms.count > 0 else {return} // valid
+                
+                RealmDataPersister.shared.deleteAllRooms()
                     .subscribe(onNext: { (success) in
+    
+                        if success {
+                            
+                            RealmDataPersister.shared.saveToRealm(rooms: rooms)
+                                .subscribe(onNext: { (success) in
+                                    
+                                    strongSelf.downloads.onNext(success)
+                                    
+                                })
+                                .disposed(by: strongSelf.bag)
+                        }
                         
-                        strongSelf.downloads.onNext(success)
-                        
-                    })
-                    .disposed(by: strongSelf.bag)
+                }).disposed(by: strongSelf.bag)
                 
             })
             .disposed(by: bag)
         
     }
     
-    private func fetchSessionsAndSaveToRealm() {
-        
-        //        print("fetchSessionsAndSaveToRealm is called")
+    private func fetchSessionsAndSaveToRealm() { // print("fetchSessionsAndSaveToRealm is called")
         
         let oBlocks = ApiController.shared.getBlocks(updated_from: nil,
                                                      with_pagination: 0,
@@ -220,13 +209,23 @@ class ResourcesState {
                 
                 guard let strongSelf = self else {return}
                 
-                RealmDataPersister.shared.saveToRealm(blocks: blocks)
+                guard blocks.count > 0 else {return} // valid
+                
+                RealmDataPersister.shared.deleteAllBlocks()
                     .subscribe(onNext: { (success) in
                         
-                        strongSelf.downloads.onNext(success) // okini na svom observable, njega monitor
+                        if success {
+                            
+                            RealmDataPersister.shared.saveToRealm(blocks: blocks)
+                                .subscribe(onNext: { (success) in
+                                    
+                                    strongSelf.downloads.onNext(success)
+                                    
+                                })
+                                .disposed(by: strongSelf.bag)
+                        }
                         
-                    })
-                    .disposed(by: strongSelf.bag)
+                    }).disposed(by: strongSelf.bag)
                 
             })
             .disposed(by: bag)
