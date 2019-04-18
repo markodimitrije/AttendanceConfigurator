@@ -169,53 +169,53 @@ struct RealmDataPersister {
         return Observable<Bool>.just(true) // all good
     }
     
-    func deleteAllRooms() -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        do {
-            try realm.write {
-                let rooms = realm.objects(RealmRoom.self)
-                realm.delete(rooms)
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
+//    func deleteAllRooms() -> Observable<Bool> {
+//        guard let realm = try? Realm() else {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        do {
+//            try realm.write {
+//                let rooms = realm.objects(RealmRoom.self)
+//                realm.delete(rooms)
+//            }
+//        } catch {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        return Observable<Bool>.just(true) // all good
+//    }
     
     
-    func deleteAllBlocks() -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        do {
-            try realm.write {
-                let blocks = realm.objects(RealmBlock.self)
-                realm.delete(blocks)
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
+//    func deleteAllBlocks() -> Observable<Bool> {
+//        guard let realm = try? Realm() else {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        do {
+//            try realm.write {
+//                let blocks = realm.objects(RealmBlock.self)
+//                realm.delete(blocks)
+//            }
+//        } catch {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        return Observable<Bool>.just(true) // all good
+//    }
     
-    func deleteRoomsAndSessionsIfAny() -> Observable<Bool> {
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        do {
-            try realm.write {
-                let rooms = realm.objects(RealmRoom.self)
-                realm.delete(rooms)
-                let blocks = realm.objects(RealmBlock.self)
-                realm.delete(blocks)
-            }
-        } catch {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        return Observable<Bool>.just(true) // all good
-    }
+//    func deleteRoomsAndSessionsIfAny() -> Observable<Bool> {
+//        guard let realm = try? Realm() else {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        do {
+//            try realm.write {
+//                let rooms = realm.objects(RealmRoom.self)
+//                realm.delete(rooms)
+//                let blocks = realm.objects(RealmBlock.self)
+//                realm.delete(blocks)
+//            }
+//        } catch {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//        return Observable<Bool>.just(true) // all good
+//    }
     
     func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool> {
         guard let realm = try? Realm() else {

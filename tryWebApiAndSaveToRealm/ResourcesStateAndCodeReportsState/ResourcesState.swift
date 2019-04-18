@@ -174,11 +174,11 @@ class ResourcesState {
         oRooms
             .subscribe(onNext: { [ weak self] (rooms) in
                 
-                guard let strongSelf = self else {return}
+                guard let strongSelf = self,
+                    rooms.count > 0 else {return} // valid
                 
-                guard rooms.count > 0 else {return} // valid
-                
-                RealmDataPersister.shared.deleteAllRooms()
+                //RealmDataPersister.shared.deleteAllRooms()
+                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmRoom.self])
                     .subscribe(onNext: { (success) in
     
                         if success {
@@ -207,11 +207,11 @@ class ResourcesState {
         oBlocks
             .subscribe(onNext: { [weak self] (blocks) in
                 
-                guard let strongSelf = self else {return}
+                guard let strongSelf = self,
+                    blocks.count > 0 else {return} // valid
                 
-                guard blocks.count > 0 else {return} // valid
-                
-                RealmDataPersister.shared.deleteAllBlocks()
+                //RealmDataPersister.shared.deleteAllBlocks()
+                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmRoom.self])
                     .subscribe(onNext: { (success) in
                         
                         if success {
