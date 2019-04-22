@@ -142,7 +142,7 @@ class ScannerVC: UIViewController {
         
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds))
         
-        delay(0.5) { // ovoliko traje anim kada prikazujes arrow
+        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async {
                 self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
                 picker.resumeScanning()

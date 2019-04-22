@@ -122,9 +122,11 @@ class ApiController {
         
         let params = report.getPayload()
         
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        
         return buildRequest(base: Domain.baseTrackerURL,
                             method: "PUT",
-                            pathComponent: "devices/DEVICE_ID",
+                            pathComponent: "devices/\(deviceId)",
                             params: params)
             .map { data in
                 guard let object = try? JSONSerialization.jsonObject(with: data),
