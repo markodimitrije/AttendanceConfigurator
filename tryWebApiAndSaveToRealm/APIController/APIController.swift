@@ -17,8 +17,8 @@ import Reachability
 class ApiController {
     
     struct Domain {
-        //static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-        static let baseUrl = URL(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/")!
+        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+//        static let baseUrl = URL(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/")! // hard-coded mock
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
     }
     
@@ -39,10 +39,9 @@ class ApiController {
     func getRooms(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Room]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         return buildRequest(pathComponent: "locations",
-//                            params: [("updated_from", updatedDate),
-//                                     ("with_pagination", "\(with_pagination)"),
-//                                     ("with_trashed", "\(with_trashed)")])
-            params: [])
+                            params: [("updated_from", updatedDate),
+                                     ("with_pagination", "\(with_pagination)"),
+                                     ("with_trashed", "\(with_trashed)")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let rooms = try? decoder.decode(Rooms.self, from: json) else {
@@ -55,10 +54,9 @@ class ApiController {
     func getBlocks(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         return buildRequest(pathComponent: "blocks",
-//                            params: [("updated_from", updatedDate),
-//                                     ("with_pagination", "\(with_pagination)"),
-//                                     ("with_trashed", "\(with_trashed)")])
-            params: [])
+                            params: [("updated_from", updatedDate),
+                                     ("with_pagination", "\(with_pagination)"),
+                                     ("with_trashed", "\(with_trashed)")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: json) else {

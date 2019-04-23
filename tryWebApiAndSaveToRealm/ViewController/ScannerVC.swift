@@ -176,7 +176,6 @@ class ScannerVC: UIViewController {
         
         // Create the scan settings and enabling some symbologies
         let settings = SBSScanSettings.default()
-//        let symbologies: Set<SBSSymbology> = [.ean8, .ean13, .qr, .aztec, .code128, .pdf417, .itf]
         let symbologies: Set<SBSSymbology> = [.aztec, .codabar, .code11, .code128, .code25, .code32, .code39, .code93, .datamatrix, .dotCode, .ean8, .ean13, .fiveDigitAddOn, .gs1Databar, .gs1DatabarExpanded, .gs1DatabarLimited, .itf, .kix, .lapa4sc, .maxiCode, .microPDF417, .microQR, .msiPlessey, .pdf417,.qr, .rm4scc, .twoDigitAddOn, .upc12, .upce]
         for symbology in symbologies {
             settings.setSymbology(symbology, enabled: true)
