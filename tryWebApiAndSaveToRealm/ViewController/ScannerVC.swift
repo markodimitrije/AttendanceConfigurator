@@ -23,7 +23,7 @@ class ScannerVC: UIViewController {
     
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     
-    let avSessionViewModel = AVSessionViewModel()
+//    let avSessionViewModel = AVSessionViewModel()
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
@@ -84,23 +84,23 @@ class ScannerVC: UIViewController {
     
     // MARK:- Scanner related....
     
-    private func bindAVSession() {
-        
-        avSessionViewModel.oSession
-            .subscribe(onNext: { [unowned self] (session) in
-                
-                self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
-                self.previewLayer.frame = self.scannerView.layer.bounds
-                self.previewLayer.videoGravity = .resizeAspectFill
-                self.previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
-
-                self.scannerView.layer.addSublayer(self.previewLayer)
-                
-                }, onError: { [unowned self] err in
-                    self.failed()
-            })
-            .disposed(by: disposeBag)
-    }
+//    private func bindAVSession() {
+//
+//        avSessionViewModel.oSession
+//            .subscribe(onNext: { [unowned self] (session) in
+//
+//                self.previewLayer = AVCaptureVideoPreviewLayer(session: session)
+//                self.previewLayer.frame = self.scannerView.layer.bounds
+//                self.previewLayer.videoGravity = .resizeAspectFill
+//                self.previewLayer.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeRight
+//
+//                self.scannerView.layer.addSublayer(self.previewLayer)
+//
+//                }, onError: { [unowned self] err in
+//                    self.failed()
+//            })
+//            .disposed(by: disposeBag)
+//    }
     
     private func failed() { print("failed.....")
 
@@ -181,6 +181,9 @@ class ScannerVC: UIViewController {
             settings.setSymbology(symbology, enabled: true)
         }
         
+        //settings.cameraFacingPreference = .front//settings.cameraFacingPreference = .back
+        settings.cameraFacingPreference = getCameraDeviceDirection() ?? .back
+        
         let symSettings = settings.settings(for: .code25)
         symSettings.activeSymbolCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         
@@ -190,6 +193,7 @@ class ScannerVC: UIViewController {
         
         // Add the barcode picker as a child view controller
         addChild(barcodePicker)
+        
         self.scannerView.addSubview(barcodePicker.view)
         barcodePicker.didMove(toParent: self)
         
@@ -217,4 +221,6 @@ extension ScannerVC: SBSScanDelegate {
             self?.found(code: code.data ?? "", picker: picker)
         }
     }
+    
+    
 }
