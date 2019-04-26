@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6ACBF2A7749C4FA7E483E5B1 /* Pods_tryWebApiAndSaveToRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E2A027F7E2230A84A444BE3 /* Pods_tryWebApiAndSaveToRealm.framework */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
+		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
+		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
+		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
 		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191486218EEFC000CD5B2F /* CodesDumper.swift */; };
@@ -81,6 +84,9 @@
 		42401D957459EB725DCF69A0 /* Pods-tryWebApiAndSaveToRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.release.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
+		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
 		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		AD191486218EEFC000CD5B2F /* CodesDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
@@ -180,6 +186,24 @@
 				0E2A027F7E2230A84A444BE3 /* Pods_tryWebApiAndSaveToRealm.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CE81539227346F700B33986 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7CE8153C2273472100B33986 /* SoundAssets */,
+				7CE8153A2273471200B33986 /* SoundManager.swift */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		7CE8153C2273472100B33986 /* SoundAssets */ = {
+			isa = PBXGroup;
+			children = (
+				7CE8153D227347A600B33986 /* codeRejected.mp3 */,
+				7CE8153E227347A600B33986 /* codeSuccess.mp3 */,
+			);
+			path = SoundAssets;
 			sourceTree = "<group>";
 		};
 		7CED41BA2268825D00FFB34E /* Report */ = {
@@ -304,6 +328,7 @@
 		AD53A013217B577400A3F9FC /* tryWebApiAndSaveToRealm */ = {
 			isa = PBXGroup;
 			children = (
+				7CE81539227346F700B33986 /* Sounds */,
 				AD4CC2D821A576F200222D5E /* Common */,
 				ADAE9C252189F5DB00615125 /* AVCaptureSession+Rx */,
 				AD697BD621887CC3002BC579 /* ResourcesStateAndCodeReportsState */,
@@ -463,10 +488,12 @@
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
 				AD61455A2191C6600075FD39 /* SetIntervalForAutoSessionView.xib in Resources */,
+				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
 				AD53A01F217B577500A3F9FC /* LaunchScreen.storyboard in Resources */,
 				AD6C784822551142003CAFF6 /* CHANGELOG.txt in Resources */,
 				AD6C784722551142003CAFF6 /* LICENSE-2.0.txt in Resources */,
+				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
@@ -577,6 +604,7 @@
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				AD968B882255F6AB007475DA /* ScanditVC.swift in Sources */,
+				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,

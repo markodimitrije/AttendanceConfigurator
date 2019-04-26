@@ -140,6 +140,8 @@ class ScannerVC: UIViewController {
         
         scanedCode.onNext(code)
         
+        playSound(name: "codeSuccess")
+        
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds))
         
         delay(1.0) { // ovoliko traje anim kada prikazujes arrow
