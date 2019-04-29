@@ -14,6 +14,7 @@ import RxRealmDataSources
 
 class SettingsVC: UITableViewController {
 
+    @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var roomLbl: UILabel!
     @IBOutlet weak var sessionLbl: UILabel!
     
@@ -39,6 +40,7 @@ class SettingsVC: UITableViewController {
     
     // INPUTS:
     
+    let dateSelected = BehaviorRelay<Date?>.init(value: nil)
     let roomSelected = BehaviorSubject<Room?>.init(value: nil)
     let sessionManuallySelected = BehaviorSubject<Block?>.init(value: nil)
     
@@ -92,6 +94,7 @@ class SettingsVC: UITableViewController {
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
+                        dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallySelected.asDriver(onErrorJustReturn: nil),
                         autoSelSessionSwitch: autoSelectSessionsView.controlSwitch.rx.switchActiveSequence.asDriver(onErrorJustReturn: true),
@@ -135,6 +138,10 @@ class SettingsVC: UITableViewController {
             })
             .disposed(by: disposeBag)
         
+        output.dateTxt
+            .skip(1)
+            .drive(dateLbl.rx.text)
+            .disposed(by: disposeBag)
     }
 
     private func bindReachability() {
@@ -237,6 +244,14 @@ class SettingsVC: UITableViewController {
         
             let datesVC = vcFactory.makeDatesVC()
             self.navigationController?.pushViewController(datesVC, animated: true)
+            
+        datesVC.datesViewmodel.selectedDate
+            .skip(1) // jer je iniated sa NIL ...
+            .subscribe(onNext: { [weak self] date in
+                self?.dateSelected.accept(date)
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
             
         default: break
         }

@@ -450,6 +450,7 @@
                     <connections>
                         <outlet property="autoSelectSessionsView" destination="AFY-fE-STU" id="tZq-qE-HcL"/>
                         <outlet property="cancelSettingsBtn" destination="ADB-Gp-mSq" id="fj2-xv-EYf"/>
+                        <outlet property="dateLbl" destination="ybB-T9-tsG" id="Z0A-1F-Uta"/>
                         <outlet property="roomLbl" destination="kYV-Y5-Nmd" id="RpS-GJ-kMK"/>
                         <outlet property="saveSettingsAndExitBtn" destination="XAK-dH-rsy" id="9bH-3j-z7C"/>
                         <outlet property="sessionLbl" destination="ALi-UY-kcw" id="rGO-TU-JIl"/>

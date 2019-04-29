@@ -7,20 +7,27 @@
 //
 
 import UIKit
+import RxCocoa
 
 class DatesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var datesViewmodel: DatesViewmodel!
+    
+    // OUTPUT
+    
+//    private (set) var selectedDate = BehaviorRelay<Date?>.init(value: nil)
     
     override func viewDidLoad() { super.viewDidLoad()
         tableView.dataSource = self
-        tableView.delegate = self
+        //tableView.delegate = self
+        tableView.delegate = datesViewmodel
     }
 
 }
 
-extension DatesVC: UITableViewDataSource, UITableViewDelegate {
+extension DatesVC: UITableViewDataSource {// , UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -33,8 +40,10 @@ extension DatesVC: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = datesViewmodel.data[indexPath.row]
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("indexSelected, ovo postavi kao Output<Date>.... \(indexPath.row)")
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selected = datesViewmodel.data[indexPath.row]
+//        let date = Date.parse(selected)
+//        selectedDate.accept(date)
+//    }
 }
 

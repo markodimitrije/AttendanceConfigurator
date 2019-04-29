@@ -6,12 +6,16 @@
 //  Copyright © 2019 Navus. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import RxCocoa
 
-
-struct DatesViewmodel {
+class DatesViewmodel: NSObject, UITableViewDelegate {
     
     private var blockViewmodel: BlockViewModel
+    
+    // OUTPUT
+    
+    private (set) var selectedDate = BehaviorRelay<Date?>.init(value: nil)
     
     var data: [String] {
         let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
@@ -23,6 +27,13 @@ struct DatesViewmodel {
     
     init(blockViewmodel: BlockViewModel) {
         self.blockViewmodel = blockViewmodel
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selected = data[indexPath.row]
+        //let date = Date.parse(selected) hard-coded CHANGE...
+        let date = NOW // hard-coded
+        selectedDate.accept(date)
     }
     
 }

@@ -82,7 +82,12 @@ final class SettingsViewModel: ViewModelType {
             return (roomId, sessionId)
         }
         
+        let dateTxt = input.dateSelected.map { date -> String in
+            return "\(date ?? NOW)"
+        }
+        
         return Output(roomTxt: roomTxt,
+                      dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalSession,
@@ -97,6 +102,7 @@ extension SettingsViewModel {
     struct Input {
         let cancelTrigger: Driver<Void>
         let saveSettingsTrigger: Driver<Void>
+        let dateSelected: Driver<Date?>
         let roomSelected: Driver<Room?>
         let sessionSelected: Driver<Block?>
         let autoSelSessionSwitch: Driver<Bool>
@@ -105,6 +111,7 @@ extension SettingsViewModel {
     
     struct Output {
         let roomTxt: Driver<String>
+        let dateTxt: Driver<String>
         let sessionTxt: Driver<String>
         let saveSettingsAllowed: Driver<Bool>
         let selectedBlock: Driver<Block?>
