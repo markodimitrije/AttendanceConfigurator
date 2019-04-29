@@ -219,9 +219,23 @@ class SettingsVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
-        //case (0, 0): print("auto segue ka rooms...")
+        
+        case (0,0):
             
-        case (1, 0):
+            let datesVC = vcFactory.makeDatesVC()
+            self.navigationController?.pushViewController(datesVC, animated: true)
+            
+            datesVC.datesViewmodel.selectedDate
+                .skip(1) // jer je iniated sa NIL ...
+                .subscribe(onNext: { [weak self] date in
+                    self?.dateSelected.accept(date)
+                    self?.navigationController?.popViewController(animated: true)
+                })
+                .disposed(by: disposeBag)
+            
+        //case (1, 0): print("auto segue ka rooms...")
+            
+        case (2, 0):
             
             guard let roomId = roomId,
                 !autoSelectSessionsView.controlSwitch.isOn,
@@ -239,19 +253,6 @@ class SettingsVC: UITableViewController {
                     strongSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })
                 .disposed(by: disposeBag)
-            
-        case (3,0): print("open dates.,,..")
-        
-            let datesVC = vcFactory.makeDatesVC()
-            self.navigationController?.pushViewController(datesVC, animated: true)
-            
-        datesVC.datesViewmodel.selectedDate
-            .skip(1) // jer je iniated sa NIL ...
-            .subscribe(onNext: { [weak self] date in
-                self?.dateSelected.accept(date)
-                self?.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
             
         default: break
         }

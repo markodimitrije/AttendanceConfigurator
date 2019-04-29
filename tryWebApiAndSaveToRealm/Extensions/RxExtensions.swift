@@ -41,7 +41,7 @@ extension Reactive where Base: UITableView {
     var roomValidationSideEffects: Binder<Room?> {
         return Binder(self.base) { target, roomSelected in // _ je view (self)
             _ = target.visibleCells.filter {
-                target.indexPath(for: $0)?.section == 1
+                target.indexPath(for: $0)?.section == 2
                 }.map {
                     $0.isUserInteractionEnabled = (roomSelected != nil)
                     $0.alpha = (roomSelected != nil) ? 1.0: 0.5
