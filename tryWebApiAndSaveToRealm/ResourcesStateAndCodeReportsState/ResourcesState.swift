@@ -67,14 +67,12 @@ class ResourcesState {
             .disposed(by: bag)
     }
     
-    @objc private func appDidBecomeActive() {
+    @objc private func appDidBecomeActive() { // print("ResourcesState/ appDidBecomeActive/ appDidBecomeActive is called")
         
         oAppDidBecomeActive.onNext(())
         
-        downloadResources()
+//        downloadResources() // hard-coded temp off
         
-        print("ResourcesState/ appDidBecomeActive/ appDidBecomeActive is called")
-
     }
     
     

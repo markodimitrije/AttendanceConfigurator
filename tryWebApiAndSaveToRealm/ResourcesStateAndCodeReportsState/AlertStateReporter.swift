@@ -99,11 +99,13 @@ class AlertStateReporter {
                 return SessionReport.init(location_id: room ?? -1, block_id: session ?? -1, battery_level: batLevel, battery_status: batStatus, app_active: appInFg)
                                     
             }.subscribe(onNext: { report in
+
+                // hard-coded temp off
                 
-                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
+                //print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
                 
-                _ = webAPI
-                    .reportSelectedSession(report: report) // ne reagujem da odg, a nije lose da ima UserDefaults i da onda javlja stalno...
+//                _ = webAPI
+//                    .reportSelectedSession(report: report) // ne reagujem da odg, a nije lose da ima UserDefaults i da onda javlja stalno...
             })
             .disposed(by: bag)
         
