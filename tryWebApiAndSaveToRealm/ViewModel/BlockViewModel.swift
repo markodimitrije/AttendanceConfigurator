@@ -67,7 +67,7 @@ class BlockViewModel {
     }
     
     // 1 - dependencies-init
-    init(roomId: Int?) {
+    init(roomId: Int? = nil) {
         self.roomId = roomId
         bindOutput()
         bindAutomaticSession()
@@ -85,10 +85,14 @@ class BlockViewModel {
         guard let realm = try? Realm() else { return }
         
         // ovde mi treba jos da su od odgovarajuceg Room-a
+        
         blocks = realm
-                    .objects(RealmBlock.self)
-                    .filter("type = 'Oral'")
-                    .filter("location_id = %@", roomId)
+            .objects(RealmBlock.self)
+            .filter("type = 'Oral'")
+        
+        if let roomId = roomId {
+            blocks = blocks.filter("location_id = %@", roomId)
+        }
         
         oBlocks = Observable.changeset(from: blocks)
         

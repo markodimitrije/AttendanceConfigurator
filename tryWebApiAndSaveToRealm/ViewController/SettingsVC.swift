@@ -28,6 +28,7 @@ class SettingsVC: UITableViewController {
     
     private let disposeBag = DisposeBag()
     private let deviceStateReporter = DeviceStateReporter.init()
+    private let vcFactory = ViewControllerFactory()
     
     // output
     var roomId: Int! = nil {
@@ -212,6 +213,7 @@ class SettingsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
         //case (0, 0): print("auto segue ka rooms...")
+            
         case (1, 0):
             
             guard let roomId = roomId,
@@ -231,6 +233,11 @@ class SettingsVC: UITableViewController {
                 })
                 .disposed(by: disposeBag)
             
+        case (3,0): print("open dates.,,..")
+        
+            let datesVC = vcFactory.makeDatesVC()
+            self.navigationController?.pushViewController(datesVC, animated: true)
+            
         default: break
         }
     }
@@ -248,4 +255,23 @@ extension SettingsVC { // ovo treba da napises preko Rx ....
 //        print("datePickerValueChanged.value = \(picker.countDownDuration)")
         self.selectedInterval.accept(picker.countDownDuration)
     }
+}
+
+class ViewControllerFactory {
+    
+    private let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+    
+    func makeDatesVC() -> DatesVC {
+        
+        guard let datesVC = storyboard.instantiateViewController(withIdentifier: "DatesVC") as? DatesVC else {
+            fatalError("No DatesVC on Main Storyboard")
+        }
+        
+        let blockViewmodel = BlockViewModel()
+        
+        datesVC.datesViewmodel = DatesViewmodel.init(blockViewmodel: blockViewmodel)
+        return datesVC
+        
+    }
+    
 }
