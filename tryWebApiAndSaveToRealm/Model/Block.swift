@@ -37,6 +37,12 @@ class Block: Codable {
     var updated_at: String
     var location_id: Int
     
+    // helpers vars
+    var starts: Date { return Date.parse(self.starts_at) }
+    var ensds: Date { return Date.parse(self.starts_at) }
+    
+    var startsShort: String { return getOnlyDateString(from: starts_at) }
+    
     var duration: String {
         
         let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
@@ -76,6 +82,14 @@ class Block: Codable {
         self.featured = realmBlock.featured
         self.updated_at = realmBlock.updated_at
         self.location_id = realmBlock.location_id
+    }
+    
+    private func getOnlyDateString(from dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let date = dateFormatter.date(from: dateString) else { return "error converting date and time" }
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
     }
 }
 

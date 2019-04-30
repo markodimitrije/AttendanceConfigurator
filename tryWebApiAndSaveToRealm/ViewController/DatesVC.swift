@@ -15,13 +15,8 @@ class DatesVC: UIViewController {
     
     var datesViewmodel: DatesViewmodel!
     
-    // OUTPUT
-    
-//    private (set) var selectedDate = BehaviorRelay<Date?>.init(value: nil)
-    
     override func viewDidLoad() { super.viewDidLoad()
         tableView.dataSource = self
-        //tableView.delegate = self
         tableView.delegate = datesViewmodel
     }
 
@@ -37,13 +32,10 @@ extension DatesVC: UITableViewDataSource {// , UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.text = datesViewmodel.data[indexPath.row]
+        let date = datesViewmodel.data[indexPath.row]
+        cell.textLabel?.text = date.toString(format: "yyyy-MM-dd")//"\(date)"
         return cell
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let selected = datesViewmodel.data[indexPath.row]
-//        let date = Date.parse(selected)
-//        selectedDate.accept(date)
-//    }
+
 }
 

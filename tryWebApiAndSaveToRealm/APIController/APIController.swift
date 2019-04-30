@@ -66,7 +66,6 @@ class ApiController {
             }
     }
     
-    
     //MARK: - Api Calls
     
     func reportSingleCode(report: CodeReport?) -> Observable<(CodeReport,Bool)> {

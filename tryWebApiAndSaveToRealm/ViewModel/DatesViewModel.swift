@@ -17,12 +17,10 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     
     private (set) var selectedDate = BehaviorRelay<Date?>.init(value: nil)
     
-    var data: [String] {
+    var data: [Date] {
         let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
-        let startDates: [String] = rBlocks.compactMap {$0.starts_at}
-        let datesOnly = startDates.map {Date.parseIntoDateOnly($0)}
-        let dates = datesOnly.map {"\($0)"}
-        return dates
+        let startDates = rBlocks.map(Block.init).map {$0.starts}
+        return startDates
     }
     
     init(blockViewmodel: BlockViewModel) {
@@ -30,10 +28,8 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selected = data[indexPath.row]
-        //let date = Date.parse(selected) hard-coded CHANGE...
-        let date = NOW // hard-coded
-        selectedDate.accept(date)
+        let dateSelected = data[indexPath.row]
+        selectedDate.accept(dateSelected)
     }
     
 }
