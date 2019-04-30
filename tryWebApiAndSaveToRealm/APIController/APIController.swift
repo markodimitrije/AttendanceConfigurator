@@ -147,17 +147,20 @@ class ApiController {
     
         //print("APIController.buildingRequest.calling API !!!")
         
-        let url = base.appendingPathComponent(pathComponent)
+        //let url = base.appendingPathComponent(pathComponent)
+        let url = URL.init(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/blocks")!
+        
         var request = URLRequest(url: url)
+        
 
         let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)!
         
         if method == "GET" || method == "PUT" {
-            guard let params = params as? [(String, String)] else {
-                return Observable.empty()
-            }
-            let queryItems = params.map { URLQueryItem(name: $0.0, value: $0.1) }
-            urlComponents.queryItems = queryItems
+//            guard let params = params as? [(String, String)] else { // hard-coded off !!!
+//                return Observable.empty()
+//            }
+//            let queryItems = params.map { URLQueryItem(name: $0.0, value: $0.1) }
+//            urlComponents.queryItems = queryItems
             
         } else {
             guard let params = params as? [String: Any] else {

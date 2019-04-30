@@ -71,7 +71,7 @@ class ResourcesState {
         
         oAppDidBecomeActive.onNext(())
         
-//        downloadResources() // hard-coded temp off
+        downloadResources() // hard-coded temp off
         
     }
     

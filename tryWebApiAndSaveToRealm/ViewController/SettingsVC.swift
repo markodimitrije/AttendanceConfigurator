@@ -21,7 +21,7 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var saveSettingsAndExitBtn: UIButton!
     @IBOutlet weak var cancelSettingsBtn: UIBarButtonItem!
     
-    @IBOutlet weak var setIntervalForAutoSessionView: SetIntervalForAutoSessionView!
+    //@IBOutlet weak var setIntervalForAutoSessionView: SetIntervalForAutoSessionView!
     
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
@@ -87,9 +87,12 @@ class SettingsVC: UITableViewController {
     
     private func bindUI() { // glue code for selected Room
         
-        let interval = setIntervalForAutoSessionView.picker.rx.controlEvent(.valueChanged).map { _ -> TimeInterval in
-            return self.setIntervalForAutoSessionView.picker.countDownDuration
-        }.asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
+//        let interval = setIntervalForAutoSessionView.picker.rx.controlEvent(.valueChanged).map { _ -> TimeInterval in
+//            return self.setIntervalForAutoSessionView.picker.countDownDuration
+//        }.asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
+        
+        let interval = Observable.just(MyTimeInterval.waitToMostRecentSession)
+                                .asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
         
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
@@ -169,17 +172,17 @@ class SettingsVC: UITableViewController {
     
     private func bindInterval() {
         
-        let diffComponents = Calendar.current.dateComponents(
-            hourMinuteSet,
-            from: defaultAutoSessionDate,
-            to: NOW)
+//        let diffComponents = Calendar.current.dateComponents(
+//            hourMinuteSet,
+//            from: defaultAutoSessionDate,
+//            to: NOW)
         
-        setIntervalForAutoSessionView.picker.date = Calendar.current.date(from: diffComponents)!
+        //setIntervalForAutoSessionView.picker.date = Calendar.current.date(from: diffComponents)!
         
-        setIntervalForAutoSessionView.picker.addTarget(
-            self,
-            action: #selector(SettingsVC.datePickerValueChanged(_:)),
-            for:.valueChanged)
+//        setIntervalForAutoSessionView.picker.addTarget(
+//            self,
+//            action: #selector(SettingsVC.datePickerValueChanged(_:)),
+//            for:.valueChanged)
         
         selectedInterval // ovo je bilo ok dok nisam ubacio picker kontrolu
             .asObservable()
@@ -266,12 +269,12 @@ class SettingsVC: UITableViewController {
     
 }
 
-extension SettingsVC { // ovo treba da napises preko Rx ....
-    @objc func datePickerValueChanged(_ picker: UIDatePicker) {
-//        print("datePickerValueChanged.value = \(picker.countDownDuration)")
-        self.selectedInterval.accept(picker.countDownDuration)
-    }
-}
+//extension SettingsVC { // ovo treba da napises preko Rx ....
+//    @objc func datePickerValueChanged(_ picker: UIDatePicker) {
+////        print("datePickerValueChanged.value = \(picker.countDownDuration)")
+//        self.selectedInterval.accept(picker.countDownDuration)
+//    }
+//}
 
 class ViewControllerFactory {
     
