@@ -25,7 +25,7 @@ final class SettingsViewModel: ViewModelType {
         
         let autoSessionDriver = Driver.combineLatest(input.roomSelected.startWith(nil),
                                                      input.autoSelSessionSwitch.startWith(true),
-                                                     input.picker.startWith(MyTimeInterval.waitToMostRecentSession)) { (room, switchIsOn, interval) -> Block? in
+                                                     input.waitInterval.startWith(MyTimeInterval.waitToMostRecentSession)) { (room, switchIsOn, interval) -> Block? in
             guard let roomId = room?.id else {return nil}
             if switchIsOn {
                 let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
@@ -107,7 +107,7 @@ extension SettingsViewModel {
         let roomSelected: Driver<Room?>
         let sessionSelected: Driver<Block?>
         let autoSelSessionSwitch: Driver<Bool>
-        let picker: Driver<TimeInterval>
+        let waitInterval: Driver<TimeInterval>
     }
     
     struct Output {

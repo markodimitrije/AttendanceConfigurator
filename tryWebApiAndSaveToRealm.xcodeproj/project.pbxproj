@@ -34,8 +34,6 @@
 		AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */; };
 		AD53A01F217B577500A3F9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD53A01D217B577500A3F9FC /* LaunchScreen.storyboard */; };
 		AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */; };
-		AD61455A2191C6600075FD39 /* SetIntervalForAutoSessionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */; };
-		AD61455B2191C6600075FD39 /* SetIntervalForAutoSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */; };
 		AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */; };
 		AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD121885AF2002BC579 /* RealmDataPersister.swift */; };
 		AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD42188623A002BC579 /* GlobalVars.swift */; };
@@ -113,8 +111,6 @@
 		AD53A01E217B577500A3F9FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD53A020217B577500A3F9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodeReport.swift; sourceTree = "<group>"; };
-		AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetIntervalForAutoSessionView.xib; sourceTree = "<group>"; };
-		AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetIntervalForAutoSessionView.swift; sourceTree = "<group>"; };
 		AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD697BD121885AF2002BC579 /* RealmDataPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataPersister.swift; sourceTree = "<group>"; };
 		AD697BD42188623A002BC579 /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
@@ -239,8 +235,6 @@
 				ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */,
 				AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */,
 				AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */,
-				AD6145582191C65F0075FD39 /* SetIntervalForAutoSessionView.xib */,
-				AD6145592191C65F0075FD39 /* SetIntervalForAutoSessionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -493,7 +487,6 @@
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
-				AD61455A2191C6600075FD39 /* SetIntervalForAutoSessionView.xib in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
 				AD53A01F217B577500A3F9FC /* LaunchScreen.storyboard in Resources */,
@@ -587,7 +580,6 @@
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				ADAE9C302189F5F500615125 /* AVCaptureSession+Rx.swift in Sources */,
-				AD61455B2191C6600075FD39 /* SetIntervalForAutoSessionView.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
