@@ -42,6 +42,9 @@ class BlocksVC: UIViewController {
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                 cell.textLabel?.text = item.name
+                if Calendar.current.isDateInToday(item.date) {
+                    cell.backgroundColor = .green
+                }
                 return cell
         })
         
