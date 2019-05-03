@@ -59,7 +59,8 @@ class BlocksVC: UIViewController {
             
             source = blockViewModel.oSectionsHeadersAndItems.flatMap({ sections -> BehaviorRelay<[SectionOfCustomData]> in
                 let section = sections.first(where: { section -> Bool in
-                    return section.items.first!.date == selectedDate
+                    //return section.items.first!.date == selectedDate
+                    return Calendar.current.isDate(section.items.first!.date, inSameDayAs: selectedDate)
                 }) ?? SectionOfCustomData(header: "", items: [])
                 return BehaviorRelay.init(value: [section])
             })
@@ -80,12 +81,20 @@ class BlocksVC: UIViewController {
                 var rBlock: RealmBlock!
                 source
                     .subscribe(onNext: { (sections) in
-                        if sections.count == 1 {
+                        
+                        if let selectedDate = strongSelf.selectedDate {
                             
-                            if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { rBlock -> Bool in
-                                Date.parse(rBlock.first?.starts_at ?? "\(NOW)") == strongSelf.selectedDate ?? NOW
+                            if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
+                                
+                                Calendar.current.isDate(Date.parse(groups.first!.starts_at), inSameDayAs: selectedDate)
+                                //Date.parse(groups.first?.starts_at ?? "\(NOW)") == strongSelf.selectedDate ?? NOW
+                                
                             }) {
                                 rBlock = blockGroup[ip.row]
+                            } else {
+                                print("o-o, should never get here....")
+                                fatalError()
+                                rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
                             }
                         } else {
                             rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
