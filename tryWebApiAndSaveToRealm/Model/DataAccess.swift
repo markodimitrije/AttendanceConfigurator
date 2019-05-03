@@ -16,13 +16,33 @@ class DataAccess: NSObject {
     
     private var _roomSelected = BehaviorRelay<Room?>.init(value: nil)
     private var _blockSelected = BehaviorRelay<Block?>.init(value: nil)
+    private var _dateSelected = BehaviorRelay<Date?>.init(value: nil)
     
     static var shared = DataAccess()
     
-    var output: Observable<(Room?, Block?)> {
-        return Observable.combineLatest(_roomSelected.asObservable(), _blockSelected.asObservable(), resultSelector: { (room, block) -> (Room?, Block?) in
+    // API: input, output
+    var userSelection: (Int?,Int?,Date?) {
+        get {
+            return (UserDefaults.standard.value(forKey: "roomId") as? Int,
+                    UserDefaults.standard.value(forKey: "sessionId") as? Int,
+                    UserDefaults.standard.value(forKey: "date") as? Date
+            )
+        }
+        set {
+            UserDefaults.standard.set(newValue.0, forKey: "roomId")
+            UserDefaults.standard.set(newValue.1, forKey: "sessionId")
+            UserDefaults.standard.set(newValue.2, forKey: "date")
+        }
+    }
+    
+    // API: output
+    var output: Observable<(Room?, Block?, Date?)> {
+        return Observable.combineLatest(_roomSelected.asObservable(),
+                                        _blockSelected.asObservable(),
+                                        _dateSelected.asObservable(),
+            resultSelector: { (room, block, date) -> (Room?, Block?, Date?) in
 //            print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id)")
-            return (room, block)
+            return (room, block, date)
         })
     }
     
@@ -30,6 +50,7 @@ class DataAccess: NSObject {
         super.init()
         UserDefaults.standard.addObserver(self, forKeyPath: "roomId", options: [.initial, .new], context: nil)
         UserDefaults.standard.addObserver(self, forKeyPath: "sessionId", options: [.initial, .new], context: nil)
+        UserDefaults.standard.addObserver(self, forKeyPath: "date", options: [.initial, .new], context: nil)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -44,7 +65,6 @@ class DataAccess: NSObject {
             }
             let room = Room(from: rRoom)
             _roomSelected.accept(room)
-            
         } else if keyPath == "sessionId" {
             guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int,
                 let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {
@@ -52,21 +72,13 @@ class DataAccess: NSObject {
             }
             let block = Block.init(with: realmBlock)
             _blockSelected.accept(block)
+        } else if keyPath == "date" {
+            guard let date = UserDefaults.standard.value(forKey: keyPath) as? Date else {
+                return
+            }
+            _dateSelected.accept(date)
         }
         
     }
-    
-    var userSelection: (Int?,Int?) {
-        get {
-            return (UserDefaults.standard.value(forKey: "roomId") as? Int,
-                    UserDefaults.standard.value(forKey: "sessionId") as? Int
-            )
-        }
-        set {
-            UserDefaults.standard.set(newValue.0, forKey: "roomId")
-            UserDefaults.standard.set(newValue.1, forKey: "sessionId")
-        }
-    }
-    
     
 }

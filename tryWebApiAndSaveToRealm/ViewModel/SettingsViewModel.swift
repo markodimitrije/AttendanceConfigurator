@@ -72,13 +72,17 @@ final class SettingsViewModel: ViewModelType {
                 }
         }
         
-        let sessionInfo = Driver.combineLatest(input.roomSelected, finalSession) { (room, session) -> (Int, Int)? in
+        let sessionInfo = Driver.combineLatest(input.roomSelected, finalSession, input.dateSelected) { (room, session, date) -> (Int, Int)? in
+//            guard let roomId = room?.id, let sessionId = session?.id else {
+//                self.dataAccess.userSelection = (nil, nil)
+//                return nil}
+
+            self.dataAccess.userSelection = (room?.id, session?.id, date) // javi svom modelu, side effect
+
             guard let roomId = room?.id, let sessionId = session?.id else {
-                self.dataAccess.userSelection = (nil, nil)
-                return nil}
-
-            self.dataAccess.userSelection = (roomId, sessionId)
-
+                return nil
+            }
+            
             return (roomId, sessionId)
         }
         

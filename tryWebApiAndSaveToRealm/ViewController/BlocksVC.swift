@@ -94,7 +94,7 @@ class BlocksVC: UIViewController {
                             } else {
                                 print("o-o, should never get here....")
                                 fatalError()
-                                rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                                //rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
                             }
                         } else {
                             rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
