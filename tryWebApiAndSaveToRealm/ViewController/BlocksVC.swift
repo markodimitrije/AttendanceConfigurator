@@ -15,9 +15,11 @@ import RxRealmDataSources
 import RxDataSources // ovaj ima rx Sectioned TableView
 
 class BlocksVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
+    // INPUT
+    var selectedDate: Date? // ovo ce ti neko javiti (settingsVC)
     var selectedRoomId: Int! // ovo ce ti setovati segue // moze li preko Observable ?
     
     lazy var blockViewModel = BlockViewModel(roomId: selectedRoomId)
@@ -39,7 +41,7 @@ class BlocksVC: UIViewController {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-                cell.textLabel?.text = item
+                cell.textLabel?.text = item.name
                 return cell
         })
         
@@ -47,15 +49,46 @@ class BlocksVC: UIViewController {
             return dataSource.sectionModels[index].header
         }
         
-        blockViewModel.oSectionsHeadersAndItems
+        var source: Observable<[SectionOfCustomData]>
+        
+        // tableView dataSource
+        if let selectedDate = selectedDate {
+            
+            source = blockViewModel.oSectionsHeadersAndItems.flatMap({ sections -> BehaviorRelay<[SectionOfCustomData]> in
+                let section = sections.first(where: { section -> Bool in
+                    return section.items.first!.date == selectedDate
+                }) ?? SectionOfCustomData(header: "", items: [])
+                return BehaviorRelay.init(value: [section])
+            })
+            
+        } else {
+            source = blockViewModel.oSectionsHeadersAndItems.asObservable()
+        }
+        
+        source
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         // tableView didSelect
         tableView.rx.itemSelected // (**)
-            .subscribe(onNext: { [weak self] ip in
-                guard let strongSelf = self else {return}
-                let rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+            .subscribe(onNext: { [weak self] ip in guard let strongSelf = self else {return}
+                
+                //let rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                var rBlock: RealmBlock!
+                source
+                    .subscribe(onNext: { (sections) in
+                        if sections.count == 1 {
+                            
+                            if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { rBlock -> Bool in
+                                Date.parse(rBlock.first?.starts_at ?? "\(NOW)") == strongSelf.selectedDate ?? NOW
+                            }) {
+                                rBlock = blockGroup[ip.row]
+                            }
+                        } else {
+                            rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                        }
+                    }).disposed(by: strongSelf.disposeBag)
+                
                 let selectedBlock = Block(with: rBlock)
                 strongSelf.selBlock.onNext(selectedBlock)
                 strongSelf.navigationController?.popViewController(animated: true)

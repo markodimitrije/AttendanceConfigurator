@@ -231,6 +231,7 @@ class SettingsVC: UITableViewController {
             }
             
             blocksVC.selectedRoomId = roomId
+            blocksVC.selectedDate = dateSelected.value
             navigationController?.pushViewController(blocksVC, animated: true)
             
             blocksVC.selectedBlock
