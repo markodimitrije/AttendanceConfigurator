@@ -66,7 +66,7 @@ class SettingsVC: UITableViewController {
     }
     
     // MARK:- ViewModels
-    fileprivate let roomViewModel = RoomViewModel()
+    //fileprivate let roomViewModel = RoomViewModel()
 
     lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
     
@@ -200,7 +200,7 @@ class SettingsVC: UITableViewController {
         
         roomsVC.selRoomDriver
             .do(onNext: { room in // side-effect
-                self.roomId = room.id
+                self.roomId = room?.id
             })
             .drive(roomSelected)
             .disposed(by: disposeBag)

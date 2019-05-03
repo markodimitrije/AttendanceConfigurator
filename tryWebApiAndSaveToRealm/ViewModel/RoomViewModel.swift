@@ -50,20 +50,5 @@ class RoomViewModel {
         oRooms = Observable.changeset(from: rooms)
 
     }
-    
-//    private func bindOutputRoomSelection() {
-//
-//        selectedTableIndex
-//            .subscribe(onNext: { [weak self] index in
-//
-//                guard let strongSelf = self else {return}
-//                guard let index = index else {return}
-//
-//                print("pushujem na subject room sa id: \(strongSelf.rooms[index].id)")
-//                strongSelf.selectedRoom.onNext(strongSelf.rooms[index])
-//            })
-//            .disposed(by: disposeBag)
-//
-//    }
-//
+
 }
