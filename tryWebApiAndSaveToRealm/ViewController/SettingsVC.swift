@@ -127,7 +127,10 @@ class SettingsVC: UITableViewController {
         output.sessionInfo.asObservable()
             .subscribe(onNext: { [weak self] (info) in
                 guard let sSelf = self else {return}
-                guard let info = info else {return}
+                guard let info = info else { // ako nemas info, tapnuo je cancel na BlocksVC
+                    sSelf.autoSelectSessionsView.controlSwitch.isOn = true
+                    return
+                }
                 
                 let batStateManager = BatteryManager.init()
                 
@@ -225,13 +228,16 @@ class SettingsVC: UITableViewController {
         case (2, 0):
             
             guard let roomId = roomId,
-                !autoSelectSessionsView.controlSwitch.isOn,
+//                !autoSelectSessionsView.controlSwitch.isOn,
                 let blocksVC = storyboard?.instantiateViewController(withIdentifier: "BlocksVC") as? BlocksVC else {
                     return
             }
             
             blocksVC.selectedRoomId = roomId
             blocksVC.selectedDate = dateSelected.value
+            
+            self.autoSelectSessionsView.controlSwitch.isOn = false
+            
             navigationController?.pushViewController(blocksVC, animated: true)
             
             blocksVC.selectedBlock
