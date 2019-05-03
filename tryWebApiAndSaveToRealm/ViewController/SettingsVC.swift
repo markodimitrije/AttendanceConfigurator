@@ -90,13 +90,15 @@ class SettingsVC: UITableViewController {
         let interval = Observable.just(MyTimeInterval.waitToMostRecentSession)
                                 .asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
         
+        let savedAutoSwitchState = DataAccess.shared.userSelection.3
+        
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallySelected.asDriver(onErrorJustReturn: nil),
-                        autoSelSessionSwitch: autoSelectSessionsView.controlSwitch.rx.switchActiveSequence.asDriver(onErrorJustReturn: true),
+                        autoSelSessionSwitch: autoSelectSessionsView.controlSwitch.rx.switchActiveSequence.startWith(savedAutoSwitchState).asDriver(onErrorJustReturn: true),
                         waitInterval:interval
         )
         

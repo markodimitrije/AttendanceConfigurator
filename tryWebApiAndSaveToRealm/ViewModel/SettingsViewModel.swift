@@ -72,12 +72,16 @@ final class SettingsViewModel: ViewModelType {
                 }
         }
         
-        let sessionInfo = Driver.combineLatest(input.roomSelected, finalSession, input.dateSelected) { (room, session, date) -> (Int, Int)? in
-//            guard let roomId = room?.id, let sessionId = session?.id else {
-//                self.dataAccess.userSelection = (nil, nil)
-//                return nil}
+        let sessionInfo = Driver.combineLatest(input.roomSelected,
+                                               finalSession,
+                                               input.dateSelected,
+                                               input.autoSelSessionSwitch.startWith(true)) {
 
-            self.dataAccess.userSelection = (room?.id, session?.id, date) // javi svom modelu, side effect
+            (room, session, date, autoSwitch) -> (Int, Int)? in
+
+            print("emitovao je pre self.dataAccess.userSelection = , autoSwitch = \(autoSwitch) ")
+            
+            self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
 
             guard let roomId = room?.id, let sessionId = session?.id else {
                 return nil
