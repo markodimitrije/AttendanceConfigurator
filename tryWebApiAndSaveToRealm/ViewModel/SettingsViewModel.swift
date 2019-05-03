@@ -79,7 +79,7 @@ final class SettingsViewModel: ViewModelType {
 
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
-            print("emitovao je pre self.dataAccess.userSelection = , autoSwitch = \(autoSwitch) ")
+            //print("emitovao je pre self.dataAccess.userSelection = , autoSwitch = \(autoSwitch) ")
             
             self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
 

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var alertStateMonitor: AlertStateMonitor!
     private var deviceAlertMonitor: AlertStateReporter!
     private var userSelection = UserSelectionManager()
+    private let autoSessionTimer = AutoSessionTimer.init(dataAccess: DataAccess.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     

@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "AutoSessionTimer.appWillEnterForeground():AutoSessionTimer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "timer">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

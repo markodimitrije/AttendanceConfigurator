@@ -11,6 +11,7 @@
 		7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9E42278BC9900D44A52 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E32278BC9900D44A52 /* Factory.swift */; };
+		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
@@ -87,6 +88,7 @@
 		7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E32278BC9900D44A52 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Factory.swift; path = ../Factory.swift; sourceTree = "<group>"; };
+		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
@@ -196,6 +198,14 @@
 				7C93C9E32278BC9900D44A52 /* Factory.swift */,
 			);
 			path = ViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		7C93C9E8227CA64700D44A52 /* AutoSessionTimer */ = {
+			isa = PBXGroup;
+			children = (
+				7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */,
+			);
+			path = AutoSessionTimer;
 			sourceTree = "<group>";
 		};
 		7CE81539227346F700B33986 /* Sounds */ = {
@@ -338,6 +348,7 @@
 		AD53A013217B577400A3F9FC /* tryWebApiAndSaveToRealm */ = {
 			isa = PBXGroup;
 			children = (
+				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
 				7C93C9E52278BCA900D44A52 /* ViewControllerFactory */,
 				7CE81539227346F700B33986 /* Sounds */,
 				AD4CC2D821A576F200222D5E /* Common */,
@@ -592,6 +603,7 @@
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				ADAE9C302189F5F500615125 /* AVCaptureSession+Rx.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
+				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				ADAE9C242189F57D00615125 /* AVSessionViewModel.swift in Sources */,
