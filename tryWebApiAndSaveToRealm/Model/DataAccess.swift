@@ -22,7 +22,7 @@ class DataAccess: NSObject {
     static var shared = DataAccess()
     
     // API: input, output
-    var userSelection: (Int?,Int?,Date?,Bool) {
+    var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {
         get {
             return (UserDefaults.standard.value(forKey: "roomId") as? Int,
                     UserDefaults.standard.value(forKey: "sessionId") as? Int,

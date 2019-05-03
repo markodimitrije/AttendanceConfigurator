@@ -72,14 +72,18 @@ final class SettingsViewModel: ViewModelType {
                 }
         }
         
+        let compositeSwitch: Driver<Bool> = Driver.merge(input.blockSelectedManually.map {_ in return false},
+                                                         input.autoSelSessionSwitch).debug()
+        
         let sessionInfo = Driver.combineLatest(input.roomSelected,
                                                finalSession,
                                                input.dateSelected,
-                                               input.autoSelSessionSwitch.startWith(true)) {
-
+//                                               input.autoSelSessionSwitch) {
+                                                compositeSwitch) {
+            
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
-            //print("emitovao je pre self.dataAccess.userSelection = , autoSwitch = \(autoSwitch) ")
+            print("emitovao je pre self.dataAccess.userSelection = , autoSwitch-compositeSwitch = \(autoSwitch) ")
             
             self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
 
@@ -100,6 +104,7 @@ final class SettingsViewModel: ViewModelType {
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalSession,
+                      compositeSwitch: compositeSwitch,
                       sessionInfo: sessionInfo
         )
     }
@@ -115,6 +120,7 @@ extension SettingsViewModel {
         let roomSelected: Driver<Room?>
         let sessionSelected: Driver<Block?>
         let autoSelSessionSwitch: Driver<Bool>
+        let blockSelectedManually: Driver<Bool>//self.tableView.rx.itemSelected.asDriver()
         let waitInterval: Driver<TimeInterval>
     }
     
@@ -124,6 +130,7 @@ extension SettingsViewModel {
         let sessionTxt: Driver<String>
         let saveSettingsAllowed: Driver<Bool>
         let selectedBlock: Driver<Block?>
+        let compositeSwitch: Driver<Bool>
         let sessionInfo: Driver<(Int, Int)?>
     }
 }

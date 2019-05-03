@@ -151,16 +151,14 @@ class BlockViewModel {
     
     private func autoSessionIsAvailable(inLessThan interval: TimeInterval) -> Bool { // implement me
         
-        let now = NOW // to test on NOW <-
+        let now = NOW
         
         guard let firstAvailableSession = mostRecentSessionBlock else {
             return false
         }
-        let sessionDate = Date.parse(firstAvailableSession.starts_at) // 2
-        let willingToWaitTill = now.addingTimeInterval(interval)//MyTimeInterval.waitToMostRecentSession) // 3
+        let sessionDate = Date.parse(firstAvailableSession.starts_at)
+        let willingToWaitTill = now.addingTimeInterval(interval)
 
-//        print("willingToWaitTill > sessionDate = \(willingToWaitTill > sessionDate)")
-        
         return willingToWaitTill > sessionDate
         
     }

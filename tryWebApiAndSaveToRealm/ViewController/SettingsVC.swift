@@ -99,6 +99,7 @@ class SettingsVC: UITableViewController {
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallySelected.asDriver(onErrorJustReturn: nil),
                         autoSelSessionSwitch: autoSelectSessionsView.controlSwitch.rx.switchActiveSequence.startWith(savedAutoSwitchState).asDriver(onErrorJustReturn: true),
+                        blockSelectedManually: tableView.rx.itemSelected.map {$0.row == 2}.asDriver(onErrorJustReturn: false),
                         waitInterval:interval
         )
         
@@ -120,8 +121,9 @@ class SettingsVC: UITableViewController {
             .disposed(by: disposeBag)
         
         output.selectedBlock // binduj na svoj var koji ce da cita "prethodni vc"
-            .do(onNext: { _ in
-                self.dismiss(animated: true, completion: nil) // ako radis behavior umesto bind na UI, koristi Subsc
+            .do(onNext: { [weak self] _ in
+                guard let sSelf = self else {return}
+                sSelf.dismiss(animated: true, completion: nil) // ako radis behavior umesto bind na UI, koristi Subsc
             })
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
@@ -145,6 +147,10 @@ class SettingsVC: UITableViewController {
         output.dateTxt
             .skip(1)
             .drive(dateLbl.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.compositeSwitch
+            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
     }
 
@@ -244,9 +250,9 @@ class SettingsVC: UITableViewController {
             
             blocksVC.selectedBlock
                 .subscribe(onNext: { [weak self] block in
-                    guard let strongSelf = self else {return}
-                    strongSelf.sessionManuallySelected.onNext(block)
-                    strongSelf.sessionSelected.onNext(block) // moze li ovo bolje....
+                    guard let sSelf = self else {return}
+                    sSelf.sessionManuallySelected.onNext(block)
+                    sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })
                 .disposed(by: disposeBag)
             
