@@ -38,10 +38,10 @@ class ApiController {
     //MARK: - Api Calls
     func getRooms(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Room]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        return buildRequest(pathComponent: "locations",
-                            params: [("updated_from", updatedDate),
-                                     ("with_pagination", "\(with_pagination)"),
-                                     ("with_trashed", "\(with_trashed)")])
+        return buildRequest(pathComponent: "locations", params: [])//,
+//                            params: [("updated_from", updatedDate), // hard-coded off
+//                                     ("with_pagination", "\(with_pagination)"),
+//                                     ("with_trashed", "\(with_trashed)")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let rooms = try? decoder.decode(Rooms.self, from: json) else {
@@ -53,10 +53,10 @@ class ApiController {
     
     func getBlocks(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        return buildRequest(pathComponent: "blocks",
-                            params: [("updated_from", updatedDate),
-                                     ("with_pagination", "\(with_pagination)"),
-                                     ("with_trashed", "\(with_trashed)")])
+        return buildRequest(pathComponent: "blocks", params: [ ])//,
+//                            params: [("updated_from", updatedDate), // hard-coded off
+//                                     ("with_pagination", "\(with_pagination)"),
+//                                     ("with_trashed", "\(with_trashed)")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: json) else {
@@ -148,11 +148,10 @@ class ApiController {
         //print("APIController.buildingRequest.calling API !!!")
         
         //let url = base.appendingPathComponent(pathComponent)
-        let url = URL.init(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/blocks")!
+        let url = URL.init(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
         
         var request = URLRequest(url: url)
         
-
         let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)!
         
         if method == "GET" || method == "PUT" {
