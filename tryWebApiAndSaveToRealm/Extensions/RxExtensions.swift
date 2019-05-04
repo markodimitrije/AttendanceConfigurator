@@ -32,7 +32,7 @@ extension Reactive where Base: UISwitch {
             return self.base.isOn
             })
             .throttle(0.5, scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
+            //.distinctUntilChanged()
     }
 }
 

@@ -92,14 +92,23 @@ class SettingsVC: UITableViewController {
         
         let savedAutoSwitchState = DataAccess.shared.userSelection.3
         
+        let manuallySelectedSignal = tableView.rx.itemSelected.filter {$0.section == 2 && $0.row == 0} // wtf! pazi magarce !
+                                                                .map {_ in return false}
+                                                                .asDriver(onErrorJustReturn: false)
+                                                                .debug()
+        
+        let autoSelSessionSwitchSignal = autoSelectSessionsView.controlSwitch.rx.switchActiveSequence
+                                                                                .startWith(savedAutoSwitchState)
+                                                                                .asDriver(onErrorJustReturn: true)
+        
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallySelected.asDriver(onErrorJustReturn: nil),
-                        autoSelSessionSwitch: autoSelectSessionsView.controlSwitch.rx.switchActiveSequence.startWith(savedAutoSwitchState).asDriver(onErrorJustReturn: true),
-                        blockSelectedManually: tableView.rx.itemSelected.map {$0.row == 2}.asDriver(onErrorJustReturn: false),
+                        autoSelSessionSwitch: autoSelSessionSwitchSignal,
+                        blockSelectedManually: manuallySelectedSignal,
                         waitInterval:interval
         )
         
@@ -132,7 +141,7 @@ class SettingsVC: UITableViewController {
             .subscribe(onNext: { [weak self] (info) in
                 guard let sSelf = self else {return}
                 guard let info = info else { // ako nemas info, tapnuo je cancel na BlocksVC
-                    sSelf.autoSelectSessionsView.controlSwitch.isOn = true
+//                    sSelf.autoSelectSessionsView.controlSwitch.isOn = true
                     return
                 }
                 
@@ -149,9 +158,13 @@ class SettingsVC: UITableViewController {
             .drive(dateLbl.rx.text)
             .disposed(by: disposeBag)
         
-        output.compositeSwitch
-            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
-            .disposed(by: disposeBag)
+//        DataAccess.shared.output.map {$0.3}.asDriver(onErrorJustReturn: true)
+//            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
+//            .disposed(by: disposeBag)
+//        output.compositeSwitch
+//            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
+//            .disposed(by: disposeBag)
+        
     }
 
     private func bindReachability() {
