@@ -158,9 +158,9 @@ class SettingsVC: UITableViewController {
             .drive(dateLbl.rx.text)
             .disposed(by: disposeBag)
         
-//        DataAccess.shared.output.map {$0.3}.asDriver(onErrorJustReturn: true)
-//            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
-//            .disposed(by: disposeBag)
+        DataAccess.shared.output.map {$0.3}.asDriver(onErrorJustReturn: true)
+            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
+            .disposed(by: disposeBag)
 //        output.compositeSwitch
 //            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
 //            .disposed(by: disposeBag)
