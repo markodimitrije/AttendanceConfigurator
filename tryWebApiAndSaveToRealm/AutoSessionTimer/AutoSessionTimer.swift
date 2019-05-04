@@ -33,20 +33,22 @@ class AutoSessionTimer {
         
         dataAccess.output
             .subscribe(onNext: { [weak self] (room, block, date, autoSwitch) in
-                print("emitujem event za room = \(String(describing: room?.name))")
-                print("emitujem event za block = \(String(describing: block?.name))")
-                print("emitujem event za date = \(String(describing: date))")
-                print("emitujem event za autoSwitch = \(String(describing: autoSwitch))")
                 self?.fire()
             }).disposed(by: disposeBag)
     }
     
     @objc func fire() { // print("AutoSessionTimer/fire, check for auto session = \(NOW)")
         let actualSettings = dataAccess.userSelection
-        if actualSettings.roomId != nil && actualSettings.autoSwitch {
-            print("dozvoljeno je da emitujes BLOCK")
+        if actualSettings.roomId != nil && actualSettings.autoSwitch { print("dozvoljeno je da emitujes BLOCK")
+            let blockViewModel = BlockViewModel.init(roomId: actualSettings.roomId)
+            blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
+                guard let sSelf = self else {return}
+                var updateData = sSelf.dataAccess.userSelection
+                updateData.blockId = block?.id
+                sSelf.dataAccess.userSelection = updateData
+            }).disposed(by: disposeBag)
         } else {
-            print("ne smes da emitujes BLOCK")
+            print("ne smes da emitujes BLOCK, do nothing...")
         }
     }
     
