@@ -48,23 +48,52 @@ class BlockViewModel {
     
     var selInterval: Int?
     
+//    private var mostRecentSessionBlock: RealmBlock? {
+//
+//        let todayBlocks = blocksSortedByDate.filter { // mock za test !
+//            return Calendar.current.compare(NOW,
+//                                            to: Date.parse($0.starts_at),
+//                                            toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
+//        }
+//
+//        let first = todayBlocks.filter { block -> Bool in
+//            let startsAt = Date.parse(block.starts_at)
+//
+//            return startsAt > NOW
+//            }
+//            .first
+//
+//        return first
+//    }
+    
     private var mostRecentSessionBlock: RealmBlock? {
-
+        
         let todayBlocks = blocksSortedByDate.filter { // mock za test !
             return Calendar.current.compare(NOW,
                                             to: Date.parse($0.starts_at),
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
         
-        let first = todayBlocks.filter { block -> Bool in
+        let firstNext = todayBlocks.filter { block -> Bool in
             let startsAt = Date.parse(block.starts_at)
             
-            return startsAt > NOW
+            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) > NOW
             }
             .first
         
-        return first
+        let actual = todayBlocks.filter { block -> Bool in
+            let startsAt = Date.parse(block.starts_at)
+            
+            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
+            }
+            .last
+        
+        print("firstNext = \(String(describing: firstNext?.name)) and actual = \(String(describing: actual?.name))")
+        
+        //return firstNext
+        return actual
     }
+    
     
     // 1 - dependencies-init
     init(roomId: Int? = nil) {
@@ -151,15 +180,7 @@ class BlockViewModel {
     
     private func autoSessionIsAvailable(inLessThan interval: TimeInterval) -> Bool { // implement me
         
-        let now = NOW
-        
-        guard let firstAvailableSession = mostRecentSessionBlock else {
-            return false
-        }
-        let sessionDate = Date.parse(firstAvailableSession.starts_at)
-        let willingToWaitTill = now.addingTimeInterval(interval)
-
-        return willingToWaitTill > sessionDate
+        return mostRecentSessionBlock != nil
         
     }
     
