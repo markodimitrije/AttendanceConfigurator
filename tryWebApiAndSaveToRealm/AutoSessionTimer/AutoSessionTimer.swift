@@ -18,7 +18,7 @@ class AutoSessionTimer {
         self.dataAccess = dataAccess
         
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         }
         
         NotificationCenter.default.addObserver(self,
@@ -53,8 +53,10 @@ class AutoSessionTimer {
     }
     
     @objc func appMovedToBackground() {
-        timer.invalidate()
-        timer = nil
+        if timer != nil {
+            timer.invalidate()
+            timer = nil
+        }
     }
     
     @objc func appWillEnterForeground() {

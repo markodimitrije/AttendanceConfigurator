@@ -189,4 +189,30 @@ struct RealmDataPersister {
         return Observable<Bool>.just(true) // all good
     }
     
+    // MARK: save codes successfully reported to web
+    func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool> {
+        
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        
+        let firstAvailableId = realm.objects(RealmWebReportedCode.self).count
+        let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedCode in
+            var record = RealmWebReportedCode.create(id: firstAvailableId + offset, codeReport: codeReport)
+            return record
+        }
+        
+        do {
+            try realm.write {
+                realm.add(realmWebReportedCodes)
+                print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
+            }
+        } catch {
+            return Observable<Bool>.just(false)
+        }
+        
+        return Observable<Bool>.just(true) // all good here
+        
+    }
+    
 }

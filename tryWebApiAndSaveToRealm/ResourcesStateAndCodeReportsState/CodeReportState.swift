@@ -62,7 +62,12 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                         
                         sSelf.webNotified.accept((code, success)) // postavi na svoj Output
                         
-                        print("EMITUJEM SUCCESS za code reported to web")
+                        if success {
+                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [code])
+                                .subscribe(onNext: { saved in
+                                    print("code successfully reported to web, save in your archive")
+                                }).disposed(by: sSelf.bag)
+                        }
                         
                         if !success {
                             sSelf.codeReportFailed(code) // izmestac code
@@ -102,7 +107,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         return ApiController.shared.reportSingleCode(report: report)
         
     }
-    
     
     // implement me...
     private func reportToWeb(codeReports: Results<CodeReport>?) {

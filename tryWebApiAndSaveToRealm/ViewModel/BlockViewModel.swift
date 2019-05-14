@@ -88,7 +88,7 @@ class BlockViewModel {
             }
             .last
         
-        print("firstNext = \(String(describing: firstNext?.name)) and actual = \(String(describing: actual?.name))")
+//        print("mostRecentSessionBlock.firstNext = \(String(describing: firstNext?.name)) and actual = \(String(describing: actual?.name))")
         
         //return firstNext
         return actual

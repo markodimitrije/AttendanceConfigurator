@@ -85,6 +85,13 @@ class CodesDumper {
                     .subscribe(onNext: { success in
                         if success {
                             
+                            print("save this bulk of codes into realm = \(codeReports), implement me !!")
+                            
+                            RealmDataPersister.shared.save(codesAcceptedFromWeb: codeReports)
+                                .subscribe(onNext: { saved in
+                                    print("to web reported codes saved to realm = \(saved)")
+                            }).disposed(by: sSelf.bag)
+                            
                             RealmDataPersister.shared.deleteCodeReports(codeReports)
                                 .subscribe(onNext: { deleted in
                                     
