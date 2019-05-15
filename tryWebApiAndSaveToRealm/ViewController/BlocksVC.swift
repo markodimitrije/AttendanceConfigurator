@@ -97,7 +97,10 @@ class BlocksVC: UIViewController {
                                 //rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
                             }
                         } else {
-                            rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                            let sectionBlocks = strongSelf.blockViewModel.sectionBlocks
+                            guard sectionBlocks.count > ip.section else {return}
+                            guard sectionBlocks[ip.section].count > ip.row else {return}
+                            rBlock = sectionBlocks[ip.section][ip.row]
                         }
                     }).disposed(by: strongSelf.disposeBag)
                 

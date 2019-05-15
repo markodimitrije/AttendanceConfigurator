@@ -113,7 +113,7 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func failedDueToNoSettings() {
+    private func showAlertFailedDueToNoSettings() {
         
         self.alert(title: AlertInfo.Scan.NoSettings.title,
                    text: AlertInfo.Scan.NoSettings.msg,
@@ -129,9 +129,19 @@ class ScannerVC: UIViewController {
         if scanerViewModel.sessionId != -1 {
             scanditSuccessfull(code: code, picker: picker)
         } else {
-            failedDueToNoSettings()
+            showAlertFailedDueToNoSettings()
+            restartCameraForScaning(picker)
         }
         
+    }
+    
+    fileprivate func restartCameraForScaning(_ picker: SBSBarcodePicker) {
+        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
+            DispatchQueue.main.async {
+                self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
+                picker.resumeScanning()
+            }
+        }
     }
     
     private func scanditSuccessfull(code: String, picker: SBSBarcodePicker) {
@@ -144,12 +154,7 @@ class ScannerVC: UIViewController {
         
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds))
         
-        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
-            DispatchQueue.main.async {
-                self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
-                picker.resumeScanning()
-            }
-        }
+        restartCameraForScaning(picker)
         
         codeReporter.codeReport.accept(getActualCodeReport())
         
