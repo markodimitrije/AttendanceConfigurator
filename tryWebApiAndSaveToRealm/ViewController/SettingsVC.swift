@@ -118,7 +118,7 @@ class SettingsVC: UITableViewController {
             .drive(roomLbl.rx.text)
             .disposed(by: disposeBag)
         
-        output.sessionTxt.map {$0+$0}
+        output.sessionTxt//.map {$0+$0} test text length
             .drive(sessionLbl.rx.text)
             .disposed(by: disposeBag)
 

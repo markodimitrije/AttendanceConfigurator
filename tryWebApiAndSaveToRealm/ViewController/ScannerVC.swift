@@ -55,7 +55,7 @@ class ScannerVC: UIViewController {
     
     private func bindUI() { // glue code for selected Room
         
-        scanerViewModel.sessionName // SESSION NAME
+        scanerViewModel.sessionName//.map {$0+$0} (test text length) // SESSION NAME
             .bind(to: sessionNameLbl.rx.text)
             .disposed(by: disposeBag)
         
