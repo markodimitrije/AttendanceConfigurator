@@ -514,10 +514,10 @@
             </objects>
             <point key="canvasLocation" x="366" y="1556"/>
         </scene>
-        <!--View Controller-->
+        <!--Web Reported CodesVC-->
         <scene sceneID="470-zO-zmz">
             <objects>
-                <viewController id="6EE-vo-Nzy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebReportedCodesVC" id="6EE-vo-Nzy" customClass="WebReportedCodesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d6V-ML-a0d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -525,6 +525,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-i6-ajL">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="GiZ-e7-Iw3">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiZ-e7-Iw3" id="rvZ-F9-CnN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -537,6 +547,9 @@
                         <viewLayoutGuide key="safeArea" id="VtG-gZ-Aln"/>
                     </view>
                     <navigationItem key="navigationItem" id="P5A-Sb-cSo"/>
+                    <connections>
+                        <outlet property="tableView" destination="SMG-i6-ajL" id="Z05-eA-Pud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLS-al-kri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

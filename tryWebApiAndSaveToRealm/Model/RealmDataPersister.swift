@@ -10,10 +10,24 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import Realm
+import RxRealm
 
 struct RealmDataPersister {
     
     static var shared = RealmDataPersister()
+    
+    // observable OUTPUT
+    
+    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
+        
+        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
+        
+        let results = realm.objects(RealmWebReportedCode.self)
+        
+        return Observable.collection(from: results) // this is live source !!
+        
+    }
+
     
     // MARK:- CodeReports
     
@@ -198,7 +212,7 @@ struct RealmDataPersister {
         
         let firstAvailableId = realm.objects(RealmWebReportedCode.self).count
         let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedCode in
-            var record = RealmWebReportedCode.create(id: firstAvailableId + offset, codeReport: codeReport)
+            let record = RealmWebReportedCode.create(id: firstAvailableId + offset, codeReport: codeReport)
             return record
         }
         
@@ -214,5 +228,16 @@ struct RealmDataPersister {
         return Observable<Bool>.just(true) // all good here
         
     }
+    
+    // FETCH
+//    func getWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
+//
+//        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
+//
+//        let results = realm.objects(RealmWebReportedCode.self)
+//
+//        return Observable.collection(from: results) // this is live source !!
+//
+//    }
     
 }

@@ -146,7 +146,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="355"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e_materials" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Go-Dt5">
-                                        <rect key="frame" x="57.5" y="307" width="260" height="40"/>
+                                        <rect key="frame" x="179.5" y="307" width="16" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kwx-YT-8Wy"/>
                                         </constraints>
@@ -264,10 +264,10 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="403.44827586206901"/>
         </scene>
-        <!--View Controller-->
+        <!--Web Reported CodesVC-->
         <scene sceneID="3xB-4I-fdB">
             <objects>
-                <viewController id="DVU-uz-03j" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebReportedCodesVC" id="DVU-uz-03j" customClass="WebReportedCodesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ggm-Tb-npM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -275,6 +275,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZVL-qo-1VJ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="QGn-zQ-4cT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QGn-zQ-4cT" id="OY1-Be-uwi">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -287,6 +297,9 @@
                         <viewLayoutGuide key="safeArea" id="GDf-aF-hnm"/>
                     </view>
                     <navigationItem key="navigationItem" id="V15-xP-F4g"/>
+                    <connections>
+                        <outlet property="tableView" destination="ZVL-qo-1VJ" id="YeZ-pf-Rpg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOa-zQ-IWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

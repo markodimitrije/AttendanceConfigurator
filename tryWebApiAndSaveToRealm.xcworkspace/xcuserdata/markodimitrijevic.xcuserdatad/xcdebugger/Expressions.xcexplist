@@ -3,13 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AutoSessionTimer.fire():AutoSessionTimer.swift">
+         contextName = "WebReportedCodesDataSource.tableView(_:numberOfRowsInSection:):WebReportedCodesVC.swift">
          <PersistentStrings>
             <PersistentString
-               value = "actualSettings.roomId">
+               value = "data">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #11 in SettingsViewModel.transform(input:):SettingsViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "autoSwitch">
             </PersistentString>
             <PersistentString
-               value = "actualSettings.autoSwitch">
+               value = "compositeSwitch">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,13 +30,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #11 in SettingsViewModel.transform(input:):SettingsViewModel.swift">
+         contextName = "AutoSessionTimer.fire():AutoSessionTimer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "autoSwitch">
+               value = "actualSettings.roomId">
             </PersistentString>
             <PersistentString
-               value = "compositeSwitch">
+               value = "actualSettings.autoSwitch">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
