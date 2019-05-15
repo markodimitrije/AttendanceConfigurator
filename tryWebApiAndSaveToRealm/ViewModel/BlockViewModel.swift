@@ -145,9 +145,10 @@ class BlockViewModel {
             let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
             //let itemTupols = blocks.map {(($0.starts_at + " " + $0.name), Date.parse($0.starts_at))}
             let items = blocks.map({ (rBlock) -> SectionOfCustomData.Item in
-                let name = rBlock.starts_at + " " + rBlock.name
+                let fullname = rBlock.starts_at + " " + rBlock.name
+                let name = rBlock.name
                 let date = Date.parse(rBlock.starts_at)
-                return SectionOfCustomData.Item(name: name, date: date)
+                return SectionOfCustomData.Item(fullname: fullname, name: name, date: date)
             })
             return SectionOfCustomData.init(header: sectionName, items: items)
         })

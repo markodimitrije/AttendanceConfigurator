@@ -31,6 +31,8 @@ class BlocksVC: UIViewController {
     
     var selectedInterval = BehaviorRelay.init(value: MyTimeInterval.waitToMostRecentSession)
     
+    private var source: Observable<[SectionOfCustomData]>!
+    
     override func viewDidLoad() { super.viewDidLoad()
         bindUI()
         navigationItem.title = "SESSIONS"
@@ -41,10 +43,12 @@ class BlocksVC: UIViewController {
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
             configureCell: { dataSource, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                cell.textLabel?.numberOfLines = 0
                 cell.textLabel?.text = item.name
-                if Calendar.current.isDateInToday(item.date) {
-                    cell.backgroundColor = .green
-                }
+                cell.detailTextLabel?.text = item.date.toString(format: Date.defaultFormatString)
+//                if Calendar.current.isDateInToday(item.date) {
+//                    cell.backgroundColor = .green
+//                }
                 return cell
         })
         
@@ -52,9 +56,29 @@ class BlocksVC: UIViewController {
             return dataSource.sectionModels[index].header
         }
         
-        var source: Observable<[SectionOfCustomData]>
+        loadTableViewDataSourceUponSelectedDate() // one or many sections...
         
-        // tableView dataSource
+        hookupTableViewItems(to: dataSource) // display items (cells)
+        
+        hookUpTableViewDidSelect() // tableView didSelect
+        
+        blockViewModel.oAutoSelSessInterval
+            .asObservable()
+            .subscribe(onNext: { [weak self] seconds in
+                guard let sSelf = self else {return}
+                sSelf.selectedInterval.accept(seconds)
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func hookupTableViewItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
+        source
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+    
+    private func loadTableViewDataSourceUponSelectedDate() { // tableView dataSource
         if let selectedDate = selectedDate {
             
             source = blockViewModel.oSectionsHeadersAndItems.flatMap({ sections -> BehaviorRelay<[SectionOfCustomData]> in
@@ -67,17 +91,14 @@ class BlocksVC: UIViewController {
         } else {
             source = blockViewModel.oSectionsHeadersAndItems.asObservable()
         }
-        
-        source
-            .bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
-        
-        // tableView didSelect
+    }
+    
+    private func hookUpTableViewDidSelect() {
         tableView.rx.itemSelected // (**)
             .subscribe(onNext: { [weak self] ip in guard let strongSelf = self else {return}
-
+                
                 var rBlock: RealmBlock!
-                source
+                strongSelf.source
                     .subscribe(onNext: { (sections) in
                         
                         if let selectedDate = strongSelf.selectedDate {
@@ -104,15 +125,7 @@ class BlocksVC: UIViewController {
                 strongSelf.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
-        
-        blockViewModel.oAutoSelSessInterval
-            .asObservable()
-            .subscribe(onNext: { [weak self] seconds in
-                guard let sSelf = self else {return}
-                sSelf.selectedInterval.accept(seconds)
-            })
-            .disposed(by: disposeBag)
+
     }
     
     private let disposeBag = DisposeBag()

@@ -28,6 +28,7 @@ extension SectionOfCustomData: SectionModelType {
 }
 
 struct BlockItem {
+    var fullname: String
     var name: String
     var date: Date
 }

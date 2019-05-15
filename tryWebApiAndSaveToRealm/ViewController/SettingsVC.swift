@@ -118,7 +118,7 @@ class SettingsVC: UITableViewController {
             .drive(roomLbl.rx.text)
             .disposed(by: disposeBag)
         
-        output.sessionTxt
+        output.sessionTxt.map {$0+$0}
             .drive(sessionLbl.rx.text)
             .disposed(by: disposeBag)
 

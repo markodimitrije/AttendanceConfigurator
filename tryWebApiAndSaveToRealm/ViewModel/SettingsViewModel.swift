@@ -78,8 +78,7 @@ final class SettingsViewModel: ViewModelType {
         let sessionInfo = Driver.combineLatest(input.roomSelected,
                                                finalSession,
                                                input.dateSelected,
-//                                               input.autoSelSessionSwitch) {
-                                                compositeSwitch) {
+                                               compositeSwitch) {
             
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
