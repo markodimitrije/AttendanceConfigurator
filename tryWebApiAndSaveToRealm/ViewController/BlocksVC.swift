@@ -59,7 +59,6 @@ class BlocksVC: UIViewController {
             
             source = blockViewModel.oSectionsHeadersAndItems.flatMap({ sections -> BehaviorRelay<[SectionOfCustomData]> in
                 let section = sections.first(where: { section -> Bool in
-                    //return section.items.first!.date == selectedDate
                     return Calendar.current.isDate(section.items.first!.date, inSameDayAs: selectedDate)
                 }) ?? SectionOfCustomData(header: "", items: [])
                 return BehaviorRelay.init(value: [section])
@@ -76,8 +75,7 @@ class BlocksVC: UIViewController {
         // tableView didSelect
         tableView.rx.itemSelected // (**)
             .subscribe(onNext: { [weak self] ip in guard let strongSelf = self else {return}
-                
-                //let rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+
                 var rBlock: RealmBlock!
                 source
                     .subscribe(onNext: { (sections) in
@@ -87,14 +85,11 @@ class BlocksVC: UIViewController {
                             if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
                                 
                                 Calendar.current.isDate(Date.parse(groups.first!.starts_at), inSameDayAs: selectedDate)
-                                //Date.parse(groups.first?.starts_at ?? "\(NOW)") == strongSelf.selectedDate ?? NOW
                                 
                             }) {
                                 rBlock = blockGroup[ip.row]
                             } else {
-                                print("o-o, should never get here....")
-                                fatalError()
-                                //rBlock = strongSelf.blockViewModel.sectionBlocks[ip.section][ip.row]
+                                print("o-o, should never get here...."); fatalError()
                             }
                         } else {
                             let sectionBlocks = strongSelf.blockViewModel.sectionBlocks

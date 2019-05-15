@@ -83,6 +83,8 @@ final class SettingsViewModel: ViewModelType {
             
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
+            guard session != nil else {return nil}
+                                                
             print("emitovao je pre self.dataAccess.userSelection = , autoSwitch-compositeSwitch = \(autoSwitch) ")
             
             self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect

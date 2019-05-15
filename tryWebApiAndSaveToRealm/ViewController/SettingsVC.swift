@@ -141,7 +141,6 @@ class SettingsVC: UITableViewController {
             .subscribe(onNext: { [weak self] (info) in
                 guard let sSelf = self else {return}
                 guard let info = info else { // ako nemas info, tapnuo je cancel na BlocksVC
-//                    sSelf.autoSelectSessionsView.controlSwitch.isOn = true
                     return
                 }
                 
@@ -161,10 +160,6 @@ class SettingsVC: UITableViewController {
         DataAccess.shared.output.map {$0.3}.asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
-//        output.compositeSwitch
-//            .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
-//            .disposed(by: disposeBag)
-        
     }
 
     private func bindReachability() {
