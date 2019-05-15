@@ -20,6 +20,7 @@ class WebReportedCodesVC: UIViewController {
     
     override func viewDidLoad() { super.viewDidLoad()
         self.tableView.dataSource = dataSource
+        navigationItem.title = "Synced codes"
     }
 }
 
@@ -27,9 +28,7 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
     
     private var data = [String]() {
         didSet {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
+            self.tableView.reloadData()
         }
     } // hooked with realm in func: "hookUpDataFromRealm"
     

@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOP-EG-MdP" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089.84375" y="771.875"/>
+            <point key="canvasLocation" x="1814.0624999999998" y="771.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SQ3-Cy-wPm">
@@ -218,7 +218,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="qrCode"/>
                                         <connections>
-                                            <segue destination="6EE-vo-Nzy" kind="popoverPresentation" popoverAnchorView="AFW-dZ-S2F" id="fAS-lf-dir">
+                                            <segue destination="qux-T8-2iT" kind="popoverPresentation" popoverAnchorView="AFW-dZ-S2F" id="fAS-lf-dir">
                                                 <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                             </segue>
                                         </connections>
@@ -512,9 +512,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XB-UZ-gX2" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="1556"/>
+            <point key="canvasLocation" x="1089.84375" y="1555.46875"/>
         </scene>
-        <!--Web Reported CodesVC-->
+        <!--Synced codes-->
         <scene sceneID="470-zO-zmz">
             <objects>
                 <viewController storyboardIdentifier="WebReportedCodesVC" id="6EE-vo-Nzy" customClass="WebReportedCodesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,7 +523,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-i6-ajL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="GiZ-e7-Iw3">
@@ -546,14 +546,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VtG-gZ-Aln"/>
                     </view>
-                    <navigationItem key="navigationItem" id="P5A-Sb-cSo"/>
+                    <navigationItem key="navigationItem" title="Synced codes" id="P5A-Sb-cSo"/>
                     <connections>
                         <outlet property="tableView" destination="SMG-i6-ajL" id="Z05-eA-Pud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLS-al-kri" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="1203"/>
+            <point key="canvasLocation" x="-379" y="1202"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="koS-t0-0RC">
@@ -572,6 +572,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHZ-TV-wo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1827.5390624999998" y="405.46875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r8I-96-iik">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qux-T8-2iT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U25-Yu-y9o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6EE-vo-Nzy" kind="relationship" relationship="rootViewController" id="Pg6-it-8OL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GV1-Bo-4VO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1103.3203125" y="1202.34375"/>
         </scene>
     </scenes>
     <resources>
