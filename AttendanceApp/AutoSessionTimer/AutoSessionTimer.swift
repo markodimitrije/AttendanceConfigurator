@@ -18,7 +18,7 @@ class AutoSessionTimer {
         self.dataAccess = dataAccess
         
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         }
         
         NotificationCenter.default.addObserver(self,
@@ -31,10 +31,6 @@ class AutoSessionTimer {
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
         
-        dataAccess.output
-            .subscribe(onNext: { [weak self] (room, block, date, autoSwitch) in
-                self?.fire()
-            }).disposed(by: disposeBag)
     }
     
     @objc func fire() { // print("AutoSessionTimer/fire, check for auto session = \(NOW)")
@@ -45,6 +41,7 @@ class AutoSessionTimer {
                 guard let sSelf = self else {return}
                 var updateData = sSelf.dataAccess.userSelection
                 updateData.blockId = block?.id
+                //print("updateData", updateData);print("updated block name", block!.name)
                 sSelf.dataAccess.userSelection = updateData
             }).disposed(by: disposeBag)
         } else {
@@ -60,7 +57,7 @@ class AutoSessionTimer {
     }
     
     @objc func appWillEnterForeground() {
-        timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
     }
     
     private let disposeBag = DisposeBag()

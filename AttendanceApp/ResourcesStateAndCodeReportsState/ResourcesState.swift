@@ -110,7 +110,8 @@ class ResourcesState {
         print("ResourceState.fetchRoomsAndBlocksResources is called, date = \(Date.now)")
         
         fetchRoomsAndSaveToRealm()
-        fetchSessionsAndSaveToRealm()
+        //fetchSessionsAndSaveToRealm()
+        fetchSessionsAndSaveToRealmMOCK()
         
     }
     
@@ -144,7 +145,7 @@ class ResourcesState {
             })
             .disposed(by: bag)
         
-    }
+    } // hard coded off for testing
     
     private func fetchSessionsAndSaveToRealm() { // print("fetchSessionsAndSaveToRealm is called")
         
@@ -175,10 +176,62 @@ class ResourcesState {
                 
             })
             .disposed(by: bag)
+    } // hard coded off for testing
+    
+    
+    private func fetchSessionsAndSaveToRealmMOCK() { // print("fetchSessionsAndSaveToRealm is called")
+        
+        let filename = getFilenameToReadJsonDataFrom()
+        
+        guard let jsonSessions = JsonFromBundleParser.readJSONFromFile(fileName: filename) as? [String: Any],
+            let sessions = jsonSessions["data"] as? [[String: Any]] else {fatalError("no sessions!!")}
+        
+        let blocks = sessions.map { (blockDict) -> Block in
+            let data = try! JSONSerialization.data(withJSONObject: blockDict, options: .prettyPrinted)
+            let decoder = JSONDecoder.init()
+            guard let block = try? decoder.decode(Block.self, from: data) else {
+                fatalError("cant convert....")
+            }
+            return block
+        }
+        
+        guard blocks.count > 0 else { fatalError("blocks received == 0 !") }
+        
+        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
+            .subscribe(onNext: { (success) in
+                
+                if success {
+                    
+                    RealmDataPersister.shared.save(blocks: blocks)
+                        .subscribe(onNext: { (success) in
+                            
+                            self.downloads.onNext(success)
+                            
+                        })
+                        .disposed(by: self.bag)
+                }
+                
+            }).disposed(by: bag)
     }
+    
+    
     
     deinit {
         print("ResourcesState.deinit is called")
     }
     
+}
+
+func getFilenameToReadJsonDataFrom() -> String {
+    guard let savedFilename = UserDefaults.standard.value(forKey: "jsonDataBundle") as? String else {
+        UserDefaults.standard.setValue("cities", forKey: "jsonDataBundle")
+        return "cities"
+    }
+    if savedFilename == "cities" {
+        UserDefaults.standard.setValue("citiesUpdated", forKey: "jsonDataBundle")
+        return "citiesUpdated"
+    } else {
+        UserDefaults.standard.setValue("cities", forKey: "jsonDataBundle")
+        return "cities"
+    }
 }

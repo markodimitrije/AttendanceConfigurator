@@ -35,6 +35,10 @@ class DataAccess: NSObject {
             UserDefaults.standard.set(newValue.1, forKey: "sessionId")
             UserDefaults.standard.set(newValue.2, forKey: "date")
             UserDefaults.standard.set(newValue.3, forKey: "autoSwitch")
+            userDefaultsIsUpdated(forKeyPath: "roomId")
+            userDefaultsIsUpdated(forKeyPath: "sessionId")
+            userDefaultsIsUpdated(forKeyPath: "date")
+            userDefaultsIsUpdated(forKeyPath: "autoSwitch")
         }
     }
     
@@ -45,20 +49,16 @@ class DataAccess: NSObject {
                                         _dateSelected.asObservable(),
                                         _autoSwitchSelected.asObservable(),
             resultSelector: { (room, block, date, autoSwitch) -> (Room?, Block?, Date?, Bool) in
-//            print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id)")
+            //print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id), sa blockName = \(block?.name ?? "no  name")")
             return (room, block, date, autoSwitch)
         })
     }
     
     override init() {
         super.init()
-        UserDefaults.standard.addObserver(self, forKeyPath: "roomId", options: [.initial, .new], context: nil)
-        UserDefaults.standard.addObserver(self, forKeyPath: "sessionId", options: [.initial, .new], context: nil)
-        UserDefaults.standard.addObserver(self, forKeyPath: "date", options: [.initial, .new], context: nil)
-        UserDefaults.standard.addObserver(self, forKeyPath: "autoSwitch", options: [.initial, .new], context: nil)
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    private func userDefaultsIsUpdated(forKeyPath keyPath: String?) {
         
         guard let keyPath = keyPath else {return}
         guard let realm = try? Realm.init() else {return}

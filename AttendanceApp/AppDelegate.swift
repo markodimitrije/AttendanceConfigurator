@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var alertStateMonitor: AlertStateMonitor!
     private var deviceAlertMonitor: AlertStateReporter!
     private var userSelection = UserSelectionManager()
-    private let autoSessionTimer = AutoSessionTimer.init(dataAccess: DataAccess.shared)
+    private let autoSessionTimer =  AutoSessionTimer.init(dataAccess: DataAccess.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
@@ -34,9 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         alertStateMonitor = AlertStateMonitor.init()
         deviceAlertMonitor = AlertStateReporter.init(monitor: alertStateMonitor, webAPI: ApiController.shared)
-        
-        UserDefaults.standard.addObserver(userSelection, forKeyPath: "roomId", options: [.new, .initial], context: nil)
-        UserDefaults.standard.addObserver(userSelection, forKeyPath: "sessionId", options: [.new, .initial], context: nil)
         
         userSelection.location.drive(deviceAlertMonitor.roomId).disposed(by: bag)
         userSelection.block.drive(deviceAlertMonitor.sessionId).disposed(by: bag)
