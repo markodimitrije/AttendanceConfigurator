@@ -13,7 +13,7 @@
         <!--Select the room-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RoomsVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RoomsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
         <!--BlocksVC-->
         <scene sceneID="dxs-rp-7TQ">
             <objects>
-                <viewController storyboardIdentifier="BlocksVC" id="Qcf-ha-yJo" customClass="BlocksVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlocksVC" id="Qcf-ha-yJo" customClass="BlocksVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zuQ-JO-TJv">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
         <!--ScannerVC-->
         <scene sceneID="moc-s0-wAc">
             <objects>
-                <viewController id="e5d-ka-5Kd" customClass="ScannerVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="e5d-ka-5Kd" customClass="ScannerVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="thC-QS-gsm">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,8 +193,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRb-3x-EAo" userLabel="settingsBtn">
-                                        <rect key="frame" x="357.5" y="8" width="44" height="44"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="357.5" y="34" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="foA-BG-DWs"/>
                                             <constraint firstAttribute="width" secondItem="rRb-3x-EAo" secondAttribute="height" multiplier="1:1" id="vyM-JM-T7j"/>
@@ -217,8 +216,15 @@
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="va8-MP-olz"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrh-DZ-Ac3" userLabel="dummyView">
+                                        <rect key="frame" x="374.5" y="86" width="10" height="10"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="HAY-zh-Pn0"/>
+                                            <constraint firstAttribute="height" constant="10" id="beR-pp-v9r"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFW-dZ-S2F" userLabel="qrCodeBtn">
-                                        <rect key="frame" x="357.5" y="60" width="44" height="44"/>
+                                        <rect key="frame" x="357.5" y="104" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="7oO-m2-APf"/>
                                             <constraint firstAttribute="width" secondItem="AFW-dZ-S2F" secondAttribute="height" multiplier="1:1" id="nGc-9B-vd4"/>
@@ -233,19 +239,21 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Lrh-DZ-Ac3" firstAttribute="centerY" secondItem="Za6-Cr-zEr" secondAttribute="centerY" id="9Mi-Z8-Tor"/>
                                     <constraint firstAttribute="trailing" secondItem="rRb-3x-EAo" secondAttribute="trailing" constant="8" id="AXn-aG-chK"/>
                                     <constraint firstItem="IqP-ec-QlF" firstAttribute="top" secondItem="Za6-Cr-zEr" secondAttribute="bottom" constant="40" id="E1o-aB-2eo"/>
                                     <constraint firstItem="rRb-3x-EAo" firstAttribute="leading" secondItem="Za6-Cr-zEr" secondAttribute="trailing" constant="16" id="JKl-WN-1R4"/>
                                     <constraint firstItem="IqP-ec-QlF" firstAttribute="centerX" secondItem="06H-9q-0RX" secondAttribute="centerX" id="LLU-Ae-PU0"/>
                                     <constraint firstItem="Za6-Cr-zEr" firstAttribute="top" secondItem="06H-9q-0RX" secondAttribute="top" constant="16" id="OXT-nT-HpU"/>
                                     <constraint firstItem="AFW-dZ-S2F" firstAttribute="width" secondItem="AFW-dZ-S2F" secondAttribute="height" multiplier="1:1" id="Otd-LH-ISm"/>
-                                    <constraint firstItem="rRb-3x-EAo" firstAttribute="top" secondItem="06H-9q-0RX" secondAttribute="top" constant="8" id="Sut-EF-2Vb"/>
                                     <constraint firstAttribute="bottom" secondItem="0tL-pJ-k21" secondAttribute="bottom" constant="20" id="Yxp-z0-gpM"/>
                                     <constraint firstItem="IqP-ec-QlF" firstAttribute="leading" secondItem="06H-9q-0RX" secondAttribute="leading" constant="8" id="aUy-h8-bK1"/>
                                     <constraint firstItem="Za6-Cr-zEr" firstAttribute="leading" secondItem="06H-9q-0RX" secondAttribute="leading" constant="16" id="bFL-zI-Okr"/>
                                     <constraint firstAttribute="trailing" secondItem="IqP-ec-QlF" secondAttribute="trailing" constant="8" id="f7p-AI-d8G"/>
-                                    <constraint firstItem="AFW-dZ-S2F" firstAttribute="top" secondItem="rRb-3x-EAo" secondAttribute="bottom" constant="8" id="ibr-Ne-7Ma"/>
+                                    <constraint firstItem="Lrh-DZ-Ac3" firstAttribute="top" secondItem="rRb-3x-EAo" secondAttribute="bottom" constant="8" id="iq8-yD-8ld"/>
+                                    <constraint firstItem="AFW-dZ-S2F" firstAttribute="top" secondItem="Lrh-DZ-Ac3" secondAttribute="bottom" constant="8" id="j64-jY-KmJ"/>
                                     <constraint firstItem="0tL-pJ-k21" firstAttribute="leading" secondItem="06H-9q-0RX" secondAttribute="leading" id="u2T-mQ-Dr3"/>
+                                    <constraint firstItem="Lrh-DZ-Ac3" firstAttribute="leading" secondItem="Za6-Cr-zEr" secondAttribute="trailing" constant="33" id="u2y-Fv-XJ1"/>
                                     <constraint firstItem="AFW-dZ-S2F" firstAttribute="width" secondItem="AFW-dZ-S2F" secondAttribute="height" multiplier="1:1" id="vho-Jb-aGd"/>
                                     <constraint firstAttribute="trailing" secondItem="AFW-dZ-S2F" secondAttribute="trailing" constant="8" id="x7g-lb-xCp"/>
                                     <constraint firstAttribute="trailing" secondItem="0tL-pJ-k21" secondAttribute="trailing" id="yZd-Jd-j6V"/>
@@ -281,7 +289,7 @@
         <!--SettingsVC-->
         <scene sceneID="JBd-Ds-4NK">
             <objects>
-                <tableViewController id="jL5-oN-B50" customClass="SettingsVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jL5-oN-B50" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="44" estimatedSectionHeaderHeight="44" sectionFooterHeight="1" id="7lv-sE-zj0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,7 +379,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1h-bM-EpV" customClass="AutoSelectSessionsView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1h-bM-EpV" customClass="AutoSelectSessionsView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -395,7 +403,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHv-tg-OV2" customClass="UnsyncedScansView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHv-tg-OV2" customClass="UnsyncedScansView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -415,7 +423,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-ke-GZ0" customClass="WiFiConnectionView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkE-ke-GZ0" customClass="WiFiConnectionView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -475,7 +483,7 @@
         <!--DatesVC-->
         <scene sceneID="Wtq-7A-WoN">
             <objects>
-                <viewController storyboardIdentifier="DatesVC" id="3B6-0Z-gMe" customClass="DatesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatesVC" id="3B6-0Z-gMe" customClass="DatesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jgH-C3-8Ce">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -525,7 +533,7 @@
         <!--Synced codes-->
         <scene sceneID="470-zO-zmz">
             <objects>
-                <viewController storyboardIdentifier="WebReportedCodesVC" id="6EE-vo-Nzy" customClass="WebReportedCodesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebReportedCodesVC" id="6EE-vo-Nzy" customClass="WebReportedCodesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d6V-ML-a0d">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -603,8 +611,8 @@
     <resources>
         <image name="arrow" width="256" height="384"/>
         <image name="e_materials" width="260" height="68"/>
-        <image name="qrCode" width="220" height="220"/>
-        <image name="settings" width="22" height="22"/>
-        <image name="upper-banner" width="768" height="259.5"/>
+        <image name="qrCode" width="60" height="60"/>
+        <image name="settings" width="60" height="60"/>
+        <image name="upper-banner" width="3513" height="771"/>
     </resources>
 </document>

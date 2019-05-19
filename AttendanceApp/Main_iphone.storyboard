@@ -13,7 +13,7 @@
         <!--ROOMS-->
         <scene sceneID="2Pu-ky-5LG">
             <objects>
-                <viewController id="kJk-XK-HMl" customClass="RoomsVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kJk-XK-HMl" customClass="RoomsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6gb-MD-ko2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,7 +66,7 @@
         <!--BlocksVC-->
         <scene sceneID="gQ3-Po-UkO">
             <objects>
-                <viewController storyboardIdentifier="BlocksVC" id="ceW-4R-qL9" customClass="BlocksVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlocksVC" id="ceW-4R-qL9" customClass="BlocksVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E8B-t6-K2y">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -141,7 +141,7 @@
         <!--ScannerVC-->
         <scene sceneID="yEB-PI-bXP">
             <objects>
-                <viewController id="pt0-GI-Pul" customClass="ScannerVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pt0-GI-Pul" customClass="ScannerVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t5F-ga-vjV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +202,6 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8NO-wm-8LO" userLabel="settingsBtn">
                                         <rect key="frame" x="268" y="8" width="44" height="44"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="8NO-wm-8LO" secondAttribute="height" multiplier="1:1" id="SrV-6d-QoH"/>
                                             <constraint firstAttribute="width" constant="44" id="VwN-Cb-MgL"/>
@@ -216,7 +215,7 @@
                                         <rect key="frame" x="16" y="8" width="236" height="108"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kat-m8-HbI" userLabel="qrCodeBtn">
-                                        <rect key="frame" x="268" y="60" width="44" height="44"/>
+                                        <rect key="frame" x="268" y="72" width="44" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="44" id="2pd-Cu-rmp"/>
                                             <constraint firstAttribute="width" secondItem="kat-m8-HbI" secondAttribute="height" multiplier="1:1" id="iJl-Ug-BE9"/>
@@ -234,11 +233,11 @@
                                     <constraint firstAttribute="trailing" secondItem="kat-m8-HbI" secondAttribute="trailing" constant="8" id="HEc-FX-Gcy"/>
                                     <constraint firstItem="bPn-1W-XSZ" firstAttribute="top" secondItem="8NO-wm-8LO" secondAttribute="top" id="JNk-CI-udb"/>
                                     <constraint firstAttribute="height" constant="240" id="KaK-6K-XmY"/>
-                                    <constraint firstItem="8NO-wm-8LO" firstAttribute="top" secondItem="ylu-J8-AOn" secondAttribute="top" constant="8" id="RxP-t6-S5A"/>
+                                    <constraint firstItem="8NO-wm-8LO" firstAttribute="top" secondItem="ylu-J8-AOn" secondAttribute="top" constant="8" id="Qn8-x1-fda"/>
                                     <constraint firstItem="8NO-wm-8LO" firstAttribute="leading" secondItem="bPn-1W-XSZ" secondAttribute="trailing" constant="16" id="Sn0-dH-7ho"/>
                                     <constraint firstItem="VPp-aU-J3I" firstAttribute="centerX" secondItem="ylu-J8-AOn" secondAttribute="centerX" id="WLQ-kH-wm5"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="VPp-aU-J3I" secondAttribute="bottom" constant="8" id="YVm-jG-GKo"/>
-                                    <constraint firstItem="kat-m8-HbI" firstAttribute="top" secondItem="8NO-wm-8LO" secondAttribute="bottom" constant="8" id="fVS-ER-HDL"/>
+                                    <constraint firstItem="kat-m8-HbI" firstAttribute="bottom" secondItem="bPn-1W-XSZ" secondAttribute="bottom" id="eFw-01-taE"/>
                                     <constraint firstItem="VPp-aU-J3I" firstAttribute="leading" secondItem="ylu-J8-AOn" secondAttribute="leading" constant="8" id="jUF-lA-FuK"/>
                                     <constraint firstItem="VPp-aU-J3I" firstAttribute="top" secondItem="bPn-1W-XSZ" secondAttribute="bottom" constant="8" id="wuw-bI-rZe"/>
                                     <constraint firstItem="bPn-1W-XSZ" firstAttribute="height" secondItem="ylu-J8-AOn" secondAttribute="height" multiplier="0.45" id="y50-om-uaa"/>
@@ -274,7 +273,7 @@
         <!--Web Reported CodesVC-->
         <scene sceneID="3xB-4I-fdB">
             <objects>
-                <viewController storyboardIdentifier="WebReportedCodesVC" id="DVU-uz-03j" customClass="WebReportedCodesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebReportedCodesVC" id="DVU-uz-03j" customClass="WebReportedCodesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ggm-Tb-npM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -315,7 +314,7 @@
         <!--SettingsVC-->
         <scene sceneID="Cri-Xx-bie">
             <objects>
-                <tableViewController id="kUY-OH-lrd" customClass="SettingsVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kUY-OH-lrd" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="44" estimatedSectionHeaderHeight="44" sectionFooterHeight="1" id="Lzk-he-NQD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -404,7 +403,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFY-fE-STU" customClass="AutoSelectSessionsView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFY-fE-STU" customClass="AutoSelectSessionsView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -428,7 +427,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-yL-uPJ" customClass="UnsyncedScansView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7oo-yL-uPJ" customClass="UnsyncedScansView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -448,7 +447,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvu-Xl-Uo2" customClass="WiFiConnectionView" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvu-Xl-Uo2" customClass="WiFiConnectionView" customModule="AttendanceApp" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -508,7 +507,7 @@
         <!--DatesVC-->
         <scene sceneID="DE4-Tg-CdV">
             <objects>
-                <viewController storyboardIdentifier="DatesVC" id="Pde-o8-A5s" customClass="DatesVC" customModule="tryWebApiAndSaveToRealm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatesVC" id="Pde-o8-A5s" customClass="DatesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gmY-wo-8kP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -577,8 +576,8 @@
     <resources>
         <image name="arrow" width="256" height="384"/>
         <image name="e_materials" width="260" height="68"/>
-        <image name="qrCode" width="220" height="220"/>
-        <image name="settings" width="22" height="22"/>
-        <image name="upper-banner" width="768" height="259.5"/>
+        <image name="qrCode" width="60" height="60"/>
+        <image name="settings" width="60" height="60"/>
+        <image name="upper-banner" width="3513" height="771"/>
     </resources>
 </document>
