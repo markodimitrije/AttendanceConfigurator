@@ -47,9 +47,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func bindInputWithOutput() {
-        
-        print("CodeReportsState.bindInputWithOutput")
+    private func bindInputWithOutput() { print("CodeReportsState.bindInputWithOutput")
         
         codeReport
             .asObservable()

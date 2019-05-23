@@ -73,9 +73,7 @@ class CodesDumper {
     private func hookUpNotifyWeb() {
         
         timeToSendReport
-            .subscribe(onNext: { [weak self] timeToReport in
-                
-//                print("timeToReport = \(timeToReport)")
+            .subscribe(onNext: { [weak self] timeToReport in // print("timeToReport = \(timeToReport)")
                 
                 guard let sSelf = self else {return}
                 
