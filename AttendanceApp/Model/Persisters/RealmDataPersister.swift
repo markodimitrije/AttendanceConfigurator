@@ -229,15 +229,4 @@ struct RealmDataPersister {
         
     }
     
-    // FETCH
-//    func getWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
-//
-//        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-//
-//        let results = realm.objects(RealmWebReportedCode.self)
-//
-//        return Observable.collection(from: results) // this is live source !!
-//
-//    }
-    
 }

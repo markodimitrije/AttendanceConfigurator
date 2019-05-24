@@ -15,6 +15,9 @@
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
 		7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44722982DC5008C23F8 /* Delegate.swift */; };
 		7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */; };
+		7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */; };
+		7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E452229832E5008C23F8 /* RealmBlock.swift */; };
+		7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E45422983331008C23F8 /* RealmDelegate.swift */; };
 		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
@@ -102,6 +105,9 @@
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
 		7CB1E44722982DC5008C23F8 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerFactory.swift; path = AttendanceApp/Factories/ViewControllerFactory.swift; sourceTree = SOURCE_ROOT; };
+		7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesPersister.swift; sourceTree = "<group>"; };
+		7CB1E452229832E5008C23F8 /* RealmBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlock.swift; sourceTree = "<group>"; };
+		7CB1E45422983331008C23F8 /* RealmDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegate.swift; sourceTree = "<group>"; };
 		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
@@ -228,6 +234,41 @@
 			path = Factories;
 			sourceTree = "<group>";
 		};
+		7CB1E44C229830E5008C23F8 /* Persisters */ = {
+			isa = PBXGroup;
+			children = (
+				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
+				7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */,
+			);
+			path = Persisters;
+			sourceTree = "<group>";
+		};
+		7CB1E44F229832B0008C23F8 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		7CB1E450229832BC008C23F8 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				AD80EFFB217DCE27003CEDD0 /* Block.swift */,
+				7CB1E452229832E5008C23F8 /* RealmBlock.swift */,
+			);
+			path = Block;
+			sourceTree = "<group>";
+		};
+		7CB1E451229832C8008C23F8 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				7CB1E44722982DC5008C23F8 /* Delegate.swift */,
+				7CB1E45422983331008C23F8 /* RealmDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,12 +391,12 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7CB1E451229832C8008C23F8 /* Delegate */,
+				7CB1E450229832BC008C23F8 /* Block */,
+				7CB1E44F229832B0008C23F8 /* Room */,
+				7CB1E44C229830E5008C23F8 /* Persisters */,
 				7CED41BA2268825D00FFB34E /* Report */,
 				AD29521D217B5B23002DDE32 /* Model.swift */,
-				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
-				AD80EFFB217DCE27003CEDD0 /* Block.swift */,
-				7CB1E44722982DC5008C23F8 /* Delegate.swift */,
-				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */,
 			);
 			path = Model;
@@ -650,6 +691,7 @@
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
 				ADAE9C322189F5F500615125 /* RxAVCaptureMetadataCaptureDelegate.swift in Sources */,
+				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
@@ -663,6 +705,8 @@
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				ADAE9C242189F57D00615125 /* AVSessionViewModel.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
+				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
+				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,

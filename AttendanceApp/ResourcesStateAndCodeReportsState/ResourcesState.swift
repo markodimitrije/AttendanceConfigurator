@@ -38,7 +38,7 @@ class ResourcesState {
     
     private let bag = DisposeBag()
     
-    private var downloads = PublishSubject<Bool>.init()
+    private var downloads = PublishSubject<Bool>.init() // refactor u tuple or dict ["blocks": true, "rooms": false]...
     
     init() {
         
@@ -55,7 +55,7 @@ class ResourcesState {
             object: nil)
         
         downloads
-            .take(2) // room API and blocks API
+            .take(3) // room API and blocks API
             .reduce(true) { (sum, last) -> Bool in
                 sum && last
             }
@@ -182,32 +182,22 @@ class ResourcesState {
     
     private func fetchDelegatesAndSaveToRealm() {
         
-        let oDelegates = DelegatesAPIController.shared.getDelegates()
-        oDelegates
-            .subscribe(onNext: { [weak self] (delegates) in
-                
-                guard let strongSelf = self,
-                    delegates.count > 0 else {return} // valid
-
-                print("delegates = \(delegates)")
-//                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
-//                    .subscribe(onNext: { (success) in
-//
-//                        if success {
-//
-//                            RealmDataPersister.shared.save(blocks: delegates)
-//                                .subscribe(onNext: { (success) in
-//
-//                                    strongSelf.downloads.onNext(success)
-//
-//                                })
-//                                .disposed(by: strongSelf.bag)
-//                        }
-//
-//                    }).disposed(by: strongSelf.bag)
-                
+        let oNewDelegates = DelegatesAPIController.shared.getDelegates()
+        
+        let oOldDeleted = RealmDelegatesPersister.shared
+            .deleteAllObjects(ofTypes: [RealmDelegate.self])
+            .filter {$0}
+        
+        let result = Observable.combineLatest(oNewDelegates, oOldDeleted) { (delegates, success) -> [Delegate] in
+            return success ? delegates : [ ]
+        }
+        
+        result.flatMap(RealmDelegatesPersister.shared.save)
+            .subscribe(onNext: { [weak self] delegatesSaved in guard let sSelf = self else {return}
+                sSelf.downloads.onNext(delegatesSaved)
             })
-            .disposed(by: bag)
+            .disposed(by: self.bag)
+        
     }
     
     // MOCK
