@@ -12,8 +12,9 @@
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
-		7C93C9E42278BC9900D44A52 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E32278BC9900D44A52 /* Factory.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
+		7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44722982DC5008C23F8 /* Delegate.swift */; };
+		7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */; };
 		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
@@ -98,8 +99,9 @@
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
-		7C93C9E32278BC9900D44A52 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Factory.swift; path = ../Factory.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
+		7CB1E44722982DC5008C23F8 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerFactory.swift; path = AttendanceApp/Factories/ViewControllerFactory.swift; sourceTree = SOURCE_ROOT; };
 		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
@@ -210,20 +212,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7C93C9E52278BCA900D44A52 /* ViewControllerFactory */ = {
-			isa = PBXGroup;
-			children = (
-				7C93C9E32278BC9900D44A52 /* Factory.swift */,
-			);
-			path = ViewControllerFactory;
-			sourceTree = "<group>";
-		};
 		7C93C9E8227CA64700D44A52 /* AutoSessionTimer */ = {
 			isa = PBXGroup;
 			children = (
 				7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */,
 			);
 			path = AutoSessionTimer;
+			sourceTree = "<group>";
+		};
+		7CB1E44B22982F2B008C23F8 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
@@ -352,6 +354,7 @@
 				AD29521D217B5B23002DDE32 /* Model.swift */,
 				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
 				AD80EFFB217DCE27003CEDD0 /* Block.swift */,
+				7CB1E44722982DC5008C23F8 /* Delegate.swift */,
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */,
 			);
@@ -388,10 +391,10 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CB1E44B22982F2B008C23F8 /* Factories */,
 				7CEF97B6228DA96B00C31CD8 /* JSON */,
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
 				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
-				7C93C9E52278BCA900D44A52 /* ViewControllerFactory */,
 				7CE81539227346F700B33986 /* Sounds */,
 				AD4CC2D821A576F200222D5E /* Common */,
 				ADAE9C252189F5DB00615125 /* AVCaptureSession+Rx */,
@@ -608,6 +611,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxRealmDataSources/RxRealmDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -621,6 +625,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealmDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -661,6 +666,7 @@
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
+				7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
@@ -678,12 +684,12 @@
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				AD968B882255F6AB007475DA /* ScanditVC.swift in Sources */,
+				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
 				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
-				7C93C9E42278BC9900D44A52 /* Factory.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
@@ -829,7 +835,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJZMY6T4V6;
+				DEVELOPMENT_TEAM = 3UHF84CM7Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ScanditSDK",
@@ -849,7 +855,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UJZMY6T4V6;
+				DEVELOPMENT_TEAM = 3UHF84CM7Q;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ScanditSDK",

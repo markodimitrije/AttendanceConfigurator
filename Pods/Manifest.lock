@@ -22,6 +22,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
   - SwiftyJSON (4.3.0)
+  - Zip (1.1.0)
 
 DEPENDENCIES:
   - ReachabilitySwift
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - RxRealmDataSources
   - RxSwift
   - SwiftyJSON
+  - Zip
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - RxRealmDataSources
     - RxSwift
     - SwiftyJSON
+    - Zip
 
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
@@ -56,7 +59,8 @@ SPEC CHECKSUMS:
   RxRealmDataSources: 89b61c0d3edf7769da2a6bf4dcf317bc713394db
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: c1237428e03f7080ae0f64026f9d29c5f6933c34
+PODFILE CHECKSUM: 2be7e54765cac1cc78d0386fa48839192cd92814
 
 COCOAPODS: 1.6.1

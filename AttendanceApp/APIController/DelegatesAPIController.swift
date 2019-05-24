@@ -15,12 +15,14 @@ import SwiftyJSON
 import CoreLocation
 import MapKit
 import Reachability
+import Zip
 
 class DelegatesAPIController {
     
     //  https://minjon.e-materials.com/data/delegates/7520.zip
     
     private let apiController: ApiController!
+    private let bag = DisposeBag()
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
@@ -40,73 +42,80 @@ class DelegatesAPIController {
     
     //MARK: - API Calls
     func getDelegates() -> Observable<([Delegate])> {
-   
+        
+        let unziper = Unziper.init(conferenceId: 7520)
+        
         return apiController.buildRequest(base: Domain.minjonUrl,
                                           method: "GET",
                                           pathComponent: "data/delegates/7520.zip",
                                           params: [])
-            .map{ data -> [Delegate] in
-                print("data = \(data)")
-                return ([ ])
+            .flatMap(unziper.saveDataAsFile)
+            .flatMap(unziper.unzipData)
+            .flatMap(convert)
+    }
+    
+    private func convert(data: Data) -> Observable<[Delegate]> {
+        
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
+                observer.onNext([ ])
+                return Disposables.create()
             }
-        
-        
-        
-//            .map() { json in
-//                let decoder = JSONDecoder()
-//                guard let delegates = try? decoder.decode(Delegate.self, from: json) else {
-//                    throw ApiError.invalidJson
-//                }
-//                return delegates
+            observer.onNext(delegatesStruct.delegates)
+            return Disposables.create()
+        })
         
     }
     
+}
+
+class Unziper: NSObject {
+    var conferenceId: Int
+    init(conferenceId: Int) {
+        self.conferenceId = conferenceId
+    }
     
+    func saveDataAsFile(data: Data) -> Observable<Bool> {
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            guard let strongSelf = self else { fatalError("Only works on live instance") }
+            do {
+                let directoryURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                let fileName = "\(strongSelf.conferenceId).zip"
+                let filePath = directoryURLs[0].appendingPathComponent(fileName)
+                try data.write(to: filePath)
+                observer.onNext(true)
+            } catch {
+                observer.onNext(false)
+            }
+            return Disposables.create()
+        })
+    }
+    
+    func unzipData(success: Bool) -> Observable<Data> {
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            guard let strongSelf = self else { fatalError("Only works on live instance") }
+            
+            do {
+                let directoryURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+                let fileName = "\(strongSelf.conferenceId).zip"
+                let filePath = directoryURLs[0].appendingPathComponent(fileName)
+                let unzipDirectory = try Zip.quickUnzipFile(filePath)
+                let unzippedFilePath = unzipDirectory.appendingPathComponent("\(strongSelf.conferenceId).json")
+                //let string = try String(contentsOf: unzippedFilePath)
+                guard let data = try? Data.init(contentsOf: unzippedFilePath) else {
+                    fatalError("cant get data from zip")
+                }
+                
+                try FileManager.default.removeItem(at: filePath)
+                try FileManager.default.removeItem(at: unzippedFilePath)
+                try FileManager.default.removeItem(at: unzipDirectory)
+                observer.onNext(data)
+            } catch let err {
+                observer.onError(err)
+            }
+            return Disposables.create()
+        })
+    }
 }
 
-struct Delegate: Codable {
-//    var id: Int
-//    var type: String
-//    var email: String
-    var code: String
-//    var name: String?
-//    var first_name: String
-//    var last_name: String
-//    var image_url: String
-//    var image_url_thumb: String
-//    var additional_info: String
-//    var website: String
-//    var conference_id: Int
-//    var country_id: Int?
-//    var user_id: Int?
-//    var imported_id: Int?
-//    var contact_info: String?
-//    var updated_at: String
-}
 
-
-
-func unzipData() -> Observable<Data> {
-    return Observable.create({ [weak self] (observer) -> Disposable in
-        guard let strongSelf = self else { fatalError("Only works on live instance") }
-        do {
-            let directoryURLs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let fileName = "\(strongSelf.conferenceId).zip"
-            let filePath = directoryURLs[0].appendingPathComponent(fileName)
-            let unzipDirectory = try Zip.quickUnzipFile(filePath)
-            let unzippedFilePath = unzipDirectory.appendingPathComponent("\(strongSelf.conferenceId).json")
-            let string = try String(contentsOf: unzippedFilePath)
-//            guard let response = ZipResponse(JSONString: string)
-            guard let response = Data.init(base64Encoded: string)
-                else { fatalError("Invalid structure") }
-            try FileManager.default.removeItem(at: filePath)
-            try FileManager.default.removeItem(at: unzippedFilePath)
-            try FileManager.default.removeItem(at: unzipDirectory)
-            response.deletePreviousState = true
-            observer.onNext(response)
-        } catch let err {
-            observer.onError(err)
-        }
-        return Disposables.create()
-    })
-}
