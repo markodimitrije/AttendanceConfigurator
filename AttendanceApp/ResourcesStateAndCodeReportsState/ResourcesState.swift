@@ -82,14 +82,14 @@ class ResourcesState {
         
         if shouldDownloadResources {
             
-            fetchRoomsAndBlocksResources()
+            fetchResourcesFromWeb()
             
             if timer == nil {
                 
                 timer = Timer.scheduledTimer(
                     timeInterval: MyTimeInterval.timerForFetchingRoomAndBlockResources,
                     target: self,
-                    selector: #selector(ResourcesState.fetchRoomsAndBlocksResources),
+                    selector: #selector(ResourcesState.fetchResourcesFromWeb),
                     userInfo: nil,
                     repeats: true)
             } else {
@@ -104,12 +104,13 @@ class ResourcesState {
         timer?.invalidate()
     }
     
-    @objc private func fetchRoomsAndBlocksResources() { // print("fetchRoomsAndBlocksResources is called")
+    @objc private func fetchResourcesFromWeb() { // print("fetchRoomsAndBlocksResources is called")
         
         print("ResourceState.fetchRoomsAndBlocksResources is called, date = \(Date.now)")
         
         fetchRoomsAndSaveToRealm()
         fetchSessionsAndSaveToRealm()
+        fetchDelegatesAndSaveToRealm()
         // MOCK
         //fetchRoomsAndSaveToRealmMOCK()
         //fetchSessionsAndSaveToRealmMOCK()
@@ -178,6 +179,36 @@ class ResourcesState {
             })
             .disposed(by: bag)
     } // hard coded off for testing
+    
+    private func fetchDelegatesAndSaveToRealm() {
+        
+        let oDelegates = DelegatesAPIController.shared.getDelegates()
+        oDelegates
+            .subscribe(onNext: { [weak self] (delegates) in
+                
+                guard let strongSelf = self,
+                    delegates.count > 0 else {return} // valid
+
+                print("delegates = \(delegates)")
+//                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
+//                    .subscribe(onNext: { (success) in
+//
+//                        if success {
+//
+//                            RealmDataPersister.shared.save(blocks: delegates)
+//                                .subscribe(onNext: { (success) in
+//
+//                                    strongSelf.downloads.onNext(success)
+//
+//                                })
+//                                .disposed(by: strongSelf.bag)
+//                        }
+//
+//                    }).disposed(by: strongSelf.bag)
+                
+            })
+            .disposed(by: bag)
+    }
     
     // MOCK
     /*

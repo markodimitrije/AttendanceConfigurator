@@ -143,7 +143,7 @@ class ApiController {
     
     // bez veze je Any... // treba ili [(String, String)] ili [String: Any]
     
-    private func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any) -> Observable<Data> {
+     func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any) -> Observable<Data> {
     
         //print("APIController.buildingRequest.calling API !!!")
         

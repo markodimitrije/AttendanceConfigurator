@@ -12,5 +12,6 @@ target 'AttendanceApp' do
     pod 'RxRealmDataSources'
     pod 'RxDataSources'
     pod 'ReachabilitySwift'
+    pod 'Zip'
 
 end
