@@ -113,7 +113,7 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func showAlertFailedDueToNoSettings() {
+    private func showAlertFailedDueToNoRoomOrSessionSettings() {
         
         self.alert(title: AlertInfo.Scan.NoSettings.title,
                    text: AlertInfo.Scan.NoSettings.msg,
@@ -129,7 +129,7 @@ class ScannerVC: UIViewController {
         if scanerViewModel.sessionId != -1 {
             scanditSuccessfull(code: code, picker: picker)
         } else {
-            showAlertFailedDueToNoSettings()
+            showAlertFailedDueToNoRoomOrSessionSettings()
             restartCameraForScaning(picker)
         }
         
@@ -144,20 +144,29 @@ class ScannerVC: UIViewController {
         }
     }
     
-    private func scanditSuccessfull(code: String, picker: SBSBarcodePicker) {
+    private func scanditSuccessfull(code: String, picker: SBSBarcodePicker) { // hard-coded implement me
         
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
         
-        scanedCode.onNext(code)
-        
-        playSound(name: "codeSuccess")
-        
-        self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds))
-        
+        if true { // inject object to ask for is delegate allowed to attend session
+            delegateAllowedToAttendSession(code: code, picker: picker)
+        } else {
+            delegateAttendanceInvalid(code: code, picker: picker)
+        }
         restartCameraForScaning(picker)
+    }
+    
+    private func delegateAllowedToAttendSession(code: String, picker: SBSBarcodePicker) {
         
+        scanedCode.onNext(code)
+        playSound(name: "codeSuccess")
+        self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: true))
         codeReporter.codeReport.accept(getActualCodeReport())
-        
+    }
+    
+    private func delegateAttendanceInvalid(code: String, picker: SBSBarcodePicker) {
+        playSound(name: "codeRejected")
+        self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: false))
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
