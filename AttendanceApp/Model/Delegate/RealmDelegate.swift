@@ -12,9 +12,12 @@ import RealmSwift
 
 class RealmDelegate: Object {
     @objc dynamic var code: String = ""
+    let sessionIds = List<Int>()
     
     func updateWith(delegate: Delegate) {
         self.code = delegate.code
+        self.sessionIds.removeAll()
+        self.sessionIds.append(objectsIn: delegate.sessionIds)
     }
     
     override static func primaryKey() -> String? {

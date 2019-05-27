@@ -16,18 +16,20 @@ struct RealmDelegatesPersister {
     
     static var shared = RealmDelegatesPersister()
     
-    // observable OUTPUT
-    /*
-    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
-        
-        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-        
-        let results = realm.objects(RealmWebReportedCode.self)
-        
-        return Observable.collection(from: results) // this is live source !!
-        
+    // MARK:- Fetch (querry) data
+    
+    func isDelegate(withBarcode code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
+        guard let realm = try? Realm.init() else {fatalError()}
+        let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: code)
+        let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId)
+        if session?.chairperson !=  nil { // hard-coded
+            return true
+        } else {
+            // return delegate.sessionIds.contains(sessionId)
+            return [1,2,3,4,5].contains(sessionId) // hard-coded
+        }
     }
-    */
+    
     // MARK:- Save data
     
     func save(delegates: [Delegate]) -> Observable<Bool> {

@@ -14,4 +14,9 @@ struct Delegates: Codable {
 
 struct Delegate: Codable {
     var code: String
+    var sessionIds = [Int]()
+    
+    private enum CodingKeys : String, CodingKey {
+        case code = "c", sessionIds = "s"
+    }
 }
