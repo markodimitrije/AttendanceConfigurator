@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/ViewController/ScannerVC.swift"
-            timestampString = "580650300.4257489"
+            timestampString = "580652878.424361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "failed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/DelegatesAPIController.swift"
-            timestampString = "580650300.4267271"
+            timestampString = "580652878.425711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "saveDataAsFile(data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/DelegatesAPIController.swift"
-            timestampString = "580650300.427008"
+            timestampString = "580652878.4260449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "unzipData(success:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/DelegatesAPIController.swift"
-            timestampString = "580650300.427243"
+            timestampString = "580652878.42634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "convert(data:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,13 +89,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/APIController/DelegatesAPIController.swift"
-            timestampString = "580650300.427462"
+            filePath = "AttendanceApp/Model/FetchDelegates/RealmDelegatesSessionValidation.swift"
+            timestampString = "580652878.426615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "convert(data:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "isScannedDelegate(withBarcode:allowedToAttendSessionWithId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Delegate/RealmDelegate.swift"
+            timestampString = "580652878.426879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "delegateExists(withCode:withRealm:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

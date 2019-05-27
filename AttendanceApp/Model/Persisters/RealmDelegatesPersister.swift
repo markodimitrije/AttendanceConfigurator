@@ -16,20 +16,6 @@ struct RealmDelegatesPersister {
     
     static var shared = RealmDelegatesPersister()
     
-    // MARK:- Fetch (querry) data
-    
-    func isDelegate(withBarcode code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
-        guard let realm = try? Realm.init() else {fatalError()}
-        let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: code)
-        let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId)
-        if session?.chairperson !=  nil { // hard-coded
-            return true
-        } else {
-            // return delegate.sessionIds.contains(sessionId)
-            return [1,2,3,4,5].contains(sessionId) // hard-coded
-        }
-    }
-    
     // MARK:- Save data
     
     func save(delegates: [Delegate]) -> Observable<Bool> {

@@ -10,6 +10,7 @@
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
+		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
 		7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
@@ -100,6 +101,7 @@
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
+		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
 		7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
@@ -216,6 +218,14 @@
 				02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C855DA2229C077100E4C985 /* FetchDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */,
+			);
+			path = FetchDelegates;
 			sourceTree = "<group>";
 		};
 		7C93C9E8227CA64700D44A52 /* AutoSessionTimer */ = {
@@ -391,6 +401,7 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C855DA2229C077100E4C985 /* FetchDelegates */,
 				7CB1E451229832C8008C23F8 /* Delegate */,
 				7CB1E450229832BC008C23F8 /* Block */,
 				7CB1E44F229832B0008C23F8 /* Room */,
@@ -725,6 +736,7 @@
 				ADAE9C312189F5F500615125 /* RxAVCaptureDataOutputSynchronizerDelegate.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				ADAE9C2E2189F5F500615125 /* Global.swift in Sources */,
+				7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				AD968B882255F6AB007475DA /* ScanditVC.swift in Sources */,

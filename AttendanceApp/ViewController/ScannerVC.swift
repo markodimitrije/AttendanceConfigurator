@@ -32,6 +32,7 @@ class ScannerVC: UIViewController {
     }
     
     private let codeReporter = CodeReportsState.init() // vrsta viewModel-a ?
+    private let delegatesSessionValidation = RealmDelegatesSessionValidation()
     
     var settingsVC: SettingsVC!
     
@@ -148,15 +149,16 @@ class ScannerVC: UIViewController {
         
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
         
-        if true { // inject object to ask for is delegate allowed to attend session
-            delegateAllowedToAttendSession(code: code, picker: picker)
+        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
+                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
+            delegateIsAllowedToAttendSession(code: code, picker: picker)
         } else {
             delegateAttendanceInvalid(code: code, picker: picker)
         }
         restartCameraForScaning(picker)
     }
     
-    private func delegateAllowedToAttendSession(code: String, picker: SBSBarcodePicker) {
+    private func delegateIsAllowedToAttendSession(code: String, picker: SBSBarcodePicker) {
         
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
