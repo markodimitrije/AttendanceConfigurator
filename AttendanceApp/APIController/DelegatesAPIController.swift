@@ -58,17 +58,18 @@ class DelegatesAPIController {
         return Observable.create({ [weak self] (observer) -> Disposable in
             print("convert.data = \(data)")
             guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
-                let a = Delegate(code: "000000076159", sessionIds: [9605, 9731, 9956, 9631])
-                let b = Delegate(code: "100057", sessionIds: [9605, 9731, 9631])
-                let c = Delegate(code: "100139", sessionIds: [9605])
-                let d = Delegate(code: "100031", sessionIds: [9605])
-                observer.onNext([a,b,c,d])
-                //observer.onNext([ ])
+//                let a = Delegate(code: "076159", sessionIds: [9605, 9731, 9956, 9631, 9619])
+//                let b = Delegate(code: "100057", sessionIds: [9605, 9731, 9631, 9619])
+//                let c = Delegate(code: "100139", sessionIds: [9605])
+//                let d = Delegate(code: "100031", sessionIds: [9605])
+//                print(" creating dummy delegates struct)")
+//                observer.onNext([a,b,c,d])
+                observer.onNext([ ])
                 
                 return Disposables.create()
             }
             observer.onNext(delegatesStruct.delegates)
-            print("delegates = \(delegatesStruct.delegates)")
+            print(" my delegates struct = \(delegatesStruct.delegates)")
             return Disposables.create()
         })
         
