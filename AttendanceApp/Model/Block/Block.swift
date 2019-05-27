@@ -17,25 +17,10 @@ class Blocks: Codable {
 class Block: Codable {
     var id: Int
     var name: String
-    var subtitle: String?
-    var type: String
-    var external_type: String?
+    var location_id: Int
     var starts_at: String
     var ends_at: String
-    var code: String
-    var chairperson: String?
-    var block_category_id: Int?
-    var imported_id: String
-    var has_presentation_on_timeline: Bool
-    var has_available_presentation: Bool
-    var has_dialog: Bool
-    var survey: Bool
-    var sponsor_id: Int?
-    var topic_id: Int?
-    var tags: String
-    var featured: Bool
-    var updated_at: String
-    var location_id: Int
+    var closed: Bool
     
     // helpers vars
     var starts: Date { return Date.parse(self.starts_at) }
@@ -63,25 +48,10 @@ class Block: Codable {
     init(with realmBlock: RealmBlock) {
         self.id = realmBlock.id
         self.name = realmBlock.name
-        self.subtitle = realmBlock.subtitle
-        self.type = realmBlock.type
-        self.external_type = realmBlock.external_type
+        self.location_id = realmBlock.location_id
         self.starts_at = realmBlock.starts_at
         self.ends_at = realmBlock.ends_at
-        self.code = realmBlock.code
-        self.chairperson = realmBlock.chairperson
-        self.block_category_id = realmBlock.block_category_id
-        self.imported_id = realmBlock.imported_id
-        self.has_presentation_on_timeline = realmBlock.has_presentation_on_timeline
-        self.has_available_presentation = realmBlock.has_available_presentation
-        self.has_dialog = realmBlock.has_dialog
-        self.survey = realmBlock.survey
-        self.sponsor_id = realmBlock.sponsor_id
-        self.topic_id = realmBlock.topic_id
-        self.tags = realmBlock.tags
-        self.featured = realmBlock.featured
-        self.updated_at = realmBlock.updated_at
-        self.location_id = realmBlock.location_id
+        self.closed = realmBlock.closed
     }
     
     private func getOnlyDateString(from dateString: String) -> String {

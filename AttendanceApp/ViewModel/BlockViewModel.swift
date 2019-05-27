@@ -115,9 +115,7 @@ class BlockViewModel {
         
         // ovde mi treba jos da su od odgovarajuceg Room-a
         
-        blocks = realm
-            .objects(RealmBlock.self)
-            .filter("type = 'Oral'")
+        blocks = realm.objects(RealmBlock.self)
         
         if let roomId = roomId {
             blocks = blocks.filter("location_id = %@", roomId)

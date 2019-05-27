@@ -51,12 +51,13 @@ class ApiController {
             }
     }
     
-    func getBlocks(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Block]> {
+    func getBlocks(updated_from: Date?, with_pagination: Int, with_trashed: Int, for_scanning: Int) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         return buildRequest(pathComponent: "blocks", //params: [ ])//,
                             params: [("updated_from", updatedDate),
                                      ("with_pagination", "\(with_pagination)"),
-                                     ("with_trashed", "\(with_trashed)")])
+                                     ("with_trashed", "\(with_trashed)"),
+                                     ("for_scanning", "\(for_scanning)")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: json) else {

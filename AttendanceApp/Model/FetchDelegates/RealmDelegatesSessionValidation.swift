@@ -23,7 +23,7 @@ class RealmDelegatesSessionValidation {
             let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId) else {
                 return false
         }
-        if session.tags != "" { // hard-coded - wait on Milan
+        if session.closed == false { // free session
             return true
         } else {
             return delegate.sessionIds.contains(sessionId)

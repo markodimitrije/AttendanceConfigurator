@@ -153,7 +153,8 @@ class ResourcesState {
         
         let oBlocks = ApiController.shared.getBlocks(updated_from: nil,
                                                      with_pagination: 0,
-                                                     with_trashed: 0)
+                                                     with_trashed: 0,
+                                                     for_scanning: 1)
         oBlocks
             .subscribe(onNext: { [weak self] (blocks) in
                 
