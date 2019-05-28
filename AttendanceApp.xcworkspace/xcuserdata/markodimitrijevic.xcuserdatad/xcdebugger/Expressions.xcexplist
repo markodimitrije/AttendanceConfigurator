@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AutoSessionTimer.fire():AutoSessionTimer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dataAccess.userSelection">
+            </PersistentString>
+            <PersistentString
+               value = "updateData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in AutoSessionTimer.fire():AutoSessionTimer.swift">
          <PersistentStrings>
             <PersistentString

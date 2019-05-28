@@ -16,11 +16,8 @@ class AutoSessionTimer {
     init(dataAccess: DataAccess) {
         
         self.dataAccess = dataAccess
-        
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
-            timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
-        }
+    
+        loadTimer()
         
         NotificationCenter.default.addObserver(self,
                                        selector: #selector(appMovedToBackground),
@@ -40,14 +37,18 @@ class AutoSessionTimer {
             let blockViewModel = BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
-                var updateData = sSelf.dataAccess.userSelection
-                updateData.blockId = block?.id
-                //print("updateData", updateData);print("updated block name", block!.name)
-                sSelf.dataAccess.userSelection = updateData
+                sSelf.updateUserSellection(dataAccess: sSelf.dataAccess)
             }).disposed(by: disposeBag)
         } else {
-            print("ne smes da emitujes BLOCK, do nothing...")
+            print("ne smes da emitujes BLOCK, do nothing..., just update selectio -> UI")
+            updateUserSellection(dataAccess: dataAccess)
         }
+    }
+    
+    private func updateUserSellection(dataAccess: DataAccess) {
+        var updateData = dataAccess.userSelection
+        updateData.blockId = updateData.blockId
+        dataAccess.userSelection = updateData
     }
     
     @objc func appMovedToBackground() {
@@ -58,8 +59,14 @@ class AutoSessionTimer {
     }
     
     @objc func appWillEnterForeground() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
-        timer = Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        loadTimer()
+    }
+    
+    private func loadTimer() {
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
+            timer = Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+        }
     }
     
     private let disposeBag = DisposeBag()
