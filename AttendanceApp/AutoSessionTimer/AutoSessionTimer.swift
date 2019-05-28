@@ -18,6 +18,7 @@ class AutoSessionTimer {
         self.dataAccess = dataAccess
         
         if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
             timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         }
         
@@ -33,7 +34,7 @@ class AutoSessionTimer {
         
     }
     
-    @objc func fire() { // print("AutoSessionTimer/fire, check for auto session = \(NOW)")
+    @objc func fire() { print("AutoSessionTimer/fire, check for auto session = \(NOW)")
         let actualSettings = dataAccess.userSelection
         if actualSettings.roomId != nil && actualSettings.autoSwitch { print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModel.init(roomId: actualSettings.roomId)
@@ -57,7 +58,7 @@ class AutoSessionTimer {
     }
     
     @objc func appWillEnterForeground() {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
         timer = Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
     }
     
