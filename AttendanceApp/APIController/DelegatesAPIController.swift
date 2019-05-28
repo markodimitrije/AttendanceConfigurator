@@ -24,8 +24,10 @@ class DelegatesAPIController {
     private let bag = DisposeBag()
     
     struct Domain {
-        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-        static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
+        //static let baseUrl = URL(string: "https://service.e-materials.com/api")! hard-coded
+        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
+        //static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!  hard-coded
+        static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
         static let baseLeadLinkURL = URL(string: "https://service.e-materials.com/api/leadlink/")!
     }
     
@@ -38,42 +40,60 @@ class DelegatesAPIController {
             return true
         }
     }
+
+    // MOCK-API
     
-    //MARK: - API Calls
     func getDelegates() -> Observable<([Delegate])> {
-        
-        let unziper = Unziper.init(conferenceId: 7520)
         
         return apiController.buildRequest(base: Domain.minjonUrl,
                                           method: "GET",
-                                          pathComponent: "data/delegates/7520.zip",
-                                          params: [])
-            .flatMap(unziper.saveDataAsFile)
-            .flatMap(unziper.unzipData)
-            .flatMap(convert)
+                                          pathComponent: "data/delegates/7520.zip"
+                                          )
+            .flatMap(parseIntoDelegates)
     }
     
-    private func convert(data: Data) -> Observable<[Delegate]> {
-        
-        return Observable.create({ [weak self] (observer) -> Disposable in
-            print("convert.data = \(data)")
-            guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
-//                let a = Delegate(code: "076159", sessionIds: [9605, 9731, 9956, 9631, 9619])
-//                let b = Delegate(code: "100057", sessionIds: [9605, 9731, 9631, 9619])
-//                let c = Delegate(code: "100139", sessionIds: [9605])
-//                let d = Delegate(code: "100031", sessionIds: [9605])
-//                print(" creating dummy delegates struct)")
-//                observer.onNext([a,b,c,d])
-                observer.onNext([ ])
-                
-                return Disposables.create()
-            }
-            observer.onNext(delegatesStruct.delegates)
-            print(" my delegates struct = \(delegatesStruct.delegates)")
+    private func parseIntoDelegates(data: Data) -> Observable<[Delegate]> {
+        return Observable.create({ observer -> Disposable in
+//            {"current_time":"2019-05-27 16:45:02","delegates":[{"c":"002345","s":[9605,9731,9956]},{"c":"098892","s":[9605,9731]},{"c":"012345","s":[9605]}]}
+//
+            
+            let decoder = JSONDecoder.init()
+            let result = try! decoder.decode(Delegates.self, from: data)
+            let delegates = result.delegates
+            observer.onNext(delegates)
+            
             return Disposables.create()
         })
-        
     }
+    
+    //MARK: - API Calls
+//    func getDelegates() -> Observable<([Delegate])> {
+//
+//        let unziper = Unziper.init(conferenceId: 7520)
+//
+//        return apiController.buildRequest(base: Domain.minjonUrl,
+//                                          method: "GET",
+//                                          pathComponent: "data/delegates/7520.zip",
+//                                          params: [])
+//            .flatMap(unziper.saveDataAsFile)
+//            .flatMap(unziper.unzipData)
+//            .flatMap(convert)
+//    }
+//
+//    private func convert(data: Data) -> Observable<[Delegate]> {
+//
+//        return Observable.create({ [weak self] (observer) -> Disposable in
+//            print("convert.data = \(data)")
+//            guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
+//                observer.onNext([ ])
+//                return Disposables.create()
+//            }
+//            observer.onNext(delegatesStruct.delegates)
+//            print(" my delegates struct = \(delegatesStruct.delegates)")
+//            return Disposables.create()
+//        })
+//
+//    }
     
 }
 

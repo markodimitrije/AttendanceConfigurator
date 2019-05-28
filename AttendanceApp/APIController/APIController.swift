@@ -17,8 +17,8 @@ import Reachability
 class ApiController {
     
     struct Domain {
-        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-//        static let baseUrl = URL(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/")! // hard-coded mock
+//        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
     }
     
@@ -144,7 +144,7 @@ class ApiController {
     
     // bez veze je Any... // treba ili [(String, String)] ili [String: Any]
     
-     func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any) -> Observable<Data> {
+     func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
     
         print("APIController.buildingRequest.calling API !!!")
         

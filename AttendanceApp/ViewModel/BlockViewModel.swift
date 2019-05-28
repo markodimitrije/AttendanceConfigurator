@@ -56,21 +56,12 @@ class BlockViewModel {
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
         
-//        let firstNext = todayBlocks.filter { block -> Bool in
-//            let startsAt = Date.parse(block.starts_at)
-//
-//            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) > NOW
-//            }
-//            .first
-        
         let actualOrNextInFiftheenMinutes = todayBlocks.filter { block -> Bool in
             let startsAt = Date.parse(block.starts_at)
             
             return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
             }
             .last
-        
-//        print("mostRecentSessionBlock.firstNext = \(String(describing: firstNext?.name)) and actual = \(String(describing: actual?.name))")
         
         return actualOrNextInFiftheenMinutes
     }
