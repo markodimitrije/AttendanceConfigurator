@@ -17,17 +17,28 @@ import RxRealm
 class RealmDelegatesSessionValidation {
     
     func isScannedDelegate(withBarcode code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
-        let code = trimmedToSixCharactersCode(code: code, sessionId: sessionId)
-        guard let realm = try? Realm.init() else {fatalError()}
-        guard let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: code),
-            let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId) else {
-                return false
-        }
-        if session.closed == false { // free session
+        
+        if isClosedSession(sessionId: sessionId) == false { // free session
             return true
         } else {
-            return delegate.sessionIds.contains(sessionId)
+            return delegateHasAccessToSession(code: code, allowedToAttendSessionWithId: sessionId)
         }
+    }
+    
+    private func isClosedSession(sessionId: Int) -> Bool {
+        guard let realm = try? Realm.init(),
+            let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId) else {
+                return false // fall back, realno je fatalError....
+        }
+        return session.closed
+    }
+    
+    private func delegateHasAccessToSession(code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
+        guard let realm = try? Realm.init(),
+            let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: code) else {
+                return false
+        }
+        return delegate.sessionIds.contains(sessionId)
     }
     
     private func trimmedToSixCharactersCode(code: String, sessionId: Int) -> String {

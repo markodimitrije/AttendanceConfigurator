@@ -83,7 +83,7 @@ extension Date { // (*)
         //dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = format
 //        print("parsedDate from string = \(dateFormatter.date(from: string)!)")
-        return dateFormatter.date(from: string)!
+        return dateFormatter.date(from: string)! // hard-coded implement me
     }
     
     static func parseIntoTime(_ string: String, outputWithSeconds: Bool, format: String = "yyyy-MM-dd HH:mm:ss") -> String {

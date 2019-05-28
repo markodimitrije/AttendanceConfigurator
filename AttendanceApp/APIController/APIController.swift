@@ -146,10 +146,10 @@ class ApiController {
     
      func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any) -> Observable<Data> {
     
-        //print("APIController.buildingRequest.calling API !!!")
+        print("APIController.buildingRequest.calling API !!!")
         
-        let url = base.appendingPathComponent(pathComponent)
-//        let url = URL.init(string: "https://89542fe7-ac1b-4e5b-a60b-ab6fcabd949b.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
+//        let url = base.appendingPathComponent(pathComponent)
+        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
         
         var request = URLRequest(url: url)
         

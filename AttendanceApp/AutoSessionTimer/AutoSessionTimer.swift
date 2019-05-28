@@ -57,6 +57,7 @@ class AutoSessionTimer {
     }
     
     @objc func appWillEnterForeground() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
         timer = Timer.scheduledTimer(timeInterval: 45.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
     }
     
