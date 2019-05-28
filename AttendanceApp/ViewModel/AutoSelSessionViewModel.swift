@@ -105,6 +105,13 @@ class AutoSelSessionWithWaitIntervalViewModel {
             .drive(selectedSession) // prosledi na svoj output
             .disposed(by: bag)
         
+        blockViewModel.oAutomaticSession
+            .subscribe(onNext: { block in
+                print("emituj blok koji terba da update moj UI")
+                DataAccess.shared.userSelection.blockId = block?.id
+            })
+            .disposed(by: bag)
+        
     }
     
     deinit { print("AutoSelSessionViewModel.deinit") }

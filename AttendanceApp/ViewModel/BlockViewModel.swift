@@ -48,24 +48,6 @@ class BlockViewModel {
     
     var selInterval: Int?
     
-//    private var mostRecentSessionBlock: RealmBlock? {
-//
-//        let todayBlocks = blocksSortedByDate.filter { // mock za test !
-//            return Calendar.current.compare(NOW,
-//                                            to: Date.parse($0.starts_at),
-//                                            toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
-//        }
-//
-//        let first = todayBlocks.filter { block -> Bool in
-//            let startsAt = Date.parse(block.starts_at)
-//
-//            return startsAt > NOW
-//            }
-//            .first
-//
-//        return first
-//    }
-    
     private var mostRecentSessionBlock: RealmBlock? {
         
         let todayBlocks = blocksSortedByDate.filter { // mock za test !
@@ -74,14 +56,14 @@ class BlockViewModel {
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
         
-        let firstNext = todayBlocks.filter { block -> Bool in
-            let startsAt = Date.parse(block.starts_at)
-            
-            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) > NOW
-            }
-            .first
+//        let firstNext = todayBlocks.filter { block -> Bool in
+//            let startsAt = Date.parse(block.starts_at)
+//
+//            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) > NOW
+//            }
+//            .first
         
-        let actual = todayBlocks.filter { block -> Bool in
+        let actualOrNextInFiftheenMinutes = todayBlocks.filter { block -> Bool in
             let startsAt = Date.parse(block.starts_at)
             
             return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
@@ -90,8 +72,7 @@ class BlockViewModel {
         
 //        print("mostRecentSessionBlock.firstNext = \(String(describing: firstNext?.name)) and actual = \(String(describing: actual?.name))")
         
-        //return firstNext
-        return actual
+        return actualOrNextInFiftheenMinutes
     }
     
     
