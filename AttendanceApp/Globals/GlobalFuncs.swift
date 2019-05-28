@@ -12,9 +12,10 @@ import ScanditBarcodeScanner
 
 func getArrowImgView(frame: CGRect, validAttendance valid: Bool) -> UIImageView {
     let v = UIImageView.init(frame: frame)
-    let imgName = valid ? "arrow" : "stop"
+    let imgName = valid ? "success" : "error"
     v.image = UIImage.init(named: imgName)
     v.tag = 20
+    v.contentMode = UIView.ContentMode.scaleAspectFill
     return v
 }
 

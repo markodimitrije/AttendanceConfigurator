@@ -28,7 +28,6 @@ class AutoSessionTimer {
                                                selector: #selector(appWillEnterForeground),
                                                name: UIApplication.willEnterForegroundNotification,
                                                object: nil)
-        
     }
     
     @objc func fire() { print("AutoSessionTimer/fire, check for auto session = \(NOW)")
@@ -37,15 +36,17 @@ class AutoSessionTimer {
             let blockViewModel = BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
-                sSelf.updateUserSellection(dataAccess: sSelf.dataAccess)
+                var updateData = sSelf.dataAccess.userSelection
+                updateData.blockId = block?.id
+                sSelf.dataAccess.userSelection = updateData
             }).disposed(by: disposeBag)
         } else {
             print("ne smes da emitujes BLOCK, do nothing..., just update selectio -> UI")
-            updateUserSellection(dataAccess: dataAccess)
+            updateUserSellectionAsItIs(dataAccess: dataAccess)
         }
     }
     
-    private func updateUserSellection(dataAccess: DataAccess) {
+    private func updateUserSellectionAsItIs(dataAccess: DataAccess) {
         var updateData = dataAccess.userSelection
         updateData.blockId = updateData.blockId
         dataAccess.userSelection = updateData
