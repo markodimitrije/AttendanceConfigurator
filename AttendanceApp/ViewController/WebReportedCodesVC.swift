@@ -54,7 +54,8 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         RealmDataPersister.shared.getRealmWebReportedCodes().subscribeOn(MainScheduler.init())
             .subscribe(onNext: { [weak self] results in
             guard let sSelf = self else {return}
-            sSelf.data = results.toArray().map {$0.code}
+            //sSelf.data = results.toArray().map {$0.code}
+                sSelf.data = results.toArray().map {$0.code}.map(trimmedToSixCharactersCode(code:))
         }).disposed(by: bag)
     }
     

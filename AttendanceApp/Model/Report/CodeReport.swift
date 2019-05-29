@@ -34,7 +34,7 @@ class CodeReport: Object { // Realm Entity
         
         return [
             "block_id": "\(sessionId)",
-            "code": code,
+            "code": trimmedToSixCharactersCode(code: code),
             "time_of_scan": date.toString(format: Date.defaultFormatString) ?? ""
         ]
     }
@@ -43,7 +43,7 @@ class CodeReport: Object { // Realm Entity
         
         return [
             "block_id": "\(report.sessionId)",
-            "code": report.code,
+            "code": trimmedToSixCharactersCode(code: report.code),
             "time_of_scan": report.date.toString(format: Date.defaultFormatString) ?? ""
         ]
     }
