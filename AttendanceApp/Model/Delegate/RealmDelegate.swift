@@ -15,9 +15,11 @@ class RealmDelegate: Object {
     let sessionIds = List<Int>()
     
     func updateWith(delegate: Delegate) {
-        self.code = delegate.code
+        //self.code = delegate.code
+        self.code = delegate.c
         self.sessionIds.removeAll()
-        self.sessionIds.append(objectsIn: delegate.sessionIds)
+        //self.sessionIds.append(objectsIn: delegate.sessionIds)
+        self.sessionIds.append(objectsIn: delegate.s)
     }
     
     override static func primaryKey() -> String? {

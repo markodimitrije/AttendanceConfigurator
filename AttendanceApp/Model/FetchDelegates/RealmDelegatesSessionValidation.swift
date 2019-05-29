@@ -34,14 +34,15 @@ class RealmDelegatesSessionValidation {
     }
     
     private func delegateHasAccessToSession(code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
+        let trimedToSixCharCode = trimmedToSixCharactersCode(code: code)
         guard let realm = try? Realm.init(),
-            let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: code) else {
+            let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: trimedToSixCharCode) else {
                 return false
         }
         return delegate.sessionIds.contains(sessionId)
     }
     
-    private func trimmedToSixCharactersCode(code: String, sessionId: Int) -> String {
+    private func trimmedToSixCharactersCode(code: String) -> String {
         let startPosition = code.count - 6
         let trimToSixCharactersCode = NSString(string: code).substring(from: startPosition)
         print("trimed code = \(trimToSixCharactersCode), with code = \(code)")

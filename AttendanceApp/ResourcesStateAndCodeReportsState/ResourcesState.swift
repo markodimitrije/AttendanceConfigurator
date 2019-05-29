@@ -111,9 +111,6 @@ class ResourcesState {
         fetchRoomsAndSaveToRealm()
         fetchSessionsAndSaveToRealm()
         fetchDelegatesAndSaveToRealm()
-        // MOCK
-        //fetchRoomsAndSaveToRealmMOCK()
-        //fetchSessionsAndSaveToRealmMOCK()
         
     }
     
@@ -201,115 +198,8 @@ class ResourcesState {
         
     }
     
-    // MOCK
-    /*
-    private func fetchRoomsAndSaveToRealmMOCK() { // print("fetchRoomsAndSaveToRealm is called")
-        
-        let filename = getFilenameToReadRoomJsonDataFrom()
-        
-        guard let jsonSessions = JsonFromBundleParser.readJSONFromFile(fileName: filename) as? [String: Any],
-            let sessions = jsonSessions["data"] as? [[String: Any]] else {fatalError("no sessions!!")}
-        
-        let rooms = sessions.map { (roomDict) -> Room in
-            let data = try! JSONSerialization.data(withJSONObject: roomDict, options: .prettyPrinted)
-            let decoder = JSONDecoder.init()
-            guard let block = try? decoder.decode(Room.self, from: data) else {
-                fatalError("cant convert....")
-            }
-            return block
-        }
-        
-        guard rooms.count > 0 else { fatalError("rooms received == 0 !") }
-        
-        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmRoom.self])
-            .subscribe(onNext: { (success) in
-                
-                if success {
-                    
-                    RealmDataPersister.shared.save(rooms: rooms)
-                        .subscribe(onNext: { (success) in
-                            
-                            self.downloads.onNext(success)
-                            
-                        })
-                        .disposed(by: self.bag)
-                }
-                
-            }).disposed(by: self.bag)
-        
-    } // hard coded off for testing
-    
-    private func fetchSessionsAndSaveToRealmMOCK() { // print("fetchSessionsAndSaveToRealm is called")
-        
-        let filename = getFilenameToReadBlockJsonDataFrom()
-        
-        guard let jsonSessions = JsonFromBundleParser.readJSONFromFile(fileName: filename) as? [String: Any],
-            let sessions = jsonSessions["data"] as? [[String: Any]] else {fatalError("no sessions!!")}
-        
-        let blocks = sessions.map { (blockDict) -> Block in
-            let data = try! JSONSerialization.data(withJSONObject: blockDict, options: .prettyPrinted)
-            let decoder = JSONDecoder.init()
-            guard let block = try? decoder.decode(Block.self, from: data) else {
-                fatalError("cant convert....")
-            }
-            return block
-        }
-        
-        guard blocks.count > 0 else { fatalError("blocks received == 0 !") }
-        
-        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
-            .subscribe(onNext: { (success) in
-                
-                if success {
-                    
-                    RealmDataPersister.shared.save(blocks: blocks)
-                        .subscribe(onNext: { (success) in
-                            
-                            self.downloads.onNext(success)
-                            
-                        })
-                        .disposed(by: self.bag)
-                }
-                
-            }).disposed(by: bag)
-    }
-    */
-    
-    
     deinit {
         print("ResourcesState.deinit is called")
     }
     
 }
-
-// MOCK
-// mock block - test auto sync after update from web
-/*
-func getFilenameToReadBlockJsonDataFrom() -> String {
-    guard let savedFilename = UserDefaults.standard.value(forKey: "jsonDataBundleBlocks") as? String else {
-        UserDefaults.standard.setValue("cities", forKey: "jsonDataBundleBlocks")
-        return "cities"
-    }
-    if savedFilename == "cities" {
-        UserDefaults.standard.setValue("citiesUpdated", forKey: "jsonDataBundleBlocks")
-        return "citiesUpdated"
-    } else {
-        UserDefaults.standard.setValue("cities", forKey: "jsonDataBundleBlocks")
-        return "cities"
-    }
-}
-
-func getFilenameToReadRoomJsonDataFrom() -> String {
-    guard let savedFilename = UserDefaults.standard.value(forKey: "jsonDataBundleRooms") as? String else {
-        UserDefaults.standard.setValue("rooms", forKey: "jsonDataBundleRooms")
-        return "rooms"
-    }
-    if savedFilename == "rooms" {
-        UserDefaults.standard.setValue("roomsUpdated", forKey: "jsonDataBundleRooms")
-        return "roomsUpdated"
-    } else {
-        UserDefaults.standard.setValue("rooms", forKey: "jsonDataBundleRooms")
-        return "rooms"
-    }
-}
-*/

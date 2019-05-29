@@ -148,8 +148,8 @@ class ApiController {
     
         print("APIController.buildingRequest.calling API !!!")
         
-//        let url = base.appendingPathComponent(pathComponent)
-        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
+        let url = base.appendingPathComponent(pathComponent)
+//        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
         
         var request = URLRequest(url: url)
         
@@ -175,9 +175,8 @@ class ApiController {
         let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
-                                       "device-id": deviceUdid]
-        
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                                       "device-id": deviceUdid,
+                                       "Content-Type": "application/json"]
         
         let session = URLSession.shared
         
@@ -188,7 +187,7 @@ class ApiController {
             if 201 == response.statusCode {
                 return try! JSONSerialization.data(withJSONObject:  ["created": 201])
             } else if 200 ..< 300 ~= response.statusCode {
-                print("buildRequest.imam data... all good")
+                print("buildRequest.imam data... all good, data = \(data)")
                 return data
             } else if response.statusCode == 401 {
                 print("buildRequest.ApiError.invalidKey")

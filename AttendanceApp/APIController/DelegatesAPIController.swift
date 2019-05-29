@@ -26,7 +26,7 @@ class DelegatesAPIController {
     struct Domain {
         //static let baseUrl = URL(string: "https://service.e-materials.com/api")! hard-coded
         static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
-        //static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!  hard-coded
+//        static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
         static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
         static let baseLeadLinkURL = URL(string: "https://service.e-materials.com/api/leadlink/")!
     }
@@ -47,15 +47,13 @@ class DelegatesAPIController {
         
         return apiController.buildRequest(base: Domain.minjonUrl,
                                           method: "GET",
-                                          pathComponent: "data/delegates/7520.zip"
+                                          pathComponent: "data/delegates/7520"
                                           )
             .flatMap(parseIntoDelegates)
     }
     
     private func parseIntoDelegates(data: Data) -> Observable<[Delegate]> {
         return Observable.create({ observer -> Disposable in
-//            {"current_time":"2019-05-27 16:45:02","delegates":[{"c":"002345","s":[9605,9731,9956]},{"c":"098892","s":[9605,9731]},{"c":"012345","s":[9605]}]}
-//
             
             let decoder = JSONDecoder.init()
             let result = try! decoder.decode(Delegates.self, from: data)
@@ -65,36 +63,37 @@ class DelegatesAPIController {
             return Disposables.create()
         })
     }
-    
+ 
     //MARK: - API Calls
-//    func getDelegates() -> Observable<([Delegate])> {
-//
-//        let unziper = Unziper.init(conferenceId: 7520)
-//
-//        return apiController.buildRequest(base: Domain.minjonUrl,
-//                                          method: "GET",
-//                                          pathComponent: "data/delegates/7520.zip",
-//                                          params: [])
-//            .flatMap(unziper.saveDataAsFile)
-//            .flatMap(unziper.unzipData)
-//            .flatMap(convert)
-//    }
-//
-//    private func convert(data: Data) -> Observable<[Delegate]> {
-//
-//        return Observable.create({ [weak self] (observer) -> Disposable in
-//            print("convert.data = \(data)")
-//            guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
-//                observer.onNext([ ])
-//                return Disposables.create()
-//            }
-//            observer.onNext(delegatesStruct.delegates)
-//            print(" my delegates struct = \(delegatesStruct.delegates)")
-//            return Disposables.create()
-//        })
-//
-//    }
-    
+    /*
+    func getDelegates() -> Observable<([Delegate])> {
+
+        let unziper = Unziper.init(conferenceId: 7520)
+
+        return apiController.buildRequest(base: Domain.minjonUrl,
+                                          method: "GET",
+                                          pathComponent: "data/delegates/7520.zip",
+                                          params: [])
+            .flatMap(unziper.saveDataAsFile)
+            .flatMap(unziper.unzipData)
+            .flatMap(convert)
+    }
+
+    private func convert(data: Data) -> Observable<[Delegate]> {
+
+        return Observable.create({ [weak self] (observer) -> Disposable in
+            print("convert.data = \(data)")
+            guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
+                observer.onNext([ ])
+                return Disposables.create()
+            }
+            observer.onNext(delegatesStruct.delegates)
+            print(" my delegates struct = \(delegatesStruct.delegates)")
+            return Disposables.create()
+        })
+
+    }
+    */
 }
 
 class Unziper: NSObject {
