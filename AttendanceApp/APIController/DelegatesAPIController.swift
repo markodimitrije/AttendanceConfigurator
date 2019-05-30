@@ -26,8 +26,8 @@ class DelegatesAPIController {
     struct Domain {
         //static let baseUrl = URL(string: "https://service.e-materials.com/api")! hard-coded
         static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
-//        static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
-        static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
+        static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
+//        static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
         static let baseLeadLinkURL = URL(string: "https://service.e-materials.com/api/leadlink/")!
     }
     
@@ -42,7 +42,7 @@ class DelegatesAPIController {
     }
 
     // MOCK-API
-    
+    /*
     func getDelegates() -> Observable<([Delegate])> {
         
         return apiController.buildRequest(base: Domain.minjonUrl,
@@ -63,9 +63,9 @@ class DelegatesAPIController {
             return Disposables.create()
         })
     }
- 
+ */
     //MARK: - API Calls
-    /*
+    
     func getDelegates() -> Observable<([Delegate])> {
 
         let unziper = Unziper.init(conferenceId: 7520)
@@ -93,7 +93,7 @@ class DelegatesAPIController {
         })
 
     }
-    */
+    
 }
 
 class Unziper: NSObject {
@@ -144,5 +144,3 @@ class Unziper: NSObject {
         })
     }
 }
-
-
