@@ -18,7 +18,8 @@ func playSound(name: String, ext: String = "mp3") {
     }
     
     do {
-        try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        //try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+        try AVAudioSession.sharedInstance().setCategory(.playback)
         try AVAudioSession.sharedInstance().setActive(true)
         
         soundPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
