@@ -19,7 +19,7 @@ class ApiController {
     struct Domain {
 //        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
         static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
-        //static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
+//        static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
         static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
     }
     
@@ -27,8 +27,7 @@ class ApiController {
     static var shared = ApiController()
     
     /// The api key to communicate with Navus
-    //private let apiKey = "sv5NPptQyZHkBDx4fkMgNhO2Z4ONl4VP"
-    private let apiKey = "Pl5oQFIFvC0VJK7xU5p8hOVVF5hHXP9H"
+    private let apiKey = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
     
     init() {
         Logging.URLRequests = { request in

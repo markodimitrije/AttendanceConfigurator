@@ -81,7 +81,7 @@ class DelegatesAPIController {
 
     private func convert(data: Data) -> Observable<[Delegate]> {
 
-        return Observable.create({ [weak self] (observer) -> Disposable in
+        return Observable.create({(observer) -> Disposable in
             print("convert.data = \(data)")
             guard let delegatesStruct = try? JSONDecoder().decode(Delegates.self, from: data) else {
                 observer.onNext([ ])
