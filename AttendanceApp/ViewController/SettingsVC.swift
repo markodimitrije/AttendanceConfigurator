@@ -32,7 +32,7 @@ class SettingsVC: UITableViewController {
     private let deviceStateReporter = DeviceStateReporter.init()
     private let vcFactory = ViewControllerFactory()
     
-    private let conferenceState = ConferenceState()
+    private let conferenceState = ConferenceApiKeyState()
     
     // output
     var roomId: Int! = nil {

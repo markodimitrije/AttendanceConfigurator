@@ -41,7 +41,7 @@ class AutoSessionTimer {
                 sSelf.dataAccess.userSelection = updateData
             }).disposed(by: disposeBag)
         } else {
-            print("ne smes da emitujes BLOCK, do nothing..., just update selectio -> UI")
+            //print("ne smes da emitujes BLOCK, do nothing..., just update selectio -> UI")
             updateUserSellectionAsItIs(dataAccess: dataAccess)
         }
     }
