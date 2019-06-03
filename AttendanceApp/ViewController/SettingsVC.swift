@@ -26,6 +26,7 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
+    @IBOutlet weak var syncApiKeyView: SyncApiKeyView!
     
     private let disposeBag = DisposeBag()
     private let deviceStateReporter = DeviceStateReporter.init()
@@ -78,6 +79,7 @@ class SettingsVC: UITableViewController {
         bindUI()
         bindReachability()
         bindUnsyncedScans()
+        bindSyncApiKey()
 //        bindState() // ovde je rano za tableView.visibleCells !!
     }
     
@@ -162,6 +164,7 @@ class SettingsVC: UITableViewController {
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
+        
     }
 
     private func bindReachability() {
@@ -185,6 +188,14 @@ class SettingsVC: UITableViewController {
             .map(!)
             .bind(to: unsyncedScansView.syncBtn.rx.isHidden)
             .disposed(by: disposeBag)
+    }
+    
+    private func bindSyncApiKey() {
+        
+        syncApiKeyView.oSyncBtnTap
+            .subscribe(onNext: { _ in
+                print("call web and update your data... realm locactions, blocks, delegates....")
+            }).disposed(by: disposeBag)
     }
     
     private func bindInterval() {

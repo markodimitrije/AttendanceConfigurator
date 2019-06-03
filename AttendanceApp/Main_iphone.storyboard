@@ -528,6 +528,7 @@
                         <outlet property="roomLbl" destination="kYV-Y5-Nmd" id="RpS-GJ-kMK"/>
                         <outlet property="saveSettingsAndExitBtn" destination="XAK-dH-rsy" id="9bH-3j-z7C"/>
                         <outlet property="sessionLbl" destination="ALi-UY-kcw" id="rGO-TU-JIl"/>
+                        <outlet property="syncApiKeyView" destination="cJM-45-kCD" id="RsP-OI-anr"/>
                         <outlet property="unsyncedScansView" destination="7oo-yL-uPJ" id="g25-wl-ygX"/>
                         <outlet property="wiFiConnectionView" destination="Fvu-Xl-Uo2" id="vhL-5r-YUq"/>
                     </connections>
