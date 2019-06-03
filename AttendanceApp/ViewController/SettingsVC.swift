@@ -32,6 +32,8 @@ class SettingsVC: UITableViewController {
     private let deviceStateReporter = DeviceStateReporter.init()
     private let vcFactory = ViewControllerFactory()
     
+    private let conferenceState = ConferenceState()
+    
     // output
     var roomId: Int! = nil {
         didSet {
@@ -193,8 +195,10 @@ class SettingsVC: UITableViewController {
     private func bindSyncApiKey() {
         
         syncApiKeyView.oSyncBtnTap
-            .subscribe(onNext: { _ in
-                print("call web and update your data... realm locactions, blocks, delegates....")
+            .subscribe(onNext: { [weak self] _ in
+                
+                self?.conferenceState.syncApiKeyIsNeeded()
+                
             }).disposed(by: disposeBag)
     }
     

@@ -40,6 +40,7 @@ struct MyConstants {
 
 extension UserDefaults {
     static let keyResourcesDownloaded = "resourcesDownloaded"
+    static let keyConferenceApiKey = "conferenceApiKey"
 }
 
 extension String {

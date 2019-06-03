@@ -21,13 +21,17 @@ class ApiController {
 //        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
 //        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
+        static let mockURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
     }
     
     /// The shared instance
     static var shared = ApiController()
     
     /// The api key to communicate with Navus
-    private let apiKey = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
+    //private let apiKey = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T" // sv5NPptQyZHkBDx4fkMgNhO2Z4ONl4VP
+    private var apiKey: String {
+        return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String ?? "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
+    }
     
     init() {
         Logging.URLRequests = { request in
@@ -137,6 +141,22 @@ class ApiController {
             .catchErrorJustReturn((report, false))
     }
  
+    // MARK: - Api Key Sync
+    func getApiKey() -> Observable<String?> {
+        // http://tracker.e-materials.com/devices/609511F8-30CC-433E-9223-FBC736FE6B05
+        let pathComponent = "devices" + "/" + "609511F8-30CC-433E-9223-FBC736FE6B05" // hard-coded
+        //return buildRequest(base: Domain.baseTrackerURL,
+        return buildRequest(base: Domain.mockURL,
+                            method: "GET",
+                            pathComponent: pathComponent,
+                            params: [])
+            .map() { data in
+                guard let jsonObject = try? JSONSerialization.jsonObject(with: data),
+                    let json = jsonObject as? [String: Any] else {return nil}
+                print("vracam api_key = \(String(describing: json["api_key"] as? String))")
+                return json["api_key"] as? String
+        }
+    }
     
     //MARK: - Private Methods
     

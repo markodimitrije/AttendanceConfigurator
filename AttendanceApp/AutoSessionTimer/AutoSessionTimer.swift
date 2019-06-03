@@ -30,9 +30,9 @@ class AutoSessionTimer {
                                                object: nil)
     }
     
-    @objc func fire() { print("AutoSessionTimer/fire, check for auto session = \(NOW)")
+    @objc func fire() { //print("AutoSessionTimer/fire, check for auto session = \(NOW)")
         let actualSettings = dataAccess.userSelection
-        if actualSettings.roomId != nil && actualSettings.autoSwitch { print("dozvoljeno je da emitujes BLOCK")
+        if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}

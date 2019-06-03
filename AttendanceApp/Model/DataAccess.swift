@@ -86,7 +86,7 @@ class DataAccess: NSObject {
             guard let autoSwitch = UserDefaults.standard.value(forKey: keyPath) as? Bool else {
                 return
             }
-            print("DataAccess/// emitujem state za autoSwitch = \(autoSwitch)")
+//            print("DataAccess/// emitujem state za autoSwitch = \(autoSwitch)")
             _autoSwitchSelected.accept(autoSwitch)
         }
         

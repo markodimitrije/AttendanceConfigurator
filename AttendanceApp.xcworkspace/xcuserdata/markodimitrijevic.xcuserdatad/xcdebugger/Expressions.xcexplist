@@ -3,13 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AutoSessionTimer.fire():AutoSessionTimer.swift">
+         contextName = "closure #1 in ConferenceState.syncApiKeyIsNeeded():ResourcesState.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dataAccess.userSelection">
+               value = "self.getActualApiKey()">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in ApiController.buildRequest(base:method:pathComponent:params:):APIController.swift">
+         <PersistentStrings>
             <PersistentString
-               value = "updateData">
+               value = "response.statusCode">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,10 +27,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #2 in ApiController.buildRequest(base:method:pathComponent:params:):APIController.swift">
+         contextName = "AutoSessionTimer.fire():AutoSessionTimer.swift">
          <PersistentStrings>
             <PersistentString
-               value = "response.statusCode">
+               value = "dataAccess.userSelection">
+            </PersistentString>
+            <PersistentString
+               value = "updateData">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -40,12 +40,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SBSLicense.setAppKey(kScanditBarcodeScannerAppKey)
         
+        setInitialApiKey()
+        
         return true
     }
     
     deinit {
         UserDefaults.standard.removeObserver(self, forKeyPath: "roomId")
         UserDefaults.standard.removeObserver(self, forKeyPath: "sessionId")
+    }
+    
+    private func setInitialApiKey() {
+        if let _ = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String {
+            return
+        }
+        UserDefaults.standard.set("Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T", forKey: UserDefaults.keyConferenceApiKey)
     }
     
     private let bag = DisposeBag()

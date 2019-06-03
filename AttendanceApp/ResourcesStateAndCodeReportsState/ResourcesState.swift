@@ -14,6 +14,8 @@ import Realm
 
 class ResourcesState {
     
+    lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)//.skip(1) hard-coded
+    
     var resourcesDownloaded: Bool? {
         get {
             return UserDefaults.standard.value(forKey: UserDefaults.keyResourcesDownloaded) as? Bool
@@ -39,6 +41,7 @@ class ResourcesState {
     private let bag = DisposeBag()
     
     private var downloads = PublishSubject<Bool>.init() // refactor u tuple or dict ["blocks": true, "rooms": false]...
+    private let downloadsState = DownloadsState()
     
     init() {
         
@@ -54,19 +57,39 @@ class ResourcesState {
             name: UIApplication.willResignActiveNotification,
             object: nil)
         
-        downloads
-            .take(3) // room API and blocks API
-            .reduce(true) { (sum, last) -> Bool in
-                sum && last
+        
+        
+//        downloads.subscribe(onNext: { [weak self] _ in guard let sSelf = self else {return}
+//            if sSelf.downloadsState.downloads.value.keys.count == 3 && (sSelf.downloadsState.downloads.value.values.filter {$0}).count == 3 {
+//                print("svi su TRUE, odlicno !!!")
+//
+//                sSelf.resourcesDownloaded = true // bez veze je ovo
+//                sSelf.oResourcesDownloaded.accept(true) // na 2 mesta sync !
+//            }
+//        }).disposed(by: bag)
+
+        downloadsState.downloads.subscribe(onNext: { resources in
+            if resources.count >= 3 {
+                self.resourcesDownloaded = true // bez veze je ovo
+                self.oResourcesDownloaded.accept(true) // na 2 mesta sync !
+                //self.downloadsState.resourceStateUpdated()
             }
-            .subscribe(onNext: { [weak self] success in
-                guard let sSelf = self else {return}
-                sSelf.resourcesDownloaded = success
-//                sSelf.timer?.invalidate() hard-coded (there is no silent notification to force download resources)
-                // thats why timer should be always alive, to force download resources every 30 min for example
-                
-            })
-            .disposed(by: bag)
+        }).disposed(by: bag)
+        
+        
+//        downloads
+//            .take(3) // room API and blocks API
+//            .reduce(true) { (sum, last) -> Bool in
+//                sum && last
+//            }
+//            .subscribe(onNext: { [weak self] success in
+//                guard let sSelf = self else {return}
+//                sSelf.resourcesDownloaded = success // bez veze je ovo
+//                sSelf.oResourcesDownloaded.accept(true) // na 2 mesta sync !
+////                sSelf.timer?.invalidate() hard-coded (there is no silent notification to force download resources)
+//                // thats why timer should be always alive, to force download resources every 30 min for example
+//            })
+//            .disposed(by: bag)
         
     }
     
@@ -78,7 +101,7 @@ class ResourcesState {
         
     }
     
-    private func downloadResources() {
+    func downloadResources() {
         
         if shouldDownloadResources {
             
@@ -122,7 +145,7 @@ class ResourcesState {
         oRooms
             .subscribe(onNext: { [ weak self] (rooms) in
                 
-                guard let strongSelf = self,
+                guard let sSelf = self,
                     rooms.count > 0 else {return} // valid
                 
                 RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmRoom.self])
@@ -133,13 +156,15 @@ class ResourcesState {
                             RealmDataPersister.shared.save(rooms: rooms)
                                 .subscribe(onNext: { (success) in
                                     
-                                    strongSelf.downloads.onNext(success)
+                                    sSelf.downloads.onNext(success)
+                                    //strongSelf.downloadsState.downloads.accept("rooms")
+                                    sSelf.downloadsState.newlyDownloaded.accept("rooms")
                                     
                                 })
-                                .disposed(by: strongSelf.bag)
+                                .disposed(by: sSelf.bag)
                         }
                         
-                }).disposed(by: strongSelf.bag)
+                }).disposed(by: sSelf.bag)
                 
             })
             .disposed(by: bag)
@@ -155,7 +180,7 @@ class ResourcesState {
         oBlocks
             .subscribe(onNext: { [weak self] (blocks) in
                 
-                guard let strongSelf = self,
+                guard let sSelf = self,
                     blocks.count > 0 else {return} // valid
                 
                 RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
@@ -166,13 +191,15 @@ class ResourcesState {
                             RealmDataPersister.shared.save(blocks: blocks)
                                 .subscribe(onNext: { (success) in
                                     
-                                    strongSelf.downloads.onNext(success)
+                                    sSelf.downloads.onNext(success)
+                                    //sSelf.downloadsState.downloads.accept(["blocks": success])
+                                    sSelf.downloadsState.newlyDownloaded.accept("blocks")
                                     
                                 })
-                                .disposed(by: strongSelf.bag)
+                                .disposed(by: sSelf.bag)
                         }
                         
-                    }).disposed(by: strongSelf.bag)
+                    }).disposed(by: sSelf.bag)
                 
             })
             .disposed(by: bag)
@@ -191,8 +218,10 @@ class ResourcesState {
         }
         
         result.flatMap(RealmDelegatesPersister.shared.save)
-            .subscribe(onNext: { [weak self] delegatesSaved in guard let sSelf = self else {return}
-                sSelf.downloads.onNext(delegatesSaved)
+            .subscribe(onNext: { [weak self] success in guard let sSelf = self else {return}
+                sSelf.downloads.onNext(success)
+                //sSelf.downloadsState.downloads.accept(["delegates": success])
+                sSelf.downloadsState.newlyDownloaded.accept("delegates")
             })
             .disposed(by: self.bag)
         
@@ -202,4 +231,72 @@ class ResourcesState {
         print("ResourcesState.deinit is called")
     }
     
+}
+
+class ConferenceState {
+    
+    var apiKey: String? = UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String
+    
+    init() {
+        listenToResourcesDowloaded()
+    }
+    
+    func syncApiKeyIsNeeded() {
+        
+        getNewApiKey()
+            .subscribe(onNext: { newApiKey in
+                if newApiKey != self.getActualApiKey() {
+                    self.apiKey = newApiKey
+                    resourcesState.downloadResources()
+                }
+            })
+            .disposed(by: self.bag)
+    }
+    
+    private func listenToResourcesDowloaded() {
+        
+        resourcesState.oResourcesDownloaded
+            .subscribe(onNext: { downloaded in
+                UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
+                UserDefaults.standard.set(self.apiKey, forKey: UserDefaults.keyConferenceApiKey)
+            })
+            .disposed(by: self.bag)
+    }
+        
+    private func getNewApiKey() -> Observable<String?> {
+        return ApiController.shared.getApiKey()
+    }
+    
+    private func getActualApiKey() -> String? {
+        return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String
+    }
+    
+    private let bag = DisposeBag()
+}
+
+class DownloadsState {
+    
+    // OUTPUT:
+    var downloads = BehaviorRelay<[String]>.init(value: [])
+    
+    // INPUT:
+    let newlyDownloaded = BehaviorRelay<String>.init(value: "")
+    
+    init() {
+        newlyDownloaded
+            .subscribe(onNext: { [weak self] newResource in
+                guard let sSelf = self else {return}
+                if newResource != "" {
+                    var resources = sSelf.downloads.value
+                    resources.append(newResource)
+                    sSelf.downloads.accept(resources)
+                }
+            }).disposed(by: bag)
+    }
+    
+    func resourceStateUpdated() {
+        downloads.accept([])
+    }
+    
+    private let bag = DisposeBag()
 }
