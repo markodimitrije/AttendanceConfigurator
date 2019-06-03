@@ -17,10 +17,10 @@ import Reachability
 class ApiController {
     
     struct Domain {
-//        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
-//        static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
-        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
+        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+//        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
+        static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
+//        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
     }
     
     /// The shared instance

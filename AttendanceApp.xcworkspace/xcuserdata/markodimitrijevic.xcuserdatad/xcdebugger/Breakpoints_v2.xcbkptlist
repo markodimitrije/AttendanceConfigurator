@@ -90,71 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/APIController.swift"
-            timestampString = "581248183.664781"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "buildRequest(base:method:pathComponent:params:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AttendanceApp.ApiController.buildRequest(base: Foundation.URL, method: Swift.String, pathComponent: Swift.String, params: Any) -&gt; RxSwift.Observable&lt;Foundation.Data&gt;"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceApp/AttendanceApp/APIController/APIController.swift"
-                  timestampString = "581251661.084344"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "1432">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((Swift.String, Swift.String)) -&gt; Foundation.URLQueryItem in AttendanceApp.ApiController.buildRequest(base: Foundation.URL, method: Swift.String, pathComponent: Swift.String, params: Any) -&gt; RxSwift.Observable&lt;Foundation.Data&gt;"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceApp/AttendanceApp/APIController/APIController.swift"
-                  timestampString = "581251661.086165"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "162"
-                  endingLineNumber = "162"
-                  offsetFromSymbolStart = "96">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/APIController/APIController.swift"
-            timestampString = "581248183.66517"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "buildRequest(base:method:pathComponent:params:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/APIController/APIController.swift"
-            timestampString = "581248183.665439"
+            timestampString = "581256062.248323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "196"
@@ -170,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/APIController.swift"
-            timestampString = "581248183.6656719"
+            timestampString = "581256062.248718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"

@@ -25,13 +25,14 @@ class SessionReport {
     }
     
     func getPayload() -> [(String, String)] {
-        
+        let appActive = app_active ? "1" : "0"
         return [
             ("location_id", "\(location_id)"),
             ("block_id", "\(block_id)"),
             ("battery_level", "\(battery_level)"),
             ("battery_status", "\(battery_status)"),
-            ("app_active", "\(app_active)")
+            //("app_active", "\(app_active)")
+            ("app_active", appActive)
         ]
     }
     
