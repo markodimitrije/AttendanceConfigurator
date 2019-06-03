@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxCocoa
 
 class UnsyncedScansView: UIView {
     
@@ -78,3 +79,5 @@ class UnsyncedScansView: UIView {
     }
     
 }
+
+

@@ -52,3 +52,8 @@ let batteryStateConverter: [UIDevice.BatteryState: String] = [
     .full: "full",
     .unplugged: "unplugged"
 ]
+
+struct Constants {
+    static let syncApiKey = "Sync API Key"
+    static let sync = "Sync"
+}
