@@ -11,7 +11,6 @@ import RxCocoa
 
 class SyncApiKeyView: UnsyncedScansView {
     
-    //var oSyncTap = BehaviorRelay.init(value: ())//.skip(1) // hard-coded ok ?\
     var oSyncBtnTap: ControlEvent<()> {
         return self.syncBtn.rx.tap
     }

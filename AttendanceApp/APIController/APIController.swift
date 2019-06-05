@@ -21,7 +21,7 @@ class ApiController {
 //        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
 //        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
-        static let mockURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
+//        static let mockURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
     }
     
     /// The shared instance
@@ -145,8 +145,8 @@ class ApiController {
     func getApiKey() -> Observable<String?> {
         // http://tracker.e-materials.com/devices/609511F8-30CC-433E-9223-FBC736FE6B05
         let pathComponent = "devices" + "/" + "609511F8-30CC-433E-9223-FBC736FE6B05" // hard-coded
-        //return buildRequest(base: Domain.baseTrackerURL,
-        return buildRequest(base: Domain.mockURL,
+        return buildRequest(base: Domain.baseTrackerURL,
+//        return buildRequest(base: Domain.mockURL,
                             method: "GET",
                             pathComponent: pathComponent,
                             params: [])

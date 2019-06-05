@@ -445,8 +445,28 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Pen-TU-zBB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6P5-Kp-xCT">
                                         <rect key="frame" x="0.0" y="456" width="1024" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6P5-Kp-xCT" id="T2N-6H-1Dz">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhW-3l-t3S" customClass="SyncApiKeyView" customModule="AttendanceApp" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jhW-3l-t3S" firstAttribute="top" secondItem="T2N-6H-1Dz" secondAttribute="top" id="BhW-i8-56A"/>
+                                                <constraint firstAttribute="bottom" secondItem="jhW-3l-t3S" secondAttribute="bottom" id="c7G-la-Mu7"/>
+                                                <constraint firstItem="jhW-3l-t3S" firstAttribute="leading" secondItem="T2N-6H-1Dz" secondAttribute="leading" id="fK8-PC-oAc"/>
+                                                <constraint firstAttribute="trailing" secondItem="jhW-3l-t3S" secondAttribute="trailing" id="q28-Ga-5n7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Pen-TU-zBB">
+                                        <rect key="frame" x="0.0" y="500" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pen-TU-zBB" id="GX9-6g-zqJ">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
@@ -481,6 +501,7 @@
                         <outlet property="roomLbl" destination="Z55-SU-t5C" id="RTY-zX-gYm"/>
                         <outlet property="saveSettingsAndExitBtn" destination="tS3-bo-vhN" id="cyd-Ds-ieQ"/>
                         <outlet property="sessionLbl" destination="4n0-vR-Xii" id="WIn-Tk-fhu"/>
+                        <outlet property="syncApiKeyView" destination="jhW-3l-t3S" id="LaR-ld-35V"/>
                         <outlet property="unsyncedScansView" destination="AHv-tg-OV2" id="yns-sF-nDf"/>
                         <outlet property="wiFiConnectionView" destination="zkE-ke-GZ0" id="qmw-Bi-cfj"/>
                     </connections>

@@ -24,8 +24,8 @@ class DelegatesAPIController {
     private let bag = DisposeBag()
     
     struct Domain {
-        //static let baseUrl = URL(string: "https://service.e-materials.com/api")! hard-coded
-        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
+        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+//        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
         static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
 //        static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
         static let baseLeadLinkURL = URL(string: "https://service.e-materials.com/api/leadlink/")!

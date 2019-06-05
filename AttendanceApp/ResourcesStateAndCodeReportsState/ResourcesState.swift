@@ -14,7 +14,7 @@ import Realm
 
 class ResourcesState {
     
-    lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)//.skip(1) hard-coded
+    lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)
     
     var resourcesDownloaded: Bool? {
         get {
