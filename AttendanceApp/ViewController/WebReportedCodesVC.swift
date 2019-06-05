@@ -38,6 +38,7 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         self.tableView = tableView
         super.init()
         self.hookUpDataFromRealm()
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,8 +55,10 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         RealmDataPersister.shared.getRealmWebReportedCodes().subscribeOn(MainScheduler.init())
             .subscribe(onNext: { [weak self] results in
             guard let sSelf = self else {return}
-            //sSelf.data = results.toArray().map {$0.code}
-                sSelf.data = results.toArray().map {$0.code}.map(trimmedToSixCharactersCode(code:))
+                let reports = results.toArray().sorted(by: { (rCode1, rCode2) -> Bool in
+                    return (rCode1.date ?? NOW) > (rCode2.date ?? NOW)
+                })
+                sSelf.data = reports.map {$0.code}.map(trimmedToSixCharactersCode(code:))
         }).disposed(by: bag)
     }
     
