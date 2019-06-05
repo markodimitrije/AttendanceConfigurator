@@ -32,7 +32,6 @@ class SettingsVC: UITableViewController {
     private let deviceStateReporter = DeviceStateReporter.init()
     private let vcFactory = ViewControllerFactory()
     
-    private let conferenceState = ConferenceApiKeyState()
     private let codeReporter = CodeReportsState.init()
     
     // output
@@ -214,9 +213,9 @@ class SettingsVC: UITableViewController {
     private func bindSyncApiKey() {
         
         syncApiKeyView.oSyncBtnTap
-            .subscribe(onNext: { [weak self] _ in
+            .subscribe(onNext: { _ in
                 
-                self?.conferenceState.syncApiKeyIsNeeded()
+                conferenceState.syncApiKeyIsNeeded()
                 
             }).disposed(by: disposeBag)
     }

@@ -25,6 +25,8 @@
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
 		7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */; };
+		7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63ACB22A86324008E477B /* ConfIdApiKeyAuthState.swift */; };
+		7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63ACD22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
@@ -111,6 +113,8 @@
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadResourcesState.swift; sourceTree = "<group>"; };
+		7CE63ACB22A86324008E477B /* ConfIdApiKeyAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthState.swift; sourceTree = "<group>"; };
+		7CE63ACD22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthSupplying.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
@@ -276,6 +280,15 @@
 			path = JsonFromBundleParser;
 			sourceTree = "<group>";
 		};
+		7CE63ACA22A862FE008E477B /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				7CE63ACB22A86324008E477B /* ConfIdApiKeyAuthState.swift */,
+				7CE63ACD22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift */,
+			);
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		7CE81539227346F700B33986 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +445,7 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CE63ACA22A862FE008E477B /* New Group1 */,
 				7CB1E44B22982F2B008C23F8 /* Factories */,
 				7CEF97B6228DA96B00C31CD8 /* JSON */,
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
@@ -674,6 +688,7 @@
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
+				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
@@ -691,6 +706,7 @@
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
+				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
 				7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,

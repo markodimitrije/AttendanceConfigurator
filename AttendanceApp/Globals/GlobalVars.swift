@@ -22,4 +22,6 @@ var NOW: Date {
     return Date.init(timeIntervalSinceNow: 0)
 }
 
-let conferenceId = 7498 // hard-coded!
+//let conferenceId = 7498 // hard-coded!
+
+let conferenceState = ConferenceApiKeyState()

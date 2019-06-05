@@ -33,6 +33,9 @@ class DelegatesAPIController {
     
     /// The shared instance
     static var shared = DelegatesAPIController(apiController: ApiController.init())
+    private var conferenceId: Int {
+        return conferenceState.conferenceId ?? 0 // fatal
+    }
     
     init(apiController: ApiController) {
         self.apiController = apiController

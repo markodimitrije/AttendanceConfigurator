@@ -29,7 +29,7 @@ class ApiController {
     
     /// The api key to communicate with Navus
     private var apiKey: String {
-        return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String ?? "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"//"L5YYQFIFvC0VJK7xU5p8hOVVF5hHPMKL"
+        return conferenceState.apiKey ?? "fatal"
     }
     
     init() {

@@ -42,61 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/DelegatesAPIController.swift"
-            timestampString = "581456318.234861"
+            timestampString = "581462612.498894"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "unzipData(success:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewController/SettingsVC.swift"
-            timestampString = "581456318.235461"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "bindUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ResourcesStateAndCodeReportsState/ConferenceApiKeyState.swift"
-            timestampString = "581456318.2363909"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "syncApiKeyIsNeeded()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewController/SettingsVC.swift"
-            timestampString = "581456318.236508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "150"
+            endingLineNumber = "150">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,13 +56,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AttendanceApp/APIController/APIController.swift"
-            timestampString = "581456408.075779"
+            timestampString = "581462612.499525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "buildRequest(base:method:pathComponent:params:contentType:)"
-            landmarkType = "7">
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "ApiController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
