@@ -110,7 +110,7 @@ class BlocksVC: UIViewController {
                             }) {
                                 rBlock = blockGroup[ip.row]
                             } else {
-                                print("o-o, should never get here...."); fatalError()
+                                print("o-o, should never get here....")//; fatalError()
                             }
                         } else {
                             let sectionBlocks = strongSelf.blockViewModel.sectionBlocks

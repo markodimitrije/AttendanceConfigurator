@@ -68,11 +68,11 @@ class DelegatesAPIController {
     
     func getDelegates() -> Observable<([Delegate])> {
 
-        let unziper = Unziper.init(conferenceId: 7520)
+        let unziper = Unziper.init(conferenceId: conferenceId)
 
         return apiController.buildRequest(base: Domain.minjonUrl,
                                           method: "GET",
-                                          pathComponent: "data/delegates/7520.zip",
+                                          pathComponent: "data/delegates/" + "\(conferenceId)" + ".zip",
                                           params: [])
             .flatMap(unziper.saveDataAsFile)
             .flatMap(unziper.unzipData)
@@ -88,7 +88,7 @@ class DelegatesAPIController {
                 return Disposables.create()
             }
             observer.onNext(delegatesStruct.delegates)
-            print(" my delegates struct = \(delegatesStruct.delegates)")
+//            print(" my delegates struct = \(delegatesStruct.delegates)")
             return Disposables.create()
         })
 

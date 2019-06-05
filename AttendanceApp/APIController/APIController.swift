@@ -28,9 +28,8 @@ class ApiController {
     static var shared = ApiController()
     
     /// The api key to communicate with Navus
-    //private let apiKey = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T" // sv5NPptQyZHkBDx4fkMgNhO2Z4ONl4VP
     private var apiKey: String {
-        return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String ?? "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
+        return UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) as? String ?? "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"//"L5YYQFIFvC0VJK7xU5p8hOVVF5hHPMKL"
     }
     
     init() {
@@ -129,7 +128,8 @@ class ApiController {
         return buildRequest(base: Domain.baseTrackerURL,
                             method: "PUT",
                             pathComponent: "devices/\(deviceId)",
-                            params: params)
+                            params: params,
+                            contentType: "text/plain")
             .map { data in
                 guard let object = try? JSONSerialization.jsonObject(with: data),
                     let json = object as? [String: Any],
@@ -143,8 +143,8 @@ class ApiController {
  
     // MARK: - Api Key Sync
     func getApiKey() -> Observable<String?> {
-        // http://tracker.e-materials.com/devices/609511F8-30CC-433E-9223-FBC736FE6B05
-        let pathComponent = "devices" + "/" + "609511F8-30CC-433E-9223-FBC736FE6B05" // hard-coded
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let pathComponent = "devices" + "/" + deviceId
         return buildRequest(base: Domain.baseTrackerURL,
 //        return buildRequest(base: Domain.mockURL,
                             method: "GET",
@@ -164,7 +164,11 @@ class ApiController {
     
     // bez veze je Any... // treba ili [(String, String)] ili [String: Any]
     
-     func buildRequest(base: URL = Domain.baseUrl, method: String = "GET", pathComponent: String, params: Any = []) -> Observable<Data> {
+     func buildRequest(base: URL = Domain.baseUrl,
+                       method: String = "GET",
+                       pathComponent: String,
+                       params: Any = [],
+                       contentType: String? = "application/json") -> Observable<Data> {
     
         print("APIController.buildingRequest.calling API !!!")
         
@@ -196,7 +200,7 @@ class ApiController {
         
         request.allHTTPHeaderFields = ["Api-Key": apiKey,
                                        "device-id": deviceUdid,
-                                       "Content-Type": "application/json"]
+                                       "Content-Type": contentType!]
         
         let session = URLSession.shared
         

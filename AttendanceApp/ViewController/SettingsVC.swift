@@ -33,6 +33,7 @@ class SettingsVC: UITableViewController {
     private let vcFactory = ViewControllerFactory()
     
     private let conferenceState = ConferenceApiKeyState()
+    private let codeReporter = CodeReportsState.init()
     
     // output
     var roomId: Int! = nil {
@@ -83,6 +84,7 @@ class SettingsVC: UITableViewController {
         bindUnsyncedScans()
         bindSyncApiKey()
 //        bindState() // ovde je rano za tableView.visibleCells !!
+
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
@@ -137,6 +139,8 @@ class SettingsVC: UITableViewController {
             .do(onNext: { [weak self] _ in
                 guard let sSelf = self else {return}
                 sSelf.dismiss(animated: true, completion: nil) // ako radis behavior umesto bind na UI, koristi Subsc
+                print("blok je selektovan, javi webu.....")
+                sSelf.reportBlockChangedToWeb()
             })
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
@@ -147,12 +151,21 @@ class SettingsVC: UITableViewController {
                 guard let info = info else { // ako nemas info, tapnuo je cancel na BlocksVC
                     return
                 }
+                print("info je selektovan, javi webu.....")
                 
-                let batStateManager = BatteryManager.init()
+                delay(1.0, closure: {
+                    var infoAssumingApiKeyChange = info
+                    if DataAccess.shared.userSelection.roomId == nil {
+                        infoAssumingApiKeyChange = (0,0)
+                    }
+                    
+                    let batStateManager = BatteryManager.init()
+                    
+                    sSelf.deviceStateReporter.sessionIsSet(info: infoAssumingApiKeyChange,
+                                                           battery_info: batStateManager.info,
+                                                           app_active: true) // moras biti true ako je izabrao session
+                })
                 
-                sSelf.deviceStateReporter.sessionIsSet(info: info,
-                                                       battery_info: batStateManager.info,
-                                                       app_active: true) // moras biti true ako je izabrao session
             })
             .disposed(by: disposeBag)
         
@@ -168,7 +181,13 @@ class SettingsVC: UITableViewController {
             .disposed(by: disposeBag)
         
     }
-
+    
+    private func reportBlockChangedToWeb() {
+//        let codeReport = getActualCodeReport()
+//        codeReport.code = "000000" // ovo je samo change block, ne treba slati code...
+//        codeReporter.codeReport.accept(codeReport)
+    }
+    
     private func bindReachability() {
         
         connectedToInternet()

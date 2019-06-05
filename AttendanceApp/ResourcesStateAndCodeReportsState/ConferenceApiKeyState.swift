@@ -24,6 +24,7 @@ class ConferenceApiKeyState {
                 if newApiKey != self.getActualApiKey() {
                     self.apiKey = newApiKey
                     resourcesState.downloadResources() // side-effect...
+                    DataAccess.shared.userSelection = (roomId: nil, blockId: nil, selectedDate: nil, autoSwitch: true)
                 }
             })
             .disposed(by: self.bag)

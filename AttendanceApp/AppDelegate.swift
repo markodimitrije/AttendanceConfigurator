@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         UserDefaults.standard.set("Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T", forKey: UserDefaults.keyConferenceApiKey)
+//        UserDefaults.standard.set("L5YYQFIFvC0VJK7xU5p8hOVVF5hHPMKL", forKey: UserDefaults.keyConferenceApiKey)
     }
     
     private let bag = DisposeBag()
