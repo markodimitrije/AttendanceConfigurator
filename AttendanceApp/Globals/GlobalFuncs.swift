@@ -29,6 +29,9 @@ func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
 }
 
 func trimmedToSixCharactersCode(code: String) -> String {
+
+    guard code.count >= 6 else { return code }
+    
     let startPosition = code.count - 6
     let trimToSixCharactersCode = NSString(string: code).substring(from: startPosition)
 //    print("trimed code = \(trimToSixCharactersCode), with code = \(code)")

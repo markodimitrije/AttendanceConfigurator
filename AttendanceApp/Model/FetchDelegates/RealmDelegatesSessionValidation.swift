@@ -34,6 +34,11 @@ class RealmDelegatesSessionValidation {
     }
     
     private func delegateHasAccessToSession(code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
+
+        guard code.count >= 6 else {
+            return false // hard-coded, odbij ga da nema pravo, a hostese neka ga puste da udje....
+        }
+
         let trimedToSixCharCode = trimmedToSixCharactersCode(code: code)
         guard let realm = try? Realm.init(),
             let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: trimedToSixCharCode) else {
