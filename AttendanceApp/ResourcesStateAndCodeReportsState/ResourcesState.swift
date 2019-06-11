@@ -83,7 +83,7 @@ class ResourcesState {
             if timer == nil {
                 
                 timer = Timer.scheduledTimer(
-                    timeInterval: MyTimeInterval.timerForFetchingRoomAndBlockResources,
+                    timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
                     target: self,
                     selector: #selector(ResourcesState.fetchResourcesFromWeb),
                     userInfo: nil,
