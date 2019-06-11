@@ -49,8 +49,6 @@ class ScannerVC: UIViewController {
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()
         
-        persistInAttendanceInvalid(code: "000002")
-        
     }
     
     override var shouldAutorotate: Bool {
