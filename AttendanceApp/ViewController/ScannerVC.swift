@@ -33,6 +33,8 @@ class ScannerVC: UIViewController {
     private let codeReporter = CodeReportsState.init() // vrsta viewModel-a ?
     private let delegatesSessionValidation = RealmDelegatesSessionValidation()
     
+    private let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(realmObjectPersister: RealmObjectPersister())
+    
     var settingsVC: SettingsVC!
     
     // interna upotreba:
@@ -46,6 +48,8 @@ class ScannerVC: UIViewController {
         
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()
+        
+        persistInAttendanceInvalid(code: "000002")
         
     }
     
@@ -145,6 +149,19 @@ class ScannerVC: UIViewController {
     }
     
     private func delegateAttendanceInvalid(code: String, picker: SBSBarcodePicker) {
+        persistInAttendanceInvalid(code: code)
+        uiEffectsForAttendanceInvalid()
+    }
+    
+    private func persistInAttendanceInvalid(code: String) {
+        realmInvalidAttedanceReportPersister
+            .saveToRealm(invalidAttendanceCode: code)
+            .subscribe(onNext: { success in
+                print("invalid codes saved = \(success)")
+            }).disposed(by: disposeBag)
+    }
+    
+    private func uiEffectsForAttendanceInvalid() {
         playSound(name: "codeRejected")
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: false))
     }
@@ -163,7 +180,6 @@ class ScannerVC: UIViewController {
                                sessionId: scanerViewModel.sessionId,
                                date: Date.now)
     }
-    
     
     
     // SCANDIT

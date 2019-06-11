@@ -21,6 +21,7 @@
 		7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E45422983331008C23F8 /* RealmDelegate.swift */; };
 		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
+		7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
@@ -109,6 +110,7 @@
 		7CB1E45422983331008C23F8 /* RealmDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegate.swift; sourceTree = "<group>"; };
 		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInvalidAttedanceReportPersister.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
+				7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */,
 				7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */,
 			);
 			path = Persisters;
@@ -711,6 +714,7 @@
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
+				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
