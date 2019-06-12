@@ -17,7 +17,8 @@ import Reachability
 class ApiController {
     
     struct Domain {
-        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+        //static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+        static let baseUrl = URL(string: "https://minjon.e-materials.com/api")!
 //        static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
 //        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
@@ -60,7 +61,8 @@ class ApiController {
                             params: [("updated_from", updatedDate),
                                      ("with_pagination", "\(with_pagination)"),
                                      ("with_trashed", "\(with_trashed)"),
-                                     ("for_scanning", "\(for_scanning)")])
+                                     ("for_scanning", "\(for_scanning)"),
+                                     ("type[]", "Oral")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: json) else {
