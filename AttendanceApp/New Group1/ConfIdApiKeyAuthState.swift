@@ -41,9 +41,11 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
         
         if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceApiKey) == nil {
             UserDefaults.standard.set("Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T", forKey: UserDefaults.keyConferenceApiKey)
+//            UserDefaults.standard.set("L5YYQFIFvC0VJK7xU5p8hOVVF5hHPMKL", forKey: UserDefaults.keyConferenceApiKey)
         }
         if UserDefaults.standard.value(forKey: UserDefaults.keyConferenceId) == nil {
             UserDefaults.standard.set(7520, forKey: UserDefaults.keyConferenceId)
+//            UserDefaults.standard.set(7498, forKey: UserDefaults.keyConferenceId)
         }
         
         listenToResourcesDowloaded()
@@ -57,6 +59,9 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
                     self.apiKey = newApiKey
                     if newApiKey == "L5YYQFIFvC0VJK7xU5p8hOVVF5hHPMKL" {
                         self.conferenceId = 7498
+                    }
+                    if newApiKey == "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T" {
+                        self.conferenceId = 7520
                     }
                     resourcesState.downloadResources() // side-effect...
                     DataAccess.shared.userSelection = (roomId: nil, blockId: nil, selectedDate: nil, autoSwitch: true)

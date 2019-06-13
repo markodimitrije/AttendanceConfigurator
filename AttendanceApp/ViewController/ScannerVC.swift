@@ -129,12 +129,15 @@ class ScannerVC: UIViewController {
         
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
         
-        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
-                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
-            delegateIsAllowedToAttendSession(code: code, picker: picker)
-        } else {
-            delegateAttendanceInvalid(code: code, picker: picker)
-        }
+        // hard-coded off - main event
+//        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
+//                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
+//            delegateIsAllowedToAttendSession(code: code, picker: picker)
+//        } else {
+//            delegateAttendanceInvalid(code: code, picker: picker)
+//        }
+        // hard-coded on
+        delegateIsAllowedToAttendSession(code: code, picker: picker)
         restartCameraForScaning(picker)
     }
     
