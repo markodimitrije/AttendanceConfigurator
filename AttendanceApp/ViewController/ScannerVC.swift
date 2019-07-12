@@ -11,7 +11,9 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 import RealmSwift
-import ScanditBarcodeScanner
+
+import ScanditCaptureCore
+import ScanditBarcodeCapture
 
 class ScannerVC: UIViewController {
 
@@ -37,8 +39,12 @@ class ScannerVC: UIViewController {
     
     var settingsVC: SettingsVC!
     
+    private var camera: Camera?
+    
     // interna upotreba:
     private let disposeBag = DisposeBag()
+    
+    // MARK:- Controller Life cycle
     
     override func viewDidLoad() { super.viewDidLoad()
         
@@ -49,6 +55,14 @@ class ScannerVC: UIViewController {
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
+        camera?.switch(toDesiredState: .on)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated)
+        camera?.switch(toDesiredState: .off)
     }
     
     override var shouldAutorotate: Bool {
@@ -105,43 +119,43 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func found(code: String, picker: SBSBarcodePicker) { // ovo mozes da report VM-u kao append novi code
+    func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
         if scanerViewModel.sessionId != -1 {
-            scanditSuccessfull(code: code, picker: picker)
+            scanditSuccessfull(code: code)
         } else {
             showAlertFailedDueToNoRoomOrSessionSettings()
-            restartCameraForScaning(picker)
+            restartCameraForScaning()
         }
         
     }
     
-    fileprivate func restartCameraForScaning(_ picker: SBSBarcodePicker) {
+    fileprivate func restartCameraForScaning() {
         delay(1.0) { // ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async {
                 self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
-                picker.resumeScanning()
+                self.camera?.switch(toDesiredState: .on)
             }
         }
     }
     
-    private func scanditSuccessfull(code: String, picker: SBSBarcodePicker) { // hard-coded implement me
+    private func scanditSuccessfull(code: String) { // hard-coded implement me
         
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
         
         // hard-coded off - main event
-//        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
-//                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
-//            delegateIsAllowedToAttendSession(code: code, picker: picker)
-//        } else {
-//            delegateAttendanceInvalid(code: code, picker: picker)
-//        }
+        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
+                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
+            delegateIsAllowedToAttendSession(code: code)
+        } else {
+            delegateAttendanceInvalid(code: code)
+        }
         // hard-coded on
-        delegateIsAllowedToAttendSession(code: code, picker: picker)
-        restartCameraForScaning(picker)
+//        delegateIsAllowedToAttendSession(code: code)
+        restartCameraForScaning()
     }
     
-    private func delegateIsAllowedToAttendSession(code: String, picker: SBSBarcodePicker) {
+    private func delegateIsAllowedToAttendSession(code: String) {
         
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
@@ -149,7 +163,7 @@ class ScannerVC: UIViewController {
         codeReporter.codeReport.accept(getActualCodeReport())
     }
     
-    private func delegateAttendanceInvalid(code: String, picker: SBSBarcodePicker) {
+    private func delegateAttendanceInvalid(code: String) {
         persistInAttendanceInvalid(code: code)
         uiEffectsForAttendanceInvalid()
     }
@@ -187,53 +201,109 @@ class ScannerVC: UIViewController {
     
     private func setupScanner() {
         
-        // Create the scan settings and enabling some symbologies
-        let settings = SBSScanSettings.default()
-        let symbologies: Set<SBSSymbology> = [.aztec, .codabar, .code11, .code128, .code25, .code32, .code39, .code93, .datamatrix, .dotCode, .ean8, .ean13, .fiveDigitAddOn, .gs1Databar, .gs1DatabarExpanded, .gs1DatabarLimited, .itf, .kix, .lapa4sc, .maxiCode, .microPDF417, .microQR, .msiPlessey, .pdf417,.qr, .rm4scc, .twoDigitAddOn, .upc12, .upce]
-        for symbology in symbologies {
-            settings.setSymbology(symbology, enabled: true)
-        }
+        let context = DataCaptureContext(licenseKey: kScanditBarcodeScannerAppKey)
+        let settings = NavusLicenseBarcodeCaptureSettingsProvider().settings
+
+        let barcodeCapture = BarcodeCapture(context: context, settings: settings)
         
-        //settings.cameraFacingPreference = .front//settings.cameraFacingPreference = .back
-        settings.cameraFacingPreference = getCameraDeviceDirection() ?? .back
+        barcodeCapture.addListener(self)
         
-        let symSettings = settings.settings(for: .code25)
-        symSettings.activeSymbolCounts = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        let cameraPosition = getCameraDeviceDirection() ?? .worldFacing
         
-        // Create the barcode picker with the settings just created
-        let barcodePicker = SBSBarcodePicker(settings:settings)
-        barcodePicker.view.frame = self.scannerView.bounds
+        camera = Camera.init(position: cameraPosition)
+        context.setFrameSource(camera, completionHandler: nil)
         
-        // Add the barcode picker as a child view controller
-        addChild(barcodePicker)
+        camera?.switch(toDesiredState: .on)
         
-        self.scannerView.addSubview(barcodePicker.view)
-        barcodePicker.didMove(toParent: self)
+        let captureView = DataCaptureView(frame: self.scannerView.bounds)
+        captureView.context = context
+        captureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(captureView)
         
-        // Set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
-        // default and is only shown here for completeness.
-        barcodePicker.allowedInterfaceOrientations = .all
-        // Set the delegate to receive scan event callbacks
-        barcodePicker.scanDelegate = self
-        barcodePicker.startScanning()
+        let overlay = BarcodeCaptureOverlay(barcodeCapture: barcodeCapture)
+        captureView.addOverlay(overlay)
+        
+        self.scannerView.addSubview(captureView)
+        
     }
     
 }
 
-extension ScannerVC: SBSScanDelegate {
-    // This delegate method of the SBSScanDelegate protocol needs to be implemented by
-    // every app that uses the Scandit Barcode Scanner and this is where the custom application logic
-    // goes. In the example below, we are just showing an alert view with the result.
-    func barcodePicker(_ picker: SBSBarcodePicker, didScan session: SBSScanSession) {
+extension ScannerVC: BarcodeCaptureListener {
+    func barcodeCapture(_ barcodeCapture: BarcodeCapture,
+                        didScanIn session: BarcodeCaptureSession,
+                        frameData: FrameData) {
 
-        session.pauseScanning()
+        camera?.switch(toDesiredState: .off)
         
-        let code = session.newlyRecognizedCodes[0]
+        let code = session.newlyRecognizedBarcodes[0]
         
         DispatchQueue.main.async { [weak self] in
-            self?.found(code: code.data ?? "", picker: picker)
+            self?.found(code: code.data)
         }
     }
-    
-    
+}
+
+protocol BarcodeCaptureSettingsProviding {
+    var settings: BarcodeCaptureSettings {get set}
+}
+
+class NavusLicenseBarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
+    var settings: BarcodeCaptureSettings
+    init() {
+        
+        let settings = BarcodeCaptureSettings()
+        
+        settings.set(symbology: .aztec, enabled: true)
+        settings.set(symbology: .code128, enabled: true)
+        settings.set(symbology: .code25, enabled: true)
+        settings.set(symbology: .code39, enabled: true)
+        settings.set(symbology: .dataMatrix, enabled: true)
+        settings.set(symbology: .ean8, enabled: true)
+        settings.set(symbology: .ean13UPCA, enabled: true)
+        settings.set(symbology: .pdf417, enabled: true)
+        settings.set(symbology: .qr, enabled: true)
+        settings.set(symbology: .upce, enabled: true)
+        
+        self.settings = settings
+    }
+}
+
+
+class BarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
+    var settings: BarcodeCaptureSettings
+    init() {
+
+        let settings = BarcodeCaptureSettings()
+
+        settings.set(symbology: .codabar, enabled: true)
+        settings.set(symbology: .code11, enabled: true)
+        settings.set(symbology: .code25, enabled: true)
+        settings.set(symbology: .code32, enabled: true)
+        settings.set(symbology: .code39, enabled: true)
+        settings.set(symbology: .code93, enabled: true)
+        settings.set(symbology: .code128, enabled: true)
+        settings.set(symbology: .codabar, enabled: true)
+        settings.set(symbology: .interleavedTwoOfFive, enabled: true)
+        settings.set(symbology: .dataMatrix, enabled: true)
+        settings.set(symbology: .ean8, enabled: true)
+        settings.set(symbology: .ean13UPCA, enabled: true)
+        settings.set(symbology: .upce, enabled: true)
+        settings.set(symbology: .msiPlessey, enabled: true)
+        settings.set(symbology: .qr, enabled: true)
+        settings.set(symbology: .microQR, enabled: true)
+        settings.set(symbology: .microPDF417, enabled: true)
+        settings.set(symbology: .pdf417, enabled: true)
+        settings.set(symbology: .aztec, enabled: true)
+        settings.set(symbology: .maxiCode, enabled: true)
+        settings.set(symbology: .dotCode, enabled: true)
+        settings.set(symbology: .kix, enabled: true)
+        settings.set(symbology: .rm4scc, enabled: true)
+        settings.set(symbology: .gs1Databar, enabled: true)
+        settings.set(symbology: .gs1DatabarExpanded, enabled: true)
+        settings.set(symbology: .gs1DatabarLimited, enabled: true)
+        settings.set(symbology: .lapa4SC, enabled: true)
+
+        self.settings = settings
+    }
 }

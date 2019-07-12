@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ScanditBarcodeScanner
+import ScanditBarcodeCapture
 
 func getArrowImgView(frame: CGRect, validAttendance valid: Bool) -> UIImageView {
     let v = UIImageView.init(frame: frame)
@@ -19,14 +20,23 @@ func getArrowImgView(frame: CGRect, validAttendance valid: Bool) -> UIImageView 
     return v
 }
 
-func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
+func getCameraDeviceDirection() -> CameraPosition? {
     if UIDevice.current.userInterfaceIdiom == .phone {
-        return SBSCameraFacingDirection.back
+        return CameraPosition.worldFacing
     } else if UIDevice.current.userInterfaceIdiom == .pad {
-        return SBSCameraFacingDirection.front
+        return CameraPosition.userFacing
     }
     return nil
 }
+
+//func getCameraDeviceDirection() -> SBSCameraFacingDirection? {
+//    if UIDevice.current.userInterfaceIdiom == .phone {
+//        return SBSCameraFacingDirection.back
+//    } else if UIDevice.current.userInterfaceIdiom == .pad {
+//        return SBSCameraFacingDirection.front
+//    }
+//    return nil
+//}
 
 func trimmedToSixCharactersCode(code: String) -> String {
 
