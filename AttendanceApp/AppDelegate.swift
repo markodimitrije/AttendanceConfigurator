@@ -49,5 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private let bag = DisposeBag()
+    
+    
 
 }
