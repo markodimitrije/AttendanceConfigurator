@@ -37,7 +37,7 @@ class ScannerVC: UIViewController {
     
     private let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(realmObjectPersister: RealmObjectPersister())
     
-    var settingsVC: SettingsVC!
+    private var settingsVC: SettingsVC!
     
     private var scanner: Scanning!
     
@@ -81,6 +81,8 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    // MARK:- To next screen
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let name = segue.identifier, name == "segueShowSettings",
             let navVC = segue.destination as? UINavigationController,
@@ -98,16 +100,7 @@ class ScannerVC: UIViewController {
         
     }
     
-    private func failed() { print("failed.....")
-
-        self.alert(title: AlertInfo.Scan.ScanningNotSupported.title,
-                   text: AlertInfo.Scan.ScanningNotSupported.msg,
-                   btnText: AlertInfo.ok)
-            .subscribe {
-                self.dismiss(animated: true)
-            }
-            .disposed(by: disposeBag)
-    }
+    // MARK:- Show Failed Alerts
     
     private func showAlertFailedDueToNoRoomOrSessionSettings() {
         
@@ -130,6 +123,8 @@ class ScannerVC: UIViewController {
         }
     }
     
+    // MARK:- Barcode successfull
+    
     private func scanditSuccessfull(code: String) { // hard-coded implement me
         
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
@@ -144,6 +139,8 @@ class ScannerVC: UIViewController {
         // hard-coded on
 //        delegateIsAllowedToAttendSession(code: code)
     }
+    
+    // MARK:- Delegate attendance
     
     private func delegateIsAllowedToAttendSession(code: String) {
         
@@ -188,15 +185,20 @@ class ScannerVC: UIViewController {
     
 }
 
+// MARK: BarcodeListening
+
 extension ScannerVC: BarcodeListening {
     
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
+        
+        scanner.stopScanning()
         
         if scanerViewModel.sessionId != -1 {
             scanditSuccessfull(code: code)
         } else {
             showAlertFailedDueToNoRoomOrSessionSettings()
         }
+        
         restartCameraForScaning()
         
     }
