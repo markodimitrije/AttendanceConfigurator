@@ -25,12 +25,12 @@ class ScannerVC: UIViewController {
     
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
     var code: String {
         return try! scanedCode.value()
     }
+    
+    override var shouldAutorotate: Bool { return false }
     
     private let codeReporter = CodeReportsState.init() // vrsta viewModel-a ?
     private let delegatesSessionValidation = RealmDelegatesSessionValidation()
@@ -39,7 +39,7 @@ class ScannerVC: UIViewController {
     
     var settingsVC: SettingsVC!
     
-    private var camera: Camera?
+    private var scanner: Scanning!
     
     // interna upotreba:
     private let disposeBag = DisposeBag()
@@ -50,23 +50,24 @@ class ScannerVC: UIViewController {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        setupScanner()
+        loadScanner()
         
         sessionConstLbl.text = SessionTextData.sessionConst
-        bindUI()
         
+        bindUI()
+    }
+    
+    private func loadScanner() {
+        scanner = Scanner(frame: self.scannerView.bounds, barcodeListener: self)
+        self.scannerView.addSubview(scanner.captureView)
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
-        camera?.switch(toDesiredState: .on)
+        scanner.startScanning()
     }
     
     override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated)
-        camera?.switch(toDesiredState: .off)
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
+        scanner.stopScanning()
     }
     
     private func bindUI() { // glue code for selected Room
@@ -87,11 +88,11 @@ class ScannerVC: UIViewController {
         
         self.settingsVC = settingsVC
         
-        hookUpScanedCode(on: settingsVC)
+        hookUpScanedCode(toSettingsVC: settingsVC)
         
     }
     
-    private func hookUpScanedCode(on settingsVC: SettingsVC) {
+    private func hookUpScanedCode(toSettingsVC settingsVC: SettingsVC) {
         
         settingsVC.codeScaned = self.scanedCode
         
@@ -132,9 +133,10 @@ class ScannerVC: UIViewController {
     
     fileprivate func restartCameraForScaning() {
         delay(1.0) { // ovoliko traje anim kada prikazujes arrow
-            DispatchQueue.main.async {
-                self.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
-                self.camera?.switch(toDesiredState: .on)
+            DispatchQueue.main.async { [weak self] in
+                guard let sSelf = self else {return}
+                sSelf.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()
+                sSelf.scanner.startScanning()
             }
         }
     }
@@ -196,37 +198,6 @@ class ScannerVC: UIViewController {
                                date: Date.now)
     }
     
-    
-    // SCANDIT
-    
-    private func setupScanner() {
-        
-        let context = DataCaptureContext(licenseKey: kScanditBarcodeScannerAppKey)
-        let settings = NavusLicenseBarcodeCaptureSettingsProvider().settings
-
-        let barcodeCapture = BarcodeCapture(context: context, settings: settings)
-        
-        barcodeCapture.addListener(self)
-        
-        let cameraPosition = getCameraDeviceDirection() ?? .worldFacing
-        
-        camera = Camera.init(position: cameraPosition)
-        context.setFrameSource(camera, completionHandler: nil)
-        
-        camera?.switch(toDesiredState: .on)
-        
-        let captureView = DataCaptureView(frame: self.scannerView.bounds)
-        captureView.context = context
-        captureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(captureView)
-        
-        let overlay = BarcodeCaptureOverlay(barcodeCapture: barcodeCapture)
-        captureView.addOverlay(overlay)
-        
-        self.scannerView.addSubview(captureView)
-        
-    }
-    
 }
 
 extension ScannerVC: BarcodeCaptureListener {
@@ -234,76 +205,12 @@ extension ScannerVC: BarcodeCaptureListener {
                         didScanIn session: BarcodeCaptureSession,
                         frameData: FrameData) {
 
-        camera?.switch(toDesiredState: .off)
+        scanner.stopScanning()
         
         let code = session.newlyRecognizedBarcodes[0]
         
         DispatchQueue.main.async { [weak self] in
             self?.found(code: code.data)
         }
-    }
-}
-
-protocol BarcodeCaptureSettingsProviding {
-    var settings: BarcodeCaptureSettings {get set}
-}
-
-class NavusLicenseBarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
-    var settings: BarcodeCaptureSettings
-    init() {
-        
-        let settings = BarcodeCaptureSettings()
-        
-        settings.set(symbology: .aztec, enabled: true)
-        settings.set(symbology: .code128, enabled: true)
-        settings.set(symbology: .code25, enabled: true)
-        settings.set(symbology: .code39, enabled: true)
-        settings.set(symbology: .dataMatrix, enabled: true)
-        settings.set(symbology: .ean8, enabled: true)
-        settings.set(symbology: .ean13UPCA, enabled: true)
-        settings.set(symbology: .pdf417, enabled: true)
-        settings.set(symbology: .qr, enabled: true)
-        settings.set(symbology: .upce, enabled: true)
-        
-        self.settings = settings
-    }
-}
-
-
-class BarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
-    var settings: BarcodeCaptureSettings
-    init() {
-
-        let settings = BarcodeCaptureSettings()
-
-        settings.set(symbology: .codabar, enabled: true)
-        settings.set(symbology: .code11, enabled: true)
-        settings.set(symbology: .code25, enabled: true)
-        settings.set(symbology: .code32, enabled: true)
-        settings.set(symbology: .code39, enabled: true)
-        settings.set(symbology: .code93, enabled: true)
-        settings.set(symbology: .code128, enabled: true)
-        settings.set(symbology: .codabar, enabled: true)
-        settings.set(symbology: .interleavedTwoOfFive, enabled: true)
-        settings.set(symbology: .dataMatrix, enabled: true)
-        settings.set(symbology: .ean8, enabled: true)
-        settings.set(symbology: .ean13UPCA, enabled: true)
-        settings.set(symbology: .upce, enabled: true)
-        settings.set(symbology: .msiPlessey, enabled: true)
-        settings.set(symbology: .qr, enabled: true)
-        settings.set(symbology: .microQR, enabled: true)
-        settings.set(symbology: .microPDF417, enabled: true)
-        settings.set(symbology: .pdf417, enabled: true)
-        settings.set(symbology: .aztec, enabled: true)
-        settings.set(symbology: .maxiCode, enabled: true)
-        settings.set(symbology: .dotCode, enabled: true)
-        settings.set(symbology: .kix, enabled: true)
-        settings.set(symbology: .rm4scc, enabled: true)
-        settings.set(symbology: .gs1Databar, enabled: true)
-        settings.set(symbology: .gs1DatabarExpanded, enabled: true)
-        settings.set(symbology: .gs1DatabarLimited, enabled: true)
-        settings.set(symbology: .lapa4SC, enabled: true)
-
-        self.settings = settings
     }
 }
