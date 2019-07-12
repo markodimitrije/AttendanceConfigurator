@@ -10,34 +10,30 @@ import UIKit
 import ScanditCaptureCore
 import ScanditBarcodeCapture
 
+// MARK:- Scan Implementations
 
-protocol Scanning { // view for scanning with camera
-    var captureView: UIView {get set} // view to be added to VCs placeholder view
-    init(frame: CGRect, barcodeListener: BarcodeCaptureListener)
-    func startScanning()
-    func stopScanning()
-}
-
-class Scanner: Scanning {
+class Scanner: NSObject, Scanning {
     
-    private var camera: Camera!
+    internal var barcodeListener: BarcodeListening
     var captureView: UIView
     
-    required init(frame: CGRect, barcodeListener: BarcodeCaptureListener) {
+    private var camera: Camera!
+    
+    required init(frame: CGRect, barcodeListener: BarcodeListening) {
+        
+        self.barcodeListener = barcodeListener
+        
         let context = DataCaptureContext(licenseKey: kScanditBarcodeScannerAppKey)
         let settings = NavusLicenseBarcodeCaptureSettingsProvider().settings
         let barcodeCapture = BarcodeCapture(context: context, settings: settings)
-        
-        barcodeCapture.addListener(barcodeListener)
         
         let cameraPosition = getCameraDeviceDirection() ?? .worldFacing
         
         camera = Camera.init(position: cameraPosition)
         context.setFrameSource(camera, completionHandler: nil)
         
-        camera?.switch(toDesiredState: .on)
+        camera.switch(toDesiredState: .on)
         
-        //let captureView = DataCaptureView(frame: self.scannerView.bounds)
         let captureView = DataCaptureView(for: context, frame: frame)
         
         captureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -46,6 +42,10 @@ class Scanner: Scanning {
         captureView.addOverlay(overlay)
         
         self.captureView = captureView
+        
+        super.init()
+        
+        barcodeCapture.addListener(self)
     }
     
     func startScanning() {
@@ -54,5 +54,20 @@ class Scanner: Scanning {
     
     func stopScanning() {
         camera.switch(toDesiredState: .off)
+    }
+}
+
+extension Scanner: BarcodeCaptureListener {
+    func barcodeCapture(_ barcodeCapture: BarcodeCapture,
+                        didScanIn session: BarcodeCaptureSession,
+                        frameData: FrameData) {
+        
+        let code = session.newlyRecognizedBarcodes[0]
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?.barcodeListener.found(code: code.data)
+            
+        }
     }
 }

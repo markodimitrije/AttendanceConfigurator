@@ -120,17 +120,6 @@ class ScannerVC: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func found(code: String) { // ovo mozes da report VM-u kao append novi code
-        
-        if scanerViewModel.sessionId != -1 {
-            scanditSuccessfull(code: code)
-        } else {
-            showAlertFailedDueToNoRoomOrSessionSettings()
-            restartCameraForScaning()
-        }
-        
-    }
-    
     fileprivate func restartCameraForScaning() {
         delay(1.0) { // ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async { [weak self] in
@@ -154,7 +143,6 @@ class ScannerVC: UIViewController {
         }
         // hard-coded on
 //        delegateIsAllowedToAttendSession(code: code)
-        restartCameraForScaning()
     }
     
     private func delegateIsAllowedToAttendSession(code: String) {
@@ -200,17 +188,16 @@ class ScannerVC: UIViewController {
     
 }
 
-extension ScannerVC: BarcodeCaptureListener {
-    func barcodeCapture(_ barcodeCapture: BarcodeCapture,
-                        didScanIn session: BarcodeCaptureSession,
-                        frameData: FrameData) {
-
-        scanner.stopScanning()
+extension ScannerVC: BarcodeListening {
+    
+    func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
-        let code = session.newlyRecognizedBarcodes[0]
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.found(code: code.data)
+        if scanerViewModel.sessionId != -1 {
+            scanditSuccessfull(code: code)
+        } else {
+            showAlertFailedDueToNoRoomOrSessionSettings()
         }
+        restartCameraForScaning()
+        
     }
 }

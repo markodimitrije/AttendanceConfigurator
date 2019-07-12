@@ -22,7 +22,8 @@
 		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
 		7CBDC28222D8A91100B7D43F /* ScanditSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28122D8A91100B7D43F /* ScanditSettings.swift */; };
-		7CBDC28422D8C07700B7D43F /* Scanning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* Scanning.swift */; };
+		7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */; };
+		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
 		7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
@@ -109,7 +110,8 @@
 		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CBDC28122D8A91100B7D43F /* ScanditSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditSettings.swift; sourceTree = "<group>"; };
-		7CBDC28322D8C07700B7D43F /* Scanning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scanning.swift; sourceTree = "<group>"; };
+		7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
+		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
 		7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInvalidAttedanceReportPersister.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
@@ -273,11 +275,20 @@
 		7CBDC28022D8A8D800B7D43F /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				7CBDC28522D8C8A400B7D43F /* Scanning */,
 				AD80EFFD217DD87D003CEDD0 /* ScannerVC.swift */,
 				7CBDC28122D8A91100B7D43F /* ScanditSettings.swift */,
-				7CBDC28322D8C07700B7D43F /* Scanning.swift */,
 			);
 			path = Scan;
+			sourceTree = "<group>";
+		};
+		7CBDC28522D8C8A400B7D43F /* Scanning */ = {
+			isa = PBXGroup;
+			children = (
+				7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */,
+				7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */,
+			);
+			path = Scanning;
 			sourceTree = "<group>";
 		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
@@ -698,7 +709,7 @@
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
-				7CBDC28422D8C07700B7D43F /* Scanning.swift in Sources */,
+				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
@@ -712,6 +723,7 @@
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
 				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
+				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
