@@ -32,7 +32,7 @@ class Scanner: NSObject, Scanning {
         camera = Camera.init(position: cameraPosition)
         context.setFrameSource(camera, completionHandler: nil)
         
-        camera.switch(toDesiredState: .on)
+        camera?.switch(toDesiredState: .on)
         
         let captureView = DataCaptureView(for: context, frame: frame)
         
@@ -49,11 +49,11 @@ class Scanner: NSObject, Scanning {
     }
     
     func startScanning() {
-        camera.switch(toDesiredState: .on)
+        camera?.switch(toDesiredState: .on)
     }
     
     func stopScanning() {
-        camera.switch(toDesiredState: .off)
+        camera?.switch(toDesiredState: .off)
     }
 }
 
