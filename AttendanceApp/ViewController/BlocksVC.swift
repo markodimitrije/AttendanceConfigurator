@@ -101,6 +101,8 @@ class BlocksVC: UIViewController {
                 strongSelf.source
                     .subscribe(onNext: { (sections) in
                         
+                        print("BlockVC.hookUpTableViewDidSelect.sections.count = \(sections.count)")
+                        
                         if let selectedDate = strongSelf.selectedDate {
                             
                             if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
