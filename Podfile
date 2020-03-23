@@ -13,6 +13,6 @@ target 'AttendanceApp' do
     pod 'RxDataSources'
     pod 'ReachabilitySwift'
     pod 'Zip'
-    pod 'ScanditBarcodeCapture', '~> 6.0'
+    pod 'ScanditBarcodeCapture', "6.0.3"
 
 end
