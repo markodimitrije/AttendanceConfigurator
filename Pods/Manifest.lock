@@ -34,7 +34,7 @@ DEPENDENCIES:
   - RxDataSources
   - RxRealmDataSources
   - RxSwift
-  - ScanditBarcodeCapture (~> 6.0)
+  - ScanditBarcodeCapture (= 6.0.3)
   - SwiftyJSON
   - Zip
 
@@ -69,6 +69,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 1d8ed3b9319d683fc4aa81a25372cd80e5d5448f
+PODFILE CHECKSUM: eaab6bdf5552efc1e3fba5408d4b3453c36094d1
 
 COCOAPODS: 1.6.1

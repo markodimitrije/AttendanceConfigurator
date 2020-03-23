@@ -1,39 +1,13 @@
 //
-//  ScanditSettings.swift
+//  BarcodeCaptureSettingsProvider.swift
 //  AttendanceApp
 //
-//  Created by Marko Dimitrijevic on 12/07/2019.
-//  Copyright © 2019 Navus. All rights reserved.
+//  Created by Marko Dimitrijevic on 23/03/2020.
+//  Copyright © 2020 Navus. All rights reserved.
 //
 
 import Foundation
 import ScanditBarcodeCapture
-
-protocol BarcodeCaptureSettingsProviding {
-    var settings: BarcodeCaptureSettings {get set}
-}
-
-class NavusLicenseBarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
-    var settings: BarcodeCaptureSettings
-    init() {
-        
-        let settings = BarcodeCaptureSettings()
-        
-        settings.set(symbology: .aztec, enabled: true)
-        settings.set(symbology: .code128, enabled: true)
-        settings.set(symbology: .code25, enabled: true)
-        settings.set(symbology: .code39, enabled: true)
-        settings.set(symbology: .dataMatrix, enabled: true)
-        settings.set(symbology: .ean8, enabled: true)
-        settings.set(symbology: .ean13UPCA, enabled: true)
-        settings.set(symbology: .pdf417, enabled: true)
-        settings.set(symbology: .qr, enabled: true)
-        settings.set(symbology: .upce, enabled: true)
-        
-        self.settings = settings
-    }
-}
-
 
 class BarcodeCaptureSettingsProvider: BarcodeCaptureSettingsProviding {
     var settings: BarcodeCaptureSettings
