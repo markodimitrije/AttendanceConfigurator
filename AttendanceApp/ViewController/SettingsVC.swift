@@ -88,7 +88,7 @@ class SettingsVC: UITableViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
-        bindState()
+        enableOrDisableBlockAreaUponRoomSelected()
     }
     
     private func bindUI() { // glue code for selected Room
@@ -206,12 +206,9 @@ class SettingsVC: UITableViewController {
     }
     
     private func bindSyncApiKey() {
-        
         syncApiKeyView.oSyncBtnTap
             .subscribe(onNext: { _ in
-                
                 conferenceState.syncApiKeyIsNeeded()
-                
             }).disposed(by: disposeBag)
     }
     
@@ -224,11 +221,11 @@ class SettingsVC: UITableViewController {
         
     }
     
-    private func bindState() {
+    private func enableOrDisableBlockAreaUponRoomSelected() {
         
         roomSelected
             .asDriver(onErrorJustReturn: nil) // ovu liniju napisi u modelu...
-            .drive(tableView.rx.roomValidationSideEffects) // ovo je rx world, npr Binder na extension Reactive where Base: TableView
+            .drive(tableView.rx.roomValidationSideEffects)
             .disposed(by: disposeBag)
     }
     
@@ -293,9 +290,7 @@ class SettingsVC: UITableViewController {
         }
     }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+    override var shouldAutorotate: Bool { return false }
     
     deinit { print("deinit.setingsVC") }
     
