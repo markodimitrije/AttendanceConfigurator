@@ -132,8 +132,10 @@ class BlockViewModel {
         
         if sessionAvailable {
             let block = Block(with: mostRecentSessionBlock!)
+            settingsJourney.blockId = block.id
             oAutomaticSession.accept(block)
         } else {
+            settingsJourney.blockId = nil
             oAutomaticSession.accept(nil)
         }
         

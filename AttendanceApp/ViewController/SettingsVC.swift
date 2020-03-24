@@ -12,6 +12,27 @@ import Realm
 import RealmSwift
 import RxRealmDataSources
 
+struct UserSelection {
+    var roomId: Int?
+    var blockId: Int?
+    var date: Date?
+    var autoSwitch: Bool
+    init() {
+        self.roomId = DataAccess.shared.userSelection.roomId
+        self.blockId = DataAccess.shared.userSelection.blockId
+        self.date = DataAccess.shared.userSelection.selectedDate
+        self.autoSwitch = DataAccess.shared.userSelection.autoSwitch
+    }
+}
+
+extension UserSelection: CustomStringConvertible {
+    var description: String {
+        return "roomId = \(String(describing: roomId))\nblockId = \(String(describing: blockId))\ndate = \(String(describing: date))\nautoSwitch = \(autoSwitch)"
+    }
+}
+
+var settingsJourney = UserSelection()
+
 class SettingsVC: UITableViewController {
 
     @IBOutlet weak var dateLbl: UILabel!
@@ -137,7 +158,7 @@ class SettingsVC: UITableViewController {
         output.selectedBlock // binduj na svoj var koji ce da cita "prethodni vc"
             .do(onNext: { [weak self] _ in
                 guard let sSelf = self else {return}
-                sSelf.dismiss(animated: true, completion: nil) // ako radis behavior umesto bind na UI, koristi Subsc
+                sSelf.dismiss(animated: true, completion: nil)
                 print("blok je selektovan, javi webu.....")
                 sSelf.reportBlockChangedToWeb()
             })
@@ -294,6 +315,7 @@ class SettingsVC: UITableViewController {
             blocksVC.selectedBlock
                 .subscribe(onNext: { [weak self] block in
                     guard let sSelf = self else {return}
+                    print(settingsJourney.description)
                     sSelf.sessionManuallySelected.onNext(block)
                     sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })
