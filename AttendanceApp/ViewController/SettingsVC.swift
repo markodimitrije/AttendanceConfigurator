@@ -51,17 +51,7 @@ class SettingsVC: UITableViewController {
     let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
     var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
     
-    var sessionId: Int {
-        //guard let block = try? sessionManuallySelected.value(),
-        guard let block = try? sessionSelected.value(),
-            let id = block?.id else {
-            return -1 // bez veze je ovo..
-        }
-        return id
-    }
-    
     // MARK:- ViewModels
-    //fileprivate let roomViewModel = RoomViewModel()
 
     lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
     
@@ -131,7 +121,7 @@ class SettingsVC: UITableViewController {
                 sSelf.dismiss(animated: true, completion: nil)
                 print("blok je selektovan, javi webu.....")
                 print(settingsJourney.description)
-                sSelf.reportBlockChangedToWeb()
+                sSelf.reportBlockChangedToWeb() // hard-coded, treba ti block i za manual i za auto
             })
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
@@ -220,6 +210,7 @@ class SettingsVC: UITableViewController {
     }
     
     private func getSessionReport() -> CodeReport { // refactor - delete
+        let sessionId = try! sessionSelected.value()?.id ?? 0
         return CodeReport.init(code: "", sessionId: sessionId, date: Date.now)
     }
     
