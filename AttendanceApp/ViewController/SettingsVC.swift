@@ -274,7 +274,18 @@ class SettingsVC: UITableViewController {
                 })
                 .disposed(by: disposeBag)
             
-        //case (1, 0): print("auto segue ka rooms...")
+        case (1, 0):
+            
+            let roomsVC = RoomsViewControllerFactory.make()
+            roomsVC.selRoomDriver
+            .do(onNext: { room in // side-effect
+                self.roomId = room?.id
+                self.navigationController?.popViewController(animated: true)
+            })
+            .drive(roomSelected)
+            .disposed(by: disposeBag)
+            
+            self.navigationController?.pushViewController(roomsVC, animated: true)
             
         case (2, 0):
             

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pTw-Q9-kpM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pTw-Q9-kpM">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--ROOMS-->
         <scene sceneID="2Pu-ky-5LG">
             <objects>
-                <viewController id="kJk-XK-HMl" customClass="RoomsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomsVC" id="kJk-XK-HMl" customClass="RoomsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qhs-Hs-pId"/>
                         <viewControllerLayoutGuide type="bottom" id="pQv-wJ-6xz"/>
@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qt3-kl-4kn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2953" y="-333"/>
+            <point key="canvasLocation" x="2548" y="-333"/>
         </scene>
         <!--BlocksVC-->
         <scene sceneID="gQ3-Po-UkO">
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RbP-QQ-Fkw" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2952.8000000000002" y="403.44827586206901"/>
+            <point key="canvasLocation" x="2549" y="403"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OdV-FG-KwV">
@@ -161,7 +161,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e_materials" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Go-Dt5">
-                                        <rect key="frame" x="-53" y="396" width="520" height="40"/>
+                                        <rect key="frame" x="77" y="396" width="260" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kwx-YT-8Wy"/>
                                         </constraints>
@@ -336,11 +336,11 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F6p-b4-WOx" id="gKY-YN-P2O">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Select date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpj-62-5NA" userLabel="Select date">
-                                                    <rect key="frame" x="20" y="11.666666666666664" width="338.66666666666669" height="21"/>
+                                                    <rect key="frame" x="20" y="11.666666666666664" width="339" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -361,11 +361,11 @@
                                         <rect key="frame" x="0.0" y="128" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6MF-gB-3vR" id="KCG-bw-z7k">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Select room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-Y5-Nmd">
-                                                    <rect key="frame" x="20" y="11.999999999999998" width="338.66666666666669" height="20.333333333333329"/>
+                                                    <rect key="frame" x="20" y="11.999999999999998" width="339" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -377,9 +377,6 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="kYV-Y5-Nmd" secondAttribute="trailing" constant="16" id="sUV-od-SpH"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="kJk-XK-HMl" kind="show" identifier="segueShowRooms" id="F74-70-6a7"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -389,11 +386,11 @@
                                         <rect key="frame" x="0.0" y="228" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TcQ-7k-hTy" id="wfs-Uh-fhY">
-                                            <rect key="frame" x="0.0" y="0.0" width="382.66666666666669" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Select session" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALi-UY-kcw">
-                                                    <rect key="frame" x="20" y="11" width="354.66666666666669" height="38"/>
+                                                    <rect key="frame" x="20" y="11" width="355" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -586,7 +583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOQ-vh-rFe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3748" y="403.44827586206901"/>
+            <point key="canvasLocation" x="2548" y="1145"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wga-qS-gLn">
