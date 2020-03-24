@@ -50,14 +50,7 @@ class SettingsVC: UITableViewController {
     // OUTPUTS:
     
     let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
-    
     var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
-    
-    // input - trebalo je u INIT !!
-    var codeScaned = BehaviorSubject<String>.init(value: "")
-    private var codeScan: String {
-        return try! codeScaned.value()
-    }
     
     var sessionId: Int {
         //guard let block = try? sessionManuallySelected.value(),
@@ -162,9 +155,8 @@ class SettingsVC: UITableViewController {
                     
                     sSelf.deviceStateReporter.sessionIsSet(info: infoAssumingApiKeyChange,
                                                            battery_info: batStateManager.info,
-                                                           app_active: true) // moras biti true ako je izabrao session
+                                                           app_active: true)
                 })
-                
             })
             .disposed(by: disposeBag)
         
@@ -177,9 +169,8 @@ class SettingsVC: UITableViewController {
     }
     
     private func reportBlockChangedToWeb() {
-//        let codeReport = getActualCodeReport()
-//        codeReport.code = "000000" // ovo je samo change block, ne treba slati code...
-//        codeReporter.codeReport.accept(codeReport)
+        let codeReport = getSessionReport()
+        codeReporter.codeReport.accept(codeReport)
     }
     
     private func bindReachability() {
@@ -229,11 +220,8 @@ class SettingsVC: UITableViewController {
             .disposed(by: disposeBag)
     }
     
-    private func getActualCodeReport() -> CodeReport { // refactor - delete
-        print("KONACNO IMAM DA JE codeScan = \(codeScan)")
-        return CodeReport.init(code: codeScan,
-                               sessionId: sessionId,
-                               date: Date.now)
+    private func getSessionReport() -> CodeReport { // refactor - delete
+        return CodeReport.init(code: "", sessionId: sessionId, date: Date.now)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

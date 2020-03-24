@@ -37,6 +37,7 @@ class BatteryManager {
     init() {
         
         batteryLevel = BehaviorRelay.init(value: Int(100 * UIDevice.current.batteryLevel))
+        batteryState = BehaviorRelay.init(value: UIDevice.current.batteryState)
         _level = Int(UIDevice.current.batteryLevel * 100)
         
         NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)

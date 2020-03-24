@@ -90,14 +90,6 @@ class ScannerVC: UIViewController {
         
         self.settingsVC = settingsVC
         
-        hookUpScanedCode(toSettingsVC: settingsVC)
-        
-    }
-    
-    private func hookUpScanedCode(toSettingsVC settingsVC: SettingsVC) {
-        
-        settingsVC.codeScaned = self.scanedCode
-        
     }
     
     // MARK:- Show Failed Alerts
@@ -176,7 +168,7 @@ class ScannerVC: UIViewController {
     
     private func getActualCodeReport() -> CodeReport {
        
-        print("getActualCodeReport = \(code)")
+        print("getSessionReport = \(code)")
         
         return CodeReport.init(code: code,
                                sessionId: scanerViewModel.sessionId,
