@@ -12,6 +12,7 @@
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
 		7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */; };
+		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
@@ -106,6 +107,7 @@
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardFactory.swift; sourceTree = "<group>"; };
+		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
@@ -231,6 +233,15 @@
 				AD29521F217B5B23002DDE32 /* RoomsVC.swift */,
 			);
 			path = RoomsVC;
+			sourceTree = "<group>";
+		};
+		7C55BA60242AA427005BF038 /* BlocksVC */ = {
+			isa = PBXGroup;
+			children = (
+				7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */,
+				AD993AAE217B9D2000803BE2 /* BlocksVC.swift */,
+			);
+			path = BlocksVC;
 			sourceTree = "<group>";
 		};
 		7C855DA2229C077100E4C985 /* FetchDelegates */ = {
@@ -434,7 +445,7 @@
 				AD993AB4217BC6C000803BE2 /* SettingsVC.swift */,
 				7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */,
 				7C55BA5B242A9029005BF038 /* RoomsVC */,
-				AD993AAE217B9D2000803BE2 /* BlocksVC.swift */,
+				7C55BA60242AA427005BF038 /* BlocksVC */,
 				7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */,
 			);
 			path = ViewController;
@@ -731,6 +742,7 @@
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
+				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,

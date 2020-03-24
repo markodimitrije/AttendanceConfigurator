@@ -270,13 +270,11 @@ class SettingsVC: UITableViewController {
             self.navigationController?.pushViewController(roomsVC, animated: true)
             
         case (2, 0):
-            guard let roomId = try! roomSelected.value()?.id,
-                let blocksVC = storyboard?.instantiateViewController(withIdentifier: "BlocksVC") as? BlocksVC else {
-                    return
+            guard let roomId = try! roomSelected.value()?.id else {
+                return // should be fatal
             }
-            
-            blocksVC.selectedRoomId = roomId
-            blocksVC.selectedDate = dateSelected.value
+            let blocksVC = BlocksViewControllerFactory.make(roomId: roomId,
+                                                            selDate: dateSelected.value)
             
             self.autoSelectSessionsView.controlSwitch.isOn = false
             
