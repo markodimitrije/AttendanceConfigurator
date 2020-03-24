@@ -13,6 +13,7 @@
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
 		7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
+		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
@@ -21,7 +22,6 @@
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
 		7CAE889722E87EF100632EAC /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE889622E87EF100632EAC /* Launch Screen.xib */; };
 		7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44722982DC5008C23F8 /* Delegate.swift */; };
-		7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */; };
 		7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */; };
 		7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E452229832E5008C23F8 /* RealmBlock.swift */; };
 		7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E45422983331008C23F8 /* RealmDelegate.swift */; };
@@ -108,6 +108,7 @@
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
@@ -116,7 +117,6 @@
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
 		7CAE889622E87EF100632EAC /* Launch Screen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		7CB1E44722982DC5008C23F8 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerFactory.swift; path = AttendanceApp/Factories/ViewControllerFactory.swift; sourceTree = SOURCE_ROOT; };
 		7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesPersister.swift; sourceTree = "<group>"; };
 		7CB1E452229832E5008C23F8 /* RealmBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlock.swift; sourceTree = "<group>"; };
 		7CB1E45422983331008C23F8 /* RealmDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegate.swift; sourceTree = "<group>"; };
@@ -244,6 +244,15 @@
 			path = BlocksVC;
 			sourceTree = "<group>";
 		};
+		7C55BA63242AB581005BF038 /* DatesVC */ = {
+			isa = PBXGroup;
+			children = (
+				7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */,
+				7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */,
+			);
+			path = DatesVC;
+			sourceTree = "<group>";
+		};
 		7C855DA2229C077100E4C985 /* FetchDelegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,14 +267,6 @@
 				7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */,
 			);
 			path = AutoSessionTimer;
-			sourceTree = "<group>";
-		};
-		7CB1E44B22982F2B008C23F8 /* Factories */ = {
-			isa = PBXGroup;
-			children = (
-				7CB1E44922982EFF008C23F8 /* ViewControllerFactory.swift */,
-			);
-			path = Factories;
 			sourceTree = "<group>";
 		};
 		7CB1E44C229830E5008C23F8 /* Persisters */ = {
@@ -443,7 +444,7 @@
 			children = (
 				7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */,
 				AD993AB4217BC6C000803BE2 /* SettingsVC.swift */,
-				7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */,
+				7C55BA63242AB581005BF038 /* DatesVC */,
 				7C55BA5B242A9029005BF038 /* RoomsVC */,
 				7C55BA60242AA427005BF038 /* BlocksVC */,
 				7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */,
@@ -507,7 +508,6 @@
 			children = (
 				7CBDC28022D8A8D800B7D43F /* Scan */,
 				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
-				7CB1E44B22982F2B008C23F8 /* Factories */,
 				7CEF97B6228DA96B00C31CD8 /* JSON */,
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
 				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
@@ -746,6 +746,7 @@
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
+				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
@@ -766,7 +767,6 @@
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
-				7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,

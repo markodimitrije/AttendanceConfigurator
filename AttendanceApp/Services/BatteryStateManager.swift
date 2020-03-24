@@ -10,6 +10,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+struct BatteryInfo {
+    var level: Int
+    var status: String
+}
+
 class BatteryManager {
     
     // OUTPUT
@@ -17,8 +22,7 @@ class BatteryManager {
     var batteryState: BehaviorRelay<UIDevice.BatteryState>!
     
     var info: BatteryInfo {
-        return BatteryInfo.init(level: batteryLevel.value,
-                                status: _batteryState)
+        return BatteryInfo.init(level: batteryLevel.value, status: _batteryState)
     }
     
     // MARK: - Private vars
@@ -56,9 +60,4 @@ class BatteryManager {
         NotificationCenter.default.removeObserver(self, name: UIDevice.batteryLevelDidChangeNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIDevice.batteryStateDidChangeNotification, object: nil)
     }
-}
-
-struct BatteryInfo {
-    var level: Int
-    var status: String
 }

@@ -30,7 +30,6 @@ class SettingsVC: UITableViewController {
     
     private let disposeBag = DisposeBag()
     private let deviceStateReporter = DeviceStateReporter.init()
-    private let vcFactory = ViewControllerFactory()
     
     private let codeReporter = CodeReportsState.init()
     
@@ -229,7 +228,7 @@ class SettingsVC: UITableViewController {
         
         case (0,0):
             
-            let datesVC = vcFactory.makeDatesVC()
+            let datesVC = DatesViewControllerFactory.make()
             self.navigationController?.pushViewController(datesVC, animated: true)
             
             datesVC.datesViewmodel.selectedDate
