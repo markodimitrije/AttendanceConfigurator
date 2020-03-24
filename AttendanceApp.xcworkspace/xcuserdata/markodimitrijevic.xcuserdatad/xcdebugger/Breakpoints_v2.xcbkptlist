@@ -24,16 +24,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EEBC8175-FD7A-4F81-83AE-BAFD0E55F9C6"
+            uuid = "47640C73-4B22-41A6-AA94-840A4394DCA6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/Scan/ScannerVC.swift"
+            filePath = "AttendanceApp/ViewModel/AutoSelSessionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "delegateIsAllowedToAttendSession(code:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "init(roomId:interval:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
