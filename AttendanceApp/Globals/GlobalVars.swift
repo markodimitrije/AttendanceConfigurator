@@ -8,6 +8,8 @@
 
 import Foundation
 
+var settingsJourney = SettingsJourney()
+
 let hourMinuteSet = Set<Calendar.Component>.init(arrayLiteral: .hour, .minute)
 
 var defaultAutoSessionDate: Date {

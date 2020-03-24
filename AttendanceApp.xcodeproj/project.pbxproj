@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
+		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
@@ -100,6 +101,7 @@
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
+		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				7CED41BA2268825D00FFB34E /* Report */,
 				AD29521D217B5B23002DDE32 /* Model.swift */,
 				AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */,
+				7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				7CB1E44A22982F00008C23F8 /* ViewControllerFactory.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
+				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
 				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
