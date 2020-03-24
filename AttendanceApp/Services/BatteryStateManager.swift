@@ -17,13 +17,11 @@ class BatteryManager {
     var batteryState: BehaviorRelay<UIDevice.BatteryState>!
     
     var info: BatteryInfo {
-        return BatteryInfo.init(level: _level,
+        return BatteryInfo.init(level: batteryLevel.value,
                                 status: _batteryState)
     }
     
     // MARK: - Private vars
-    
-    private var _level: Int!
     
     private var _batteryState: String {
         switch UIDevice.current.batteryState {
@@ -38,12 +36,10 @@ class BatteryManager {
         
         batteryLevel = BehaviorRelay.init(value: Int(100 * UIDevice.current.batteryLevel))
         batteryState = BehaviorRelay.init(value: UIDevice.current.batteryState)
-        _level = Int(UIDevice.current.batteryLevel * 100)
         
         NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(batteryStateDidChange), name: UIDevice.batteryStateDidChangeNotification, object: nil)
-
     }
     
     @objc func batteryLevelDidChange(_ notification: Notification) {
