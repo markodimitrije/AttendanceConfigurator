@@ -12,50 +12,6 @@ import RxCocoa
 import Realm
 import RealmSwift
 
-class AutoSelSessionViewModel {
-    
-    let bag = DisposeBag()
-    let blockViewModel: BlockViewModel!
-    
-    init(roomId: Int) {
-        blockViewModel = BlockViewModel.init(roomId: roomId)
-        bindInputWithOutput()
-    }
-    
-    // INPUT:
-    var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil) // implement me
-    var switchState = BehaviorSubject<Bool>.init(value: true)
-    
-    // OUTPUT
-    var selectedSession = BehaviorSubject<Block?>.init(value: nil)
-    
-    private func bindInputWithOutput() {
-        // povezi se sa ostalim inputs i emituj na svoj output
-        switchState
-            .subscribe(onNext: { tap in
-                if tap { // nadji mu po odg algoritmu za vreme do starta session-a
-                    guard let value = self.blockViewModel.oAutomaticSession.value else {
-                        return self.selectedSession.onNext(nil)
-                    }
-                    
-                    self.selectedSession.onNext(value)
-                    
-                } else {
-                
-                    self.selectedSession.onNext(nil)
-                }
-            })
-        .disposed(by: bag)
-    }
-    
-    deinit {
-        print("AutoSelSessionViewModel.deinit")
-    }
-    
-}
-
-
-
 class AutoSelSessionWithWaitIntervalViewModel {
     
     let bag = DisposeBag()

@@ -270,6 +270,6 @@ class SettingsVC: UITableViewController {
     
     override var shouldAutorotate: Bool { return false }
     
-    deinit { print("deinit.setingsVC") }
+    //deinit { print("deinit.setingsVC") }
     
 }
