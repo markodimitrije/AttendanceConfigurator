@@ -58,11 +58,11 @@ class ApiController {
     func getBlocks(updated_from: Date?, with_pagination: Int, with_trashed: Int, for_scanning: Int) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         return buildRequest(pathComponent: "blocks", //params: [ ])//,
-                            params: [("updated_from", updatedDate),
+                            params: [//("updated_from", updatedDate),
                                      ("with_pagination", "\(with_pagination)"),
                                      ("with_trashed", "\(with_trashed)"),
-                                     ("for_scanning", "\(for_scanning)"),
-                                     ("type[]", "Oral")])
+                                     ("for_scanning", "\(for_scanning)")])//,
+                                     //("type[]", "Oral")])
             .map() { json in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: json) else {
@@ -174,8 +174,8 @@ class ApiController {
     
         print("APIController.buildingRequest.calling API !!!")
         
-        let url = base.appendingPathComponent(pathComponent)
-//        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
+//        let url = base.appendingPathComponent(pathComponent)
+        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
         
         var request = URLRequest(url: url)
         
@@ -219,8 +219,8 @@ class ApiController {
                 print("buildRequest.ApiError.invalidKey")
                 throw ApiError.invalidKey
             } else if 400 ..< 500 ~= response.statusCode {
-                print("buildRequest.ApiError.cityNotFound")
-                throw ApiError.cityNotFound
+                print("buildRequest.ApiError.badRequest")
+                throw ApiError.badRequest
             } else {
                 print("buildRequest.ApiError.serverFailure")
                 throw ApiError.serverFailure
@@ -233,6 +233,6 @@ class ApiController {
 enum ApiError: Error {
     case invalidJson
     case invalidKey
-    case cityNotFound
+    case badRequest
     case serverFailure
 }

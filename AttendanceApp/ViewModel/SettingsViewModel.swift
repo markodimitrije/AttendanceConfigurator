@@ -74,8 +74,9 @@ final class SettingsViewModel: ViewModelType {
                 }
         }
         
-        let compositeSwitch: Driver<Bool> = Driver.merge(input.blockSelectedManually.map {_ in return false},
-                                                         input.autoSelSessionSwitch).debug()
+        let compositeSwitch: Driver<Bool> =
+            Driver.merge(input.blockSelectedManually.map {_ in return false},
+                                                         input.autoSelSessionSwitch)//.debug()
         
         let sessionInfo = Driver.combineLatest(input.roomSelected,
                                                finalSession,

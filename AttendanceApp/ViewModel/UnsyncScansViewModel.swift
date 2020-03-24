@@ -79,7 +79,7 @@ class UnsyncScansViewModel {
             })
             .asDriver(onErrorJustReturn: [])
                 .map {$0.count}
-                .debug()
+                //.debug()
                 .drive(syncScansCount)
                 .disposed(by: bag)
         if let value = try? syncScansCount.value() {

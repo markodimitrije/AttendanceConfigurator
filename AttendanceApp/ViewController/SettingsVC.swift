@@ -27,7 +27,7 @@ struct UserSelection {
 
 extension UserSelection: CustomStringConvertible {
     var description: String {
-        return "roomId = \(String(describing: roomId))\nblockId = \(String(describing: blockId))\ndate = \(String(describing: date))\nautoSwitch = \(autoSwitch)"
+        return "UserSelection: roomId = \(String(describing: roomId))\nblockId = \(String(describing: blockId))\ndate = \(String(describing: date))\nautoSwitch = \(autoSwitch)"
     }
 }
 
@@ -211,7 +211,7 @@ class SettingsVC: UITableViewController {
     private func bindReachability() {
         
         connectedToInternet()
-            .debug()
+            //.debug()
             .asDriver(onErrorJustReturn: false)
             .drive(wiFiConnectionView.rx.connected) // ovo je var tipa binder na xib-u
             .disposed(by: disposeBag)
