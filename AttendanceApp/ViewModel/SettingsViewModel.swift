@@ -109,8 +109,7 @@ final class SettingsViewModel: ViewModelType {
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalSession,
                       compositeSwitch: compositeSwitch,
-                      sessionInfo: sessionInfo
-        )
+                      sessionInfo: sessionInfo)
     }
 }
 

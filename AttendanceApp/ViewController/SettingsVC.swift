@@ -74,6 +74,7 @@ class SettingsVC: UITableViewController {
     lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
     
     lazy fileprivate var autoSelSessionViewModel = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
+//        AutoSelSessionWithWaitIntervalViewModel.init(roomId: try! roomSelected.value()!.id)
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
@@ -97,14 +98,16 @@ class SettingsVC: UITableViewController {
         
         let savedAutoSwitchState = DataAccess.shared.userSelection.3
         
-        let manuallySelectedSignal = tableView.rx.itemSelected.filter {$0.section == 2 && $0.row == 0} // wtf! pazi magarce !
-                                                                .map {_ in return false}
-                                                                .asDriver(onErrorJustReturn: false)
-                                                                .debug()
+        let manuallySelectedSignal = tableView.rx.itemSelected.filter
+            {$0.section == 2 && $0.row == 0} // jako slabo...
+            .map {_ in return false}
+            .asDriver(onErrorJustReturn: false)
+            //.debug()
         
-        let autoSelSessionSwitchSignal = autoSelectSessionsView.controlSwitch.rx.switchActiveSequence
-                                                                                .startWith(savedAutoSwitchState)
-                                                                                .asDriver(onErrorJustReturn: true)
+        let autoSelSessionSwitchSignal = autoSelectSessionsView.controlSwitch
+                    .rx.switchActiveSequence
+                    .startWith(savedAutoSwitchState)
+                    .asDriver(onErrorJustReturn: true)
         
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
@@ -119,13 +122,9 @@ class SettingsVC: UITableViewController {
         
         let output = settingsViewModel.transform(input: input)
         
-        output.roomTxt
-            .drive(roomLbl.rx.text)
-            .disposed(by: disposeBag)
-        
-        output.sessionTxt//.map {$0+$0} test text length
-            .drive(sessionLbl.rx.text)
-            .disposed(by: disposeBag)
+        output.dateTxt.skip(1).drive(dateLbl.rx.text).disposed(by: disposeBag)
+        output.roomTxt.drive(roomLbl.rx.text).disposed(by: disposeBag)
+        output.sessionTxt.drive(sessionLbl.rx.text).disposed(by: disposeBag)
 
         output.saveSettingsAllowed
             .do(onNext: { allowed in
@@ -167,11 +166,6 @@ class SettingsVC: UITableViewController {
                 })
                 
             })
-            .disposed(by: disposeBag)
-        
-        output.dateTxt
-            .skip(1)
-            .drive(dateLbl.rx.text)
             .disposed(by: disposeBag)
         
         DataAccess.shared.output.map {$0.3}
@@ -245,19 +239,6 @@ class SettingsVC: UITableViewController {
                                date: Date.now)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        guard let name = segue.identifier, name == "segueShowRooms",
-            let roomsVC = segue.destination as? RoomsVC else { return }
-        
-        roomsVC.selRoomDriver
-            .do(onNext: { room in // side-effect
-                self.roomId = room?.id
-            })
-            .drive(roomSelected)
-            .disposed(by: disposeBag)
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.item) {
         
@@ -270,6 +251,7 @@ class SettingsVC: UITableViewController {
                 .skip(1) // jer je iniated sa NIL ...
                 .subscribe(onNext: { [weak self] date in
                     self?.dateSelected.accept(date)
+                    settingsJourney.date = date
                     self?.navigationController?.popViewController(animated: true)
                 })
                 .disposed(by: disposeBag)
@@ -279,7 +261,7 @@ class SettingsVC: UITableViewController {
             let roomsVC = RoomsViewControllerFactory.make()
             roomsVC.selRoomDriver
             .do(onNext: { room in // side-effect
-                self.roomId = room?.id
+                settingsJourney.roomId = room?.id
                 self.navigationController?.popViewController(animated: true)
             })
             .drive(roomSelected)
@@ -288,9 +270,7 @@ class SettingsVC: UITableViewController {
             self.navigationController?.pushViewController(roomsVC, animated: true)
             
         case (2, 0):
-            
-            guard let roomId = roomId,
-//                !autoSelectSessionsView.controlSwitch.isOn,
+            guard let roomId = try! roomSelected.value()?.id,
                 let blocksVC = storyboard?.instantiateViewController(withIdentifier: "BlocksVC") as? BlocksVC else {
                     return
             }
@@ -307,6 +287,7 @@ class SettingsVC: UITableViewController {
                     guard let sSelf = self else {return}
                     sSelf.sessionManuallySelected.onNext(block)
                     sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
+                    settingsJourney.blockId = block.id
                 })
                 .disposed(by: disposeBag)
             
