@@ -42,6 +42,9 @@
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
+		7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6741242B6B0800CC56FF /* RoomRepository.swift */; };
+		7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6743242B6B3600CC56FF /* BlockRepository.swift */; };
+		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
 		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		7CEF97B8228DA98200C31CD8 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97B7228DA98200C31CD8 /* cities.json */; };
@@ -137,6 +140,9 @@
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
+		7CEC6741242B6B0800CC56FF /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
+		7CEC6743242B6B3600CC56FF /* BlockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepository.swift; sourceTree = "<group>"; };
+		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		7CEF97B7228DA98200C31CD8 /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
@@ -369,6 +375,23 @@
 			path = SoundAssets;
 			sourceTree = "<group>";
 		};
+		7CEC673F242B6AEF00CC56FF /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7CEC6740242B6AFE00CC56FF /* Room */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		7CEC6740242B6AFE00CC56FF /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				7CEC6741242B6B0800CC56FF /* RoomRepository.swift */,
+				7CEC6743242B6B3600CC56FF /* BlockRepository.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
 		7CED41BA2268825D00FFB34E /* Report */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +444,7 @@
 				ADAE9C35218AFD8700615125 /* AlertWithRx */,
 				AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */,
 				AD28F6F02182122200A41BB8 /* RxExtensions.swift */,
+				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -506,6 +530,7 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				7CEC673F242B6AEF00CC56FF /* Repository */,
 				7CBDC28022D8A8D800B7D43F /* Scan */,
 				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
 				7CEF97B6228DA96B00C31CD8 /* JSON */,
@@ -740,6 +765,7 @@
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
+				7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
@@ -783,12 +809,14 @@
 				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,
 				7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */,
 				ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */,
+				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
+				7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
 				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
