@@ -23,9 +23,12 @@ final class SettingsViewModel: ViewModelType {
             return room?.name ?? RoomTextData.selectRoom
         }
         
-        let autoSessionDriver = Driver.combineLatest(input.roomSelected.startWith(nil),
-                                                     input.autoSelSessionSwitch.startWith(true),
-                                                     input.waitInterval.startWith(MyTimeInterval.waitToMostRecentSession)) { (room, switchIsOn, interval) -> Block? in
+        let interval = MyTimeInterval.waitToMostRecentSession
+        let autoSessionDriver =
+            Driver.combineLatest(input.roomSelected.startWith(nil),
+                                 input.autoSelSessionSwitch.startWith(true),
+                                 input.waitInterval.startWith(interval)) {
+                                    (room, switchIsOn, interval) -> Block? in
             guard let roomId = room?.id else {
                 return nil
             }
@@ -49,17 +52,19 @@ final class SettingsViewModel: ViewModelType {
                 return block != nil
             }
         
-        let sessionTxt = Driver.combineLatest(manualAndAutoSession.startWith(nil),
-                                        input.autoSelSessionSwitch.startWith(true)) { (block, state) -> String in
-                                            if let name = block?.name {
-                                                return name
-                                            } else {
-                                                if state {
-                                                    return SessionTextData.noAutoSessAvailable
-                                                } else {
-                                                    return SessionTextData.selectSessionManually
-                                                }
-                                            }
+        let sessionTxt =
+            Driver.combineLatest(manualAndAutoSession.startWith(nil),
+                                 input.autoSelSessionSwitch.startWith(true)) {
+            (block, state) -> String in
+                    if let name = block?.name {
+                        return name
+                    } else {
+                        if state {
+                            return SessionTextData.noAutoSessAvailable
+                        } else {
+                            return SessionTextData.selectSessionManually
+                        }
+                    }
         }
         
         let saveCancelTrig = Driver.merge([input.cancelTrigger.map {return false},
@@ -137,4 +142,3 @@ extension SettingsViewModel {
         let sessionInfo: Driver<(Int, Int)?>
     }
 }
-

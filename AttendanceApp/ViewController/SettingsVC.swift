@@ -21,8 +21,6 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var saveSettingsAndExitBtn: UIButton!
     @IBOutlet weak var cancelSettingsBtn: UIBarButtonItem!
     
-    //@IBOutlet weak var setIntervalForAutoSessionView: SetIntervalForAutoSessionView!
-    
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
@@ -33,12 +31,7 @@ class SettingsVC: UITableViewController {
     
     private let codeReporter = CodeReportsState.init()
     
-    // output
-    var roomId: Int! = nil {
-        didSet {
-            bindInterval()
-        }
-    }
+    private var roomId: Int! = nil
     
     // INPUTS:
     
@@ -55,8 +48,7 @@ class SettingsVC: UITableViewController {
 
     lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
     
-    lazy fileprivate var autoSelSessionViewModel = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
-//        AutoSelSessionWithWaitIntervalViewModel.init(roomId: try! roomSelected.value()!.id)
+//    lazy fileprivate var autoSelSessionViewModel = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
@@ -116,12 +108,15 @@ class SettingsVC: UITableViewController {
             .disposed(by: disposeBag)
         
         output.selectedBlock // binduj na svoj var koji ce da cita "prethodni vc"
-            .do(onNext: { [weak self] _ in
-                guard let sSelf = self else {return}
+            //.do(onNext: { [weak self] _ in
+            .do(onNext: { [weak self] block in guard let sSelf = self else {return}
                 sSelf.dismiss(animated: true, completion: nil)
-                print("blok je selektovan, javi webu.....")
-                print(settingsJourney.description)
-                sSelf.reportBlockChangedToWeb() // hard-coded, treba ti block i za manual i za auto
+                if let block = block {
+                    //print("blok je selektovan, javi webu.....")
+                    sSelf.sessionSelected.onNext(block)
+                    print(settingsJourney.description)
+                    //sSelf.reportBlockChangedToWeb() // hard-coded off, should not save to realm
+                }
             })
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
@@ -194,10 +189,7 @@ class SettingsVC: UITableViewController {
     
     private func bindInterval() {
         
-        selectedInterval // ovo je bilo ok dok nisam ubacio picker kontrolu
-            .asObservable()
-            .bind(to: autoSelSessionViewModel.inSelTimeInterval)
-            .disposed(by: disposeBag)
+        
         
     }
     
@@ -210,7 +202,9 @@ class SettingsVC: UITableViewController {
     }
     
     private func getSessionReport() -> CodeReport { // refactor - delete
-        let sessionId = try! sessionSelected.value()?.id ?? 0
+        let session = try! sessionSelected.value()!
+        let sessionId = session.id
+        //let sessionId = try! sessionSelected.value()?.id ?? 0
         return CodeReport.init(code: "", sessionId: sessionId, date: Date.now)
     }
     
