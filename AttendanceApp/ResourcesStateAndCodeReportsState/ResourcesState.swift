@@ -144,35 +144,32 @@ class ResourcesState {
     
     private func fetchSessionsAndSaveToRealm() { // print("fetchSessionsAndSaveToRealm is called")
         
-        let oBlocks = ApiController.shared.getBlocks(updated_from: nil,
-                                                     with_pagination: 0,
-                                                     with_trashed: 0,
-                                                     for_scanning: 1)
-        oBlocks
-            .subscribe(onNext: { [weak self] (blocks) in
-                
-                guard let sSelf = self,
-                    blocks.count > 0 else {return} // valid
-                
-                RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
-                    .subscribe(onNext: { (success) in
-                        
-                        if success {
-                            
-                            RealmDataPersister.shared.save(blocks: blocks)
-                                .subscribe(onNext: { (success) in
-                                    
-                                    sSelf.downloadsState.newlyDownloaded.accept("blocks")
-                                    
-                                })
-                                .disposed(by: sSelf.bag)
-                        }
-                        
-                    }).disposed(by: sSelf.bag)
-                
-            })
-            .disposed(by: bag)
+        let oBlocks = ApiController.shared.getBlocks(updated_from: nil)
+        
+        oBlocks.subscribe(onNext: { [weak self] (blocks) in
+            guard let sSelf = self else { return }
+            sSelf.save(blocks: blocks)
+        }, onError: { (err) in
+            print("catch err = show alert...")
+        })
+        .disposed(by: bag)
+        
     } // hard coded off for testing
+    
+    private func save(blocks: [Block]) {
+        
+        RealmDataPersister.shared.deleteAllObjects(ofTypes: [RealmBlock.self])
+            .subscribe(onNext: { (success) in
+                if success {
+                    RealmDataPersister.shared.save(blocks: blocks)
+                        .subscribe(onNext: { (success) in
+                            
+                            self.downloadsState.newlyDownloaded.accept("blocks")
+                        })
+                        .disposed(by: self.bag)
+                }
+            }).disposed(by: self.bag)
+    }
     
     private func fetchDelegatesAndSaveToRealm() {
         

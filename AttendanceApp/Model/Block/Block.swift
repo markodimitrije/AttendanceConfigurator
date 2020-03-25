@@ -14,6 +14,15 @@ class Blocks: Codable {
     var data: [Block]
 }
 
+extension Block: IBlock {
+    func getId() -> Int { return self.id }
+    func getName() -> String { return self.name }
+    func getLocationId() -> Int { return self.location_id }
+    func getStartsAt() -> Date { return self.starts }
+    func getEndsAt() -> Date { return self.ensds }
+    func getClosed() -> Bool { return self.closed }
+}
+
 class Block: Codable {
     var id: Int
     var name: String
@@ -44,6 +53,26 @@ class Block: Codable {
         }
         
     }
+    
+    /*
+    init?(dict: [String: Any]) {
+        guard
+            let id = dict["id"] as? Int,
+            let name = dict["name"] as? String,
+            let location_id = dict["location_id"] as? Int,
+            let starts_at = dict["starts_at"] as? String,
+            let ends_at = dict["ends_at"] as? String,
+            let closed = dict["closed"] as? Bool else {
+                return nil
+        }
+        self.id = id
+        self.name = name
+        self.location_id = location_id
+        self.starts_at = starts_at
+        self.ends_at = ends_at
+        self.closed = closed
+    }
+    */
     
     init(with realmBlock: RealmBlock) {
         self.id = realmBlock.id

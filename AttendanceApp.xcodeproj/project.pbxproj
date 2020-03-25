@@ -14,6 +14,11 @@
 		7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
+		7C592BEE242BC0D400294E71 /* AttendanceAppUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C592BED242BC0D400294E71 /* AttendanceAppUnitTests.swift */; };
+		7C592BF9242BC1C500294E71 /* RoomRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C592BF8242BC1C500294E71 /* RoomRepositoryTest.swift */; };
+		7C592BFB242BD32300294E71 /* IBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C592BFA242BD32300294E71 /* IBlock.swift */; };
+		7C592BFE242BDC1900294E71 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFD242BDC1900294E71 /* Blocks.json */; };
+		7C592C00242BDD0600294E71 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFF242BDD0600294E71 /* Rooms.json */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
@@ -101,6 +106,16 @@
 		ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7C592BF0242BC0D400294E71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD53A009217B577400A3F9FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD53A010217B577400A3F9FC;
+			remoteInfo = AttendanceApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AttendanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		42401D957459EB725DCF69A0 /* Pods-tryWebApiAndSaveToRealm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.release.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,6 +127,13 @@
 		7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C592BEB242BC0D400294E71 /* AttendanceAppUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceAppUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C592BED242BC0D400294E71 /* AttendanceAppUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceAppUnitTests.swift; sourceTree = "<group>"; };
+		7C592BEF242BC0D400294E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C592BF8242BC1C500294E71 /* RoomRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepositoryTest.swift; sourceTree = "<group>"; };
+		7C592BFA242BD32300294E71 /* IBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlock.swift; sourceTree = "<group>"; };
+		7C592BFD242BDC1900294E71 /* Blocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
+		7C592BFF242BDD0600294E71 /* Rooms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
@@ -203,6 +225,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7C592BE8242BC0D400294E71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD53A00E217B577400A3F9FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,6 +288,50 @@
 			path = DatesVC;
 			sourceTree = "<group>";
 		};
+		7C592BEC242BC0D400294E71 /* AttendanceAppUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				7C592BFC242BDBFE00294E71 /* JSON */,
+				7C592BF5242BC19C00294E71 /* Repository */,
+				7C592BED242BC0D400294E71 /* AttendanceAppUnitTests.swift */,
+				7C592BEF242BC0D400294E71 /* Info.plist */,
+			);
+			path = AttendanceAppUnitTests;
+			sourceTree = "<group>";
+		};
+		7C592BF5242BC19C00294E71 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7C592BF7242BC1B000294E71 /* BlockRepository */,
+				7C592BF6242BC1A500294E71 /* RoomRepository */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		7C592BF6242BC1A500294E71 /* RoomRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7C592BF8242BC1C500294E71 /* RoomRepositoryTest.swift */,
+			);
+			path = RoomRepository;
+			sourceTree = "<group>";
+		};
+		7C592BF7242BC1B000294E71 /* BlockRepository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BlockRepository;
+			sourceTree = "<group>";
+		};
+		7C592BFC242BDBFE00294E71 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				7C592BFD242BDC1900294E71 /* Blocks.json */,
+				7C592BFF242BDD0600294E71 /* Rooms.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		7C855DA2229C077100E4C985 /* FetchDelegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +369,7 @@
 		7CB1E450229832BC008C23F8 /* Block */ = {
 			isa = PBXGroup;
 			children = (
+				7C592BFA242BD32300294E71 /* IBlock.swift */,
 				AD80EFFB217DCE27003CEDD0 /* Block.swift */,
 				7CB1E452229832E5008C23F8 /* RealmBlock.swift */,
 			);
@@ -513,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				AD53A013217B577400A3F9FC /* AttendanceApp */,
+				7C592BEC242BC0D400294E71 /* AttendanceAppUnitTests */,
 				AD53A012217B577400A3F9FC /* Products */,
 				C144544588EC78E4B476DBC2 /* Pods */,
 				1E90DB33E979B38F4610E577 /* Frameworks */,
@@ -523,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				AD53A011217B577400A3F9FC /* AttendanceApp.app */,
+				7C592BEB242BC0D400294E71 /* AttendanceAppUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -614,6 +690,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7C592BEA242BC0D400294E71 /* AttendanceAppUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C592BF4242BC0D400294E71 /* Build configuration list for PBXNativeTarget "AttendanceAppUnitTests" */;
+			buildPhases = (
+				7C592BE7242BC0D400294E71 /* Sources */,
+				7C592BE8242BC0D400294E71 /* Frameworks */,
+				7C592BE9242BC0D400294E71 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C592BF1242BC0D400294E71 /* PBXTargetDependency */,
+			);
+			name = AttendanceAppUnitTests;
+			productName = AttendanceAppUnitTests;
+			productReference = 7C592BEB242BC0D400294E71 /* AttendanceAppUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AD53A010217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD53A023217B577500A3F9FC /* Build configuration list for PBXNativeTarget "AttendanceApp" */;
@@ -639,10 +733,15 @@
 		AD53A009217B577400A3F9FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Navus;
 				TargetAttributes = {
+					7C592BEA242BC0D400294E71 = {
+						CreatedOnToolsVersion = 11.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AD53A010217B577400A3F9FC;
+					};
 					AD53A010217B577400A3F9FC = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
@@ -663,11 +762,21 @@
 			projectRoot = "";
 			targets = (
 				AD53A010217B577400A3F9FC /* AttendanceApp */,
+				7C592BEA242BC0D400294E71 /* AttendanceAppUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7C592BE9242BC0D400294E71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C592C00242BDD0600294E71 /* Rooms.json in Resources */,
+				7C592BFE242BDC1900294E71 /* Blocks.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD53A00F217B577400A3F9FC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -756,6 +865,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7C592BE7242BC0D400294E71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C592BF9242BC1C500294E71 /* RoomRepositoryTest.swift in Sources */,
+				7C592BEE242BC0D400294E71 /* AttendanceAppUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AD53A00D217B577400A3F9FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -787,6 +905,7 @@
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
+				7C592BFB242BD32300294E71 /* IBlock.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
@@ -836,7 +955,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7C592BF1242BC0D400294E71 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD53A010217B577400A3F9FC /* AttendanceApp */;
+			targetProxy = 7C592BF0242BC0D400294E71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7C592BF2242BC0D400294E71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FW5669N54T;
+				INFOPLIST_FILE = AttendanceAppUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.AttendanceAppUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AttendanceApp.app/AttendanceApp";
+			};
+			name = Debug;
+		};
+		7C592BF3242BC0D400294E71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FW5669N54T;
+				INFOPLIST_FILE = AttendanceAppUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ch.navus.AttendanceAppUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AttendanceApp.app/AttendanceApp";
+			};
+			name = Release;
+		};
 		AD53A021217B577500A3F9FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1001,6 +1162,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7C592BF4242BC0D400294E71 /* Build configuration list for PBXNativeTarget "AttendanceAppUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C592BF2242BC0D400294E71 /* Debug */,
+				7C592BF3242BC0D400294E71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AD53A00C217B577400A3F9FC /* Build configuration list for PBXProject "AttendanceApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

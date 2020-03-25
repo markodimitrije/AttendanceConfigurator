@@ -1,0 +1,228 @@
+{
+    "data": [
+        {
+            "id": 8001,
+            "name": "Session A_5: Super high lava jet Super high lava jet Super high lava jet",
+            "location_id": 4456,
+            "starts_at": "2020-03-24 08:30:00",
+            "ends_at": "2020-03-24 10:00:00",
+            "closed": false
+        },
+        {
+            "id": 8002,
+            "name": "Session A_6: Bosanova apple market",
+            "location_id": 4456,
+            "starts_at": "2020-03-24 10:30:00",
+            "ends_at": "2020-03-24 12:00:00",
+            "closed": false
+        },
+        {
+            "id": 8003,
+            "name": "Session A_7: Workshop, Sponsored by Inomed",
+            "location_id": 4456,
+            "starts_at": "2020-03-24 13:00:00",
+            "ends_at": "2020-03-24 16:00:00",
+            "closed": true
+        },
+        {
+            "id": 8004,
+            "name": "Session A_8:: Oklahoma superbowl contest",
+            "location_id": 4457,
+            "starts_at": "2020-03-24 13:30:00",
+            "ends_at": "2020-03-24 14:00:00",
+            "closed": true
+        },
+        {
+            "id": 8005,
+            "name": "Session A_9: Blue Greece polo II",
+            "location_id": 4457,
+            "starts_at": "2020-03-24 14:00:00",
+            "ends_at": "2020-03-24 16:00:00",
+            "closed": false
+        },
+     {
+            "id": 8006,
+            "name": "Session A_9: Vise Mon Blan mountain II",
+            "location_id": 4458,
+            "starts_at": "2020-03-24 14:00:00",
+            "ends_at": "2020-03-24 16:00:00",
+            "closed": false
+        },
+        {
+            "id": 8007,
+            "name": "Session A_10: Q&A for Yellow mountain IIPOPNB",
+            "location_id": 4458,
+            "starts_at": "2020-03-24 18:00:00",
+            "ends_at": "2020-03-24 18:30:00",
+            "closed": false
+        },
+    {
+            "id": 8008,
+            "name": "Session A_11: QRIVER QRIVER QRIVER QRIVER QRIVER",
+            "location_id": 4458,
+            "starts_at": "2020-03-24 19:00:00",
+            "ends_at": "2020-03-24 21:00:00",
+            "closed": false
+        },
+        {
+            "id": 9001,
+            "name": "Session B_1: MOUNTAIN MOUNTAIN MOUNTAIN MOUNTAIN ",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 08:30:00",
+            "ends_at": "2020-03-25 10:00:00",
+            "closed": false
+        },
+        {
+            "id": 9222,
+            "name": "Session B_2: LION LION",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 10:30:00",
+            "ends_at": "2020-03-25 11:15:00",
+            "closed": true
+        },
+        {
+            "id": 9009,
+            "name": "Session B_3: CAT CAT CAT",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 11:35:00",
+            "ends_at": "2020-03-25 13:00:00",
+            "closed": true
+        },
+        {
+            "id": 9004,
+            "name": "Session B_4: Honolulu session",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 13:30:00",
+            "ends_at": "2020-03-25 15:00:00",
+            "closed": false
+        },
+        {
+            "id": 9005,
+            "name": "Session B_5: Green Dragon Session - BBC world BBC world BBC world BBC world BBC world BBC world",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 15:30:00",
+            "ends_at": "2020-03-25 17:30:00",
+            "closed": false
+        },
+        {
+            "id": 9006,
+            "name": "Session B_6: The Mat o' Dowd 5.0 - Symposium",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 17:30:00",
+            "ends_at": "2020-03-25 18:30:00",
+            "closed": false
+        },
+    {
+            "id": 9007,
+            "name": "Session B_7: Spacetime 2.0 - Red Simposia",
+            "location_id": 4597,
+            "starts_at": "2020-03-25 18:30:00",
+            "ends_at": "2020-03-25 21:30:00",
+            "closed": false
+        },
+    {
+            "id": 7000,
+            "name": "Session C_1: Nuova locco, animal planet fast",
+            "location_id": 4598,
+            "starts_at": "2020-03-26 08:30:00",
+            "ends_at": "2020-03-26 10:00:00",
+            "closed": false
+        },
+     {
+            "id": 7001,
+            "name": "Session C_2: Welcome to BOTAFOGO football club",
+            "location_id": 4598,
+            "starts_at": "2020-03-26 10:30:00",
+            "ends_at": "2020-03-26 12:00:00",
+            "closed": false
+        },
+    {
+            "id": 7002,
+            "name": "Session C_3: Blic Awards and exibitors",
+            "location_id": 4598,
+            "starts_at": "2020-03-26 12:20:00",
+            "ends_at": "2020-03-26 13:00:00",
+            "closed": false
+        },
+        {
+            "id": 7003,
+            "name": "Session C_4: The Happy Human 2.0 - Symposium",
+            "location_id": 4599,
+            "starts_at": "2020-03-26 12:30:00",
+            "ends_at": "2020-03-26 14:30:00",
+            "closed": false
+        },
+        {
+            "id": 7004,
+            "name": "Session C_5: The Yellow Human 2.0 - Symposium",
+            "location_id": 4599,
+            "starts_at": "2020-03-26 15:00:00",
+            "ends_at": "2020-03-26 17:00:00",
+            "closed": false
+        },
+        {
+            "id": 7005,
+            "name": "Session C_6: The Red Human 2.0 - Symposium",
+            "location_id": 4599,
+            "starts_at": "2020-03-26 17:00:00",
+            "ends_at": "2020-03-26 19:00:00",
+            "closed": false
+        },
+       {
+            "id": 7006,
+            "name": "Session C_6: The super Blue Human 2.0 - Symposium",
+            "location_id": 4600,
+            "starts_at": "2020-03-26 17:00:00",
+            "ends_at": "2020-03-26 19:00:00",
+            "closed": false
+        },
+     {
+            "id": 7007,
+            "name": "Session C_7:Race car polo games",
+            "location_id": 4600,
+            "starts_at": "2020-03-27 19:30:00",
+            "ends_at": "2020-03-27 22:00:00",
+            "closed": false
+        },
+        {
+            "id": 6001,
+            "name": "Session D_1: Nevada super bawl contest",
+            "location_id": 4601,
+            "starts_at": "2020-03-27 10:30:00",
+            "ends_at": "2020-03-27 12:00:00",
+            "closed": false
+        },
+        {
+            "id": 6002,
+            "name": "Session D_2: CNN CNN Welcome to bora bora island",
+            "location_id": 4601,
+            "starts_at": "2020-03-27 13:00:00",
+            "ends_at": "2020-03-27 13:30:00",
+            "closed": false
+        },
+        {
+            "id": 6003,
+            "name": "Session D_3: hi jack Welcome to bora bora island",
+            "location_id": 4601,
+            "starts_at": "2020-03-27 13:30:00",
+            "ends_at": "2020-03-27 15:00:00",
+            "closed": false
+        },
+        {
+            "id": 6004,
+            "name": "Session D_4: Welcome to bora novo island",
+            "location_id": 4601,
+            "starts_at": "2020-03-27 15:30:00",
+            "ends_at": "2020-03-27 17:00:00",
+            "closed": false
+        },
+        {
+            "id": 6005,
+            "name": "Session D_5: Welcome to bora bora island",
+            "location_id": 4601,
+            "starts_at": "2020-03-27 17:00:00",
+            "ends_at": "2020-03-27 19:00:00",
+            "closed": false
+        }
+    ]
+}
