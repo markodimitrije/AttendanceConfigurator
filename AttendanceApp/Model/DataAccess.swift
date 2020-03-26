@@ -68,7 +68,8 @@ class DataAccess: NSObject {
                 let rRoom = RealmRoom.getRoom(withId: roomId, withRealm: realm) else {
                     return
             }
-            let room = Room(from: rRoom)
+            //let room = Room(from: rRoom)
+            let room = RoomFactory.make(from: rRoom) as! Room
             _roomSelected.accept(room)
         } else if keyPath == "sessionId" {
             guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int,

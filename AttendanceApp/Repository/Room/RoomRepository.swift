@@ -20,22 +20,20 @@ class RoomRepository: IRoomRepository {
         guard let rRoom = realm.object(ofType: RealmRoom.self, forPrimaryKey: id) else {
             return nil
         }
-        return Room(from: rRoom)
+        //return Room(from: rRoom)
+        return RoomFactory.make(from: rRoom)
     }
     
     func getAllRooms() -> [IRoom] {
         let realm = try! Realm()
         let rRooms = realm.objects(RealmRoom.self).toArray()
-        return rRooms.map(Room.init)
+        //return rRooms.map(Room.init)
+        return rRooms.map(RoomFactory.make(from:))
     }
     
     func save(rooms: [IRoom]) {
         let realm = try! Realm()
-        let rRooms = rooms.map { (room) -> RealmRoom in
-            let rRoom = RealmRoom()
-            rRoom.updateWith(room: room)
-            return rRoom
-        }
+        let rRooms = rooms.map(RealmRoomFactory.make)
         try? realm.write {
             realm.add(rRooms, update: .modified)
         }

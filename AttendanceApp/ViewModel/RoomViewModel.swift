@@ -36,7 +36,8 @@ class RoomViewModel {
     // MARK:- calculators
     
     func getRoom(forSelectedTableIndex index: Int) -> Room {
-        return Room(from: rooms[index])
+        //return Room(from: rooms[index])
+        return RoomFactory.make(from: rooms[index]) as! Room
     }
     
     // MARK:- Private methods

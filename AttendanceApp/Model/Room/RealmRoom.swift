@@ -11,13 +11,7 @@ import RealmSwift
 class RealmRoom: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
-    @objc dynamic var order: Int = -1
-    
-    func updateWith(room: IRoom) {
-        self.id = room.getId()
-        self.name = room.getName()
-        self.order = room.getOrder()
-    }
+    @objc dynamic var order: Int = 0
     
     override static func primaryKey() -> String? {
         return "id"

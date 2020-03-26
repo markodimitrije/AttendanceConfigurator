@@ -96,33 +96,17 @@ struct RealmDataPersister {
     // MARK:- Save data
     
     func save(rooms: [Room]) -> Observable<Bool> {
-        
         // prvo ih map u svoje objects a onda persist i javi da jesi...
-        let realmRooms = rooms.map { (room) -> RealmRoom in
-            let r = RealmRoom()
-            r.updateWith(room: room)
-            return r
-        }
-        
+        let realmRooms = rooms.map(RealmRoomFactory.make)
         return saveToRealm(objects: realmRooms)
     }
     
     func save(blocks: [Block]) -> Observable<Bool> {
-        
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        
         // prvo ih map u svoje objects a onda persist i javi da jesi...
         let realmBlocks = blocks.map { (block) -> RealmBlock in
-//            let b = RealmBlock()
-//            b.updateWith(block: block, withRealm: realm)
-//            return b
             return RealmBlockFactory.make(block: block)
         }
-        
         return saveToRealm(objects: realmBlocks)
-        
     }
     
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {

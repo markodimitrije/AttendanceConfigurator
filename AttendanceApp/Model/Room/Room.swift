@@ -28,9 +28,4 @@ struct Room: Codable {
     var id: Int
     var name: String
     var order: Int
-    init(from realRoom: RealmRoom) {
-        self.id = realRoom.id
-        self.name = realRoom.name
-        self.order = realRoom.order
-    }
 }

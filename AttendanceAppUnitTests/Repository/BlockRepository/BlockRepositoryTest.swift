@@ -32,7 +32,7 @@ class BlockRepositoryTest: XCTestCase {
         super.tearDown()
     }
     
-    func testBlockRepository_ShouldBeAbleTo_SaveBlocks() {
+    func testBlockRepo_ShouldBeAbleTo_SaveBlocks() {
         //arrange
         let block = blocks.first!
         //act
@@ -45,7 +45,7 @@ class BlockRepositoryTest: XCTestCase {
         XCTAssertEqual(block.getId(), found.first!.id)
     }
     
-    func testBlockRepository_ShouldBeAbleTo_GetBlock_WithExistingId() {
+    func testBlockRepo_ShouldBeAbleTo_GetBlock_WithExistingId() {
         //arrange
         let block = blocks.first!
         SaveBlocksToRealmExplicitelyHelper.save(blocks: [block])
@@ -55,7 +55,7 @@ class BlockRepositoryTest: XCTestCase {
         XCTAssertNotNil(found)
     }
     
-    func testBlockRepository_GetBlockFucn_ShouldReturnNil_ForNonExistingId() {
+    func testBlockRepo_GetBlockFucn_ShouldReturnNil_ForNonExistingId() {
         //arrange
         let block = blocks.first!
         SaveBlocksToRealmExplicitelyHelper.save(blocks: [block])
@@ -65,7 +65,7 @@ class BlockRepositoryTest: XCTestCase {
         XCTAssertNil(found)
     }
     
-    func testBlockRepository_ShouldBeAbleTo_GetAllBlocks_WithLocationId() {
+    func testBlockRepo_ShouldBeAbleTo_GetAllBlocks_WithLocationId() {
         //arrange
         SaveRoomsToRealmExplicitelyHelper.save(rooms: self.rooms)
         SaveBlocksToRealmExplicitelyHelper.save(blocks: self.blocks)
@@ -76,7 +76,7 @@ class BlockRepositoryTest: XCTestCase {
         XCTAssertEqual(20, blocks.count) // data have 4 rooms by 5 sessions
     }
     
-    func testBlockRepository_GetAllBlocks_ShouldReturnNil_ForLocationId_OnNonMatchingDate() {
+    func testBlockRepo_GetAllBlocks_ShouldReturnNil_ForLocationId_OnNonMatchingDate() {
         //act
         let roomId = rooms.first!.getId()
         let nonMatchingDate = Date.init(timeIntervalSince1970: 0)
@@ -85,7 +85,7 @@ class BlockRepositoryTest: XCTestCase {
         XCTAssertEqual(0, blocks.count)
     }
     
-    func testBlockRepository_GetAllBlocks_ShouldReturnBlocks_ForLocationId_OnMatchingDate() {
+    func testBlockRepo_GetAllBlocks_ShouldReturnBlocks_ForLocationId_OnMatchingDate() {
         //arrange
         SaveRoomsToRealmExplicitelyHelper.save(rooms: self.rooms)
         SaveBlocksToRealmExplicitelyHelper.save(blocks: self.blocks)

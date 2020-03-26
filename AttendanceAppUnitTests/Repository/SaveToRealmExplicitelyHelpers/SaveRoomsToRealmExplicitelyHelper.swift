@@ -13,7 +13,9 @@ class SaveRoomsToRealmExplicitelyHelper {
     static func save(rooms: [IRoom]) {
         let rRooms = rooms.map { iRoom -> RealmRoom in
             let rRoom = RealmRoom()
-            rRoom.updateWith(room: iRoom)
+            rRoom.id = iRoom.getId()
+            rRoom.name = iRoom.getName()
+            rRoom.order = iRoom.getOrder()
             return rRoom
         }
         let realm = try! Realm()
