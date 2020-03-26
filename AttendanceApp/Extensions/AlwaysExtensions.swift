@@ -8,15 +8,6 @@
 
 import Foundation
 
-extension FileManager {
-    static var docDirUrl: URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    }
-    static var historyUrl: URL {
-        return FileManager.docDirUrl.appendingPathComponent("questionsHistory").appendingPathExtension("txt")
-    }
-}
-
 extension Date {
     static var now: Date {
         return Date.init(timeIntervalSinceNow: 0)
