@@ -59,6 +59,7 @@
 		7CEF97C0228DAD1300C31CD8 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97BF228DAD1300C31CD8 /* rooms.json */; };
 		7CFDEC4F242CB8190060A2C7 /* BlockRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */; };
 		7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */; };
+		7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */; };
 		AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191486218EEFC000CD5B2F /* CodesDumper.swift */; };
 		AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191488218EF09300CD5B2F /* CodeReportState.swift */; };
 		AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */; };
@@ -178,6 +179,7 @@
 		7CEF97BF228DAD1300C31CD8 /* rooms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
 		7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepositoryTest.swift; sourceTree = "<group>"; };
 		7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlockFactory.swift; sourceTree = "<group>"; };
+		7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoomFactory.swift; sourceTree = "<group>"; };
 		AD191486218EEFC000CD5B2F /* CodesDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
 		AD191488218EF09300CD5B2F /* CodeReportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
+				7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -927,6 +930,7 @@
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
+				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */,

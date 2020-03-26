@@ -41,9 +41,6 @@ class BlockRepositoryTest: XCTestCase {
     
     private func saveToRealmExplicitely(blocks: [Block], realm: Realm) {
         let rBlocks = blocks.map { (block) -> RealmBlock in
-//            let rBlock = RealmBlock()
-//            rBlock.updateWith(block: block, withRealm: realm)
-//            return rBlock
             return RealmBlockFactory.make(block: block)
         }
         try! realm.write {

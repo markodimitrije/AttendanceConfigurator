@@ -23,9 +23,6 @@ class BlockRepository: IBlockRepository {
         let realm = try! Realm()
         let rBlocks = blocks.map { (block) -> RealmBlock in
             return RealmBlockFactory.make(block: block)
-//            let rBlock = RealmBlock()
-//            rBlock.updateWith(block: block, withRealm: realm)
-//            return rBlock
         }
         try? realm.write {
             realm.add(rBlocks, update: .modified)

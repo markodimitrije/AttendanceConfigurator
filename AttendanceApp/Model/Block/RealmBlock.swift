@@ -18,8 +18,6 @@ class RealmBlock: Object {
     @objc dynamic var ends_at: String = ""
     @objc dynamic var closed: Bool = false
     
-    @objc dynamic var owner: RealmRoom?
-    
     // rac. var koji ako je "today" vraca starts_at(HH:mm) - ends_at(HH:mm)
     // ako nije onda yyyy-MM-dd (starts_at)HH:mm-(ends_at)HH:mm
     var duration: String {
@@ -46,7 +44,6 @@ class RealmBlock: Object {
         self.starts_at = block.get_Starts_At()
         self.ends_at = block.get_Ends_At()
         self.closed = block.getClosed()
-        owner = RealmRoom.getRoom(withId: self.location_id, withRealm: realm)
     }
     
     override static func primaryKey() -> String? {

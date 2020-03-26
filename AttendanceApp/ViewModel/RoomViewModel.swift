@@ -45,7 +45,7 @@ class RoomViewModel {
         
         guard let realm = try? Realm() else { return }
         
-        rooms = realm.objects(RealmRoom.self).filter("type = 'Room'")
+        rooms = realm.objects(RealmRoom.self)
         
         oRooms = Observable.changeset(from: rooms)
 
