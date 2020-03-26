@@ -9,9 +9,14 @@
 import RealmSwift
 
 class RealmBlockFactory {
-    static func make(block: IBlock, realm: Realm = try! Realm.init()) -> RealmBlock {
+    static func make(block: IBlock) -> RealmBlock {
         let rBlock = RealmBlock()
-        rBlock.updateWith(block: block, withRealm: realm)
+        rBlock.id = block.getId()
+        rBlock.name = block.getName()
+        rBlock.location_id = block.getLocationId()
+        rBlock.starts_at = block.get_Starts_At()
+        rBlock.ends_at = block.get_Ends_At()
+        rBlock.closed = block.getClosed()
         return rBlock
     }
 }

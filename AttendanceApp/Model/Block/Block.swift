@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
 
 struct Blocks: Codable {
@@ -57,26 +56,6 @@ struct Block: Codable {
         }
         
     }
-    
-    /*
-    init?(dict: [String: Any]) {
-        guard
-            let id = dict["id"] as? Int,
-            let name = dict["name"] as? String,
-            let location_id = dict["location_id"] as? Int,
-            let starts_at = dict["starts_at"] as? String,
-            let ends_at = dict["ends_at"] as? String,
-            let closed = dict["closed"] as? Bool else {
-                return nil
-        }
-        self.id = id
-        self.name = name
-        self.location_id = location_id
-        self.starts_at = starts_at
-        self.ends_at = ends_at
-        self.closed = closed
-    }
-    */
     
     init(with realmBlock: RealmBlock) {
         self.id = realmBlock.id

@@ -103,9 +103,7 @@ struct RealmDataPersister {
     
     func save(blocks: [Block]) -> Observable<Bool> {
         // prvo ih map u svoje objects a onda persist i javi da jesi...
-        let realmBlocks = blocks.map { (block) -> RealmBlock in
-            return RealmBlockFactory.make(block: block)
-        }
+        let realmBlocks = blocks.map(RealmBlockFactory.make)
         return saveToRealm(objects: realmBlocks)
     }
     

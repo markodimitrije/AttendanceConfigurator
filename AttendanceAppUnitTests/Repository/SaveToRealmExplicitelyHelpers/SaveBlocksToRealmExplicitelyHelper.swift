@@ -14,7 +14,12 @@ class SaveBlocksToRealmExplicitelyHelper {
         let realm = try! Realm()
         let rBlock = blocks.map { iBlock -> RealmBlock in
             let rBlock = RealmBlock()
-            rBlock.updateWith(block: iBlock, withRealm: realm)
+            rBlock.id = iBlock.getId()
+            rBlock.name = iBlock.getName()
+            rBlock.location_id = iBlock.getLocationId()
+            rBlock.starts_at = iBlock.get_Starts_At()
+            rBlock.ends_at = iBlock.get_Ends_At()
+            rBlock.closed = iBlock.getClosed()
             return rBlock
         }
         try! realm.write {

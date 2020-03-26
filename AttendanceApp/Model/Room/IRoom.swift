@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol IRoom {
+    func getId() -> Int
+    func getOrder() -> Int
+    func getName() -> String
+}

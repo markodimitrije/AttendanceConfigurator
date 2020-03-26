@@ -21,9 +21,7 @@ class BlockRepository: IBlockRepository {
     
     func save(blocks: [IBlock]) {
         let realm = try! Realm()
-        let rBlocks = blocks.map { (block) -> RealmBlock in
-            return RealmBlockFactory.make(block: block)
-        }
+        let rBlocks = blocks.map(RealmBlockFactory.make)
         try? realm.write {
             realm.add(rBlocks, update: .modified)
         }

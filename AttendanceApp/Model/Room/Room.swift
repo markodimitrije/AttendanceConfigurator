@@ -8,15 +8,7 @@
 
 import Foundation
 
-protocol IRoom {
-    func getId() -> Int
-    func getOrder() -> Int
-    func getName() -> String
-}
-
-struct Rooms: Codable {
-    var data: [Room]
-}
+struct Rooms: Codable { var data: [Room] }
 
 extension Room: IRoom {
     func getId() -> Int {self.id}

@@ -37,15 +37,6 @@ class RealmBlock: Object {
         
     }
     
-    func updateWith(block: IBlock, withRealm realm: Realm) {
-        self.id = block.getId()
-        self.name = block.getName()
-        self.location_id = block.getLocationId()
-        self.starts_at = block.get_Starts_At()
-        self.ends_at = block.get_Ends_At()
-        self.closed = block.getClosed()
-    }
-    
     override static func primaryKey() -> String? {
         return "id"
     }
