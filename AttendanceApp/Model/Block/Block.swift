@@ -15,10 +15,13 @@ class Blocks: Codable {
 }
 
 extension Block: IBlock {
+    func get_Starts_At() -> String { return self.starts_at} // TODO marko DRY!
+    func get_Ends_At() -> String { return self.ends_at}
+    
     func getId() -> Int { return self.id }
     func getName() -> String { return self.name }
     func getLocationId() -> Int { return self.location_id }
-    func getStartsAt() -> Date { return self.starts }
+    func getStartsAt() -> Date { return self.starts } // TODO marko DRY!
     func getEndsAt() -> Date { return self.ensds }
     func getClosed() -> Bool { return self.closed }
 }

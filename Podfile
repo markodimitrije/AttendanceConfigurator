@@ -14,5 +14,10 @@ target 'AttendanceApp' do
     pod 'ReachabilitySwift'
     pod 'Zip'
     pod 'ScanditBarcodeCapture', "6.0.3"
+    
+    target 'AttendanceAppUnitTests' do
+      inherit! :search_paths
+      # Pods for testing
+    end
 
 end

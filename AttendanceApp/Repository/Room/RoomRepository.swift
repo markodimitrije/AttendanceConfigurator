@@ -36,6 +36,8 @@ class RoomRepository: IRoomRepository {
             rRoom.updateWith(room: room)
             return rRoom
         }
-        realm.add(rRooms, update: .modified)
+        try? realm.write {
+            realm.add(rRooms, update: .modified)
+        }
     }
 }

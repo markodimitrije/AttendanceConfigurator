@@ -22,11 +22,14 @@ class BlockRepository: IBlockRepository {
     func save(blocks: [Block]) {
         let realm = try! Realm()
         let rBlocks = blocks.map { (block) -> RealmBlock in
-            let rBlock = RealmBlock()
-            rBlock.updateWith(block: block, withRealm: realm)
-            return rBlock
+            return RealmBlockFactory.make(block: block)
+//            let rBlock = RealmBlock()
+//            rBlock.updateWith(block: block, withRealm: realm)
+//            return rBlock
         }
-        realm.add(rBlocks, update: .modified)
+        try? realm.write {
+            realm.add(rBlocks, update: .modified)
+        }
     }
     
     func getBlocks(roomId: Int) -> [Block] {

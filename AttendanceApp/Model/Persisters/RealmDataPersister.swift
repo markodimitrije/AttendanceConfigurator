@@ -115,9 +115,10 @@ struct RealmDataPersister {
         
         // prvo ih map u svoje objects a onda persist i javi da jesi...
         let realmBlocks = blocks.map { (block) -> RealmBlock in
-            let b = RealmBlock()
-            b.updateWith(block: block, withRealm: realm)
-            return b
+//            let b = RealmBlock()
+//            b.updateWith(block: block, withRealm: realm)
+//            return b
+            return RealmBlockFactory.make(block: block)
         }
         
         return saveToRealm(objects: realmBlocks)
