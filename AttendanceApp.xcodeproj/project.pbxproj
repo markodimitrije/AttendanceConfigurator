@@ -36,6 +36,7 @@
 		7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */; };
 		7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */; };
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
+		7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E5242D022800ECD1E5 /* RoomFactory.swift */; };
 		7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
@@ -162,6 +163,7 @@
 		7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProviding.swift; sourceTree = "<group>"; };
 		7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
+		7CC796E5242D022800ECD1E5 /* RoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFactory.swift; sourceTree = "<group>"; };
 		7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInvalidAttedanceReportPersister.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
@@ -397,9 +399,9 @@
 			isa = PBXGroup;
 			children = (
 				7CFDEC54242CC6C50060A2C7 /* IRoom.swift */,
+				7CC796E4242D021800ECD1E5 /* RoomFactory */,
 				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
 				7CFDEC56242CC6DA0060A2C7 /* RealmRoom.swift */,
-				7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -441,6 +443,15 @@
 				7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */,
 			);
 			path = Scanning;
+			sourceTree = "<group>";
+		};
+		7CC796E4242D021800ECD1E5 /* RoomFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */,
+				7CC796E5242D022800ECD1E5 /* RoomFactory.swift */,
+			);
+			path = RoomFactory;
 			sourceTree = "<group>";
 		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
@@ -1008,6 +1019,7 @@
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
 				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
+				7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
