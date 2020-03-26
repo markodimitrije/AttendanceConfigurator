@@ -57,15 +57,6 @@ struct Block: Codable {
         
     }
     
-    init(with realmBlock: RealmBlock) {
-        self.id = realmBlock.id
-        self.name = realmBlock.name
-        self.location_id = realmBlock.location_id
-        self.starts_at = realmBlock.starts_at
-        self.ends_at = realmBlock.ends_at
-        self.closed = realmBlock.closed
-    }
-    
     private func getOnlyDateString(from dateString: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"

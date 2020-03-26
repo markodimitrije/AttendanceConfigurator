@@ -19,7 +19,7 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     
     var data: [Date] {
         let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
-        let startDates = rBlocks.map(Block.init).map {$0.starts}
+        let startDates = rBlocks.map(BlockFactory.make).map {$0.getStartsAt()}
         return startDates
     }
     

@@ -76,7 +76,7 @@ class DataAccess: NSObject {
                 let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {
                     return
             }
-            let block = Block.init(with: realmBlock)
+            let block = BlockFactory.make(from: realmBlock) as! Block
             _blockSelected.accept(block)
         } else if keyPath == "date" {
             guard let date = UserDefaults.standard.value(forKey: keyPath) as? Date else {

@@ -29,8 +29,8 @@ class BlockRepository: IBlockRepository {
     
     func getBlocks(roomId: Int) -> [IBlock] {
         let realm = try! Realm()
-        let blocks = realm.objects(RealmBlock.self).filter("location_id == %i", roomId).toArray()
-        return blocks.map(Block.init)
+        let rBlocks = realm.objects(RealmBlock.self).filter("location_id == %i", roomId).toArray()
+        return rBlocks.map(BlockFactory.make)
     }
     
     func getBlocks(roomId: Int, date: Date) -> [IBlock] {
@@ -47,6 +47,6 @@ class BlockRepository: IBlockRepository {
         guard let rBlock = realm.object(ofType: RealmBlock.self, forPrimaryKey: id) else {
             return nil
         }
-        return Block(with: rBlock)
+        return BlockFactory.make(from: rBlock)
     }
 }

@@ -131,7 +131,8 @@ class BlockViewModel {
         let sessionAvailable = autoSessionIsAvailable(inLessThan: interval)
         
         if sessionAvailable {
-            let block = Block(with: mostRecentSessionBlock!)
+            //let block = Block(with: mostRecentSessionBlock!)
+            let block = BlockFactory.make(from: mostRecentSessionBlock!) as! Block
             settingsJourney.blockId = block.id
             oAutomaticSession.accept(block)
         } else {

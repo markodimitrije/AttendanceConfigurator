@@ -122,7 +122,7 @@ class BlocksVC: UIViewController {
                         }
                     }).disposed(by: strongSelf.disposeBag)
                 
-                let selectedBlock = Block(with: rBlock)
+                let selectedBlock = BlockFactory.make(from: rBlock) as! Block
                 strongSelf.selBlock.onNext(selectedBlock)
                 strongSelf.navigationController?.popViewController(animated: true)
             })
