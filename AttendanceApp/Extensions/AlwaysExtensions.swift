@@ -63,6 +63,16 @@ extension String {
         }
         return nil
     }
+    
+    func toDateWithNoTimeString(inputFormat: String, outputFormat:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = inputFormat
+        guard let date = dateFormatter.date(from: self) else {
+            return "error converting date and time"
+        }
+        dateFormatter.dateFormat = outputFormat
+        return dateFormatter.string(from: date)
+    }
 }
 
 extension Date { // (*)

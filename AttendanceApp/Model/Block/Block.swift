@@ -38,7 +38,10 @@ struct Block: Codable {
     var starts: Date { return Date.parse(self.starts_at) }
     var ensds: Date { return Date.parse(self.starts_at) }
     
-    var startsShort: String { return getOnlyDateString(from: starts_at) }
+    var startsShort: String {
+        starts_at.toDateWithNoTimeString(inputFormat: Date.defaultFormatString,
+                                         outputFormat: "yyyy-MM-dd")
+    }
     
     var duration: String {
         
@@ -54,14 +57,5 @@ struct Block: Codable {
         } else {
             return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
         }
-        
-    }
-    
-    private func getOnlyDateString(from dateString: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dateString) else { return "error converting date and time" }
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter.string(from: date)
     }
 }
