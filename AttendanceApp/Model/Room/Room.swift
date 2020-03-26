@@ -14,7 +14,7 @@ protocol IRoom {
     func getName() -> String
 }
 
-class Rooms: Codable {
+struct Rooms: Codable {
     var data: [Room]
 }
 
@@ -24,7 +24,7 @@ extension Room: IRoom {
     func getName() -> String {self.name}
 }
 
-class Room: Codable {
+struct Room: Codable {
     var id: Int
     var name: String
     var order: Int

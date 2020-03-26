@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class Blocks: Codable {
+struct Blocks: Codable {
     var data: [Block]
 }
 
@@ -26,7 +26,8 @@ extension Block: IBlock {
     func getClosed() -> Bool { return self.closed }
 }
 
-class Block: Codable {
+//class Block: Codable {
+struct Block: Codable {
     var id: Int
     var name: String
     var location_id: Int
