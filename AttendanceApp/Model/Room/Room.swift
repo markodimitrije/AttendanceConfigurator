@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import Realm
-import RealmSwift
 
 protocol IRoom {
     func getId() -> Int
@@ -35,26 +33,4 @@ class Room: Codable {
         self.name = realRoom.name
         self.order = realRoom.order
     }
-}
-
-class RealmRoom: Object {
-    @objc dynamic var id: Int = 0
-    @objc dynamic var name: String = ""
-    @objc dynamic var order: Int = -1
-    
-    func updateWith(room: IRoom) {
-        self.id = room.getId()
-        self.name = room.getName()
-        self.order = room.getOrder()
-    }
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-    
-    static func getRoom(withId id: Int, withRealm realm: Realm) -> RealmRoom? {
-        
-        return realm.objects(RealmRoom.self).filter("id = %@", id).first
-    }
-    
 }

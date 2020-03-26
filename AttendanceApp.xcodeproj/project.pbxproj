@@ -60,6 +60,12 @@
 		7CFDEC4F242CB8190060A2C7 /* BlockRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */; };
 		7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */; };
 		7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */; };
+		7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC54242CC6C50060A2C7 /* IRoom.swift */; };
+		7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC56242CC6DA0060A2C7 /* RealmRoom.swift */; };
+		7CFDEC5A242CD01A0060A2C7 /* BlocksFromJsonFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC59242CD01A0060A2C7 /* BlocksFromJsonFileLoader.swift */; };
+		7CFDEC5C242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC5B242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift */; };
+		7CFDEC5F242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC5E242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift */; };
+		7CFDEC61242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC60242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift */; };
 		AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191486218EEFC000CD5B2F /* CodesDumper.swift */; };
 		AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191488218EF09300CD5B2F /* CodeReportState.swift */; };
 		AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */; };
@@ -180,6 +186,12 @@
 		7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepositoryTest.swift; sourceTree = "<group>"; };
 		7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlockFactory.swift; sourceTree = "<group>"; };
 		7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoomFactory.swift; sourceTree = "<group>"; };
+		7CFDEC54242CC6C50060A2C7 /* IRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoom.swift; sourceTree = "<group>"; };
+		7CFDEC56242CC6DA0060A2C7 /* RealmRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoom.swift; sourceTree = "<group>"; };
+		7CFDEC59242CD01A0060A2C7 /* BlocksFromJsonFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksFromJsonFileLoader.swift; sourceTree = "<group>"; };
+		7CFDEC5B242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsFromJsonFileLoader.swift; sourceTree = "<group>"; };
+		7CFDEC5E242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRoomsToRealmExplicitelyHelper.swift; sourceTree = "<group>"; };
+		7CFDEC60242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBlocksToRealmExplicitelyHelper.swift; sourceTree = "<group>"; };
 		AD191486218EEFC000CD5B2F /* CodesDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
 		AD191488218EF09300CD5B2F /* CodeReportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -313,6 +325,8 @@
 		7C592BF5242BC19C00294E71 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				7CFDEC5D242CD4640060A2C7 /* SaveToRealmExplicitelyHelpers */,
+				7CFDEC58242CD0060060A2C7 /* DataLoaders */,
 				7C592BF7242BC1B000294E71 /* BlockRepository */,
 				7C592BF6242BC1A500294E71 /* RoomRepository */,
 			);
@@ -382,7 +396,9 @@
 		7CB1E44F229832B0008C23F8 /* Room */ = {
 			isa = PBXGroup;
 			children = (
+				7CFDEC54242CC6C50060A2C7 /* IRoom.swift */,
 				AD80EFF9217DCDEA003CEDD0 /* Room.swift */,
+				7CFDEC56242CC6DA0060A2C7 /* RealmRoom.swift */,
 				7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */,
 			);
 			path = Room;
@@ -509,6 +525,24 @@
 				7CEF97BF228DAD1300C31CD8 /* rooms.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		7CFDEC58242CD0060060A2C7 /* DataLoaders */ = {
+			isa = PBXGroup;
+			children = (
+				7CFDEC5B242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift */,
+				7CFDEC59242CD01A0060A2C7 /* BlocksFromJsonFileLoader.swift */,
+			);
+			path = DataLoaders;
+			sourceTree = "<group>";
+		};
+		7CFDEC5D242CD4640060A2C7 /* SaveToRealmExplicitelyHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				7CFDEC5E242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift */,
+				7CFDEC60242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift */,
+			);
+			path = SaveToRealmExplicitelyHelpers;
 			sourceTree = "<group>";
 		};
 		AD24E303217F74C8008E35F8 /* Services */ = {
@@ -917,7 +951,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CFDEC5A242CD01A0060A2C7 /* BlocksFromJsonFileLoader.swift in Sources */,
+				7CFDEC61242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift in Sources */,
+				7CFDEC5F242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift in Sources */,
 				7C592BF9242BC1C500294E71 /* RoomRepositoryTest.swift in Sources */,
+				7CFDEC5C242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift in Sources */,
 				7CFDEC4F242CB8190060A2C7 /* BlockRepositoryTest.swift in Sources */,
 				7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */,
 			);
@@ -935,6 +973,7 @@
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
+				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
@@ -979,6 +1018,7 @@
 				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,
 				7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */,
 				ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */,
+				7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */,
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,

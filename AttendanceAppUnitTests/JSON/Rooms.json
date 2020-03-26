@@ -1,20 +1,6 @@
 {
     "data": [
         {
-            "id": 4509,
-            "name": "Poster area",
-            "type": "Room",
-            "color": null,
-            "floor": 0,
-            "imported_id": "",
-            "x_coord": "0.0000000",
-            "y_coord": "0.0000000",
-            "conference_id": 7520,
-            "party_id": null,
-            "order": 0,
-            "updated_at": "2019-05-28 17:02:36"
-        },
-        {
             "id": 4456,
             "name": "Plant room",
             "type": "Room",
@@ -139,6 +125,20 @@
             "party_id": null,
             "order": 0,
             "updated_at": "2019-05-27 11:18:30"
+        },
+        {
+            "id": 4621,
+            "name": "Poster area",
+            "type": "Room",
+            "color": null,
+            "floor": 0,
+            "imported_id": "",
+            "x_coord": "0.0000000",
+            "y_coord": "0.0000000",
+            "conference_id": 7520,
+            "party_id": null,
+            "order": 0,
+            "updated_at": "2019-05-28 17:02:36"
         }
     ]
 }

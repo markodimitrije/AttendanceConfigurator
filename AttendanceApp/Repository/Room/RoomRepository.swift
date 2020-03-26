@@ -9,13 +9,13 @@
 import RealmSwift
 
 protocol IRoomRepository {
-    func getRoom(id: Int) -> Room?
-    func getAllRooms() -> [Room]
-    func save(rooms: [Room])
+    func getRoom(id: Int) -> IRoom?
+    func getAllRooms() -> [IRoom]
+    func save(rooms: [IRoom])
 }
 
 class RoomRepository: IRoomRepository {
-    func getRoom(id: Int) -> Room? {
+    func getRoom(id: Int) -> IRoom? {
         let realm = try! Realm()
         guard let rRoom = realm.object(ofType: RealmRoom.self, forPrimaryKey: id) else {
             return nil
@@ -23,13 +23,13 @@ class RoomRepository: IRoomRepository {
         return Room(from: rRoom)
     }
     
-    func getAllRooms() -> [Room] {
+    func getAllRooms() -> [IRoom] {
         let realm = try! Realm()
         let rRooms = realm.objects(RealmRoom.self).toArray()
         return rRooms.map(Room.init)
     }
     
-    func save(rooms: [Room]) {
+    func save(rooms: [IRoom]) {
         let realm = try! Realm()
         let rRooms = rooms.map { (room) -> RealmRoom in
             let rRoom = RealmRoom()
