@@ -47,7 +47,7 @@ struct RealmDataPersister {
         
         let realmResults = realm.objects(RealmCodeReport.self).toArray()
         
-        return realmResults.map {CodeReport.init(realmCodeReport: $0)}
+        return realmResults.map {CodeReport(realmCodeReport: $0)}
         
     }
     
@@ -125,28 +125,28 @@ struct RealmDataPersister {
         
     }
     
-    func saveToRealm(codeReport: CodeReport) -> Observable<Bool> {
+    func saveToRealm(codeReport: ICodeReport) -> Observable<Bool> {
         
         guard let realm = try? Realm() else {
             return Observable<Bool>.just(false) // treba da imas err za Realm...
         }
         
-        let newCodeReport = RealmCodeReport.create(with: codeReport)
+        //let newCodeReport = RealmCodeReport.create(with: codeReport)
+        let newCodeReport = RealmCodeReportFactory.make(with: codeReport)
 
-        if realm.objects(RealmCodeReport.self).filter("code = %@ && sessionId = %@", codeReport.code, codeReport.sessionId).isEmpty {
+        if realm.objects(RealmCodeReport.self).filter("code = %@ && sessionId = %@", codeReport.getCode(), codeReport.getSessionId()).isEmpty {
             
             do { // ako nemas ovaj objekat kod sebe u bazi
                 
                 try realm.write {
                     realm.add(newCodeReport)
-                    print("\(codeReport.code), \(codeReport.sessionId) saved to realm")
                 }
             } catch {
                 return Observable<Bool>.just(false)
             }
         
         } else {
-            print("saveToRealm.objekat, code = \(codeReport.code), \(codeReport.sessionId) vec postoji u bazi")
+            print("saveToRealm.objekat, code = \(codeReport.getCode()), \(codeReport.getSessionId()) vec postoji u bazi")
         }
         
         return Observable<Bool>.just(true) // all good here

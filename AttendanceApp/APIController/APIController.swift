@@ -17,12 +17,10 @@ import Reachability
 class ApiController {
     
     struct Domain {
-        //static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-        static let baseUrl = URL(string: "https://minjon.e-materials.com/api")!
-        //static let baseUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")! // hard-coded mock
+        static let baseUrl = URL(string: "https://service.e-materials.com/api")!
+        static let minjonUrl = URL(string: "https://minjon.e-materials.com/api")!
         static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
-//        static let baseTrackerURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
-//        static let mockURL = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
+        static let resourcesBaseUrl = URL(string: "https://service.e-materials.com/api/conferences/")!
     }
     
     /// The shared instance
@@ -42,7 +40,9 @@ class ApiController {
     //MARK: - Api Calls
     func getRooms(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Room]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        return buildRequest(pathComponent: "locations", //params: [])//,
+        let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
+        return buildRequest(base: myBaseUrl,
+                            pathComponent: "locations", //params: [])//,
                             params: [("updated_from", updatedDate),
                                      ("with_pagination", "\(with_pagination)"),
                                      ("with_trashed", "\(with_trashed)")])
@@ -57,12 +57,21 @@ class ApiController {
     
     func getBlocks(updated_from: Date?, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        return buildRequest(pathComponent: "blocks", //params: [ ])//,
-                            params: [//("updated_from", updatedDate),
+//        return buildRequest(pathComponent: "blocks", //params: [ ])//, // testing
+//                            params: [//("updated_from", updatedDate),
+//                                     ("with_pagination", "\(with_pagination)"),
+//                                     ("with_trashed", "\(with_trashed)"),
+//                                     ("for_scanning", "\(for_scanning)")])//,
+//                                     //("type[]", "Oral")])
+        let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
+            return
+                buildRequest(base: myBaseUrl,
+                             pathComponent: "blocks",
+                             params: [("updated_from", updatedDate),
                                      ("with_pagination", "\(with_pagination)"),
                                      ("with_trashed", "\(with_trashed)"),
-                                     ("for_scanning", "\(for_scanning)")])//,
-                                     //("type[]", "Oral")])
+                                     ("for_scanning", "\(for_scanning)"),
+                                     ("type[]", "Oral")])
             .map() { data in
                 let decoder = JSONDecoder()
                 guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
@@ -172,10 +181,8 @@ class ApiController {
                        params: Any = [],
                        contentType: String? = "application/json") -> Observable<Data> {
     
-        print("APIController.buildingRequest.calling API !!!")
-        
-//        let url = base.appendingPathComponent(pathComponent)
-        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent)
+        let url = base.appendingPathComponent(pathComponent)
+//        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent) // testing
         
         var request = URLRequest(url: url)
         

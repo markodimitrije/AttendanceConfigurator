@@ -24,10 +24,9 @@ final class SettingsViewModel: ViewModelType {
         }
         
         let interval = MyTimeInterval.waitToMostRecentSession
-        let autoSessionDriver =
-            Driver.combineLatest(input.roomSelected.startWith(nil),
-                                 input.autoSelSessionSwitch.startWith(true),
-                                 input.waitInterval.startWith(interval)) {
+        let autoSessionDriver = Driver.combineLatest(input.roomSelected,
+                                input.sessionSwitch,
+                                input.waitInterval.startWith(interval)) {
                                     (room, switchIsOn, interval) -> Block? in
             guard let roomId = room?.id else {
                 return nil
@@ -38,9 +37,9 @@ final class SettingsViewModel: ViewModelType {
                 return try! autoModelView.selectedSession.value() ?? nil // pazi ovde !! try !
             }
             return nil
-        }
+        }.skip(1)
         
-        let manualAndAutoSession = Driver.merge([input.sessionSelected, autoSessionDriver])//.debug()
+        let manualAndAutoSession = Driver.merge([input.sessionSelected, autoSessionDriver]).debug()
         let a = input.roomSelected.map { _ -> Void in return () }
         let b = input.sessionSelected.map { _ -> Void in return () }
         let c = autoSessionDriver.map { _ -> Void in return () }
@@ -53,8 +52,7 @@ final class SettingsViewModel: ViewModelType {
             }
         
         let sessionTxt =
-            Driver.combineLatest(manualAndAutoSession.startWith(nil),
-                                 input.autoSelSessionSwitch.startWith(true)) {
+            Driver.combineLatest(manualAndAutoSession, input.sessionSwitch) {
             (block, state) -> String in
                     if let name = block?.name {
                         return name
@@ -81,7 +79,7 @@ final class SettingsViewModel: ViewModelType {
         
         let compositeSwitch: Driver<Bool> =
             Driver.merge(input.blockSelectedManually.map {_ in return false},
-                                                         input.autoSelSessionSwitch)//.debug()
+                                                         input.sessionSwitch)//.debug()
         
         let sessionInfo = Driver.combineLatest(input.roomSelected,
                                                finalSession,
@@ -127,7 +125,7 @@ extension SettingsViewModel {
         let dateSelected: Driver<Date?>
         let roomSelected: Driver<Room?>
         let sessionSelected: Driver<Block?>
-        let autoSelSessionSwitch: Driver<Bool>
+        let sessionSwitch: Driver<Bool>
         let blockSelectedManually: Driver<Bool>//self.tableView.rx.itemSelected.asDriver()
         let waitInterval: Driver<TimeInterval>
     }

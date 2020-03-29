@@ -170,9 +170,9 @@ class ScannerVC: UIViewController {
        
         print("getSessionReport = \(code)")
         
-        return CodeReport.init(code: code,
-                               sessionId: scanerViewModel.sessionId,
-                               date: Date.now)
+        return CodeReport(code: code,
+                          sessionId: scanerViewModel.sessionId,
+                          date: Date.now)
     }
     
 }

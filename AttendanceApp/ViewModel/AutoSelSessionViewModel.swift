@@ -64,7 +64,7 @@ class AutoSelSessionWithWaitIntervalViewModel {
         blockViewModel.oAutomaticSession
             .subscribe(onNext: { block in
                 print("emituj blok koji terba da update moj UI")
-                DataAccess.shared.userSelection.blockId = block?.id
+                DataAccess.shared.userSelection.blockId = block?.id // hazardous
             })
             .disposed(by: bag)
         

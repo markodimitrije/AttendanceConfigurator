@@ -25,7 +25,6 @@ extension Block: IBlock {
     func getClosed() -> Bool { return self.closed }
 }
 
-//class Block: Codable {
 struct Block: Codable {
     var id: Int
     var name: String

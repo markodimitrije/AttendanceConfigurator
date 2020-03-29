@@ -72,7 +72,6 @@ class BlockViewModel {
         self.roomId = roomId
         bindOutput()
         bindAutomaticSession()
-        bindSelectedInterval()
     }
     
     //... 2 - input
@@ -140,16 +139,6 @@ class BlockViewModel {
             oAutomaticSession.accept(nil)
         }
         
-    }
-    
-    private func bindSelectedInterval() {
-        oAutoSelSessInterval.asObservable()
-            .subscribe(onNext: { [weak self] seconds in
-                guard let sSelf = self else {return}
-//                print("imam zadati interval \(seconds), recalculate....")
-                sSelf.bindAutomaticSession(interval: seconds)
-            })
-            .disposed(by: disposeBag)
     }
     
     private func autoSessionIsAvailable(inLessThan interval: TimeInterval) -> Bool { // implement me

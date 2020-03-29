@@ -28,27 +28,39 @@ class SettingsVC: UITableViewController {
     
     private let disposeBag = DisposeBag()
     private let deviceStateReporter = DeviceStateReporter.init()
-    
     private let codeReporter = CodeReportsState.init()
-    
-    private var roomId: Int! = nil
     
     // INPUTS:
     
-    let dateSelected = BehaviorRelay<Date?>.init(value: nil)
-    let roomSelected = BehaviorSubject<Room?>.init(value: nil)
-    let sessionManuallySelected = BehaviorSubject<Block?>.init(value: nil)
+    let dateSelected: BehaviorRelay<Date?> = {
+        let date = DataAccess.shared.userSelection.selectedDate
+        return BehaviorRelay<Date?>.init(value: date)
+    }()
+    var roomSelected: BehaviorSubject<Room?> = {
+        let roomId = DataAccess.shared.userSelection.roomId
+        let room = (roomId != nil) ? RoomRepository().getRoom(id: roomId!) as? Room : nil
+        return BehaviorSubject<Room?>.init(value: room)
+    }()
+    let sessionManuallySelected: BehaviorSubject<Block?> = {
+        let blockId = DataAccess.shared.userSelection.blockId
+        let block = (blockId != nil) ? BlockRepository().getBlock(id: blockId!) as? Block : nil
+        return BehaviorSubject<Block?>.init(value: block)
+    }()
     
     // OUTPUTS:
     
-    let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
+    //let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
+    let sessionSelected: BehaviorSubject<Block?> = {
+        let blockId = DataAccess.shared.userSelection.blockId
+        let block = (blockId != nil) ? BlockRepository().getBlock(id: blockId!) as? Block : nil
+        return BehaviorSubject<Block?>.init(value: block)
+    }()
+    
     var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
     
     // MARK:- ViewModels
 
     lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
-    
-//    lazy fileprivate var autoSelSessionViewModel = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
@@ -78,25 +90,27 @@ class SettingsVC: UITableViewController {
             .asDriver(onErrorJustReturn: false)
             //.debug()
         
-        let autoSelSessionSwitchSignal = autoSelectSessionsView.controlSwitch
+        let sessionSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)
                     .asDriver(onErrorJustReturn: true)
+        
+        let sessionManuallyDriver = sessionManuallySelected.share(replay: 1).asDriver(onErrorJustReturn: nil)
         
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
-                        sessionSelected: sessionManuallySelected.asDriver(onErrorJustReturn: nil),
-                        autoSelSessionSwitch: autoSelSessionSwitchSignal,
+                        sessionSelected: sessionManuallyDriver,
+                        sessionSwitch: sessionSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal,
                         waitInterval:interval
         )
         
         let output = settingsViewModel.transform(input: input)
         
-        output.dateTxt.skip(1).drive(dateLbl.rx.text).disposed(by: disposeBag)
+        output.dateTxt.drive(dateLbl.rx.text).disposed(by: disposeBag)
         output.roomTxt.drive(roomLbl.rx.text).disposed(by: disposeBag)
         output.sessionTxt.drive(sessionLbl.rx.text).disposed(by: disposeBag)
 
@@ -187,12 +201,6 @@ class SettingsVC: UITableViewController {
             }).disposed(by: disposeBag)
     }
     
-    private func bindInterval() {
-        
-        
-        
-    }
-    
     private func enableOrDisableBlockAreaUponRoomSelected() {
         
         roomSelected
@@ -204,8 +212,7 @@ class SettingsVC: UITableViewController {
     private func getSessionReport() -> CodeReport { // refactor - delete
         let session = try! sessionSelected.value()!
         let sessionId = session.id
-        //let sessionId = try! sessionSelected.value()?.id ?? 0
-        return CodeReport.init(code: "", sessionId: sessionId, date: Date.now)
+        return CodeReport(code: "", sessionId: sessionId, date: Date.now)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -215,7 +222,6 @@ class SettingsVC: UITableViewController {
             
             let datesVC = DatesViewControllerFactory.make()
             self.navigationController?.pushViewController(datesVC, animated: true)
-            
             datesVC.datesViewmodel.selectedDate
                 .skip(1) // jer je iniated sa NIL ...
                 .subscribe(onNext: { [weak self] date in

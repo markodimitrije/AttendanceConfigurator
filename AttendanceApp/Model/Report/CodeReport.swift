@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class CodeReport: Object { // Realm Entity
+struct CodeReport {
     
     var code: String = ""
     var sessionId: Int = -1
@@ -20,14 +20,12 @@ class CodeReport: Object { // Realm Entity
         self.code = code
         self.sessionId = sessionId
         self.date = date
-        super.init()
     }
     
     init(realmCodeReport: RealmCodeReport) {
         self.code = realmCodeReport.code
         self.sessionId = realmCodeReport.sessionId
         self.date = realmCodeReport.date ?? Date(timeIntervalSinceNow: 0)
-        super.init()
     }
     
     func getPayload() -> [String: String] {
@@ -55,18 +53,29 @@ class CodeReport: Object { // Realm Entity
         return ["data": listOfReports]
     }
     
-    // kompajler me tera da implementiram, mogu li ikako bez toga ? ...
-    
-    required init() {
-        super.init()
+}
+
+
+protocol ICodeReport {
+    func getCode() -> String
+    func getSessionId() -> Int
+    func getDate() -> Date
+}
+
+extension CodeReport: ICodeReport {
+    func getCode() -> String { self.code }
+    func getSessionId() -> Int { self.sessionId }
+    func getDate() -> Date { self.date }
+}
+
+class CodeReportFactory {
+    static func make(code: String, sessionId: Int, date: Date) -> ICodeReport {
+        return CodeReport(code: code, sessionId: sessionId, date: date)
     }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
+    static func make(realmCodeReport: RealmCodeReport) -> ICodeReport {
+        
+        return CodeReport(code: realmCodeReport.code,
+                          sessionId: realmCodeReport.sessionId,
+                          date: realmCodeReport.date)
     }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
 }

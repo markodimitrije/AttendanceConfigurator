@@ -61,7 +61,5 @@ extension RoomsVC: UITableViewDelegate {
         
         selRealmRoom.onNext(selectedRoom)
         
-        navigationController?.popViewController(animated: true)
-        
     }
 }

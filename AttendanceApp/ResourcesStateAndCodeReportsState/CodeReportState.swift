@@ -15,11 +15,11 @@ import Realm
 
 class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
-    private var codeReports: Results<CodeReport>? {
+    private var codeReports: Results<RealmCodeReport>? {
         
         guard let realm = try? Realm.init() else {return nil} // ovde bi trebalo RealmError!
         
-        return realm.objects(CodeReport.self)
+        return realm.objects(RealmCodeReport.self)
     }
     
     private var shouldReportToWeb: Bool {
@@ -107,7 +107,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     }
     
     // implement me...
-    private func reportToWeb(codeReports: Results<CodeReport>?) {
+    private func reportToWeb(codeReports: Results<RealmCodeReport>?) {
         
         // sviranje... treba mi servis da javi sve.... za sada posalji samo jedan...
         
