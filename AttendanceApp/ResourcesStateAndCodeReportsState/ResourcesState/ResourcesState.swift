@@ -16,15 +16,6 @@ import Realm
  fetchSessionsAndSaveToRealm()
  fetchDelegatesAndSaveToRealm()*/
 
-
-protocol IRoomsProvider {
-    func fetchRoomsAndPersistOnDevice() // fetchRoomsAndSaveToRealm
-}
-
-protocol IDelegatesProvider {
-    func fetchDelegatesAndPersistOnDevice() // fetchDelegatesAndSaveToRealm
-}
-
 class ResourcesState {
     
     lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)

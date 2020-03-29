@@ -17,6 +17,10 @@ class BlockProviderWorker: IBlockProviderWorker {
     }
     
     func fetchBlocksAndPersistOnDevice() {
-        apiController.getBlocks() // hard-coded, implement me
+        apiController
+            .getBlocks(updated_from: nil, with_pagination: 0, with_trashed: 0, for_scanning: 1 )
+            .subscribe(onNext: { (blocks) in
+            
+            }).disposed(by: <#T##DisposeBag#>)
     }
 }

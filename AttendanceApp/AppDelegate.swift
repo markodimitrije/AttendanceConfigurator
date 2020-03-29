@@ -57,3 +57,9 @@ class ResourceStateFactory {
     }
 }
 
+class ResourcesStateNew: ResourcesState {
+    init(roomProviderWorker: IRoomProviderWorker, blockProviderWorker: IBlockProviderWorker, delegateProviderWorker: IDelegatesProviderWorker) {
+        
+        <#statements#>
+    }
+}

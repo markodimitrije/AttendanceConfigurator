@@ -1,5 +1,5 @@
 //
-//  IRoomsProviderWorker.swift
+//  IRoomApiController.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 29/03/2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol IRoomProviderWorker {
-    func fetchRoomsAndPersistOnDevice() // fetchRoomsAndSaveToRealm
+protocol IRoomApiController {
+    func getRooms()
 }

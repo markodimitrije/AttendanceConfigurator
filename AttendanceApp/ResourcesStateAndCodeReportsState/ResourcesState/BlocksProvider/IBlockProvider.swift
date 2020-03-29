@@ -6,12 +6,6 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
-
-protocol IBlockApiController {
-    func getBlocks()
-}
-
 protocol IBlockProviderWorker {
     func fetchBlocksAndPersistOnDevice() // fetchSessionsAndSaveToRealm
 }

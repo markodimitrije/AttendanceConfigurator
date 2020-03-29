@@ -10,7 +10,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ApiController {
+protocol IApiController {
+    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?) -> Observable<Data>
+}
+
+class ApiController: IApiController {
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
@@ -48,32 +52,6 @@ class ApiController {
                     throw ApiError.invalidJson
                 }
                 return rooms.data
-            }
-    }
-    
-    func getBlocks(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
-        let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-//        return buildRequest(pathComponent: "blocks", //params: [ ])//, // testing
-//                            params: [//("updated_from", updatedDate),
-//                                     ("with_pagination", "\(with_pagination)"),
-//                                     ("with_trashed", "\(with_trashed)"),
-//                                     ("for_scanning", "\(for_scanning)")])//,
-//                                     //("type[]", "Oral")])
-        let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
-            return
-                buildRequest(base: myBaseUrl,
-                             pathComponent: "blocks",
-                             params: [("updated_from", updatedDate),
-                                     ("with_pagination", "\(with_pagination)"),
-                                     ("with_trashed", "\(with_trashed)"),
-                                     ("for_scanning", "\(for_scanning)"),
-                                     ("type[]", "Oral")])
-            .map() { data in
-                let decoder = JSONDecoder()
-                guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
-                    throw ApiError.invalidJson
-                }
-                return blocks.data
             }
     }
     
