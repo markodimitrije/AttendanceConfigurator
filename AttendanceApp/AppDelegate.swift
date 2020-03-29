@@ -50,3 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
 }
+
+class ResourceStateFactory {
+    static func make() -> ResourcesState {
+        let object = ResourcesState()
+    }
+}
+

@@ -12,6 +12,19 @@ import RxCocoa
 import RealmSwift
 import Realm
 
+/*fetchRoomsAndSaveToRealm()
+ fetchSessionsAndSaveToRealm()
+ fetchDelegatesAndSaveToRealm()*/
+
+
+protocol IRoomsProvider {
+    func fetchRoomsAndPersistOnDevice() // fetchRoomsAndSaveToRealm
+}
+
+protocol IDelegatesProvider {
+    func fetchDelegatesAndPersistOnDevice() // fetchDelegatesAndSaveToRealm
+}
+
 class ResourcesState {
     
     lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)
@@ -23,15 +36,6 @@ class ResourcesState {
         set {
             UserDefaults.standard.set(true, forKey: UserDefaults.keyResourcesDownloaded)
         }
-    }
-    
-    var shouldDownloadResources: Bool {
-//        if resourcesDownloaded == nil || resourcesDownloaded == false {
-//            return true
-//        } else {
-//            return false
-//        }
-        return true // hard-coded
     }
     
     var oAppDidBecomeActive = BehaviorSubject<Void>.init(value: ())
@@ -66,31 +70,24 @@ class ResourcesState {
         
     }
     
-    @objc private func appDidBecomeActive() { // print("ResourcesState/ appDidBecomeActive/ appDidBecomeActive is called")
+    @objc private func appDidBecomeActive() {
         
         oAppDidBecomeActive.onNext(())
-        
         downloadResources()
-        
     }
     
     func downloadResources() {
         
-        if shouldDownloadResources {
-            
-            fetchResourcesFromWeb()
-            
-            if timer == nil {
-                
-                timer = Timer.scheduledTimer(
-                    timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
-                    target: self,
-                    selector: #selector(ResourcesState.fetchResourcesFromWeb),
-                    userInfo: nil,
-                    repeats: true)
-            } else {
-                print("else - leave fetching loop, timer != nil ?!??!?!??!?!")
-            }
+        fetchResourcesFromWeb()
+        
+        if timer == nil {
+            print("creating timer to fetch resources")
+            timer = Timer.scheduledTimer(
+                timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
+                target: self,
+                selector: #selector(ResourcesState.fetchResourcesFromWeb),
+                userInfo: nil,
+                repeats: true)
         }
         
     }
@@ -112,9 +109,7 @@ class ResourcesState {
     
     private func fetchRoomsAndSaveToRealm() { // print("fetchRoomsAndSaveToRealm is called")
         
-        let oRooms = ApiController.shared.getRooms(updated_from: nil,
-                                                   with_pagination: 0,
-                                                   with_trashed: 0)
+        let oRooms = ApiController.shared.getRooms()
         oRooms
             .subscribe(onNext: { [ weak self] (rooms) in
                 
@@ -144,7 +139,7 @@ class ResourcesState {
     
     private func fetchSessionsAndSaveToRealm() { // print("fetchSessionsAndSaveToRealm is called")
         
-        let oBlocks = ApiController.shared.getBlocks(updated_from: nil)
+        let oBlocks = ApiController.shared.getBlocks()
         
         oBlocks.subscribe(onNext: { [weak self] (blocks) in
             guard let sSelf = self else { return }

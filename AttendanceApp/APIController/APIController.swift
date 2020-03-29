@@ -9,10 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import SwiftyJSON
-import CoreLocation
-import MapKit
-import Reachability
 
 class ApiController {
     
@@ -38,7 +34,7 @@ class ApiController {
     }
     
     //MARK: - Api Calls
-    func getRooms(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Room]> {
+    func getRooms(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0) -> Observable<[Room]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
         return buildRequest(base: myBaseUrl,
@@ -55,7 +51,7 @@ class ApiController {
             }
     }
     
-    func getBlocks(updated_from: Date?, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
+    func getBlocks(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
 //        return buildRequest(pathComponent: "blocks", //params: [ ])//, // testing
 //                            params: [//("updated_from", updatedDate),
