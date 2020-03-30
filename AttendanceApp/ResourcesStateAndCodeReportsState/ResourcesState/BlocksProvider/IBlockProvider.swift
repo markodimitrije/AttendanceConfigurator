@@ -6,6 +6,8 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
+import RxSwift
+
 protocol IBlockProviderWorker {
-    func fetchBlocksAndPersistOnDevice() // fetchSessionsAndSaveToRealm
+    func fetchBlocksAndPersistOnDevice() -> Observable<Bool> // fetchSessionsAndSaveToRealm
 }

@@ -1,0 +1,41 @@
+//
+//  RoomApiController.swift
+//  AttendanceApp
+//
+//  Created by Marko Dimitrijevic on 30/03/2020.
+//  Copyright © 2020 Navus. All rights reserved.
+//
+
+import RxSwift
+
+extension RoomApiController: IRoomApiController {
+    
+    static let baseUrl = URL(string: "https://service.e-materials.com/api/conferences/")!
+    
+    func getRooms(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0) -> Observable<[Room]> {
+        
+        let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
+        let myBaseUrl = RoomApiController.baseUrl.appendingPathComponent("7520/") //hard-coded
+        return apiController
+            .buildRequest(base: myBaseUrl,
+                          pathComponent: "locations", //params: [])//,
+                          params: [("updated_from", updatedDate),
+                                   ("with_pagination", "\(with_pagination)"),
+                                   ("with_trashed", "\(with_trashed)")])
+            .map() { json in
+                let decoder = JSONDecoder()
+                guard let rooms = try? decoder.decode(Rooms.self, from: json) else {
+                    throw ApiError.invalidJson
+                }
+                return rooms.data
+            }
+    }
+    
+}
+
+class RoomApiController {
+    private var apiController: ApiController
+    init(apiController: ApiController) {
+        self.apiController = apiController
+    }
+}

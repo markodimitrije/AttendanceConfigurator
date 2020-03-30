@@ -6,8 +6,8 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol IRoomApiController {
-    func getRooms()
+    func getRooms(updated_from: Date?, with_pagination: Int, with_trashed: Int) -> Observable<[Room]>
 }

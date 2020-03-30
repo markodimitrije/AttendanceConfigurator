@@ -6,8 +6,8 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol IRoomProviderWorker {
-    func fetchRoomsAndPersistOnDevice() // fetchRoomsAndSaveToRealm
+    func fetchRoomsAndPersistOnDevice() -> Observable<Bool> // fetchRoomsAndSaveToRealm
 }

@@ -8,8 +8,8 @@
 
 import RxSwift
 
-protocol IDelegatesProviderWorker {
-    func fetchDelegatesAndPersistOnDevice() -> Observable<([Delegate])>
+protocol IDelegateProviderWorker {
+    func fetchDelegatesAndPersistOnDevice() -> Observable<Bool>
 }
 
 

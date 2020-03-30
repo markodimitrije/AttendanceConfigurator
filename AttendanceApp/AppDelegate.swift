@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.isIdleTimerDisabled = true // stop the iOS screen sleeping
         
         if resourcesState == nil {
-            resourcesState = ResourcesState.init()
+//            resourcesState = ResourcesState.init()
+            resourcesState = ResourceStateFactory.make()
         }
         
         alertStateMonitor = AlertStateMonitor.init()
@@ -53,13 +54,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 class ResourceStateFactory {
     static func make() -> ResourcesState {
-        let object = ResourcesState()
+        let object =
+            ResourcesState(roomProviderWorker: RoomProviderWorkerFactory.make(),
+                           blockProviderWorker: BlockProviderWorkerFactory.make(),
+                           delegateProviderWorker: DelegateProviderWorkerFactory.make())
+        return object
     }
 }
 
-class ResourcesStateNew: ResourcesState {
-    init(roomProviderWorker: IRoomProviderWorker, blockProviderWorker: IBlockProviderWorker, delegateProviderWorker: IDelegatesProviderWorker) {
-        
-        <#statements#>
+class RoomProviderWorkerFactory {
+    static func make() -> IRoomProviderWorker {
+        let apiController = RoomApiController(apiController: ApiController.shared)
+        let roomRepo = RoomRepository()
+        return RoomProviderWorker(apiController: apiController, repository: roomRepo)
+    }
+}
+
+class BlockProviderWorkerFactory {
+    static func make() -> IBlockProviderWorker {
+        let apiController = BlockApiController(apiController: ApiController.shared)
+        let repo = BlockRepository()
+        return BlockProviderWorker(apiController: apiController, repository: repo)
+    }
+}
+
+class DelegateProviderWorkerFactory {
+    static func make() -> IDelegateProviderWorker {
+        return DelegateProviderWorker(apiController: DelegatesAPIController.shared,
+                                      repository: RealmDelegatesPersister.shared)
     }
 }

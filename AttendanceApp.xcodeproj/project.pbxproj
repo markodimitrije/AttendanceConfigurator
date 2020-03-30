@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
+		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
@@ -31,7 +32,7 @@
 		7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */; };
 		7CAA2A53243133FD00CA184F /* RoomProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */; };
 		7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */; };
-		7CAA2A58243136EF00CA184F /* DelegatesProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A57243136EF00CA184F /* DelegatesProviderWorker.swift */; };
+		7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */; };
 		7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A5C24313A3300CA184F /* IRoomApiController.swift */; };
 		7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A5E24313A5000CA184F /* IBlockApiController.swift */; };
 		7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A6024313A7600CA184F /* BlockApiController.swift */; };
@@ -144,6 +145,7 @@
 		4CDE23CC13BE03E3BB6C67F5 /* Pods-AttendanceAppUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -168,7 +170,7 @@
 		7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegatesProviderWorker.swift; sourceTree = "<group>"; };
-		7CAA2A57243136EF00CA184F /* DelegatesProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesProviderWorker.swift; sourceTree = "<group>"; };
+		7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A5C24313A3300CA184F /* IRoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomApiController.swift; sourceTree = "<group>"; };
 		7CAA2A5E24313A5000CA184F /* IBlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockApiController.swift; sourceTree = "<group>"; };
 		7CAA2A6024313A7600CA184F /* BlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockApiController.swift; sourceTree = "<group>"; };
@@ -438,7 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */,
-				7CAA2A57243136EF00CA184F /* DelegatesProviderWorker.swift */,
+				7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */,
 			);
 			path = DelegatesProvider;
 			sourceTree = "<group>";
@@ -463,6 +465,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAA2A5C24313A3300CA184F /* IRoomApiController.swift */,
+				7C2DD5F1243208790037A57E /* RoomApiController.swift */,
 			);
 			path = RoomApiController;
 			sourceTree = "<group>";
@@ -1073,8 +1076,9 @@
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
-				7CAA2A58243136EF00CA184F /* DelegatesProviderWorker.swift in Sources */,
+				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
+				7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */,
