@@ -101,9 +101,9 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     private func reportImidiatelly(codeReport: CodeReport?) -> Observable<(CodeReport, Bool)> {
         
         guard let report = codeReport else {return Observable.empty()}
-        
-        return ApiController.shared.reportSingleCode(report: report)
-        
+        let codeReportApi = CodeReportApiControllerFactory.make()
+        return codeReportApi.reportSingleCode(report: report)
+        //return ApiController.shared.reportSingleCode(report: report) old solution
     }
     
     // implement me...

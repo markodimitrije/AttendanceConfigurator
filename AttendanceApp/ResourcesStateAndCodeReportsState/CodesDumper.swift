@@ -36,11 +36,8 @@ class CodesDumper {
     init() { print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
         
         hookUpTimer()
-        
         hookUpNotifyWeb()
-        
         hookUpAllCodesReportedToWeb()
-        
     }
     
     // Output
@@ -52,14 +49,14 @@ class CodesDumper {
     private func hookUpTimer() {
         
         isRunning.asObservable()
-            .debug("isRunning")
+            //.debug("isRunning")
             .flatMapLatest {  isRunning in
                 isRunning ? Observable<Int>.interval(8, scheduler: MainScheduler.instance) : .empty()
             }
             .enumerated().flatMap { (int, index) in
                 return Observable.just(index)
             }
-            .debug("timer")
+            //.debug("timer")
             .subscribe({[weak self] _ in
                 guard let sSelf = self else {return}
                 sSelf.timerFired.accept(())
@@ -126,10 +123,10 @@ class CodesDumper {
             return Observable.just(false)
         }
         
-        // posalji codes web-u... - // posalji web-u ... koji vraca Observable<>Bool
+        let apiController = CodeReportApiControllerFactory.make()
 
-        return ApiController.shared
-            .reportMultipleCodes(reports: codeReports) // Observable<Bool>
+        return apiController
+            .reportMultipleCodes(reports: codeReports)
             .map({ (success) -> Bool in
                 if success {
                     return true
@@ -140,7 +137,6 @@ class CodesDumper {
     }
     
 }
-
 
 enum ReportToWebError: Error {
     case noCodesToReport
