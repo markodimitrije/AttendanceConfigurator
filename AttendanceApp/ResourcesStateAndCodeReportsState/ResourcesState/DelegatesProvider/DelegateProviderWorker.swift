@@ -31,15 +31,7 @@ class DelegateProviderWorker: IDelegateProviderWorker {
             return success ? delegates : [ ]
         }
         
-//        result.flatMap(RealmDelegatesPersister.shared.save).filter({$0}).map({_ in return oNewDelegates})
-        
         return result.flatMap(RealmDelegatesPersister.shared.save)
-//        result.flatMap(RealmDelegatesPersister.shared.save)
-//            .subscribe(onNext: { [weak self] success in guard let sSelf = self else {return}
-//
-//                sSelf.downloadsState.newlyDownloaded.accept("delegates")
-//            })
-//            .disposed(by: self.bag)
     }
     
 }

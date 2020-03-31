@@ -9,5 +9,5 @@
 import RxSwift
 
 protocol IBlockProviderWorker {
-    func fetchBlocksAndPersistOnDevice() -> Observable<Bool> // fetchSessionsAndSaveToRealm
+    func fetchBlocksAndPersistOnDevice() -> Observable<Bool>
 }

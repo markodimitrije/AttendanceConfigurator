@@ -9,8 +9,8 @@
 import RxSwift
 
 class RoomProviderWorker: IRoomProviderWorker {
-    var apiController: IRoomApiController
-    var repository: IRoomRepository
+    private let apiController: IRoomApiController
+    private let repository: IRoomRepository
     private let bag = DisposeBag()
     init(apiController: IRoomApiController, repository: IRoomRepository) {
         self.apiController = apiController
