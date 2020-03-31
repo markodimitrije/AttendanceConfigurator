@@ -64,6 +64,11 @@
 		7CD5297C2433AFA200170D0A /* ICodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297B2433AFA200170D0A /* ICodeReport.swift */; };
 		7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297D2433AFB000170D0A /* CodeReportFactory.swift */; };
 		7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD529832433AFF300170D0A /* RealmCodeReportFactory.swift */; };
+		7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD529852433D37F00170D0A /* ReportSessionApiController.swift */; };
+		7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD529872433D7E100170D0A /* ReportSessionApiControllerFactory.swift */; };
+		7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */; };
+		7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */; };
+		7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298F2433D86800170D0A /* IReportSessionApiController.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
 		7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */; };
@@ -214,6 +219,11 @@
 		7CD5297B2433AFA200170D0A /* ICodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReport.swift; sourceTree = "<group>"; };
 		7CD5297D2433AFB000170D0A /* CodeReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportFactory.swift; sourceTree = "<group>"; };
 		7CD529832433AFF300170D0A /* RealmCodeReportFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodeReportFactory.swift; sourceTree = "<group>"; };
+		7CD529852433D37F00170D0A /* ReportSessionApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSessionApiController.swift; sourceTree = "<group>"; };
+		7CD529872433D7E100170D0A /* ReportSessionApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportSessionApiControllerFactory.swift; sourceTree = "<group>"; };
+		7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportApiControllerFactory.swift; sourceTree = "<group>"; };
+		7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportApiController.swift; sourceTree = "<group>"; };
+		7CD5298F2433D86800170D0A /* IReportSessionApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReportSessionApiController.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadResourcesState.swift; sourceTree = "<group>"; };
@@ -618,7 +628,8 @@
 		7CD5297A2433A90900170D0A /* ReportApiController */ = {
 			isa = PBXGroup;
 			children = (
-				7CD529782433A8F900170D0A /* ReportCodeApiController.swift */,
+				7CD529892433D80500170D0A /* ReportCodeApiController */,
+				7CD5298E2433D85100170D0A /* ReportSessionApiController */,
 			);
 			path = ReportApiController;
 			sourceTree = "<group>";
@@ -640,6 +651,26 @@
 				7CD529832433AFF300170D0A /* RealmCodeReportFactory.swift */,
 			);
 			path = RealmCodeReport;
+			sourceTree = "<group>";
+		};
+		7CD529892433D80500170D0A /* ReportCodeApiController */ = {
+			isa = PBXGroup;
+			children = (
+				7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */,
+				7CD529782433A8F900170D0A /* ReportCodeApiController.swift */,
+				7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */,
+			);
+			path = ReportCodeApiController;
+			sourceTree = "<group>";
+		};
+		7CD5298E2433D85100170D0A /* ReportSessionApiController */ = {
+			isa = PBXGroup;
+			children = (
+				7CD5298F2433D86800170D0A /* IReportSessionApiController.swift */,
+				7CD529852433D37F00170D0A /* ReportSessionApiController.swift */,
+				7CD529872433D7E100170D0A /* ReportSessionApiControllerFactory.swift */,
+			);
+			path = ReportSessionApiController;
 			sourceTree = "<group>";
 		};
 		7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */ = {
@@ -1158,6 +1189,7 @@
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
 				7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */,
+				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
@@ -1197,6 +1229,7 @@
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
+				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
@@ -1211,6 +1244,7 @@
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
+				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,
@@ -1226,6 +1260,7 @@
 				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
+				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
@@ -1241,6 +1276,7 @@
 				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
+				7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
 				7CD5296E24334AA900170D0A /* Unziper.swift in Sources */,

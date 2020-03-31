@@ -36,53 +36,8 @@ class ApiController: IApiController {
     }
     
     //MARK: - Api Calls
-    /*
-    func reportSingleCode(report: CodeReport?) -> Observable<(CodeReport,Bool)> {
-        
-        guard let report = report else {return Observable.empty()}
-        
-        let params = report.getPayload()
-        
-        return buildRequest(base: Domain.baseTrackerURL,
-                            method: "POST",
-                            pathComponent: "attendances",
-                            params: params)
-            .map { data in
-                guard let object = try? JSONSerialization.jsonObject(with: data),
-                    let json = object as? [String: Any],
-                    let created = json["created"] as? Int, created == 201 else {
-                        return (report, false)
-                }
-                return (report, true)
-            }
-            .catchErrorJustReturn((report, false))
-    }
-    */
-    /*
-    func reportMultipleCodes(reports: [CodeReport]?) -> Observable<Bool> {
-        
-        guard let reports = reports else {return Observable.empty()}
-        
-        let params = CodeReport.getPayload(reports)
-        
-        return buildRequest(base: Domain.baseTrackerURL,
-                            method: "POST",
-                            pathComponent: "attendances",
-                            params: params)
-            .map() { data in
-                guard let object = try? JSONSerialization.jsonObject(with: data),
-                    let json = object as? [String: Any],
-                    let created = json["created"] as? Int, created == 201 else {
-//                        print("reportCodes vraca FALSE!!")
-                    return false
-                }
-//                print("reportCodes vraca TRUE!!")
-            return true
-        }
-    }
-    */
-    // Session
     
+    /*
     func reportSelectedSession(report: SessionReport?) -> Observable<(SessionReport,Bool)> {
         
         guard let report = report else {return Observable.empty()}
@@ -106,7 +61,8 @@ class ApiController: IApiController {
             }
             .catchErrorJustReturn((report, false))
     }
- 
+    */
+    
     // MARK: - Api Key Sync
     func getApiKey() -> Observable<String?> {
         let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""

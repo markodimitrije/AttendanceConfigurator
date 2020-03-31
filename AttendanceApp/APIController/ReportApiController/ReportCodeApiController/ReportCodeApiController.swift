@@ -8,13 +8,6 @@
 
 import RxSwift
 
-// TODO marko -> only multiple codes should exist - remove single code report
-
-protocol ICodeReportApiController {
-    func reportSingleCode(report: CodeReport?) -> Observable<(CodeReport,Bool)> // TODO marko just ()
-    func reportMultipleCodes(reports: [CodeReport]?) -> Observable<Bool> // isto...
-}
-
 class CodeReportApiController: ICodeReportApiController {
     
     static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
@@ -69,11 +62,5 @@ class CodeReportApiController: ICodeReportApiController {
                     }
                 return true
         }
-    }
-}
-
-class CodeReportApiControllerFactory {
-    static func make() -> ICodeReportApiController {
-        return CodeReportApiController(apiController: ApiController.shared)
     }
 }

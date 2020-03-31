@@ -13,9 +13,9 @@ import RxCocoa
 class AlertStateReporter {
     
     let monitor: AlertStateMonitor
-    let webAPI: ApiController
+    let webAPI: IReportSessionApiController
     
-    init(dataAccess: DataAccess, monitor: AlertStateMonitor, webAPI: ApiController) {
+    init(dataAccess: DataAccess, monitor: AlertStateMonitor, webAPI: IReportSessionApiController) {
         
         self.monitor = monitor
         self.webAPI = webAPI
@@ -38,8 +38,7 @@ class AlertStateReporter {
                 
                 print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
                 
-                _ = webAPI
-                    .reportSelectedSession(report: report)
+                _ = webAPI.reportSelectedSession(report: report)
             })
             .disposed(by: bag)
     }

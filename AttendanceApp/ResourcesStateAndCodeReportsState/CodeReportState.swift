@@ -103,7 +103,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         guard let report = codeReport else {return Observable.empty()}
         let codeReportApi = CodeReportApiControllerFactory.make()
         return codeReportApi.reportSingleCode(report: report)
-        //return ApiController.shared.reportSingleCode(report: report) old solution
     }
     
     // implement me...

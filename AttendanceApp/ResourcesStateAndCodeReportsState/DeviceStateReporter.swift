@@ -39,7 +39,9 @@ class DeviceStateReporter {
     
     private func reportToWeb(session: SessionReport) {
         
-        ApiController.shared.reportSelectedSession(report: session)
+        let apiController = ReportSessionApiControllerFactory.make()
+        apiController
+            .reportSelectedSession(report: session)
             .subscribe(onNext: { (report, success) in
 //                print("DeviceStateReporter.sessionIsSet: \(report), success \(success)")
             })
