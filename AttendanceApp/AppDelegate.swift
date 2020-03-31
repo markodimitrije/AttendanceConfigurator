@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private var deviceAlertMonitor: AlertStateReporter!
+    private var alertStateReporter: AlertStateReporter!
     private let autoSessionTimer =  AutoSessionTimer.init(dataAccess: DataAccess.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,19 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resourcesState = ResourceStateFactory.make(confId: confId)
         }
         
-        deviceAlertMonitor = AlertStateReporterFactory.make()
+        alertStateReporter = AlertStateReporterFactory.make()
         
         return true
     }
     
     private let bag = DisposeBag()
     
-}
-
-class AlertStateReporterFactory {
-    static func make() -> AlertStateReporter {
-        return AlertStateReporter(dataAccess: DataAccess.shared,
-                                  monitor: AlertStateMonitor(),
-                                  webAPI: ApiController.shared)
-    }
 }

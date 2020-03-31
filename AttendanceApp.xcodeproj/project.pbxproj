@@ -58,6 +58,8 @@
 		7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */; };
 		7CD5296E24334AA900170D0A /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296D24334AA900170D0A /* Unziper.swift */; };
 		7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297024334AFD00170D0A /* IUnziper.swift */; };
+		7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297324339B9000170D0A /* AlertStateReporterFactory.swift */; };
+		7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297624339BFF00170D0A /* AlertStateMonitor.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
 		7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */; };
@@ -202,6 +204,8 @@
 		7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProviderWorkerFactory.swift; sourceTree = "<group>"; };
 		7CD5296D24334AA900170D0A /* Unziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
 		7CD5297024334AFD00170D0A /* IUnziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUnziper.swift; sourceTree = "<group>"; };
+		7CD5297324339B9000170D0A /* AlertStateReporterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStateReporterFactory.swift; sourceTree = "<group>"; };
+		7CD5297624339BFF00170D0A /* AlertStateMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStateMonitor.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadResourcesState.swift; sourceTree = "<group>"; };
@@ -593,6 +597,16 @@
 			path = Unziper;
 			sourceTree = "<group>";
 		};
+		7CD5297524339BEA00170D0A /* AlertStateReporter */ = {
+			isa = PBXGroup;
+			children = (
+				AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */,
+				7CD5297624339BFF00170D0A /* AlertStateMonitor.swift */,
+				7CD5297324339B9000170D0A /* AlertStateReporterFactory.swift */,
+			);
+			path = AlertStateReporter;
+			sourceTree = "<group>";
+		};
 		7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,7 +857,7 @@
 				AD191486218EEFC000CD5B2F /* CodesDumper.swift */,
 				AD191488218EF09300CD5B2F /* CodeReportState.swift */,
 				AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */,
-				AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */,
+				7CD5297524339BEA00170D0A /* AlertStateReporter */,
 				7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */,
 				7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */,
 			);
@@ -1118,6 +1132,7 @@
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
+				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
@@ -1145,6 +1160,7 @@
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
+				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
