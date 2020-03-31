@@ -35,34 +35,6 @@ class ApiController: IApiController {
         Logging.URLRequests = { request in return true }
     }
     
-    //MARK: - Api Calls
-    
-    /*
-    func reportSelectedSession(report: SessionReport?) -> Observable<(SessionReport,Bool)> {
-        
-        guard let report = report else {return Observable.empty()}
-        
-        let params = report.getPayload()
-        
-        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        
-        return buildRequest(base: Domain.baseTrackerURL,
-                            method: "PUT",
-                            pathComponent: "devices/\(deviceId)",
-                            params: params,
-                            contentType: "text/plain")
-            .map { data in
-                guard let object = try? JSONSerialization.jsonObject(with: data),
-                    let json = object as? [String: Any],
-                    let created = json["created"] as? Int, created == 201 else {
-                        return (report, false)
-                }
-                return (report, true)
-            }
-            .catchErrorJustReturn((report, false))
-    }
-    */
-    
     // MARK: - Api Key Sync
     func getApiKey() -> Observable<String?> {
         let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
@@ -77,16 +49,10 @@ class ApiController: IApiController {
                     let json = jsonObject as? [String: Any] else {return nil}
                 print("vracam api_key = \(String(describing: json["api_key"] as? String))")
                 return json["api_key"] as? String
-        }
+            }
     }
     
-    //MARK: - Private Methods
-    
-    /** * Private method to build a request with RxCocoa */
-    
-    // bez veze je Any... // treba ili [(String, String)] ili [String: Any]
-    
-     func buildRequest(base: URL = Domain.baseUrl,
+    func buildRequest(base: URL = Domain.baseUrl,
                        method: String = "GET",
                        pathComponent: String,
                        params: Any = [],
