@@ -106,7 +106,6 @@ class ResourcesState {
             .subscribe(onNext: { _ in
                 self.downloadsState.newlyDownloaded.accept("delegates")
             }).disposed(by: bag)
-        
     }
     
     deinit { print("ResourcesState.deinit is called") }

@@ -32,28 +32,26 @@ class ApiController: IApiController {
     }
     
     init() {
-        Logging.URLRequests = { request in
-            return true
-        }
+        Logging.URLRequests = { request in return true }
     }
     
     //MARK: - Api Calls
-    func getRooms(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0) -> Observable<[Room]> {
-        let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
-        return buildRequest(base: myBaseUrl,
-                            pathComponent: "locations", //params: [])//,
-                            params: [("updated_from", updatedDate),
-                                     ("with_pagination", "\(with_pagination)"),
-                                     ("with_trashed", "\(with_trashed)")])
-            .map() { json in
-                let decoder = JSONDecoder()
-                guard let rooms = try? decoder.decode(Rooms.self, from: json) else {
-                    throw ApiError.invalidJson
-                }
-                return rooms.data
-            }
-    }
+//    func getRooms(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0) -> Observable<[Room]> {
+//        let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
+//        let myBaseUrl = Domain.resourcesBaseUrl.appendingPathComponent("7520/") //hard-coded
+//        return buildRequest(base: myBaseUrl,
+//                            pathComponent: "locations", //params: [])//,
+//                            params: [("updated_from", updatedDate),
+//                                     ("with_pagination", "\(with_pagination)"),
+//                                     ("with_trashed", "\(with_trashed)")])
+//            .map() { json in
+//                let decoder = JSONDecoder()
+//                guard let rooms = try? decoder.decode(Rooms.self, from: json) else {
+//                    throw ApiError.invalidJson
+//                }
+//                return rooms.data
+//            }
+//    }
     
     //MARK: - Api Calls
     

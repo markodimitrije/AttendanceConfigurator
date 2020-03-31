@@ -72,12 +72,15 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     
     private func listenToResourcesDowloaded() {
         
-        resourcesState.oResourcesDownloaded
+        delay(1) { // resourcesState is initialized in didFinishLaunching which is later than global
+            resourcesState.oResourcesDownloaded
             .subscribe(onNext: { downloaded in
                 UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
                 UserDefaults.standard.set(self.apiKey, forKey: UserDefaults.keyConferenceApiKey)
             })
             .disposed(by: self.bag)
+        }
+        
     }
     
     private func getNewApiKey() -> Observable<String?> {

@@ -15,10 +15,10 @@ extension RoomApiController: IRoomApiController {
     func getRooms(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0) -> Observable<[Room]> {
         
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-        let myBaseUrl = RoomApiController.baseUrl.appendingPathComponent("7520/") //hard-coded
+        let myBaseUrl = RoomApiController.baseUrl.appendingPathComponent("\(self.confId)") //hard-coded
         return apiController
             .buildRequest(base: myBaseUrl,
-                          pathComponent: "locations", //params: [])//,
+                          pathComponent: "/locations", //params: [])//,
                           params: [("updated_from", updatedDate),
                                    ("with_pagination", "\(with_pagination)"),
                                    ("with_trashed", "\(with_trashed)")])
@@ -35,7 +35,9 @@ extension RoomApiController: IRoomApiController {
 
 class RoomApiController {
     private var apiController: ApiController
-    init(apiController: ApiController) {
+    private var confId: Int
+    init(apiController: ApiController, confId: Int) {
         self.apiController = apiController
+        self.confId = confId
     }
 }

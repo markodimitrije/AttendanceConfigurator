@@ -20,31 +20,32 @@ extension BlockApiController: IBlockApiController {
     //                                     ("with_trashed", "\(with_trashed)"),
     //                                     ("for_scanning", "\(for_scanning)")])//,
     //                                     //("type[]", "Oral")])
-        let myBaseUrl = BlockApiController.baseUrl.appendingPathComponent("7520/") //hard-coded
+        let myBaseUrl = BlockApiController.baseUrl.appendingPathComponent("\(confId)")
             return
                 apiController
-                    .buildRequest(base: myBaseUrl,
-                                  pathComponent: "blocks",
-                                  params: [("updated_from", updatedDate),
-                                           ("with_pagination", "\(with_pagination)"),
-                                           ("with_trashed", "\(with_trashed)"),
-                                           ("for_scanning", "\(for_scanning)"),
-                                           ("type[]", "Oral")])
-            .map() { data in
-                let decoder = JSONDecoder()
-                guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
-                    throw ApiError.invalidJson
+                .buildRequest(base: myBaseUrl,
+                              pathComponent: "/blocks",
+                              params: [("updated_from", updatedDate),
+                                       ("with_pagination", "\(with_pagination)"),
+                                       ("with_trashed", "\(with_trashed)"),
+                                       ("for_scanning", "\(for_scanning)"),
+                                       ("type[]", "Oral")])
+                .map() { data in
+                    let decoder = JSONDecoder()
+                    guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
+                        throw ApiError.invalidJson
+                    }
+                    return blocks.data
                 }
-                return blocks.data
-            }
-        }
+    }
     
-//    func getBlocks(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]>
 }
 
 class BlockApiController {
-    private var apiController: ApiController
-    init(apiController: ApiController) {
+    private let apiController: ApiController
+    private let confId: Int
+    init(apiController: ApiController, confId: Int) {
         self.apiController = apiController
+        self.confId = confId
     }
 }

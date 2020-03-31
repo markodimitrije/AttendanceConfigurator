@@ -52,6 +52,12 @@
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
 		7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */; };
+		7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */; };
+		7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */; };
+		7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */; };
+		7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */; };
+		7CD5296E24334AA900170D0A /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296D24334AA900170D0A /* Unziper.swift */; };
+		7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297024334AFD00170D0A /* IUnziper.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
 		7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */; };
@@ -190,6 +196,12 @@
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
 		7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
+		7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStateFactory.swift; sourceTree = "<group>"; };
+		7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProviderWorkerFactory.swift; sourceTree = "<group>"; };
+		7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProviderWorkerFactory.swift; sourceTree = "<group>"; };
+		7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProviderWorkerFactory.swift; sourceTree = "<group>"; };
+		7CD5296D24334AA900170D0A /* Unziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
+		7CD5297024334AFD00170D0A /* IUnziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUnziper.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
 		7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadResourcesState.swift; sourceTree = "<group>"; };
@@ -411,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				AD697BD721887CCE002BC579 /* ResourcesState.swift */,
+				7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */,
 				7CAA2A4F2431336500CA184F /* RoomsProvider */,
 				7CAA2A4A243131C300CA184F /* BlocksProvider */,
 				7CAA2A54243136C500CA184F /* DelegatesProvider */,
@@ -423,6 +436,7 @@
 			children = (
 				7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */,
 				7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */,
+				7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */,
 			);
 			path = BlocksProvider;
 			sourceTree = "<group>";
@@ -432,6 +446,7 @@
 			children = (
 				7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */,
 				7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */,
+				7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */,
 			);
 			path = RoomsProvider;
 			sourceTree = "<group>";
@@ -441,6 +456,7 @@
 			children = (
 				7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */,
 				7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */,
+				7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */,
 			);
 			path = DelegatesProvider;
 			sourceTree = "<group>";
@@ -452,13 +468,6 @@
 				7CAA2A6024313A7600CA184F /* BlockApiController.swift */,
 			);
 			path = BlockApiController;
-			sourceTree = "<group>";
-		};
-		7CAA2A5A243139F900CA184F /* DelegateApiController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DelegateApiController;
 			sourceTree = "<group>";
 		};
 		7CAA2A5B24313A0500CA184F /* RoomApiController */ = {
@@ -564,6 +573,24 @@
 				7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */,
 			);
 			path = ScanditSettings;
+			sourceTree = "<group>";
+		};
+		7CD5296C24334A9300170D0A /* DelegatesAPIController */ = {
+			isa = PBXGroup;
+			children = (
+				7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */,
+				7CD5296F24334AB200170D0A /* Unziper */,
+			);
+			path = DelegatesAPIController;
+			sourceTree = "<group>";
+		};
+		7CD5296F24334AB200170D0A /* Unziper */ = {
+			isa = PBXGroup;
+			children = (
+				7CD5297024334AFD00170D0A /* IUnziper.swift */,
+				7CD5296D24334AA900170D0A /* Unziper.swift */,
+			);
+			path = Unziper;
 			sourceTree = "<group>";
 		};
 		7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */ = {
@@ -715,11 +742,10 @@
 		AD29522A217B5E8A002DDE32 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				AD295220217B5B24002DDE32 /* APIController.swift */,
 				7CAA2A5B24313A0500CA184F /* RoomApiController */,
 				7CAA2A59243139ED00CA184F /* BlockApiController */,
-				7CAA2A5A243139F900CA184F /* DelegateApiController */,
-				AD295220217B5B24002DDE32 /* APIController.swift */,
-				7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */,
+				7CD5296C24334A9300170D0A /* DelegatesAPIController */,
 			);
 			path = APIController;
 			sourceTree = "<group>";
@@ -1107,11 +1133,13 @@
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
+				7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */,
 				7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
 				7C592BFB242BD32300294E71 /* IBlock.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
+				7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
@@ -1136,9 +1164,11 @@
 				7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */,
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
+				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */,
+				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
@@ -1149,6 +1179,7 @@
 				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,
 				7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
+				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
@@ -1156,6 +1187,7 @@
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
+				7CD5296E24334AA900170D0A /* Unziper.swift in Sources */,
 				7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */,
 				AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */,
 				AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */,
