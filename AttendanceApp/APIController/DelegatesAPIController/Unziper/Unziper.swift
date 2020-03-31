@@ -6,7 +6,8 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+import Zip
 
 class Unziper: NSObject, IUnziper {
     var conferenceId: Int

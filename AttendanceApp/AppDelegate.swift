@@ -16,10 +16,8 @@ let kScanditBarcodeScannerAppKey = "AUe8bIKBFoCzJJPPuiOofAM5I9owLyf0rlrGJZhQ4LIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    private var alertStateMonitor: AlertStateMonitor!
+
     private var deviceAlertMonitor: AlertStateReporter!
-    private var userSelection = UserSelectionManager()
     private let autoSessionTimer =  AutoSessionTimer.init(dataAccess: DataAccess.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -32,20 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             resourcesState = ResourceStateFactory.make(confId: confId)
         }
         
-        alertStateMonitor = AlertStateMonitor.init()
-        deviceAlertMonitor = AlertStateReporter.init(monitor: alertStateMonitor, webAPI: ApiController.shared)
-        
-        userSelection.location.drive(deviceAlertMonitor.roomId).disposed(by: bag)
-        userSelection.block.drive(deviceAlertMonitor.sessionId).disposed(by: bag)
+        deviceAlertMonitor = AlertStateReporterFactory.make()
         
         return true
     }
     
-    deinit {
-        UserDefaults.standard.removeObserver(self, forKeyPath: "roomId")
-        UserDefaults.standard.removeObserver(self, forKeyPath: "sessionId")
-    }
-    
     private let bag = DisposeBag()
     
+}
+
+class AlertStateReporterFactory {
+    static func make() -> AlertStateReporter {
+        return AlertStateReporter(dataAccess: DataAccess.shared,
+                                  monitor: AlertStateMonitor(),
+                                  webAPI: ApiController.shared)
+    }
 }

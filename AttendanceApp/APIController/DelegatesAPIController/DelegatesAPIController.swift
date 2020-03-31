@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Zip
 
 protocol IDelegatesAPIController {
  func getDelegates() -> Observable<([Delegate])>
@@ -74,9 +73,9 @@ class DelegatesAPIController {
         return
             apiController
                 .buildRequest(base: Domain.minjonUrl,
-                                          method: "GET",
-                                          pathComponent: "data/delegates/" + "\(conferenceId)" + ".zip",
-                                          params: [])
+                              method: "GET",
+                              pathComponent: "data/delegates/" + "\(conferenceId)" + ".zip",
+                              params: [])
                 .flatMap(unziper.saveDataAsFile)
                 .flatMap(unziper.unzipData)
                 .flatMap(convert)

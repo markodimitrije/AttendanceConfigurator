@@ -27,7 +27,7 @@ class AlertStateMonitor {
         
         NotificationCenter.default.addObserver(self, selector: #selector(batteryStateDidChange(_:)), name: UIDevice.batteryStateDidChangeNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterForeground(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive(_:)), name: UIApplication.willResignActiveNotification, object: nil)
         
@@ -43,8 +43,8 @@ class AlertStateMonitor {
         deviceReport.batteryState.accept(_batteryState)
     }
     
-    @objc func appDidEnterForeground(_ notification: Notification) {
-        print("AlertStateMonitor/appDidEnterForeground is called")
+    @objc func didBecomeActive(_ notification: Notification) {
+        print("AlertStateMonitor/appBecameActive is called")
         deviceReport.appInForeground.accept(true)
     }
     
@@ -80,35 +80,36 @@ class AlertStateMonitor {
 
 class AlertStateReporter {
     
-    var roomId: BehaviorRelay<Int?> = BehaviorRelay.init(value: nil)
-    var sessionId: BehaviorRelay<Int?> = BehaviorRelay.init(value: nil)
+    let monitor: AlertStateMonitor
+    let webAPI: ApiController
     
-    init(monitor: AlertStateMonitor, webAPI: ApiController) {
+    init(dataAccess: DataAccess, monitor: AlertStateMonitor, webAPI: ApiController) {
         
-        Observable.combineLatest(roomId,
-                                 sessionId,
+        self.monitor = monitor
+        self.webAPI = webAPI
+        
+        let obsRoomId = dataAccess.output.map {$0.0?.id ?? -1 }
+        let obsBlockId = dataAccess.output.map {$0.1?.id ?? -1 }
+        
+        Observable.combineLatest(obsRoomId,
+                                 obsBlockId,
                                  monitor.deviceReport.appInForeground,
-                                 //monitor.deviceReport.batteryLevel.filter {$0 < MyConstants.batteryLevelTrig},
-                                 monitor.deviceReport.batteryLevel, // test
+                                 monitor.deviceReport.batteryLevel,
                                  monitor.deviceReport.batteryState) {
                                     
-            (room, session, appInFg, batLevel, batStatus) -> SessionReport in
+            (roomId, blockId, appInFg, batLevel, batStatus) -> SessionReport in
             
-            //print("sklopio inpute u sessionReport")
-            
-                return SessionReport.init(location_id: room ?? -1, block_id: session ?? -1, battery_level: batLevel, battery_status: batStatus, app_active: appInFg)
-                                    
-            }.subscribe(onNext: { report in
-
-                // hard-coded temp off
+                return SessionReport.init(location_id: roomId, block_id: blockId, battery_level: batLevel, battery_status: batStatus, app_active: appInFg)
+            }
+        .debounce(1.0, scheduler: MainScheduler.instance)
+        .subscribe(onNext: { report in
                 
-                //print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
+                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
                 
-//                _ = webAPI
-//                    .reportSelectedSession(report: report) // ne reagujem da odg, a nije lose da ima UserDefaults i da onda javlja stalno...
+                _ = webAPI
+                    .reportSelectedSession(report: report)
             })
             .disposed(by: bag)
-        
     }
     
     private let bag = DisposeBag()

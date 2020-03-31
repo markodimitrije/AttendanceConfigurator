@@ -72,7 +72,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     
     private func listenToResourcesDowloaded() {
         
-        delay(1) { // resourcesState is initialized in didFinishLaunching which is later than global
+        delay(1) { // hack: resourcesState is initialized in didFinishLaunching which is later than global
             resourcesState.oResourcesDownloaded
             .subscribe(onNext: { downloaded in
                 UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
