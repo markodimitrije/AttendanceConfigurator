@@ -14,6 +14,8 @@ final class SettingsViewModel: ViewModelType {
     var dataAccess: DataAccess
     private let initialRoom: Room?
     private let initialBlock: Block?
+    private let initialDate: Date?
+    private let initialAutoSwitch: Bool
     
     init(dataAccess: DataAccess) {
         self.dataAccess = dataAccess
@@ -29,6 +31,8 @@ final class SettingsViewModel: ViewModelType {
         } else {
             initialBlock = nil
         }
+        self.initialDate = self.dataAccess.userSelection.selectedDate
+        self.initialAutoSwitch = self.dataAccess.userSelection.autoSwitch
     }
     
     func transform(input: Input) -> Output {
@@ -41,8 +45,6 @@ final class SettingsViewModel: ViewModelType {
         let autoSessionDriver =
             Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
                 (room, switchIsOn) -> Block? in
-                    print("room = \(String(describing: room?.id))")
-                    print("switchIsOn = \(switchIsOn)")
             guard let roomId = room?.id else {
                 return nil
             }
@@ -69,19 +71,28 @@ final class SettingsViewModel: ViewModelType {
         let sessionTxt =
             Driver.combineLatest(manualAndAutoSession, input.sessionSwitch) {
             (block, state) -> String in
-                    if let name = block?.name {
-                        return name
+                if let name = block?.name {
+                    return name
+                } else {
+                    if state {
+                        return SessionTextData.noAutoSessAvailable
                     } else {
-                        if state {
-                            return SessionTextData.noAutoSessAvailable
-                        } else {
-                            return SessionTextData.selectSessionManually
-                        }
+                        return SessionTextData.selectSessionManually
                     }
+                }
         }
         
         let saveCancelTrig = Driver.merge([input.cancelTrigger.map {return false},
                                            input.saveSettingsTrigger.map {return true}])
+        
+        let finalRoom = Driver.combineLatest(input.roomSelected, saveCancelTrig) {
+            (room, tap) -> Room? in
+                if tap {
+                    return room
+                } else {
+                    return self.initialRoom
+                }
+        }
         
         let finalSession = Driver.combineLatest(manualAndAutoSession, saveCancelTrig) {
             (session, tap) -> Block? in
@@ -94,28 +105,45 @@ final class SettingsViewModel: ViewModelType {
         }
         
         let compositeSwitch: Driver<Bool> =
-            Driver.merge(input.blockSelectedManually.map {_ in return false},
-                                                         input.sessionSwitch)//.debug()
+        Driver.merge(input.blockSelectedManually.map {_ in return false},
+                                                     input.sessionSwitch)//.debug()
         
-        let sessionInfo = Driver.combineLatest(input.roomSelected,
+        let finalAutoSwitch = Driver.combineLatest(compositeSwitch, saveCancelTrig) {
+            (sessionSwitch, tap) -> Bool in
+                if tap {
+                    return sessionSwitch
+                } else {
+                    return self.initialAutoSwitch
+                }
+        }
+        
+        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig) {
+            (session, tap) -> Date? in
+                if tap {
+                    return session?.getStartsAt()
+                } else {
+                    return self.initialDate
+                }
+        }
+        
+        let sessionInfo = Driver.combineLatest(finalRoom,
                                                finalSession,
-                                               input.dateSelected,
-                                               compositeSwitch) {
-            
+                                               finalDateSelected,//input.dateSelected,
+                                                finalAutoSwitch) {//compositeSwitch) {
+
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
             guard session != nil else {return nil}
-                                                
-            print("emitovao je pre self.dataAccess.userSelection = , autoSwitch-compositeSwitch = \(autoSwitch) ")
-            
+
             self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
 
             guard let roomId = room?.id, let sessionId = session?.id else {
                 return nil
             }
-            
+
             return (roomId, sessionId)
         }
+        
         
         let dateTxt = input.dateSelected.map { date -> String in
             guard let date = date else { return "Select date" }
@@ -127,7 +155,7 @@ final class SettingsViewModel: ViewModelType {
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalSession,
-                      compositeSwitch: compositeSwitch,
+                      compositeSwitch: finalAutoSwitch,//compositeSwitch,
                       sessionInfo: sessionInfo)
     }
 }
