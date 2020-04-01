@@ -13,6 +13,7 @@ import RxCocoa
 struct ScannerViewModel {
     
     var dataAccess: DataAccess!
+    private let roomRepo: IRoomRepository = RoomRepository() //TODO marko: inject through init
     
     init(dataAccess: DataAccess) {
         self.dataAccess = dataAccess
@@ -35,15 +36,16 @@ struct ScannerViewModel {
     
         dataAccess.output
             .delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
-            .map({ (room, block, date, _) -> (String, String, Int) in
-                guard let room = room else {
+            .map({ (roomId, block, date, _) -> (String, String, Int) in
+                guard let roomId = roomId else {
                     return (RoomTextData.noRoomSelected, "", -1)
                 }
                 
                 guard let block = block else {
                     return (SessionTextData.noActiveSession, "", -1)
                 }
-                return (block.name, block.duration + ", " + room.name, block.id)
+                let room = self.roomRepo.getRoom(id: roomId)!
+                return (block.name, block.duration + ", " + room.getName(), block.id)
             })
             .subscribe(onNext: { (blockName, blockInfo, blockId) in
                 self.sessionName.onNext(blockName)

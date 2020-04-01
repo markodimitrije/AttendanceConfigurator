@@ -10,6 +10,7 @@
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
 		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
+		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
@@ -163,6 +164,7 @@
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
+		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -341,6 +343,15 @@
 				3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C2E84252435123D005B5C7F /* SettingsViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */,
+				7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */,
+			);
+			path = SettingsViewModel;
 			sourceTree = "<group>";
 		};
 		7C55BA5B242A9029005BF038 /* RoomsVC */ = {
@@ -798,7 +809,7 @@
 				7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */,
 				AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */,
 				AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */,
-				AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */,
+				7C2E84252435123D005B5C7F /* SettingsViewModel */,
 				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
 				ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */,
 				AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */,
@@ -1283,6 +1294,7 @@
 				7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */,
 				AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */,
 				AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */,
+				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */,
 				AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */,
 			);

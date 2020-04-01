@@ -14,12 +14,12 @@ import RealmSwift
 
 class DataAccess: NSObject {
     
-    lazy private var _roomSelected = BehaviorRelay<Room?>.init(value: roomInitial)
+    lazy private var _roomSelected = BehaviorRelay<Int?>.init(value: roomInitial)
     lazy private var _blockSelected = BehaviorRelay<Block?>.init(value: sessionInitial)
     lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: dateInitial)
     lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: autoSwitchInitial)
     
-    private var roomInitial: Room?
+    private var roomInitial: Int?
     private var sessionInitial: Block?
     private var dateInitial: Date?
     private var autoSwitchInitial: Bool
@@ -48,12 +48,12 @@ class DataAccess: NSObject {
     }
     
     // API: output
-    var output: Observable<(Room?, Block?, Date?, Bool)> {
+    var output: Observable<(Int?, Block?, Date?, Bool)> {
         return Observable.combineLatest(_roomSelected.asObservable(),
                                         _blockSelected.asObservable(),
                                         _dateSelected.asObservable(),
                                         _autoSwitchSelected.asObservable(),
-            resultSelector: { (room, block, date, autoSwitch) -> (Room?, Block?, Date?, Bool) in
+            resultSelector: { (room, block, date, autoSwitch) -> (Int?, Block?, Date?, Bool) in
             //print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id), sa blockName = \(block?.name ?? "no  name")")
             return (room, block, date, autoSwitch)
         })
@@ -61,9 +61,7 @@ class DataAccess: NSObject {
     
     override init() {
         
-        if let roomId = UserDefaults.standard.value(forKey: "roomId") as? Int {
-            self.roomInitial = RoomRepository().getRoom(id: roomId) as? Room
-        } else {roomInitial = nil}
+        self.roomInitial = UserDefaults.standard.value(forKey: "roomId") as? Int
         
         if let sessionId = UserDefaults.standard.value(forKey: "sessionId") as? Int {
             self.sessionInitial = BlockRepository().getBlock(id: sessionId) as? Block
@@ -81,13 +79,8 @@ class DataAccess: NSObject {
         guard let realm = try? Realm.init() else {return}
         
         if keyPath == "roomId" {
-            guard let roomId = UserDefaults.standard.value(forKey: keyPath) as? Int,
-                let rRoom = RealmRoom.getRoom(withId: roomId, withRealm: realm) else {
-                    return
-            }
-            //let room = Room(from: rRoom)
-            let room = RoomFactory.make(from: rRoom) as! Room
-            _roomSelected.accept(room)
+            let roomId = UserDefaults.standard.value(forKey: keyPath) as? Int
+            _roomSelected.accept(roomId)
         } else if keyPath == "sessionId" {
             guard let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int,
                 let realmBlock = RealmBlock.getBlock(withId: sessionId, withRealm: realm) else {
