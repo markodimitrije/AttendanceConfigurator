@@ -34,7 +34,7 @@ class AlertStateReporter {
     private func makeObsSessionReport(dataAccess: DataAccess, monitor: AlertStateMonitor) -> Observable<SessionReport> {
         
         let obsRoomId = dataAccess.output.map {$0.0 ?? -1 }
-        let obsBlockId = dataAccess.output.map {$0.1?.id ?? -1 }
+        let obsBlockId = dataAccess.output.map {$0.1 ?? -1 }
         
         return Observable
             .combineLatest(obsRoomId,

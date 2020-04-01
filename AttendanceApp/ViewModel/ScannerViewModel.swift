@@ -14,6 +14,7 @@ struct ScannerViewModel {
     
     var dataAccess: DataAccess!
     private let roomRepo: IRoomRepository = RoomRepository() //TODO marko: inject through init
+    private let blockRepo: IBlockRepository = BlockRepository() //TODO marko: inject through init
     
     init(dataAccess: DataAccess) {
         self.dataAccess = dataAccess
@@ -36,16 +37,17 @@ struct ScannerViewModel {
     
         dataAccess.output
             .delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
-            .map({ (roomId, block, date, _) -> (String, String, Int) in
+            .map({ (roomId, blockId, date, _) -> (String, String, Int) in
                 guard let roomId = roomId else {
                     return (RoomTextData.noRoomSelected, "", -1)
                 }
                 
-                guard let block = block else {
+                guard let blockId = blockId else {
                     return (SessionTextData.noActiveSession, "", -1)
                 }
                 let room = self.roomRepo.getRoom(id: roomId)!
-                return (block.name, block.duration + ", " + room.getName(), block.id)
+                let block = self.blockRepo.getBlock(id: blockId) as! Block // TODO marko
+                return (block.getName(), block.duration + ", " + room.getName(), block.id)
             })
             .subscribe(onNext: { (blockName, blockInfo, blockId) in
                 self.sessionName.onNext(blockName)
