@@ -102,8 +102,8 @@ final class SettingsViewModel: ViewModelType {
         }
         
         let dateTxt = input.dateSelected.map { date -> String in
-            let text = date?.toString(format: "yyyy-MM-dd") ?? "error converting to date"
-            return text
+            guard let date = date else { return "Select date" }
+            return date.toString(format: "yyyy-MM-dd") ?? "error converting to date"
         }
         
         return Output(roomTxt: roomTxt,

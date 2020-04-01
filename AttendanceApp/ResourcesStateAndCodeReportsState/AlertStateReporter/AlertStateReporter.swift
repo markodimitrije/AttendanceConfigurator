@@ -24,7 +24,7 @@ class AlertStateReporter {
             .debounce(1.0, scheduler: MainScheduler.instance)
             .subscribe(onNext: { report in
                     
-                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
+//                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
                 
                 _ = webAPI.reportSelectedSession(report: report)
             })
