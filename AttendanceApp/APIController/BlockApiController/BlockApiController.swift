@@ -15,12 +15,6 @@ extension BlockApiController: IBlockApiController {
     
     func getBlocks(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
-    //        return buildRequest(pathComponent: "blocks", //params: [ ])//, // testing
-    //                            params: [//("updated_from", updatedDate),
-    //                                     ("with_pagination", "\(with_pagination)"),
-    //                                     ("with_trashed", "\(with_trashed)"),
-    //                                     ("for_scanning", "\(for_scanning)")])//,
-    //                                     //("type[]", "Oral")])
         let myBaseUrl = BlockApiController.baseUrl.appendingPathComponent("\(confId)")
             return
                 apiController

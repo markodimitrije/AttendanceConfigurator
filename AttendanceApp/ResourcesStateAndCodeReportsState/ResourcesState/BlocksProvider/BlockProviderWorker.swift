@@ -20,7 +20,8 @@ class BlockProviderWorker: IBlockProviderWorker {
         apiController
             .getBlocks(updated_from: nil, with_pagination: 0, with_trashed: 0, for_scanning: 1 )
             .do(onNext: { (blocks) in
-                self.repository.save(blocks: blocks)
+                //self.repository.save(blocks: blocks)
+                self.repository.replaceExistingWith(blocks: blocks)
             })
         .map {_ in true}
     }

@@ -9,5 +9,5 @@
 import RxSwift
 
 protocol IRoomProviderWorker {
-    func fetchRoomsAndPersistOnDevice() -> Observable<Bool> // fetchRoomsAndSaveToRealm
+    func fetchRoomsAndPersistOnDevice() -> Observable<Bool>
 }

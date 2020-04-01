@@ -11,6 +11,7 @@ import RealmSwift
 protocol IBlockRepository {
     //SAVE
     func save(blocks: [IBlock])
+    func replaceExistingWith(blocks: [IBlock])
     //GET
     func getBlocks(roomId: Int) -> [IBlock]
     func getBlocks(roomId: Int, date: Date) -> [IBlock]
@@ -25,6 +26,11 @@ class BlockRepository: IBlockRepository {
         try? realm.write {
             realm.add(rBlocks, update: .modified)
         }
+    }
+    
+    func replaceExistingWith(blocks: [IBlock]) {
+        deleteAllBlocks()
+        save(blocks: blocks)
     }
     
     func getBlocks(roomId: Int) -> [IBlock] {
@@ -48,5 +54,13 @@ class BlockRepository: IBlockRepository {
             return nil
         }
         return BlockFactory.make(from: rBlock)
+    }
+    
+    private func deleteAllBlocks() {
+        let realm = try! Realm()
+        let previousBlocks = realm.objects(RealmBlock.self)
+        try! realm.write {
+            realm.delete(previousBlocks)
+        }
     }
 }

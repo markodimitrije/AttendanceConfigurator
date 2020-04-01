@@ -12,6 +12,7 @@ protocol IRoomRepository {
     func getRoom(id: Int) -> IRoom?
     func getAllRooms() -> [IRoom]
     func save(rooms: [IRoom])
+    func replaceExistingWith(rooms: [IRoom])
 }
 
 class RoomRepository: IRoomRepository {
@@ -36,6 +37,19 @@ class RoomRepository: IRoomRepository {
         let rRooms = rooms.map(RealmRoomFactory.make)
         try? realm.write {
             realm.add(rRooms, update: .modified)
+        }
+    }
+    
+    func replaceExistingWith(rooms: [IRoom]) {
+        deleteAllRooms()
+        save(rooms: rooms)
+    }
+    
+    private func deleteAllRooms() {
+        let realm = try! Realm()
+        let previousRooms = realm.objects(RealmRoom.self)
+        try! realm.write {
+            realm.delete(previousRooms)
         }
     }
 }

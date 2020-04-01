@@ -59,7 +59,6 @@ class ApiController: IApiController {
                        contentType: String? = "application/json") -> Observable<Data> {
     
         let url = base.appendingPathComponent(pathComponent)
-//        let url = URL.init(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!.appendingPathComponent(pathComponent) // testing
         
         var request = URLRequest(url: url)
         

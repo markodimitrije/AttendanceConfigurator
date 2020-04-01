@@ -20,7 +20,8 @@ class RoomProviderWorker: IRoomProviderWorker {
     func fetchRoomsAndPersistOnDevice() -> Observable<Bool> {
         apiController.getRooms(updated_from: nil, with_pagination: 0, with_trashed: 0)
             .do(onNext: { (rooms) in
-                self.repository.save(rooms: rooms)
+                //self.repository.save(rooms: rooms)
+                self.repository.replaceExistingWith(rooms: rooms)
             })
         .map {_ in true}
     }
