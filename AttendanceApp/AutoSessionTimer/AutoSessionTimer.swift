@@ -42,15 +42,15 @@ class AutoSessionTimer {
             }).disposed(by: disposeBag)
         } else {
             //print("ne smes da emitujes BLOCK, do nothing..., just update selectio -> UI")
-            updateUserSellectionAsItIs(dataAccess: dataAccess)
+//            updateUserSellectionAsItIs(dataAccess: dataAccess)
         }
     }
     
-    private func updateUserSellectionAsItIs(dataAccess: DataAccess) {
-        var updateData = dataAccess.userSelection
-        updateData.blockId = updateData.blockId
-        dataAccess.userSelection = updateData
-    }
+//    private func updateUserSellectionAsItIs(dataAccess: DataAccess) {
+//        var updateData = dataAccess.userSelection
+//        updateData.blockId = updateData.blockId
+//        dataAccess.userSelection = updateData
+//    }
     
     @objc func appMovedToBackground() {
         if timer != nil {

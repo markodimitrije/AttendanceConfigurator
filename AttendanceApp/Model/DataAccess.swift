@@ -14,10 +14,15 @@ import RealmSwift
 
 class DataAccess: NSObject {
     
-    private var _roomSelected = BehaviorRelay<Room?>.init(value: nil)
-    private var _blockSelected = BehaviorRelay<Block?>.init(value: nil)
-    private var _dateSelected = BehaviorRelay<Date?>.init(value: nil)
-    private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: true)
+    lazy private var _roomSelected = BehaviorRelay<Room?>.init(value: roomInitial)
+    lazy private var _blockSelected = BehaviorRelay<Block?>.init(value: sessionInitial)
+    lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: dateInitial)
+    lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: autoSwitchInitial)
+    
+    private var roomInitial: Room?
+    private var sessionInitial: Block?
+    private var dateInitial: Date?
+    private var autoSwitchInitial: Bool
     
     static var shared = DataAccess()
     
@@ -55,6 +60,18 @@ class DataAccess: NSObject {
     }
     
     override init() {
+        
+        if let roomId = UserDefaults.standard.value(forKey: "roomId") as? Int {
+            self.roomInitial = RoomRepository().getRoom(id: roomId) as? Room
+        } else {roomInitial = nil}
+        
+        if let sessionId = UserDefaults.standard.value(forKey: "sessionId") as? Int {
+            self.sessionInitial = BlockRepository().getBlock(id: sessionId) as? Block
+        } else {sessionInitial = nil}
+        
+        dateInitial = UserDefaults.standard.value(forKey: "date") as? Date
+        autoSwitchInitial = UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true
+        
         super.init()
     }
     

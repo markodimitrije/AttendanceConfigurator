@@ -24,10 +24,11 @@ final class SettingsViewModel: ViewModelType {
         }
         
         let interval = MyTimeInterval.waitToMostRecentSession
-        let autoSessionDriver = Driver.combineLatest(input.roomSelected,
-                                input.sessionSwitch,
-                                input.waitInterval.startWith(interval)) {
-                                    (room, switchIsOn, interval) -> Block? in
+        let autoSessionDriver =
+            Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
+                (room, switchIsOn) -> Block? in
+                    print("room = \(String(describing: room?.id))")
+                    print("switchIsOn = \(switchIsOn)")
             guard let roomId = room?.id else {
                 return nil
             }
