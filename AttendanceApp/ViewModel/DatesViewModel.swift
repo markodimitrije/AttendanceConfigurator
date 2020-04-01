@@ -29,7 +29,6 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dateSelected = data[indexPath.row]
-        settingsJourney.date = dateSelected
         selectedDate.accept(dateSelected)
     }
     

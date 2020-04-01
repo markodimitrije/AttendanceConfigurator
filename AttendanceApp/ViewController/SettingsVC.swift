@@ -128,7 +128,6 @@ class SettingsVC: UITableViewController {
                 if let block = block {
                     //print("blok je selektovan, javi webu.....")
                     sSelf.sessionSelected.onNext(block)
-                    print(settingsJourney.description)
                     //sSelf.reportBlockChangedToWeb() // hard-coded off, should not save to realm
                 }
             })
@@ -226,7 +225,6 @@ class SettingsVC: UITableViewController {
                 .skip(1) // jer je iniated sa NIL ...
                 .subscribe(onNext: { [weak self] date in
                     self?.dateSelected.accept(date)
-                    settingsJourney.date = date
                     self?.navigationController?.popViewController(animated: true)
                 })
                 .disposed(by: disposeBag)
@@ -236,7 +234,6 @@ class SettingsVC: UITableViewController {
             let roomsVC = RoomsViewControllerFactory.make()
             roomsVC.selRoomDriver
             .do(onNext: { room in // side-effect
-                settingsJourney.roomId = room?.id
                 self.navigationController?.popViewController(animated: true)
             })
             .drive(roomSelected)
@@ -260,7 +257,6 @@ class SettingsVC: UITableViewController {
                     guard let sSelf = self else {return}
                     sSelf.sessionManuallySelected.onNext(block)
                     sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
-                    settingsJourney.blockId = block.id
                 })
                 .disposed(by: disposeBag)
             

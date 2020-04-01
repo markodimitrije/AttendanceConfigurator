@@ -57,8 +57,6 @@ extension RoomsVC: UITableViewDelegate {
         
         let selectedRoom = roomViewModel.getRoom(forSelectedTableIndex: indexPath.item)
         
-        settingsJourney.roomId = selectedRoom.id
-        
         selRealmRoom.onNext(selectedRoom)
         
     }

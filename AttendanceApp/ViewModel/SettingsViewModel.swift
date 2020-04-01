@@ -12,9 +12,23 @@ import RxCocoa
 final class SettingsViewModel: ViewModelType {
     
     var dataAccess: DataAccess
+    private let initialRoom: Room?
+    private let initialBlock: Block?
     
     init(dataAccess: DataAccess) {
         self.dataAccess = dataAccess
+        // room
+        if let roomId = self.dataAccess.userSelection.roomId {
+           initialRoom = RoomRepository().getRoom(id: roomId) as? Room
+        } else {
+            initialRoom  = nil
+        }
+        //block
+        if let blockId = self.dataAccess.userSelection.blockId {
+            initialBlock = BlockRepository().getBlock(id: blockId) as? Block
+        } else {
+            initialBlock = nil
+        }
     }
     
     func transform(input: Input) -> Output {
@@ -74,7 +88,8 @@ final class SettingsViewModel: ViewModelType {
                 if tap {
                     return session
                 } else {
-                    return nil
+                    //return nil
+                    return self.initialBlock
                 }
         }
         
