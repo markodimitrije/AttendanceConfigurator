@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIDevice.current.isBatteryMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true // stop the iOS screen sleeping
         
-        if resourcesState == nil {
+        if syncResourcesManager == nil {
             let confId = conferenceState.conferenceId!
-            resourcesState = ResourceStateFactory.make(confId: confId)
+            syncResourcesManager = SyncResourcesManagerFactory.make(confId: confId)
         }
         
         alertStateReporter = AlertStateReporterFactory.make()
@@ -37,4 +37,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let bag = DisposeBag()
     
+}
+
+protocol ISyncResourcesManager {
+    func downloadResources()
+    func newResourcesDownloaded()
+    var oResourcesDownloaded: BehaviorRelay<Bool> {get}
+}
+
+extension SyncResourcesManager: ISyncResourcesManager {
+    func newResourcesDownloaded() {
+        self.dataAccess.userSelection = (nil, nil, nil, false)
+    }
+    func downloadResources() {
+        self.resourceState.downloadResources()
+    }
+    var oResourcesDownloaded: BehaviorRelay<Bool> {
+        return self.resourceState.oResourcesDownloaded
+    }
+}
+
+class SyncResourcesManager {
+    let dataAccess: DataAccess
+    let resourceState: ResourcesState
+    init(dataAccess: DataAccess, resourceState: ResourcesState) {
+        self.dataAccess = dataAccess
+        self.resourceState = resourceState
+    }
+    
+    
+}
+
+class SyncResourcesManagerFactory {
+    static func make(confId: Int) -> ISyncResourcesManager {
+        let resourceState = ResourceStateFactory.make(confId: confId)
+        return SyncResourcesManager(dataAccess: DataAccess.shared,
+                                    resourceState: resourceState)
+    }
 }

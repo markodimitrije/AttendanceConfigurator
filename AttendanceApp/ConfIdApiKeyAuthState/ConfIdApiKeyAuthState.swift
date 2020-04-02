@@ -63,7 +63,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
                     if newApiKey == "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T" {
                         self.conferenceId = 7520
                     }
-                    resourcesState.downloadResources() // side-effect...
+                    syncResourcesManager.downloadResources() // side-effect...
                     DataAccess.shared.userSelection = (roomId: nil, blockId: nil, selectedDate: nil, autoSwitch: true)
                 }
             })
@@ -73,7 +73,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
     private func listenToResourcesDowloaded() {
         
         delay(1) { // hack: resourcesState is initialized in didFinishLaunching which is later than global
-            resourcesState.oResourcesDownloaded
+            syncResourcesManager.oResourcesDownloaded
             .subscribe(onNext: { downloaded in
                 UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
                 UserDefaults.standard.set(self.apiKey, forKey: UserDefaults.keyConferenceApiKey)
