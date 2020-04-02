@@ -14,11 +14,16 @@ import RxCocoa
 
 class ResourcesState {
     
-    private var roomProviderWorker: IRoomProviderWorker
-    private var blockProviderWorker: IBlockProviderWorker
-    private var delegateProviderWorker: IDelegateProviderWorker
+    private let roomProviderWorker: IRoomProviderWorker
+    private let blockProviderWorker: IBlockProviderWorker
+    private let delegateProviderWorker: IDelegateProviderWorker
+    private let dataAccess: DataAccess
     
-    init(roomProviderWorker: IRoomProviderWorker, blockProviderWorker: IBlockProviderWorker, delegateProviderWorker: IDelegateProviderWorker) {
+    init(dataAccess: DataAccess,
+         roomProviderWorker: IRoomProviderWorker,
+         blockProviderWorker: IBlockProviderWorker,
+         delegateProviderWorker: IDelegateProviderWorker) {
+        self.dataAccess = dataAccess
         self.roomProviderWorker = roomProviderWorker
         self.blockProviderWorker = blockProviderWorker
         self.delegateProviderWorker = delegateProviderWorker
@@ -39,6 +44,9 @@ class ResourcesState {
             let successDownloads = resources.count >= 3
             self.resourcesDownloaded = successDownloads // bez veze je ovo
             self.oResourcesDownloaded.accept(successDownloads) // na 2 mesta sync !
+            if resources.count >= 2 { // rooms and blocks
+                dataAccess.userSelection = (nil, nil, nil, false)
+            }
         }).disposed(by: bag)
     }
     
@@ -106,6 +114,8 @@ class ResourcesState {
             .subscribe(onNext: { _ in
                 self.downloadsState.newlyDownloaded.accept("delegates")
             }).disposed(by: bag)
+        
+        
     }
     
     deinit { print("ResourcesState.deinit is called") }

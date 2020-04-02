@@ -9,7 +9,8 @@
 class ResourceStateFactory {
     static func make(confId: Int) -> ResourcesState {
         let object =
-            ResourcesState(roomProviderWorker: RoomProviderWorkerFactory.make(confId: confId),
+            ResourcesState(dataAccess: DataAccess.shared,
+                           roomProviderWorker: RoomProviderWorkerFactory.make(confId: confId),
                            blockProviderWorker: BlockProviderWorkerFactory.make(confId: confId),
                            delegateProviderWorker: DelegateProviderWorkerFactory.make(confId: confId))
         return object
