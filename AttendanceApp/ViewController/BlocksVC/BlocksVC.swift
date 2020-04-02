@@ -24,8 +24,8 @@ class BlocksVC: UIViewController {
     
     lazy var blockViewModel = BlockViewModel(roomId: selectedRoomId)
     
-    fileprivate let selBlock = PublishSubject<Block>()
-    var selectedBlock: Observable<Block> { // exposed selRealmBlock
+    fileprivate let selBlock = PublishSubject<Int>()
+    var selectedBlock: Observable<Int> { // exposed selRealmBlock
         return selBlock.asObservable()
     }
     
@@ -121,9 +121,8 @@ class BlocksVC: UIViewController {
                             rBlock = sectionBlocks[ip.section][ip.row]
                         }
                     }).disposed(by: strongSelf.disposeBag)
-                
-                let selectedBlock = BlockFactory.make(from: rBlock) as! Block
-                strongSelf.selBlock.onNext(selectedBlock)
+
+                strongSelf.selBlock.onNext(rBlock!.id)
                 strongSelf.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)

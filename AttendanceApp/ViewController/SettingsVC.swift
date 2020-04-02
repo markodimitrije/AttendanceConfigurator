@@ -40,10 +40,9 @@ class SettingsVC: UITableViewController {
         let roomId = DataAccess.shared.userSelection.roomId
         return BehaviorSubject<Int?>.init(value: roomId)
     }()
-    let sessionManuallySelected: BehaviorSubject<Block?> = {
+    let sessionManuallySelected: BehaviorSubject<Int?> = {
         let blockId = DataAccess.shared.userSelection.blockId
-        let block = (blockId != nil) ? BlockRepository().getBlock(id: blockId!) as? Block : nil
-        return BehaviorSubject<Block?>.init(value: block)
+        return BehaviorSubject<Int?>.init(value: blockId)
     }()
     
     // OUTPUTS:
@@ -101,7 +100,7 @@ class SettingsVC: UITableViewController {
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
-                        sessionSelected: sessionManuallyDriver.map {$0?.id},
+                        sessionSelected: sessionManuallyDriver,
                         sessionSwitch: sessionSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal,
                         waitInterval:interval
@@ -252,9 +251,10 @@ class SettingsVC: UITableViewController {
             navigationController?.pushViewController(blocksVC, animated: true)
             
             blocksVC.selectedBlock
-                .subscribe(onNext: { [weak self] block in
+                .subscribe(onNext: { [weak self] blockId in
                     guard let sSelf = self else {return}
-                    sSelf.sessionManuallySelected.onNext(block)
+                    let block = BlockRepository().getBlock(id: blockId) as! Block
+                    sSelf.sessionManuallySelected.onNext(blockId)
                     sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
                 })
                 .disposed(by: disposeBag)
