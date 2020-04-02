@@ -36,10 +36,9 @@ class SettingsVC: UITableViewController {
         let date = DataAccess.shared.userSelection.selectedDate
         return BehaviorRelay<Date?>.init(value: date)
     }()
-    var roomSelected: BehaviorSubject<Room?> = {
+    var roomSelected: BehaviorSubject<Int?> = {
         let roomId = DataAccess.shared.userSelection.roomId
-        let room = (roomId != nil) ? RoomRepository().getRoom(id: roomId!) as? Room : nil
-        return BehaviorSubject<Room?>.init(value: room)
+        return BehaviorSubject<Int?>.init(value: roomId)
     }()
     let sessionManuallySelected: BehaviorSubject<Block?> = {
         let blockId = DataAccess.shared.userSelection.blockId
@@ -101,7 +100,7 @@ class SettingsVC: UITableViewController {
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
-                        roomSelected: roomSelected.asDriver(onErrorJustReturn: nil).map {$0?.id},
+                        roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallyDriver.map {$0?.id},
                         sessionSwitch: sessionSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal,
@@ -242,7 +241,7 @@ class SettingsVC: UITableViewController {
             self.navigationController?.pushViewController(roomsVC, animated: true)
             
         case (2, 0):
-            guard let roomId = try! roomSelected.value()?.id else {
+            guard let roomId = try! roomSelected.value() else {
                 return // should be fatal
             }
             let blocksVC = BlocksViewControllerFactory.make(roomId: roomId,

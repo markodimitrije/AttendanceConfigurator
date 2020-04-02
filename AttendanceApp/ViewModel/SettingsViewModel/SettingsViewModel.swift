@@ -27,7 +27,6 @@ final class SettingsViewModel: ViewModelType {
         // set initial selection
         self.initialRoom = self.dataAccess.userSelection.roomId
         self.initialBlock = self.dataAccess.userSelection.blockId
-        
         self.initialDate = self.dataAccess.userSelection.selectedDate
         self.initialAutoSwitch = self.dataAccess.userSelection.autoSwitch
     }
@@ -127,7 +126,7 @@ final class SettingsViewModel: ViewModelType {
         
         let finalSessionId = finalSession.map { id -> Block? in
             guard let id = id else {return nil}
-            return self.blockRepo.getBlock(id: id) as? Block
+            return self.blockRepo.getBlock(id: id) as? Block // TODO marko: IBlock?
         }
         
         let dateTxt = input.dateSelected.map { date -> String in
