@@ -71,17 +71,13 @@ class SettingsVC: UITableViewController {
     
     private func bindUI() { // glue code for selected Room
         
-        let interval = Observable.just(MyTimeInterval.waitToMostRecentSession)
-                                .asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
-        
-        let savedAutoSwitchState = DataAccess.shared.userSelection.3
-        
         let manuallySelectedSignal = tableView.rx.itemSelected.filter
             {$0.section == 2 && $0.row == 0} // jako slabo...
             .map {_ in return false}
             .asDriver(onErrorJustReturn: false)
             //.debug()
         
+        let savedAutoSwitchState = DataAccess.shared.userSelection.3
         let sessionSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)
