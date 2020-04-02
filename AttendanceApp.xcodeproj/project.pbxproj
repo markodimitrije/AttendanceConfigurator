@@ -26,6 +26,9 @@
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
 		7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
+		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
+		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
+		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
 		7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */; };
 		7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
@@ -180,6 +183,9 @@
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
+		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
+		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
+		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* RealmDelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesSessionValidation.swift; sourceTree = "<group>"; };
 		7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
@@ -432,6 +438,16 @@
 				7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */,
 			);
 			path = JsonBundleDataProvider;
+			sourceTree = "<group>";
+		};
+		7C8361702436720E00DB1F59 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */,
+				7C8361752436726800DB1F59 /* SyncResourcesManager.swift */,
+				7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 		7C855DA2229C077100E4C985 /* FetchDelegates */ = {
@@ -876,31 +892,32 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				7CEC673F242B6AEF00CC56FF /* Repository */,
-				7CBDC28022D8A8D800B7D43F /* Scan */,
-				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
-				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
-				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
-				7CE81539227346F700B33986 /* Sounds */,
-				AD4CC2D821A576F200222D5E /* Common */,
-				AD697BD621887CC3002BC579 /* ResourcesStateAndCodeReportsState */,
-				AD697BD32188622B002BC579 /* Globals */,
-				AD28F6EF2182120A00A41BB8 /* Extensions */,
-				AD24E30621806C22008E35F8 /* Views */,
-				AD24E303217F74C8008E35F8 /* Services */,
-				AD80F000217DE651003CEDD0 /* ModelData */,
-				AD29522B217B5E98002DDE32 /* Model */,
+				7C8361702436720E00DB1F59 /* Sync */,
 				AD29522A217B5E8A002DDE32 /* APIController */,
+				7CB7D556225DF965007B9BB0 /* AppDelegate.swift */,
+				ADAE9C38218B08EA00615125 /* Assets.xcassets */,
+				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
+				AD4CC2D821A576F200222D5E /* Common */,
+				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
+				AD28F6EF2182120A00A41BB8 /* Extensions */,
+				AD697BD32188622B002BC579 /* Globals */,
+				7C5DEBE122E871380058ED6B /* Images.xcassets */,
+				AD53A020217B577500A3F9FC /* Info.plist */,
+				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
+				7CAE889622E87EF100632EAC /* Launch Screen.xib */,
+				ADB64DA0217E23C00094EC45 /* Localizable.strings */,
+				ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */,
+				AD295226217B5C64002DDE32 /* Main.storyboard */,
+				AD29522B217B5E98002DDE32 /* Model */,
+				AD80F000217DE651003CEDD0 /* ModelData */,
+				7CEC673F242B6AEF00CC56FF /* Repository */,
+				AD697BD621887CC3002BC579 /* ResourcesStateAndCodeReportsState */,
+				7CBDC28022D8A8D800B7D43F /* Scan */,
+				AD24E303217F74C8008E35F8 /* Services */,
+				7CE81539227346F700B33986 /* Sounds */,
 				AD295229217B5E77002DDE32 /* ViewController */,
 				AD295228217B5E6F002DDE32 /* ViewModel */,
-				ADAE9C38218B08EA00615125 /* Assets.xcassets */,
-				7C5DEBE122E871380058ED6B /* Images.xcassets */,
-				7CB7D556225DF965007B9BB0 /* AppDelegate.swift */,
-				7CAE889622E87EF100632EAC /* Launch Screen.xib */,
-				AD295226217B5C64002DDE32 /* Main.storyboard */,
-				ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */,
-				AD53A020217B577500A3F9FC /* Info.plist */,
-				ADB64DA0217E23C00094EC45 /* Localizable.strings */,
+				AD24E30621806C22008E35F8 /* Views */,
 			);
 			path = AttendanceApp;
 			sourceTree = "<group>";
@@ -1179,6 +1196,7 @@
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
+				7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */,
 				7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
@@ -1190,6 +1208,7 @@
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
+				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
@@ -1230,6 +1249,7 @@
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
+				7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */,
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
 				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
