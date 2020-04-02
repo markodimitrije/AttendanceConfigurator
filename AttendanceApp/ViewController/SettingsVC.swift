@@ -27,8 +27,6 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var syncApiKeyView: SyncApiKeyView!
     
     private let disposeBag = DisposeBag()
-    private let deviceStateReporter = DeviceStateReporter.init()
-    private let codeReporter = CodeReportsState.init()
     
     // INPUTS:
     
@@ -51,8 +49,6 @@ class SettingsVC: UITableViewController {
         let blockId = DataAccess.shared.userSelection.blockId
         return BehaviorSubject<Int?>.init(value: blockId)
     }()
-    
-    var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
     
     // MARK:- ViewModels
 
@@ -91,7 +87,8 @@ class SettingsVC: UITableViewController {
                     .startWith(savedAutoSwitchState)
                     .asDriver(onErrorJustReturn: true)
         
-        let sessionManuallyDriver = sessionManuallySelected.share(replay: 1).asDriver(onErrorJustReturn: nil)
+        let sessionManuallyDriver = sessionManuallySelected.share(replay:1)
+            .asDriver(onErrorJustReturn: nil)
         
         let input = SettingsViewModel.Input.init(
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
@@ -100,8 +97,7 @@ class SettingsVC: UITableViewController {
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: sessionManuallyDriver,
                         sessionSwitch: sessionSwitchSignal,
-                        blockSelectedManually: manuallySelectedSignal,
-                        waitInterval:interval
+                        blockSelectedManually: manuallySelectedSignal
         )
         
         let output = settingsViewModel.transform(input: input)
@@ -130,27 +126,9 @@ class SettingsVC: UITableViewController {
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
         
+        // holds ref to output.sessionInfo and code inside viewmodel
         output.sessionInfo.asObservable()
-            .subscribe(onNext: { [weak self] (info) in
-                guard let sSelf = self else {return}
-                guard let info = info else { // ako nemas info, tapnuo je cancel na BlocksVC
-                    return
-                }
-                print("info je selektovan, javi webu.....")
-                
-                delay(1.0, closure: {
-                    var infoAssumingApiKeyChange = info
-                    if DataAccess.shared.userSelection.roomId == nil {
-                        infoAssumingApiKeyChange = (0,0)
-                    }
-                    
-                    let batStateManager = BatteryManager.init()
-                    
-                    sSelf.deviceStateReporter.sessionIsSet(info: infoAssumingApiKeyChange,
-                                                           battery_info: batStateManager.info,
-                                                           app_active: true)
-                })
-            })
+            .subscribe(onNext: { _ in })
             .disposed(by: disposeBag)
         
         DataAccess.shared.output.map {$0.3}
@@ -159,11 +137,6 @@ class SettingsVC: UITableViewController {
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
         
-    }
-    
-    private func reportBlockChangedToWeb() {
-        let codeReport = getSessionReport()
-        codeReporter.codeReport.accept(codeReport)
     }
     
     private func bindReachability() {
@@ -260,7 +233,5 @@ class SettingsVC: UITableViewController {
     }
     
     override var shouldAutorotate: Bool { return false }
-    
-    //deinit { print("deinit.setingsVC") }
     
 }

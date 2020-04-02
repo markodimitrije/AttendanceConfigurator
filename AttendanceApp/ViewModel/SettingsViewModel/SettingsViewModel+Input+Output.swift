@@ -19,8 +19,7 @@ extension SettingsViewModel {
         let roomSelected: Driver<Int?>
         let sessionSelected: Driver<Int?>
         let sessionSwitch: Driver<Bool>
-        let blockSelectedManually: Driver<Bool>//self.tableView.rx.itemSelected.asDriver()
-        let waitInterval: Driver<TimeInterval>
+        let blockSelectedManually: Driver<Bool>
     }
     
     struct Output {
@@ -28,7 +27,6 @@ extension SettingsViewModel {
         let dateTxt: Driver<String>
         let sessionTxt: Driver<String>
         let saveSettingsAllowed: Driver<Bool>
-        //let selectedBlock: Driver<Block?>
         let selectedBlock: Driver<Int?>
         let compositeSwitch: Driver<Bool>
         let sessionInfo: Driver<(Int, Int)?>

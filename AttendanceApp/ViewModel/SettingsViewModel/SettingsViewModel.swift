@@ -14,16 +14,18 @@ final class SettingsViewModel: ViewModelType {
     private let dataAccess: DataAccess
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockRepository
+    private let deviceStateReporter: DeviceStateReporter
     
     private let initialRoom: Int?
     private let initialBlock: Int?
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
-    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockRepository) {
+    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockRepository, deviceStateReporter: DeviceStateReporter) {
         self.dataAccess = dataAccess
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo
+        self.deviceStateReporter = deviceStateReporter
         // set initial selection
         self.initialRoom = self.dataAccess.userSelection.roomId
         self.initialBlock = self.dataAccess.userSelection.blockId
@@ -119,9 +121,11 @@ final class SettingsViewModel: ViewModelType {
 
             self.dataAccess.userSelection = (roomId, blockId, date, autoSwitch) // MUST !
 
-            guard let roomId = roomId, let sessionId = blockId else { return nil}
-
-            return (roomId, sessionId)
+            guard let roomId = roomId, let blockId = blockId else { return nil}
+                                                
+            self.sendDeviceReport(info: (roomId, blockId))
+                                                
+            return (roomId, blockId)
         }
         
         let dateTxt = input.dateSelected.map { date -> String in
@@ -136,5 +140,10 @@ final class SettingsViewModel: ViewModelType {
                       selectedBlock: finalSession,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
+    }
+    
+    private func sendDeviceReport(info: (Int, Int)) {
+        let batInfo = BatteryManager.init().info
+        deviceStateReporter.sessionIsSet(info: info, battery_info: batInfo, app_active: true)
     }
 }
