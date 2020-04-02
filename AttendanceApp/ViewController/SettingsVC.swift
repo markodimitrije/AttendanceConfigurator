@@ -60,7 +60,7 @@ class SettingsVC: UITableViewController {
     
     // MARK:- ViewModels
 
-    lazy var settingsViewModel = SettingsViewModel(dataAccess: DataAccess.shared)
+    lazy var settingsViewModel = SettingsViewModelFactory.make()
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     

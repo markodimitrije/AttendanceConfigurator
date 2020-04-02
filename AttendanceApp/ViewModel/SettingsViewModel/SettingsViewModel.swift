@@ -11,23 +11,28 @@ import RxCocoa
 
 final class SettingsViewModel: ViewModelType {
     
-    var dataAccess: DataAccess
+    private let dataAccess: DataAccess
+    private let roomRepo: IRoomRepository
+    private let blockRepo: IBlockRepository
+    
     private let initialRoom: Room?
     private let initialBlock: Block?
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
-    init(dataAccess: DataAccess) {
+    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockRepository) {
         self.dataAccess = dataAccess
+        self.roomRepo = roomRepo
+        self.blockRepo = blockRepo
         // room
         if let roomId = self.dataAccess.userSelection.roomId {
-           initialRoom = RoomRepository().getRoom(id: roomId) as? Room
+           initialRoom = roomRepo.getRoom(id: roomId) as? Room
         } else {
             initialRoom  = nil
         }
         //block
         if let blockId = self.dataAccess.userSelection.blockId {
-            initialBlock = BlockRepository().getBlock(id: blockId) as? Block
+            initialBlock = blockRepo.getBlock(id: blockId) as? Block
         } else {
             initialBlock = nil
         }
