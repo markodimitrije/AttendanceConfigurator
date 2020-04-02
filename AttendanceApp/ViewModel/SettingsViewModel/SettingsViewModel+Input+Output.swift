@@ -16,7 +16,7 @@ extension SettingsViewModel {
         let cancelTrigger: Driver<Void>
         let saveSettingsTrigger: Driver<Void>
         let dateSelected: Driver<Date?>
-        let roomSelected: Driver<Room?>
+        let roomSelected: Driver<Int?>
         let sessionSelected: Driver<Block?>
         let sessionSwitch: Driver<Bool>
         let blockSelectedManually: Driver<Bool>//self.tableView.rx.itemSelected.asDriver()

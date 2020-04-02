@@ -101,7 +101,7 @@ class SettingsVC: UITableViewController {
                         cancelTrigger: cancelSettingsBtn.rx.tap.asDriver(),
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
-                        roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
+                        roomSelected: roomSelected.asDriver(onErrorJustReturn: nil).map {$0?.id},
                         sessionSelected: sessionManuallyDriver,
                         sessionSwitch: sessionSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal,

@@ -15,7 +15,7 @@ final class SettingsViewModel: ViewModelType {
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockRepository
     
-    private let initialRoom: Room?
+    private let initialRoom: Int?
     private let initialBlock: Block?
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
@@ -25,11 +25,8 @@ final class SettingsViewModel: ViewModelType {
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo
         // room
-        if let roomId = self.dataAccess.userSelection.roomId {
-           initialRoom = roomRepo.getRoom(id: roomId) as? Room
-        } else {
-            initialRoom  = nil
-        }
+        initialRoom = self.dataAccess.userSelection.roomId
+            
         //block
         if let blockId = self.dataAccess.userSelection.blockId {
             initialBlock = blockRepo.getBlock(id: blockId) as? Block
@@ -42,17 +39,18 @@ final class SettingsViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        let roomTxt = input.roomSelected.map { room -> String in
-            return room?.name ?? RoomTextData.selectRoom
+        let roomTxt = input.roomSelected.map { roomId -> String in
+            guard let roomId = roomId else {
+                return RoomTextData.selectRoom
+            }
+            return self.roomRepo.getRoom(id: roomId)?.getName() ?? ""
         }
         
         let interval = MyTimeInterval.waitToMostRecentSession
         let autoSessionDriver =
             Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
-                (room, switchIsOn) -> Block? in
-            guard let roomId = room?.id else {
-                return nil
-            }
+                (roomId, switchIsOn) -> Block? in
+            guard let roomId = roomId else { return nil }
             if switchIsOn {
                 let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
                 autoModelView.inSelTimeInterval.onNext(interval)
@@ -118,11 +116,11 @@ final class SettingsViewModel: ViewModelType {
                                                finalDateSelected,
                                                finalAutoSwitch) {
 
-            (room, session, date, autoSwitch) -> (Int, Int)? in
+            (roomId, session, date, autoSwitch) -> (Int, Int)? in
 
-            self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // MUST !
+            self.dataAccess.userSelection = (roomId, session?.id, date, autoSwitch) // MUST !
 
-            guard let roomId = room?.id, let sessionId = session?.id else { return nil}
+            guard let roomId = roomId, let sessionId = session?.id else { return nil}
 
             return (roomId, sessionId)
         }
