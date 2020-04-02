@@ -102,7 +102,7 @@ class SettingsVC: UITableViewController {
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil).map {$0?.id},
-                        sessionSelected: sessionManuallyDriver,
+                        sessionSelected: sessionManuallyDriver.map {$0?.id},
                         sessionSwitch: sessionSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal,
                         waitInterval:interval

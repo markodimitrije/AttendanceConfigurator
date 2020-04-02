@@ -16,7 +16,7 @@ final class SettingsViewModel: ViewModelType {
     private let blockRepo: IBlockRepository
     
     private let initialRoom: Int?
-    private let initialBlock: Block?
+    private let initialBlock: Int?
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
@@ -24,15 +24,10 @@ final class SettingsViewModel: ViewModelType {
         self.dataAccess = dataAccess
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo
-        // room
-        initialRoom = self.dataAccess.userSelection.roomId
-            
-        //block
-        if let blockId = self.dataAccess.userSelection.blockId {
-            initialBlock = blockRepo.getBlock(id: blockId) as? Block
-        } else {
-            initialBlock = nil
-        }
+        // set initial selection
+        self.initialRoom = self.dataAccess.userSelection.roomId
+        self.initialBlock = self.dataAccess.userSelection.blockId
+        
         self.initialDate = self.dataAccess.userSelection.selectedDate
         self.initialAutoSwitch = self.dataAccess.userSelection.autoSwitch
     }
@@ -49,12 +44,12 @@ final class SettingsViewModel: ViewModelType {
         let interval = MyTimeInterval.waitToMostRecentSession
         let autoSessionDriver =
             Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
-                (roomId, switchIsOn) -> Block? in
+                (roomId, switchIsOn) -> Int? in
             guard let roomId = roomId else { return nil }
             if switchIsOn {
                 let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
                 autoModelView.inSelTimeInterval.onNext(interval)
-                return try! autoModelView.selectedSession.value() ?? nil // pazi ovde !! try !
+                return try! autoModelView.selectedSession.value()?.id ?? nil // pazi ovde !! try !
             }
             return nil
         }.skip(1)
@@ -73,9 +68,10 @@ final class SettingsViewModel: ViewModelType {
         
         let sessionTxt =
             Driver.combineLatest(manualAndAutoSession, input.sessionSwitch) {
-            (block, state) -> String in
-                if let name = block?.name {
-                    return name
+            (blockId, state) -> String in
+                if let blockId = blockId,
+                    let blockName = self.blockRepo.getBlock(id: blockId)?.getName() {
+                        return blockName
                 } else {
                     if state {
                         return SessionTextData.noAutoSessAvailable
@@ -107,8 +103,12 @@ final class SettingsViewModel: ViewModelType {
             $1 ? $0 : self.initialAutoSwitch
         }
         
-        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
-            $1 ? $0?.getStartsAt() : self.initialDate
+        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig)
+            .map { (arg) -> Date? in
+                let blockId: Int? = arg.0
+                let tap: Bool = arg.1
+                let block = self.blockRepo.getBlock(id: blockId ?? -1)
+                return (tap) ? block?.getStartsAt() : self.initialDate
         }
         
         let sessionInfo = Driver.combineLatest(finalRoom,
@@ -116,15 +116,19 @@ final class SettingsViewModel: ViewModelType {
                                                finalDateSelected,
                                                finalAutoSwitch) {
 
-            (roomId, session, date, autoSwitch) -> (Int, Int)? in
+            (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            self.dataAccess.userSelection = (roomId, session?.id, date, autoSwitch) // MUST !
+            self.dataAccess.userSelection = (roomId, blockId, date, autoSwitch) // MUST !
 
-            guard let roomId = roomId, let sessionId = session?.id else { return nil}
+            guard let roomId = roomId, let sessionId = blockId else { return nil}
 
             return (roomId, sessionId)
         }
         
+        let finalSessionId = finalSession.map { id -> Block? in
+            guard let id = id else {return nil}
+            return self.blockRepo.getBlock(id: id) as? Block
+        }
         
         let dateTxt = input.dateSelected.map { date -> String in
             guard let date = date else { return "Select date" }
@@ -135,7 +139,7 @@ final class SettingsViewModel: ViewModelType {
                       dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      selectedBlock: finalSession,
+                      selectedBlock: finalSessionId,//finalSession,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
     }
