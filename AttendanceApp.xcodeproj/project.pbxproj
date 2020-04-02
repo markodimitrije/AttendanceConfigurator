@@ -11,6 +11,7 @@
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
 		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
+		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
@@ -83,10 +84,6 @@
 		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
 		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
-		7CEF97B8228DA98200C31CD8 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97B7228DA98200C31CD8 /* cities.json */; };
-		7CEF97BA228DAA1B00C31CD8 /* citiesUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97B9228DAA1B00C31CD8 /* citiesUpdated.json */; };
-		7CEF97BE228DAD0100C31CD8 /* roomsUpdated.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97BD228DAD0100C31CD8 /* roomsUpdated.json */; };
-		7CEF97C0228DAD1300C31CD8 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CEF97BF228DAD1300C31CD8 /* rooms.json */; };
 		7CFDEC4F242CB8190060A2C7 /* BlockRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */; };
 		7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */; };
 		7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */; };
@@ -165,6 +162,7 @@
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
+		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -239,10 +237,6 @@
 		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
-		7CEF97B7228DA98200C31CD8 /* cities.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
-		7CEF97B9228DAA1B00C31CD8 /* citiesUpdated.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = citiesUpdated.json; sourceTree = "<group>"; };
-		7CEF97BD228DAD0100C31CD8 /* roomsUpdated.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = roomsUpdated.json; sourceTree = "<group>"; };
-		7CEF97BF228DAD1300C31CD8 /* rooms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
 		7CFDEC4E242CB8190060A2C7 /* BlockRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepositoryTest.swift; sourceTree = "<group>"; };
 		7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlockFactory.swift; sourceTree = "<group>"; };
 		7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoomFactory.swift; sourceTree = "<group>"; };
@@ -422,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				7C640B62242C99B2004A9D58 /* JsonBundleDataProvider */,
+				7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */,
 				7C592BFD242BDC1900294E71 /* Blocks.json */,
 				7C592BFF242BDD0600294E71 /* Rooms.json */,
 			);
@@ -739,17 +734,6 @@
 			path = Report;
 			sourceTree = "<group>";
 		};
-		7CEF97B6228DA96B00C31CD8 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				7CEF97B7228DA98200C31CD8 /* cities.json */,
-				7CEF97B9228DAA1B00C31CD8 /* citiesUpdated.json */,
-				7CEF97BD228DAD0100C31CD8 /* roomsUpdated.json */,
-				7CEF97BF228DAD1300C31CD8 /* rooms.json */,
-			);
-			path = JSON;
-			sourceTree = "<group>";
-		};
 		7CFDEC58242CD0060060A2C7 /* DataLoaders */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,7 +876,6 @@
 				7CEC673F242B6AEF00CC56FF /* Repository */,
 				7CBDC28022D8A8D800B7D43F /* Scan */,
 				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
-				7CEF97B6228DA96B00C31CD8 /* JSON */,
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
 				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
 				7CE81539227346F700B33986 /* Sounds */,
@@ -1059,6 +1042,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C592C00242BDD0600294E71 /* Rooms.json in Resources */,
+				7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */,
 				7C592BFE242BDC1900294E71 /* Blocks.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1069,16 +1053,12 @@
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
-				7CEF97C0228DAD1300C31CD8 /* rooms.json in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
-				7CEF97B8228DA98200C31CD8 /* cities.json in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
-				7CEF97BA228DAA1B00C31CD8 /* citiesUpdated.json in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
-				7CEF97BE228DAD0100C31CD8 /* roomsUpdated.json in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7CAE889722E87EF100632EAC /* Launch Screen.xib in Resources */,

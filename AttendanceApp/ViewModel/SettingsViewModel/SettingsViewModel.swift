@@ -85,55 +85,35 @@ final class SettingsViewModel: ViewModelType {
         let saveCancelTrig = Driver.merge([input.cancelTrigger.map {return false},
                                            input.saveSettingsTrigger.map {return true}])
         
-        let finalRoom = Driver.combineLatest(input.roomSelected, saveCancelTrig) {
-            (room, tap) -> Room? in
-                if tap {
-                    return room
-                } else {
-                    return self.initialRoom
-                }
+        //roomDriver
+        let finalRoom = Driver.combineLatest(input.roomSelected, saveCancelTrig).map {
+            $1 ? $0 : self.initialRoom
         }
         
-        let finalSession = Driver.combineLatest(manualAndAutoSession, saveCancelTrig) {
-            (session, tap) -> Block? in
-                if tap {
-                    return session
-                } else {
-                    //return nil
-                    return self.initialBlock
-                }
+        //sessionDriver
+        let finalSession = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
+            $1 ? $0 : self.initialBlock
         }
         
+        //autoSwitchDriver
         let compositeSwitch: Driver<Bool> =
         Driver.merge(input.blockSelectedManually.map {_ in return false},
                                                      input.sessionSwitch)//.debug()
         
-        let finalAutoSwitch = Driver.combineLatest(compositeSwitch, saveCancelTrig) {
-            (sessionSwitch, tap) -> Bool in
-                if tap {
-                    return sessionSwitch
-                } else {
-                    return self.initialAutoSwitch
-                }
+        let finalAutoSwitch = Driver.combineLatest(compositeSwitch, saveCancelTrig).map {
+            $1 ? $0 : self.initialAutoSwitch
         }
         
-        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig) {
-            (session, tap) -> Date? in
-                if tap {
-                    return session?.getStartsAt()
-                } else {
-                    return self.initialDate
-                }
+        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
+            $1 ? $0?.getStartsAt() : self.initialDate
         }
         
         let sessionInfo = Driver.combineLatest(finalRoom,
                                                finalSession,
-                                               finalDateSelected,//input.dateSelected,
-                                                finalAutoSwitch) {//compositeSwitch) {
+                                               finalDateSelected,
+                                               finalAutoSwitch) {
 
             (room, session, date, autoSwitch) -> (Int, Int)? in
-
-            guard session != nil else {return nil}
 
             self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
 
