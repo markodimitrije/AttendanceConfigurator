@@ -115,11 +115,9 @@ final class SettingsViewModel: ViewModelType {
 
             (room, session, date, autoSwitch) -> (Int, Int)? in
 
-            self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // javi svom modelu, side effect
+            self.dataAccess.userSelection = (room?.id, session?.id, date, autoSwitch) // MUST !
 
-            guard let roomId = room?.id, let sessionId = session?.id else {
-                return nil
-            }
+            guard let roomId = room?.id, let sessionId = session?.id else { return nil}
 
             return (roomId, sessionId)
         }
@@ -135,7 +133,7 @@ final class SettingsViewModel: ViewModelType {
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalSession,
-                      compositeSwitch: finalAutoSwitch,//compositeSwitch,
+                      compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
     }
 }
