@@ -9,7 +9,6 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Realm
 import RealmSwift
 
 class DataAccess: NSObject {
@@ -32,18 +31,17 @@ class DataAccess: NSObject {
             return (UserDefaults.standard.value(forKey: "roomId") as? Int,
                     UserDefaults.standard.value(forKey: "sessionId") as? Int,
                     UserDefaults.standard.value(forKey: "date") as? Date,
-                    UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true
-            )
+                    UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true)
         }
         set {
             UserDefaults.standard.set(newValue.0, forKey: "roomId")
             UserDefaults.standard.set(newValue.1, forKey: "sessionId")
             UserDefaults.standard.set(newValue.2, forKey: "date")
             UserDefaults.standard.set(newValue.3, forKey: "autoSwitch")
-            userDefaultsIsUpdated(forKeyPath: "roomId")
-            userDefaultsIsUpdated(forKeyPath: "sessionId")
-            userDefaultsIsUpdated(forKeyPath: "date")
-            userDefaultsIsUpdated(forKeyPath: "autoSwitch")
+            _roomSelected.accept(newValue.0)
+            _blockSelected.accept(newValue.1)
+            _dateSelected.accept(newValue.2)
+            _autoSwitchSelected.accept(newValue.3)
         }
     }
     
@@ -54,7 +52,6 @@ class DataAccess: NSObject {
                                         _dateSelected.asObservable(),
                                         _autoSwitchSelected.asObservable(),
             resultSelector: { (room, block, date, autoSwitch) -> (Int?, Int?, Date?, Bool) in
-            //print("emitujem iz DataAccess..room i session za.... \(room?.id), \(block?.id), sa blockName = \(block?.name ?? "no  name")")
             return (room, block, date, autoSwitch)
         })
     }
@@ -65,27 +62,6 @@ class DataAccess: NSObject {
         self.dateInitial = UserDefaults.standard.value(forKey: "date") as? Date
         self.autoSwitchInitial = UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true
         super.init()
-    }
-    
-    private func userDefaultsIsUpdated(forKeyPath keyPath: String?) {
-        
-        guard let keyPath = keyPath else {return}
-        
-        if keyPath == "roomId" {
-            let roomId = UserDefaults.standard.value(forKey: keyPath) as? Int
-            _roomSelected.accept(roomId)
-        } else if keyPath == "sessionId" {
-            let sessionId = UserDefaults.standard.value(forKey: keyPath) as? Int
-            _blockSelected.accept(sessionId)
-        } else if keyPath == "date" {
-            let date = UserDefaults.standard.value(forKey: keyPath) as? Date
-            _dateSelected.accept(date)
-        } else if keyPath == "autoSwitch" {
-            let autoSwitch = UserDefaults.standard.value(forKey: keyPath) as? Bool ?? false
-//            print("DataAccess/// emitujem state za autoSwitch = \(autoSwitch)")
-            _autoSwitchSelected.accept(autoSwitch)
-        }
-        
     }
     
 }

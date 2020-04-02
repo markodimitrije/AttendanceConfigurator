@@ -136,7 +136,7 @@ class BlockViewModel {
         } else {
             oAutomaticSession.accept(nil)
         }
-        
+         
     }
     
     private func autoSessionIsAvailable(inLessThan interval: TimeInterval) -> Bool { // implement me
