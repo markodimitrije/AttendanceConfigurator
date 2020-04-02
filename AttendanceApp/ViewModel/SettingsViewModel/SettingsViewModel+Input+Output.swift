@@ -28,7 +28,8 @@ extension SettingsViewModel {
         let dateTxt: Driver<String>
         let sessionTxt: Driver<String>
         let saveSettingsAllowed: Driver<Bool>
-        let selectedBlock: Driver<Block?>
+        //let selectedBlock: Driver<Block?>
+        let selectedBlock: Driver<Int?>
         let compositeSwitch: Driver<Bool>
         let sessionInfo: Driver<(Int, Int)?>
     }

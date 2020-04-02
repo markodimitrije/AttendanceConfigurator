@@ -47,11 +47,9 @@ class SettingsVC: UITableViewController {
     
     // OUTPUTS:
     
-    //let sessionSelected = BehaviorSubject<Block?>.init(value: nil)
-    let sessionSelected: BehaviorSubject<Block?> = {
+    let sessionSelected: BehaviorSubject<Int?> = {
         let blockId = DataAccess.shared.userSelection.blockId
-        let block = (blockId != nil) ? BlockRepository().getBlock(id: blockId!) as? Block : nil
-        return BehaviorSubject<Block?>.init(value: block)
+        return BehaviorSubject<Int?>.init(value: blockId)
     }()
     
     var selectedInterval = BehaviorRelay<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession) // posesava na odg XIB
@@ -207,8 +205,7 @@ class SettingsVC: UITableViewController {
     }
     
     private func getSessionReport() -> CodeReport { // refactor - delete
-        let session = try! sessionSelected.value()!
-        let sessionId = session.id
+        let sessionId = try! sessionSelected.value()!
         return CodeReport(code: "", sessionId: sessionId, date: Date.now)
     }
     
@@ -253,9 +250,8 @@ class SettingsVC: UITableViewController {
             blocksVC.selectedBlock
                 .subscribe(onNext: { [weak self] blockId in
                     guard let sSelf = self else {return}
-                    let block = BlockRepository().getBlock(id: blockId) as! Block
                     sSelf.sessionManuallySelected.onNext(blockId)
-                    sSelf.sessionSelected.onNext(block) // moze li ovo bolje....
+                    sSelf.sessionSelected.onNext(blockId) // moze li ovo bolje....
                 })
                 .disposed(by: disposeBag)
             

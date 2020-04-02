@@ -138,7 +138,7 @@ final class SettingsViewModel: ViewModelType {
                       dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      selectedBlock: finalSessionId,//finalSession,
+                      selectedBlock: /*finalSessionId,*/finalSession,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
     }
