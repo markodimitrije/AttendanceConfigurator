@@ -124,11 +124,6 @@ final class SettingsViewModel: ViewModelType {
             return (roomId, sessionId)
         }
         
-        let finalSessionId = finalSession.map { id -> Block? in
-            guard let id = id else {return nil}
-            return self.blockRepo.getBlock(id: id) as? Block // TODO marko: IBlock?
-        }
-        
         let dateTxt = input.dateSelected.map { date -> String in
             guard let date = date else { return "Select date" }
             return date.toString(format: "yyyy-MM-dd") ?? "error converting to date"
@@ -138,7 +133,7 @@ final class SettingsViewModel: ViewModelType {
                       dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      selectedBlock: /*finalSessionId,*/finalSession,
+                      selectedBlock: finalSession,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
     }
