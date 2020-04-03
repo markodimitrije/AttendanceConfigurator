@@ -29,20 +29,11 @@ class SettingsVC: UITableViewController {
     lazy var settingsViewModel = SettingsViewModelFactory.make()
     private let disposeBag = DisposeBag()
     
-    // INPUTS:
+    // INPUTS: property injection
     
-    var dateSelected: BehaviorRelay<Date?>!// = {
-//        let date = DataAccess.shared.userSelection.selectedDate
-//        return BehaviorRelay<Date?>.init(value: date)
-//    }()
-    var roomSelected: BehaviorSubject<Int?> = {
-        let roomId = DataAccess.shared.userSelection.roomId
-        return BehaviorSubject<Int?>.init(value: roomId)
-    }()
-    let sessionManuallySelected: BehaviorSubject<Int?> = {
-        let blockId = DataAccess.shared.userSelection.blockId
-        return BehaviorSubject<Int?>.init(value: blockId)
-    }()
+    var dateSelected: BehaviorRelay<Date?>!
+    var roomSelected: BehaviorSubject<Int?>!
+    var sessionManuallySelected: BehaviorSubject<Int?>!
     
     // OUTPUTS:
     
@@ -229,12 +220,24 @@ class SettingsViewControllerFactory {
         settingsVC.settingsViewModel = SettingsViewModelFactory.make()
         
         // inject live instances reporting from other viewControllers
+        attachExternalSignals(toSettingsVC: settingsVC)
+    
+        return settingsVC
+    }
+    
+    private static func attachExternalSignals(toSettingsVC settingsVC: SettingsVC) {
         settingsVC.dateSelected = {
             let date = DataAccess.shared.userSelection.selectedDate
             return BehaviorRelay<Date?>.init(value: date)
         }()
-    
-        return settingsVC
+        settingsVC.roomSelected = {
+            let roomId = DataAccess.shared.userSelection.roomId
+            return BehaviorSubject<Int?>.init(value: roomId)
+        }()
+        settingsVC.sessionManuallySelected = {
+            let blockId = DataAccess.shared.userSelection.blockId
+            return BehaviorSubject<Int?>.init(value: blockId)
+        }()
     }
     
 }
