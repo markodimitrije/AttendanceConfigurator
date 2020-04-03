@@ -24,7 +24,7 @@ class AutoSelSessionViewModel {
     var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil) // implement me
     var switchState = BehaviorSubject<Bool>.init(value: true)
     
-    private var inSwitchStateDriver: SharedSequence<DriverSharingStrategy, Bool> {
+    private var switchStateDriver: SharedSequence<DriverSharingStrategy, Bool> {
         return switchState.asDriver(onErrorJustReturn: false)
     }
     
@@ -35,7 +35,7 @@ class AutoSelSessionViewModel {
         
         // switch binding:
         
-        inSwitchStateDriver // switch driver
+        switchStateDriver // switch driver
             .drive(onNext: { tap in // pretplati se da slusas (observe)
                 self.blockViewModel.oAutomaticSessionDriver // uzmi slave-ov output
                     .drive(self.selectedSession) // i njime 'pogoni' svoj output
@@ -53,7 +53,6 @@ class AutoSelSessionViewModel {
                 DataAccess.shared.userSelection.blockId = block?.id // hazardous
             })
             .disposed(by: bag)
-        
     }
     
     deinit { print("AutoSelSessionViewModel.deinit") }

@@ -8,7 +8,6 @@
 
 import Foundation
 import RealmSwift
-import Realm
 import RxSwift
 import RxRealm
 import RxCocoa
