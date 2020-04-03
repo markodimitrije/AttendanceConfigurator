@@ -62,7 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1090" y="-313"/>
+            <point key="canvasLocation" x="491" y="-305"/>
         </scene>
         <!--BlocksVC-->
         <scene sceneID="dxs-rp-7TQ">
@@ -123,24 +123,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOP-EG-MdP" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1090" y="405"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="SQ3-Cy-wPm">
-            <objects>
-                <navigationController storyboardIdentifier="NavForSettingsVC" automaticallyAdjustsScrollViewInsets="NO" id="WFo-Eo-cmi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GsJ-s8-IAN">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jL5-oN-B50" kind="relationship" relationship="rootViewController" id="ZFE-TB-JqW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nM2-LA-PK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-379.1015625" y="404.6875"/>
         </scene>
         <!--ScannerVC-->
         <scene sceneID="moc-s0-wAc">
@@ -208,7 +190,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="settings"/>
                                         <connections>
-                                            <segue destination="WFo-Eo-cmi" kind="show" identifier="segueShowSettings" id="Hs0-e1-Oxn"/>
+                                            <action selector="settingsBtnTapped:" destination="e5d-ka-5Kd" eventType="touchUpInside" id="Iuu-de-HDj"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upper-banner" translatesAutoresizingMaskIntoConstraints="NO" id="Za6-Cr-zEr">
@@ -296,7 +278,7 @@
         <!--SettingsVC-->
         <scene sceneID="JBd-Ds-4NK">
             <objects>
-                <tableViewController id="jL5-oN-B50" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVC" id="jL5-oN-B50" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="44" estimatedSectionHeaderHeight="44" sectionFooterHeight="1" id="7lv-sE-zj0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -503,7 +485,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXr-lW-JqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352.734375" y="404.6875"/>
+            <point key="canvasLocation" x="-379" y="405"/>
         </scene>
         <!--DatesVC-->
         <scene sceneID="Wtq-7A-WoN">

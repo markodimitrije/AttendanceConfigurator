@@ -23,6 +23,10 @@ class ScannerVC: UIViewController {
     @IBOutlet weak var sessionNameLbl: UILabel!
     @IBOutlet weak var sessionTimeAndRoomLbl: UILabel!
     
+    @IBAction func settingsBtnTapped(_ sender: UIButton) {
+        navigateToNextScreen()
+    }
+    
     lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
@@ -83,13 +87,10 @@ class ScannerVC: UIViewController {
     
     // MARK:- To next screen
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let name = segue.identifier, name == "segueShowSettings",
-            let navVC = segue.destination as? UINavigationController,
-            let settingsVC = navVC.children.first as? SettingsVC else { return }
-        
-        self.settingsVC = settingsVC
-        
+    private func navigateToNextScreen() {
+        let settingsVC = SettingsViewControllerFactory.make()
+        let nextVC = UINavigationController(rootViewController: settingsVC)
+        self.present(nextVC, animated: true)
     }
     
     // MARK:- Show Failed Alerts

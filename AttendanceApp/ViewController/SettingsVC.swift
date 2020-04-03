@@ -31,10 +31,10 @@ class SettingsVC: UITableViewController {
     
     // INPUTS:
     
-    let dateSelected: BehaviorRelay<Date?> = {
-        let date = DataAccess.shared.userSelection.selectedDate
-        return BehaviorRelay<Date?>.init(value: date)
-    }()
+    var dateSelected: BehaviorRelay<Date?>!// = {
+//        let date = DataAccess.shared.userSelection.selectedDate
+//        return BehaviorRelay<Date?>.init(value: date)
+//    }()
     var roomSelected: BehaviorSubject<Int?> = {
         let roomId = DataAccess.shared.userSelection.roomId
         return BehaviorSubject<Int?>.init(value: roomId)
@@ -72,8 +72,7 @@ class SettingsVC: UITableViewController {
         let manuallySelectedSignal = tableView.rx.itemSelected.filter
             {$0.section == 2 && $0.row == 0} // jako slabo...
             .map {_ in return false}
-            .asDriver(onErrorJustReturn: false)
-            //.debug()
+            .asDriver(onErrorJustReturn: false)//.debug()
         
         let savedAutoSwitchState = DataAccess.shared.userSelection.3
         let sessionSwitchSignal = autoSelectSessionsView.controlSwitch
@@ -135,8 +134,7 @@ class SettingsVC: UITableViewController {
     
     private func bindReachability() {
         
-        connectedToInternet()
-            //.debug()
+        connectedToInternet()//.debug()
             .asDriver(onErrorJustReturn: false)
             .drive(wiFiConnectionView.rx.connected) // ovo je var tipa binder na xib-u
             .disposed(by: disposeBag)
@@ -169,11 +167,6 @@ class SettingsVC: UITableViewController {
             .asDriver(onErrorJustReturn: nil) // ovu liniju napisi u modelu...
             .drive(tableView.rx.roomValidationSideEffects)
             .disposed(by: disposeBag)
-    }
-    
-    private func getSessionReport() -> CodeReport { // refactor - delete
-        let sessionId = try! sessionSelected.value()!
-        return CodeReport(code: "", sessionId: sessionId, date: Date.now)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -229,3 +222,21 @@ class SettingsVC: UITableViewController {
     override var shouldAutorotate: Bool { return false }
     
 }
+
+class SettingsViewControllerFactory {
+    static func make() -> SettingsVC {
+        let settingsVC = UIStoryboard.main.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+        settingsVC.settingsViewModel = SettingsViewModelFactory.make()
+        
+        // inject live instances reporting from other viewControllers
+        settingsVC.dateSelected = {
+            let date = DataAccess.shared.userSelection.selectedDate
+            return BehaviorRelay<Date?>.init(value: date)
+        }()
+    
+        return settingsVC
+    }
+    
+}
+
+

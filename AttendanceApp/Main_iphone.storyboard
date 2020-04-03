@@ -216,7 +216,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="settings"/>
                                         <connections>
-                                            <segue destination="pEA-Az-yZI" kind="show" identifier="segueShowSettings" id="3vJ-hZ-XOP"/>
+                                            <action selector="settingsBtnTapped:" destination="pt0-GI-Pul" eventType="touchUpInside" id="yHE-JN-OAa"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upper-banner" translatesAutoresizingMaskIntoConstraints="NO" id="bPn-1W-XSZ">
@@ -324,7 +324,7 @@
         <!--SettingsVC-->
         <scene sceneID="Cri-Xx-bie">
             <objects>
-                <tableViewController id="kUY-OH-lrd" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVC" id="kUY-OH-lrd" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="44" estimatedSectionHeaderHeight="44" sectionFooterHeight="1" id="Lzk-he-NQD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
