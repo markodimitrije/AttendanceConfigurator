@@ -9,8 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Realm
-import RealmSwift
 import RxRealmDataSources
 
 class RoomsVC: UIViewController {    
@@ -45,7 +43,6 @@ class RoomsVC: UIViewController {
         roomViewModel.oRooms
             .bind(to: tableView.rx.realmChanges(dataSource))
             .disposed(by: disposeBag)
-        
     }
     
 }
@@ -53,11 +50,8 @@ class RoomsVC: UIViewController {
 extension RoomsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // neka ti roomViewModel samo izracuna pa ti vrati settingsVC-u !
-        
         let selectedRoom = roomViewModel.getRoom(forSelectedTableIndex: indexPath.item)
         
         selRealmRoom.onNext(selectedRoom.getId())
-        
     }
 }

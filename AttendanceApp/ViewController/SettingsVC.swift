@@ -8,9 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Realm
-import RealmSwift
-import RxRealmDataSources
 
 class SettingsVC: UITableViewController {
 
