@@ -27,8 +27,6 @@ class BlockViewModel {
     
     // output 1 - za prikazivanje blocks na tableView...
     
-    var sectionsHeadersAndItems = [SectionOfCustomData]()
-    
     var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
     
     // output 2 - expose your calculated stuff
@@ -39,37 +37,20 @@ class BlockViewModel {
         return oAutomaticSession.asDriver(onErrorJustReturn: nil)
     }
     
-    let roomId: Int?
-    
-    var selInterval: Int?
+    private let roomId: Int?
+    private let mostRecentBlockUtility: IMostRecentBlockUtility
     
     private var mostRecentSessionBlock: RealmBlock? {
-        
-        let todayBlocks = blocksSortedByDate.filter { // mock za test !
-            return Calendar.current.compare(NOW,
-                                            to: Date.parse($0.starts_at),
-                                            toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
-        }
-        
-        let actualOrNextInFiftheenMinutes = todayBlocks.filter { block -> Bool in
-            let startsAt = Date.parse(block.starts_at)
-            
-            return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
-            }
-            .last
-        
-        return actualOrNextInFiftheenMinutes
+        return mostRecentBlockUtility
+            .getMostRecentSession(blocksSortedByDate: self.blocksSortedByDate)
     }
     
-    
-    // 1 - dependencies-init
-    init(roomId: Int? = nil) {
+    init(roomId: Int? = nil, mostRecentBlockUtility: IMostRecentBlockUtility) {
         self.roomId = roomId
+        self.mostRecentBlockUtility = mostRecentBlockUtility
         bindOutput()
         bindAutomaticSession()
     }
-    
-    //... 2 - input
     
     // 3 - output
     
@@ -105,9 +86,8 @@ class BlockViewModel {
     }
     
     private func loadSectionsHeadersAndItems(blocksByDay: [[RealmBlock]]) {
-        sectionsHeadersAndItems = blocksByDay.map({ (blocks) -> SectionOfCustomData in
+        let items = blocksByDay.map({ (blocks) -> SectionOfCustomData in
             let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
-            //let itemTupols = blocks.map {(($0.starts_at + " " + $0.name), Date.parse($0.starts_at))}
             let items = blocks.map({ (rBlock) -> SectionOfCustomData.Item in
                 let fullname = rBlock.starts_at + " " + rBlock.name
                 let name = rBlock.name
@@ -116,7 +96,7 @@ class BlockViewModel {
             })
             return SectionOfCustomData.init(header: sectionName, items: items)
         })
-        oSectionsHeadersAndItems.accept(sectionsHeadersAndItems)
+        oSectionsHeadersAndItems.accept(items)
     }
     
     // ako ima bilo koji session u zadatom Room, na koji se ceka krace od 2 sata, emituj SessionId; ako nema, emituj nil.
@@ -162,29 +142,4 @@ class BlockViewModel {
     
     //deinit { print("deinit/BlockViewModel is deinit") }
     
-}
-
-protocol IMostRecentBlockUtility {
-    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock?
-    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock?
-}
-
-class MostRecentBlockUtility: IMostRecentBlockUtility {
-    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock? {
-    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock? {
-        
-        let todayBlocks = blocksSortedByDate.filter {
-            return Calendar.current.compare(NOW,
-                                            to: Date.parse($0.starts_at),
-                                            toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
-        }
-        
-        let actualOrNextInFiftheenMinutes =
-            todayBlocks.filter { block -> Bool in
-                let startsAt = Date.parse(block.starts_at)
-                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
-            }.last
-        
-        return actualOrNextInFiftheenMinutes
-    }
 }

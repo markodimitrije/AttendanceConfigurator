@@ -10,6 +10,7 @@ import Foundation
 
 class BlockViewModelFactory {
     static func make(roomId: Int? = nil) -> BlockViewModel {
-        return BlockViewModel(roomId: roomId)
+        return BlockViewModel(roomId: roomId,
+                              mostRecentBlockUtility: MostRecentBlockUtility())
     }
 }

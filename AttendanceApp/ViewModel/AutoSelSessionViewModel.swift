@@ -16,7 +16,7 @@ class AutoSelSessionViewModel {
     let blockViewModel: BlockViewModel!
     
     init(roomId: Int) {
-        blockViewModel = BlockViewModel.init(roomId: roomId)
+        blockViewModel = BlockViewModelFactory.make(roomId: roomId)
         bindInputWithOutput()
     }
     
