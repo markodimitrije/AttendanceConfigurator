@@ -26,6 +26,7 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
     @IBOutlet weak var syncApiKeyView: SyncApiKeyView!
     
+    lazy var settingsViewModel = SettingsViewModelFactory.make()
     private let disposeBag = DisposeBag()
     
     // INPUTS:
@@ -52,8 +53,6 @@ class SettingsVC: UITableViewController {
     
     // MARK:- ViewModels
 
-    lazy var settingsViewModel = SettingsViewModelFactory.make()
-    
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
     override func viewDidLoad() { super.viewDidLoad()
@@ -62,7 +61,6 @@ class SettingsVC: UITableViewController {
         bindUnsyncedScans()
         bindSyncApiKey()
 //        bindState() // ovde je rano za tableView.visibleCells !!
-
     }
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
