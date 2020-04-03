@@ -42,14 +42,12 @@ final class SettingsViewModel: ViewModelType {
             return self.roomRepo.getRoom(id: roomId)?.getName() ?? ""
         }
         
-        let interval = MyTimeInterval.waitToMostRecentSession
         let autoSessionDriver =
             Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
                 (roomId, switchIsOn) -> Int? in
             guard let roomId = roomId else { return nil }
             if switchIsOn {
                 let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
-                autoModelView.inSelTimeInterval.onNext(interval)
                 return try! autoModelView.selectedSession.value()?.id ?? nil // pazi ovde !! try !
             }
             return nil

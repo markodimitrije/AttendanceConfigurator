@@ -17,8 +17,7 @@ class AutoSelSessionWithWaitIntervalViewModel {
     let bag = DisposeBag()
     let blockViewModel: BlockViewModel!
     
-    init(roomId: Int, interval: TimeInterval = MyTimeInterval.waitToMostRecentSession) {
-        inSelTimeInterval.onNext(interval)
+    init(roomId: Int) {
         blockViewModel = BlockViewModel.init(roomId: roomId)
         bindInputWithOutput()
     }
@@ -26,11 +25,6 @@ class AutoSelSessionWithWaitIntervalViewModel {
     // INPUT:
     var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil) // implement me
     var switchState = BehaviorSubject<Bool>.init(value: true)
-    var inSelTimeInterval = BehaviorSubject<TimeInterval>.init(value: MyTimeInterval.waitToMostRecentSession)
-    
-    private var inSelTimeIntervalDriver: SharedSequence<DriverSharingStrategy, TimeInterval> {
-        return inSelTimeInterval.asDriver(onErrorJustReturn: MyTimeInterval.waitToMostRecentSession)
-    }
     
     private var inSwitchStateDriver: SharedSequence<DriverSharingStrategy, Bool> {
         return switchState.asDriver(onErrorJustReturn: false)
@@ -51,12 +45,6 @@ class AutoSelSessionWithWaitIntervalViewModel {
             })
             .disposed(by: bag)
 
-        // autoSelTimeInterval binding:
-        
-        inSelTimeIntervalDriver // hookUp input ! // sopstveni input
-            .drive(blockViewModel.oAutoSelSessInterval) // prosledi na input svog slave-a
-            .disposed(by: bag)
-        
         blockViewModel.oAutomaticSessionDriver // output svog slave-a
             .drive(selectedSession) // prosledi na svoj output
             .disposed(by: bag)

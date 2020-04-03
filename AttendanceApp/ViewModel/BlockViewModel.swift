@@ -26,10 +26,6 @@ class BlockViewModel {
     
     private var blocksSortedByDate = [RealmBlock]()
     
-    // INPUT (javice ti neko, ono sto procita drugi model...)
-    
-    var oAutoSelSessInterval = BehaviorRelay.init(value: MyTimeInterval.waitToMostRecentSession)
-    
     // output 1 - za prikazivanje blocks na tableView...
     
     var sectionsHeadersAndItems = [SectionOfCustomData]()

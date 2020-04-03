@@ -9,9 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Realm
-import RealmSwift
-import RxRealmDataSources
 import RxDataSources // ovaj ima rx Sectioned TableView
 
 class BlocksVC: UIViewController {
@@ -28,8 +25,6 @@ class BlocksVC: UIViewController {
     var selectedBlock: Observable<Int> { // exposed selRealmBlock
         return selBlock.asObservable()
     }
-    
-    var selectedInterval = BehaviorRelay.init(value: MyTimeInterval.waitToMostRecentSession)
     
     private var source: Observable<[SectionOfCustomData]>!
     
@@ -61,14 +56,6 @@ class BlocksVC: UIViewController {
         hookupTableViewItems(to: dataSource) // display items (cells)
         
         hookUpTableViewDidSelect() // tableView didSelect
-        
-        blockViewModel.oAutoSelSessInterval
-            .asObservable()
-            .subscribe(onNext: { [weak self] seconds in
-                guard let sSelf = self else {return}
-                sSelf.selectedInterval.accept(seconds)
-            })
-            .disposed(by: disposeBag)
         
     }
     

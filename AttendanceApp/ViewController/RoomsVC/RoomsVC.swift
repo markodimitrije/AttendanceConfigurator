@@ -21,19 +21,15 @@ class RoomsVC: UIViewController {
     
     fileprivate let selRealmRoom = PublishSubject<Int?>()
     
-    var selectedRealmRoom: Observable<Int?> { // exposed selectedRoomId
-        return selRealmRoom.asObservable()
-    }
-    
     var selRoomDriver: SharedSequence<DriverSharingStrategy, Int?> {
-        return selectedRealmRoom.asDriver(onErrorJustReturn: nil)
+        return selRealmRoom.asDriver(onErrorJustReturn: nil)
     }
 
     override func viewDidLoad() { super.viewDidLoad()
-        bindUI()
+        populateTableView()
     }
 
-    private func bindUI() {
+    private func populateTableView() {
         // bind dataSource
         let dataSource = RxTableViewRealmDataSource<RealmRoom>(cellIdentifier:
         "cell", cellType: UITableViewCell.self) { cell, _, rRoom in
