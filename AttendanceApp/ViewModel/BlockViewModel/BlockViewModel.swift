@@ -14,7 +14,7 @@ import RxCocoa
 
 class BlockViewModel {
     
-    let disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     // ovi treba da su ti SUBJECTS! sta je poenta imati ih ovako ??
     
@@ -162,4 +162,29 @@ class BlockViewModel {
     
     //deinit { print("deinit/BlockViewModel is deinit") }
     
+}
+
+protocol IMostRecentBlockUtility {
+    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock?
+    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock?
+}
+
+class MostRecentBlockUtility: IMostRecentBlockUtility {
+    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock? {
+    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock? {
+        
+        let todayBlocks = blocksSortedByDate.filter {
+            return Calendar.current.compare(NOW,
+                                            to: Date.parse($0.starts_at),
+                                            toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
+        }
+        
+        let actualOrNextInFiftheenMinutes =
+            todayBlocks.filter { block -> Bool in
+                let startsAt = Date.parse(block.starts_at)
+                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
+            }.last
+        
+        return actualOrNextInFiftheenMinutes
+    }
 }

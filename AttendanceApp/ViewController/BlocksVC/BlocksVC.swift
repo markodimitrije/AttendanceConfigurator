@@ -19,7 +19,7 @@ class BlocksVC: UIViewController {
     var selectedDate: Date? // ovo ce ti neko javiti (settingsVC)
     var selectedRoomId: Int! // ovo ce ti setovati segue // moze li preko Observable ?
     
-    lazy var blockViewModel = BlockViewModel(roomId: selectedRoomId)
+    lazy var blockViewModel = BlockViewModelFactory.make(roomId: selectedRoomId)
     
     fileprivate let selBlock = PublishSubject<Int>()
     var selectedBlock: Observable<Int> { // exposed selRealmBlock

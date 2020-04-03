@@ -12,7 +12,7 @@ class DatesViewControllerFactory {
     static func make() -> DatesVC {
         let sb = MainStoryboardFactory.make()
         let datesVC = sb.instantiateViewController(withIdentifier: "DatesVC") as! DatesVC
-        let blockViewmodel = BlockViewModel()
+        let blockViewmodel = BlockViewModelFactory.make()
         datesVC.datesViewmodel = DatesViewmodel.init(blockViewmodel: blockViewmodel)
         return datesVC
     }
