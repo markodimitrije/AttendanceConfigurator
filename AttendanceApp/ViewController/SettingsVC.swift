@@ -154,23 +154,24 @@ class SettingsVC: UITableViewController {
             
             let datesVC = DatesViewControllerFactory.make()
             self.navigationController?.pushViewController(datesVC, animated: true)
+            
             datesVC.datesViewmodel.selectedDate
-                .skip(1) // jer je iniated sa NIL ...
-                .subscribe(onNext: { [weak self] date in
-                    self?.dateSelected.accept(date)
-                    self?.navigationController?.popViewController(animated: true)
+                .asDriver(onErrorJustReturn: nil)
+                .do(onNext: { _ in
+                    self.navigationController?.popViewController(animated: true)
                 })
+                .drive(self.dateSelected)
                 .disposed(by: disposeBag)
             
         case (1, 0):
             
             let roomsVC = RoomsViewControllerFactory.make()
             roomsVC.selRoomDriver
-            .do(onNext: { room in // side-effect
-                self.navigationController?.popViewController(animated: true)
-            })
-            .drive(roomSelected)
-            .disposed(by: disposeBag)
+                .do(onNext: { _ in // side-effect
+                    self.navigationController?.popViewController(animated: true)
+                })
+                .drive(self.roomSelected)
+                .disposed(by: disposeBag)
             
             self.navigationController?.pushViewController(roomsVC, animated: true)
             

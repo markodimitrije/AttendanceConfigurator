@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 import RxCocoa
 
 class DatesViewmodel: NSObject, UITableViewDelegate {
@@ -14,9 +15,8 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     private var blockViewmodel: BlockViewModel
     
     // OUTPUT
-    
-    private (set) var selectedDate = BehaviorRelay<Date?>.init(value: nil)
-    
+    private (set) var selectedDate = PublishSubject<Date?>.init()
+
     var data: [Date] {
         let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
         let startDates = rBlocks.map(BlockFactory.make).map {$0.getStartsAt()}
@@ -29,7 +29,7 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let dateSelected = data[indexPath.row]
-        selectedDate.accept(dateSelected)
+        selectedDate.onNext(dateSelected)
     }
     
 }
