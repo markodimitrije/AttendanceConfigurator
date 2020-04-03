@@ -20,6 +20,7 @@
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
+		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C592BF9242BC1C500294E71 /* RoomRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C592BF8242BC1C500294E71 /* RoomRepositoryTest.swift */; };
 		7C592BFB242BD32300294E71 /* IBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C592BFA242BD32300294E71 /* IBlock.swift */; };
 		7C592BFE242BDC1900294E71 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFD242BDC1900294E71 /* Blocks.json */; };
@@ -176,6 +177,7 @@
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
+		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C592BEB242BC0D400294E71 /* AttendanceAppUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttendanceAppUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C592BEF242BC0D400294E71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C592BF8242BC1C500294E71 /* RoomRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepositoryTest.swift; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 			children = (
 				7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */,
 				AD993AB4217BC6C000803BE2 /* SettingsVC.swift */,
+				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
 				7C55BA63242AB581005BF038 /* DatesVC */,
 				7C55BA5B242A9029005BF038 /* RoomsVC */,
 				7C55BA60242AA427005BF038 /* BlocksVC */,
@@ -1288,6 +1291,7 @@
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,
+				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,

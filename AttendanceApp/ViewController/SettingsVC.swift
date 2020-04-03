@@ -30,17 +30,12 @@ class SettingsVC: UITableViewController {
     private let disposeBag = DisposeBag()
     
     // INPUTS: property injection
-    
     var dateSelected: BehaviorRelay<Date?>!
     var roomSelected: BehaviorSubject<Int?>!
     var sessionManuallySelected: BehaviorSubject<Int?>!
     
     // OUTPUTS:
-    
-    let sessionSelected: BehaviorSubject<Int?> = {
-        let blockId = DataAccess.shared.userSelection.blockId
-        return BehaviorSubject<Int?>.init(value: blockId)
-    }()
+    var sessionSelected: BehaviorSubject<Int?>!
     
     // MARK:- ViewModels
 
@@ -213,33 +208,3 @@ class SettingsVC: UITableViewController {
     override var shouldAutorotate: Bool { return false }
     
 }
-
-class SettingsViewControllerFactory {
-    static func make() -> SettingsVC {
-        let settingsVC = UIStoryboard.main.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
-        settingsVC.settingsViewModel = SettingsViewModelFactory.make()
-        
-        // inject live instances reporting from other viewControllers
-        attachExternalSignals(toSettingsVC: settingsVC)
-    
-        return settingsVC
-    }
-    
-    private static func attachExternalSignals(toSettingsVC settingsVC: SettingsVC) {
-        settingsVC.dateSelected = {
-            let date = DataAccess.shared.userSelection.selectedDate
-            return BehaviorRelay<Date?>.init(value: date)
-        }()
-        settingsVC.roomSelected = {
-            let roomId = DataAccess.shared.userSelection.roomId
-            return BehaviorSubject<Int?>.init(value: roomId)
-        }()
-        settingsVC.sessionManuallySelected = {
-            let blockId = DataAccess.shared.userSelection.blockId
-            return BehaviorSubject<Int?>.init(value: blockId)
-        }()
-    }
-    
-}
-
-
