@@ -26,7 +26,7 @@ class SettingsVC: UITableViewController {
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
     @IBOutlet weak var syncApiKeyView: SyncApiKeyView!
     
-    lazy var settingsViewModel = SettingsViewModelFactory.make()
+    var settingsViewModel: SettingsViewModel!
     private let disposeBag = DisposeBag()
     
     // INPUTS: property injection
@@ -115,7 +115,6 @@ class SettingsVC: UITableViewController {
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
-        
     }
     
     private func bindReachability() {
