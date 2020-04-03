@@ -92,15 +92,9 @@ class SettingsVC: UITableViewController {
             .drive(saveSettingsAndExitBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        output.selectedBlock // binduj na svoj var koji ce da cita "prethodni vc"
-            //.do(onNext: { [weak self] _ in
+        output.selectedBlock
             .do(onNext: { [weak self] block in guard let sSelf = self else {return}
                 sSelf.dismiss(animated: true, completion: nil)
-                if let block = block {
-                    //print("blok je selektovan, javi webu.....")
-                    sSelf.sessionSelected.onNext(block)
-                    //sSelf.reportBlockChangedToWeb() // hard-coded off, should not save to realm
-                }
             })
             .drive(self.sessionSelected)
             .disposed(by: disposeBag)
@@ -123,7 +117,6 @@ class SettingsVC: UITableViewController {
             .asDriver(onErrorJustReturn: false)
             .drive(wiFiConnectionView.rx.connected) // ovo je var tipa binder na xib-u
             .disposed(by: disposeBag)
-        
     }
     
     private func bindUnsyncedScans() {
