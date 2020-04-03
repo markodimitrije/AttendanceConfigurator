@@ -47,7 +47,7 @@ final class SettingsViewModel: ViewModelType {
                 (roomId, switchIsOn) -> Int? in
             guard let roomId = roomId else { return nil }
             if switchIsOn {
-                let autoModelView = AutoSelSessionWithWaitIntervalViewModel.init(roomId: roomId)
+                let autoModelView = AutoSelSessionViewModel.init(roomId: roomId)
                 return try! autoModelView.selectedSession.value()?.id ?? nil // pazi ovde !! try !
             }
             return nil

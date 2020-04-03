@@ -9,10 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Realm
-import RealmSwift
 
-class AutoSelSessionWithWaitIntervalViewModel {
+class AutoSelSessionViewModel {
     
     let bag = DisposeBag()
     let blockViewModel: BlockViewModel!
