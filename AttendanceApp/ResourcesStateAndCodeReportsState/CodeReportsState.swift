@@ -13,7 +13,7 @@ import RealmSwift
 import Realm
 
 
-class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
+class CodeReportsState {
     
     private var codeReports: Results<RealmCodeReport>? {
         

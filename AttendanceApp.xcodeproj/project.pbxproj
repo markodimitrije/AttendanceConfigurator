@@ -90,6 +90,7 @@
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
 		7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */; };
+		7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB792439078F00D2983C /* CodeReportsState.swift */; };
 		7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6741242B6B0800CC56FF /* RoomRepository.swift */; };
 		7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6743242B6B3600CC56FF /* BlockRepository.swift */; };
 		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
@@ -105,7 +106,6 @@
 		7CFDEC5F242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC5E242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift */; };
 		7CFDEC61242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC60242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift */; };
 		AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191486218EEFC000CD5B2F /* CodesDumper.swift */; };
-		AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD191488218EF09300CD5B2F /* CodeReportState.swift */; };
 		AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */; };
 		AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */; };
 		AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */; };
@@ -254,6 +254,7 @@
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
 		7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModelFactory.swift; sourceTree = "<group>"; };
+		7CEBFB792439078F00D2983C /* CodeReportsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsState.swift; sourceTree = "<group>"; };
 		7CEC6741242B6B0800CC56FF /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
 		7CEC6743242B6B3600CC56FF /* BlockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepository.swift; sourceTree = "<group>"; };
 		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -269,7 +270,6 @@
 		7CFDEC5E242CD47D0060A2C7 /* SaveRoomsToRealmExplicitelyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveRoomsToRealmExplicitelyHelper.swift; sourceTree = "<group>"; };
 		7CFDEC60242CD4E00060A2C7 /* SaveBlocksToRealmExplicitelyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBlocksToRealmExplicitelyHelper.swift; sourceTree = "<group>"; };
 		AD191486218EEFC000CD5B2F /* CodesDumper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumper.swift; sourceTree = "<group>"; };
-		AD191488218EF09300CD5B2F /* CodeReportState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportState.swift; sourceTree = "<group>"; };
 		AD24E304217F74D8008E35F8 /* ReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WiFiConnectionView.xib; sourceTree = "<group>"; };
 		AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiConnectionView.swift; sourceTree = "<group>"; };
@@ -525,6 +525,7 @@
 				7CAA2A4F2431336500CA184F /* RoomsProvider */,
 				7CAA2A4A243131C300CA184F /* BlocksProvider */,
 				7CAA2A54243136C500CA184F /* DelegatesProvider */,
+				7CEBFB792439078F00D2983C /* CodeReportsState.swift */,
 			);
 			path = ResourcesState;
 			sourceTree = "<group>";
@@ -989,7 +990,6 @@
 			children = (
 				7CAA2A492431317B00CA184F /* ResourcesState */,
 				AD191486218EEFC000CD5B2F /* CodesDumper.swift */,
-				AD191488218EF09300CD5B2F /* CodeReportState.swift */,
 				AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */,
 				7CD5297524339BEA00170D0A /* AlertStateReporter */,
 				7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */,
@@ -1299,7 +1299,6 @@
 				7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
-				AD191489218EF09300CD5B2F /* CodeReportState.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
@@ -1334,6 +1333,7 @@
 				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
+				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,
 				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
