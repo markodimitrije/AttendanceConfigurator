@@ -46,7 +46,7 @@ class ScannerVC: UIViewController {
     private var scanner: Scanning!
     
     // interna upotreba:
-    private let disposeBag = DisposeBag()
+    fileprivate let disposeBag = DisposeBag()
     
     // MARK:- Controller Life cycle
     
@@ -76,12 +76,14 @@ class ScannerVC: UIViewController {
     
     private func bindUI() { // glue code for selected Room
         
-        scanerViewModel.sessionName//.map {$0+$0} (test text length) // SESSION NAME
-            .bind(to: sessionNameLbl.rx.text)
+        scanerViewModel.scannerInfoDriver
+            .map {$0.getTitle()}
+            .drive(sessionNameLbl.rx.text)
             .disposed(by: disposeBag)
         
-        scanerViewModel.sessionInfo // SESSION INFO
-            .bind(to: sessionTimeAndRoomLbl.rx.text)
+        scanerViewModel.scannerInfoDriver
+            .map {$0.getDescription()}
+            .drive(sessionTimeAndRoomLbl.rx.text)
             .disposed(by: disposeBag)
     }
     
@@ -185,12 +187,22 @@ extension ScannerVC: BarcodeListening {
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
         scanner.stopScanning()
-        
-        if scanerViewModel.sessionId != -1 {
-            scanditSuccessfull(code: code)
-        } else {
-            showAlertFailedDueToNoRoomOrSessionSettings()
-        }
+        scanerViewModel.scannerInfoDriver
+            .map {$0.getBlockId()}
+            .do(onNext: { blockId in
+                if blockId != -1 {
+                    self.scanditSuccessfull(code: code)
+                } else {
+                    self.showAlertFailedDueToNoRoomOrSessionSettings()
+                }
+            })
+            .drive()
+            .disposed(by: disposeBag)
+//        if scanerViewModel.sessionId != -1 {
+//            scanditSuccessfull(code: code)
+//        } else {
+//            showAlertFailedDueToNoRoomOrSessionSettings()
+//        }
         
         restartCameraForScaning()
         
@@ -199,9 +211,8 @@ extension ScannerVC: BarcodeListening {
 
 class ScannerViewModelFactory {
     static func make() -> ScannerViewModel {
+        let scannerInfoFactory = ScannerInfoFactory(roomRepo: RoomRepository(), blockRepo: BlockRepository(), blockPresenter: BlockPresenter())
         return ScannerViewModel(dataAccess: DataAccess.shared,
-                                roomRepo: RoomRepository(),
-                                blockRepo: BlockRepository(),
-                                blockPresenter: BlockPresenter())
+                                scannerInfoFactory: scannerInfoFactory)
     }
 }

@@ -28,6 +28,8 @@
 		7C592BFE242BDC1900294E71 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFD242BDC1900294E71 /* Blocks.json */; };
 		7C592C00242BDD0600294E71 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFF242BDD0600294E71 /* Rooms.json */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
+		7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */; };
+		7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05092438AAF500AC72DB /* ScannerInfo.swift */; };
 		7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */; };
 		7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
@@ -189,6 +191,8 @@
 		7C592BFD242BDC1900294E71 /* Blocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
 		7C592BFF242BDD0600294E71 /* Rooms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfoFactory.swift; sourceTree = "<group>"; };
+		7C5F05092438AAF500AC72DB /* ScannerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfo.swift; sourceTree = "<group>"; };
 		7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C7F4FED228B5AFC00379EBD /* WebReportedCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCode.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
@@ -464,6 +468,16 @@
 				7C592BFF242BDD0600294E71 /* Rooms.json */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		7C5F05062438AA9300AC72DB /* ScannerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
+				7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */,
+				7C5F05092438AAF500AC72DB /* ScannerInfo.swift */,
+			);
+			path = ScannerViewModel;
 			sourceTree = "<group>";
 		};
 		7C640B62242C99B2004A9D58 /* JsonBundleDataProvider */ = {
@@ -847,7 +861,7 @@
 				AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */,
 				7C5908C92437AC5B006199B1 /* BlockViewModel */,
 				7C2E84252435123D005B5C7F /* SettingsViewModel */,
-				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
+				7C5F05062438AA9300AC72DB /* ScannerViewModel */,
 				ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */,
 				AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */,
 			);
@@ -1250,6 +1264,7 @@
 				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
+				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
@@ -1294,6 +1309,7 @@
 				7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */,
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
+				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
