@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
 
 class RealmBlock: Object {
@@ -40,10 +39,4 @@ class RealmBlock: Object {
     override static func primaryKey() -> String? {
         return "id"
     }
-    
-    static func getBlock(withId id: Int, withRealm realm: Realm) -> RealmBlock? {
-        
-        return realm.objects(RealmBlock.self).filter("id = %@", id).first
-    }
-    
 }
