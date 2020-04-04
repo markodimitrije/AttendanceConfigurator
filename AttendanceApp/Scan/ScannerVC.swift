@@ -187,22 +187,12 @@ extension ScannerVC: BarcodeListening {
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         
         scanner.stopScanning()
-        scanerViewModel.scannerInfoDriver
-            .map {$0.getBlockId()}
-            .do(onNext: { blockId in
-                if blockId != -1 {
-                    self.scanditSuccessfull(code: code)
-                } else {
-                    self.showAlertFailedDueToNoRoomOrSessionSettings()
-                }
-            })
-            .drive()
-            .disposed(by: disposeBag)
-//        if scanerViewModel.sessionId != -1 {
-//            scanditSuccessfull(code: code)
-//        } else {
-//            showAlertFailedDueToNoRoomOrSessionSettings()
-//        }
+        
+        if scanerViewModel.sessionId != -1 {
+            scanditSuccessfull(code: code)
+        } else {
+            showAlertFailedDueToNoRoomOrSessionSettings()
+        }
         
         restartCameraForScaning()
         

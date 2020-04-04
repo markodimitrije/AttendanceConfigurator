@@ -44,9 +44,9 @@ class ResourcesState {
             let successDownloads = resources.count >= 3
             self.resourcesDownloaded = successDownloads // bez veze je ovo
             self.oResourcesDownloaded.accept(successDownloads) // na 2 mesta sync !
-            if resources.count >= 2 { // rooms and blocks
-                dataAccess.userSelection = (nil, nil, nil, false)
-            }
+//            if resources.count >= 2 { // rooms and blocks
+//                dataAccess.userSelection = (nil, nil, nil, false)
+//            }
         }).disposed(by: bag)
     }
     
