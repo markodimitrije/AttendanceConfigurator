@@ -13,8 +13,8 @@ class BlockFactory {
         guard let id = json["id"] as? Int,
             let name = json["name"] as? String,
             let location_id = json["location_id"] as? Int,
-            let starts_at = json["starts_at"] as? String,
-            let ends_at = json["ends_at"] as? String,
+            let starts_at = json["starts_at"] as? Date,
+            let ends_at = json["ends_at"] as? Date,
             let closed = json["closed"] as? Bool else {
                 return nil
         }

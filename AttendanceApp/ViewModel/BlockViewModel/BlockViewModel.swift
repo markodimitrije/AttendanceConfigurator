@@ -76,7 +76,8 @@ class BlockViewModel {
                 self.sectionBlocks = self.sortBlocksByDay(blocksArray: collection.toArray())
                 
                 self.blocksSortedByDate = collection.toArray().sorted(by: {
-                    return Date.parse($0.starts_at) < Date.parse($1.starts_at)
+                    //return Date.parse($0.starts_at) < Date.parse($1.starts_at)
+                    return $0.starts_at < $1.starts_at // TODO marko: just <
                 })
                 
                 self.loadSectionsHeadersAndItems(blocksByDay: self.sectionBlocks)
@@ -87,11 +88,13 @@ class BlockViewModel {
     
     private func loadSectionsHeadersAndItems(blocksByDay: [[RealmBlock]]) {
         let items = blocksByDay.map({ (blocks) -> SectionOfCustomData in
-            let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
+            //let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
+            let sectionName = blocks.first?.starts_at.toString(format: "yyyy-MM-dd") ?? ""
             let items = blocks.map({ (rBlock) -> SectionOfCustomData.Item in
-                let fullname = rBlock.starts_at + " " + rBlock.name
+                let format = Date.defaultFormatString
+                let fullname = rBlock.starts_at.toString(format: format)! + " " + rBlock.name
                 let name = rBlock.name
-                let date = Date.parse(rBlock.starts_at)
+                let date = rBlock.starts_at
                 return SectionOfCustomData.Item(fullname: fullname, name: name, date: date)
             })
             return SectionOfCustomData.init(header: sectionName, items: items)
@@ -124,14 +127,15 @@ class BlockViewModel {
         
         if blocksArray.isEmpty { return [] }
         
-        let inputArray = blocksArray.sorted { Date.parse($0.starts_at) < Date.parse($1.starts_at) }
+//        let inputArray = blocksArray.sorted { Date.parse($0.starts_at) < Date.parse($1.starts_at) }
+        let inputArray = blocksArray.sorted { $0.starts_at < $1.starts_at }
         
         var resultArray = [[inputArray[0]]]
         
         let calendar = Calendar(identifier: .gregorian)
         for (prevBlock, nextBlock) in zip(inputArray, inputArray.dropFirst()) {
-            let prevDate = Date.parse(prevBlock.starts_at)
-            let nextDate = Date.parse(nextBlock.starts_at)
+            let prevDate = prevBlock.starts_at
+            let nextDate = nextBlock.starts_at
             if !calendar.isDate(prevDate, equalTo: nextDate, toGranularity: .day) {
                 resultArray.append([]) // Start new row
             }

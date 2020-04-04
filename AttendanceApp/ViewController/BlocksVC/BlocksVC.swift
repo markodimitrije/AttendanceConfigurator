@@ -94,8 +94,8 @@ class BlocksVC: UIViewController {
                             
                             if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
                                 
-                                Calendar.current.isDate(Date.parse(groups.first!.starts_at), inSameDayAs: selectedDate)
-                                
+                                Calendar.current.isDate(groups.first!.starts_at,
+                                                        inSameDayAs: selectedDate)
                             }) {
                                 rBlock = blockGroup[ip.row]
                             } else {

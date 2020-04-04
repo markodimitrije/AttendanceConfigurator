@@ -26,7 +26,7 @@ extension BlockApiController: IBlockApiController {
                                        ("for_scanning", "\(for_scanning)"),
                                        ("type[]", "Oral")])
                 .map() { data in
-                    let decoder = JSONDecoder()
+                    let decoder = BlockDecoderFactory.make()//JSONDecoder()
                     guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
                         throw ApiError.invalidJson
                     }
@@ -42,5 +42,25 @@ class BlockApiController {
     init(apiController: ApiController, confId: Int) {
         self.apiController = apiController
         self.confId = confId
+    }
+}
+
+class BlockDecoderFactory {
+    
+    static var formatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = Date.defaultFormatString
+        return dateFormatter
+    }()
+    
+    static func make() -> JSONDecoder {
+        let decoder = JSONDecoder()
+        if #available(iOS 10.0, *) {
+            //decoder.dateDecodingStrategy = .iso8601 // "yyyy-MM-dd'T'HH:mm:ss'Z'"
+            decoder.dateDecodingStrategy = .formatted(BlockDecoderFactory.formatter)
+        } else {
+            fatalError("lower than ios 10.0")
+        }
+        return decoder
     }
 }

@@ -14,8 +14,13 @@ struct Blocks: Codable {
 }
 
 extension Block: IBlock {
-    func get_Starts_At() -> String { return self.starts_at} // TODO marko DRY!
-    func get_Ends_At() -> String { return self.ends_at}
+     // TODO marko DRY!
+    func get_Starts_At() -> String {
+        return self.starts_at.toString(format: Date.defaultFormatString) ?? ""
+    }
+    func get_Ends_At() -> String {
+        return self.ends_at.toString(format: Date.defaultFormatString) ?? ""
+    }
     
     func getId() -> Int { return self.id }
     func getName() -> String { return self.name }
@@ -29,32 +34,33 @@ struct Block: Codable {
     var id: Int
     var name: String
     var location_id: Int
-    var starts_at: String
-    var ends_at: String
+    var starts_at: Date
+    var ends_at: Date
     var closed: Bool
     
     // helpers vars
-    var starts: Date { return Date.parse(self.starts_at) }
-    var ensds: Date { return Date.parse(self.starts_at) }
+    var starts: Date { return self.starts_at }
+    var ensds: Date { return self.starts_at }
     
     var startsShort: String {
-        starts_at.toDateWithNoTimeString(inputFormat: Date.defaultFormatString,
-                                         outputFormat: "yyyy-MM-dd")
+        starts_at.toString(format: "yyyy-MM-dd") ?? "error"
+        //starts_at.toDateWithNoTimeString(inputFormat: Date.defaultFormatString,
+        //                                 outputFormat: "yyyy-MM-dd")
     }
     
     var duration: String {
-        
-        let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
-        let timeEndsAt = Date.parseIntoTime(ends_at, outputWithSeconds: false)
-        
-        let calendar = Calendar.init(identifier: .gregorian)
-        
-        let timeDuration = timeStartsAt + "-" + timeEndsAt
-        
-        if calendar.isDateInToday(Date.parse(starts_at)) {
-            return timeDuration
-        } else {
-            return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
-        }
+        return "" // hard-coded off
+//        let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
+//        let timeEndsAt = Date.parseIntoTime(ends_at, outputWithSeconds: false)
+//
+//        let calendar = Calendar.init(identifier: .gregorian)
+//
+//        let timeDuration = timeStartsAt + "-" + timeEndsAt
+//
+//        if calendar.isDateInToday(Date.parse(starts_at)) {
+//            return timeDuration
+//        } else {
+//            return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
+//        }
     }
 }

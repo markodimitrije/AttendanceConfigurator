@@ -14,8 +14,8 @@ class RealmBlockFactory {
         rBlock.id = block.getId()
         rBlock.name = block.getName()
         rBlock.location_id = block.getLocationId()
-        rBlock.starts_at = block.get_Starts_At()
-        rBlock.ends_at = block.get_Ends_At()
+        rBlock.starts_at = block.getStartsAt()
+        rBlock.ends_at = block.getEndsAt()
         rBlock.closed = block.getClosed()
         return rBlock
     }

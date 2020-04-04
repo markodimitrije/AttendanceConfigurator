@@ -19,13 +19,13 @@ class MostRecentBlockUtility: IMostRecentBlockUtility {
         
         let todayBlocks = blocksSortedByDate.filter {
             return Calendar.current.compare(NOW,
-                                            to: Date.parse($0.starts_at),
+                                            to: $0.starts_at,
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
         
         let actualOrNextInFiftheenMinutes =
             todayBlocks.filter { block -> Bool in
-                let startsAt = Date.parse(block.starts_at)
+                let startsAt = block.starts_at
                 return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
             }.last
         

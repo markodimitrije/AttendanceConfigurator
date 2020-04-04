@@ -13,26 +13,26 @@ class RealmBlock: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var location_id: Int = -1 // ref na location (room)
-    @objc dynamic var starts_at: String = ""
-    @objc dynamic var ends_at: String = ""
+    @objc dynamic var starts_at: Date = Date.init(timeIntervalSince1970: 0)
+    @objc dynamic var ends_at: Date = Date.init(timeIntervalSince1970: 0)
     @objc dynamic var closed: Bool = false
     
     // rac. var koji ako je "today" vraca starts_at(HH:mm) - ends_at(HH:mm)
     // ako nije onda yyyy-MM-dd (starts_at)HH:mm-(ends_at)HH:mm
     var duration: String {
-        
-        let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
-        let timeEndsAt = Date.parseIntoTime(ends_at, outputWithSeconds: false)
-        
-        let calendar = Calendar.init(identifier: .gregorian)
-        
-        let timeDuration = timeStartsAt + "-" + timeEndsAt
-        
-        if calendar.isDateInToday(Date.parse(starts_at)) {
-            return timeDuration
-        } else {
-            return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
-        }
+        return "duration.implement me"
+//        let timeStartsAt = Date.parseIntoTime(starts_at, outputWithSeconds: false)
+//        let timeEndsAt = Date.parseIntoTime(ends_at, outputWithSeconds: false)
+//
+//        let calendar = Calendar.init(identifier: .gregorian)
+//
+//        let timeDuration = timeStartsAt + "-" + timeEndsAt
+//
+//        if calendar.isDateInToday(Date.parse(starts_at)) {
+//            return timeDuration
+//        } else {
+//            return Date.parseIntoDateOnly(starts_at) + " " + timeDuration
+//        }
         
     }
     
