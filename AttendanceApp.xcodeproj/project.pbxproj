@@ -89,6 +89,7 @@
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
+		7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */; };
 		7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6741242B6B0800CC56FF /* RoomRepository.swift */; };
 		7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6743242B6B3600CC56FF /* BlockRepository.swift */; };
 		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
@@ -252,6 +253,7 @@
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
+		7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModelFactory.swift; sourceTree = "<group>"; };
 		7CEC6741242B6B0800CC56FF /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
 		7CEC6743242B6B3600CC56FF /* BlockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepository.swift; sourceTree = "<group>"; };
 		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 			isa = PBXGroup;
 			children = (
 				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
+				7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */,
 				7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */,
 				7C5F05092438AAF500AC72DB /* ScannerInfo.swift */,
 			);
@@ -1241,6 +1244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,

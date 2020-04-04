@@ -44,7 +44,7 @@ class RealmInvalidAttedanceReportPersister {
     func saveToRealm(invalidAttendanceCode code: String) -> Observable<Bool> {
         
         let newReport = RealmInvalidAttendanceReport.create(code: code,
-                                                            date: NOW,
+                                                            date: Date.now,
                                                             dataAccess: DataAccess.shared)
         
         return realmObjectPersister.saveToRealm(objects: [newReport])

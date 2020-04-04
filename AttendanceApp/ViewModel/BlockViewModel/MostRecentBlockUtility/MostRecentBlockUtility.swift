@@ -18,7 +18,7 @@ class MostRecentBlockUtility: IMostRecentBlockUtility {
     func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock? {
         
         let todayBlocks = blocksSortedByDate.filter {
-            return Calendar.current.compare(NOW,
+            return Calendar.current.compare(Date.now,
                                             to: $0.starts_at,
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
@@ -26,7 +26,7 @@ class MostRecentBlockUtility: IMostRecentBlockUtility {
         let actualOrNextInFiftheenMinutes =
             todayBlocks.filter { block -> Bool in
                 let startsAt = block.starts_at
-                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < NOW
+                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < Date.now
             }.last
         
         return actualOrNextInFiftheenMinutes

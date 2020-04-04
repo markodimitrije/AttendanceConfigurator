@@ -56,7 +56,7 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
             .subscribe(onNext: { [weak self] results in
             guard let sSelf = self else {return}
                 let reports = results.toArray().sorted(by: { (rCode1, rCode2) -> Bool in
-                    return (rCode1.date ?? NOW) > (rCode2.date ?? NOW)
+                    return (rCode1.date ?? Date.now) > (rCode2.date ?? Date.now)
                 })
                 sSelf.data = reports.map {$0.code}.map(trimmedToSixCharactersCode(code:))
         }).disposed(by: bag)
