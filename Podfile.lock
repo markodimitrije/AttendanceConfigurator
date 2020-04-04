@@ -1,11 +1,11 @@
 PODS:
   - Differentiator (3.1.0)
-  - ReachabilitySwift (4.3.1)
-  - Realm (3.19.0):
-    - Realm/Headers (= 3.19.0)
-  - Realm/Headers (3.19.0)
-  - RealmSwift (3.19.0):
-    - Realm (= 3.19.0)
+  - ReachabilitySwift (4.0.0)
+  - Realm (3.21.0):
+    - Realm/Headers (= 3.21.0)
+  - Realm/Headers (3.21.0)
+  - RealmSwift (3.21.0):
+    - Realm (= 3.21.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
@@ -28,7 +28,7 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
-  - ReachabilitySwift
+  - ReachabilitySwift (~> 4.0.0)
   - RealmSwift
   - RxCocoa
   - RxDataSources
@@ -56,9 +56,9 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
-  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
-  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
+  ReachabilitySwift: e67b2cab4d5386053673d8a7421b5981e5f08259
+  Realm: 38e9dcb19104b58407167d99f70d4995f7c16023
+  RealmSwift: 3183cc1ad48378fbcd634311b22c0e6c44021152
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
@@ -69,6 +69,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: 995fcc5d24315f5bdd56e6d4316b44d3da87f2a0
+PODFILE CHECKSUM: ff6edbc37796db894b4690c2b178b3c97ac41917
 
 COCOAPODS: 1.6.1

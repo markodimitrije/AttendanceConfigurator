@@ -55,12 +55,7 @@ class BlockDecoderFactory {
     
     static func make() -> JSONDecoder {
         let decoder = JSONDecoder()
-        if #available(iOS 10.0, *) {
-            //decoder.dateDecodingStrategy = .iso8601 // "yyyy-MM-dd'T'HH:mm:ss'Z'"
-            decoder.dateDecodingStrategy = .formatted(BlockDecoderFactory.formatter)
-        } else {
-            fatalError("lower than ios 10.0")
-        }
+        decoder.dateDecodingStrategy = .formatted(BlockDecoderFactory.formatter)
         return decoder
     }
 }

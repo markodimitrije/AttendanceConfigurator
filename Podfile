@@ -11,7 +11,7 @@ target 'AttendanceApp' do
     pod 'RealmSwift'
     pod 'RxRealmDataSources'
     pod 'RxDataSources'
-    pod 'ReachabilitySwift'
+    pod 'ReachabilitySwift', '~> 4.0.0'
     pod 'Zip'
     pod 'ScanditBarcodeCapture', "6.0.3"
     
