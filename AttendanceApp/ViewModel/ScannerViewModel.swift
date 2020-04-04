@@ -12,12 +12,16 @@ import RxCocoa
 
 struct ScannerViewModel {
     
-    var dataAccess: DataAccess!
-    private let roomRepo: IRoomRepository = RoomRepository() //TODO marko: inject through init
-    private let blockRepo: IBlockRepository = BlockRepository() //TODO marko: inject through init
+    private var dataAccess: DataAccess!
+    private let roomRepo: IRoomRepository
+    private let blockRepo: IBlockRepository
+    private let blockPresenter: IBlockPresenter
     
-    init(dataAccess: DataAccess) {
+    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockRepository, blockPresenter: IBlockPresenter) {
         self.dataAccess = dataAccess
+        self.roomRepo = roomRepo
+        self.blockRepo = blockRepo
+        self.blockPresenter = blockPresenter
         bindOutput()
     }
     
@@ -46,7 +50,7 @@ struct ScannerViewModel {
                         return (SessionTextData.noActiveSession, "", -1)
                 }
                 let room = self.roomRepo.getRoom(id: roomId)!
-                let duration = BlockPresenter().getDuration(block: block)
+                let duration = self.blockPresenter.getDuration(block: block)
                 return (block.getName(), duration + ", " + room.getName(), block.getId())
             })
             .subscribe(onNext: { (blockName, blockInfo, blockId) in
@@ -55,7 +59,5 @@ struct ScannerViewModel {
                 self.oSessionId.accept(blockId)
             })
             .disposed(by: bag)
-        
     }
-    
 }

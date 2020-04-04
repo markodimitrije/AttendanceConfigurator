@@ -27,7 +27,7 @@ class ScannerVC: UIViewController {
         navigateToNextScreen()
     }
     
-    lazy private var scanerViewModel = ScannerViewModel.init(dataAccess: DataAccess.shared)
+    lazy private var scanerViewModel = ScannerViewModelFactory.make()
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
     var code: String {
@@ -194,5 +194,14 @@ extension ScannerVC: BarcodeListening {
         
         restartCameraForScaning()
         
+    }
+}
+
+class ScannerViewModelFactory {
+    static func make() -> ScannerViewModel {
+        return ScannerViewModel(dataAccess: DataAccess.shared,
+                                roomRepo: RoomRepository(),
+                                blockRepo: BlockRepository(),
+                                blockPresenter: BlockPresenter())
     }
 }
