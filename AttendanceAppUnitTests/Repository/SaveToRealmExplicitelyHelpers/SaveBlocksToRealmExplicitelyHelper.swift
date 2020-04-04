@@ -17,8 +17,8 @@ class SaveBlocksToRealmExplicitelyHelper {
             rBlock.id = iBlock.getId()
             rBlock.name = iBlock.getName()
             rBlock.location_id = iBlock.getLocationId()
-            rBlock.starts_at = iBlock.get_Starts_At()
-            rBlock.ends_at = iBlock.get_Ends_At()
+            rBlock.starts_at = iBlock.getStartsAt()
+            rBlock.ends_at = iBlock.getEndsAt()
             rBlock.closed = iBlock.getClosed()
             return rBlock
         }

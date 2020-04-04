@@ -14,7 +14,7 @@ protocol IBlock {
     func getLocationId() -> Int
     func getStartsAt() -> Date
     func getEndsAt() -> Date
-    func get_Starts_At() -> String
-    func get_Ends_At() -> String
+//    func get_Starts_At() -> String
+//    func get_Ends_At() -> String
     func getClosed() -> Bool
 }
