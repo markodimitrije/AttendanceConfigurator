@@ -21,15 +21,3 @@ class RealmBlock: Object {
         return "id"
     }
 }
-
-//protocol IBlockPresenter {
-//    func duration(block: IBlock) -> String
-//}
-//
-//struct BlockPresenter: IBlockPresenter {
-//    func duration(block: IBlock) -> String {
-//        let timeStartsAt = block.getStartsAt().toString(format: Date.timeFormatString) ?? "err"
-//        let timeEndsAt = block.getEndsAt().toString(format: Date.timeFormatString) ?? "err"
-//        return timeStartsAt + "-" + timeEndsAt
-//    }
-//}

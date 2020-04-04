@@ -41,13 +41,13 @@ struct ScannerViewModel {
                 guard let roomId = roomId else {
                     return (RoomTextData.noRoomSelected, "", -1)
                 }
-                
-                guard let blockId = blockId else {
-                    return (SessionTextData.noActiveSession, "", -1)
+                guard let blockId = blockId,
+                    let block = self.blockRepo.getBlock(id: blockId) else {
+                        return (SessionTextData.noActiveSession, "", -1)
                 }
                 let room = self.roomRepo.getRoom(id: roomId)!
-                let block = self.blockRepo.getBlock(id: blockId) as! Block // TODO marko
-                return (block.getName(), block.duration + ", " + room.getName(), block.id)
+                let duration = BlockPresenter().getDuration(block: block)
+                return (block.getName(), duration + ", " + room.getName(), block.getId())
             })
             .subscribe(onNext: { (blockName, blockInfo, blockId) in
                 self.sessionName.onNext(blockName)
