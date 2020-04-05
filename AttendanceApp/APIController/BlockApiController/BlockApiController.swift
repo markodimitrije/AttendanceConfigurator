@@ -16,22 +16,22 @@ extension BlockApiController: IBlockApiController {
     func getBlocks(updated_from: Date? = nil, with_pagination: Int = 0, with_trashed: Int = 0, for_scanning: Int = 1) -> Observable<[Block]> {
         let updatedDate = updated_from?.toString(format: Date.defaultFormatString) ?? ""
         let myBaseUrl = BlockApiController.baseUrl.appendingPathComponent("\(confId)")
-            return
-                apiController
-                .buildRequest(base: myBaseUrl,
-                              pathComponent: "/blocks",
-                              params: [("updated_from", updatedDate),
-                                       ("with_pagination", "\(with_pagination)"),
-                                       ("with_trashed", "\(with_trashed)"),
-                                       ("for_scanning", "\(for_scanning)"),
-                                       ("type[]", "Oral")])
-                .map() { data in
-                    let decoder = BlockDecoderFactory.make()//JSONDecoder()
-                    guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
-                        throw ApiError.invalidJson
-                    }
-                    return blocks.data
+        return
+            self.apiController
+            .buildRequest(base: myBaseUrl,
+                          pathComponent: "/blocks",
+                          params: [("updated_from", updatedDate),
+                                   ("with_pagination", "\(with_pagination)"),
+                                   ("with_trashed", "\(with_trashed)"),
+                                   ("for_scanning", "\(for_scanning)"),
+                                   ("type[]", "Oral")])
+            .map() { data in
+                let decoder = BlockDecoderFactory.make()//JSONDecoder()
+                guard let blocks = try? decoder.decode(Blocks.self, from: data) else {
+                    throw ApiError.invalidJson
                 }
+                return blocks.data
+            }
     }
     
 }

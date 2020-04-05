@@ -12,6 +12,6 @@ class DelegateProviderWorkerFactory {
         let unziper = Unziper(conferenceId: confId)
         let delegatesApi = DelegatesAPIController(apiController: apiController, unziper: unziper)
         return DelegateProviderWorker(apiController: delegatesApi,
-                                      repository: RealmDelegatesPersister.shared)
+                                      repository: DelegatesRepository())
     }
 }

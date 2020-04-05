@@ -1,5 +1,5 @@
 //
-//  RealmDelegatesPersister.swift
+//  DelegatesRepository.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 24/05/2019.
@@ -7,14 +7,12 @@
 //
 
 import RxSwift
-import RxCocoa
 import RealmSwift
 import Realm
-import RxRealm
 
-struct RealmDelegatesPersister {
+struct DelegatesRepository {
     
-    static var shared = RealmDelegatesPersister()
+    //static var shared = RealmDelegatesPersister()
     
     // MARK:- Save data
     

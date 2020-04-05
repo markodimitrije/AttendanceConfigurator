@@ -51,7 +51,7 @@
 		7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A6024313A7600CA184F /* BlockApiController.swift */; };
 		7CAE889722E87EF100632EAC /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CAE889622E87EF100632EAC /* Launch Screen.xib */; };
 		7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44722982DC5008C23F8 /* Delegate.swift */; };
-		7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */; };
+		7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */; };
 		7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E452229832E5008C23F8 /* RealmBlock.swift */; };
 		7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1E45422983331008C23F8 /* RealmDelegate.swift */; };
 		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
@@ -219,7 +219,7 @@
 		7CAA2A6024313A7600CA184F /* BlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockApiController.swift; sourceTree = "<group>"; };
 		7CAE889622E87EF100632EAC /* Launch Screen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		7CB1E44722982DC5008C23F8 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
-		7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegatesPersister.swift; sourceTree = "<group>"; };
+		7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesRepository.swift; sourceTree = "<group>"; };
 		7CB1E452229832E5008C23F8 /* RealmBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlock.swift; sourceTree = "<group>"; };
 		7CB1E45422983331008C23F8 /* RealmDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegate.swift; sourceTree = "<group>"; };
 		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
@@ -602,7 +602,7 @@
 			children = (
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */,
-				7CB1E44D22983107008C23F8 /* RealmDelegatesPersister.swift */,
+				7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */,
 			);
 			path = Persisters;
 			sourceTree = "<group>";
@@ -1293,7 +1293,7 @@
 				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
-				7CB1E44E22983107008C23F8 /* RealmDelegatesPersister.swift in Sources */,
+				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
