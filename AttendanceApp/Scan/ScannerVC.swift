@@ -36,12 +36,7 @@ class ScannerVC: UIViewController {
     
     override var shouldAutorotate: Bool { return false }
     
-    private let codeReporter = CodeReportsState.init() // vrsta viewModel-a ?
     private let delegatesSessionValidation = RealmDelegatesSessionValidation()
-    
-    private let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(realmObjectPersister: RealmObjectPersister())
-    
-    private var settingsVC: SettingsVC!
     
     private var scanner: Scanning!
     
@@ -142,20 +137,12 @@ class ScannerVC: UIViewController {
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: true))
-        codeReporter.codeReport.accept(getActualCodeReport())
+        self.scanerViewModel.scannedCodeAccepted(code: code)
     }
     
     private func delegateAttendanceInvalid(code: String) {
-        persistInAttendanceInvalid(code: code)
+        self.scanerViewModel.scannedCodeRejected(code: code)
         uiEffectsForAttendanceInvalid()
-    }
-    
-    private func persistInAttendanceInvalid(code: String) {
-        realmInvalidAttedanceReportPersister
-            .saveToRealm(invalidAttendanceCode: code)
-            .subscribe(onNext: { success in
-                print("invalid codes saved = \(success)")
-            }).disposed(by: disposeBag)
     }
     
     private func uiEffectsForAttendanceInvalid() {
@@ -165,17 +152,6 @@ class ScannerVC: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape //[.landscapeLeft, .landscapeRight]
-    }
-    
-    // MARK:- Private
-    
-    private func getActualCodeReport() -> CodeReport {
-       
-        print("getSessionReport = \(code)")
-        
-        return CodeReport(code: code,
-                          sessionId: scanerViewModel.sessionId,
-                          date: Date.now)
     }
     
 }

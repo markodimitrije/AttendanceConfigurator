@@ -10,14 +10,44 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+extension ScannerViewModel: IScannerViewModel {
+    func getScannerInfoDriver() -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
+        self.scannerInfoDriver
+    }
+    
+    func getActualSessionId() -> Int {
+        self.sessionId
+    }
+    
+    func scannedCodeAccepted(code: String) {
+        let report = CodeReport.init(code: code, sessionId: self.sessionId, date: Date.now)
+        codeReportsState.codeReport.accept(report)
+    }
+    
+    func scannedCodeRejected(code: String) {
+        self.realmInvalidAttedanceReportPersister
+        .saveToRealm(invalidAttendanceCode: code)
+        .subscribe(onNext: { success in
+            print("invalid codes saved = \(success)")
+        }).disposed(by: self.bag)
+    }
+    
+}
+
 class ScannerViewModel {
     
     private var dataAccess: DataAccess!
     private let scannerInfoFactory: IScannerInfoFactory
+    private let codeReportsState: CodeReportsState
     
-    init(dataAccess: DataAccess, scannerInfoFactory: IScannerInfoFactory) {
+    // TODO marko: to refactor...
+    fileprivate let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(realmObjectPersister: RealmObjectPersister())
+    
+    init(dataAccess: DataAccess, scannerInfoFactory: IScannerInfoFactory, codeReportsState: CodeReportsState) {
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
+        self.codeReportsState = codeReportsState
+        
         self.scannerInfoDriver = createOutput(dataAccess: dataAccess)
     }
     
@@ -27,7 +57,7 @@ class ScannerViewModel {
     var sessionId: Int {return _oSessionId.value}
     
     private (set) var scannerInfoDriver: SharedSequence<DriverSharingStrategy, IScannerInfo>!
-    private let bag = DisposeBag()
+    fileprivate let bag = DisposeBag()
     
     private func createOutput(dataAccess: DataAccess)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {

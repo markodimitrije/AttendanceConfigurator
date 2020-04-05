@@ -7,8 +7,6 @@
 //
 
 import Foundation
-//import Realm
-//import RealmSwift
 
 extension CodeReport: ICodeReport {
     func getCode() -> String { self.code }

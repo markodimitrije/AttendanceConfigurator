@@ -91,6 +91,9 @@
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
 		7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */; };
 		7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB792439078F00D2983C /* CodeReportsState.swift */; };
+		7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB7C24390D8F00D2983C /* IScannerViewModel.swift */; };
+		7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB7E24390DA500D2983C /* IScanningInfoProviding.swift */; };
+		7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB8024390DBF00D2983C /* IScanningCodeReporting.swift */; };
 		7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6741242B6B0800CC56FF /* RoomRepository.swift */; };
 		7CEC6744242B6B3600CC56FF /* BlockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6743242B6B3600CC56FF /* BlockRepository.swift */; };
 		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
@@ -255,6 +258,9 @@
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
 		7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModelFactory.swift; sourceTree = "<group>"; };
 		7CEBFB792439078F00D2983C /* CodeReportsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsState.swift; sourceTree = "<group>"; };
+		7CEBFB7C24390D8F00D2983C /* IScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IScannerViewModel.swift; sourceTree = "<group>"; };
+		7CEBFB7E24390DA500D2983C /* IScanningInfoProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IScanningInfoProviding.swift; sourceTree = "<group>"; };
+		7CEBFB8024390DBF00D2983C /* IScanningCodeReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IScanningCodeReporting.swift; sourceTree = "<group>"; };
 		7CEC6741242B6B0800CC56FF /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
 		7CEC6743242B6B3600CC56FF /* BlockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockRepository.swift; sourceTree = "<group>"; };
 		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -475,6 +481,7 @@
 		7C5F05062438AA9300AC72DB /* ScannerViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7CEBFB7B24390D7900D2983C /* IScannerViewModel */,
 				ADA47211217F458D0078530E /* ScannerViewModel.swift */,
 				7CEBFB772438F47900D2983C /* ScannerViewModelFactory.swift */,
 				7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */,
@@ -775,6 +782,16 @@
 				7CE8153E227347A600B33986 /* codeSuccess.mp3 */,
 			);
 			path = SoundAssets;
+			sourceTree = "<group>";
+		};
+		7CEBFB7B24390D7900D2983C /* IScannerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7CEBFB7E24390DA500D2983C /* IScanningInfoProviding.swift */,
+				7CEBFB8024390DBF00D2983C /* IScanningCodeReporting.swift */,
+				7CEBFB7C24390D8F00D2983C /* IScannerViewModel.swift */,
+			);
+			path = IScannerViewModel;
 			sourceTree = "<group>";
 		};
 		7CEC673F242B6AEF00CC56FF /* Repository */ = {
@@ -1287,8 +1304,10 @@
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
+				7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */,
+				7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */,
 				7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
@@ -1313,6 +1332,7 @@
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
+				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
