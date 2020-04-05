@@ -12,33 +12,12 @@ import RealmSwift
 import Realm
 import RxRealm
 
-class RealmObjectPersister {
-    func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
-        
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        
-        do {
-            try realm.write {
-                //realm.add(objects)
-                realm.add(objects, update: true)
-            }
-        } catch {
-            return Observable<Bool>.just(false)
-        }
-        
-        return Observable<Bool>.just(true) // all good here
-        
-    }
-}
-
 class RealmInvalidAttedanceReportPersister {
     
-    var realmObjectPersister: RealmObjectPersister
+    var genericRepo: IGenericRealmRepository
     
-    init(realmObjectPersister: RealmObjectPersister) {
-        self.realmObjectPersister = realmObjectPersister
+    init(genericRepo: IGenericRealmRepository) {
+        self.genericRepo = genericRepo
     }
 
     func saveToRealm(invalidAttendanceCode code: String) -> Observable<Bool> {
@@ -47,14 +26,10 @@ class RealmInvalidAttedanceReportPersister {
                                                             date: Date.now,
                                                             dataAccess: DataAccess.shared)
         
-        return realmObjectPersister.saveToRealm(objects: [newReport])
+        return self.genericRepo.saveToRealm(objects: [newReport])
         
     }
 }
-
-import Foundation
-import Realm
-import RealmSwift
 
 class RealmInvalidAttendanceReport: Object {
     @objc dynamic var id: String = ""

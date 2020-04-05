@@ -41,7 +41,7 @@ class ScannerViewModel {
     private let codeReportsState: CodeReportsState
     
     // TODO marko: to refactor...
-    fileprivate let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(realmObjectPersister: RealmObjectPersister())
+    fileprivate let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(genericRepo: GenericRealmRepository())
     
     init(dataAccess: DataAccess, scannerInfoFactory: IScannerInfoFactory, codeReportsState: CodeReportsState) {
         self.dataAccess = dataAccess

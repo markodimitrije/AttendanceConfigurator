@@ -31,16 +31,6 @@ struct RealmDataPersister {
     
     // MARK:- CodeReports
     
-    func getCodeReportsCount() -> Observable<Int> {
-        
-        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-        
-        let count = realm.objects(RealmCodeReport.self).count
-        
-        return Observable.just(count)
-        
-    }
-    
     func getCodeReports() -> [CodeReport] {
         
         guard let realm = try? Realm.init() else {return [ ]} // iako je Error!
@@ -94,18 +84,6 @@ struct RealmDataPersister {
     }
     
     // MARK:- Save data
-    
-    func save(rooms: [Room]) -> Observable<Bool> {
-        // prvo ih map u svoje objects a onda persist i javi da jesi...
-        let realmRooms = rooms.map(RealmRoomFactory.make)
-        return saveToRealm(objects: realmRooms)
-    }
-    
-    func save(blocks: [Block]) -> Observable<Bool> {
-        // prvo ih map u svoje objects a onda persist i javi da jesi...
-        let realmBlocks = blocks.map(RealmBlockFactory.make)
-        return saveToRealm(objects: realmBlocks)
-    }
     
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
         
