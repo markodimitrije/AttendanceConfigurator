@@ -19,6 +19,7 @@ class CodesDumper: ICodesDumperWorker {
     init(apiController: ICodeReportApiController, repository: ICodeReportsRepository) {
         self.apiController = apiController
         self.repository = repository
+        self.codeReportsDeleted = BehaviorRelay.init(value: repository.getCodeReports().isEmpty)
         print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
         hookUpTimer()
         hookUpNotifyWeb()
@@ -26,7 +27,7 @@ class CodesDumper: ICodesDumperWorker {
     }
     
     private let bag = DisposeBag.init()
-    
+    private var codeReportsDeleted: BehaviorRelay<Bool>
     private var timer: Observable<Int>?
     private let isRunning = BehaviorRelay.init(value: false) // timer
     private let timerFired = BehaviorRelay.init(value: ()) // timer events
@@ -37,9 +38,6 @@ class CodesDumper: ICodesDumperWorker {
                     //.map {return true} // temp ON
                     .withLatestFrom(connectedToInternet()) // temp OFF
     }
-    private var codeReportsDeleted: BehaviorRelay<Bool> = {
-        return BehaviorRelay.init(value: RealmDataPersister.shared.getCodeReports().isEmpty)
-    }()
     
     // Output
     var oCodesDumped = BehaviorRelay<Bool>.init(value: false)
@@ -74,7 +72,7 @@ class CodesDumper: ICodesDumperWorker {
                 
                 guard let sSelf = self else {return}
                 
-                let codeReports = RealmDataPersister.shared.getCodeReports()
+                let codeReports = sSelf.repository.getCodeReports()
                 
                 sSelf.reportSavedCodesToWeb(codeReports: codeReports)
                     .subscribe(onNext: { success in

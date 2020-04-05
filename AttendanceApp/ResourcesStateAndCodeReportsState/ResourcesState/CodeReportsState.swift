@@ -69,7 +69,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                         sSelf.webNotified.accept((code, success)) // postavi na svoj Output
                         
                         if success {
-                            RealmDataPersister.shared.save(codesAcceptedFromWeb: [code])
+                            sSelf.repository.save(codesAcceptedFromWeb: [code])
                                 .subscribe(onNext: { saved in
                                     print("code successfully reported to web, save in your archive")
                                 }).disposed(by: sSelf.bag)
@@ -90,7 +90,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
         print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
         
-        _ = RealmDataPersister().saveToRealm(codeReport: report)
+        _ = repository.saveToRealm(codeReport: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
         if codesDumper == nil {
             codesDumper = CodesDumperFactory.make() // u svom init, zna da javlja reports web-u...

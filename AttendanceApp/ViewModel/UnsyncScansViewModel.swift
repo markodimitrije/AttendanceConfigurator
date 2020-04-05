@@ -18,11 +18,8 @@ class UnsyncScansViewModel {
     private var syncScansTap: Driver<()>
     
     init(syncScans: Driver<()>) {
-        
-        self.syncScansTap = syncScans // sacuvaj na sebi bez modifikacija
-        
+        self.syncScansTap = syncScans
         bindOutput()
-        
         bindInputWithOutput()
     }
     
@@ -31,7 +28,7 @@ class UnsyncScansViewModel {
     // OUTPUT
     private (set) var syncControlAvailable = BehaviorSubject<Bool>.init(value: false)
     
-    private (set) var syncScansCount = BehaviorSubject<Int>.init(value: RealmDataPersister.shared.getCodeReports().count)
+    private (set) var syncScansCount = BehaviorSubject<Int>.init(value: CodeReportsRepositoryFactory.make().getCodeReports().count)//TODO marko: DIP
     
     var syncFinished = BehaviorRelay<Bool>.init(value: false)
     

@@ -10,20 +10,47 @@ import RxSwift
 import RealmSwift
 
 protocol ICodeReportsRepository {
-    func deleteAllCodeReports() -> Observable<Bool>
     func getCodeReports() -> [CodeReport]
+    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>>
+    func deleteAllCodeReports() -> Observable<Bool>
+    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> //TODO: to delete...
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
     func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool>
-    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> //TODO: to delete...
 }
 
 extension CodeReportsRepository: ICodeReportsRepository {
     func deleteAllCodeReports() -> Observable<Bool> {
         return genericRepo.deleteAllObjects(ofTypes: [RealmCodeReport.self])
     }
+    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> {
+        
+        guard let realm = try? Realm.init() else {
+            return Observable.just(false)
+        } // iako je Error!
+        
+        let realmResults = realm.objects(RealmCodeReport.self).filter { report -> Bool in
+            return codeReports.map {$0.code}.contains(report.code)
+        }
+        
+        do {
+            try realm.write {
+                realm.delete(realmResults)
+            }
+            print("CodeReportsRepository.deleteCodeReports: delete Reported CodeReports")
+            return Observable.just(true)
+        } catch {
+            return Observable.just(false)
+        }
+        
+    }
     func getCodeReports() -> [CodeReport] {
         let realm = try! Realm()
         return realm.objects(RealmCodeReport.self).map(CodeReport.init)
+    }
+    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
+        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
+        let results = realm.objects(RealmWebReportedCode.self)
+        return Observable.collection(from: results) // this is live source !!
     }
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool> {
 //        let rCodeReport = RealmCodeReportFactory.make(with: codeReport)
@@ -78,27 +105,6 @@ extension CodeReportsRepository: ICodeReportsRepository {
         
     }
     
-    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> {
-        
-        guard let realm = try? Realm.init() else {
-            return Observable.just(false)
-        } // iako je Error!
-        
-        let realmResults = realm.objects(RealmCodeReport.self).filter { report -> Bool in
-            return codeReports.map {$0.code}.contains(report.code)
-        }
-        
-        do {
-            try realm.write {
-                realm.delete(realmResults)
-            }
-            print("CodeReportsRepository.deleteCodeReports: delete Reported CodeReports")
-            return Observable.just(true)
-        } catch {
-            return Observable.just(false)
-        }
-        
-    }
 }
 
 class CodeReportsRepository {

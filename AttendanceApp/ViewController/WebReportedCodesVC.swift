@@ -12,11 +12,19 @@ import RxCocoa
 import RealmSwift
 import Realm
 
+class WebReportedCodesDataSourceFactory {
+    static func make(tableView: UITableView) -> WebReportedCodesDataSource {
+        let repository = CodeReportsRepositoryFactory.make()
+        return WebReportedCodesDataSource(tableView: tableView, repository: repository)
+    }
+}
+
 class WebReportedCodesVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    lazy private var dataSource = WebReportedCodesDataSource.init(tableView: tableView)
+    //lazy private var dataSource = WebReportedCodesDataSource(tableView: tableView)
+    lazy private var dataSource = WebReportedCodesDataSourceFactory.make(tableView: tableView)
     
     override func viewDidLoad() { super.viewDidLoad()
         self.tableView.dataSource = dataSource
@@ -32,14 +40,15 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         }
     } // hooked with realm in func: "hookUpDataFromRealm"
     
-    private var tableView: UITableView
-    
-    init(tableView: UITableView) {
+    private let tableView: UITableView
+    private let repository: ICodeReportsRepository
+    init(tableView: UITableView, repository: ICodeReportsRepository) {
         self.tableView = tableView
+        self.repository = repository
         super.init()
         self.hookUpDataFromRealm()
-        
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -51,8 +60,10 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         cell.textLabel?.text = data[indexPath.row]
         return cell
     }
+    
     private func hookUpDataFromRealm() {
-        RealmDataPersister.shared.getRealmWebReportedCodes().subscribeOn(MainScheduler.init())
+        
+        self.repository.getRealmWebReportedCodes().subscribeOn(MainScheduler.init())
             .subscribe(onNext: { [weak self] results in
             guard let sSelf = self else {return}
                 let reports = results.toArray().sorted(by: { (rCode1, rCode2) -> Bool in
