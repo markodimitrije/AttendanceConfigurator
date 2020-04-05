@@ -12,9 +12,9 @@ class DelegateProviderWorker: IDelegateProviderWorker {
     // inject unziper..
     private let bag = DisposeBag()
     private let apiController: DelegatesAPIController
-    private let repository: DelegatesRepository
+    private let repository: IDelegatesRepository
 
-    init(apiController: DelegatesAPIController, repository: DelegatesRepository) {
+    init(apiController: DelegatesAPIController, repository: IDelegatesRepository) {
         self.apiController = apiController
         self.repository = repository
     }

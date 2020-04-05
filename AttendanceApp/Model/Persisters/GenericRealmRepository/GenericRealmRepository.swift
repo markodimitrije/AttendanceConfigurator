@@ -1,32 +1,16 @@
 //
-//  DelegatesRepository.swift
+//  GenericRealmRepository.swift
 //  AttendanceApp
 //
-//  Created by Marko Dimitrijevic on 24/05/2019.
-//  Copyright © 2019 Navus. All rights reserved.
+//  Created by Marko Dimitrijevic on 05/04/2020.
+//  Copyright © 2020 Navus. All rights reserved.
 //
 
 import RxSwift
 import RealmSwift
 import Realm
 
-struct DelegatesRepository {
-    
-    //static var shared = RealmDelegatesPersister()
-    
-    // MARK:- Save data
-    
-    func save(delegates: [Delegate]) -> Observable<Bool> {
-        
-        // prvo ih map u svoje objects a onda persist i javi da jesi...
-        let realmDelegates = delegates.map { delegate -> RealmDelegate in
-            let r = RealmDelegate()
-            r.updateWith(delegate: delegate)
-            return r
-        }
-        
-        return saveToRealm(objects: realmDelegates)
-    }
+class GenericRealmRepository: IGenericRealmRepository {
     
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
         

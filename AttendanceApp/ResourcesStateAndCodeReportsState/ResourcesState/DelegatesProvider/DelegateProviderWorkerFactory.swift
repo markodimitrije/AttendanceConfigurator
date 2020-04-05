@@ -10,8 +10,9 @@ class DelegateProviderWorkerFactory {
     static func make(confId: Int) -> IDelegateProviderWorker {
         let apiController = ApiController.shared
         let unziper = Unziper(conferenceId: confId)
+        let delegatesRepo = DelegatesRepositoryFactory.make()
         let delegatesApi = DelegatesAPIController(apiController: apiController, unziper: unziper)
         return DelegateProviderWorker(apiController: delegatesApi,
-                                      repository: DelegatesRepository())
+                                      repository: delegatesRepo)
     }
 }

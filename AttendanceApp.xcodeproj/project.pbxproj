@@ -20,6 +20,10 @@
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
 		7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */; };
+		7C57854A243A1527006531CC /* IGenericRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578549243A1527006531CC /* IGenericRealmRepository.swift */; };
+		7C57854C243A1566006531CC /* GenericRealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57854B243A1566006531CC /* GenericRealmRepository.swift */; };
+		7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57854E243A1608006531CC /* IDelegatesRepository.swift */; };
+		7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -186,6 +190,10 @@
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsPayloadFactory.swift; sourceTree = "<group>"; };
+		7C578549243A1527006531CC /* IGenericRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGenericRealmRepository.swift; sourceTree = "<group>"; };
+		7C57854B243A1566006531CC /* GenericRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRealmRepository.swift; sourceTree = "<group>"; };
+		7C57854E243A1608006531CC /* IDelegatesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegatesRepository.swift; sourceTree = "<group>"; };
+		7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -416,6 +424,25 @@
 			path = ReportCodeApiController;
 			sourceTree = "<group>";
 		};
+		7C578548243A150E006531CC /* GenericRealmRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7C578549243A1527006531CC /* IGenericRealmRepository.swift */,
+				7C57854B243A1566006531CC /* GenericRealmRepository.swift */,
+			);
+			path = GenericRealmRepository;
+			sourceTree = "<group>";
+		};
+		7C57854D243A15FA006531CC /* DelegatesRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7C57854E243A1608006531CC /* IDelegatesRepository.swift */,
+				7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */,
+				7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */,
+			);
+			path = DelegatesRepository;
+			sourceTree = "<group>";
+		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -600,9 +627,10 @@
 		7CB1E44C229830E5008C23F8 /* Persisters */ = {
 			isa = PBXGroup;
 			children = (
+				7C578548243A150E006531CC /* GenericRealmRepository */,
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */,
-				7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */,
+				7C57854D243A15FA006531CC /* DelegatesRepository */,
 			);
 			path = Persisters;
 			sourceTree = "<group>";
@@ -1296,6 +1324,7 @@
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
+				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
@@ -1313,6 +1342,7 @@
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */,
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
+				7C57854A243A1527006531CC /* IGenericRealmRepository.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */,
@@ -1328,6 +1358,7 @@
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
 				7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
+				7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
@@ -1346,6 +1377,7 @@
 				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
+				7C57854C243A1566006531CC /* GenericRealmRepository.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
