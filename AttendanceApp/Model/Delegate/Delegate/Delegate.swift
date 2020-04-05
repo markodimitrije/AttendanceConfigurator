@@ -15,7 +15,7 @@ struct Delegates: Codable {
 
 extension Delegate: IDelegate {
     func getCode() -> String { self.c }
-    func getAllowedSessionIds() -> [Int] { self.s }
+    func sessionIds() -> [Int] { self.s }
 }
 
 struct Delegate: Codable {

@@ -10,5 +10,5 @@ import Foundation
 
 protocol IDelegate {
     func getCode() -> String
-    func getAllowedSessionIds() -> [Int]
+    func sessionIds() -> [Int]
 }

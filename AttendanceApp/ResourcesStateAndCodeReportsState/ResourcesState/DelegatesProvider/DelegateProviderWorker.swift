@@ -23,9 +23,7 @@ class DelegateProviderWorker: IDelegateProviderWorker {
         
         let oNewDelegates = apiController.getDelegates()
         
-        let oOldDeleted = self.repository
-                            .deleteAllObjects(ofTypes: [RealmDelegate.self])
-                            .filter {$0}
+        let oOldDeleted = self.repository.deleteAllDelegates().filter {$0}
         
         let result = Observable.combineLatest(oNewDelegates, oOldDeleted) { (delegates, success) -> [Delegate] in
             return success ? delegates : [ ]

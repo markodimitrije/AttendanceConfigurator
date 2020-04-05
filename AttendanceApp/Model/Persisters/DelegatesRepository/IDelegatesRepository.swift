@@ -11,5 +11,5 @@ import RealmSwift
 
 protocol IDelegatesRepository {
     func save(delegates: [Delegate]) -> Observable<Bool>
-    func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool>
+    func deleteAllDelegates() -> Observable<Bool>
 }

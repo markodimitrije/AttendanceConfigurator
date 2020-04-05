@@ -14,12 +14,10 @@ class RealmDelegate: Object {
     @objc dynamic var code: String = ""
     let sessionIds = List<Int>()
     
-    func updateWith(delegate: Delegate) {
-        //self.code = delegate.code
-        self.code = delegate.c
+    func updateWith(delegate: IDelegate) {
+        self.code = delegate.getCode()
         self.sessionIds.removeAll()
-        //self.sessionIds.append(objectsIn: delegate.sessionIds)
-        self.sessionIds.append(objectsIn: delegate.s)
+        self.sessionIds.append(objectsIn: delegate.sessionIds())
     }
     
     override static func primaryKey() -> String? {

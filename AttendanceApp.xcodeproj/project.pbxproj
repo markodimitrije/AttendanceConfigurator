@@ -25,6 +25,7 @@
 		7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57854E243A1608006531CC /* IDelegatesRepository.swift */; };
 		7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */; };
 		7C578554243A1C6B006531CC /* IDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578553243A1C6B006531CC /* IDelegate.swift */; };
+		7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -196,6 +197,7 @@
 		7C57854E243A1608006531CC /* IDelegatesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegatesRepository.swift; sourceTree = "<group>"; };
 		7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C578553243A1C6B006531CC /* IDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegate.swift; sourceTree = "<group>"; };
+		7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegateFactory.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -454,6 +456,15 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		7C578555243A1DF0006531CC /* RealmDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7CB1E45422983331008C23F8 /* RealmDelegate.swift */,
+				7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */,
+			);
+			path = RealmDelegate;
+			sourceTree = "<group>";
+		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,7 +683,7 @@
 			isa = PBXGroup;
 			children = (
 				7C578552243A1C60006531CC /* Delegate */,
-				7CB1E45422983331008C23F8 /* RealmDelegate.swift */,
+				7C578555243A1DF0006531CC /* RealmDelegate */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -1317,6 +1328,7 @@
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
+				7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */,
 				7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */,
 				7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
