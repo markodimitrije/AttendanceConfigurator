@@ -13,6 +13,7 @@ protocol ICodeReportsRepository {
     func deleteAllCodeReports() -> Observable<Bool>
     func getCodeReports() -> [CodeReport]
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
+    func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool>
     func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> //TODO: to delete...
 }
 
@@ -50,6 +51,31 @@ extension CodeReportsRepository: ICodeReportsRepository {
         }
         
         return Observable<Bool>.just(true) // all good here
+    }
+    
+    func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool> {
+        
+        guard let realm = try? Realm() else {
+            return Observable<Bool>.just(false) // treba da imas err za Realm...
+        }
+        
+        let firstAvailableId = realm.objects(RealmWebReportedCode.self).count
+        let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedCode in
+            let record = RealmWebReportedCode.create(id: firstAvailableId + offset, codeReport: codeReport)
+            return record
+        }
+        
+        do {
+            try realm.write {
+                realm.add(realmWebReportedCodes)
+                print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
+            }
+        } catch {
+            return Observable<Bool>.just(false)
+        }
+        
+        return Observable<Bool>.just(true) // all good here
+        
     }
     
     func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> {

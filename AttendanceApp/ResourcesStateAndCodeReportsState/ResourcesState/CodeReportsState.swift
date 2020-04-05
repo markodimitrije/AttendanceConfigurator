@@ -11,7 +11,23 @@ import RxCocoa
 import RealmSwift
 import Realm
 
+class CodeReportsStateFactory {
+    static func make() -> CodeReportsState {
+        let apiController = CodeReportApiControllerFactory.make()
+        let repository = CodeReportsRepositoryFactory.make()
+        return CodeReportsState(apiController: apiController, repository: repository)
+    }
+}
+
 class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
+    
+    private let apiController: ICodeReportApiController
+    private let repository: ICodeReportsRepository
+    init(apiController: ICodeReportApiController, repository: ICodeReportsRepository) {
+        self.apiController = apiController
+        self.repository = repository
+        bindInputWithOutput()
+    }
     
     private var codeReports: Results<RealmCodeReport>? {
         
@@ -38,12 +54,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     // OUTPUT
     
     let webNotified = BehaviorRelay<(CodeReport, Bool)?>.init(value: nil)
-    
-    init() {
-        
-        bindInputWithOutput()
-        
-    }
     
     private func bindInputWithOutput() { print("CodeReportsState.bindInputWithOutput")
         

@@ -28,6 +28,8 @@
 		7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */; };
 		7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578559243A2FD4006531CC /* CodeReportsRepository.swift */; };
 		7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */; };
+		7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57855E243A4949006531CC /* CodesDumperFactory.swift */; };
+		7C578561243A4961006531CC /* ICodesDumperWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578560243A4961006531CC /* ICodesDumperWorker.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -202,6 +204,8 @@
 		7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegateFactory.swift; sourceTree = "<group>"; };
 		7C578559243A2FD4006531CC /* CodeReportsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsRepository.swift; sourceTree = "<group>"; };
 		7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsRepositoryFactory.swift; sourceTree = "<group>"; };
+		7C57855E243A4949006531CC /* CodesDumperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumperFactory.swift; sourceTree = "<group>"; };
+		7C578560243A4961006531CC /* ICodesDumperWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodesDumperWorker.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -476,6 +480,16 @@
 				7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */,
 			);
 			path = CodeReportsRepository;
+			sourceTree = "<group>";
+		};
+		7C57855D243A4937006531CC /* CodesDumper */ = {
+			isa = PBXGroup;
+			children = (
+				AD191486218EEFC000CD5B2F /* CodesDumper.swift */,
+				7C578560243A4961006531CC /* ICodesDumperWorker.swift */,
+				7C57855E243A4949006531CC /* CodesDumperFactory.swift */,
+			);
+			path = CodesDumper;
 			sourceTree = "<group>";
 		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
@@ -1081,7 +1095,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAA2A492431317B00CA184F /* ResourcesState */,
-				AD191486218EEFC000CD5B2F /* CodesDumper.swift */,
+				7C57855D243A4937006531CC /* CodesDumper */,
 				AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */,
 				7CD5297524339BEA00170D0A /* AlertStateReporter */,
 				7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */,
@@ -1366,6 +1380,7 @@
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
 				7C578554243A1C6B006531CC /* IDelegate.swift in Sources */,
+				7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
@@ -1459,6 +1474,7 @@
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
 				7CD5296E24334AA900170D0A /* Unziper.swift in Sources */,
+				7C578561243A4961006531CC /* ICodesDumperWorker.swift in Sources */,
 				7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */,
 				AD697BD221885AF2002BC579 /* RealmDataPersister.swift in Sources */,
 				AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */,

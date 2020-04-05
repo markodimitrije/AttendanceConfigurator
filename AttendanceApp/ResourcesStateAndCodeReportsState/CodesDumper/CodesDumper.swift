@@ -6,51 +6,45 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxCocoa
 import RealmSwift
 import Realm
 
-class CodesDumperFactory {
-    static func make() -> CodesDumper {
-        return CodesDumper()
-    }
-}
-
-class CodesDumper {
+class CodesDumper: ICodesDumperWorker {
     
-    let bag = DisposeBag.init()
+    private let apiController: ICodeReportApiController
+    private let repository: ICodeReportsRepository
     
-    var timer: Observable<Int>?
-    
-    var isRunning = BehaviorRelay.init(value: false) // timer
-    
-    var timerFired = BehaviorRelay.init(value: ()) // timer events
-    
-    var timeToSendReport: Observable<Bool> {
-        return timerFired
-                    .asObservable()
-                    //.map {return true} // temp ON
-                    .withLatestFrom(connectedToInternet()) // temp OFF
-    }
-    
-    var codeReportsDeleted: BehaviorRelay<Bool> = {
-        return BehaviorRelay.init(value: RealmDataPersister.shared.getCodeReports().isEmpty)
-    }()
-    
-    init() { print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
-        
+    init(apiController: ICodeReportApiController, repository: ICodeReportsRepository) {
+        self.apiController = apiController
+        self.repository = repository
+        print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
         hookUpTimer()
         hookUpNotifyWeb()
         hookUpAllCodesReportedToWeb()
     }
     
-    // Output
+    private let bag = DisposeBag.init()
     
+    private var timer: Observable<Int>?
+    private let isRunning = BehaviorRelay.init(value: false) // timer
+    private let timerFired = BehaviorRelay.init(value: ()) // timer events
+    
+    private var timeToSendReport: Observable<Bool> {
+        return timerFired
+                    .asObservable()
+                    //.map {return true} // temp ON
+                    .withLatestFrom(connectedToInternet()) // temp OFF
+    }
+    private var codeReportsDeleted: BehaviorRelay<Bool> = {
+        return BehaviorRelay.init(value: RealmDataPersister.shared.getCodeReports().isEmpty)
+    }()
+    
+    // Output
     var oCodesDumped = BehaviorRelay<Bool>.init(value: false)
     
-    // MARK:- Private
+    // MARK:- Private methods
     
     private func hookUpTimer() {
         
@@ -88,12 +82,12 @@ class CodesDumper {
                             
                             print("save this bulk of codes into realm = \(codeReports), implement me !!")
                             
-                            RealmDataPersister.shared.save(codesAcceptedFromWeb: codeReports)
+                            sSelf.repository.save(codesAcceptedFromWeb: codeReports)
                                 .subscribe(onNext: { saved in
                                     print("to web reported codes saved to realm = \(saved)")
                             }).disposed(by: sSelf.bag)
                             
-                            RealmDataPersister.shared.deleteCodeReports(codeReports)
+                            sSelf.repository.deleteCodeReports(codeReports)
                                 .subscribe(onNext: { deleted in
                                     
                                     sSelf.codeReportsDeleted.accept(deleted)
@@ -123,15 +117,14 @@ class CodesDumper {
             .disposed(by: bag)
     }
     
-    func reportSavedCodesToWeb(codeReports: [CodeReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    private func reportSavedCodesToWeb(codeReports: [CodeReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
         guard !codeReports.isEmpty else { print("CodesDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)
         }
         
-        let apiController = CodeReportApiControllerFactory.make()
-
-        return apiController
+        return
+            self.apiController
             .reportMultipleCodes(reports: codeReports)
             .map({ (success) -> Bool in
                 if success {
