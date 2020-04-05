@@ -32,44 +32,4 @@ struct CodeReport {
         self.date = realmCodeReport.date
     }
     
-//    func getPayload() -> [String: String] {
-//        
-//        return [
-//            "block_id": "\(sessionId)",
-//            "code": trimmedToSixCharactersCode(code: code),
-//            "time_of_scan": date.toString(format: Date.defaultFormatString) ?? ""
-//        ]
-//    }
-    
-    static func getPayload(_ report: CodeReport) -> [String: Any] {
-        return CodeReportsPayloadFactory.makeSinglePayload(report: report)
-//        return [
-//            "block_id": "\(report.sessionId)",
-//            "code": trimmedToSixCharactersCode(code: report.code),
-//            "time_of_scan": report.date.toString(format: Date.defaultFormatString) ?? ""
-//        ]
-    }
-    
-    static func getPayload(_ reports: [CodeReport]) -> [String: Any] {
-        
-        return CodeReportsPayloadFactory.make(reports: reports)
-//        let listOfReports = reports.map {getPayload($0)}
-//
-//        return ["data": listOfReports]
-    }
-    
-}
-
-class CodeReportsPayloadFactory {
-    static func make(reports: [CodeReport]) -> [String: Any] {
-        let data = reports.map(makeSinglePayload)
-        return ["data": data]
-    }
-    static func makeSinglePayload(report: CodeReport) -> [String: Any] {
-        return [
-            "block_id": "\(report.sessionId)",
-            "code": trimmedToSixCharactersCode(code: report.code),
-            "time_of_scan": report.date.toString(format: Date.defaultFormatString) ?? ""
-        ]
-    }
 }

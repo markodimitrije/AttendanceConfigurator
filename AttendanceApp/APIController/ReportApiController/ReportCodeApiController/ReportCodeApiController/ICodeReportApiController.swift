@@ -12,5 +12,5 @@ import RxSwift
 
 protocol ICodeReportApiController {
     func reportSingleCode(report: CodeReport) -> Observable<(CodeReport,Bool)> // TODO marko just ()
-    func reportMultipleCodes(reports: [CodeReport]?) -> Observable<Bool> // isto...
+    func reportMultipleCodes(reports: [CodeReport]) -> Observable<Bool> // isto...
 }

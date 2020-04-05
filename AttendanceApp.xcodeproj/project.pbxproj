@@ -19,6 +19,7 @@
 		7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
+		7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -184,6 +185,7 @@
 		7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsPayloadFactory.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -402,6 +404,16 @@
 				7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */,
 			);
 			path = DatesVC;
+			sourceTree = "<group>";
+		};
+		7C5785472439E371006531CC /* ReportCodeApiController */ = {
+			isa = PBXGroup;
+			children = (
+				7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */,
+				7CD529782433A8F900170D0A /* ReportCodeApiController.swift */,
+				7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */,
+			);
+			path = ReportCodeApiController;
 			sourceTree = "<group>";
 		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
@@ -740,9 +752,8 @@
 		7CD529892433D80500170D0A /* ReportCodeApiController */ = {
 			isa = PBXGroup;
 			children = (
-				7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */,
-				7CD529782433A8F900170D0A /* ReportCodeApiController.swift */,
-				7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */,
+				7C5785472439E371006531CC /* ReportCodeApiController */,
+				7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */,
 			);
 			path = ReportCodeApiController;
 			sourceTree = "<group>";
@@ -1354,6 +1365,7 @@
 				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
+				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,
 				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,

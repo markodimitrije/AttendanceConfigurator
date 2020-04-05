@@ -94,7 +94,7 @@ class CodesDumper {
                                 })
                                 .disposed(by: sSelf.bag)
                         } else {
-                            print("nije success, nastavi da saljes")
+                            print("nije success, nastavi da proveravas..")
                         }
                     })
                     .disposed(by: sSelf.bag)
