@@ -13,14 +13,10 @@ struct Delegates: Codable {
     var delegates = [Delegate]()
 }
 
-//struct Delegate: Codable {
-//    var code: String
-//    var sessionIds = [Int]()
-//
-//    enum CodingKeys : String, CodingKey {
-//        case code = "c", sessionIds = "s"
-//    }
-//}
+extension Delegate: IDelegate {
+    func getCode() -> String { self.c }
+    func getAllowedSessionIds() -> [Int] { self.s }
+}
 
 struct Delegate: Codable {
     var c: String
