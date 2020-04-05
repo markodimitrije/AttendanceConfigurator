@@ -50,7 +50,7 @@ class UnsyncScansViewModel {
                 guard let sSelf = self else {return}
                 
                 if codesDumper == nil { // DUPLICATED !!
-                    codesDumper = CodesDumper() // u svom init, zna da javlja reports web-u...
+                    codesDumper = CodesDumperFactory.make() // u svom init, zna da javlja reports web-u...
                     codesDumper.oCodesDumped
                         .asObservable()
                         .subscribe(onNext: { (success) in

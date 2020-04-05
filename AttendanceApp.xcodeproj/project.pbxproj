@@ -26,6 +26,8 @@
 		7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */; };
 		7C578554243A1C6B006531CC /* IDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578553243A1C6B006531CC /* IDelegate.swift */; };
 		7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */; };
+		7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578559243A2FD4006531CC /* CodeReportsRepository.swift */; };
+		7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -198,6 +200,8 @@
 		7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C578553243A1C6B006531CC /* IDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegate.swift; sourceTree = "<group>"; };
 		7C578556243A1DFD006531CC /* RealmDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDelegateFactory.swift; sourceTree = "<group>"; };
+		7C578559243A2FD4006531CC /* CodeReportsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsRepository.swift; sourceTree = "<group>"; };
+		7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -465,6 +469,15 @@
 			path = RealmDelegate;
 			sourceTree = "<group>";
 		};
+		7C578558243A2FC0006531CC /* CodeReportsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7C578559243A2FD4006531CC /* CodeReportsRepository.swift */,
+				7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */,
+			);
+			path = CodeReportsRepository;
+			sourceTree = "<group>";
+		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +662,7 @@
 		7CB1E44C229830E5008C23F8 /* Persisters */ = {
 			isa = PBXGroup;
 			children = (
+				7C578558243A2FC0006531CC /* CodeReportsRepository */,
 				7C578548243A150E006531CC /* GenericRealmRepository */,
 				AD697BD121885AF2002BC579 /* RealmDataPersister.swift */,
 				7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */,
@@ -1354,6 +1368,7 @@
 				7C578554243A1C6B006531CC /* IDelegate.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
+				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
@@ -1398,6 +1413,7 @@
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
+				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
 				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7C7F4FEE228B5AFC00379EBD /* WebReportedCode.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,

@@ -83,7 +83,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         _ = RealmDataPersister().saveToRealm(codeReport: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
         if codesDumper == nil {
-            codesDumper = CodesDumper() // u svom init, zna da javlja reports web-u...
+            codesDumper = CodesDumperFactory.make() // u svom init, zna da javlja reports web-u...
             codesDumper.oCodesDumped
                 .asObservable()
                 .subscribe(onNext: { (success) in

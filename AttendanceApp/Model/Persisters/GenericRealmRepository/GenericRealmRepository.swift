@@ -20,7 +20,7 @@ class GenericRealmRepository: IGenericRealmRepository {
         
         do {
             try realm.write {
-                realm.add(objects)
+                realm.add(objects, update: true)
             }
         } catch {
             return Observable<Bool>.just(false)

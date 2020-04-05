@@ -10,8 +10,12 @@ class RealmCodeReportFactory {
     
     static func make(with codeReport: ICodeReport) -> RealmCodeReport {
         let object = RealmCodeReport()
-        object.code = codeReport.getCode()
-        object.sessionId = codeReport.getSessionId()
+        let barcode = codeReport.getCode()
+        let sessionId = codeReport.getSessionId()
+        
+//        object.id = barcode + "\(sessionId)"
+        object.code = barcode
+        object.sessionId = sessionId
         object.date = codeReport.getDate()
         return object
     }

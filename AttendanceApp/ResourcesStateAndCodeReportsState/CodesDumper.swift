@@ -12,6 +12,12 @@ import RxCocoa
 import RealmSwift
 import Realm
 
+class CodesDumperFactory {
+    static func make() -> CodesDumper {
+        return CodesDumper()
+    }
+}
+
 class CodesDumper {
     
     let bag = DisposeBag.init()
@@ -136,9 +142,4 @@ class CodesDumper {
             })
     }
     
-}
-
-enum ReportToWebError: Error {
-    case noCodesToReport
-    case notConfirmedByServer // nije 201
 }
