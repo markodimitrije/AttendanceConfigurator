@@ -11,6 +11,6 @@ import RxSwift
 // TODO marko -> only multiple codes should exist - remove single code report
 
 protocol ICodeReportApiController {
-    func reportSingleCode(report: CodeReport?) -> Observable<(CodeReport,Bool)> // TODO marko just ()
+    func reportSingleCode(report: CodeReport) -> Observable<(CodeReport,Bool)> // TODO marko just ()
     func reportMultipleCodes(reports: [CodeReport]?) -> Observable<Bool> // isto...
 }

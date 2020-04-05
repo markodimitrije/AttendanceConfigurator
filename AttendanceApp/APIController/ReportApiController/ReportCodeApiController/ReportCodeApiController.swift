@@ -17,11 +17,10 @@ class CodeReportApiController: ICodeReportApiController {
         self.apiController = apiController
     }
     
-    func reportSingleCode(report: CodeReport?) -> Observable<(CodeReport,Bool)> {
-            
-        guard let report = report else {return Observable.empty()}
+    func reportSingleCode(report: CodeReport) -> Observable<(CodeReport,Bool)> {
         
-        let params = report.getPayload()
+        //let params = report.getPayload()
+        let params = CodeReportsPayloadFactory.makeSinglePayload(report: report)
             
         return
             apiController
