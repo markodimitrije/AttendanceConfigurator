@@ -14,6 +14,6 @@ protocol ICodeReportsRepository {
     func getObsCodeReports() -> Observable<[ICodeReport]>
     func getObsUnsynced() -> Observable<[ICodeReport]>
     func deleteAllCodeReports() -> Observable<Bool>
-    func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
+    func save(codeReport: ICodeReport) -> Observable<Bool>
     func update(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
 }

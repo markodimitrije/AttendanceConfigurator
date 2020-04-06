@@ -40,7 +40,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         .subscribe(onNext: { [weak self] report in
             
             guard let sSelf = self else {return}
-            sSelf.repository.saveToRealm(codeReport: report)
+            sSelf.repository.save(codeReport: report)
             .subscribe { (success) in
                 sSelf.apiController.reportSingleCode(report: report)
                 
