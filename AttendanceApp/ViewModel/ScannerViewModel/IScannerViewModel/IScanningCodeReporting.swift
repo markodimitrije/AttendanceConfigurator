@@ -9,6 +9,5 @@
 import Foundation
 
 protocol IScanningCodeReporting {
-    func scannedCodeAccepted(code: String)
-    func scannedCodeRejected(code: String)
+    func scannedCode(code: String, accepted: Bool)
 }

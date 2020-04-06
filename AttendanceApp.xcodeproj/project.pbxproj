@@ -74,7 +74,6 @@
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
 		7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E5242D022800ECD1E5 /* RoomFactory.swift */; };
 		7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */; };
-		7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
 		7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */; };
@@ -254,7 +253,6 @@
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
 		7CC796E5242D022800ECD1E5 /* RoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFactory.swift; sourceTree = "<group>"; };
 		7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
-		7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmInvalidAttedanceReportPersister.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
 		7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
@@ -710,7 +708,6 @@
 			children = (
 				7C578558243A2FC0006531CC /* CodeReportsRepository */,
 				7C578548243A150E006531CC /* GenericRealmRepository */,
-				7CCAE51622AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift */,
 				7C57854D243A15FA006531CC /* DelegatesRepository */,
 			);
 			path = Persisters;
@@ -1455,7 +1452,6 @@
 				7C5ED62D243B52EA00FEEAAE /* CodeReportCellModelFactory.swift in Sources */,
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
-				7CCAE51722AFD3A5006B9A92 /* RealmInvalidAttedanceReportPersister.swift in Sources */,
 				7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */,
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,

@@ -44,12 +44,13 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
             .subscribeOn(MainScheduler.init())
             .subscribe(onNext: { [weak self] array in
             guard let sSelf = self else {return}
-                let reports = array.sorted(by: { (rCode1, rCode2) -> Bool in
-                    return (rCode1.getDate()) > (rCode2.getDate())
-                })
+//                let reports = array.sorted(by: { (rCode1, rCode2) -> Bool in
+//                    return (rCode1.getDate()) > (rCode2.getDate())
+//                })
+                let reports = array.sorted(by: { $0.getDate() > $1.getDate() })
                 sSelf.data = reports.map(CodeReportCellModelFactory.make)
-        }).disposed(by: bag)
-        
+            })
+            .disposed(by: bag)
     }
     
     private let bag = DisposeBag()

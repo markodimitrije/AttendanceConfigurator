@@ -19,22 +19,8 @@ extension ScannerViewModel: IScannerViewModel {
         self.sessionId
     }
     
-    func scannedCodeAccepted(code: String) {
-        let report = CodeReportFactory.make(code: code, sessionId: self.sessionId, date: Date.now, accepted: true)
-        codeReportsState.codeReport.accept(report)
-    }
-    
-    func scannedCodeRejected(code: String) {
-        
-//        let report = CodeReport.init(code: code, sessionId: self.sessionId, date: Date.now, accepted: false)
-//        codeReportsState.codeReport.accept(report)
-        // TODO refactor into smth like above:
-//        self.realmInvalidAttedanceReportPersister
-//        .saveToRealm(invalidAttendanceCode: code)
-//        .subscribe(onNext: { success in
-//            print("invalid codes saved = \(success)")
-//        }).disposed(by: self.bag)
-        let report = CodeReport.init(code: code, sessionId: self.sessionId, date: Date.now, accepted: false)
+    func scannedCode(code: String, accepted: Bool) {
+        let report = CodeReportFactory.make(code: code, sessionId: self.sessionId, date: Date.now, accepted: accepted)
         codeReportsState.codeReport.accept(report)
     }
     
@@ -45,9 +31,6 @@ class ScannerViewModel {
     private var dataAccess: DataAccess!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
-    
-    // TODO marko: to refactor...
-//    fileprivate let realmInvalidAttedanceReportPersister = RealmInvalidAttedanceReportPersister(genericRepo: GenericRealmRepository())
     
     init(dataAccess: DataAccess, scannerInfoFactory: IScannerInfoFactory, codeReportsState: CodeReportsState) {
         self.dataAccess = dataAccess

@@ -14,7 +14,6 @@ protocol ICodeReportsRepository {
     func getUnsynced() -> [CodeReport]
     func getObsCodeReports() -> Observable<[ICodeReport]>
     func deleteAllCodeReports() -> Observable<Bool>
-    func deleteCodeReports(_ codeReports: [ICodeReport]) -> Observable<Bool> //TODO: to delete...
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
     func save(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
 }
@@ -23,27 +22,7 @@ extension CodeReportsRepository: ICodeReportsRepository {
     func deleteAllCodeReports() -> Observable<Bool> {
         return genericRepo.deleteAllObjects(ofTypes: [RealmCodeReport.self])
     }
-    func deleteCodeReports(_ codeReports: [ICodeReport]) -> Observable<Bool> {
-        
-        guard let realm = try? Realm.init() else {
-            return Observable.just(false)
-        } // iako je Error!
-        // TODO marko: BUGGY !! id mora da je code+sessionId, ne moze samo code !
-        let realmResults = realm.objects(RealmCodeReport.self).filter { report -> Bool in
-            return codeReports.map {$0.getCode()}.contains(report.code)
-        }
-        
-        do {
-            try realm.write {
-                realm.delete(realmResults)
-            }
-            print("CodeReportsRepository.deleteCodeReports: delete Reported CodeReports")
-            return Observable.just(true)
-        } catch {
-            return Observable.just(false)
-        }
-        
-    }
+    
     func getCodeReports() -> [CodeReport] {
         let realm = try! Realm()
         return realm.objects(RealmCodeReport.self).map(CodeReport.init)

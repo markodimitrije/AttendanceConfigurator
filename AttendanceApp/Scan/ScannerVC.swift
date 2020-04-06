@@ -137,11 +137,11 @@ class ScannerVC: UIViewController {
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: true))
-        self.scanerViewModel.scannedCodeAccepted(code: code)
+        self.scanerViewModel.scannedCode(code: code, accepted: true)
     }
     
     private func delegateAttendanceInvalid(code: String) {
-        self.scanerViewModel.scannedCodeRejected(code: code)
+        self.scanerViewModel.scannedCode(code: code, accepted: false)
         uiEffectsForAttendanceInvalid()
     }
     
