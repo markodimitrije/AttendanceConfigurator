@@ -9,15 +9,6 @@
 import RxSwift
 import RealmSwift
 
-protocol ICodeReportsRepository {
-    func getCodeReports() -> [ICodeReport]
-    func getUnsynced() -> [ICodeReport]
-    func getObsCodeReports() -> Observable<[ICodeReport]>
-    func deleteAllCodeReports() -> Observable<Bool>
-    func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
-    func update(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
-}
-
 extension CodeReportsRepository: ICodeReportsRepository {
     func deleteAllCodeReports() -> Observable<Bool> {
         return genericRepo.deleteAllObjects(ofTypes: [RealmCodeReport.self])
@@ -33,10 +24,20 @@ extension CodeReportsRepository: ICodeReportsRepository {
         return realm.objects(RealmCodeReport.self).filter("reported == false").map(CodeReport.init)
     }
     
+    func getObsUnsynced() -> Observable<[ICodeReport]> {
+        let realm = try! Realm()
+        let unsynced = realm.objects(RealmCodeReport.self).filter("reported == false")
+        return obsReports(unsynced)
+    }
+    
     func getObsCodeReports() -> Observable<[ICodeReport]> {
         let realm = try! Realm()
         let rCodeReports = realm.objects(RealmCodeReport.self)
-        let obsRealmCodeReports = Observable.collection(from: rCodeReports)
+        return obsReports(rCodeReports)
+    }
+    
+    private func obsReports(_ reports: Results<RealmCodeReport>) -> Observable<[ICodeReport]> {
+        let obsRealmCodeReports = Observable.collection(from: reports)
         return obsRealmCodeReports.map { (results) -> [ICodeReport] in
             let orderedByDate = results.toArray().sorted(by: >)
             return orderedByDate.map(CodeReportFactory.make)
@@ -44,31 +45,31 @@ extension CodeReportsRepository: ICodeReportsRepository {
     }
     
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool> {
-//        let rCodeReport = RealmCodeReportFactory.make(with: codeReport)
-//        return self.genericRepo.saveToRealm(objects: [rCodeReport])
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
-        
-        //let newCodeReport = RealmCodeReport.create(with: codeReport)
-        let newCodeReport = RealmCodeReportFactory.make(with: codeReport)
-
-        if realm.objects(RealmCodeReport.self).filter("code = %@ && sessionId = %@", codeReport.getCode(), codeReport.getSessionId()).isEmpty {
-            
-            do { // ako nemas ovaj objekat kod sebe u bazi
-                
-                try realm.write {
-                    realm.add(newCodeReport)
-                }
-            } catch {
-                return Observable<Bool>.just(false)
-            }
-        
-        } else {
-            print("CodeReportsRepository.saveToRealm.objekat, code = \(codeReport.getCode()), \(codeReport.getSessionId()) vec postoji u bazi")
-        }
-        
-        return Observable<Bool>.just(true) // all good here
+        let rCodeReport = RealmCodeReportFactory.make(with: codeReport)
+        return self.genericRepo.saveToRealm(objects: [rCodeReport])
+//        guard let realm = try? Realm() else {
+//            return Observable<Bool>.just(false) // treba da imas err za Realm...
+//        }
+//
+//        //let newCodeReport = RealmCodeReport.create(with: codeReport)
+//        let newCodeReport = RealmCodeReportFactory.make(with: codeReport)
+//
+//        if realm.objects(RealmCodeReport.self).filter("code = %@ && sessionId = %@", codeReport.getCode(), codeReport.getSessionId()).isEmpty {
+//
+//            do { // ako nemas ovaj objekat kod sebe u bazi
+//
+//                try realm.write {
+//                    realm.add(newCodeReport)
+//                }
+//            } catch {
+//                return Observable<Bool>.just(false)
+//            }
+//
+//        } else {
+//            print("CodeReportsRepository.saveToRealm.objekat, code = \(codeReport.getCode()), \(codeReport.getSessionId()) vec postoji u bazi")
+//        }
+//
+//        return Observable<Bool>.just(true) // all good here
     }
     
     func update(codesAcceptedFromWeb codeReports: [ICodeReport]) -> Observable<Bool> {

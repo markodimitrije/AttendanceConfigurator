@@ -8,8 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import RealmSwift
-import Realm
+//import RealmSwift
 
 class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
@@ -27,7 +26,8 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
     // INPUT
     
-    let codeReport = BehaviorRelay<ICodeReport?>.init(value: nil)
+    //let codeReport = BehaviorRelay<ICodeReport?>.init(value: nil)
+    let codeReport = PublishSubject<ICodeReport>()
     
     // OUTPUT
     
@@ -35,14 +35,14 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
     private func bindInputWithOutput() { print("CodeReportsState.bindInputWithOutput")
         
-        codeReport.skip(1) // init with nil
+        codeReport
         .asObservable()
         .subscribe(onNext: { [weak self] report in
             
             guard let sSelf = self else {return}
-            sSelf.repository.saveToRealm(codeReport: report!)
+            sSelf.repository.saveToRealm(codeReport: report)
             .subscribe { (success) in
-                sSelf.apiController.reportSingleCode(report: report!)
+                sSelf.apiController.reportSingleCode(report: report)
                 
                     .subscribe(onNext: { (report, success) in
                         if success {

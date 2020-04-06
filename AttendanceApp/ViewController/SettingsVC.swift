@@ -36,7 +36,8 @@ class SettingsVC: UITableViewController {
     
     // MARK:- ViewModels
 
-    lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
+//    lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
+    lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModelFactory.make(syncScansTap: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
     override func viewDidLoad() { super.viewDidLoad()
         bindUI()

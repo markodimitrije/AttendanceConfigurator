@@ -15,15 +15,15 @@ import RxCocoa
 
 class UnsyncScansViewModel {
     
-    private var syncScansTap: Driver<()>
+    private let syncScansTap: Driver<()>
+    private let repository: ICodeReportsRepository
     
-    init(syncScans: Driver<()>) {
+    init(syncScans: Driver<()>, codeReportsRepository: ICodeReportsRepository) {
         self.syncScansTap = syncScans
+        self.repository = codeReportsRepository
         bindOutput()
         bindInputWithOutput()
     }
-    
-    // INPUT:
     
     // OUTPUT
     private (set) var syncControlAvailable = BehaviorSubject<Bool>.init(value: false)
@@ -67,13 +67,14 @@ class UnsyncScansViewModel {
 
     private func bindOutput() {
         
-        // 1
-        let realm = try! Realm()
-
-        Observable.collection(from: realm.objects(RealmCodeReport.self))
-            .map({
-                return $0.toArray()
-            })
+        repository.getObsUnsynced()
+        
+//        let realm = try! Realm()
+//
+//        Observable.collection(from: realm.objects(RealmCodeReport.self))
+//            .map({
+//                return $0.toArray()
+//            })
             .asDriver(onErrorJustReturn: [])
                 .map {$0.count}
                 //.debug()

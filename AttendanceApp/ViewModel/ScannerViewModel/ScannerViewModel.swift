@@ -21,7 +21,7 @@ extension ScannerViewModel: IScannerViewModel {
     
     func scannedCode(code: String, accepted: Bool) {
         let report = CodeReportFactory.make(code: code, sessionId: self.sessionId, date: Date.now, accepted: accepted)
-        codeReportsState.codeReport.accept(report)
+        codeReportsState.codeReport.onNext(report)
     }
     
 }

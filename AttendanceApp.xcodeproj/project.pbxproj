@@ -47,6 +47,8 @@
 		7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */; };
 		7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05092438AAF500AC72DB /* ScannerInfo.swift */; };
 		7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */; };
+		7C67288B243B9309006D271A /* UnsyncScansViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */; };
+		7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67288C243B964E006D271A /* ICodeReportsRepository.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -227,6 +229,8 @@
 		7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfoFactory.swift; sourceTree = "<group>"; };
 		7C5F05092438AAF500AC72DB /* ScannerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfo.swift; sourceTree = "<group>"; };
 		7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
+		7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsyncScansViewModelFactory.swift; sourceTree = "<group>"; };
+		7C67288C243B964E006D271A /* ICodeReportsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsRepository.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 		7C578558243A2FC0006531CC /* CodeReportsRepository */ = {
 			isa = PBXGroup;
 			children = (
+				7C67288C243B964E006D271A /* ICodeReportsRepository.swift */,
 				7C578559243A2FD4006531CC /* CodeReportsRepository.swift */,
 				7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */,
 			);
@@ -625,6 +630,15 @@
 				7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */,
 			);
 			path = JsonBundleDataProvider;
+			sourceTree = "<group>";
+		};
+		7C672889243B92F7006D271A /* UnsyncScansViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */,
+				7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */,
+			);
+			path = UnsyncScansViewModel;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -1010,7 +1024,7 @@
 				7C2E84252435123D005B5C7F /* SettingsViewModel */,
 				7C5F05062438AA9300AC72DB /* ScannerViewModel */,
 				ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */,
-				AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */,
+				7C672889243B92F7006D271A /* UnsyncScansViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1408,6 +1422,7 @@
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
 				AD295222217B5B24002DDE32 /* Model.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
+				7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */,
 				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
@@ -1506,6 +1521,7 @@
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
+				7C67288B243B9309006D271A /* UnsyncScansViewModelFactory.swift in Sources */,
 				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
 				7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */,
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
