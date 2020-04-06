@@ -17,7 +17,7 @@ class CodeReportApiController: ICodeReportApiController {
         self.apiController = apiController
     }
     
-    func reportSingleCode(report: CodeReport) -> Observable<(CodeReport,Bool)> {
+    func reportSingleCode(report: ICodeReport) -> Observable<(ICodeReport, Bool)> {
         
         let params = CodeReportsPayloadFactory.makeSinglePayload(report: report)
             
@@ -39,7 +39,7 @@ class CodeReportApiController: ICodeReportApiController {
                 .catchErrorJustReturn((report, false))
     }
         
-    func reportMultipleCodes(reports: [CodeReport]) -> Observable<Bool> {
+    func reportMultipleCodes(reports: [ICodeReport]) -> Observable<Bool> {
         
         let params = CodeReportsPayloadFactory.make(reports: reports)
         

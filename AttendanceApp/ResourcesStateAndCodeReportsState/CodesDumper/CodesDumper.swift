@@ -19,7 +19,7 @@ class CodesDumper: ICodesDumperWorker {
     init(apiController: ICodeReportApiController, repository: ICodeReportsRepository) {
         self.apiController = apiController
         self.repository = repository
-        self.codeReportsDeleted = BehaviorRelay.init(value: repository.getCodeReports().isEmpty)
+        self.codeReportsSynced = BehaviorRelay.init(value: repository.getCodeReports().isEmpty)
         print("CodesDumper.INIT, fire every 8 sec or on wi-fi changed")
         hookUpTimer()
         hookUpNotifyWeb()
@@ -27,7 +27,7 @@ class CodesDumper: ICodesDumperWorker {
     }
     
     private let bag = DisposeBag.init()
-    private var codeReportsDeleted: BehaviorRelay<Bool>
+    private var codeReportsSynced: BehaviorRelay<Bool>
     private var timer: Observable<Int>?
     private let isRunning = BehaviorRelay.init(value: false) // timer
     private let timerFired = BehaviorRelay.init(value: ()) // timer events
@@ -72,25 +72,18 @@ class CodesDumper: ICodesDumperWorker {
                 
                 guard let sSelf = self else {return}
                 
-                let codeReports = sSelf.repository.getCodeReports()
+                let codeReports = sSelf.repository.getUnsynced()
                 
                 sSelf.reportSavedCodesToWeb(codeReports: codeReports)
                     .subscribe(onNext: { success in
                         if success {
                             
-                            print("save this bulk of codes into realm = \(codeReports), implement me !!")
-                            
                             sSelf.repository.save(codesAcceptedFromWeb: codeReports)
-                                .subscribe(onNext: { saved in
-                                    print("to web reported codes saved to realm = \(saved)")
+                                .subscribe(onNext: { synced in
+                                    print("reported codes synced with web = \(synced)")
+                                    sSelf.codeReportsSynced.accept(synced)
                             }).disposed(by: sSelf.bag)
                             
-                            sSelf.repository.deleteCodeReports(codeReports)
-                                .subscribe(onNext: { deleted in
-                                    
-                                    sSelf.codeReportsDeleted.accept(deleted)
-                                })
-                                .disposed(by: sSelf.bag)
                         } else {
                             print("nije success, nastavi da proveravas..")
                         }
@@ -103,7 +96,7 @@ class CodesDumper: ICodesDumperWorker {
     
     private func hookUpAllCodesReportedToWeb() {
         
-        codeReportsDeleted.asObservable()
+        codeReportsSynced.asObservable()
             .subscribe(onNext: { [weak self] success in
                 guard let sSelf = self else {return}
                 if success { print("all good, ugasi timer!")

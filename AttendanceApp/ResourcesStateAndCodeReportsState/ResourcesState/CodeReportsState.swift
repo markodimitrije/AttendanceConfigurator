@@ -49,11 +49,11 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
     // INPUT
     
-    let codeReport = BehaviorRelay<CodeReport?>.init(value: nil)
+    let codeReport = BehaviorRelay<ICodeReport?>.init(value: nil)
     
     // OUTPUT
     
-    let webNotified = BehaviorRelay<(CodeReport, Bool)?>.init(value: nil)
+    let webNotified = BehaviorRelay<(ICodeReport, Bool)?>.init(value: nil)
     
     private func bindInputWithOutput() { print("CodeReportsState.bindInputWithOutput")
         
@@ -86,9 +86,9 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func codeReportFailed(_ report: CodeReport) {
+    private func codeReportFailed(_ report: ICodeReport) {
         
-        print("codeReportFailed/ snimi ovaj report.code \(report.code) u realm")
+        print("codeReportFailed/ snimi ovaj report.code \(report.getCode()) u realm")
         
         _ = repository.saveToRealm(codeReport: report)
         // okini process da javljas web-u sve sto ima u realm (codes)
@@ -106,7 +106,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         
     }
     
-    private func reportImidiatelly(codeReport: CodeReport?) -> Observable<(CodeReport, Bool)> {
+    private func reportImidiatelly(codeReport: ICodeReport?) -> Observable<(ICodeReport, Bool)> {
         
         guard let report = codeReport else {return Observable.empty()}
         let codeReportApi = CodeReportApiControllerFactory.make()

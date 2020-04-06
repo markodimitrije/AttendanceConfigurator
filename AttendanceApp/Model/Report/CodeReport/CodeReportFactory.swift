@@ -9,13 +9,18 @@
 import Foundation
 
 class CodeReportFactory {
-    static func make(code: String, sessionId: Int, date: Date) -> ICodeReport {
-        return CodeReport(code: code, sessionId: sessionId, date: date)
+    static func make(code: String,
+                     sessionId: Int,
+                     date: Date,
+                     accepted: Bool) -> ICodeReport {
+        return CodeReport(code: code, sessionId: sessionId, date: date, accepted: accepted)
     }
     static func make(realmCodeReport: RealmCodeReport) -> ICodeReport {
-        
-        return CodeReport(code: realmCodeReport.code,
-                          sessionId: realmCodeReport.sessionId,
-                          date: realmCodeReport.date)
+        var codeReport = CodeReport(code: realmCodeReport.code,
+                                    sessionId: realmCodeReport.sessionId,
+                                    date: realmCodeReport.date,
+                                    accepted: realmCodeReport.accepted)
+        codeReport.reported = realmCodeReport.reported
+        return codeReport
     }
 }

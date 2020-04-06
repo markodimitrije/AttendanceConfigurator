@@ -11,25 +11,26 @@ import RealmSwift
 
 protocol ICodeReportsRepository {
     func getCodeReports() -> [CodeReport]
-    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>>
+    func getUnsynced() -> [CodeReport]
+    func getObsCodeReports() -> Observable<[ICodeReport]>
     func deleteAllCodeReports() -> Observable<Bool>
-    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> //TODO: to delete...
+    func deleteCodeReports(_ codeReports: [ICodeReport]) -> Observable<Bool> //TODO: to delete...
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
-    func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool>
+    func save(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
 }
 
 extension CodeReportsRepository: ICodeReportsRepository {
     func deleteAllCodeReports() -> Observable<Bool> {
         return genericRepo.deleteAllObjects(ofTypes: [RealmCodeReport.self])
     }
-    func deleteCodeReports(_ codeReports: [CodeReport]) -> Observable<Bool> {
+    func deleteCodeReports(_ codeReports: [ICodeReport]) -> Observable<Bool> {
         
         guard let realm = try? Realm.init() else {
             return Observable.just(false)
         } // iako je Error!
-        
+        // TODO marko: BUGGY !! id mora da je code+sessionId, ne moze samo code !
         let realmResults = realm.objects(RealmCodeReport.self).filter { report -> Bool in
-            return codeReports.map {$0.code}.contains(report.code)
+            return codeReports.map {$0.getCode()}.contains(report.code)
         }
         
         do {
@@ -47,11 +48,21 @@ extension CodeReportsRepository: ICodeReportsRepository {
         let realm = try! Realm()
         return realm.objects(RealmCodeReport.self).map(CodeReport.init)
     }
-    func getRealmWebReportedCodes() -> Observable<Results<RealmWebReportedCode>> {
-        guard let realm = try? Realm.init() else {return Observable.empty()} // iako je Error!
-        let results = realm.objects(RealmWebReportedCode.self)
-        return Observable.collection(from: results) // this is live source !!
+    
+    func getUnsynced() -> [CodeReport] {
+        let realm = try! Realm()
+        return realm.objects(RealmCodeReport.self).filter("reported == false").map(CodeReport.init)
     }
+    
+    func getObsCodeReports() -> Observable<[ICodeReport]> {
+        let realm = try! Realm()
+        let rCodeReports = realm.objects(RealmCodeReport.self)
+        let obsRealmCodeReports = Observable.collection(from: rCodeReports)
+        return obsRealmCodeReports.map { (results) -> [ICodeReport] in
+            results.toArray().map(CodeReportFactory.make)
+        }
+    }
+    
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool> {
 //        let rCodeReport = RealmCodeReportFactory.make(with: codeReport)
 //        return self.genericRepo.saveToRealm(objects: [rCodeReport])
@@ -80,29 +91,12 @@ extension CodeReportsRepository: ICodeReportsRepository {
         return Observable<Bool>.just(true) // all good here
     }
     
-    func save(codesAcceptedFromWeb: [CodeReport]) -> Observable<Bool> {
+    func save(codesAcceptedFromWeb codeReports: [ICodeReport]) -> Observable<Bool> {
         
-        guard let realm = try? Realm() else {
-            return Observable<Bool>.just(false) // treba da imas err za Realm...
-        }
+        let realmCodeReports = codeReports.map(RealmCodeReportFactory.make)
+        _ = realmCodeReports.map {$0.reported = true}
         
-        let firstAvailableId = realm.objects(RealmWebReportedCode.self).count
-        let realmWebReportedCodes = codesAcceptedFromWeb.enumerated().map { (offset, codeReport) -> RealmWebReportedCode in
-            let record = RealmWebReportedCode.create(id: firstAvailableId + offset, codeReport: codeReport)
-            return record
-        }
-        
-        do {
-            try realm.write {
-                realm.add(realmWebReportedCodes)
-                print("total count of realmWebReportedCodes = \(realmWebReportedCodes.count), saved to realm")
-            }
-        } catch {
-            return Observable<Bool>.just(false)
-        }
-        
-        return Observable<Bool>.just(true) // all good here
-        
+        return genericRepo.saveToRealm(objects: realmCodeReports)
     }
     
 }

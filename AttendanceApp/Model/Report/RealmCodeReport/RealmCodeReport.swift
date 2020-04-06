@@ -11,8 +11,14 @@ import Realm
 import RealmSwift
 
 class RealmCodeReport: Object {
-//    @objc dynamic var id: String = ""
+    @objc dynamic var id: String = ""
     @objc dynamic var code: String = ""
     @objc dynamic var sessionId: Int = 0
+    @objc dynamic var reported = false
+    @objc dynamic var accepted = false
     @objc dynamic var date: Date = Date.init(timeIntervalSince1970: 0)
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

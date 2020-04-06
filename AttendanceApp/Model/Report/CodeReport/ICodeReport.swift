@@ -12,4 +12,6 @@ protocol ICodeReport {
     func getCode() -> String
     func getSessionId() -> Int
     func getDate() -> Date
+    func isReported() -> Bool
+    func isAccepted() -> Bool
 }

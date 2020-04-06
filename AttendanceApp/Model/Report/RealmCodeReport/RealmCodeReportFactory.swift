@@ -13,10 +13,12 @@ class RealmCodeReportFactory {
         let barcode = codeReport.getCode()
         let sessionId = codeReport.getSessionId()
         
-//        object.id = barcode + "\(sessionId)"
+        object.id = barcode + "\(sessionId)"
         object.code = barcode
         object.sessionId = sessionId
         object.date = codeReport.getDate()
+        object.reported = codeReport.isReported()
+        object.accepted = codeReport.isAccepted()
         return object
     }
 }
