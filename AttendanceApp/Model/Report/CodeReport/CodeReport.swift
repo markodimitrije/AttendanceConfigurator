@@ -40,9 +40,3 @@ struct CodeReport {
     }
     
 }
-
-extension CodeReport: Comparable {
-    static func < (lhs: CodeReport, rhs: CodeReport) -> Bool {
-        lhs.date < rhs.date
-    }
-}

@@ -43,6 +43,7 @@
 		7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */; };
 		7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62A243B52DD00FEEAAE /* CodeReportCellModel.swift */; };
 		7C5ED62D243B52EA00FEEAAE /* CodeReportCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62C243B52EA00FEEAAE /* CodeReportCellModelFactory.swift */; };
+		7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62F243B5DBC00FEEAAE /* CodeReportsStateFactory.swift */; };
 		7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */; };
 		7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5F05092438AAF500AC72DB /* ScannerInfo.swift */; };
 		7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */; };
@@ -222,6 +223,7 @@
 		7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesDataSourceFactory.swift; sourceTree = "<group>"; };
 		7C5ED62A243B52DD00FEEAAE /* CodeReportCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportCellModel.swift; sourceTree = "<group>"; };
 		7C5ED62C243B52EA00FEEAAE /* CodeReportCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportCellModelFactory.swift; sourceTree = "<group>"; };
+		7C5ED62F243B5DBC00FEEAAE /* CodeReportsStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsStateFactory.swift; sourceTree = "<group>"; };
 		7C5F05072438AAB200AC72DB /* ScannerInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfoFactory.swift; sourceTree = "<group>"; };
 		7C5F05092438AAF500AC72DB /* ScannerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInfo.swift; sourceTree = "<group>"; };
 		7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
@@ -596,6 +598,15 @@
 			path = CodeReportCellModel;
 			sourceTree = "<group>";
 		};
+		7C5ED62E243B5DAF00FEEAAE /* CodeReportsState */ = {
+			isa = PBXGroup;
+			children = (
+				7CEBFB792439078F00D2983C /* CodeReportsState.swift */,
+				7C5ED62F243B5DBC00FEEAAE /* CodeReportsStateFactory.swift */,
+			);
+			path = CodeReportsState;
+			sourceTree = "<group>";
+		};
 		7C5F05062438AA9300AC72DB /* ScannerViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,7 +661,6 @@
 				7CAA2A4F2431336500CA184F /* RoomsProvider */,
 				7CAA2A4A243131C300CA184F /* BlocksProvider */,
 				7CAA2A54243136C500CA184F /* DelegatesProvider */,
-				7CEBFB792439078F00D2983C /* CodeReportsState.swift */,
 			);
 			path = ResourcesState;
 			sourceTree = "<group>";
@@ -1122,6 +1132,7 @@
 			isa = PBXGroup;
 			children = (
 				7CAA2A492431317B00CA184F /* ResourcesState */,
+				7C5ED62E243B5DAF00FEEAAE /* CodeReportsState */,
 				7C57855D243A4937006531CC /* CodesDumper */,
 				AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */,
 				7CD5297524339BEA00170D0A /* AlertStateReporter */,
@@ -1496,6 +1507,7 @@
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
 				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
+				7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */,
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */,

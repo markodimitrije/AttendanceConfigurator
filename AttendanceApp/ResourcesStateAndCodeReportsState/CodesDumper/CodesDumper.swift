@@ -78,7 +78,7 @@ class CodesDumper: ICodesDumperWorker {
                     .subscribe(onNext: { success in
                         if success {
                             
-                            sSelf.repository.save(codesAcceptedFromWeb: codeReports)
+                            sSelf.repository.update(codesAcceptedFromWeb: codeReports)
                                 .subscribe(onNext: { synced in
                                     print("reported codes synced with web = \(synced)")
                                     sSelf.codeReportsSynced.accept(synced)
@@ -108,7 +108,7 @@ class CodesDumper: ICodesDumperWorker {
             .disposed(by: bag)
     }
     
-    private func reportSavedCodesToWeb(codeReports: [CodeReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
+    private func reportSavedCodesToWeb(codeReports: [ICodeReport]) -> Observable<Bool> { print("reportSavedCodesToWeb")
         
         guard !codeReports.isEmpty else { print("CodesDumper.reportSavedCodes/ internal error...")
             return Observable.just(false)

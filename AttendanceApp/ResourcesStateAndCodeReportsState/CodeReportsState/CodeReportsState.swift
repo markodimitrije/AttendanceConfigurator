@@ -11,14 +11,6 @@ import RxCocoa
 import RealmSwift
 import Realm
 
-class CodeReportsStateFactory {
-    static func make() -> CodeReportsState {
-        let apiController = CodeReportApiControllerFactory.make()
-        let repository = CodeReportsRepositoryFactory.make()
-        return CodeReportsState(apiController: apiController, repository: repository)
-    }
-}
-
 class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
     
     private let apiController: ICodeReportApiController
@@ -27,20 +19,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         self.apiController = apiController
         self.repository = repository
         bindInputWithOutput()
-    }
-    
-    private var codeReports: Results<RealmCodeReport>? {
-        
-        guard let realm = try? Realm.init() else {return nil} // ovde bi trebalo RealmError!
-        
-        return realm.objects(RealmCodeReport.self)
-    }
-    
-    private var shouldReportToWeb: Bool {
-        
-        guard let reports = codeReports else {return false} // ovde bi trebalo RealmError!
-        
-        return reports.isEmpty
     }
     
     private var timer: Timer?
@@ -69,7 +47,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                         sSelf.webNotified.accept((code, success)) // postavi na svoj Output
                         
                         if success {
-                            sSelf.repository.save(codesAcceptedFromWeb: [code])
+                            sSelf.repository.update(codesAcceptedFromWeb: [code])
                                 .subscribe(onNext: { saved in
                                     print("code successfully reported to web, save in your archive")
                                 }).disposed(by: sSelf.bag)
@@ -111,22 +89,6 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
         guard let report = codeReport else {return Observable.empty()}
         let codeReportApi = CodeReportApiControllerFactory.make()
         return codeReportApi.reportSingleCode(report: report)
-    }
-    
-    // implement me...
-    private func reportToWeb(codeReports: Results<RealmCodeReport>?) {
-        
-        // sviranje... treba mi servis da javi sve.... za sada posalji samo jedan...
-        
-        guard let report = codeReports?.first else {
-            print("nemam ni jedan code da report!...")
-            return
-        }
-        
-        print("CodeReportsState/ javi web-u za ovaj report:")
-        print("code = \(report.code)")
-        print("code = \(report.date)")
-        print("code = \(report.sessionId)")
     }
     
 }

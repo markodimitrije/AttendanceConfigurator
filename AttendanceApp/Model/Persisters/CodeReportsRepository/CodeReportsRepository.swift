@@ -10,12 +10,12 @@ import RxSwift
 import RealmSwift
 
 protocol ICodeReportsRepository {
-    func getCodeReports() -> [CodeReport]
-    func getUnsynced() -> [CodeReport]
+    func getCodeReports() -> [ICodeReport]
+    func getUnsynced() -> [ICodeReport]
     func getObsCodeReports() -> Observable<[ICodeReport]>
     func deleteAllCodeReports() -> Observable<Bool>
     func saveToRealm(codeReport: ICodeReport) -> Observable<Bool>
-    func save(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
+    func update(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
 }
 
 extension CodeReportsRepository: ICodeReportsRepository {
@@ -23,12 +23,12 @@ extension CodeReportsRepository: ICodeReportsRepository {
         return genericRepo.deleteAllObjects(ofTypes: [RealmCodeReport.self])
     }
     
-    func getCodeReports() -> [CodeReport] {
+    func getCodeReports() -> [ICodeReport] {
         let realm = try! Realm()
         return realm.objects(RealmCodeReport.self).map(CodeReport.init)
     }
     
-    func getUnsynced() -> [CodeReport] {
+    func getUnsynced() -> [ICodeReport] {
         let realm = try! Realm()
         return realm.objects(RealmCodeReport.self).filter("reported == false").map(CodeReport.init)
     }
@@ -38,7 +38,8 @@ extension CodeReportsRepository: ICodeReportsRepository {
         let rCodeReports = realm.objects(RealmCodeReport.self)
         let obsRealmCodeReports = Observable.collection(from: rCodeReports)
         return obsRealmCodeReports.map { (results) -> [ICodeReport] in
-            results.toArray().map(CodeReportFactory.make)
+            let orderedByDate = results.toArray().sorted(by: >)
+            return orderedByDate.map(CodeReportFactory.make)
         }
     }
     
@@ -70,7 +71,7 @@ extension CodeReportsRepository: ICodeReportsRepository {
         return Observable<Bool>.just(true) // all good here
     }
     
-    func save(codesAcceptedFromWeb codeReports: [ICodeReport]) -> Observable<Bool> {
+    func update(codesAcceptedFromWeb codeReports: [ICodeReport]) -> Observable<Bool> {
         
         let realmCodeReports = codeReports.map(RealmCodeReportFactory.make)
         _ = realmCodeReports.map {$0.reported = true}
