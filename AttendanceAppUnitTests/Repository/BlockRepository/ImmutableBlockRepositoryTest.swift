@@ -1,5 +1,5 @@
 //
-//  BlockRepositoryTest.swift
+//  ImmutableBlockRepositoryTest.swift
 //  AttendanceAppUnitTests
 //
 //  Created by Marko Dimitrijevic on 26/03/2020.
@@ -10,18 +10,18 @@ import XCTest
 import RealmSwift
 @testable import AttendanceApp
 
-class BlockRepositoryTest: XCTestCase {
+class ImmutableBlockRepositoryTest: XCTestCase {
 
     var rooms = [IRoom]()
     var blocks = [IBlock]()
-    var testSubject: BlockRepository!
+    var testSubject: BlockImmutableRepository!
     
     override func setUp() {
         super.setUp()
         Realm.Configuration.defaultConfiguration.inMemoryIdentifier = self.name
         self.blocks = BlocksFromJsonFileLoader.make(filename: "Blocks")
         self.rooms = RoomsFromJsonFileLoader.make(filename: "Rooms")
-        self.testSubject = BlockRepository()
+        self.testSubject = BlockImmutableRepository()
     }
     
     override func tearDown() {
@@ -30,19 +30,6 @@ class BlockRepositoryTest: XCTestCase {
             realm.deleteAll()
         }
         super.tearDown()
-    }
-    
-    func testBlockRepo_ShouldBeAbleTo_SaveBlocks() {
-        //arrange
-        let block = blocks.first!
-        //act
-        testSubject.save(blocks: [block])
-        //assert
-        let realm = try! Realm()
-        let found = realm.objects(RealmBlock.self).toArray()
-        
-        XCTAssertEqual(1,found.count)
-        XCTAssertEqual(block.getId(), found.first!.id)
     }
     
     func testBlockRepo_ShouldBeAbleTo_GetBlock_WithExistingId() {
@@ -96,6 +83,36 @@ class BlockRepositoryTest: XCTestCase {
         let blocks = testSubject.getBlocks(roomId: roomId, date: date)
         //assert
         XCTAssertEqual(5, blocks.count)
+    }
+    
+    func testBlockRepo_getAvailableDatesFunc_ShouldReturn_ExpectedDates() {
+        //arrange
+        SaveBlocksToRealmExplicitelyHelper.save(blocks: self.blocks)
+        //act
+        let dates = testSubject.getAvailableDates(roomId: 4457)
+        //assert
+        XCTAssertEqual(4, dates.count) // test bundle event lasts 4 days
+    }
+    
+    func testBlockRepo_getBlockGroupedByDate_ShouldReturn_ExpectedBlockGroups_ForDateNil() {
+        //arrange
+        SaveBlocksToRealmExplicitelyHelper.save(blocks: self.blocks)
+        //act
+        let blockGroups = testSubject.getBlockGroupedByDate(roomId: 4457, date: nil)
+        //assert
+        XCTAssertEqual(4, blockGroups.count) // test bundle event lasts 4 days
+        XCTAssertEqual(5, blockGroups.first!.count) // first group has 5 blocks
+    }
+    
+    func testBlockRepo_getBlockGroupedByDate_ShouldReturn_ExpectedBlockGroups_ForCertainDate() {
+        //arrange
+        SaveBlocksToRealmExplicitelyHelper.save(blocks: self.blocks)
+        let date = "2020-03-24".toDate(format: "YYYY-MM-dd")!
+        //act
+        let blockGroups = testSubject.getBlockGroupedByDate(roomId: 4457, date: date)
+        //assert
+        XCTAssertEqual(1, blockGroups.count) // test bundle event lasts 4 days
+        XCTAssertEqual(5, blockGroups.first!.count) // first group has 5 blocks
     }
     
 }

@@ -29,6 +29,6 @@ extension ScannerInfoFactory: IScannerInfoFactory {
 
 struct ScannerInfoFactory {
     let roomRepo: IRoomRepository
-    let blockRepo: IBlockRepository
+    let blockRepo: IBlockImmutableRepository
     let blockPresenter: IBlockPresenter
 }

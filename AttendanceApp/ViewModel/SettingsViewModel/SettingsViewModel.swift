@@ -13,7 +13,7 @@ final class SettingsViewModel: ViewModelType {
     
     private let dataAccess: DataAccess
     private let roomRepo: IRoomRepository
-    private let blockRepo: IBlockRepository
+    private let blockRepo: IBlockImmutableRepository
     private let deviceStateReporter: DeviceStateReporter
     
     private let initialRoom: Int?
@@ -21,7 +21,7 @@ final class SettingsViewModel: ViewModelType {
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
-    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockRepository, deviceStateReporter: DeviceStateReporter) {
+    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
         self.dataAccess = dataAccess
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo

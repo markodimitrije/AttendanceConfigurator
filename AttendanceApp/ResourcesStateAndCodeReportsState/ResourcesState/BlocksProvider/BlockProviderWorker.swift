@@ -10,8 +10,8 @@ import RxSwift
 
 class BlockProviderWorker: IBlockProviderWorker {
     private let apiController: IBlockApiController
-    private let repository: IBlockRepository
-    init(apiController: IBlockApiController, repository: IBlockRepository) {
+    private let repository: IBlockMutableRepository
+    init(apiController: IBlockApiController, repository: IBlockMutableRepository) {
         self.apiController = apiController
         self.repository = repository
     }

@@ -37,13 +37,15 @@ class AutoSelSessionViewModel {
         
         switchStateDriver // switch driver
             .drive(onNext: { tap in // pretplati se da slusas (observe)
-                self.blockViewModel.oAutomaticSessionDriver // uzmi slave-ov output
+                self.blockViewModel.oAutomaticSession // uzmi slave-ov output
+                    .asDriver(onErrorJustReturn: nil)
                     .drive(self.selectedSession) // i njime 'pogoni' svoj output
                     .disposed(by: self.bag)
             })
             .disposed(by: bag)
 
-        blockViewModel.oAutomaticSessionDriver // output svog slave-a
+        blockViewModel.oAutomaticSession // output svog slave-a
+            .asDriver(onErrorJustReturn: nil)
             .drive(selectedSession) // prosledi na svoj output
             .disposed(by: bag)
         

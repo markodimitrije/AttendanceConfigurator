@@ -13,7 +13,8 @@ class BlocksFromJsonFileLoader {
     static func make(filename: String) -> [IBlock] {
         let bundle = Bundle(for: self)
         let jsonData = JsonBundleDataProvider().jsonData(filename: filename, inBundle: bundle)
-        let blocksObject = try! JSONDecoder().decode(Blocks.self, from: jsonData)
+        let decoder = BlockDecoderFactory.make()//JSONDecoder()
+        let blocksObject = try! decoder.decode(Blocks.self, from: jsonData)
         return blocksObject.data
     }
 }

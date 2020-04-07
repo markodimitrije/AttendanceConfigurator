@@ -8,7 +8,8 @@
 
 class ScannerViewModelFactory {
     static func make() -> ScannerViewModel {
-        let scannerInfoFactory = ScannerInfoFactory(roomRepo: RoomRepository(), blockRepo: BlockRepository(), blockPresenter: BlockPresenter())
+        let blockRepo = BlockImmutableRepositoryFactory.make()
+        let scannerInfoFactory = ScannerInfoFactory(roomRepo: RoomRepository(), blockRepo: blockRepo, blockPresenter: BlockPresenter())
         let codeReportsState = CodeReportsStateFactory.make()
         return ScannerViewModel(dataAccess: DataAccess.shared,
                                 scannerInfoFactory: scannerInfoFactory,

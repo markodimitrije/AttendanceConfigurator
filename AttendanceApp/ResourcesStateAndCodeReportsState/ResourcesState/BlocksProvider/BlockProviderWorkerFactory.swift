@@ -9,7 +9,7 @@
 class BlockProviderWorkerFactory {
     static func make(confId: Int) -> IBlockProviderWorker {
         let apiController = BlockApiController(apiController: ApiController.shared, confId: confId)
-        let repo = BlockRepository()
+        let repo = BlockMutableRepositoryFactory.make()
         return BlockProviderWorker(apiController: apiController, repository: repo)
     }
 }

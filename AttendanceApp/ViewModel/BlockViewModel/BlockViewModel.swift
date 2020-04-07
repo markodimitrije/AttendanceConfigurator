@@ -6,7 +6,6 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
 import RealmSwift
 import RxSwift
 import RxRealm
@@ -32,12 +31,8 @@ class BlockViewModel {
     // output 2 - expose your calculated stuff
     var oAutomaticSession = BehaviorRelay<Block?>.init(value: nil)
     
-    //var oAutomaticSessionDriver: SharedSequence<DriverSharingStrategy, RealmBlock?> {
-    var oAutomaticSessionDriver: Driver<Block?> {
-        return oAutomaticSession.asDriver(onErrorJustReturn: nil)
-    }
-    
     private let roomId: Int?
+    private let blockRepository: IBlockImmutableRepository
     private let mostRecentBlockUtility: IMostRecentBlockUtility
     
     private var mostRecentSessionBlock: RealmBlock? {
@@ -45,8 +40,9 @@ class BlockViewModel {
             .getMostRecentSession(blocksSortedByDate: self.blocksSortedByDate)
     }
     
-    init(roomId: Int? = nil, mostRecentBlockUtility: IMostRecentBlockUtility) {
+    init(roomId: Int? = nil, blockRepository: IBlockImmutableRepository, mostRecentBlockUtility: IMostRecentBlockUtility) {
         self.roomId = roomId
+        self.blockRepository = blockRepository
         self.mostRecentBlockUtility = mostRecentBlockUtility
         bindOutput()
         bindAutomaticSession()
