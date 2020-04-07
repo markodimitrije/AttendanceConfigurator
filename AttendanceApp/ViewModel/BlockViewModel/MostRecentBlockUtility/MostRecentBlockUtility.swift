@@ -9,23 +9,22 @@
 import Foundation
 
 protocol IMostRecentBlockUtility {
-    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock?
-    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock?
+    func getMostRecentSession(blocksSortedByDate: [IBlock]) -> IBlock?
 }
 
 class MostRecentBlockUtility: IMostRecentBlockUtility {
-    //func getMostRecentSession(blocksSortedByDate: [RealmBlock], date: Date?) -> RealmBlock? {
-    func getMostRecentSession(blocksSortedByDate: [RealmBlock]) -> RealmBlock? {
+    
+    func getMostRecentSession(blocksSortedByDate: [IBlock]) -> IBlock? {
         
         let todayBlocks = blocksSortedByDate.filter {
             return Calendar.current.compare(Date.now,
-                                            to: $0.starts_at,
+                                            to: $0.getStartsAt(),
                                             toGranularity: Calendar.Component.day) == ComparisonResult.orderedSame
         }
         
         let actualOrNextInFiftheenMinutes =
             todayBlocks.filter { block -> Bool in
-                let startsAt = block.starts_at
+                let startsAt = block.getStartsAt()
                 return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < Date.now
             }.last
         

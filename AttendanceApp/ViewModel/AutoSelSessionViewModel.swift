@@ -29,7 +29,7 @@ class AutoSelSessionViewModel {
     }
     
     // OUTPUT
-    var selectedSession = BehaviorSubject<Block?>.init(value: nil)
+    var selectedSession = BehaviorSubject<IBlock?>.init(value: nil)
     
     private func bindInputWithOutput() {
         
@@ -52,7 +52,7 @@ class AutoSelSessionViewModel {
         blockViewModel.oAutomaticSession
             .subscribe(onNext: { block in
                 print("emituj blok koji terba da update moj UI")
-                DataAccess.shared.userSelection.blockId = block?.id // hazardous
+                DataAccess.shared.userSelection.blockId = block?.getId() // hazardous hard-coded?
             })
             .disposed(by: bag)
     }

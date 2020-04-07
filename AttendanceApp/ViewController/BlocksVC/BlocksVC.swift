@@ -86,13 +86,11 @@ class BlocksVC: UIViewController {
     
     private func hookUpTableViewDidSelect() {
         
-//        fatalError("implement me")
-        
-//        tableView.rx.itemSelected.map { (ip) -> IBlock in
-//            self.blockViewModel.transform(indexPath: ip)
-//        }.subscribe(onNext: { (block) in
-//            self.selBlock.onNext(block.getId())
-//        }).disposed(by: disposeBag)
+        tableView.rx.itemSelected.map { (ip) -> IBlock in
+            self.blockViewModel.transform(indexPath: ip)
+        }.subscribe(onNext: { (block) in
+            self.selBlock.onNext(block.getId())
+        }).disposed(by: disposeBag)
         
         
         

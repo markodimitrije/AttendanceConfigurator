@@ -33,12 +33,12 @@ class AutoSessionTimer {
     @objc func fire() { //print("AutoSessionTimer/fire, check for auto session = \(NOW)")
         let actualSettings = dataAccess.userSelection
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
-            let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId)
+            let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!)
                 //BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
                 var updateData = sSelf.dataAccess.userSelection
-                updateData.blockId = block?.id
+                updateData.blockId = block?.getId()
                 sSelf.dataAccess.userSelection = updateData
             }).disposed(by: disposeBag)
         }

@@ -12,8 +12,8 @@ class DatesViewControllerFactory {
     static func make() -> DatesVC {
         let sb = MainStoryboardFactory.make()
         let datesVC = sb.instantiateViewController(withIdentifier: "DatesVC") as! DatesVC
-        let blockViewmodel = BlockViewModelFactory.make()
-        datesVC.datesViewmodel = DatesViewmodel.init(blockViewmodel: blockViewmodel)
+        let blockRepo = BlockImmutableRepositoryFactory.make()
+        datesVC.datesViewmodel = DatesViewmodel(blockRepo: blockRepo)
         return datesVC
     }
 }

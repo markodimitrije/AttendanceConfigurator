@@ -48,7 +48,7 @@ final class SettingsViewModel: ViewModelType {
             guard let roomId = roomId else { return nil }
             if switchIsOn {
                 let autoModelView = AutoSelSessionViewModel.init(roomId: roomId)
-                return try! autoModelView.selectedSession.value()?.id ?? nil // pazi ovde !! try !
+                return try! autoModelView.selectedSession.value()?.getId() ?? nil // pazi ovde !! try !
             }
             return nil
         }.skip(1)

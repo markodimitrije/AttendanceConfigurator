@@ -11,9 +11,17 @@ import RxSwift
 
 class BlockImmutableRepository: IBlockImmutableRepository {
     
+    private func getAllBlockResults() -> Results<RealmBlock> {
+        let realm = try! Realm()
+        return realm.objects(RealmBlock.self)
+            .sorted(byKeyPath: "starts_at", ascending: true)
+    }
+    
     private func getBlockResults(roomId: Int) -> Results<RealmBlock> {
         let realm = try! Realm()
-        return realm.objects(RealmBlock.self).filter("location_id == %i", roomId)
+        return realm.objects(RealmBlock.self)
+            .filter("location_id == %i", roomId)
+            .sorted(byKeyPath: "starts_at", ascending: true)
     }
     
     func getBlocks(roomId: Int) -> [IBlock] {
@@ -38,9 +46,11 @@ class BlockImmutableRepository: IBlockImmutableRepository {
         return BlockFactory.make(from: rBlock)
     }
     
-    func getAvailableDates(roomId: Int) -> [Date] {
-        
-        let blockDates = getBlocks(roomId: roomId).map {$0.getStartsAt()}
+    func getAvailableDates(roomId: Int?) -> [Date] {
+        let blocks = (roomId == nil) ?
+            getAllBlockResults().toArray().map(BlockFactory.make) :
+            getBlocks(roomId: roomId!)
+        let blockDates = blocks.map {$0.getStartsAt()}
         var daysSet = Set<Date>()
         _ = blockDates.map { date in
             let shortDateStr = date.toString(format: Date.shortDateFormatString)!

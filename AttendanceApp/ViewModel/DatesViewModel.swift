@@ -12,19 +12,28 @@ import RxCocoa
 
 class DatesViewmodel: NSObject, UITableViewDelegate {
     
-    private var blockViewmodel: BlockViewModel
+    //private var blockViewmodel: BlockViewModel
+    private let blockRepo: IBlockImmutableRepository
     
     // OUTPUT
     private (set) var selectedDate = PublishSubject<Date?>.init()
 
+//    var data: [Date] {
+//        let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
+//        let startDates = rBlocks.map(BlockFactory.make).map {$0.getStartsAt()}
+//        return startDates
+//    }
+//
+//    init(blockViewmodel: BlockViewModel) {
+//        self.blockViewmodel = blockViewmodel
+//    }
+    
     var data: [Date] {
-        let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
-        let startDates = rBlocks.map(BlockFactory.make).map {$0.getStartsAt()}
-        return startDates
+        return blockRepo.getAvailableDates(roomId: nil)
     }
     
-    init(blockViewmodel: BlockViewModel) {
-        self.blockViewmodel = blockViewmodel
+    init(blockRepo: IBlockImmutableRepository) {
+        self.blockRepo = blockRepo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -149,7 +149,7 @@ class SettingsVC: UITableViewController {
         switch (indexPath.section, indexPath.item) {
         
         case (0,0):
-            
+
             let datesVC = DatesViewControllerFactory.make()
             self.navigationController?.pushViewController(datesVC, animated: true)
             

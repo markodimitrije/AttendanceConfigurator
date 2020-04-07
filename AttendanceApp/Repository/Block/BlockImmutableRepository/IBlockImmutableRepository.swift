@@ -12,7 +12,7 @@ protocol IBlockImmutableRepository {
     func getBlocks(roomId: Int) -> [IBlock]
     func getBlocks(roomId: Int, date: Date) -> [IBlock]
     func getBlock(id: Int) -> IBlock?
-    func getAvailableDates(roomId: Int) -> [Date]
+    func getAvailableDates(roomId: Int?) -> [Date]
     func getBlockGroupedByDate(roomId: Int, date: Date?) -> [[IBlock]]
     func getObsBlockGroupedByDate(roomId: Int, date: Date?) -> Observable<[[IBlock]]>
 }
