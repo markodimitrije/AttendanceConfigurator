@@ -11,6 +11,10 @@ import RxSwift
 import RxRealm
 import RxCocoa
 
+protocol IBlockViewModel {
+    func getItems(date: Date?) -> Observable<[SectionOfCustomData]>
+}
+
 class BlockViewModel {
     
     private let disposeBag = DisposeBag()
@@ -26,7 +30,7 @@ class BlockViewModel {
     
     // output 1 - za prikazivanje blocks na tableView...
     
-    var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
+    private var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
     
     // output 2 - expose your calculated stuff
     var oAutomaticSession = BehaviorRelay<Block?>.init(value: nil)
@@ -138,6 +142,11 @@ class BlockViewModel {
             resultArray[resultArray.count - 1].append(nextBlock)
         }
         return resultArray
+    }
+    
+    // API:
+    func getItems(date: Date?) -> BehaviorRelay<[SectionOfCustomData]> {
+        return self.oSectionsHeadersAndItems
     }
     
     //deinit { print("deinit/BlockViewModel is deinit") }

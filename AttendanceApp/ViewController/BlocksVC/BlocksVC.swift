@@ -17,7 +17,7 @@ class BlocksVC: UIViewController {
     
     // INPUT
     var selectedDate: Date? // ovo ce ti neko javiti (settingsVC)
-    var selectedRoomId: Int! // ovo ce ti setovati segue // moze li preko Observable ?
+    var selectedRoomId: Int! // TODO marko: better through dataSource injected through init
     
     lazy var blockViewModel = BlockViewModelFactory.make(roomId: selectedRoomId)
     
@@ -36,7 +36,7 @@ class BlocksVC: UIViewController {
     private func bindUI() {
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
-            configureCell: { dataSource, tableView, indexPath, item in
+            configureCell: { _, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                 cell.textLabel?.numberOfLines = 0
                 cell.textLabel?.text = item.name
@@ -51,34 +51,17 @@ class BlocksVC: UIViewController {
             return dataSource.sectionModels[index].header
         }
         
-        loadTableViewDataSourceUponSelectedDate() // one or many sections...
-        
-        hookupTableViewItems(to: dataSource) // display items (cells)
-        
+        hookupViewModelItems(to: dataSource) // display items (cells)
         hookUpTableViewDidSelect() // tableView didSelect
+    }
+    
+    private func hookupViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
         
+        blockViewModel.getItems(date: selectedDate)
+                        .bind(to: tableView.rx.items(dataSource: dataSource))
+                        .disposed(by: disposeBag)
     }
     
-    private func hookupTableViewItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
-        source
-            .bind(to: tableView.rx.items(dataSource: dataSource))
-            .disposed(by: disposeBag)
-    }
-    
-    private func loadTableViewDataSourceUponSelectedDate() { // tableView dataSource
-        if let selectedDate = selectedDate {
-            
-            source = blockViewModel.oSectionsHeadersAndItems.flatMap({ sections -> BehaviorRelay<[SectionOfCustomData]> in
-                let section = sections.first(where: { section -> Bool in
-                    return Calendar.current.isDate(section.items.first!.date, inSameDayAs: selectedDate)
-                }) ?? SectionOfCustomData(header: "", items: [])
-                return BehaviorRelay.init(value: [section])
-            })
-            
-        } else {
-            source = blockViewModel.oSectionsHeadersAndItems.asObservable()
-        }
-    }
     
     private func hookUpTableViewDidSelect() {
         tableView.rx.itemSelected // (**)
