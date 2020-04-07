@@ -24,7 +24,9 @@ class BlockViewModel {
     private var blocks: Results<RealmBlock>! // ostavio sam zbog vc-a.. (nije dobro ovo)
 //    private (set) var blocksSortedByDate = [RealmBlock]()
 
+    // TODO: remove by new one...
     private (set) var sectionBlocks = [[RealmBlock]]() // niz nizova jer je tableView sa sections
+    private (set) var newSectionBlocks = [[IBlock]]() // niz nizova jer je tableView sa sections
     
     private var blocksSortedByDate = [RealmBlock]()
     
@@ -58,48 +60,66 @@ class BlockViewModel {
     
     private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
         
-        guard let realm = try? Realm() else { return }
+//        guard let realm = try? Realm() else { return }
         
         // ovde mi treba jos da su od odgovarajuceg Room-a
         
-        blocks = realm.objects(RealmBlock.self)
+//        blocks = realm.objects(RealmBlock.self)
+//
+//        if let roomId = roomId {
+//            blocks = blocks.filter("location_id = %@", roomId)
+//            self.newSectionBlocks = blockRepository.getBlockGroupedByDate(roomId: roomId, date: nil)
+//        }
+//
+//        oBlocks = Observable.changeset(from: blocks)
+//
+//        oBlocks
+//            .subscribe(onNext: { (collection, changeset) in
+//
+//                self.sectionBlocks = self.sortBlocksByDay(blocksArray: collection.toArray())
+//
+//                self.blocksSortedByDate = collection.toArray().sorted(by: {
+//                    //return Date.parse($0.starts_at) < Date.parse($1.starts_at)
+//                    return $0.starts_at < $1.starts_at
+//                })
+//
+//                self.loadSectionsHeadersAndItems(blocksByDay: self.sectionBlocks)
+//
+//            }).disposed(by: disposeBag)
         
-        if let roomId = roomId {
-            blocks = blocks.filter("location_id = %@", roomId)
-        }
-        
-        oBlocks = Observable.changeset(from: blocks)
-        
-        oBlocks
-            .subscribe(onNext: { (collection, changeset) in
-                
-                self.sectionBlocks = self.sortBlocksByDay(blocksArray: collection.toArray())
-                
-                self.blocksSortedByDate = collection.toArray().sorted(by: {
-                    //return Date.parse($0.starts_at) < Date.parse($1.starts_at)
-                    return $0.starts_at < $1.starts_at // TODO marko: just <
-                })
-                
-                self.loadSectionsHeadersAndItems(blocksByDay: self.sectionBlocks)
-                
+        let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId!, date: nil)
+        sections
+            .subscribe(onNext: { (groups) in
+                print("emituje se event SECTIONS, timestamp = \(Date.now)")
+                let sections = groups.map { (blocks) -> SectionOfCustomData in
+                    let groupName = blocks.first!.getStartsAt().toString(format: Date.shortDateFormatString)!
+                    let items = blocks.map(BlockCustomDataItemFactory.make)
+                    return SectionOfCustomData(header: groupName, items: items)
+                }
+                self.oSectionsHeadersAndItems.accept(sections)
             }).disposed(by: disposeBag)
+        
+        
+        
+        
+        
         
     }
     
     private func loadSectionsHeadersAndItems(blocksByDay: [[RealmBlock]]) {
-        let items = blocksByDay.map({ (blocks) -> SectionOfCustomData in
-            //let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
-            let sectionName = blocks.first?.starts_at.toString(format: "yyyy-MM-dd") ?? ""
-            let items = blocks.map({ (rBlock) -> SectionOfCustomData.Item in
-                let format = Date.defaultFormatString
-                let fullname = rBlock.starts_at.toString(format: format)! + " " + rBlock.name
-                let name = rBlock.name
-                let date = rBlock.starts_at
-                return SectionOfCustomData.Item(fullname: fullname, name: name, date: date)
-            })
-            return SectionOfCustomData.init(header: sectionName, items: items)
-        })
-        oSectionsHeadersAndItems.accept(items)
+//        let items = blocksByDay.map({ (blocks) -> SectionOfCustomData in
+//            //let sectionName = blocks.first?.starts_at.components(separatedBy: " ").first ?? ""
+//            let sectionName = blocks.first?.starts_at.toString(format: "yyyy-MM-dd") ?? ""
+//            let items = blocks.map({ (rBlock) -> SectionOfCustomData.Item in
+//                let format = Date.defaultFormatString
+//                let fullname = rBlock.starts_at.toString(format: format)! + " " + rBlock.name
+//                let name = rBlock.name
+//                let date = rBlock.starts_at
+//                return SectionOfCustomData.Item(fullname: fullname, name: name, date: date)
+//            })
+//            return SectionOfCustomData.init(header: sectionName, items: items)
+//        })
+//        oSectionsHeadersAndItems.accept(items)
     }
     
     // ako ima bilo koji session u zadatom Room, na koji se ceka krace od 2 sata, emituj SessionId; ako nema, emituj nil.
@@ -149,6 +169,19 @@ class BlockViewModel {
         return self.oSectionsHeadersAndItems
     }
     
+//    func transform(indexPath: IndexPath) -> IBlock {
+//        let sections = blockRepository.getBlockGroupedByDate(roomId: <#T##Int#>, date: <#T##Date?#>)
+//    }
+    
     //deinit { print("deinit/BlockViewModel is deinit") }
     
+}
+
+class BlockCustomDataItemFactory {
+    static func make(block: IBlock) -> SectionOfCustomData.Item {
+        let fullName = "implement me ???"
+        return SectionOfCustomData.Item(fullname: fullName,
+                                        name: block.getName(),
+                                        date: block.getStartsAt())
+    }
 }

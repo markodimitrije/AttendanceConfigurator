@@ -35,22 +35,7 @@ class BlocksVC: UIViewController {
     
     private func bindUI() {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
-            configureCell: { _, tableView, indexPath, item in
-                let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-                cell.textLabel?.numberOfLines = 0
-                cell.textLabel?.text = item.name
-                cell.detailTextLabel?.text = item.date.toString(format: Date.defaultFormatString)
-//                if Calendar.current.isDateInToday(item.date) {
-//                    cell.backgroundColor = .green
-//                }
-                return cell
-        })
-        
-        dataSource.titleForHeaderInSection = { dataSource, index in
-            return dataSource.sectionModels[index].header
-        }
-        
+        let dataSource = BlocksDataSourceFactory.make()
         hookupViewModelItems(to: dataSource) // display items (cells)
         hookUpTableViewDidSelect() // tableView didSelect
     }
@@ -63,39 +48,62 @@ class BlocksVC: UIViewController {
     }
     
     
+//    private func hookUpTableViewDidSelect() {
+//        tableView.rx.itemSelected // (**)
+//            .subscribe(onNext: { [weak self] ip in guard let strongSelf = self else {return}
+//
+//                var rBlock: RealmBlock!
+//                strongSelf.source
+//                    .subscribe(onNext: { (sections) in
+//
+//                        print("BlockVC.hookUpTableViewDidSelect.sections.count = \(sections.count)")
+//
+//                        if let selectedDate = strongSelf.selectedDate {
+//
+//                            if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
+//
+//                                Calendar.current.isDate(groups.first!.starts_at,
+//                                                        inSameDayAs: selectedDate)
+//                            }) {
+//                                rBlock = blockGroup[ip.row]
+//                            } else {
+//                                print("o-o, should never get here....")//; fatalError()
+//                            }
+//                        } else {
+//                            let sectionBlocks = strongSelf.blockViewModel.sectionBlocks
+//                            guard sectionBlocks.count > ip.section else {return}
+//                            guard sectionBlocks[ip.section].count > ip.row else {return}
+//                            rBlock = sectionBlocks[ip.section][ip.row]
+//                        }
+//                    }).disposed(by: strongSelf.disposeBag)
+//
+//                strongSelf.selBlock.onNext(rBlock!.id)
+//                strongSelf.navigationController?.popViewController(animated: true)
+//            })
+//            .disposed(by: disposeBag)
+//
+//    }
+    
     private func hookUpTableViewDidSelect() {
-        tableView.rx.itemSelected // (**)
-            .subscribe(onNext: { [weak self] ip in guard let strongSelf = self else {return}
-                
-                var rBlock: RealmBlock!
-                strongSelf.source
-                    .subscribe(onNext: { (sections) in
-                        
-                        print("BlockVC.hookUpTableViewDidSelect.sections.count = \(sections.count)")
-                        
-                        if let selectedDate = strongSelf.selectedDate {
-                            
-                            if let blockGroup = strongSelf.blockViewModel.sectionBlocks.first(where: { groups -> Bool in
-                                
-                                Calendar.current.isDate(groups.first!.starts_at,
-                                                        inSameDayAs: selectedDate)
-                            }) {
-                                rBlock = blockGroup[ip.row]
-                            } else {
-                                print("o-o, should never get here....")//; fatalError()
-                            }
-                        } else {
-                            let sectionBlocks = strongSelf.blockViewModel.sectionBlocks
-                            guard sectionBlocks.count > ip.section else {return}
-                            guard sectionBlocks[ip.section].count > ip.row else {return}
-                            rBlock = sectionBlocks[ip.section][ip.row]
-                        }
-                    }).disposed(by: strongSelf.disposeBag)
+        
+//        fatalError("implement me")
+        
+//        tableView.rx.itemSelected.map { (ip) -> IBlock in
+//            self.blockViewModel.transform(indexPath: ip)
+//        }.subscribe(onNext: { (block) in
+//            self.selBlock.onNext(block.getId())
+//        }).disposed(by: disposeBag)
+        
+        
+        
+//        tableView.rx.itemSelected.subscribe(onNext: { (indexPath) in
+//            blockViewModel.transform(indexPath: indexPath)
+//        })
 
-                strongSelf.selBlock.onNext(rBlock!.id)
-                strongSelf.navigationController?.popViewController(animated: true)
-            })
-            .disposed(by: disposeBag)
+//                strongSelf.selBlock.onNext(rBlock!.id)
+//                strongSelf.navigationController?.popViewController(animated: true)
+//            })
+//            .disposed(by: disposeBag)
 
     }
     

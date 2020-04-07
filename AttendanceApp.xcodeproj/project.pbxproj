@@ -123,6 +123,7 @@
 		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		7CEEA2E7243CB045006FCDDB /* BlockMutableRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */; };
+		7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */; };
 		7CFDEC4F242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC4E242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift */; };
 		7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */; };
 		7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */; };
@@ -313,6 +314,7 @@
 		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMutableRepositoryTest.swift; sourceTree = "<group>"; };
+		7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksDataSourceFactory.swift; sourceTree = "<group>"; };
 		7CFDEC4E242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmutableBlockRepositoryTest.swift; sourceTree = "<group>"; };
 		7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlockFactory.swift; sourceTree = "<group>"; };
 		7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoomFactory.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			children = (
 				7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */,
 				AD993AAE217B9D2000803BE2 /* BlocksVC.swift */,
+				7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */,
 			);
 			path = BlocksVC;
 			sourceTree = "<group>";
@@ -1575,6 +1578,7 @@
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,
 				7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */,
+				7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,
