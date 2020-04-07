@@ -7,18 +7,15 @@
 //
 
 import UIKit
-import RealmSwift
-import Realm
 import RxSwift
-import RxRealm
 import RxCocoa
 
 class UnsyncScansViewModel {
     
     private let syncScansTap: Driver<()>
-    private let repository: ICodeReportsRepository
+    private let repository: ICodeReportsImmutableRepository
     
-    init(syncScans: Driver<()>, codeReportsRepository: ICodeReportsRepository) {
+    init(syncScans: Driver<()>, codeReportsRepository: ICodeReportsImmutableRepository) {
         self.syncScansTap = syncScans
         self.repository = codeReportsRepository
         bindOutput()
@@ -68,18 +65,11 @@ class UnsyncScansViewModel {
     private func bindOutput() {
         
         repository.getObsUnsynced()
-        
-//        let realm = try! Realm()
-//
-//        Observable.collection(from: realm.objects(RealmCodeReport.self))
-//            .map({
-//                return $0.toArray()
-//            })
             .asDriver(onErrorJustReturn: [])
-                .map {$0.count}
-                //.debug()
-                .drive(syncScansCount)
-                .disposed(by: bag)
+            .map {$0.count}
+            //.debug()
+            .drive(syncScansCount)
+            .disposed(by: bag)
         if let value = try? syncScansCount.value() {
             print("syncScansCount = \(value)")
         }
