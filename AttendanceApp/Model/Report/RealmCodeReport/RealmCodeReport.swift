@@ -22,9 +22,3 @@ class RealmCodeReport: Object {
         return "id"
     }
 }
-
-extension RealmCodeReport: Comparable {
-    static func < (lhs: RealmCodeReport, rhs: RealmCodeReport) -> Bool {
-        lhs.date < rhs.date
-    }
-}

@@ -8,6 +8,8 @@
 
 class CodeReportsRepositoryFactory {
     static func make() -> ICodeReportsRepository {
-        return CodeReportsRepository(genericRepo: GenericRealmRepository())
+        let readRepo = CodeReportsImmutableRepository()
+        let writeRepo = CodeReportsMutableRepository(genericRepo: GenericRealmRepository())
+        return CodeReportsRepository(readRepo: readRepo, writeRepo: writeRepo)
     }
 }
