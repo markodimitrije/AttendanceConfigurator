@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
-//import RxRealmDataSources // TODO marko: remove...
 
 class RoomsVC: UIViewController {    
 

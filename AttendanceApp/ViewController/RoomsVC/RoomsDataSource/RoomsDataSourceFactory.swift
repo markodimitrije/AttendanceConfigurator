@@ -10,18 +10,15 @@ import RxDataSources
 
 class RoomsDataSourceFactory {
     
-    static func make() -> RxTableViewSectionedReloadDataSource<RoomSectionOfCustomData> {
+    static func make() -> RxTableViewSectionedReloadDataSource<RoomsSectionOfCustomData> {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<RoomSectionOfCustomData>(
+        let dataSource = RxTableViewSectionedReloadDataSource<RoomsSectionOfCustomData>(
             configureCell: { _, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                 cell.textLabel?.text = item.name
                 return cell
         })
         
-//        dataSource.titleForHeaderInSection = { dataSource, index in
-//            return dataSource.sectionModels[index].header
-//        }
         return dataSource
     }
 }

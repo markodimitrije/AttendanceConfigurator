@@ -12,7 +12,7 @@ import RxRealm
 import RxCocoa
 
 protocol IBlockViewModel {
-    func getItems() -> Observable<[SectionOfCustomData]>
+    func getItems() -> Observable<[BlocksSectionOfCustomData]>
     func transform(indexPath: IndexPath) -> IBlock
 }
 
@@ -31,11 +31,11 @@ class BlockViewModel: IBlockViewModel {
     }
     
     // output:
-    private var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
+    private var oSectionsHeadersAndItems = BehaviorRelay<[BlocksSectionOfCustomData]>.init(value: [])
     var oAutomaticSession = BehaviorRelay<IBlock?>.init(value: nil)
     
     // API:
-    func getItems() -> Observable<[SectionOfCustomData]> {
+    func getItems() -> Observable<[BlocksSectionOfCustomData]> {
         return self.oSectionsHeadersAndItems.asObservable()
     }
     
@@ -58,7 +58,7 @@ class BlockViewModel: IBlockViewModel {
         let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date)
         sections
             .subscribe(onNext: { (groups) in
-                let sections = BlockSectionsOfCustomDataFactory.make(blockSections: groups,
+                let sections = BlocksSectionOfCustomDataFactory.make(blockSections: groups,
                                                                      onDate: self.date)
                 self.oSectionsHeadersAndItems.accept(sections)
             }).disposed(by: disposeBag)

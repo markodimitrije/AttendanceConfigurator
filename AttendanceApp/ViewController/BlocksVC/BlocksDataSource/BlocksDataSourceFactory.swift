@@ -10,9 +10,9 @@ import RxDataSources
 
 class BlocksDataSourceFactory {
     
-    static func make() -> RxTableViewSectionedReloadDataSource<SectionOfCustomData> {
+    static func make() -> RxTableViewSectionedReloadDataSource<BlocksSectionOfCustomData> {
         
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(
+        let dataSource = RxTableViewSectionedReloadDataSource<BlocksSectionOfCustomData>(
             configureCell: { _, tableView, indexPath, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
                 cell.textLabel?.numberOfLines = 0

@@ -35,7 +35,7 @@ class BlocksVC: UIViewController {
         listenTableViewDidSelect() // tableView didSelect
     }
     
-    private func bindViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
+    private func bindViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<BlocksSectionOfCustomData>) {
         
         blockViewModel.getItems()
             .asDriver(onErrorJustReturn: [])

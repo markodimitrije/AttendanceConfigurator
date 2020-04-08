@@ -6,17 +6,11 @@
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
 
-import Foundation
-import RealmSwift
-import Realm
 import RxSwift
-import RxRealm
 
 class RoomViewModel {
     
     private let disposeBag = DisposeBag()
-    
-    private(set) var rooms: Results<RealmRoom>!
     
     //hard-coded
     let repo = RoomRepository()
@@ -25,18 +19,11 @@ class RoomViewModel {
         bindNewOutput()
     }
     
-    // input
-    var selectedTableIndex: BehaviorSubject<Int?> = BehaviorSubject.init(value: nil)
+    // MARK:- Output
+    private(set) var obsRooms: Observable<[RoomsSectionOfCustomData]>!
     
-    // output
-    
-    private(set) var obsRooms: Observable<[RoomSectionOfCustomData]>!
-    
-    private(set) var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil)
-    
-    // MARK:- calculators
-    
-    func getRoom(forSelectedTableIndex index: Int) -> IRoom {//TODO: IRoom
+    // MARK:- API
+    func getRoom(forSelectedTableIndex index: Int) -> IRoom {
         let rooms = repo.getAllRooms()
         return rooms[index]
     }
@@ -44,16 +31,7 @@ class RoomViewModel {
     // MARK:- Private methods
     
     private func bindNewOutput() {
-        
-        self.obsRooms = repo.getObsAllRooms().map(RoomSectionFactory.make)
-        
+        self.obsRooms = repo.getObsAllRooms().map(RoomsSectionOfCustomDataFactory.make)
     }
 
-}
-
-class RoomSectionFactory {
-    static func make(rooms: [IRoom]) -> [RoomSectionOfCustomData] {
-        let items = rooms.map {RoomSectionOfCustomData.Item(name: $0.getName())}
-        return [RoomSectionOfCustomData(header: "", items: items)]
-    }
 }
