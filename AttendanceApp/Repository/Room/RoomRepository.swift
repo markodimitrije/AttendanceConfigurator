@@ -29,7 +29,6 @@ class RoomRepository: IRoomRepository {
         guard let rRoom = realm.object(ofType: RealmRoom.self, forPrimaryKey: id) else {
             return nil
         }
-        //return Room(from: rRoom)
         return RoomFactory.make(from: rRoom)
     }
     

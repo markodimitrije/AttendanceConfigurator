@@ -41,6 +41,18 @@ class RoomRepositoryTest: XCTestCase {
         XCTAssertEqual(1, found.count)
     }
     
+    func testRoomsRepository_ShouldBeAbleTo_ReplaceExistingRoomsWithNewOnes() {
+        //arrange
+        SaveRoomsToRealmExplicitelyHelper.save(rooms: [rooms.first!])
+        //act
+        testSubject.replaceExistingWith(rooms: [rooms.last!])
+        //assert
+        let realm = try! Realm()
+        let found = realm.objects(RealmRoom.self).toArray()
+        XCTAssertEqual(1, found.count)
+        XCTAssertEqual(rooms.last!.getId(), found.last!.id)
+    }
+    
     func testRoomsRepository_GetRoom_ShouldReturnNil_ForNonExistinId() {
         //arrange
         SaveRoomsToRealmExplicitelyHelper.save(rooms: [rooms.first!])
@@ -57,6 +69,15 @@ class RoomRepositoryTest: XCTestCase {
         let room = testSubject.getRoom(id: 4456)
         //assert
         XCTAssertNotNil(room)
+    }
+    
+    func testRoomsRepository_getAllRooms_ShouldReturn_ExpectedRooms() {
+        //arrange
+        SaveRoomsToRealmExplicitelyHelper.save(rooms: [rooms.first!, rooms.last!])
+        //act
+        let found = testSubject.getAllRooms()
+        //assert
+        XCTAssertEqual(2, found.count)
     }
     
 }

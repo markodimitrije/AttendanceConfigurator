@@ -12,7 +12,7 @@ import RxCocoa
 
 class AutoSessionViewModel {
     
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     private let blockViewModel: BlockViewModel
     
     init(blockViewModel: BlockViewModel) {
@@ -20,40 +20,17 @@ class AutoSessionViewModel {
         bindInputWithOutput()
     }
     
-    // INPUT:
-    var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil) // implement me
-    var switchState = BehaviorSubject<Bool>.init(value: true)
-    
-    private var switchStateDriver: SharedSequence<DriverSharingStrategy, Bool> {
-        return switchState.asDriver(onErrorJustReturn: false)
-    }
-    
     // OUTPUT
     var selectedSession = BehaviorSubject<IBlock?>.init(value: nil)
     
     private func bindInputWithOutput() {
         
-        // switch binding:
-        
-        switchStateDriver // switch driver
-            .drive(onNext: { tap in // pretplati se da slusas (observe)
-                self.blockViewModel.oAutomaticSession // uzmi slave-ov output
-                    .asDriver(onErrorJustReturn: nil)
-                    .drive(self.selectedSession) // i njime 'pogoni' svoj output
-                    .disposed(by: self.bag)
-            })
-            .disposed(by: bag)
-
         blockViewModel.oAutomaticSession // output svog slave-a
             .asDriver(onErrorJustReturn: nil)
-            .drive(selectedSession) // prosledi na svoj output
-            .disposed(by: bag)
-        
-        blockViewModel.oAutomaticSession
-            .subscribe(onNext: { block in
-                print("emituj blok koji terba da update moj UI")
+            .do(onNext: { (block) in
                 DataAccess.shared.userSelection.blockId = block?.getId() // hazardous hard-coded?
             })
+            .drive(selectedSession) // prosledi na svoj output
             .disposed(by: bag)
     }
     
