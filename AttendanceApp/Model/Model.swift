@@ -31,4 +31,23 @@ struct BlockItem {
     var date: Date
 }
 
+// RoomSection and RoomItem
+
+struct RoomSectionOfCustomData {
+    var header: String
+    var items: [RoomItem]
+}
+
+extension RoomSectionOfCustomData: SectionModelType {
+    typealias Item = RoomItem
+    init(original: RoomSectionOfCustomData, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+struct RoomItem {
+    var name: String
+}
+
 

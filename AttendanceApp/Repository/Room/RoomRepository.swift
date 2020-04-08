@@ -7,15 +7,23 @@
 //
 
 import RealmSwift
+import RxSwift
 
 protocol IRoomRepository {
     func getRoom(id: Int) -> IRoom?
     func getAllRooms() -> [IRoom]
+    func getObsAllRooms() -> Observable<[IRoom]>
     func save(rooms: [IRoom])
     func replaceExistingWith(rooms: [IRoom])
 }
 
 class RoomRepository: IRoomRepository {
+    
+    private func getRoomResults() -> Results<RealmRoom> {
+        let realm = try! Realm()
+        return realm.objects(RealmRoom.self).sorted(byKeyPath: "order", ascending: true)
+    }
+    
     func getRoom(id: Int) -> IRoom? {
         let realm = try! Realm()
         guard let rRoom = realm.object(ofType: RealmRoom.self, forPrimaryKey: id) else {
@@ -26,10 +34,15 @@ class RoomRepository: IRoomRepository {
     }
     
     func getAllRooms() -> [IRoom] {
-        let realm = try! Realm()
-        let rRooms = realm.objects(RealmRoom.self).toArray()
-        //return rRooms.map(Room.init)
+        let rRooms = getRoomResults().toArray()
         return rRooms.map(RoomFactory.make(from:))
+    }
+    
+    func getObsAllRooms() -> Observable<[IRoom]> {
+        let rooms = Observable.collection(from: getRoomResults())
+        return rooms.map { (results) -> [IRoom] in
+            results.map(RoomFactory.make(from:))
+        }
     }
     
     func save(rooms: [IRoom]) {

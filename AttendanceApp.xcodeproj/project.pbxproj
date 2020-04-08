@@ -60,6 +60,7 @@
 		7C6A5EEF243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */; };
 		7C6A5EF1243DC89300CD5C9C /* BlockCustomDataItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */; };
 		7C6A5EF4243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */; };
+		7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF6243DF15300CD5C9C /* RoomsDataSourceFactory.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -254,6 +255,7 @@
 		7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSectionsOfCustomDataFactory.swift; sourceTree = "<group>"; };
 		7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCustomDataItemFactory.swift; sourceTree = "<group>"; };
 		7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionViewModelFactory.swift; sourceTree = "<group>"; };
+		7C6A5EF6243DF15300CD5C9C /* RoomsDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsDataSourceFactory.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 			children = (
 				7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */,
 				AD29521F217B5B23002DDE32 /* RoomsVC.swift */,
+				7C6A5EF5243DF13800CD5C9C /* RoomsDataSource */,
 			);
 			path = RoomsVC;
 			sourceTree = "<group>";
@@ -731,6 +734,14 @@
 				7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */,
 			);
 			path = AutoSessionViewModel;
+			sourceTree = "<group>";
+		};
+		7C6A5EF5243DF13800CD5C9C /* RoomsDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A5EF6243DF15300CD5C9C /* RoomsDataSourceFactory.swift */,
+			);
+			path = RoomsDataSource;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -1580,6 +1591,7 @@
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
 				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
+				7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */,
 				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				7C57854C243A1566006531CC /* GenericRealmRepository.swift in Sources */,

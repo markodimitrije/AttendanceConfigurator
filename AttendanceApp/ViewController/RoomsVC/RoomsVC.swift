@@ -9,7 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxRealmDataSources
+import RxDataSources
+//import RxRealmDataSources // TODO marko: remove...
 
 class RoomsVC: UIViewController {    
 
@@ -19,10 +20,9 @@ class RoomsVC: UIViewController {
     
     let roomViewModel = RoomViewModel()
     
-    fileprivate let selRealmRoom = PublishSubject<Int?>()
-    
+    fileprivate let _selectedRoom = PublishSubject<Int?>()
     var selRoomDriver: SharedSequence<DriverSharingStrategy, Int?> {
-        return selRealmRoom.asDriver(onErrorJustReturn: nil)
+        return _selectedRoom.asDriver(onErrorJustReturn: nil)
     }
 
     override func viewDidLoad() { super.viewDidLoad()
@@ -30,14 +30,11 @@ class RoomsVC: UIViewController {
     }
 
     private func populateTableView() {
-        // bind dataSource
-        let dataSource = RxTableViewRealmDataSource<RealmRoom>(cellIdentifier:
-        "cell", cellType: UITableViewCell.self) { cell, _, rRoom in
-            cell.textLabel?.text = rRoom.name
-        }
-        
-        roomViewModel.oRooms
-            .bind(to: tableView.rx.realmChanges(dataSource))
+
+        let dataSource = RoomsDataSourceFactory.make()
+        roomViewModel.obsRooms!
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
     
@@ -45,9 +42,7 @@ class RoomsVC: UIViewController {
 
 extension RoomsVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let selectedRoom = roomViewModel.getRoom(forSelectedTableIndex: indexPath.item)
-        
-        selRealmRoom.onNext(selectedRoom.getId())
+        _selectedRoom.onNext(selectedRoom.getId())
     }
 }

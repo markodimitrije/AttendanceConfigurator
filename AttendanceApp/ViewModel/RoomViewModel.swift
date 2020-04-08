@@ -18,8 +18,11 @@ class RoomViewModel {
     
     private(set) var rooms: Results<RealmRoom>!
     
+    //hard-coded
+    let repo = RoomRepository()
+    
     init() {
-        bindOutput()
+        bindNewOutput()
     }
     
     // input
@@ -27,27 +30,30 @@ class RoomViewModel {
     
     // output
     
-    private(set) var oRooms: Observable<(AnyRealmCollection<RealmRoom>, RealmChangeset?)>!
+    private(set) var obsRooms: Observable<[RoomSectionOfCustomData]>!
     
     private(set) var selectedRoom = BehaviorSubject<RealmRoom?>.init(value: nil)
     
     // MARK:- calculators
     
-    func getRoom(forSelectedTableIndex index: Int) -> Room {
-        
-        return RoomFactory.make(from: rooms[index]) as! Room
+    func getRoom(forSelectedTableIndex index: Int) -> IRoom {//TODO: IRoom
+        let rooms = repo.getAllRooms()
+        return rooms[index]
     }
     
     // MARK:- Private methods
     
-    private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
+    private func bindNewOutput() {
         
-        guard let realm = try? Realm() else { return }
+        self.obsRooms = repo.getObsAllRooms().map(RoomSectionFactory.make)
         
-        rooms = realm.objects(RealmRoom.self)
-        
-        oRooms = Observable.changeset(from: rooms)
-
     }
 
+}
+
+class RoomSectionFactory {
+    static func make(rooms: [IRoom]) -> [RoomSectionOfCustomData] {
+        let items = rooms.map {RoomSectionOfCustomData.Item(name: $0.getName())}
+        return [RoomSectionOfCustomData(header: "", items: items)]
+    }
 }
