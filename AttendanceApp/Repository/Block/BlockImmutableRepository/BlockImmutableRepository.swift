@@ -73,14 +73,17 @@ class BlockImmutableRepository: IBlockImmutableRepository {
     }
     
     func getObsBlockGroupedByDate(roomId: Int, date: Date?) -> Observable<[[IBlock]]> {
+        
         let results = getBlockResults(roomId: roomId)
         let obsResults = Observable.collection(from: results).map { (results) -> [[IBlock]] in
-            let dates = self.getAvailableDates(roomId: roomId)
+            let dates = (date != nil) ? [date!] : self.getAvailableDates(roomId: roomId)
             let sections = dates.map {BlockOnDateUtility.makeBlocks(from: results, onDate: $0)}
             return sections
         }
+        
         return obsResults
     }
+    
 }
 
 extension RealmBlock: Comparable {

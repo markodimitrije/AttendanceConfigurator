@@ -14,6 +14,7 @@ class BlocksViewControllerFactory {
         let blocksVC = sb.instantiateViewController(withIdentifier: "BlocksVC") as! BlocksVC
         blocksVC.selectedRoomId = roomId
         blocksVC.selectedDate = selDate
+        
         return blocksVC
     }
 }

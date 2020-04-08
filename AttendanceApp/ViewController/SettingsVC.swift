@@ -40,6 +40,7 @@ class SettingsVC: UITableViewController {
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModelFactory.make(syncScansTap: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
     override func viewDidLoad() { super.viewDidLoad()
+
         bindUI()
         bindReachability()
         bindUnsyncedScans()
@@ -149,17 +150,23 @@ class SettingsVC: UITableViewController {
         switch (indexPath.section, indexPath.item) {
         
         case (0,0):
-
-            let datesVC = DatesViewControllerFactory.make()
-            self.navigationController?.pushViewController(datesVC, animated: true)
-            
-            datesVC.datesViewmodel.selectedDate
-                .asDriver(onErrorJustReturn: nil)
-                .do(onNext: { _ in
-                    self.navigationController?.popViewController(animated: true)
-                })
+            let formatter = DateFormatter(format: Date.defaultFormatString)
+            let date = formatter.date(from: "2019-06-13 17:30:00")!
+            Observable.just(date)
+                .asDriver(onErrorJustReturn: date)
                 .drive(self.dateSelected)
                 .disposed(by: disposeBag)
+//            let datesVC = DatesViewControllerFactory.make()
+//            self.navigationController?.pushViewController(datesVC, animated: true)
+//
+//            datesVC.datesViewmodel.selectedDate
+//            .debug()
+//                .asDriver(onErrorJustReturn: nil)
+//                .do(onNext: { _ in
+//                    self.navigationController?.popViewController(animated: true)
+//                })
+//                .drive(self.dateSelected)
+//                .disposed(by: disposeBag)
             
         case (1, 0):
             
@@ -177,8 +184,9 @@ class SettingsVC: UITableViewController {
             guard let roomId = try! roomSelected.value() else {
                 return // should be fatal
             }
+            
             let blocksVC = BlocksViewControllerFactory.make(roomId: roomId,
-                                                            selDate: dateSelected.value)
+                                                            selDate: self.dateSelected.value)
             
             self.autoSelectSessionsView.controlSwitch.isOn = false
             

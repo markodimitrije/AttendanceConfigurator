@@ -53,7 +53,9 @@ class BlockViewModel {
     
     private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
         
-        let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: Date.now) //hard-coded
+        treba mi DATE da bih ga prosledio repo-u, koji ce ga ugraditi kao parametar da bi mi vratio [Section] -> dodaj ga kroz fabrike VC-u a on fabrici za viewmodel
+        
+        let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date) //hard-coded
         sections
             .subscribe(onNext: { (groups) in
                 print("emituje se event SECTIONS, timestamp = \(Date.now)")

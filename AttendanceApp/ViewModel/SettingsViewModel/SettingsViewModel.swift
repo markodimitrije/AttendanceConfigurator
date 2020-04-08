@@ -53,7 +53,7 @@ final class SettingsViewModel: ViewModelType {
             return nil
         }.skip(1)
         
-        let manualAndAutoSession = Driver.merge([input.sessionSelected, autoSessionDriver]).debug()
+        let manualAndAutoSession = Driver.merge([input.sessionSelected, autoSessionDriver])//.debug()
         let a = input.roomSelected.map { _ -> Void in return () }
         let b = input.sessionSelected.map { _ -> Void in return () }
         let c = autoSessionDriver.map { _ -> Void in return () }

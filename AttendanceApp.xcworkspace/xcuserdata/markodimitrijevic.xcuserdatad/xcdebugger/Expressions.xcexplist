@@ -3,34 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in ConferenceState.syncApiKeyIsNeeded():ResourcesState.swift">
+         contextName = "static BlocksViewControllerFactory.make(roomId:selDate:):BlocksViewControllerFactory.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.getActualApiKey()">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "BlockViewModel.bindAutomaticSession(interval:):BlockViewModel.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "mostRecentSessionBlock">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #2 in ApiController.buildRequest(base:method:pathComponent:params:):APIController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "response.statusCode">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in AutoSessionTimer.fire():AutoSessionTimer.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "block.name">
+               value = "blocksVC.selectedDate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -50,6 +26,46 @@
          <PersistentStrings>
             <PersistentString
                value = "DataAccess.shared">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SettingsVC.tableView(_:didSelectRowAt:):SettingsVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dateSelected.value">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #2 in ApiController.buildRequest(base:method:pathComponent:params:):APIController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.statusCode">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ConferenceState.syncApiKeyIsNeeded():ResourcesState.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.getActualApiKey()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BlockViewModel.bindOutput():BlockViewModel.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sections.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AutoSessionTimer.fire():AutoSessionTimer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "block.name">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

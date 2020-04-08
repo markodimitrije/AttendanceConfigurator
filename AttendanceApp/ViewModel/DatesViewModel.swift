@@ -17,16 +17,6 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     
     // OUTPUT
     private (set) var selectedDate = PublishSubject<Date?>.init()
-
-//    var data: [Date] {
-//        let rBlocks = blockViewmodel.sectionBlocks.compactMap {$0.first}
-//        let startDates = rBlocks.map(BlockFactory.make).map {$0.getStartsAt()}
-//        return startDates
-//    }
-//
-//    init(blockViewmodel: BlockViewModel) {
-//        self.blockViewmodel = blockViewmodel
-//    }
     
     var data: [Date] {
         return blockRepo.getAvailableDates(roomId: nil)
