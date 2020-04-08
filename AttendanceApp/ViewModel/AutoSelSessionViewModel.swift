@@ -15,8 +15,8 @@ class AutoSelSessionViewModel {
     let bag = DisposeBag()
     let blockViewModel: BlockViewModel!
     
-    init(roomId: Int) {
-        blockViewModel = BlockViewModelFactory.make(roomId: roomId)
+    init(roomId: Int, date: Date?) {
+        blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: date)
         bindInputWithOutput()
     }
     

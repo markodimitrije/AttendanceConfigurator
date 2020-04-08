@@ -150,23 +150,18 @@ class SettingsVC: UITableViewController {
         switch (indexPath.section, indexPath.item) {
         
         case (0,0):
-            let formatter = DateFormatter(format: Date.defaultFormatString)
-            let date = formatter.date(from: "2019-06-13 17:30:00")!
-            Observable.just(date)
-                .asDriver(onErrorJustReturn: date)
+            
+            let datesVC = DatesViewControllerFactory.make()
+            self.navigationController?.pushViewController(datesVC, animated: true)
+
+            datesVC.datesViewmodel.selectedDate
+            .debug()
+                .asDriver(onErrorJustReturn: nil)
+                .do(onNext: { _ in
+                    self.navigationController?.popViewController(animated: true)
+                })
                 .drive(self.dateSelected)
                 .disposed(by: disposeBag)
-//            let datesVC = DatesViewControllerFactory.make()
-//            self.navigationController?.pushViewController(datesVC, animated: true)
-//
-//            datesVC.datesViewmodel.selectedDate
-//            .debug()
-//                .asDriver(onErrorJustReturn: nil)
-//                .do(onNext: { _ in
-//                    self.navigationController?.popViewController(animated: true)
-//                })
-//                .drive(self.dateSelected)
-//                .disposed(by: disposeBag)
             
         case (1, 0):
             

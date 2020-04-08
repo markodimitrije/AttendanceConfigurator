@@ -43,11 +43,11 @@ final class SettingsViewModel: ViewModelType {
         }
         
         let autoSessionDriver =
-            Driver.combineLatest(input.roomSelected, input.sessionSwitch) {
-                (roomId, switchIsOn) -> Int? in
+            Driver.combineLatest(input.dateSelected, input.roomSelected, input.sessionSwitch) {
+                (date, roomId, switchIsOn) -> Int? in
             guard let roomId = roomId else { return nil }
             if switchIsOn {
-                let autoModelView = AutoSelSessionViewModel.init(roomId: roomId)
+                let autoModelView = AutoSelSessionViewModel.init(roomId: roomId, date: date)
                 return try! autoModelView.selectedSession.value()?.getId() ?? nil // pazi ovde !! try !
             }
             return nil

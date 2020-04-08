@@ -19,7 +19,7 @@ class BlocksVC: UIViewController {
     var selectedDate: Date? // ovo ce ti neko javiti (settingsVC)
     var selectedRoomId: Int! // TODO marko: better through dataSource injected through init
     
-    lazy var blockViewModel = BlockViewModelFactory.make(roomId: selectedRoomId)
+    lazy var blockViewModel = BlockViewModelFactory.make(roomId: selectedRoomId, date: selectedDate)
     
     fileprivate let selBlock = PublishSubject<Int>()
     var selectedBlock: Observable<Int> { // exposed selRealmBlock

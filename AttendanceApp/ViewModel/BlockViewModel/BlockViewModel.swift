@@ -34,6 +34,7 @@ class BlockViewModel {
     var oAutomaticSession = BehaviorRelay<IBlock?>.init(value: nil)
     
     private let roomId: Int
+    private let date: Date?
     private let blockRepository: IBlockImmutableRepository
     private let mostRecentBlockUtility: IMostRecentBlockUtility
     
@@ -43,8 +44,9 @@ class BlockViewModel {
             .getMostRecentSession(blocksSortedByDate: blocksSortedByDate)
     }
     
-    init(roomId: Int, blockRepository: IBlockImmutableRepository, mostRecentBlockUtility: IMostRecentBlockUtility) {
+    init(roomId: Int, date: Date?, blockRepository: IBlockImmutableRepository, mostRecentBlockUtility: IMostRecentBlockUtility) {
         self.roomId = roomId
+        self.date = date
         self.blockRepository = blockRepository
         self.mostRecentBlockUtility = mostRecentBlockUtility
         bindOutput()
@@ -53,14 +55,13 @@ class BlockViewModel {
     
     private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
         
-        treba mi DATE da bih ga prosledio repo-u, koji ce ga ugraditi kao parametar da bi mi vratio [Section] -> dodaj ga kroz fabrike VC-u a on fabrici za viewmodel
-        
         let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date) //hard-coded
         sections
             .subscribe(onNext: { (groups) in
-                print("emituje se event SECTIONS, timestamp = \(Date.now)")
+                print("emituje se event sa groups.count = \(groups.count)")
                 let sections = groups.map { (blocks) -> SectionOfCustomData in
-                    let groupName = blocks.first!.getStartsAt().toString(format: Date.shortDateFormatString)!
+                    print("pojedinacna grupa ima blocks.count = \(blocks.count)")
+                    let groupName = blocks.first?.getStartsAt().toString(format: Date.shortDateFormatString) ?? "grupa nema blokove na dan?"
                     let items = blocks.map(BlockCustomDataItemFactory.make)
                     return SectionOfCustomData(header: groupName, items: items)
                 }
@@ -92,7 +93,7 @@ class BlockViewModel {
     }
     
     func transform(indexPath: IndexPath) -> IBlock {
-        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: Date.now) //hard-coded
+        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: self.date) //hard-coded
         return sections[indexPath.section][indexPath.row]
     }
     

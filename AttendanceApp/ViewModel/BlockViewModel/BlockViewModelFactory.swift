@@ -9,9 +9,10 @@
 import Foundation
 
 class BlockViewModelFactory {
-    static func make(roomId: Int) -> BlockViewModel {
+    static func make(roomId: Int, date: Date?) -> BlockViewModel {
         let blockRepo = BlockImmutableRepositoryFactory.make()
         return BlockViewModel(roomId: roomId,
+                              date: date,
                               blockRepository: blockRepo,
                               mostRecentBlockUtility: MostRecentBlockUtility())
     }
