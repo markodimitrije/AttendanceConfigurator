@@ -57,6 +57,8 @@
 		7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */; };
 		7C67288B243B9309006D271A /* UnsyncScansViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */; };
 		7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67288C243B964E006D271A /* ICodeReportsRepository.swift */; };
+		7C6A5EEF243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */; };
+		7C6A5EF1243DC89300CD5C9C /* BlockCustomDataItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -248,6 +250,8 @@
 		7C640B63242C99BD004A9D58 /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsyncScansViewModelFactory.swift; sourceTree = "<group>"; };
 		7C67288C243B964E006D271A /* ICodeReportsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsRepository.swift; sourceTree = "<group>"; };
+		7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSectionsOfCustomDataFactory.swift; sourceTree = "<group>"; };
+		7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCustomDataItemFactory.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -478,7 +482,7 @@
 			children = (
 				7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */,
 				AD993AAE217B9D2000803BE2 /* BlocksVC.swift */,
-				7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */,
+				7C6A5EEC243DC7A400CD5C9C /* BlocksDataSource */,
 			);
 			path = BlocksVC;
 			sourceTree = "<group>";
@@ -698,6 +702,24 @@
 				7C67288A243B9308006D271A /* UnsyncScansViewModelFactory.swift */,
 			);
 			path = UnsyncScansViewModel;
+			sourceTree = "<group>";
+		};
+		7C6A5EEC243DC7A400CD5C9C /* BlocksDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */,
+				7C6A5EED243DC80800CD5C9C /* SectionOfCustomData */,
+			);
+			path = BlocksDataSource;
+			sourceTree = "<group>";
+		};
+		7C6A5EED243DC80800CD5C9C /* SectionOfCustomData */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */,
+				7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */,
+			);
+			path = SectionOfCustomData;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -1467,6 +1489,7 @@
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
 				7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
+				7C6A5EF1243DC89300CD5C9C /* BlockCustomDataItemFactory.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
@@ -1596,6 +1619,7 @@
 				7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
+				7C6A5EEF243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift in Sources */,
 				7CD5296E24334AA900170D0A /* Unziper.swift in Sources */,
 				7C578561243A4961006531CC /* ICodesDumperWorker.swift in Sources */,
 				7C516F7C243C9912002CF6BF /* BlockImmutableRepositoryFactory.swift in Sources */,

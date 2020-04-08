@@ -19,7 +19,6 @@ struct SectionOfCustomData {
 }
 
 extension SectionOfCustomData: SectionModelType {
-    //typealias Item = String
     typealias Item = BlockItem
     init(original: SectionOfCustomData, items: [Item]) {
         self = original
@@ -28,7 +27,6 @@ extension SectionOfCustomData: SectionModelType {
 }
 
 struct BlockItem {
-    var fullname: String
     var name: String
     var date: Date
 }

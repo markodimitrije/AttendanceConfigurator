@@ -26,8 +26,6 @@ class BlocksVC: UIViewController {
         return selBlock.asObservable()
     }
     
-    private var source: Observable<[SectionOfCustomData]>!
-    
     override func viewDidLoad() { super.viewDidLoad()
         bindUI()
         navigationItem.title = "SESSIONS"
@@ -43,8 +41,9 @@ class BlocksVC: UIViewController {
     private func bindViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
         
         blockViewModel.getItems(date: selectedDate)
-                        .bind(to: tableView.rx.items(dataSource: dataSource))
-                        .disposed(by: disposeBag)
+            .asDriver(onErrorJustReturn: [])
+            .drive(tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
     }
     
     private func listenTableViewDidSelect() {

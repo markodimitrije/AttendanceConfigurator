@@ -16,32 +16,32 @@ protocol IBlockViewModel {
     func transform(indexPath: IndexPath) -> IBlock
 }
 
-class BlockViewModel {
-    
-    private let disposeBag = DisposeBag()
-    
-    // TODO: remove by new one...
-    private (set) var sectionBlocks = [[RealmBlock]]() // niz nizova jer je tableView sa sections
-    private (set) var newSectionBlocks = [[IBlock]]() // niz nizova jer je tableView sa sections
-    
-    private var blocksSortedByDate = [RealmBlock]()
-    
-    // output 1 - za prikazivanje blocks na tableView...
-    
-    private var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
-    
-    // output 2 - expose your calculated stuff
-    var oAutomaticSession = BehaviorRelay<IBlock?>.init(value: nil)
+class BlockViewModel: IBlockViewModel {
     
     private let roomId: Int
     private let date: Date?
     private let blockRepository: IBlockImmutableRepository
     private let mostRecentBlockUtility: IMostRecentBlockUtility
+    private let disposeBag = DisposeBag()
     
     private var mostRecentSessionBlock: IBlock? {
         let blocksSortedByDate = blockRepository.getBlocks(roomId: roomId)
         return mostRecentBlockUtility
             .getMostRecentSession(blocksSortedByDate: blocksSortedByDate)
+    }
+    
+    // output:
+    private var oSectionsHeadersAndItems = BehaviorRelay<[SectionOfCustomData]>.init(value: [])
+    var oAutomaticSession = BehaviorRelay<IBlock?>.init(value: nil)
+    
+    // API:
+    func getItems(date: Date?) -> Observable<[SectionOfCustomData]> {
+        return self.oSectionsHeadersAndItems.asObservable()
+    }
+    
+    func transform(indexPath: IndexPath) -> IBlock {
+        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: self.date) //hard-coded
+        return sections[indexPath.section][indexPath.row]
     }
     
     init(roomId: Int, date: Date?, blockRepository: IBlockImmutableRepository, mostRecentBlockUtility: IMostRecentBlockUtility) {
@@ -58,23 +58,15 @@ class BlockViewModel {
         let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date) //hard-coded
         sections
             .subscribe(onNext: { (groups) in
-                print("emituje se event sa groups.count = \(groups.count)")
-                let sections = groups.map { (blocks) -> SectionOfCustomData in
-                    print("pojedinacna grupa ima blocks.count = \(blocks.count)")
-                    let groupName = blocks.first?.getStartsAt().toString(format: Date.shortDateFormatString) ?? "grupa nema blokove na dan?"
-                    let items = blocks.map(BlockCustomDataItemFactory.make)
-                    return SectionOfCustomData(header: groupName, items: items)
-                }
+                let sections = BlockSectionsOfCustomDataFactory.make(blockSections: groups,
+                                                                     onDate: self.date)
                 self.oSectionsHeadersAndItems.accept(sections)
             }).disposed(by: disposeBag)
     }
     
-    // ako ima bilo koji session u zadatom Room, na koji se ceka krace od 2 sata, emituj SessionId; ako nema, emituj nil.
-    private func bindAutomaticSession(interval: TimeInterval = MyTimeInterval.waitToMostRecentSession) {
+    private func bindAutomaticSession() {
         
-        let sessionAvailable = autoSessionIsAvailable(inLessThan: interval)
-        
-        if sessionAvailable {
+        if mostRecentSessionBlock != nil {
             //print("emitujem na oAutomaticSession: \(mostRecentSessionBlock!.getId())")
             oAutomaticSession.accept(mostRecentSessionBlock)
         } else {
@@ -83,29 +75,6 @@ class BlockViewModel {
          
     }
     
-    private func autoSessionIsAvailable(inLessThan interval: TimeInterval) -> Bool { // implement me
-        return mostRecentSessionBlock != nil
-    }
-    
-    // API:
-    func getItems(date: Date?) -> BehaviorRelay<[SectionOfCustomData]> {
-        return self.oSectionsHeadersAndItems
-    }
-    
-    func transform(indexPath: IndexPath) -> IBlock {
-        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: self.date) //hard-coded
-        return sections[indexPath.section][indexPath.row]
-    }
-    
     //deinit { print("deinit/BlockViewModel is deinit") }
     
-}
-
-class BlockCustomDataItemFactory {
-    static func make(block: IBlock) -> SectionOfCustomData.Item {
-        let fullName = "implement me ???"
-        return SectionOfCustomData.Item(fullname: fullName,
-                                        name: block.getName(),
-                                        date: block.getStartsAt())
-    }
 }
