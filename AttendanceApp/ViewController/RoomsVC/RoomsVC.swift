@@ -15,9 +15,8 @@ class RoomsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let disposeBag = DisposeBag()
-    
-    let roomViewModel = RoomViewModel()
+    private let disposeBag = DisposeBag()
+    var roomViewModel: IRoomsViewModel!
     
     fileprivate let _selectedRoom = PublishSubject<Int?>()
     var selRoomDriver: SharedSequence<DriverSharingStrategy, Int?> {

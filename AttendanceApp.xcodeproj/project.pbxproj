@@ -64,6 +64,8 @@
 		7C6A5EF9243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF8243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift */; };
 		7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EFA243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift */; };
 		7C6A5EFD243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EFC243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift */; };
+		7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */; };
+		7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -150,7 +152,7 @@
 		AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsVC.swift */; };
 		AD295225217B5B24002DDE32 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD295220217B5B24002DDE32 /* APIController.swift */; };
 		AD295227217B5C64002DDE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD295226217B5C64002DDE32 /* Main.storyboard */; };
-		AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */; };
+		AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */; };
 		AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */; };
 		AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4CC2D921A5770A00222D5E /* Protocols.swift */; };
 		AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */; };
@@ -261,6 +263,8 @@
 		7C6A5EF8243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSectionOfCustomDataFactory.swift; sourceTree = "<group>"; };
 		7C6A5EFA243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksSectionOfCustomData.swift; sourceTree = "<group>"; };
 		7C6A5EFC243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSectionOfCustomData.swift; sourceTree = "<group>"; };
+		7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsViewModel.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -347,7 +351,7 @@
 		AD29521F217B5B23002DDE32 /* RoomsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsVC.swift; sourceTree = "<group>"; };
 		AD295220217B5B24002DDE32 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AD295226217B5C64002DDE32 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
+		AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
 		AD4CC2D921A5770A00222D5E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
@@ -759,6 +763,16 @@
 			path = RoomsSectionOfCustomData;
 			sourceTree = "<group>";
 		};
+		7C6A5EFF243E01BD00CD5C9C /* RoomViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */,
+				AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */,
+				7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */,
+			);
+			path = RoomViewModel;
+			sourceTree = "<group>";
+		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
@@ -1137,7 +1151,7 @@
 			isa = PBXGroup;
 			children = (
 				7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */,
-				AD29522C217B5EB0002DDE32 /* RoomViewModel.swift */,
+				7C6A5EFF243E01BD00CD5C9C /* RoomViewModel */,
 				7C5908C92437AC5B006199B1 /* BlockViewModel */,
 				7C2E84252435123D005B5C7F /* SettingsViewModel */,
 				7C5F05062438AA9300AC72DB /* ScannerViewModel */,
@@ -1527,6 +1541,7 @@
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
+				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
 				7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */,
@@ -1540,7 +1555,7 @@
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
-				AD29522D217B5EB0002DDE32 /* RoomViewModel.swift in Sources */,
+				AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */,
 				7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */,
 				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
@@ -1610,6 +1625,7 @@
 				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				7C57854C243A1566006531CC /* GenericRealmRepository.swift in Sources */,
+				7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
