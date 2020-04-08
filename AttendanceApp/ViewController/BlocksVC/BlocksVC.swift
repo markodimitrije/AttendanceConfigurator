@@ -14,13 +14,10 @@ import RxDataSources // ovaj ima rx Sectioned TableView
 class BlocksVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+        
+    var blockViewModel: IBlockViewModel!//BlockViewModelFactory.make(roomId: selectedRoomId, date: selectedDate)
     
-    // INPUT
-    var selectedDate: Date? // ovo ce ti neko javiti (settingsVC)
-    var selectedRoomId: Int! // TODO marko: better through dataSource injected through init
-    
-    lazy var blockViewModel = BlockViewModelFactory.make(roomId: selectedRoomId, date: selectedDate)
-    
+    //output
     fileprivate let selBlock = PublishSubject<Int>()
     var selectedBlock: Observable<Int> { // exposed selRealmBlock
         return selBlock.asObservable()
@@ -40,7 +37,7 @@ class BlocksVC: UIViewController {
     
     private func bindViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<SectionOfCustomData>) {
         
-        blockViewModel.getItems(date: selectedDate)
+        blockViewModel.getItems()
             .asDriver(onErrorJustReturn: [])
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
