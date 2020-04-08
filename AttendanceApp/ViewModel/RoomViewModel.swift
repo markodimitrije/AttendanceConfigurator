@@ -18,9 +18,7 @@ class RoomViewModel {
     
     private(set) var rooms: Results<RealmRoom>!
     
-    // dependencies-init
     init() {
-//        bindOutputRoomSelection()
         bindOutput()
     }
     

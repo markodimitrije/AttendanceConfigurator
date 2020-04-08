@@ -13,8 +13,6 @@ class BlocksViewControllerFactory {
         let sb = MainStoryboardFactory.make()
         let blocksVC = sb.instantiateViewController(withIdentifier: "BlocksVC") as! BlocksVC
         blocksVC.blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: selDate)
-//        blocksVC.selectedRoomId = roomId
-//        blocksVC.selectedDate = selDate
         
         return blocksVC
     }

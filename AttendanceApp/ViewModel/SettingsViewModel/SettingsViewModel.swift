@@ -47,7 +47,8 @@ final class SettingsViewModel: ViewModelType {
                 (date, roomId, switchIsOn) -> Int? in
             guard let roomId = roomId else { return nil }
             if switchIsOn {
-                let autoModelView = AutoSelSessionViewModel.init(roomId: roomId, date: date)
+                
+                let autoModelView = AutoSessionViewModelFactory.make(roomId: roomId, date: date)
                 return try! autoModelView.selectedSession.value()?.getId() ?? nil // pazi ovde !! try !
             }
             return nil

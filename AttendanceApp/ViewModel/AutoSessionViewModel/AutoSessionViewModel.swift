@@ -1,5 +1,5 @@
 //
-//  AutoSelSessionViewModel.swift
+//  AutoSessionViewModel.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 24/10/2018.
@@ -10,13 +10,13 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AutoSelSessionViewModel {
+class AutoSessionViewModel {
     
     let bag = DisposeBag()
-    let blockViewModel: BlockViewModel!
+    private let blockViewModel: BlockViewModel
     
-    init(roomId: Int, date: Date?) {
-        blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: date)
+    init(blockViewModel: BlockViewModel) {
+        self.blockViewModel = blockViewModel
         bindInputWithOutput()
     }
     

@@ -40,7 +40,7 @@ class BlockViewModel: IBlockViewModel {
     }
     
     func transform(indexPath: IndexPath) -> IBlock {
-        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: self.date) //hard-coded
+        let sections = blockRepository.getBlockGroupedByDate(roomId: roomId, date: self.date)
         return sections[indexPath.section][indexPath.row]
     }
     
@@ -55,7 +55,7 @@ class BlockViewModel: IBlockViewModel {
     
     private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
         
-        let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date) //hard-coded
+        let sections = blockRepository.getObsBlockGroupedByDate(roomId: roomId, date: date)
         sections
             .subscribe(onNext: { (groups) in
                 let sections = BlockSectionsOfCustomDataFactory.make(blockSections: groups,
@@ -74,7 +74,5 @@ class BlockViewModel: IBlockViewModel {
         }
          
     }
-    
     //deinit { print("deinit/BlockViewModel is deinit") }
-    
 }

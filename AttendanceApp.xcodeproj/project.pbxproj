@@ -59,6 +59,7 @@
 		7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C67288C243B964E006D271A /* ICodeReportsRepository.swift */; };
 		7C6A5EEF243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */; };
 		7C6A5EF1243DC89300CD5C9C /* BlockCustomDataItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */; };
+		7C6A5EF4243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -179,7 +180,7 @@
 		ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB273A321807EFD00345A5E /* AutoSelectSessionsView.swift */; };
 		ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */; };
 		ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADB64DA0217E23C00094EC45 /* Localizable.strings */; };
-		ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */; };
+		ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBCCB462180973E009D7753 /* AutoSessionViewModel.swift */; };
 		ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -252,6 +253,7 @@
 		7C67288C243B964E006D271A /* ICodeReportsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsRepository.swift; sourceTree = "<group>"; };
 		7C6A5EEE243DC82400CD5C9C /* BlockSectionsOfCustomDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSectionsOfCustomDataFactory.swift; sourceTree = "<group>"; };
 		7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCustomDataItemFactory.swift; sourceTree = "<group>"; };
+		7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionViewModelFactory.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -374,7 +376,7 @@
 		ADB273A321807EFD00345A5E /* AutoSelectSessionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoSelectSessionsView.swift; sourceTree = "<group>"; };
 		ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoSelectSessionsView.xib; sourceTree = "<group>"; };
 		ADB64DA0217E23C00094EC45 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSelSessionViewModel.swift; sourceTree = "<group>"; };
+		ADBCCB462180973E009D7753 /* AutoSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionViewModel.swift; sourceTree = "<group>"; };
 		ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		DB29C2528ED7B82B27229055 /* Pods-AttendanceAppUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA4E16C46501ABC783E1A167 /* Pods-AttendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -720,6 +722,15 @@
 				7C6A5EF0243DC89300CD5C9C /* BlockCustomDataItemFactory.swift */,
 			);
 			path = SectionOfCustomData;
+			sourceTree = "<group>";
+		};
+		7C6A5EF2243DE00300CD5C9C /* AutoSessionViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ADBCCB462180973E009D7753 /* AutoSessionViewModel.swift */,
+				7C6A5EF3243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift */,
+			);
+			path = AutoSessionViewModel;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -1104,7 +1115,7 @@
 				7C5908C92437AC5B006199B1 /* BlockViewModel */,
 				7C2E84252435123D005B5C7F /* SettingsViewModel */,
 				7C5F05062438AA9300AC72DB /* ScannerViewModel */,
-				ADBCCB462180973E009D7753 /* AutoSelSessionViewModel.swift */,
+				7C6A5EF2243DE00300CD5C9C /* AutoSessionViewModel */,
 				7C672889243B92F7006D271A /* UnsyncScansViewModel */,
 			);
 			path = ViewModel;
@@ -1497,7 +1508,7 @@
 				7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */,
 				7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */,
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
-				ADBCCB472180973E009D7753 /* AutoSelSessionViewModel.swift in Sources */,
+				ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */,
 				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
@@ -1545,6 +1556,7 @@
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
 				7CD529792433A8F900170D0A /* ReportCodeApiController.swift in Sources */,
+				7C6A5EF4243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift in Sources */,
 				7C592BFB242BD32300294E71 /* IBlock.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
