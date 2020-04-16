@@ -28,3 +28,23 @@ Strings.Scan.ScanningNotSupported.msg = "Your device does not support scanning a
 
 Strings.Scan.NoSettings.title = "Room and session not select";
 Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than come back to scan code.";
+
+"ok" = "OK";
+
+"noConnection.title" = "No connetion";
+"noConnection.text" = "Can't connect to internet. Check your connection";
+
+"unauthorized.title" = "Authentication error";
+"unauthorized.text" = "Unknown user. Check your email and password";
+
+"badParsing.title" = "Decoding Error";
+"badParsing.text" = "This app can't read response. Please contact support at: https://navus.io";
+
+"emailNotValid.title" = "Validation error";
+"emailNotValid.text" = "Email not valid. Type in correct email";
+
+"passNotValid.title" = "Validation error";
+"passNotValid.text" = "Password not valid. Password must be at least 6 characters long";
+
+"fieldIsEmpty.title" = "Validation error";
+"fieldIsEmpty.text" = "Field can't be left empty";

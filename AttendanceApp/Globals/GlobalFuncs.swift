@@ -5,10 +5,14 @@
 //  Created by Marko Dimitrijevic on 04/11/2018.
 //  Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 //
-
+ 
 import UIKit
 import AVFoundation
 import ScanditBarcodeCapture
+
+func +=<Key, Value> (lhs: inout [Key: Value], rhs: [Key: Value]) {
+    rhs.forEach{ lhs[$0] = $1 }
+}
 
 func getArrowImgView(frame: CGRect, validAttendance valid: Bool) -> UIImageView {
     let v = UIImageView.init(frame: frame)

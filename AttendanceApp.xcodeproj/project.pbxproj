@@ -66,6 +66,49 @@
 		7C6A5EFD243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5EFC243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift */; };
 		7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */; };
 		7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */; };
+		7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB7F2448B9050072CDAE /* ValidationEnum.swift */; };
+		7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB822448B9050072CDAE /* PassFieldValidator.swift */; };
+		7C7DCBD32448B9050072CDAE /* IFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB832448B9050072CDAE /* IFieldValidator.swift */; };
+		7C7DCBD42448B9050072CDAE /* EmailFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB842448B9050072CDAE /* EmailFieldValidator.swift */; };
+		7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB862448B9050072CDAE /* LoginValidator.swift */; };
+		7C7DCBD62448B9050072CDAE /* LoginValidatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB872448B9050072CDAE /* LoginValidatorFactory.swift */; };
+		7C7DCBD72448B9050072CDAE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB892448B9050072CDAE /* LoginViewModel.swift */; };
+		7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB8A2448B9050072CDAE /* LoginViewModel+Input+Output.swift */; };
+		7C7DCBD92448B9050072CDAE /* LoginValidationSignalFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB8C2448B9050072CDAE /* LoginValidationSignalFactory.swift */; };
+		7C7DCBDA2448B9050072CDAE /* LoginRemoteSignalFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB8D2448B9050072CDAE /* LoginRemoteSignalFactory.swift */; };
+		7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB8E2448B9050072CDAE /* ILoginViewModel.swift */; };
+		7C7DCBDC2448B9050072CDAE /* IAlertErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB902448B9050072CDAE /* IAlertErrorPresenter.swift */; };
+		7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB922448B9050072CDAE /* AlertInfoFactory.swift */; };
+		7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB932448B9050072CDAE /* ErrorAlertControllerFactory.swift */; };
+		7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB942448B9050072CDAE /* AlertErrorPresenter.swift */; };
+		7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB962448B9050072CDAE /* IUserStateRepository.swift */; };
+		7C7DCBE12448B9050072CDAE /* UserStateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB972448B9050072CDAE /* UserStateRepository.swift */; };
+		7C7DCBE22448B9050072CDAE /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB992448B9050072CDAE /* UIViewController+Extension.swift */; };
+		7C7DCBE32448B9050072CDAE /* LoginRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB9B2448B9050072CDAE /* LoginRemoteApi.swift */; };
+		7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB9C2448B9050072CDAE /* ILoginRemoteApi.swift */; };
+		7C7DCBE82448B9050072CDAE /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA32448B9050072CDAE /* Storyboarded.swift */; };
+		7C7DCBE92448B9050072CDAE /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA62448B9050072CDAE /* LoginError.swift */; };
+		7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA72448B9050072CDAE /* LoginValidationError.swift */; };
+		7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA82448B9050072CDAE /* MyError.swift */; };
+		7C7DCBEC2448B9050072CDAE /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */; };
+		7C7DCBED2448B9050072CDAE /* IRemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAC2448B9050072CDAE /* IRemoteUserSession.swift */; };
+		7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAD2448B9050072CDAE /* RemoteUserSession.swift */; };
+		7C7DCBEF2448B9050072CDAE /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAF2448B9050072CDAE /* LoginCredentials.swift */; };
+		7C7DCBF02448B9050072CDAE /* ILoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB02448B9050072CDAE /* ILoginCredentials.swift */; };
+		7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB32448B9050072CDAE /* ILoginWorker.swift */; };
+		7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB42448B9050072CDAE /* LoginWorker.swift */; };
+		7C7DCBF42448B9050072CDAE /* LoginViewModelInputFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB62448B9050072CDAE /* LoginViewModelInputFactory.swift */; };
+		7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB72448B9050072CDAE /* LoginViewControllerFactory.swift */; };
+		7C7DCBF62448B9050072CDAE /* LoginViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DCBB92448B9050072CDAE /* LoginViewController_iPad.storyboard */; };
+		7C7DCBF72448B9050072CDAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBBA2448B9050072CDAE /* LoginViewController.swift */; };
+		7C7DCBF82448B9050072CDAE /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7DCBBB2448B9050072CDAE /* LoginViewController.storyboard */; };
+		7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBBD2448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift */; };
+		7C7DCBFC2448B9050072CDAE /* IKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC32448B9050072CDAE /* IKeyboardListener.swift */; };
+		7C7DCBFD2448B9050072CDAE /* KeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC42448B9050072CDAE /* KeyboardListener.swift */; };
+		7C7DCBFE2448B9050072CDAE /* IKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC62448B9050072CDAE /* IKeyboardHandler.swift */; };
+		7C7DCBFF2448B9050072CDAE /* LoginKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC72448B9050072CDAE /* LoginKeyboardHandler.swift */; };
+		7C7DCC002448B9050072CDAE /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC92448B9050072CDAE /* KeyboardInfo.swift */; };
+		7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -94,6 +137,7 @@
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
 		7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E5242D022800ECD1E5 /* RoomFactory.swift */; };
 		7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */; };
+		7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
 		7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */; };
@@ -265,6 +309,49 @@
 		7C6A5EFC243DFBF600CD5C9C /* RoomsSectionOfCustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsSectionOfCustomData.swift; sourceTree = "<group>"; };
 		7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsViewModel.swift; sourceTree = "<group>"; };
+		7C7DCB7F2448B9050072CDAE /* ValidationEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationEnum.swift; sourceTree = "<group>"; };
+		7C7DCB822448B9050072CDAE /* PassFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassFieldValidator.swift; sourceTree = "<group>"; };
+		7C7DCB832448B9050072CDAE /* IFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IFieldValidator.swift; sourceTree = "<group>"; };
+		7C7DCB842448B9050072CDAE /* EmailFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailFieldValidator.swift; sourceTree = "<group>"; };
+		7C7DCB862448B9050072CDAE /* LoginValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
+		7C7DCB872448B9050072CDAE /* LoginValidatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidatorFactory.swift; sourceTree = "<group>"; };
+		7C7DCB892448B9050072CDAE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7C7DCB8A2448B9050072CDAE /* LoginViewModel+Input+Output.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginViewModel+Input+Output.swift"; sourceTree = "<group>"; };
+		7C7DCB8C2448B9050072CDAE /* LoginValidationSignalFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidationSignalFactory.swift; sourceTree = "<group>"; };
+		7C7DCB8D2448B9050072CDAE /* LoginRemoteSignalFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRemoteSignalFactory.swift; sourceTree = "<group>"; };
+		7C7DCB8E2448B9050072CDAE /* ILoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginViewModel.swift; sourceTree = "<group>"; };
+		7C7DCB902448B9050072CDAE /* IAlertErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAlertErrorPresenter.swift; sourceTree = "<group>"; };
+		7C7DCB922448B9050072CDAE /* AlertInfoFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertInfoFactory.swift; sourceTree = "<group>"; };
+		7C7DCB932448B9050072CDAE /* ErrorAlertControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertControllerFactory.swift; sourceTree = "<group>"; };
+		7C7DCB942448B9050072CDAE /* AlertErrorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertErrorPresenter.swift; sourceTree = "<group>"; };
+		7C7DCB962448B9050072CDAE /* IUserStateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IUserStateRepository.swift; sourceTree = "<group>"; };
+		7C7DCB972448B9050072CDAE /* UserStateRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStateRepository.swift; sourceTree = "<group>"; };
+		7C7DCB992448B9050072CDAE /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		7C7DCB9B2448B9050072CDAE /* LoginRemoteApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRemoteApi.swift; sourceTree = "<group>"; };
+		7C7DCB9C2448B9050072CDAE /* ILoginRemoteApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginRemoteApi.swift; sourceTree = "<group>"; };
+		7C7DCBA32448B9050072CDAE /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		7C7DCBA62448B9050072CDAE /* LoginError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		7C7DCBA72448B9050072CDAE /* LoginValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidationError.swift; sourceTree = "<group>"; };
+		7C7DCBA82448B9050072CDAE /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		7C7DCBAC2448B9050072CDAE /* IRemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRemoteUserSession.swift; sourceTree = "<group>"; };
+		7C7DCBAD2448B9050072CDAE /* RemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
+		7C7DCBAF2448B9050072CDAE /* LoginCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
+		7C7DCBB02448B9050072CDAE /* ILoginCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginCredentials.swift; sourceTree = "<group>"; };
+		7C7DCBB32448B9050072CDAE /* ILoginWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ILoginWorker.swift; sourceTree = "<group>"; };
+		7C7DCBB42448B9050072CDAE /* LoginWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginWorker.swift; sourceTree = "<group>"; };
+		7C7DCBB62448B9050072CDAE /* LoginViewModelInputFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModelInputFactory.swift; sourceTree = "<group>"; };
+		7C7DCBB72448B9050072CDAE /* LoginViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C7DCBB92448B9050072CDAE /* LoginViewController_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController_iPad.storyboard; sourceTree = "<group>"; };
+		7C7DCBBA2448B9050072CDAE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		7C7DCBBB2448B9050072CDAE /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		7C7DCBBD2448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertInfoDictionaryFactory.swift; sourceTree = "<group>"; };
+		7C7DCBC32448B9050072CDAE /* IKeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyboardListener.swift; sourceTree = "<group>"; };
+		7C7DCBC42448B9050072CDAE /* KeyboardListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardListener.swift; sourceTree = "<group>"; };
+		7C7DCBC62448B9050072CDAE /* IKeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyboardHandler.swift; sourceTree = "<group>"; };
+		7C7DCBC72448B9050072CDAE /* LoginKeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginKeyboardHandler.swift; sourceTree = "<group>"; };
+		7C7DCBC92448B9050072CDAE /* KeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
+		7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyboardInfo.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -293,6 +380,7 @@
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
 		7CC796E5242D022800ECD1E5 /* RoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFactory.swift; sourceTree = "<group>"; };
 		7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
+		7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
 		7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
@@ -773,6 +861,265 @@
 			path = RoomViewModel;
 			sourceTree = "<group>";
 		};
+		7C7DCB7A2448B9050072CDAE /* navusLogin */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB7B2448B9050072CDAE /* ViewModel */,
+				7C7DCB8F2448B9050072CDAE /* AlertErrorPresenter */,
+				7C7DCB952448B9050072CDAE /* Repository */,
+				7C7DCB982448B9050072CDAE /* Extension */,
+				7C7DCB9A2448B9050072CDAE /* Network */,
+				7C7DCBA22448B9050072CDAE /* Utilities */,
+				7C7DCBA42448B9050072CDAE /* Model */,
+				7C7DCBB22448B9050072CDAE /* Worker */,
+				7C7DCBB52448B9050072CDAE /* ViewController */,
+				7C7DCBBC2448B9050072CDAE /* Data */,
+				7C7DCBC12448B9050072CDAE /* Keyboard */,
+				7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */,
+			);
+			path = navusLogin;
+			sourceTree = "<group>";
+		};
+		7C7DCB7B2448B9050072CDAE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB7D2448B9050072CDAE /* LoginValidation */,
+				7C7DCB882448B9050072CDAE /* LoginViewModel */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7C7DCB7D2448B9050072CDAE /* LoginValidation */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB7E2448B9050072CDAE /* Model */,
+				7C7DCB812448B9050072CDAE /* IFieldValidator */,
+				7C7DCB852448B9050072CDAE /* LoginValidator */,
+			);
+			path = LoginValidation;
+			sourceTree = "<group>";
+		};
+		7C7DCB7E2448B9050072CDAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB7F2448B9050072CDAE /* ValidationEnum.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C7DCB812448B9050072CDAE /* IFieldValidator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB822448B9050072CDAE /* PassFieldValidator.swift */,
+				7C7DCB832448B9050072CDAE /* IFieldValidator.swift */,
+				7C7DCB842448B9050072CDAE /* EmailFieldValidator.swift */,
+			);
+			path = IFieldValidator;
+			sourceTree = "<group>";
+		};
+		7C7DCB852448B9050072CDAE /* LoginValidator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB862448B9050072CDAE /* LoginValidator.swift */,
+				7C7DCB872448B9050072CDAE /* LoginValidatorFactory.swift */,
+			);
+			path = LoginValidator;
+			sourceTree = "<group>";
+		};
+		7C7DCB882448B9050072CDAE /* LoginViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB892448B9050072CDAE /* LoginViewModel.swift */,
+				7C7DCB8A2448B9050072CDAE /* LoginViewModel+Input+Output.swift */,
+				7C7DCB8B2448B9050072CDAE /* LoginProcessSignalFactory */,
+				7C7DCB8E2448B9050072CDAE /* ILoginViewModel.swift */,
+			);
+			path = LoginViewModel;
+			sourceTree = "<group>";
+		};
+		7C7DCB8B2448B9050072CDAE /* LoginProcessSignalFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB8C2448B9050072CDAE /* LoginValidationSignalFactory.swift */,
+				7C7DCB8D2448B9050072CDAE /* LoginRemoteSignalFactory.swift */,
+			);
+			path = LoginProcessSignalFactory;
+			sourceTree = "<group>";
+		};
+		7C7DCB8F2448B9050072CDAE /* AlertErrorPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB902448B9050072CDAE /* IAlertErrorPresenter.swift */,
+				7C7DCB912448B9050072CDAE /* Alert */,
+				7C7DCB942448B9050072CDAE /* AlertErrorPresenter.swift */,
+			);
+			path = AlertErrorPresenter;
+			sourceTree = "<group>";
+		};
+		7C7DCB912448B9050072CDAE /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB922448B9050072CDAE /* AlertInfoFactory.swift */,
+				7C7DCB932448B9050072CDAE /* ErrorAlertControllerFactory.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		7C7DCB952448B9050072CDAE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB962448B9050072CDAE /* IUserStateRepository.swift */,
+				7C7DCB972448B9050072CDAE /* UserStateRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		7C7DCB982448B9050072CDAE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB992448B9050072CDAE /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		7C7DCB9A2448B9050072CDAE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCB9B2448B9050072CDAE /* LoginRemoteApi.swift */,
+				7C7DCB9C2448B9050072CDAE /* ILoginRemoteApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		7C7DCBA22448B9050072CDAE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBA32448B9050072CDAE /* Storyboarded.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7C7DCBA42448B9050072CDAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBA52448B9050072CDAE /* LoginError */,
+				7C7DCBA92448B9050072CDAE /* AlertInfo */,
+				7C7DCBAB2448B9050072CDAE /* RemoteUserSession */,
+				7C7DCBAE2448B9050072CDAE /* LoginCredentials */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C7DCBA52448B9050072CDAE /* LoginError */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBA62448B9050072CDAE /* LoginError.swift */,
+				7C7DCBA72448B9050072CDAE /* LoginValidationError.swift */,
+				7C7DCBA82448B9050072CDAE /* MyError.swift */,
+			);
+			path = LoginError;
+			sourceTree = "<group>";
+		};
+		7C7DCBA92448B9050072CDAE /* AlertInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */,
+			);
+			path = AlertInfo;
+			sourceTree = "<group>";
+		};
+		7C7DCBAB2448B9050072CDAE /* RemoteUserSession */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBAC2448B9050072CDAE /* IRemoteUserSession.swift */,
+				7C7DCBAD2448B9050072CDAE /* RemoteUserSession.swift */,
+			);
+			path = RemoteUserSession;
+			sourceTree = "<group>";
+		};
+		7C7DCBAE2448B9050072CDAE /* LoginCredentials */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBAF2448B9050072CDAE /* LoginCredentials.swift */,
+				7C7DCBB02448B9050072CDAE /* ILoginCredentials.swift */,
+			);
+			path = LoginCredentials;
+			sourceTree = "<group>";
+		};
+		7C7DCBB22448B9050072CDAE /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBB32448B9050072CDAE /* ILoginWorker.swift */,
+				7C7DCBB42448B9050072CDAE /* LoginWorker.swift */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		7C7DCBB52448B9050072CDAE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBB62448B9050072CDAE /* LoginViewModelInputFactory.swift */,
+				7C7DCBB72448B9050072CDAE /* LoginViewControllerFactory.swift */,
+				7C7DCBB82448B9050072CDAE /* LoginViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7C7DCBB82448B9050072CDAE /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBB92448B9050072CDAE /* LoginViewController_iPad.storyboard */,
+				7C7DCBBA2448B9050072CDAE /* LoginViewController.swift */,
+				7C7DCBBB2448B9050072CDAE /* LoginViewController.storyboard */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		7C7DCBBC2448B9050072CDAE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBBD2448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7C7DCBC12448B9050072CDAE /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBC22448B9050072CDAE /* KeyboardListener */,
+				7C7DCBC52448B9050072CDAE /* KeyboardHandler */,
+				7C7DCBC82448B9050072CDAE /* KeyboardInfo */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		7C7DCBC22448B9050072CDAE /* KeyboardListener */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBC32448B9050072CDAE /* IKeyboardListener.swift */,
+				7C7DCBC42448B9050072CDAE /* KeyboardListener.swift */,
+			);
+			path = KeyboardListener;
+			sourceTree = "<group>";
+		};
+		7C7DCBC52448B9050072CDAE /* KeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBC62448B9050072CDAE /* IKeyboardHandler.swift */,
+				7C7DCBC72448B9050072CDAE /* LoginKeyboardHandler.swift */,
+			);
+			path = KeyboardHandler;
+			sourceTree = "<group>";
+		};
+		7C7DCBC82448B9050072CDAE /* KeyboardInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C7DCBC92448B9050072CDAE /* KeyboardInfo.swift */,
+				7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */,
+			);
+			path = KeyboardInfo;
+			sourceTree = "<group>";
+		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
@@ -1213,6 +1560,7 @@
 		AD53A008217B577400A3F9FC = {
 			isa = PBXGroup;
 			children = (
+				7C7DCB7A2448B9050072CDAE /* navusLogin */,
 				AD53A013217B577400A3F9FC /* AttendanceApp */,
 				7C592BEC242BC0D400294E71 /* AttendanceAppUnitTests */,
 				AD53A012217B577400A3F9FC /* Products */,
@@ -1417,12 +1765,15 @@
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
+				7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
+				7C7DCBF82448B9050072CDAE /* LoginViewController.storyboard in Resources */,
+				7C7DCBF62448B9050072CDAE /* LoginViewController_iPad.storyboard in Resources */,
 				7CAE889722E87EF100632EAC /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1534,6 +1885,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7DCBFE2448B9050072CDAE /* IKeyboardHandler.swift in Sources */,
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
@@ -1543,7 +1895,9 @@
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
+				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
+				7C7DCBE12448B9050072CDAE /* UserStateRepository.swift in Sources */,
 				7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */,
 				7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */,
 				7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */,
@@ -1552,24 +1906,32 @@
 				ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */,
 				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
+				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
+				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */,
 				7C67288D243B964E006D271A /* ICodeReportsRepository.swift in Sources */,
+				7C7DCBDA2448B9050072CDAE /* LoginRemoteSignalFactory.swift in Sources */,
 				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
+				7C7DCBE22448B9050072CDAE /* UIViewController+Extension.swift in Sources */,
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
+				7C7DCBEC2448B9050072CDAE /* AlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
+				7C7DCBFD2448B9050072CDAE /* KeyboardListener.swift in Sources */,
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
+				7C7DCBF72448B9050072CDAE /* LoginViewController.swift in Sources */,
 				7C516F74243C9870002CF6BF /* IBlockMutableRepository.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
 				7C578554243A1C6B006531CC /* IDelegate.swift in Sources */,
 				7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */,
+				7C7DCBF02448B9050072CDAE /* ILoginCredentials.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
@@ -1577,7 +1939,10 @@
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
+				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
 				7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */,
+				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
+				7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */,
 				7CD5297C2433AFA200170D0A /* ICodeReport.swift in Sources */,
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				7C5908CE2437BA64006199B1 /* MostRecentBlockUtility.swift in Sources */,
@@ -1587,13 +1952,18 @@
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
 				7C57854A243A1527006531CC /* IGenericRealmRepository.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
+				7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
+				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
+				7C7DCBD92448B9050072CDAE /* LoginValidationSignalFactory.swift in Sources */,
+				7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */,
 				7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */,
 				7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */,
 				7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
+				7C7DCBD32448B9050072CDAE /* IFieldValidator.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
 				7CD529792433A8F900170D0A /* ReportCodeApiController.swift in Sources */,
 				7C6A5EF4243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift in Sources */,
@@ -1601,6 +1971,7 @@
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
 				7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */,
+				7C7DCBE82448B9050072CDAE /* Storyboarded.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
@@ -1612,7 +1983,10 @@
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
 				7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */,
+				7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */,
+				7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */,
 				7C516F6D243C73E1002CF6BF /* CodeReportsImmutableRepository.swift in Sources */,
+				7C7DCBFC2448B9050072CDAE /* IKeyboardListener.swift in Sources */,
 				7C5ED62D243B52EA00FEEAAE /* CodeReportCellModelFactory.swift in Sources */,
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
@@ -1620,15 +1994,19 @@
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
+				7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */,
 				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
 				7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */,
+				7C7DCBFF2448B9050072CDAE /* LoginKeyboardHandler.swift in Sources */,
 				7CEBFB7D24390D8F00D2983C /* IScannerViewModel.swift in Sources */,
 				7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */,
 				7C57854C243A1566006531CC /* GenericRealmRepository.swift in Sources */,
 				7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */,
+				7C7DCBD62448B9050072CDAE /* LoginValidatorFactory.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
+				7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
@@ -1636,7 +2014,9 @@
 				7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */,
 				ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */,
 				7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */,
+				7C7DCBED2448B9050072CDAE /* IRemoteUserSession.swift in Sources */,
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
+				7C7DCBD42448B9050072CDAE /* EmailFieldValidator.swift in Sources */,
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
@@ -1650,19 +2030,26 @@
 				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,
 				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
+				7C7DCBE92448B9050072CDAE /* LoginError.swift in Sources */,
 				7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
 				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				7C6A5EF9243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift in Sources */,
 				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,
+				7C7DCBF42448B9050072CDAE /* LoginViewModelInputFactory.swift in Sources */,
 				7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */,
 				7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */,
+				7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */,
+				7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
+				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
 				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,
+				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
+				7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */,
 				7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
 				7C516F7E243C9922002CF6BF /* BlockMutableRepositoryFactory.swift in Sources */,
@@ -1670,11 +2057,16 @@
 				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
 				7C516F6F243C741A002CF6BF /* CodeReportsMutableRepository.swift in Sources */,
 				7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */,
+				7C7DCBE32448B9050072CDAE /* LoginRemoteApi.swift in Sources */,
+				7C7DCBEF2448B9050072CDAE /* LoginCredentials.swift in Sources */,
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
+				7C7DCC002448B9050072CDAE /* KeyboardInfo.swift in Sources */,
 				7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */,
 				AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */,
+				7C7DCBD72448B9050072CDAE /* LoginViewModel.swift in Sources */,
 				AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */,
+				7C7DCBDC2448B9050072CDAE /* IAlertErrorPresenter.swift in Sources */,
 				7C6A5EEF243DC82400CD5C9C /* BlocksSectionOfCustomDataFactory.swift in Sources */,
 				7CD5296E24334AA900170D0A /* Unziper.swift in Sources */,
 				7C578561243A4961006531CC /* ICodesDumperWorker.swift in Sources */,

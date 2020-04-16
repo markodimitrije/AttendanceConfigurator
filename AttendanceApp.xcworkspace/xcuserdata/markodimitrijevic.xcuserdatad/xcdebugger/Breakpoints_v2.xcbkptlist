@@ -37,14 +37,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "1D20CA2C-6AF7-4D64-A3F0-7558F2091437 - 7dad071f2d269756"
+                  uuid = "1D20CA2C-6AF7-4D64-A3F0-7558F2091437 - b71f505cc1c628e8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "AttendanceApp.AutoSessionTimer.deinit"
                   moduleName = "AttendanceApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceApp/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
@@ -52,14 +52,14 @@
                   offsetFromSymbolStart = "22">
                </Location>
                <Location
-                  uuid = "1D20CA2C-6AF7-4D64-A3F0-7558F2091437 - dcb0553dfec377e5"
+                  uuid = "1D20CA2C-6AF7-4D64-A3F0-7558F2091437 - 1602027e1223c85b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "AttendanceApp.AutoSessionTimer.__deallocating_deinit"
                   moduleName = "AttendanceApp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceApp/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"

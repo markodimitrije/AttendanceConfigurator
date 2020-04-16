@@ -33,6 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         alertStateReporter = AlertStateReporterFactory.make()
+        
+        loadInitialScreen()
+        
         return true
+    }
+    
+    private func loadInitialScreen() {
+        let rootVC = LoginViewControllerFactory.make()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        window?.makeKeyAndVisible()
     }
 }
