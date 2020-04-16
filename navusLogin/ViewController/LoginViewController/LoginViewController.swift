@@ -97,7 +97,7 @@ class LoginViewController: UIViewController, Storyboarded {
     }
     
     private func navigateToNext() {
-        let nextVC = LoginViewControllerFactory.make()// hard-coded
+        let nextVC = CampaignsViewControllerFactory.make()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 
