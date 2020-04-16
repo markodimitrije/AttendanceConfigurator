@@ -1,13 +1,13 @@
 //
-//  ILogoutViewModel.swift
+//  ICampaignsViewModel.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 16/04/2020.
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
-protocol ILogoutViewModel {
-    var logoutBtn: UIView! { get }
+protocol ICampaignsViewModel {
+    func getItems() -> Observable<[ICampaign]>
 }

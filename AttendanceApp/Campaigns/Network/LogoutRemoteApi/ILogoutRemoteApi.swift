@@ -1,5 +1,5 @@
 //
-//  LogoutViewModelFactory.swift
+//  ILogoutRemoteApi.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 16/04/2020.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-class LogoutViewModelFactory {
-    static func make() -> ILogoutViewModel {
-        
-    }
+protocol ILogoutRemoteApi {
+    func logout() // shoot and run..
 }

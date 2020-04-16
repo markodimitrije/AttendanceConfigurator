@@ -9,27 +9,16 @@
 
 import RxSwift
 
-protocol ICampaignsViewModel {
-    func getItems() -> Observable<[ICampaign]>
-    func logout()
-}
-
 extension CampaignsViewModel: ICampaignsViewModel {
     func getItems() -> Observable<[ICampaign]> {
         campaignsRepo.getAll()
-    }
-    func logout() {
-        
     }
 }
 
 class CampaignsViewModel {
     
     private let campaignsRepo: ICampaignsRepository
-    private let logoutViewModel: ILogoutViewModel
-    
-    init(campaignsRepo: ICampaignsRepository, logoutViewModel: ILogoutViewModel) {
+    init(campaignsRepo: ICampaignsRepository) {
         self.campaignsRepo = campaignsRepo
-        self.logoutViewModel = logoutViewModel
     }
 }

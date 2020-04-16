@@ -10,16 +10,16 @@ import UIKit
 
 class CampaignsVC: UIViewController, Storyboarded {
     
-//    var logout: UIVi
+    var logoutWorker: ILogoutWorker!
+    var navBarConfigurator: INavigBarConfigurator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
+        navBarConfigurator.configure(navigationItem: navigationItem)
     }
     
-    private func configureNavigationBar() {
-        navigationItem.hidesBackButton = true
-        navigationItem.title = "CAMPAIGNS"
-        //navigationItem.setRightBarButton(<#T##item: UIBarButtonItem?##UIBarButtonItem?#>, animated: <#T##Bool#>)
+    @objc func logoutTap() {
+        print("display alert if confirmed, notify viewmodel...")
+        logoutWorker.logoutConfirmed() //hard-coded
     }
 }
