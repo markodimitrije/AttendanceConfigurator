@@ -21,5 +21,13 @@ class CampaignsVC: UIViewController, Storyboarded {
     @objc func logoutTap() {
         print("display alert if confirmed, notify viewmodel...")
         logoutWorker.logoutConfirmed() //hard-coded
+        
+        onLogoutConfirmed()
     }
+    
+    private func onLogoutConfirmed() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }

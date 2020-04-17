@@ -38,6 +38,9 @@
 		7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */; };
 		7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C57855E243A4949006531CC /* CodesDumperFactory.swift */; };
 		7C578561243A4961006531CC /* ICodesDumperWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C578560243A4961006531CC /* ICodesDumperWorker.swift */; };
+		7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5865E0244A0AD700426FBC /* Alert+Rx.swift */; };
+		7C5865E3244A0BD600426FBC /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5865E2244A0BD600426FBC /* UIApplication+Extension.swift */; };
+		7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5865E5244A0CA100426FBC /* AlertInfo.swift */; };
 		7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */; };
 		7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */; };
 		7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */; };
@@ -90,7 +93,7 @@
 		7C7DCBE92448B9050072CDAE /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA62448B9050072CDAE /* LoginError.swift */; };
 		7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA72448B9050072CDAE /* LoginValidationError.swift */; };
 		7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBA82448B9050072CDAE /* MyError.swift */; };
-		7C7DCBEC2448B9050072CDAE /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */; };
+		7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAA2448B9050072CDAE /* ErrorAlertInfo.swift */; };
 		7C7DCBED2448B9050072CDAE /* IRemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAC2448B9050072CDAE /* IRemoteUserSession.swift */; };
 		7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAD2448B9050072CDAE /* RemoteUserSession.swift */; };
 		7C7DCBEF2448B9050072CDAE /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBAF2448B9050072CDAE /* LoginCredentials.swift */; };
@@ -297,6 +300,9 @@
 		7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C57855E243A4949006531CC /* CodesDumperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodesDumperFactory.swift; sourceTree = "<group>"; };
 		7C578560243A4961006531CC /* ICodesDumperWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodesDumperWorker.swift; sourceTree = "<group>"; };
+		7C5865E0244A0AD700426FBC /* Alert+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert+Rx.swift"; sourceTree = "<group>"; };
+		7C5865E2244A0BD600426FBC /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		7C5865E5244A0CA100426FBC /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
 		7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5908CA2437AC6F006199B1 /* BlockViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModelFactory.swift; sourceTree = "<group>"; };
@@ -351,7 +357,7 @@
 		7C7DCBA62448B9050072CDAE /* LoginError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
 		7C7DCBA72448B9050072CDAE /* LoginValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidationError.swift; sourceTree = "<group>"; };
 		7C7DCBA82448B9050072CDAE /* MyError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
-		7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		7C7DCBAA2448B9050072CDAE /* ErrorAlertInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertInfo.swift; sourceTree = "<group>"; };
 		7C7DCBAC2448B9050072CDAE /* IRemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRemoteUserSession.swift; sourceTree = "<group>"; };
 		7C7DCBAD2448B9050072CDAE /* RemoteUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteUserSession.swift; sourceTree = "<group>"; };
 		7C7DCBAF2448B9050072CDAE /* LoginCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
@@ -700,10 +706,19 @@
 			path = CodesDumper;
 			sourceTree = "<group>";
 		};
+		7C5865E4244A0C9A00426FBC /* AlertInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7C5865E5244A0CA100426FBC /* AlertInfo.swift */,
+			);
+			path = AlertInfo;
+			sourceTree = "<group>";
+		};
 		7C5908C424371D63006199B1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */,
+				7C5865E0244A0AD700426FBC /* Alert+Rx.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1014,6 +1029,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7DCB992448B9050072CDAE /* UIViewController+Extension.swift */,
+				7C5865E2244A0BD600426FBC /* UIApplication+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1039,7 +1055,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7DCBA52448B9050072CDAE /* LoginError */,
-				7C7DCBA92448B9050072CDAE /* AlertInfo */,
+				7C7DCBA92448B9050072CDAE /* ErrorAlertInfo */,
 				7C7DCBAB2448B9050072CDAE /* RemoteUserSession */,
 				7C7DCBAE2448B9050072CDAE /* LoginCredentials */,
 			);
@@ -1056,12 +1072,12 @@
 			path = LoginError;
 			sourceTree = "<group>";
 		};
-		7C7DCBA92448B9050072CDAE /* AlertInfo */ = {
+		7C7DCBA92448B9050072CDAE /* ErrorAlertInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7C7DCBAA2448B9050072CDAE /* AlertInfo.swift */,
+				7C7DCBAA2448B9050072CDAE /* ErrorAlertInfo.swift */,
 			);
-			path = AlertInfo;
+			path = ErrorAlertInfo;
 			sourceTree = "<group>";
 		};
 		7C7DCBAB2448B9050072CDAE /* RemoteUserSession */ = {
@@ -1670,6 +1686,7 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C5865E4244A0C9A00426FBC /* AlertInfo */,
 				7C855DA2229C077100E4C985 /* FetchDelegates */,
 				7CB1E451229832C8008C23F8 /* Delegate */,
 				7CB1E450229832BC008C23F8 /* Block */,
@@ -2025,6 +2042,7 @@
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
+				7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */,
 				7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
@@ -2058,7 +2076,7 @@
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
-				7C7DCBEC2448B9050072CDAE /* AlertInfo.swift in Sources */,
+				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
 				7C7DCBFD2448B9050072CDAE /* KeyboardListener.swift in Sources */,
@@ -2138,6 +2156,7 @@
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
 				7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */,
+				7C5865E3244A0BD600426FBC /* UIApplication+Extension.swift in Sources */,
 				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
 				7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */,
 				7C7DCBFF2448B9050072CDAE /* LoginKeyboardHandler.swift in Sources */,
@@ -2149,6 +2168,7 @@
 				7C7DCBD62448B9050072CDAE /* LoginValidatorFactory.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
+				7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
 				7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */,

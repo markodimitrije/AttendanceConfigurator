@@ -1,5 +1,5 @@
 //
-//  AlertInfo.swift
+//  ErrorAlertInfo.swift
 //  navusLogin
 //
 //  Created by Marko Dimitrijevic on 13/04/2020.
