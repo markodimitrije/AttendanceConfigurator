@@ -30,8 +30,8 @@ extension LogoutWorker: ILogoutWorker {
     
 }
 
-class LogoutButtonFactory {
-    static func make(target: Any) -> UIBarButtonItem {
+class LogoutButtonFactory: NSObject {
+    func make(target: Any) -> UIBarButtonItem {
         return UIBarButtonItem(title: "Log out",
                                style: .plain,
                                target: target,
