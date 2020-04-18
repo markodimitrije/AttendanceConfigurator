@@ -27,7 +27,7 @@ class ReportSessionApiController: IReportSessionApiController {
                 method: "PUT",
                 pathComponent: "devices/\(deviceId)",
                 params: params,
-                contentType: "text/plain")
+                contentType: "text/plain", responseHandler: NetworkResponseHandlerDefault())
             .map { data in
                 guard let object = try? JSONSerialization.jsonObject(with: data),
                     let json = object as? [String: Any],

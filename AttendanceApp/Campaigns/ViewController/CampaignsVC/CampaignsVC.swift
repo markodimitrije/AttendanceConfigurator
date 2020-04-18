@@ -26,8 +26,8 @@ class CampaignsVC: UIViewController, Storyboarded {
         alert(alertInfo: self.alertInfo, preferredStyle: .alert)
             .subscribe(onNext: { (tag) in
                 switch tag {
-                case 0: print("dismisses alert")
-                case 1: self.onLogoutConfirmed();
+                case 0: self.onLogoutConfirmed();
+                case 1: print("dismisses alert")
                 default: break
                 }
             }).disposed(by: bag)

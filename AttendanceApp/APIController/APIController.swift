@@ -10,8 +10,12 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+protocol INetworkResponseHandler {
+    func handle(response: HTTPURLResponse, data: Data) throws -> Data
+}
+
 protocol IApiController {
-    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?) -> Observable<Data>
+    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, responseHandler: INetworkResponseHandler) -> Observable<Data>
 }
 
 class ApiController: IApiController {
@@ -43,7 +47,8 @@ class ApiController: IApiController {
 //        return buildRequest(base: Domain.mockURL,
                             method: "GET",
                             pathComponent: pathComponent,
-                            params: [])
+                            params: [],
+                            responseHandler: NetworkResponseHandlerDefault())
             .map() { data in
                 guard let jsonObject = try? JSONSerialization.jsonObject(with: data),
                     let json = jsonObject as? [String: Any] else {return nil}
@@ -56,7 +61,8 @@ class ApiController: IApiController {
                        method: String = "GET",
                        pathComponent: String,
                        params: Any = [],
-                       contentType: String? = "application/json") -> Observable<Data> {
+                       contentType: String? = "application/json",
+                       responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
     
         let url = base.appendingPathComponent(pathComponent)
         
@@ -89,25 +95,8 @@ class ApiController: IApiController {
         
         let session = URLSession.shared
         
-        return session.rx.response(request: request).map() { response, data in
-            
-//            print("response.statusCode = \(response.statusCode)")
-            
-            if 201 == response.statusCode {
-                return try! JSONSerialization.data(withJSONObject:  ["created": 201])
-            } else if 200 ..< 300 ~= response.statusCode {
-                print("buildRequest.imam data... all good, data = \(data)")
-                return data
-            } else if response.statusCode == 401 {
-                print("buildRequest.ApiError.invalidKey")
-                throw ApiError.invalidKey
-            } else if 400 ..< 500 ~= response.statusCode {
-                print("buildRequest.ApiError.badRequest")
-                throw ApiError.badRequest
-            } else {
-                print("buildRequest.ApiError.serverFailure")
-                throw ApiError.serverFailure
-            }
+        return session.rx.response(request: request).map() { arg in
+            return try responseHandler.handle(response: arg.response, data: arg.data)
         }
     }
     
@@ -118,4 +107,23 @@ enum ApiError: Error {
     case invalidKey
     case badRequest
     case serverFailure
+}
+
+class NetworkResponseHandlerDefault: INetworkResponseHandler {
+    
+    func handle(response: HTTPURLResponse, data: Data) throws -> Data {
+        
+        if 201 == response.statusCode {
+            return try! JSONSerialization.data(withJSONObject:  ["created": 201])
+        } else if 200 ..< 300 ~= response.statusCode {
+            return data
+        } else if response.statusCode == 401 {
+            throw ApiError.invalidKey
+        } else if 400 ..< 500 ~= response.statusCode {
+            throw ApiError.badRequest
+        } else {
+            throw ApiError.serverFailure
+        }
+    }
+    
 }
