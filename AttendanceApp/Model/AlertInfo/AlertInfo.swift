@@ -12,7 +12,8 @@ struct AlertInfo {
     static let ok = NSLocalizedString("Strings.Alert.ok", comment: "")
     var title: String?
     var text: String?
-    var btnText = [String]()
+    //var btnText = [String]()
+    var btnText = [IAlertActionPresentation]()
     
     struct Scan {
         struct ScanningNotSupported { // device

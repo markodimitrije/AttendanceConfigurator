@@ -23,6 +23,7 @@ extension UserStateRepository: IUserStateRepository {
         userDefaults.set(user.getToken(), forKey: "token")
     }
     func logout() {
+        print("UserStateRepository.logout: OK")
         userDefaults.set(nil, forKey: "email")
         userDefaults.set(nil, forKey: "password")
         userDefaults.set(nil, forKey: "token")

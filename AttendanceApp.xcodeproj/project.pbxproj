@@ -112,6 +112,8 @@
 		7C7DCBFF2448B9050072CDAE /* LoginKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC72448B9050072CDAE /* LoginKeyboardHandler.swift */; };
 		7C7DCC002448B9050072CDAE /* KeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBC92448B9050072CDAE /* KeyboardInfo.swift */; };
 		7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */; };
+		7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */; };
+		7C8166C5244AF93B0059BDA1 /* AlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -376,6 +378,8 @@
 		7C7DCBC72448B9050072CDAE /* LoginKeyboardHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginKeyboardHandler.swift; sourceTree = "<group>"; };
 		7C7DCBC92448B9050072CDAE /* KeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardInfo.swift; sourceTree = "<group>"; };
 		7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyboardInfo.swift; sourceTree = "<group>"; };
+		7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAlertActionPresentation.swift; sourceTree = "<group>"; };
+		7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionPresentation.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -710,6 +714,7 @@
 			isa = PBXGroup;
 			children = (
 				7C5865E5244A0CA100426FBC /* AlertInfo.swift */,
+				7C8166C1244AF9160059BDA1 /* AlertActionPresentation */,
 			);
 			path = AlertInfo;
 			sourceTree = "<group>";
@@ -1170,6 +1175,15 @@
 				7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */,
 			);
 			path = KeyboardInfo;
+			sourceTree = "<group>";
+		};
+		7C8166C1244AF9160059BDA1 /* AlertActionPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */,
+				7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */,
+			);
+			path = AlertActionPresentation;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -2117,6 +2131,7 @@
 				7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */,
 				7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */,
 				7CC9DD6B2448DF230035B2AE /* NavigBarConfigurator.swift in Sources */,
+				7C8166C5244AF93B0059BDA1 /* AlertActionPresentation.swift in Sources */,
 				AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */,
 				7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */,
 				7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */,
@@ -2218,6 +2233,7 @@
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */,
+				7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */,
 				7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
 				7CC9DD642448D9250035B2AE /* LogoutRemoteApi.swift in Sources */,

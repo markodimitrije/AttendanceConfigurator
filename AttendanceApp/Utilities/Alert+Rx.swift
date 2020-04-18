@@ -34,9 +34,9 @@ extension UIViewController {
                 popoverController.permittedArrowDirections = [] //to hide the arrow of any particular direction
             }
             
-            _ = alertInfo.btnText.enumerated().map { (index, title) -> Void in
+            _ = alertInfo.btnText.enumerated().map { (index, presentation) -> Void in
                 alertVC.addAction(
-                    UIAlertAction(title: title, style: .destructive, handler: {_ in
+                    UIAlertAction(title: presentation.title, style: presentation.style, handler: {_ in
                         observer.onNext(index)
                     })
                 )
