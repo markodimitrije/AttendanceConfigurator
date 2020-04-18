@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class LogoutWorker {
     private let logoutRemoteApi: ILogoutRemoteApi
     private let userState: IUserStateRepository
     private let genericRepo: IGenericRealmRepository
+    
+    private let bag = DisposeBag()
     
     init(logoutRemoteApi: ILogoutRemoteApi, userState: IUserStateRepository, genericRepo: IGenericRealmRepository) {
         self.logoutRemoteApi = logoutRemoteApi
@@ -24,6 +27,9 @@ extension LogoutWorker: ILogoutWorker {
 
     func logoutConfirmed() {
         logoutRemoteApi.logout()
+            .subscribe()
+            .disposed(by: bag)
+        
         userState.logout()
         _ = genericRepo.deleteAllDataIfAny()//TODO marko: should it delete all ??
     }

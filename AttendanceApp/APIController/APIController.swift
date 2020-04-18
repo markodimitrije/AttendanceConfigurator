@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol IApiController {
-    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, responseHandler: INetworkResponseHandler) -> Observable<Data>
+    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, headers: [String: String], responseHandler: INetworkResponseHandler) -> Observable<Data>
 }
 
 class ApiController: IApiController {
@@ -44,6 +44,7 @@ class ApiController: IApiController {
                             method: "GET",
                             pathComponent: pathComponent,
                             params: [],
+                            headers: [:], // hard-coded
                             responseHandler: NetworkResponseHandlerDefault())
             .map() { data in
                 guard let jsonObject = try? JSONSerialization.jsonObject(with: data),
@@ -54,11 +55,12 @@ class ApiController: IApiController {
     }
     
     func buildRequest(base: URL = Domain.baseUrl,
-                       method: String = "GET",
-                       pathComponent: String,
-                       params: Any = [],
-                       contentType: String? = "application/json",
-                       responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
+                      method: String = "GET",
+                      pathComponent: String,
+                      params: Any = [],
+                      contentType: String? = "application/json",
+                      headers: [String: String] = DefaultHeadersFactory.make(),
+                      responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
     
         let url = base.appendingPathComponent(pathComponent)
         
@@ -73,21 +75,15 @@ class ApiController: IApiController {
             let queryItems = params.map { URLQueryItem(name: $0.0, value: $0.1) }
             urlComponents.queryItems = queryItems
         } else {
-            guard let params = params as? [String: Any] else {
-                return Observable.empty()
+            if let params = params as? [String: Any] {
+                let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+                request.httpBody = jsonData
             }
-            let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            request.httpBody = jsonData
         }
         
         request.url = urlComponents.url!
         request.httpMethod = method
-        
-        let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        
-        request.allHTTPHeaderFields = ["Api-Key": apiKey,
-                                       "device-id": deviceUdid,
-                                       "Content-Type": contentType!]
+        request.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
         
@@ -122,4 +118,14 @@ class NetworkResponseHandlerDefault: INetworkResponseHandler {
         }
     }
     
+}
+
+class DefaultHeadersFactory {
+    static func make(contentType: String = "application/json") -> [String: String] {
+        let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
+        let apiKey = conferenceState.apiKey ?? ""
+        return ["Api-Key": apiKey,
+                "device-id": deviceUdid,
+                "Content-Type": contentType]
+    }
 }

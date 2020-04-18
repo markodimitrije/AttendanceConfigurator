@@ -10,8 +10,8 @@ import RxSwift
 
 class ReportSessionApiController: IReportSessionApiController {
     static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
-    private let apiController: IApiController
-    init(apiController: IApiController) {
+    private let apiController: ApiController
+    init(apiController: ApiController) {
         self.apiController = apiController
     }
     
@@ -27,7 +27,8 @@ class ReportSessionApiController: IReportSessionApiController {
                 method: "PUT",
                 pathComponent: "devices/\(deviceId)",
                 params: params,
-                contentType: "text/plain", responseHandler: NetworkResponseHandlerDefault())
+                contentType: "text/plain",
+                responseHandler: NetworkResponseHandlerDefault())
             .map { data in
                 guard let object = try? JSONSerialization.jsonObject(with: data),
                     let json = object as? [String: Any],

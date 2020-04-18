@@ -2,12 +2,12 @@
 //  ILogoutRemoteApi.swift
 //  AttendanceApp
 //
-//  Created by Marko Dimitrijevic on 16/04/2020.
+//  Created by Marko Dimitrijevic on 18/04/2020.
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol ILogoutRemoteApi {
-    func logout() // shoot and run..
+    func logout() -> Observable<Data>
 }

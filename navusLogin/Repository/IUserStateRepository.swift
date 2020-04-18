@@ -8,7 +8,12 @@
 
 import Foundation
 
-protocol IUserStateRepository {
+protocol ICurrentUser {
+    func getToken() -> SignInToken
+}
+
+protocol IUserStateRepository: ICurrentUser {
     func login(user: IRemoteUserSession)
     func logout()
+    func getToken() -> SignInToken
 }

@@ -28,4 +28,7 @@ extension UserStateRepository: IUserStateRepository {
         userDefaults.set(nil, forKey: "password")
         userDefaults.set(nil, forKey: "token")
     }
+    func getToken() -> SignInToken {
+        SignInToken(token: userDefaults.value(forKey: "token") as? String ?? "")
+    }
 }
