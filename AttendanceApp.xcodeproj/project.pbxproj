@@ -114,6 +114,7 @@
 		7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */; };
 		7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */; };
 		7C8166C5244AF93B0059BDA1 /* AlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */; };
+		7C8166C8244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -380,6 +381,7 @@
 		7C7DCBCA2448B9050072CDAE /* IKeyboardInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKeyboardInfo.swift; sourceTree = "<group>"; };
 		7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAlertActionPresentation.swift; sourceTree = "<group>"; };
 		7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionPresentation.swift; sourceTree = "<group>"; };
+		7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertInfoFactory.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -1186,6 +1188,15 @@
 			path = AlertActionPresentation;
 			sourceTree = "<group>";
 		};
+		7C8166C6244AFEB70059BDA1 /* CampaignsViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */,
+				7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */,
+			);
+			path = CampaignsViewControllerFactory;
+			sourceTree = "<group>";
+		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
 			isa = PBXGroup;
 			children = (
@@ -1365,7 +1376,7 @@
 		7CC9DD412448C2110035B2AE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */,
+				7C8166C6244AFEB70059BDA1 /* CampaignsViewControllerFactory */,
 				7CC9DD482448C5020035B2AE /* CampaignsVC */,
 				7CC9DD692448DEF00035B2AE /* NavigBarConfigurator */,
 				7CC9DD582448D2B50035B2AE /* LogoutWorker */,
@@ -2199,6 +2210,7 @@
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
+				7C8166C8244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */,
 				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,

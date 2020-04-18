@@ -13,6 +13,7 @@ class CampaignsViewControllerFactory {
         let campaignsVC = StoryboardedViewControllerFactory.make(type: CampaignsVC.self) as! CampaignsVC
         campaignsVC.logoutWorker = LogoutWorkerFactory.make()
         campaignsVC.navBarConfigurator = NavigBarConfigurator()
+        campaignsVC.alertInfo = LogoutAlertInfoFactory.make()
         return campaignsVC
     }
 }

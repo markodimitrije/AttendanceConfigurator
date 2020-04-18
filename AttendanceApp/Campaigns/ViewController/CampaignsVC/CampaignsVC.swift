@@ -13,6 +13,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     var logoutWorker: ILogoutWorker!
     var navBarConfigurator: INavigBarConfigurator!
+    var alertInfo: AlertInfo!
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -22,7 +23,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     @objc func logoutTap() {
         
-        alert(alertInfo: LogoutAlertInfoFactory.make(), preferredStyle: .alert)
+        alert(alertInfo: self.alertInfo, preferredStyle: .alert)
             .subscribe(onNext: { (tag) in
                 switch tag {
                 case 0: print("dismisses alert")
@@ -37,16 +38,4 @@ class CampaignsVC: UIViewController, Storyboarded {
         navigationController?.popViewController(animated: true)
     }
     
-    
-}
-
-class LogoutAlertInfoFactory {
-    static func make() -> AlertInfo {
-        let title = AlertInfo.Logout.title
-        let text = AlertInfo.Logout.msg
-        let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn,
-                                               style: UIAlertAction.Style.destructive)
-        let noPresentation = AlertActionPresentation(title: AlertInfo.Logout.noBtn)
-        return AlertInfo(title: title, text: text, btnText: [yesPresentation, noPresentation])
-    }
 }
