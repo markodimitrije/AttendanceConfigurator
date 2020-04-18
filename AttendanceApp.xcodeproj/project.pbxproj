@@ -115,6 +115,11 @@
 		7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */; };
 		7C8166C5244AF93B0059BDA1 /* AlertActionPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */; };
 		7C8166C8244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */; };
+		7C81676B244B48990059BDA1 /* LoginRemoteApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81676A244B48990059BDA1 /* LoginRemoteApiFactory.swift */; };
+		7C81676D244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81676C244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift */; };
+		7C816770244B492B0059BDA1 /* INetworkResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C81676F244B492B0059BDA1 /* INetworkResponseHandler.swift */; };
+		7C816773244B4A0F0059BDA1 /* LoginResponsePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C816772244B4A0F0059BDA1 /* LoginResponsePayload.swift */; };
+		7C816775244B4A1D0059BDA1 /* SignInToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C816774244B4A1D0059BDA1 /* SignInToken.swift */; };
 		7C8361722436721D00DB1F59 /* SyncResourcesManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */; };
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
@@ -382,6 +387,11 @@
 		7C8166C2244AF9230059BDA1 /* IAlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAlertActionPresentation.swift; sourceTree = "<group>"; };
 		7C8166C4244AF93B0059BDA1 /* AlertActionPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionPresentation.swift; sourceTree = "<group>"; };
 		7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertInfoFactory.swift; sourceTree = "<group>"; };
+		7C81676A244B48990059BDA1 /* LoginRemoteApiFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRemoteApiFactory.swift; sourceTree = "<group>"; };
+		7C81676C244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginNetworkResponseHandler.swift; sourceTree = "<group>"; };
+		7C81676F244B492B0059BDA1 /* INetworkResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INetworkResponseHandler.swift; sourceTree = "<group>"; };
+		7C816772244B4A0F0059BDA1 /* LoginResponsePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponsePayload.swift; sourceTree = "<group>"; };
+		7C816774244B4A1D0059BDA1 /* SignInToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInToken.swift; sourceTree = "<group>"; };
 		7C8361712436721D00DB1F59 /* SyncResourcesManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManagerFactory.swift; sourceTree = "<group>"; };
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
@@ -1044,8 +1054,8 @@
 		7C7DCB9A2448B9050072CDAE /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7C7DCB9B2448B9050072CDAE /* LoginRemoteApi.swift */,
-				7C7DCB9C2448B9050072CDAE /* ILoginRemoteApi.swift */,
+				7C81676F244B492B0059BDA1 /* INetworkResponseHandler.swift */,
+				7C81676E244B491A0059BDA1 /* Login */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1195,6 +1205,27 @@
 				7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */,
 			);
 			path = CampaignsViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		7C81676E244B491A0059BDA1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7C816771244B4A050059BDA1 /* Model */,
+				7C7DCB9C2448B9050072CDAE /* ILoginRemoteApi.swift */,
+				7C7DCB9B2448B9050072CDAE /* LoginRemoteApi.swift */,
+				7C81676A244B48990059BDA1 /* LoginRemoteApiFactory.swift */,
+				7C81676C244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		7C816771244B4A050059BDA1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C816772244B4A0F0059BDA1 /* LoginResponsePayload.swift */,
+				7C816774244B4A1D0059BDA1 /* SignInToken.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		7C8361702436720E00DB1F59 /* Sync */ = {
@@ -2115,6 +2146,7 @@
 				7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */,
 				7C7DCBF02448B9050072CDAE /* ILoginCredentials.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
+				7C81676D244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift in Sources */,
 				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
@@ -2140,6 +2172,7 @@
 				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
 				7C7DCBD92448B9050072CDAE /* LoginValidationSignalFactory.swift in Sources */,
 				7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */,
+				7C816770244B492B0059BDA1 /* INetworkResponseHandler.swift in Sources */,
 				7CEBFB7F24390DA500D2983C /* IScanningInfoProviding.swift in Sources */,
 				7CC9DD6B2448DF230035B2AE /* NavigBarConfigurator.swift in Sources */,
 				7C8166C5244AF93B0059BDA1 /* AlertActionPresentation.swift in Sources */,
@@ -2151,6 +2184,7 @@
 				7C7DCBD32448B9050072CDAE /* IFieldValidator.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
 				7CD529792433A8F900170D0A /* ReportCodeApiController.swift in Sources */,
+				7C81676B244B48990059BDA1 /* LoginRemoteApiFactory.swift in Sources */,
 				7C6A5EF4243DE01C00CD5C9C /* AutoSessionViewModelFactory.swift in Sources */,
 				7C592BFB242BD32300294E71 /* IBlock.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
@@ -2159,6 +2193,7 @@
 				7C7DCBE82448B9050072CDAE /* Storyboarded.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */,
+				7C816775244B4A1D0059BDA1 /* SignInToken.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
@@ -2231,6 +2266,7 @@
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				7C6A5EF9243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift in Sources */,
 				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,
+				7C816773244B4A0F0059BDA1 /* LoginResponsePayload.swift in Sources */,
 				7C7DCBF42448B9050072CDAE /* LoginViewModelInputFactory.swift in Sources */,
 				7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */,
 				7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */,

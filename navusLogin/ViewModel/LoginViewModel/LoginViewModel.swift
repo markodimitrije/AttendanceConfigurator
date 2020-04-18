@@ -38,9 +38,3 @@ class LoginWorkerFactory {
                     userState: UserStateRepository())
     }
 }
-
-class LoginRemoteApiFactory {
-    static func make() -> ILoginRemoteApi {
-        LoginRemoteApi(apiController: LeadLinkLoginRemoteAPI()) // TODO: marko
-    }
-}

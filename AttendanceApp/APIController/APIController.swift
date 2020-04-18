@@ -10,10 +10,6 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-protocol INetworkResponseHandler {
-    func handle(response: HTTPURLResponse, data: Data) throws -> Data
-}
-
 protocol IApiController {
     func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, responseHandler: INetworkResponseHandler) -> Observable<Data>
 }
