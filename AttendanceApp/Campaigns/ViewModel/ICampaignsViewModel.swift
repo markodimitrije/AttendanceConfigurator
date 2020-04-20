@@ -9,5 +9,5 @@
 import RxSwift
 
 protocol ICampaignsViewModel {
-    func getItems() -> Observable<[ICampaign]>
+    func getCampaigns() -> Observable<[ICampaignItem]>
 }

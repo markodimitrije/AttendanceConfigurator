@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Campaign: ICampaign {
+struct Campaign: ICampaign {
     var name: String = ""
     var description: String = ""
     var image: UIImage = UIImage.init(named: "campaign_placeholder")!

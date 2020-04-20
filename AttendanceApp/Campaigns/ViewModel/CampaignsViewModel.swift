@@ -9,16 +9,29 @@
 
 import RxSwift
 
-extension CampaignsViewModel: ICampaignsViewModel {
-    func getItems() -> Observable<[ICampaign]> {
-        campaignsRepo.getAll()
+extension CampaignsViewModel: ICampaignsViewModel{
+    func getCampaigns() -> Observable<[ICampaignItem]> {
+        campaignsRepository.getAll().map(CampaignItemsFactory.make)
     }
 }
 
 class CampaignsViewModel {
-    
-    private let campaignsRepo: ICampaignsRepository
-    init(campaignsRepo: ICampaignsRepository) {
-        self.campaignsRepo = campaignsRepo
+    var campaignsRepository: ICampaignsImmutableRepository
+    init(campaignsRepository: ICampaignsImmutableRepository) {
+        self.campaignsRepository = campaignsRepository
     }
+}
+
+class CampaignItemsFactory {
+    static func make(campaigns: [ICampaign]) -> [ICampaignItem] {
+        campaigns.map(self.singleItem)
+        
+    }
+    
+    static func singleItem(campaign: ICampaign) -> ICampaignItem {
+        CampaignItem(title: campaign.name,
+                     description: campaign.description,
+                     image: campaign.image)
+    }
+    
 }

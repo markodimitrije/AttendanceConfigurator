@@ -15,9 +15,25 @@
                     <view key="view" contentMode="scaleToFill" id="Dxl-o5-NTT">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wgp-xF-dtK">
+                                <rect key="frame" x="256" y="0.0" width="512" height="768"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wgp-xF-dtK" firstAttribute="width" secondItem="Dxl-o5-NTT" secondAttribute="width" multiplier="0.5" id="Des-2R-V5I"/>
+                            <constraint firstItem="Wgp-xF-dtK" firstAttribute="centerX" secondItem="Dxl-o5-NTT" secondAttribute="centerX" id="a2d-nL-Qrl"/>
+                            <constraint firstItem="Wgp-xF-dtK" firstAttribute="top" secondItem="K7d-78-3MY" secondAttribute="top" id="bTC-ZV-7hr"/>
+                            <constraint firstItem="K7d-78-3MY" firstAttribute="bottom" secondItem="Wgp-xF-dtK" secondAttribute="bottom" id="qV2-dJ-sfJ"/>
+                            <constraint firstItem="K7d-78-3MY" firstAttribute="bottom" secondItem="Wgp-xF-dtK" secondAttribute="bottom" id="uzt-Ec-HIf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="K7d-78-3MY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Wgp-xF-dtK" id="CgA-Ja-q2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YAw-KZ-JAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

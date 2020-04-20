@@ -8,16 +8,21 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class CampaignsVC: UIViewController, Storyboarded {
     
+    var campaignsViewModel: ICampaignsViewModel!
     var logoutWorker: ILogoutWorker!
     var navBarConfigurator: INavigBarConfigurator!
     var alertInfo: AlertInfo!
+    
+    @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.bindCampaignsViewModel()
         navBarConfigurator.configure(navigationItem: navigationItem, viewController: self)
     }
     
@@ -38,4 +43,44 @@ class CampaignsVC: UIViewController, Storyboarded {
         navigationController?.popViewController(animated: true)
     }
     
+    private func bindCampaignsViewModel() {
+        campaignsViewModel.getCampaigns()
+            .bind(to: tableView.rx.items(dataSource: CampaignsDataSourceFactory.make()))
+            .disposed(bag)
+    }
+    
+}
+
+import Foundation
+import RxDataSources
+
+struct CampaignsPageSection {
+    typealias Item = ICampaignItem
+    var items: [Item]
+    
+    init(original: CampaignsPageSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+    
+    init(items: [Item]) {
+        self.items = items
+    }
+}
+
+class CampaignsDataSourceFactory {
+
+    static func make() -> RxTableViewSectionedReloadDataSource<CampaignsPageSection> {
+        return RxTableViewSectionedReloadDataSource<CampaignsPageSection>(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
+
+            if let titleCellModel = item as? TitleBlockPageItem {
+                let cell = tableView.dequeueReusableCell(withIdentifier: HeadingTableViewCell.typeName, for: indexPath) as! HeadingTableViewCell
+                cell.configure(with: titleCellModel)
+                return cell
+            }
+            
+            return UITableViewCell()
+        })
+    }
+
 }

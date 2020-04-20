@@ -8,8 +8,13 @@
 
 import RxSwift
 
-protocol ICampaignsRepository {
+protocol ICampaignsMutableRepository {
     func save(campaigns: [ICampaign])
     func deleteAll()
+}
+
+protocol ICampaignsImmutableRepository {
     func getAll() -> Observable<[ICampaign]>
 }
+
+protocol ICampaignsRepository: ICampaignsMutableRepository, ICampaignsImmutableRepository {}
