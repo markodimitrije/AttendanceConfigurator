@@ -154,7 +154,7 @@
 		7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */; };
 		7CC9DD432448C23B0035B2AE /* CampaignsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */; };
 		7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD442448C2550035B2AE /* CampaignsVC.swift */; };
-		7CC9DD472448C35C0035B2AE /* CampaignsVC_Ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD462448C35C0035B2AE /* CampaignsVC_Ipad.storyboard */; };
+		7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD462448C35C0035B2AE /* CampaignsVC_iPad.storyboard */; };
 		7CC9DD4A2448C51B0035B2AE /* CampaignsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */; };
 		7CC9DD4D2448C5B40035B2AE /* CampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD4C2448C5B40035B2AE /* CampaignsViewModel.swift */; };
 		7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD502448C84B0035B2AE /* ICampaignsRepository.swift */; };
@@ -430,7 +430,7 @@
 		7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignsVC.storyboard; sourceTree = "<group>"; };
 		7CC9DD442448C2550035B2AE /* CampaignsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsVC.swift; sourceTree = "<group>"; };
-		7CC9DD462448C35C0035B2AE /* CampaignsVC_Ipad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignsVC_Ipad.storyboard; sourceTree = "<group>"; };
+		7CC9DD462448C35C0035B2AE /* CampaignsVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignsVC_iPad.storyboard; sourceTree = "<group>"; };
 		7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7CC9DD4C2448C5B40035B2AE /* CampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModel.swift; sourceTree = "<group>"; };
 		7CC9DD502448C84B0035B2AE /* ICampaignsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignsRepository.swift; sourceTree = "<group>"; };
@@ -1439,7 +1439,7 @@
 			isa = PBXGroup;
 			children = (
 				7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */,
-				7CC9DD462448C35C0035B2AE /* CampaignsVC_Ipad.storyboard */,
+				7CC9DD462448C35C0035B2AE /* CampaignsVC_iPad.storyboard */,
 				7CC9DD442448C2550035B2AE /* CampaignsVC.swift */,
 			);
 			path = CampaignsVC;
@@ -2007,7 +2007,7 @@
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
-				7CC9DD472448C35C0035B2AE /* CampaignsVC_Ipad.storyboard in Resources */,
+				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C7DCBF82448B9050072CDAE /* LoginViewController.storyboard in Resources */,
 				7C7DCBF62448B9050072CDAE /* LoginViewController_iPad.storyboard in Resources */,

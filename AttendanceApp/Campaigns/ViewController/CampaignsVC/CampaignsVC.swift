@@ -8,7 +8,7 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
+import RxDataSources
 
 class CampaignsVC: UIViewController, Storyboarded {
     
@@ -45,42 +45,43 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     private func bindCampaignsViewModel() {
         campaignsViewModel.getCampaigns()
-            .bind(to: tableView.rx.items(dataSource: CampaignsDataSourceFactory.make()))
-            .disposed(bag)
-    }
-    
-}
-
-import Foundation
-import RxDataSources
-
-struct CampaignsPageSection {
-    typealias Item = ICampaignItem
-    var items: [Item]
-    
-    init(original: CampaignsPageSection, items: [Item]) {
-        self = original
-        self.items = items
-    }
-    
-    init(items: [Item]) {
-        self.items = items
-    }
-}
-
-class CampaignsDataSourceFactory {
-
-    static func make() -> RxTableViewSectionedReloadDataSource<CampaignsPageSection> {
-        return RxTableViewSectionedReloadDataSource<CampaignsPageSection>(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
-
-            if let titleCellModel = item as? TitleBlockPageItem {
-                let cell = tableView.dequeueReusableCell(withIdentifier: HeadingTableViewCell.typeName, for: indexPath) as! HeadingTableViewCell
-                cell.configure(with: titleCellModel)
-                return cell
+            .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
+                cell.textLabel?.text = item.title
+                cell.detailTextLabel?.text = item.description
             }
-            
-            return UITableViewCell()
-        })
+            .disposed(by: bag)
     }
-
+    
 }
+
+//import Foundation
+//import RxDataSources
+
+//struct CampaignsPageSection: SectionModelType {
+//    typealias Item = ICampaignItem
+//    var items: [Item]
+//
+//    init(original: CampaignsPageSection, items: [Item]) {
+//        self = original
+//        self.items = items
+//    }
+//
+//    init(items: [Item]) {
+//        self.items = items
+//    }
+//}
+
+//class CampaignsDataSourceFactory {
+//
+//    static func make() -> RxTableViewSectionedReloadDataSource<CampaignsPageSection> {
+//        return RxTableViewSectionedReloadDataSource<CampaignsPageSection>(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
+//
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//            cell.textLabel?.text = item.title
+//            cell.detailTextLabel?.text = item.description
+//            return cell
+//
+//        })
+//    }
+//
+//}
