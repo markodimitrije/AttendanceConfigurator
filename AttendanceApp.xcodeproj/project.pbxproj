@@ -19,7 +19,7 @@
 		7C2E5741244EE62F003EDAC7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5740244EE62F003EDAC7 /* Constants.swift */; };
 		7C2E5744244EEB61003EDAC7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5743244EEB61003EDAC7 /* ApiError.swift */; };
 		7C2E5747244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5746244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift */; };
-		7C2E5749244EEBD7003EDAC7 /* DefaultHeadersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5748244EEBD7003EDAC7 /* DefaultHeadersFactory.swift */; };
+		7C2E5749244EEBD7003EDAC7 /* DefaultHeadersCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */; };
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
@@ -306,7 +306,7 @@
 		7C2E5740244EE62F003EDAC7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C2E5743244EEB61003EDAC7 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		7C2E5746244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseHandlerDefault.swift; sourceTree = "<group>"; };
-		7C2E5748244EEBD7003EDAC7 /* DefaultHeadersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeadersFactory.swift; sourceTree = "<group>"; };
+		7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeadersCreator.swift; sourceTree = "<group>"; };
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
@@ -640,7 +640,7 @@
 			children = (
 				7C81676F244B492B0059BDA1 /* INetworkResponseHandler.swift */,
 				7C2E5746244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift */,
-				7C2E5748244EEBD7003EDAC7 /* DefaultHeadersFactory.swift */,
+				7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2408,7 +2408,7 @@
 				7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
 				7C516F7E243C9922002CF6BF /* BlockMutableRepositoryFactory.swift in Sources */,
-				7C2E5749244EEBD7003EDAC7 /* DefaultHeadersFactory.swift in Sources */,
+				7C2E5749244EEBD7003EDAC7 /* DefaultHeadersCreator.swift in Sources */,
 				7C67288B243B9309006D271A /* UnsyncScansViewModelFactory.swift in Sources */,
 				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
 				7C516F6F243C741A002CF6BF /* CodeReportsMutableRepository.swift in Sources */,

@@ -59,7 +59,7 @@ class ApiController: IApiController {
                       pathComponent: String,
                       params: Any = [],
                       contentType: String? = "application/json",
-                      headers: [String: String] = DefaultHeadersFactory.make(),
+                      headers: [String: String] = DefaultHeadersFactory.make().createHeaders(),
                       responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
     
         let url = base.appendingPathComponent(pathComponent)

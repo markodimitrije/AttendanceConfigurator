@@ -17,9 +17,7 @@ class LogoutRemoteApi: ILogoutRemoteApi {
     }
     
     func logout() -> Observable<Data> {
-        let bearerToken = "Bearer " + userState.getToken().token
-        var headers = DefaultHeadersFactory.make()
-        headers["Authorization"] = bearerToken
+        let headers = DefaultHeadersFactory.make().createHeaders()
         return self.apiController
             .buildRequest(method: "POST",
                           pathComponent: "logout",

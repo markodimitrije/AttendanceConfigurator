@@ -10,7 +10,9 @@ import RxSwift
 
 extension CampaignsRemoteApi: ICampaignsRemoteApi {
     func getCampaigns() -> Observable<[ICampaign]> {
-        apiController.buildRequest(pathComponent: "leadlink/campaigns")
+        let headers = DefaultHeadersFactory.make().createHeaders(apiKey: nil)
+        return apiController
+            .buildRequest(pathComponent: "leadlink/campaigns", headers: headers)
             .map(dataToCampaignFactory.make)
     }
 }
