@@ -20,6 +20,11 @@
 		7C2E5744244EEB61003EDAC7 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5743244EEB61003EDAC7 /* ApiError.swift */; };
 		7C2E5747244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5746244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift */; };
 		7C2E5749244EEBD7003EDAC7 /* DefaultHeadersCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */; };
+		7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E574B244EF8D9003EDAC7 /* IErrorHandler.swift */; };
+		7C2E574E244EF8DD003EDAC7 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E574D244EF8DD003EDAC7 /* ErrorHandler.swift */; };
+		7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E574F244EF916003EDAC7 /* CampaignItemsFactory.swift */; };
+		7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5753244EFA21003EDAC7 /* RealmCampaign.swift */; };
+		7C2E5756244EFB01003EDAC7 /* RealmCampaignFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5755244EFB01003EDAC7 /* RealmCampaignFactory.swift */; };
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
@@ -307,6 +312,11 @@
 		7C2E5743244EEB61003EDAC7 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		7C2E5746244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponseHandlerDefault.swift; sourceTree = "<group>"; };
 		7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHeadersCreator.swift; sourceTree = "<group>"; };
+		7C2E574B244EF8D9003EDAC7 /* IErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IErrorHandler.swift; sourceTree = "<group>"; };
+		7C2E574D244EF8DD003EDAC7 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		7C2E574F244EF916003EDAC7 /* CampaignItemsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignItemsFactory.swift; sourceTree = "<group>"; };
+		7C2E5753244EFA21003EDAC7 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
+		7C2E5755244EFB01003EDAC7 /* RealmCampaignFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignFactory.swift; sourceTree = "<group>"; };
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
@@ -643,6 +653,34 @@
 				7C2E5748244EEBD7003EDAC7 /* DefaultHeadersCreator.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7C2E574A244EF8CE003EDAC7 /* ErrorHandler */ = {
+			isa = PBXGroup;
+			children = (
+				7C2E574B244EF8D9003EDAC7 /* IErrorHandler.swift */,
+				7C2E574D244EF8DD003EDAC7 /* ErrorHandler.swift */,
+			);
+			path = ErrorHandler;
+			sourceTree = "<group>";
+		};
+		7C2E5751244EFA0B003EDAC7 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				7CF3018B244DF1850055174D /* CampaignItem */,
+				7CC9DD542448D1740035B2AE /* ICampaign.swift */,
+				7CC9DD562448D1880035B2AE /* Campaign.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		7C2E5752244EFA16003EDAC7 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				7C2E5753244EFA21003EDAC7 /* RealmCampaign.swift */,
+				7C2E5755244EFB01003EDAC7 /* RealmCampaignFactory.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		7C2E84252435123D005B5C7F /* SettingsViewModel */ = {
@@ -1530,9 +1568,8 @@
 		7CC9DD4E2448C7F60035B2AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7CF3018B244DF1850055174D /* CampaignItem */,
-				7CC9DD542448D1740035B2AE /* ICampaign.swift */,
-				7CC9DD562448D1880035B2AE /* Campaign.swift */,
+				7C2E5752244EFA16003EDAC7 /* Realm */,
+				7C2E5751244EFA0B003EDAC7 /* Domain */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1747,6 +1784,7 @@
 			children = (
 				7CF3018C244DF18F0055174D /* ICampaignItem.swift */,
 				7CF30190244DF4D10055174D /* CampaignItem.swift */,
+				7C2E574F244EF916003EDAC7 /* CampaignItemsFactory.swift */,
 			);
 			path = CampaignItem;
 			sourceTree = "<group>";
@@ -1893,14 +1931,12 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				7C2E5745244EEBB3003EDAC7 /* Network */,
-				7CC9DD402448C1A50035B2AE /* Campaigns */,
-				7C5908C424371D63006199B1 /* Utilities */,
-				7C8361702436720E00DB1F59 /* Sync */,
+				7C2E574A244EF8CE003EDAC7 /* ErrorHandler */,
 				AD29522A217B5E8A002DDE32 /* APIController */,
 				7CB7D556225DF965007B9BB0 /* AppDelegate.swift */,
 				ADAE9C38218B08EA00615125 /* Assets.xcassets */,
 				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
+				7CC9DD402448C1A50035B2AE /* Campaigns */,
 				AD4CC2D821A576F200222D5E /* Common */,
 				7CE63ACA22A862FE008E477B /* ConfIdApiKeyAuthState */,
 				AD28F6EF2182120A00A41BB8 /* Extensions */,
@@ -1914,11 +1950,14 @@
 				AD295226217B5C64002DDE32 /* Main.storyboard */,
 				AD29522B217B5E98002DDE32 /* Model */,
 				AD80F000217DE651003CEDD0 /* ModelData */,
+				7C2E5745244EEBB3003EDAC7 /* Network */,
 				7CEC673F242B6AEF00CC56FF /* Repository */,
 				AD697BD621887CC3002BC579 /* ResourcesStateAndCodeReportsState */,
 				7CBDC28022D8A8D800B7D43F /* Scan */,
 				AD24E303217F74C8008E35F8 /* Services */,
 				7CE81539227346F700B33986 /* Sounds */,
+				7C8361702436720E00DB1F59 /* Sync */,
+				7C5908C424371D63006199B1 /* Utilities */,
 				AD295229217B5E77002DDE32 /* ViewController */,
 				AD295228217B5E6F002DDE32 /* ViewModel */,
 				AD24E30621806C22008E35F8 /* Views */,
@@ -2225,6 +2264,7 @@
 				ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */,
 				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
+				7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */,
 				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
 				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
@@ -2243,6 +2283,7 @@
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
+				7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
@@ -2257,6 +2298,7 @@
 				7CC9DD5A2448D2D00035B2AE /* LogoutWorker.swift in Sources */,
 				7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */,
 				7C7DCBF02448B9050072CDAE /* ILoginCredentials.swift in Sources */,
+				7C2E574E244EF8DD003EDAC7 /* ErrorHandler.swift in Sources */,
 				7CD529842433AFF300170D0A /* RealmCodeReportFactory.swift in Sources */,
 				7C2E5747244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift in Sources */,
 				7C2E5737244EDA64003EDAC7 /* CampaignsRemoteApi.swift in Sources */,
@@ -2325,6 +2367,7 @@
 				7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */,
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
+				7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */,
 				7CF3018A244DED030055174D /* CampaignsRepositoryMock.swift in Sources */,
 				7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */,
 				7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */,
@@ -2385,6 +2428,7 @@
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
 				7CC9DD532448C8650035B2AE /* CampaignsRepository.swift in Sources */,
 				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
+				7C2E5756244EFB01003EDAC7 /* RealmCampaignFactory.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				7C6A5EF9243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift in Sources */,
 				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,

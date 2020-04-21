@@ -16,7 +16,7 @@ class CampaignsRepositoryMock: ICampaignsImmutableRepository {
     }
     
     private func createDynamicObservable() -> Observable<[ICampaign]> {
-        return Observable<Int>.interval(RxTimeInterval(2), scheduler: MainScheduler.instance).map(CampaignsFactory.getCampaigns)
+        return Observable<Int>.interval(RxTimeInterval(2), scheduler: MainScheduler.instance).map(CampaignsFactoryMock.getCampaigns)
     }
     
     private func createStaticObservable() -> Observable<[ICampaign]> {
@@ -28,7 +28,7 @@ class CampaignsRepositoryMock: ICampaignsImmutableRepository {
     }
 }
 
-class CampaignsFactory {
+class CampaignsFactoryMock {
     static func getCampaigns(value: Int) -> [ICampaign] {
         switch value {
         case value where (value % 3) == 0: return campaigns1

@@ -33,34 +33,3 @@ class CampaignsViewModel {
         self.errorHandler = errorHandler
     }
 }
-
-class CampaignItemsFactory {
-    static func make(campaigns: [ICampaign]) -> [ICampaignItem] {
-        campaigns.map(self.singleItem)
-        
-    }
-    
-    static func singleItem(campaign: ICampaign) -> ICampaignItem {
-        CampaignItem(title: campaign.name,
-                     description: campaign.description,
-                     image: campaign.image ?? CAMPAIGN_DEF_IMG)
-    }
-    
-}
-
-protocol IErrorHandler {
-    func handle(error: Error)
-}
-
-extension ErrorHandler: IErrorHandler {
-    func handle(error: Error) {
-        errorPresenter.showAlert(error: error)
-    }
-}
-
-class ErrorHandler {
-    private let errorPresenter: IAlertErrorPresenter
-    init(errorPresenter: IAlertErrorPresenter = AlertErrorPresenter()) {
-        self.errorPresenter = errorPresenter
-    }
-}

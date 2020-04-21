@@ -8,7 +8,8 @@
 
 class CampaignsViewModelFactory {
     static func make() -> CampaignsViewModel {
-        let campaignsRepo = CampaignsRepositoryMock() // TODO marko.. change later with factory 
+        //let campaignsRepo = CampaignsRepositoryMock() // testing
+        let campaignsRepo = CampaignsRepositoryFactory.make()
         let campaignsWorker = CampaignsWorkerFactory.make()
         return CampaignsViewModel(campaignsRepository: campaignsRepo,
                                   campaignsWorker: campaignsWorker)
