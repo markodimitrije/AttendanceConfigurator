@@ -27,3 +27,4 @@ class CampaignsWorker {
         self.campaignsRepo = campaignsRepo
     }
 }
+

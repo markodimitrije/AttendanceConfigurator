@@ -16,9 +16,7 @@ class RealmCampaignFactory {
         rCampaign.desc = campaign.description
         rCampaign.logo = campaign.logo
         rCampaign.createdAt = campaign.createdAt
-        if let img = campaign.image, let data = img.pngData() {
-            rCampaign.image = data
-        }
+        rCampaign.imgData = campaign.image?.pngData()
         return rCampaign
     }
 }

@@ -37,7 +37,8 @@ class CampaignsRepository {
 
 class CampaignFactory {
     static func make(realmCampaign: RealmCampaign) -> ICampaign {
-        let image = UIImage(data: realmCampaign.image)
+        let image = (realmCampaign.imgData != nil) ? UIImage(data: realmCampaign.imgData!)!
+                                                   : CAMPAIGN_DEF_IMG
         return Campaign(id: realmCampaign.id,
                         name: realmCampaign.name,
                         description: realmCampaign.desc,
