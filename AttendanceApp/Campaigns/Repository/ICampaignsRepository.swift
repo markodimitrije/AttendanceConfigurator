@@ -9,7 +9,7 @@
 import RxSwift
 
 protocol ICampaignsMutableRepository {
-    func save(campaigns: [ICampaign])
+    func save(campaigns: [ICampaign]) -> Observable<[ICampaign]>
     func deleteAll()
 }
 

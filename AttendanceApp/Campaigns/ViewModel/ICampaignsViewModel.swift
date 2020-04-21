@@ -10,4 +10,5 @@ import RxSwift
 
 protocol ICampaignsViewModel {
     func getCampaigns() -> Observable<[ICampaignItem]>
+    func refreshCampaigns()
 }

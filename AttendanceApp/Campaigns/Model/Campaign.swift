@@ -9,7 +9,10 @@
 import UIKit
 
 struct Campaign: ICampaign {
-    var name: String = ""
-    var description: String = ""
-    var image: UIImage = UIImage.init(named: "campaign_placeholder")!
+    var id = 0
+    var name = ""
+    var description = ""
+    var logo = ""
+    var createdAt = Date.init(timeIntervalSince1970: 0)
+    var image: UIImage? = CAMPAIGN_DEF_IMG
 }

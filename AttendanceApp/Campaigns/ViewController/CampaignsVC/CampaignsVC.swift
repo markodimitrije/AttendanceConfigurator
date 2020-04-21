@@ -26,6 +26,11 @@ class CampaignsVC: UIViewController, Storyboarded {
         navBarConfigurator.configure(navigationItem: navigationItem, viewController: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        campaignsViewModel.refreshCampaigns()
+    }
+    
     @objc func logoutTap() {
         
         alert(alertInfo: self.alertInfo, preferredStyle: .alert)
@@ -44,6 +49,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
     private func bindCampaignsViewModel() {
+        
         campaignsViewModel.getCampaigns()
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
                 cell.textLabel?.text = item.title
@@ -53,35 +59,3 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
 }
-
-//import Foundation
-//import RxDataSources
-
-//struct CampaignsPageSection: SectionModelType {
-//    typealias Item = ICampaignItem
-//    var items: [Item]
-//
-//    init(original: CampaignsPageSection, items: [Item]) {
-//        self = original
-//        self.items = items
-//    }
-//
-//    init(items: [Item]) {
-//        self.items = items
-//    }
-//}
-
-//class CampaignsDataSourceFactory {
-//
-//    static func make() -> RxTableViewSectionedReloadDataSource<CampaignsPageSection> {
-//        return RxTableViewSectionedReloadDataSource<CampaignsPageSection>(configureCell: { (_, tableView, indexPath, item) -> UITableViewCell in
-//
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//            cell.textLabel?.text = item.title
-//            cell.detailTextLabel?.text = item.description
-//            return cell
-//
-//        })
-//    }
-//
-//}

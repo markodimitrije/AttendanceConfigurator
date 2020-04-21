@@ -93,39 +93,3 @@ class ApiController: IApiController {
     }
     
 }
-
-enum ApiError: Error {
-    case invalidJson
-    case invalidKey
-    case badRequest
-    case serverFailure
-}
-
-class NetworkResponseHandlerDefault: INetworkResponseHandler {
-    
-    func handle(response: HTTPURLResponse, data: Data) throws -> Data {
-        
-        if 201 == response.statusCode {
-            return try! JSONSerialization.data(withJSONObject:  ["created": 201])
-        } else if 200 ..< 300 ~= response.statusCode {
-            return data
-        } else if response.statusCode == 401 {
-            throw ApiError.invalidKey
-        } else if 400 ..< 500 ~= response.statusCode {
-            throw ApiError.badRequest
-        } else {
-            throw ApiError.serverFailure
-        }
-    }
-    
-}
-
-class DefaultHeadersFactory {
-    static func make(contentType: String = "application/json") -> [String: String] {
-        let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        let apiKey = conferenceState.apiKey ?? ""
-        return ["Api-Key": apiKey,
-                "device-id": deviceUdid,
-                "Content-Type": contentType]
-    }
-}

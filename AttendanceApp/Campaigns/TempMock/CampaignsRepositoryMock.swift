@@ -9,13 +9,22 @@
 import RxSwift
 
 class CampaignsRepositoryMock: ICampaignsImmutableRepository {
+    
     func getAll() -> Observable<[ICampaign]> {
+        createDynamicObservable()
+//        createStaticObservable()
+    }
+    
+    private func createDynamicObservable() -> Observable<[ICampaign]> {
         return Observable<Int>.interval(RxTimeInterval(2), scheduler: MainScheduler.instance).map(CampaignsFactory.getCampaigns)
-//        return Observable.create { (observer) -> Disposable in
-//            observer.onNext(campaigns1)
-//            observer.onCompleted()
-//            return Disposables.create()
-//        }
+    }
+    
+    private func createStaticObservable() -> Observable<[ICampaign]> {
+        return Observable.create { (observer) -> Disposable in
+            observer.onNext(campaigns1)
+            observer.onCompleted()
+            return Disposables.create()
+        }
     }
 }
 
@@ -35,6 +44,6 @@ let campA = Campaign(name: "A", description: "descA")
 let campB = Campaign(name: "B", description: "descB")
 let campC = Campaign(name: "C", description: "descC")
 let campD = Campaign(name: "D", description: "descD")
-let campaigns1 = [campA, campB, campC]
-let campaigns2 = [campA, campB]
-let campaigns3 = [campA, campB, campD]
+let campaigns1: [ICampaign] = [campA, campB, campC]
+let campaigns2: [ICampaign] = [campA, campB]
+let campaigns3: [ICampaign] = [campA, campB, campD]

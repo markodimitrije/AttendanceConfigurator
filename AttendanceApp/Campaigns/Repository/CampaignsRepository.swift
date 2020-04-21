@@ -9,8 +9,10 @@
 import RxSwift
 
 extension CampaignsRepository: ICampaignsRepository {
-    func save(campaigns: [ICampaign]) {
-        _ = genericRepo.saveToRealm(objects: []) //TODO marko
+    func save(campaigns: [ICampaign]) -> Observable<[ICampaign]> {
+        genericRepo.saveToRealm(objects: []).map { (success) -> [ICampaign] in
+            return campaigns
+        }
     }
     func deleteAll() {
         //genericRepo.deleteAllObjects(ofTypes: RealmCampaign.self)

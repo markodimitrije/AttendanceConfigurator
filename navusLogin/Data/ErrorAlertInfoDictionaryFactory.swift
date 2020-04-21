@@ -13,6 +13,7 @@ class ErrorAlertInfoDictionaryFactory {
         var dict = [String: Any]()
         // LoginError pairs
         dict += noConnectionPair()
+        dict += unathorizedDefaultPair()
         dict += unathorizedPair()
         dict += badParsingPair()
         // LoginValidationError pairs
@@ -28,9 +29,15 @@ class ErrorAlertInfoDictionaryFactory {
         return [LoginError.noConnection.getHash(): alertInfo]
     }
     
-    static private func unathorizedPair() -> [String: Any] {
+    static private func unathorizedDefaultPair() -> [String: Any] {
         let alertInfo = getAlertInfo(titleKeyString: "unauthorized.title",
                                      textKeyString: "unauthorized.text")
+        return [ApiError.unauthorized.getHash(): alertInfo]
+    }
+    
+    static private func unathorizedPair() -> [String: Any] {
+        let alertInfo = getAlertInfo(titleKeyString: "unauthorized.title",
+                                     textKeyString: "login.unauthorized.text")
         return [LoginError.unauthorized.getHash(): alertInfo]
     }
     

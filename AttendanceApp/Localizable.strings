@@ -35,7 +35,8 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 "noConnection.text" = "Can't connect to internet. Check your connection";
 
 "unauthorized.title" = "Authentication error";
-"unauthorized.text" = "Unknown user. Check your email and password";
+"unauthorized.text" = "Please log out and log in again";
+"login.unauthorized.text" = "Unknown user. Check your email and password";
 
 "badParsing.title" = "Decoding Error";
 "badParsing.text" = "This app can't read response. Please contact support at: https://navus.io";
