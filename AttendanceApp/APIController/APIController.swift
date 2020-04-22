@@ -56,7 +56,7 @@ class ApiController: IApiController {
     
     func buildRequest(base: URL = Domain.baseUrl,
                       method: String = "GET",
-                      pathComponent: String,
+                      pathComponent: String = "",
                       params: Any = [],
                       contentType: String? = "application/json",
                       headers: [String: String] = DefaultHeadersFactory.make().createHeaders(),

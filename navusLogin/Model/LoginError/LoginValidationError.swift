@@ -15,7 +15,5 @@ enum LoginValidationError: Error {
 }
 
 extension LoginValidationError: MyError {
-    func getHash() -> String {
-        return self.localizedDescription
-    }
+    func getHash() -> String {self.localizedDescription}
 }

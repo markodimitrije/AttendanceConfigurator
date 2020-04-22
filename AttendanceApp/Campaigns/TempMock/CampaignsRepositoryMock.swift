@@ -9,6 +9,9 @@
 import RxSwift
 
 class CampaignsRepositoryMock: ICampaignsImmutableRepository {
+    func getLogoUpdateInfos() -> [ILogoUpdateInfo] {
+        return [ ]
+    }
     
     func getAll() -> Observable<[ICampaign]> {
         createDynamicObservable()

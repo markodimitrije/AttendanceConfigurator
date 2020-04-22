@@ -26,6 +26,12 @@ extension CampaignsRepository: ICampaignsRepository {
         let obsResults = Observable.collection(from: realm.objects(RealmCampaign.self))
         return obsResults.map {$0.toArray().map(CampaignFactory.make)}
     }
+    func getLogoUpdateInfos() -> [ILogoUpdateInfo] {
+        let realm = try! Realm()
+        let results = realm.objects(RealmCampaign.self).filter("imgData == nil").toArray()
+        return results.compactMap { LogoUpdateInfo(id: $0.id, address: $0.logo) }
+    }
+    
 }
 
 class CampaignsRepository {
