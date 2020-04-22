@@ -1,5 +1,5 @@
 //
-//  ScannerVC.swift
+//  ScannerViewController.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 22/10/2018.
@@ -14,7 +14,7 @@ import AVFoundation
 import ScanditCaptureCore
 import ScanditBarcodeCapture
 
-class ScannerVC: UIViewController {
+class ScannerViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var scannerView: UIView!
     @IBOutlet weak var arrowImageView: UIImageView!
@@ -155,7 +155,7 @@ class ScannerVC: UIViewController {
 
 // MARK: BarcodeListening
 
-extension ScannerVC: BarcodeListening {
+extension ScannerViewController: BarcodeListening {
     
     func found(code: String) { // ovo mozes da report VM-u kao append novi code
         

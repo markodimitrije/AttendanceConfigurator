@@ -58,15 +58,16 @@ class CampaignsVC: UIViewController, Storyboarded {
                 cell.update(item: item)
             }
             .disposed(by: bag)
-        Observable
-        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
-        .bind { [weak self] indexPath, item in
-            self?.tableView.deselectRow(at: indexPath, animated: true)
-            print("open scanning screen for campaignId = \(item.id)") // TODO marko
-//            self?.present(Router.getSyncDataViewController(conferenceId: ConferenceId(value: event.id)), animated: true)
-        }
-        .disposed(by: bag)
         
+        Observable
+            .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
+            .bind { [weak self] indexPath, item in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+                print("open scanning screen for campaignId = \(item.id)") // TODO marko
+                let nextVC = ScannerViewControllerFactory.make()
+                self?.navigationController?.pushViewController(nextVC, animated: true)
+            }
+            .disposed(by: bag)
     }
     
     private func registerTableViewCells() {

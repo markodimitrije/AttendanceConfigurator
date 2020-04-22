@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="1090" y="405"/>
         </scene>
-        <!--ScannerVC-->
+        <!--Scanner View Controller-->
         <scene sceneID="moc-s0-wAc">
             <objects>
-                <viewController id="e5d-ka-5Kd" customClass="ScannerVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="e5d-ka-5Kd" customClass="ScannerViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dih-GI-Slq"/>
                         <viewControllerLayoutGuide type="bottom" id="oOe-B0-1Wk"/>
@@ -137,10 +137,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Meh-nA-eQ3" userLabel="scanView">
-                                <rect key="frame" x="0.0" y="50" width="606.5" height="718"/>
+                                <rect key="frame" x="0.0" y="0.0" width="606.5" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="8VO-Xz-kHw">
-                                        <rect key="frame" x="0.0" y="0.0" width="606.5" height="718"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="606.5" height="768"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -152,7 +152,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="06H-9q-0RX" userLabel="infoView">
-                                <rect key="frame" x="614.5" y="50" width="409.5" height="718"/>
+                                <rect key="frame" x="614.5" y="0.0" width="409.5" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IqP-ec-QlF" userLabel="infoStackView">
                                         <rect key="frame" x="8" y="206" width="393.5" height="78.5"/>
@@ -200,7 +200,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e_materials" translatesAutoresizingMaskIntoConstraints="NO" id="0tL-pJ-k21">
-                                        <rect key="frame" x="0.0" y="658" width="409.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="708" width="409.5" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="6ZV-G6-oBo"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="va8-MP-olz"/>
@@ -220,11 +220,6 @@
                                             <constraint firstAttribute="width" secondItem="AFW-dZ-S2F" secondAttribute="height" multiplier="1:1" id="nGc-9B-vd4"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="qrCode"/>
-                                        <connections>
-                                            <segue destination="qux-T8-2iT" kind="popoverPresentation" popoverAnchorView="AFW-dZ-S2F" id="fAS-lf-dir">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -549,18 +544,18 @@
                         <viewControllerLayoutGuide type="bottom" id="E8B-Sa-FQe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d6V-ML-a0d">
-                        <rect key="frame" x="0.0" y="0.0" width="388" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-i6-ajL">
-                                <rect key="frame" x="0.0" y="50" width="388" height="617"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="718"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="GiZ-e7-Iw3">
-                                        <rect key="frame" x="0.0" y="28" width="388" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiZ-e7-Iw3" id="rvZ-F9-CnN">
-                                            <rect key="frame" x="13" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -594,9 +589,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="e5d-ka-5Kd" kind="relationship" relationship="rootViewController" id="hhx-VK-2ac"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eHZ-TV-wo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -608,7 +600,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qux-T8-2iT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="U25-Yu-y9o">
-                        <rect key="frame" x="0.0" y="0.0" width="388" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

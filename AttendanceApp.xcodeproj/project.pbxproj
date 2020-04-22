@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
+		7C13EAB62450BBA100F3D8E8 /* ScannerViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */; };
+		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
 		7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */; };
 		7C2E5735244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */; };
@@ -226,6 +228,7 @@
 		7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEBFB8024390DBF00D2983C /* IScanningCodeReporting.swift */; };
 		7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6741242B6B0800CC56FF /* RoomRepository.swift */; };
 		7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEC6745242B727F00CC56FF /* Date+Extension.swift */; };
+		7CECECDC2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CECECDB2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard */; };
 		7CED41B9226881E700FFB34E /* SessionReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41B8226881E700FFB34E /* SessionReport.swift */; };
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		7CEEA2E7243CB045006FCDDB /* BlockMutableRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */; };
@@ -270,7 +273,7 @@
 		AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD6F49A421AFE6410085D730 /* UserSelectionManager.swift */; };
 		AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFF9217DCDEA003CEDD0 /* Room.swift */; };
 		AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFFB217DCE27003CEDD0 /* Block.swift */; };
-		AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFFD217DD87D003CEDD0 /* ScannerVC.swift */; };
+		AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFFD217DD87D003CEDD0 /* ScannerViewController.swift */; };
 		AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F001217DE65C003CEDD0 /* ModelData.swift */; };
 		AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AAE217B9D2000803BE2 /* BlocksVC.swift */; };
 		AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */; };
@@ -307,6 +310,8 @@
 		4CDE23CC13BE03E3BB6C67F5 /* Pods-AttendanceAppUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewControllerFactory.swift; sourceTree = "<group>"; };
+		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
 		7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWorkerFactory.swift; sourceTree = "<group>"; };
 		7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepositoryFactory.swift; sourceTree = "<group>"; };
@@ -526,6 +531,7 @@
 		7CEBFB8024390DBF00D2983C /* IScanningCodeReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IScanningCodeReporting.swift; sourceTree = "<group>"; };
 		7CEC6741242B6B0800CC56FF /* RoomRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRepository.swift; sourceTree = "<group>"; };
 		7CEC6745242B727F00CC56FF /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7CECECDB2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController_iPad.storyboard; sourceTree = "<group>"; };
 		7CED41B8226881E700FFB34E /* SessionReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionReport.swift; sourceTree = "<group>"; };
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMutableRepositoryTest.swift; sourceTree = "<group>"; };
@@ -572,7 +578,7 @@
 		AD6F49A421AFE6410085D730 /* UserSelectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectionManager.swift; sourceTree = "<group>"; };
 		AD80EFF9217DCDEA003CEDD0 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		AD80EFFB217DCE27003CEDD0 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
-		AD80EFFD217DD87D003CEDD0 /* ScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerVC.swift; sourceTree = "<group>"; };
+		AD80EFFD217DD87D003CEDD0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		AD80F001217DE65C003CEDD0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		AD993AAE217B9D2000803BE2 /* BlocksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksVC.swift; sourceTree = "<group>"; };
 		AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModel.swift; sourceTree = "<group>"; };
@@ -631,6 +637,17 @@
 				3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C13EAB42450BB7600F3D8E8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AD80EFFD217DD87D003CEDD0 /* ScannerViewController.swift */,
+				7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */,
+				7CECECDB2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard */,
+				7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		7C2E573A244EDB81003EDAC7 /* NatworkDataMapping */ = {
@@ -1366,7 +1383,6 @@
 		7C8166C6244AFEB70059BDA1 /* CampaignsViewControllerFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */,
 				7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */,
 			);
 			path = CampaignsViewControllerFactory;
@@ -1542,8 +1558,8 @@
 		7CBDC28022D8A8D800B7D43F /* Scan */ = {
 			isa = PBXGroup;
 			children = (
+				7C13EAB42450BB7600F3D8E8 /* ViewController */,
 				7CBDC28522D8C8A400B7D43F /* Scanning */,
-				AD80EFFD217DD87D003CEDD0 /* ScannerVC.swift */,
 				7CD3F70F2428DBD3001272D1 /* ScanditSettings */,
 			);
 			path = Scan;
@@ -1610,6 +1626,7 @@
 				7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */,
 				7CC9DD462448C35C0035B2AE /* CampaignsVC_iPad.storyboard */,
 				7CC9DD442448C2550035B2AE /* CampaignsVC.swift */,
+				7CC9DD492448C51B0035B2AE /* CampaignsViewControllerFactory.swift */,
 			);
 			path = CampaignsVC;
 			sourceTree = "<group>";
@@ -2174,6 +2191,7 @@
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
+				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
 				7CC9DD432448C23B0035B2AE /* CampaignsVC.storyboard in Resources */,
@@ -2186,6 +2204,7 @@
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
+				7CECECDC2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard in Resources */,
 				7C7DCBF82448B9050072CDAE /* LoginViewController.storyboard in Resources */,
 				7C7DCBF62448B9050072CDAE /* LoginViewController_iPad.storyboard in Resources */,
 				7CAE889722E87EF100632EAC /* Launch Screen.xib in Resources */,
@@ -2473,11 +2492,12 @@
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
 				7C8166C8244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift in Sources */,
+				7C13EAB62450BBA100F3D8E8 /* ScannerViewControllerFactory.swift in Sources */,
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				7C2E5744244EEB61003EDAC7 /* ApiError.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* RealmDelegatesSessionValidation.swift in Sources */,
 				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
-				AD80EFFE217DD87D003CEDD0 /* ScannerVC.swift in Sources */,
+				AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */,
 				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,

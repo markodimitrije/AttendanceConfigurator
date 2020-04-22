@@ -142,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="775.20000000000005" y="404.34782608695656"/>
         </scene>
-        <!--ScannerVC-->
+        <!--Scanner View Controller-->
         <scene sceneID="yEB-PI-bXP">
             <objects>
-                <viewController id="pt0-GI-Pul" customClass="ScannerVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pt0-GI-Pul" customClass="ScannerViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Ti-ek-cBT"/>
                         <viewControllerLayoutGuide type="bottom" id="0hv-Ri-eTC"/>
@@ -155,13 +155,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="69E-46-9FT" userLabel="scanView">
-                                <rect key="frame" x="0.0" y="292" width="414" height="444"/>
+                                <rect key="frame" x="0.0" y="248" width="414" height="488"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="qNc-Am-xfu">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="444"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="488"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e_materials" translatesAutoresizingMaskIntoConstraints="NO" id="3ah-Go-Dt5">
-                                        <rect key="frame" x="77" y="396" width="260" height="40"/>
+                                        <rect key="frame" x="77" y="440" width="260" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Kwx-YT-8Wy"/>
                                         </constraints>
@@ -178,7 +178,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylu-J8-AOn" userLabel="infoView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="240"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VPp-aU-J3I" userLabel="infoStackView">
                                         <rect key="frame" x="8" y="123.99999999999999" width="398" height="45.333333333333329"/>
@@ -229,9 +229,6 @@
                                             <constraint firstAttribute="width" secondItem="kat-m8-HbI" secondAttribute="height" multiplier="1:1" id="iJl-Ug-BE9"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="qrCode"/>
-                                        <connections>
-                                            <segue destination="DVU-uz-03j" kind="show" id="aVq-BT-Ia1"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -290,7 +287,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZVL-qo-1VJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="QGn-zQ-4cT">
@@ -365,7 +362,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Select room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYV-Y5-Nmd">
-                                                    <rect key="frame" x="20" y="11.999999999999998" width="339" height="20.333333333333329"/>
+                                                    <rect key="frame" x="20" y="12" width="339" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -595,9 +592,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="pt0-GI-Pul" kind="relationship" relationship="rootViewController" id="0RI-SH-kVa"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgu-mu-ySS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
