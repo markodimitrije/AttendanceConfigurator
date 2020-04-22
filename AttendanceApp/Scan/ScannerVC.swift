@@ -10,7 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import AVFoundation
-import RealmSwift
 
 import ScanditCaptureCore
 import ScanditBarcodeCapture
@@ -46,8 +45,6 @@ class ScannerVC: UIViewController {
     // MARK:- Controller Life cycle
     
     override func viewDidLoad() { super.viewDidLoad()
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
         loadScanner()
         
