@@ -11,6 +11,7 @@ import RxSwift
 protocol ICampaignsMutableRepository {
     func save(campaigns: [ICampaign]) -> Observable<[ICampaign]>
     func deleteAll()
+    func updateLogo(id: Int, data: Data)
 }
 
 protocol ICampaignsImmutableRepository {

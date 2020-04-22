@@ -62,7 +62,7 @@ class ApiController: IApiController {
                       headers: [String: String] = DefaultHeadersFactory.make().createHeaders(),
                       responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
     
-        let url = base.appendingPathComponent(pathComponent)
+        let url = (pathComponent != "") ? base.appendingPathComponent(pathComponent) : base
         
         var request = URLRequest(url: url)
         

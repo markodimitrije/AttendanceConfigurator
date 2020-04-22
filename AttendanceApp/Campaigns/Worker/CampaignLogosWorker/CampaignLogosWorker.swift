@@ -15,16 +15,19 @@ extension CampaignLogosWorker: ICampaignLogosWorker {
         let campaignsLogosArr = timedLogoUpdateInfos.flatMap { (logoInfo) in
             self.downloadImageApi.fetchImage(url: logoInfo.url).map {(logoInfo.id, $0)}
         }
-        campaignsLogosArr // TODO marko - implement
+        campaignsLogosArr
+            .debug() // TODO marko - implement
             .subscribe(onNext: { info in
-                print("imam data za id = \(info.0)")
-            })
+                //print("imam data za id = \(info.0)")
+                self.campaignsRepo.updateLogo(id: info.0, data: info.1)
+            }).disposed(by: bag)
     }
 }
 
 class CampaignLogosWorker {
     private let campaignsRepo: ICampaignsRepository
     private let downloadImageApi: IDownloadImageAPI
+    private let bag = DisposeBag()
     init(campaignsRepo: ICampaignsRepository, downloadImageApi: IDownloadImageAPI) {
         self.campaignsRepo = campaignsRepo
         self.downloadImageApi = downloadImageApi
