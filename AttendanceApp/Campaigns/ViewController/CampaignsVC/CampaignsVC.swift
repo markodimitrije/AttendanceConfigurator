@@ -12,7 +12,7 @@ import RxDataSources
 
 class CampaignsVC: UIViewController, Storyboarded {
     
-    var campaignsViewModel: ICampaignsViewModel!
+    var viewModel: ICampaignsViewModel!
     var logoutWorker: ILogoutWorker!
     var navBarConfigurator: INavigBarConfigurator!
     var alertInfo: AlertInfo!
@@ -29,7 +29,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        campaignsViewModel.refreshCampaigns()
+        viewModel.refreshCampaigns()
     }
     
     @objc func logoutTap() {
@@ -50,7 +50,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
     private func bindCampaignsViewModel() {
-        campaignsViewModel.getCampaigns()
+        viewModel.getCampaigns()
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
                 guard let cell = cell as? CampaignTableViewCell else {
                     return
@@ -58,6 +58,14 @@ class CampaignsVC: UIViewController, Storyboarded {
                 cell.update(item: item)
             }
             .disposed(by: bag)
+        Observable
+        .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
+        .bind { [weak self] indexPath, item in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+            print("open scanning screen for campaignId = \(item.id)") // TODO marko
+//            self?.present(Router.getSyncDataViewController(conferenceId: ConferenceId(value: event.id)), animated: true)
+        }
+        .disposed(by: bag)
         
     }
     
