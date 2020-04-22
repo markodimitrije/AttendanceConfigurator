@@ -15,7 +15,7 @@ extension CampaignLogosWorker: ICampaignLogosWorker {
         let campaignsLogosArr = timedLogoUpdateInfos.flatMap { (logoInfo) in
             self.downloadImageApi.fetchImage(url: logoInfo.url).map {(logoInfo.id, $0)}
         }
-        campaignsLogosArr
+        campaignsLogosArr // TODO marko - implement
             .subscribe(onNext: { info in
                 print("imam data za id = \(info.0)")
             })
