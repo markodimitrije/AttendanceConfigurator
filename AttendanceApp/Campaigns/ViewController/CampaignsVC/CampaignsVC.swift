@@ -24,6 +24,7 @@ class CampaignsVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         self.bindCampaignsViewModel()
         navBarConfigurator.configure(navigationItem: navigationItem, viewController: self)
+        registerTableViewCells()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,13 +50,19 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
     private func bindCampaignsViewModel() {
-        
         campaignsViewModel.getCampaigns()
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
-                cell.textLabel?.text = item.title
-                cell.detailTextLabel?.text = item.description
+                guard let cell = cell as? CampaignTableViewCell else {
+                    return
+                }
+                cell.update(item: item)
             }
             .disposed(by: bag)
+        
+    }
+    
+    private func registerTableViewCells() {
+        tableView.register(UINib.init(nibName: "CampaignTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
     
 }

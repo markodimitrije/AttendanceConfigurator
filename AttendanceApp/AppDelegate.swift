@@ -40,9 +40,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func loadInitialScreen() {
-        let rootVC = LoginViewControllerFactory.make()
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: rootVC)
+        window?.rootViewController = InitialScreenFactory.make()
         window?.makeKeyAndVisible()
+    }
+}
+
+class InitialScreenFactory {
+    static func make() -> UINavigationController {
+        let userState = UserStateRepository()
+        let loginVC = LoginViewControllerFactory.make()
+        let rootVC = UINavigationController(rootViewController: loginVC)
+        if userState.getToken().token == "" {
+            return rootVC
+        } else {
+            let campaignsVC = CampaignsViewControllerFactory.make()
+            rootVC.pushViewController(campaignsVC, animated: false)
+            return rootVC
+        }
     }
 }
