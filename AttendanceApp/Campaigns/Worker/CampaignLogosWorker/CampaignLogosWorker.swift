@@ -18,7 +18,7 @@ extension CampaignLogosWorker: ICampaignLogosWorker {
         campaignsLogosArr
             .debug() // TODO marko - implement
             .subscribe(onNext: { info in
-                //print("imam data za id = \(info.0)")
+                print("imam data za id = \(info.0)")
                 self.campaignsRepo.updateLogo(id: info.0, data: info.1)
             }).disposed(by: bag)
     }

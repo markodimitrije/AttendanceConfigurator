@@ -9,7 +9,7 @@
 import UIKit
 
 struct CampaignItem: ICampaignItem {
-    var id: Int
+    var id: String
     var title: String
     var description: String
     var image: UIImage

@@ -31,7 +31,7 @@ extension CampaignsRepository: ICampaignsRepository {
         let results = realm.objects(RealmCampaign.self).filter("imgData == nil").toArray()
         return results.compactMap { LogoUpdateInfo(id: $0.id, address: $0.logo) }
     }
-    func updateLogo(id: Int, data: Data) {
+    func updateLogo(id: String, data: Data) {
         let realm = try! Realm()
         let campaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: id)
         try? realm.write {

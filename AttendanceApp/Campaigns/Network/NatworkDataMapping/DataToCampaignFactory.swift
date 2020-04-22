@@ -36,6 +36,6 @@ class DataToCampaignFactory: IDataToCampaignFactory {
         else {
             return nil
         }
-        return Campaign(id: id, name: name, description: description, logo: logo, createdAt: createdAt, image: nil)
+        return Campaign(id: "\(id)", name: name, description: description, logo: logo, createdAt: createdAt, image: nil)
     }
 }

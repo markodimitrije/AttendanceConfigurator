@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ICampaign {
-    var id: Int {get set}
+    var id: String {get set}
     var name: String {get set}
     var description: String {get set}
     var logo: String {get set}

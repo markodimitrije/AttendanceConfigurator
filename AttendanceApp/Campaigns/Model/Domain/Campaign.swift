@@ -9,7 +9,7 @@
 import UIKit
 
 struct Campaign: ICampaign {
-    var id = 0
+    var id = ""
     var name = ""
     var description = ""
     var logo = ""

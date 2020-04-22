@@ -11,7 +11,7 @@ import RxSwift
 protocol ICampaignsMutableRepository {
     func save(campaigns: [ICampaign]) -> Observable<[ICampaign]>
     func deleteAll()
-    func updateLogo(id: Int, data: Data)
+    func updateLogo(id: String, data: Data)
 }
 
 protocol ICampaignsImmutableRepository {
@@ -22,14 +22,14 @@ protocol ICampaignsImmutableRepository {
 protocol ICampaignsRepository: ICampaignsMutableRepository, ICampaignsImmutableRepository {}
 
 protocol ILogoUpdateInfo {
-    var id: Int {get}
+    var id: String {get}
     var url: URL {get}
 }
 
 struct LogoUpdateInfo: ILogoUpdateInfo {
-    var id: Int
+    var id: String
     var url: URL
-    init?(id: Int, address: String) {
+    init?(id: String, address: String) {
         guard let url = URL(string: address) else {
             return nil
         }
