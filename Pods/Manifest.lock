@@ -1,5 +1,6 @@
 PODS:
   - Differentiator (3.1.0)
+  - Kingfisher (4.10.1)
   - ReachabilitySwift (4.0.0)
   - Realm (3.21.0):
     - Realm/Headers (= 3.21.0)
@@ -28,6 +29,7 @@ PODS:
   - Zip (1.1.0)
 
 DEPENDENCIES:
+  - Kingfisher
   - ReachabilitySwift (~> 4.0.0)
   - RealmSwift
   - RxCocoa
@@ -41,6 +43,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Differentiator
+    - Kingfisher
     - ReachabilitySwift
     - Realm
     - RealmSwift
@@ -56,6 +59,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   ReachabilitySwift: e67b2cab4d5386053673d8a7421b5981e5f08259
   Realm: 38e9dcb19104b58407167d99f70d4995f7c16023
   RealmSwift: 3183cc1ad48378fbcd634311b22c0e6c44021152
@@ -69,6 +73,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Zip: 8877eede3dda76bcac281225c20e71c25270774c
 
-PODFILE CHECKSUM: ff6edbc37796db894b4690c2b178b3c97ac41917
+PODFILE CHECKSUM: 831df04b974c3b26c2c9a2dcaefe7194878be3f3
 
 COCOAPODS: 1.6.1

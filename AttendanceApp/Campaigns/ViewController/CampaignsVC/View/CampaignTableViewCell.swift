@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol ICampaignCellUpdate {
     func update(item: ICampaignItem)
@@ -14,9 +15,10 @@ protocol ICampaignCellUpdate {
 
 extension CampaignTableViewCell: ICampaignCellUpdate {
     func update(item: ICampaignItem) {
-        self.imageView?.image = item.image
-        self.titleLbl?.text = item.title
-        self.descLbl?.text = item.description
+        
+        imgView.image = item.image
+        titleLbl.text = item.title
+        descLbl.text = item.description
     }
 }
 
@@ -28,12 +30,6 @@ class CampaignTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
