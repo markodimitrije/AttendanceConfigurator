@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WebReportedCodesVC: UIViewController {
+class WebReportedCodesVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     

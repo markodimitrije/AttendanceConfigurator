@@ -23,7 +23,10 @@ class ScannerViewController: UIViewController, Storyboarded {
     @IBOutlet weak var sessionTimeAndRoomLbl: UILabel!
     
     @IBAction func settingsBtnTapped(_ sender: UIButton) {
-        navigateToNextScreen()
+        navigateToSettingsScreen()
+    }
+    @IBAction func reportsBtnTapped(_ sender: UIButton) {
+        navigateToReportsScreen()
     }
     
     var viewModel: ScannerViewModel!
@@ -75,9 +78,14 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     // MARK:- To next screen
     
-    private func navigateToNextScreen() {
+    private func navigateToSettingsScreen() {
         let settingsVC = SettingsViewControllerFactory.make()
         let nextVC = UINavigationController(rootViewController: settingsVC)
+        self.present(nextVC, animated: true)
+    }
+    private func navigateToReportsScreen() {
+        let reportsVC = WebReportedCodesVCFactory.make()
+        let nextVC = UINavigationController(rootViewController: reportsVC)
         self.present(nextVC, animated: true)
     }
     

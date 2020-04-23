@@ -1,5 +1,5 @@
 //
-//  SettingsVC.swift
+//  SettingsViewController.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 20/10/2018.
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SettingsVC: UITableViewController {
+class SettingsViewController: UITableViewController, Storyboarded {
 
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var roomLbl: UILabel!

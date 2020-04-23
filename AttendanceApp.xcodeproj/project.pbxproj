@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
+		7C082A5F245187CC007424E8 /* WebReportedCodesVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */; };
+		7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */; };
+		7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */; };
 		7C13EAB62450BBA100F3D8E8 /* ScannerViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */; };
 		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
@@ -35,6 +38,8 @@
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
 		7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */; };
+		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
+		7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */; };
 		7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */; };
 		7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
@@ -278,7 +283,7 @@
 		AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F001217DE65C003CEDD0 /* ModelData.swift */; };
 		AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AAE217B9D2000803BE2 /* BlocksVC.swift */; };
 		AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */; };
-		AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB4217BC6C000803BE2 /* SettingsVC.swift */; };
+		AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */; };
 		AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */; };
 		AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */; };
 		AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */; };
@@ -311,6 +316,9 @@
 		4CDE23CC13BE03E3BB6C67F5 /* Pods-AttendanceAppUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVCFactory.swift; sourceTree = "<group>"; };
+		7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
+		7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController_iPad.storyboard; sourceTree = "<group>"; };
 		7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
@@ -337,6 +345,8 @@
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidationFactory.swift; sourceTree = "<group>"; };
+		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
+		7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC_iPad.storyboard; sourceTree = "<group>"; };
 		7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
 		7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
@@ -584,7 +594,7 @@
 		AD80F001217DE65C003CEDD0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		AD993AAE217B9D2000803BE2 /* BlocksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksVC.swift; sourceTree = "<group>"; };
 		AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModel.swift; sourceTree = "<group>"; };
-		AD993AB4217BC6C000803BE2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStateManager.swift; sourceTree = "<group>"; };
 		AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStateReporter.swift; sourceTree = "<group>"; };
 		AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStateReporter.swift; sourceTree = "<group>"; };
@@ -995,6 +1005,9 @@
 			isa = PBXGroup;
 			children = (
 				7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */,
+				7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */,
+				7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */,
+				7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */,
 				7C5ED626243B525D00FEEAAE /* WebReportedCodesDataSource */,
 			);
 			path = WebReportedCodesVC;
@@ -1938,8 +1951,10 @@
 			isa = PBXGroup;
 			children = (
 				7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */,
-				AD993AB4217BC6C000803BE2 /* SettingsVC.swift */,
+				AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */,
 				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
+				7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */,
+				7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */,
 				7C55BA63242AB581005BF038 /* DatesVC */,
 				7C55BA5B242A9029005BF038 /* RoomsVC */,
 				7C55BA60242AA427005BF038 /* BlocksVC */,
@@ -2194,14 +2209,18 @@
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
+				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
 				7CC9DD432448C23B0035B2AE /* CampaignsVC.storyboard in Resources */,
 				7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */,
+				7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */,
+				7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
+				7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
@@ -2326,6 +2345,7 @@
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C81677A244B4EB70059BDA1 /* ILogoutRemoteApi.swift in Sources */,
+				7C082A5F245187CC007424E8 /* WebReportedCodesVCFactory.swift in Sources */,
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
 				7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */,
 				7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */,
@@ -2482,7 +2502,7 @@
 				7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
 				7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */,
-				AD993AB5217BC6C000803BE2 /* SettingsVC.swift in Sources */,
+				AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
 				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,

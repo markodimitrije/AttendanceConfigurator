@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Synced codes-->
+        <scene sceneID="4S9-rn-ag7">
+            <objects>
+                <viewController storyboardIdentifier="WebReportedCodesVC" id="Zbt-AD-HJH" customClass="WebReportedCodesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hn0-Ed-G7a"/>
+                        <viewControllerLayoutGuide type="bottom" id="AgF-xh-xAu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dfR-Sx-P93">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ve-ko-8Ka">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="jbA-Cq-tvQ">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jbA-Cq-tvQ" id="Tka-Ed-MTf">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="bottom" secondItem="AgF-xh-xAu" secondAttribute="top" id="0Nt-eO-tZB"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="trailing" secondItem="dfR-Sx-P93" secondAttribute="trailing" id="9SZ-b7-aLx"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="top" secondItem="hn0-Ed-G7a" secondAttribute="bottom" id="RAL-RC-sbK"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="leading" secondItem="dfR-Sx-P93" secondAttribute="leading" id="nEn-S8-dfs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="K0e-9H-stI"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Synced codes" id="zcF-D5-Fx0"/>
+                    <connections>
+                        <outlet property="tableView" destination="9ve-ko-8Ka" id="I8w-9W-VPa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JyQ-uo-QxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69" y="1174"/>
+        </scene>
+    </scenes>
+</document>

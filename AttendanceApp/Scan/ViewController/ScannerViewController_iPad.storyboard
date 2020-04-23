@@ -98,6 +98,9 @@
                                             <constraint firstAttribute="width" constant="44" id="xT0-mi-mMw"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="qrCode"/>
+                                        <connections>
+                                            <action selector="reportsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="XSO-F9-0dc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

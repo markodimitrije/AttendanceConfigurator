@@ -11,17 +11,18 @@ import RxSwift
 import RxCocoa
 
 class SettingsViewControllerFactory {
-    static func make() -> SettingsVC {
-        let settingsVC = UIStoryboard.main.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
-        settingsVC.settingsViewModel = SettingsViewModelFactory.make()
+    static func make() -> SettingsViewController {
         
+        let settingsVC = StoryboardedViewControllerFactory.make(type: SettingsViewController.self) as! SettingsViewController
+        settingsVC.settingsViewModel = SettingsViewModelFactory.make()
+
         attachExternalInputSignals(toSettingsVC: settingsVC)
         attachOutputSignal(toSettingsVC: settingsVC)
         
         return settingsVC
     }
     
-    private static func attachExternalInputSignals(toSettingsVC settingsVC: SettingsVC) {
+    private static func attachExternalInputSignals(toSettingsVC settingsVC: SettingsViewController) {
         settingsVC.dateSelected = {
             let date = DataAccess.shared.userSelection.selectedDate
             return BehaviorRelay<Date?>.init(value: date)
@@ -36,7 +37,7 @@ class SettingsViewControllerFactory {
         }()
     }
     
-    private static func attachOutputSignal(toSettingsVC settingsVC: SettingsVC) {
+    private static func attachOutputSignal(toSettingsVC settingsVC: SettingsViewController) {
         settingsVC.sessionSelected = {
             let blockId = DataAccess.shared.userSelection.blockId
             return BehaviorSubject<Int?>.init(value: blockId)

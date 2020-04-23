@@ -88,6 +88,9 @@
                                             <constraint firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="yqL-eE-I35"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="qrCode"/>
+                                        <connections>
+                                            <action selector="reportsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="B1e-kc-n25"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

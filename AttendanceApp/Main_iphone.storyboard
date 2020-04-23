@@ -134,9 +134,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kUY-OH-lrd" kind="relationship" relationship="rootViewController" id="eGi-kN-vFZ"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePS-Yu-u09" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -318,10 +315,10 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="1145.577211394303"/>
         </scene>
-        <!--SettingsVC-->
+        <!--Settings View Controller-->
         <scene sceneID="Cri-Xx-bie">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsVC" id="kUY-OH-lrd" customClass="SettingsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsVC" id="kUY-OH-lrd" customClass="SettingsViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="44" sectionHeaderHeight="44" estimatedSectionHeaderHeight="44" sectionFooterHeight="1" id="Lzk-he-NQD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
