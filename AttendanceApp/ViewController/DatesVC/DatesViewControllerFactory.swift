@@ -9,9 +9,9 @@
 import UIKit
 
 class DatesViewControllerFactory {
-    static func make() -> DatesVC {
-        let sb = MainStoryboardFactory.make()
-        let datesVC = sb.instantiateViewController(withIdentifier: "DatesVC") as! DatesVC
+    static func make() -> DatesViewController {
+        
+        let datesVC = StoryboardedViewControllerFactory.make(type: DatesViewController.self) as! DatesViewController
         let blockRepo = BlockImmutableRepositoryFactory.make()
         datesVC.datesViewmodel = DatesViewmodel(blockRepo: blockRepo)
         return datesVC

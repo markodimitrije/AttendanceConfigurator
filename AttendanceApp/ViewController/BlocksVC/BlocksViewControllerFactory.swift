@@ -9,9 +9,9 @@
 import UIKit
 
 class BlocksViewControllerFactory {
-    static func make(roomId: Int, selDate: Date?) -> BlocksVC {
-        let sb = MainStoryboardFactory.make()
-        let blocksVC = sb.instantiateViewController(withIdentifier: "BlocksVC") as! BlocksVC
+    static func make(roomId: Int, selDate: Date?) -> BlocksViewController {
+        
+        let blocksVC = StoryboardedViewControllerFactory.make(type: BlocksViewController.self) as! BlocksViewController
         blocksVC.blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: selDate)
         
         return blocksVC

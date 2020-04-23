@@ -1,5 +1,5 @@
 //
-//  DatesVC.swift
+//  DatesViewController.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 29/04/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import RxCocoa
 
-class DatesVC: UIViewController {
+class DatesViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +22,7 @@ class DatesVC: UIViewController {
 
 }
 
-extension DatesVC: UITableViewDataSource {// , UITableViewDelegate {
+extension DatesViewController: UITableViewDataSource {// , UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

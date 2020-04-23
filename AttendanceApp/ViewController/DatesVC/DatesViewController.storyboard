@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vAI-G7-4ga">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dates View Controller-->
+        <scene sceneID="1cY-ER-7Pe">
+            <objects>
+                <viewController storyboardIdentifier="DatesViewController" id="vAI-G7-4ga" customClass="DatesViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h3f-3O-EX3"/>
+                        <viewControllerLayoutGuide type="bottom" id="FzL-XU-CsI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PAB-GN-pq2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UXn-de-cpf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="6l6-5o-85h" style="IBUITableViewCellStyleDefault" id="Qai-7h-Wfd">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qai-7h-Wfd" id="d0p-cS-uin">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6l6-5o-85h">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UXn-de-cpf" firstAttribute="top" secondItem="PAB-GN-pq2" secondAttribute="top" id="7Gm-RT-Rtq"/>
+                            <constraint firstItem="UXn-de-cpf" firstAttribute="trailing" secondItem="PAB-GN-pq2" secondAttribute="trailing" id="9cY-dd-2S8"/>
+                            <constraint firstItem="UXn-de-cpf" firstAttribute="leading" secondItem="PAB-GN-pq2" secondAttribute="leading" id="cFC-5c-Eb6"/>
+                            <constraint firstItem="UXn-de-cpf" firstAttribute="bottom" secondItem="FzL-XU-CsI" secondAttribute="top" id="dPj-9R-1B5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B7Y-93-th7"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DWo-pd-bfT"/>
+                    <connections>
+                        <outlet property="tableView" destination="UXn-de-cpf" id="UCo-0T-4C9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QJe-aP-6Y4" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2548" y="1145"/>
+        </scene>
+    </scenes>
+</document>

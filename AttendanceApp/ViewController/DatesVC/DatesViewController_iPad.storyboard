@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="55L-CO-k5M">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dates View Controller-->
+        <scene sceneID="Yqs-lN-q4c">
+            <objects>
+                <viewController storyboardIdentifier="DatesViewController" id="55L-CO-k5M" customClass="DatesViewController" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ABa-Lh-OkN"/>
+                        <viewControllerLayoutGuide type="bottom" id="zKN-xZ-otZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K50-p4-54v">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zqh-KR-Clv">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="tUX-mx-3fn" style="IBUITableViewCellStyleDefault" id="bT1-uK-Agz">
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bT1-uK-Agz" id="fus-Rh-B1g">
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUX-mx-3fn">
+                                                    <rect key="frame" x="15" y="0.0" width="994" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Zqh-KR-Clv" firstAttribute="trailing" secondItem="K50-p4-54v" secondAttribute="trailing" id="2Jd-jm-E2F"/>
+                            <constraint firstItem="Zqh-KR-Clv" firstAttribute="bottom" secondItem="zKN-xZ-otZ" secondAttribute="top" id="YGk-pG-CJ7"/>
+                            <constraint firstItem="Zqh-KR-Clv" firstAttribute="leading" secondItem="K50-p4-54v" secondAttribute="leading" id="dAZ-zv-I6M"/>
+                            <constraint firstItem="Zqh-KR-Clv" firstAttribute="top" secondItem="K50-p4-54v" secondAttribute="top" id="tez-kB-F8N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LZ5-77-RHb"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eYl-s4-lDK"/>
+                    <connections>
+                        <outlet property="tableView" destination="Zqh-KR-Clv" id="u3X-eb-rCA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Lk-Vp-zRL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="526" y="506"/>
+        </scene>
+    </scenes>
+</document>

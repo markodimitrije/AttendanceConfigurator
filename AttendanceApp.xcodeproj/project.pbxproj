@@ -12,6 +12,8 @@
 		7C082A5F245187CC007424E8 /* WebReportedCodesVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */; };
 		7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */; };
 		7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */; };
+		7C082A65245194AE007424E8 /* RoomsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A64245194AE007424E8 /* RoomsViewController.storyboard */; };
+		7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A66245194B5007424E8 /* RoomsViewController_iPad.storyboard */; };
 		7C13EAB62450BBA100F3D8E8 /* ScannerViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */; };
 		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C2DD5F2243208790037A57E /* RoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DD5F1243208790037A57E /* RoomApiController.swift */; };
@@ -156,7 +158,7 @@
 		7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */; };
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
 		7C855DA4229C078A00E4C985 /* DelegatesSessionValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* DelegatesSessionValidation.swift */; };
-		7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */; };
+		7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
 		7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */; };
@@ -243,6 +245,10 @@
 		7CF3018D244DF18F0055174D /* ICampaignItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF3018C244DF18F0055174D /* ICampaignItem.swift */; };
 		7CF3018F244DF38B0055174D /* CampaignsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF3018E244DF38B0055174D /* CampaignsViewModelFactory.swift */; };
 		7CF30191244DF4D10055174D /* CampaignItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF30190244DF4D10055174D /* CampaignItem.swift */; };
+		7CF874A22451961500C39AEF /* BlocksViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF874A12451961500C39AEF /* BlocksViewController.storyboard */; };
+		7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF874A32451962000C39AEF /* BlocksViewController_iPad.storyboard */; };
+		7CF874A62451975800C39AEF /* DatesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF874A52451975700C39AEF /* DatesViewController.storyboard */; };
+		7CF874A82451975F00C39AEF /* DatesViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF874A72451975F00C39AEF /* DatesViewController_iPad.storyboard */; };
 		7CFDEC4F242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC4E242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift */; };
 		7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */; };
 		7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */; };
@@ -259,7 +265,7 @@
 		AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD24E30B21807243008E35F8 /* ModelStructsAndNamespaces.swift */; };
 		AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD28F6F02182122200A41BB8 /* RxExtensions.swift */; };
 		AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */; };
-		AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsVC.swift */; };
+		AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsViewController.swift */; };
 		AD295225217B5B24002DDE32 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD295220217B5B24002DDE32 /* APIController.swift */; };
 		AD295227217B5C64002DDE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD295226217B5C64002DDE32 /* Main.storyboard */; };
 		AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */; };
@@ -281,7 +287,7 @@
 		AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFFB217DCE27003CEDD0 /* Block.swift */; };
 		AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80EFFD217DD87D003CEDD0 /* ScannerViewController.swift */; };
 		AD80F002217DE65C003CEDD0 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD80F001217DE65C003CEDD0 /* ModelData.swift */; };
-		AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AAE217B9D2000803BE2 /* BlocksVC.swift */; };
+		AD993AAF217B9D2000803BE2 /* BlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AAE217B9D2000803BE2 /* BlocksViewController.swift */; };
 		AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */; };
 		AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */; };
 		AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */; };
@@ -319,6 +325,8 @@
 		7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVCFactory.swift; sourceTree = "<group>"; };
 		7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController_iPad.storyboard; sourceTree = "<group>"; };
+		7C082A64245194AE007424E8 /* RoomsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomsViewController.storyboard; sourceTree = "<group>"; };
+		7C082A66245194B5007424E8 /* RoomsViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomsViewController_iPad.storyboard; sourceTree = "<group>"; };
 		7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C2DD5F1243208790037A57E /* RoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomApiController.swift; sourceTree = "<group>"; };
@@ -465,7 +473,7 @@
 		7C8361732436724F00DB1F59 /* ISyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* DelegatesSessionValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidation.swift; sourceTree = "<group>"; };
-		7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesVC.swift; sourceTree = "<group>"; };
+		7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
 		7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockProviderWorker.swift; sourceTree = "<group>"; };
@@ -552,6 +560,10 @@
 		7CF3018C244DF18F0055174D /* ICampaignItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignItem.swift; sourceTree = "<group>"; };
 		7CF3018E244DF38B0055174D /* CampaignsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelFactory.swift; sourceTree = "<group>"; };
 		7CF30190244DF4D10055174D /* CampaignItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignItem.swift; sourceTree = "<group>"; };
+		7CF874A12451961500C39AEF /* BlocksViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlocksViewController.storyboard; sourceTree = "<group>"; };
+		7CF874A32451962000C39AEF /* BlocksViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlocksViewController_iPad.storyboard; sourceTree = "<group>"; };
+		7CF874A52451975700C39AEF /* DatesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatesViewController.storyboard; sourceTree = "<group>"; };
+		7CF874A72451975F00C39AEF /* DatesViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DatesViewController_iPad.storyboard; sourceTree = "<group>"; };
 		7CFDEC4E242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmutableBlockRepositoryTest.swift; sourceTree = "<group>"; };
 		7CFDEC50242CBC240060A2C7 /* RealmBlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmBlockFactory.swift; sourceTree = "<group>"; };
 		7CFDEC52242CC1D00060A2C7 /* RealmRoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRoomFactory.swift; sourceTree = "<group>"; };
@@ -568,7 +580,7 @@
 		AD24E30B21807243008E35F8 /* ModelStructsAndNamespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelStructsAndNamespaces.swift; sourceTree = "<group>"; };
 		AD28F6F02182122200A41BB8 /* RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
 		AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysExtensions.swift; sourceTree = "<group>"; };
-		AD29521F217B5B23002DDE32 /* RoomsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsVC.swift; sourceTree = "<group>"; };
+		AD29521F217B5B23002DDE32 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		AD295220217B5B24002DDE32 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AD295226217B5C64002DDE32 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
@@ -592,7 +604,7 @@
 		AD80EFFB217DCE27003CEDD0 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 		AD80EFFD217DD87D003CEDD0 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		AD80F001217DE65C003CEDD0 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		AD993AAE217B9D2000803BE2 /* BlocksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksVC.swift; sourceTree = "<group>"; };
+		AD993AAE217B9D2000803BE2 /* BlocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewController.swift; sourceTree = "<group>"; };
 		AD993AB2217BAA8800803BE2 /* BlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewModel.swift; sourceTree = "<group>"; };
 		AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AD9FE5B121AEB17C00D6A4B6 /* BatteryStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStateManager.swift; sourceTree = "<group>"; };
@@ -824,7 +836,9 @@
 			isa = PBXGroup;
 			children = (
 				7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */,
-				AD29521F217B5B23002DDE32 /* RoomsVC.swift */,
+				AD29521F217B5B23002DDE32 /* RoomsViewController.swift */,
+				7C082A64245194AE007424E8 /* RoomsViewController.storyboard */,
+				7C082A66245194B5007424E8 /* RoomsViewController_iPad.storyboard */,
 				7C6A5EF5243DF13800CD5C9C /* RoomsDataSource */,
 			);
 			path = RoomsVC;
@@ -834,7 +848,9 @@
 			isa = PBXGroup;
 			children = (
 				7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */,
-				AD993AAE217B9D2000803BE2 /* BlocksVC.swift */,
+				AD993AAE217B9D2000803BE2 /* BlocksViewController.swift */,
+				7CF874A12451961500C39AEF /* BlocksViewController.storyboard */,
+				7CF874A32451962000C39AEF /* BlocksViewController_iPad.storyboard */,
 				7C6A5EEC243DC7A400CD5C9C /* BlocksDataSource */,
 			);
 			path = BlocksVC;
@@ -844,7 +860,9 @@
 			isa = PBXGroup;
 			children = (
 				7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */,
-				7C93C9DE2276ED4E00D44A52 /* DatesVC.swift */,
+				7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */,
+				7CF874A52451975700C39AEF /* DatesViewController.storyboard */,
+				7CF874A72451975F00C39AEF /* DatesViewController_iPad.storyboard */,
 			);
 			path = DatesVC;
 			sourceTree = "<group>";
@@ -2211,16 +2229,22 @@
 				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
+				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
+				7C082A65245194AE007424E8 /* RoomsViewController.storyboard in Resources */,
+				7CF874A22451961500C39AEF /* BlocksViewController.storyboard in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
 				ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */,
 				7CC9DD432448C23B0035B2AE /* CampaignsVC.storyboard in Resources */,
 				7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */,
+				7CF874A82451975F00C39AEF /* DatesViewController_iPad.storyboard in Resources */,
 				7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */,
 				7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */,
+				7CF874A62451975800C39AEF /* DatesViewController.storyboard in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
 				7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */,
+				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
@@ -2365,7 +2389,7 @@
 				7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */,
 				ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */,
 				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
-				AD295224217B5B24002DDE32 /* RoomsVC.swift in Sources */,
+				AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */,
 				7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */,
 				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
 				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
@@ -2406,7 +2430,7 @@
 				7C2E5747244EEBC0003EDAC7 /* NetworkResponseHandlerDefault.swift in Sources */,
 				7C2E5737244EDA64003EDAC7 /* CampaignsRemoteApi.swift in Sources */,
 				7C81676D244B48ED0059BDA1 /* LoginNetworkResponseHandler.swift in Sources */,
-				AD993AAF217B9D2000803BE2 /* BlocksVC.swift in Sources */,
+				AD993AAF217B9D2000803BE2 /* BlocksViewController.swift in Sources */,
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
@@ -2443,7 +2467,7 @@
 				7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */,
 				7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */,
 				7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */,
-				7C93C9DF2276ED4E00D44A52 /* DatesVC.swift in Sources */,
+				7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */,
 				7C7DCBD32448B9050072CDAE /* IFieldValidator.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
 				7CD529792433A8F900170D0A /* ReportCodeApiController.swift in Sources */,

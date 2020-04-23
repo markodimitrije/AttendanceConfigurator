@@ -9,9 +9,8 @@
 import UIKit
 
 class RoomsViewControllerFactory {
-    static func make() -> RoomsVC {
-        let sb = MainStoryboardFactory.make()
-        let roomsVC = sb.instantiateViewController(withIdentifier: "RoomsVC") as! RoomsVC
+    static func make() -> RoomsViewController {
+        let roomsVC = StoryboardedViewControllerFactory.make(type: RoomsViewController.self) as! RoomsViewController
         roomsVC.roomViewModel = RoomsViewModelFactory.make()
         return roomsVC
     }

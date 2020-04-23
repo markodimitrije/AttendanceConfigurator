@@ -1,5 +1,5 @@
 //
-//  BlocksVC.swift
+//  BlocksViewController.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 20/10/2018.
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources // ovaj ima rx Sectioned TableView
 
-class BlocksVC: UIViewController {
+class BlocksViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var tableView: UITableView!
         

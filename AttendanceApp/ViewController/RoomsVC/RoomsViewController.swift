@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RoomsViewController.swift
 //  tryObservableWebApiAndRealm
 //
 //  Created by Marko Dimitrijevic on 19/10/2018.
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class RoomsVC: UIViewController {    
+class RoomsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,7 +38,7 @@ class RoomsVC: UIViewController {
     
 }
 
-extension RoomsVC: UITableViewDelegate {
+extension RoomsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedRoom = roomViewModel.getRoom(forSelectedTableIndex: indexPath.item)
         _selectedRoom.onNext(selectedRoom.getId())
