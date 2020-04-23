@@ -55,7 +55,6 @@
 		7C516F7E243C9922002CF6BF /* BlockMutableRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F7D243C9922002CF6BF /* BlockMutableRepositoryFactory.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
-		7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
 		7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */; };
@@ -267,7 +266,6 @@
 		AD295223217B5B24002DDE32 /* AlwaysExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */; };
 		AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsViewController.swift */; };
 		AD295225217B5B24002DDE32 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD295220217B5B24002DDE32 /* APIController.swift */; };
-		AD295227217B5C64002DDE32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD295226217B5C64002DDE32 /* Main.storyboard */; };
 		AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */; };
 		AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */; };
 		AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4CC2D921A5770A00222D5E /* Protocols.swift */; };
@@ -302,7 +300,6 @@
 		ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */; };
 		ADB64DA1217E23C00094EC45 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ADB64DA0217E23C00094EC45 /* Localizable.strings */; };
 		ADBCCB472180973E009D7753 /* AutoSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBCCB462180973E009D7753 /* AutoSessionViewModel.swift */; };
-		ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,7 +365,6 @@
 		7C516F7D243C9922002CF6BF /* BlockMutableRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMutableRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
-		7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStoryboardFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C5785452439E359006531CC /* CodeReportsPayloadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsPayloadFactory.swift; sourceTree = "<group>"; };
@@ -582,7 +578,6 @@
 		AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlwaysExtensions.swift; sourceTree = "<group>"; };
 		AD29521F217B5B23002DDE32 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		AD295220217B5B24002DDE32 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		AD295226217B5C64002DDE32 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
 		AD4CC2D921A5770A00222D5E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -619,7 +614,6 @@
 		ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoSelectSessionsView.xib; sourceTree = "<group>"; };
 		ADB64DA0217E23C00094EC45 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		ADBCCB462180973E009D7753 /* AutoSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionViewModel.swift; sourceTree = "<group>"; };
-		ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iphone.storyboard; sourceTree = "<group>"; };
 		DB29C2528ED7B82B27229055 /* Pods-AttendanceAppUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		EA4E16C46501ABC783E1A167 /* Pods-AttendanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1968,7 +1962,6 @@
 		AD295229217B5E77002DDE32 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7C55BA5E242A9076005BF038 /* MainStoryboardFactory.swift */,
 				AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */,
 				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
 				7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */,
@@ -2057,8 +2050,6 @@
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
 				7CAE889622E87EF100632EAC /* Launch Screen.xib */,
 				ADB64DA0217E23C00094EC45 /* Localizable.strings */,
-				ADDAFFB2225B92B600BA2152 /* Main_iphone.storyboard */,
-				AD295226217B5C64002DDE32 /* Main.storyboard */,
 				AD29522B217B5E98002DDE32 /* Model */,
 				AD80F000217DE651003CEDD0 /* ModelData */,
 				7C2E5745244EEBB3003EDAC7 /* Network */,
@@ -2226,7 +2217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
-				AD295227217B5C64002DDE32 /* Main.storyboard in Resources */,
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
@@ -2246,7 +2236,6 @@
 				7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */,
 				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
-				ADDAFFB3225B92B600BA2152 /* Main_iphone.storyboard in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
@@ -2546,7 +2535,6 @@
 				7C855DA4229C078A00E4C985 /* DelegatesSessionValidation.swift in Sources */,
 				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */,
-				7C55BA5F242A9076005BF038 /* MainStoryboardFactory.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportSessionApiControllerFactory.swift in Sources */,

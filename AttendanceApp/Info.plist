@@ -29,10 +29,6 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>In order to scan barcodes, AttendanceApp would like to use your camera</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>Main</string>
-	<key>UIMainStoryboardFile~iphone</key>
-	<string>Main_iphone</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
