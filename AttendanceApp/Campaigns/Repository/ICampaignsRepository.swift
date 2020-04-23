@@ -29,9 +29,10 @@ protocol ILogoUpdateInfo {
 struct LogoUpdateInfo: ILogoUpdateInfo {
     var id: String
     var url: URL
-    init?(id: String, address: String) {
-        guard let url = URL(string: address) else {
-            return nil
+    init?(id: String, address: String?) {
+        guard let address = address,
+            let url = URL(string: address) else {
+                return nil
         }
         self.id = id
         self.url = url

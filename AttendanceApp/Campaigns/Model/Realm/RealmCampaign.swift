@@ -12,9 +12,13 @@ class RealmCampaign: Object {
     
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
-    @objc dynamic var desc: String = ""
-    @objc dynamic var logo: String = ""
+    @objc dynamic var desc: String?
+    @objc dynamic var logo: String?
+    @objc dynamic var conferenceId: Int = 0
+    @objc dynamic var restrictedAccess: Bool = false
     @objc dynamic var createdAt: Date = Date.init(timeIntervalSince1970: 0)
+    @objc dynamic var updatedAt: Date?
+    @objc dynamic var deletedAt: Date?
     @objc dynamic var imgData: Data?
     
     override static func primaryKey() -> String? {

@@ -241,7 +241,6 @@
 		7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CED41BB2268827700FFB34E /* CodeReport.swift */; };
 		7CEEA2E7243CB045006FCDDB /* BlockMutableRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */; };
 		7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */; };
-		7CF3018A244DED030055174D /* CampaignsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF30189244DED030055174D /* CampaignsRepositoryMock.swift */; };
 		7CF3018D244DF18F0055174D /* ICampaignItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF3018C244DF18F0055174D /* ICampaignItem.swift */; };
 		7CF3018F244DF38B0055174D /* CampaignsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF3018E244DF38B0055174D /* CampaignsViewModelFactory.swift */; };
 		7CF30191244DF4D10055174D /* CampaignItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF30190244DF4D10055174D /* CampaignItem.swift */; };
@@ -553,7 +552,6 @@
 		7CED41BB2268827700FFB34E /* CodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReport.swift; sourceTree = "<group>"; };
 		7CEEA2E6243CB045006FCDDB /* BlockMutableRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMutableRepositoryTest.swift; sourceTree = "<group>"; };
 		7CEEA2E8243CD30F006FCDDB /* BlocksDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksDataSourceFactory.swift; sourceTree = "<group>"; };
-		7CF30189244DED030055174D /* CampaignsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepositoryMock.swift; sourceTree = "<group>"; };
 		7CF3018C244DF18F0055174D /* ICampaignItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignItem.swift; sourceTree = "<group>"; };
 		7CF3018E244DF38B0055174D /* CampaignsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsViewModelFactory.swift; sourceTree = "<group>"; };
 		7CF30190244DF4D10055174D /* CampaignItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignItem.swift; sourceTree = "<group>"; };
@@ -1634,7 +1632,6 @@
 			children = (
 				7C2E5740244EE62F003EDAC7 /* Constants.swift */,
 				7C2E573D244EDD60003EDAC7 /* Error */,
-				7CF30188244DECD00055174D /* TempMock */,
 				7CC9DD5F2448D9000035B2AE /* Network */,
 				7CC9DD4F2448C7FD0035B2AE /* Repository */,
 				7CC9DD4E2448C7F60035B2AE /* Model */,
@@ -1881,14 +1878,6 @@
 				7CD5297F2433AFC200170D0A /* CodeReport */,
 			);
 			path = Report;
-			sourceTree = "<group>";
-		};
-		7CF30188244DECD00055174D /* TempMock */ = {
-			isa = PBXGroup;
-			children = (
-				7CF30189244DED030055174D /* CampaignsRepositoryMock.swift */,
-			);
-			path = TempMock;
 			sourceTree = "<group>";
 		};
 		7CF3018B244DF1850055174D /* CampaignItem */ = {
@@ -2485,7 +2474,6 @@
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
 				7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */,
-				7CF3018A244DED030055174D /* CampaignsRepositoryMock.swift in Sources */,
 				7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */,
 				7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */,
 				7C516F6D243C73E1002CF6BF /* CodeReportsImmutableRepository.swift in Sources */,

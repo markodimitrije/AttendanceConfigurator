@@ -17,7 +17,7 @@ class CampaignItemsFactory {
     static func singleItem(campaign: ICampaign) -> ICampaignItem {
         CampaignItem(id: campaign.id,
                      title: campaign.name,
-                     description: campaign.description,
+                     description: campaign.description ?? "",
                      image: campaign.image ?? CAMPAIGN_DEF_IMG)
     }
     

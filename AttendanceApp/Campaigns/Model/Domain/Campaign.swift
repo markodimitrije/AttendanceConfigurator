@@ -11,8 +11,12 @@ import UIKit
 struct Campaign: ICampaign {
     var id = ""
     var name = ""
-    var description = ""
-    var logo = ""
+    var description: String?
+    var logo: String?
+    var conferenceId: Int
+    var restrictedAccess: Bool
     var createdAt = Date.init(timeIntervalSince1970: 0)
+    var updatedAt: Date?
+    var deletedAt: Date?
     var image: UIImage? = CAMPAIGN_DEF_IMG
 }

@@ -10,7 +10,7 @@ import RxSwift
 
 extension CampaignsRemoteApi: ICampaignsRemoteApi {
     func getCampaigns() -> Observable<[ICampaign]> {
-        let mockUrl = URL(string: "https://bff3365d-8e5a-4f02-b824-8da11ce37caf.mock.pstmn.io/campaigns/3")!
+        let mockUrl = URL(string: "https://bff3365d-8e5a-4f02-b824-8da11ce37caf.mock.pstmn.io/campaigns/4")!
         let headers = DefaultHeadersFactory.make().createHeaders(apiKey: nil)
             return apiController
 //            .buildRequest(pathComponent: "leadlink/campaigns", headers: headers)

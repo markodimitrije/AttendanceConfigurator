@@ -56,6 +56,8 @@ class CampaignFactory {
                         name: realmCampaign.name,
                         description: realmCampaign.desc,
                         logo: realmCampaign.logo,
+                        conferenceId: realmCampaign.conferenceId,
+                        restrictedAccess: realmCampaign.restrictedAccess,
                         createdAt: realmCampaign.createdAt,
                         image: image)
     }
