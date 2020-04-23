@@ -16,7 +16,8 @@ protocol ICampaignCellUpdate {
 extension CampaignTableViewCell: ICampaignCellUpdate {
     func update(item: ICampaignItem) {
         
-        imgView.kf.setImage(with: URL(string: item.logo ?? ""), placeholder: CAMPAIGN_DEF_IMG)
+        //imgView.kf.setImage(with: URL(string: item.logo ?? ""), placeholder: CAMPAIGN_DEF_IMG)
+        imgView.kf.setImage(with: URL(string: item.logo ?? ""))
         titleLbl.text = item.title
         descLbl.text = item.description
     }

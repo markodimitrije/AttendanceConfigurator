@@ -45,6 +45,8 @@ class CampaignFactory {
                         logo: realmCampaign.logo,
                         conferenceId: realmCampaign.conferenceId,
                         restrictedAccess: realmCampaign.restrictedAccess,
-                        createdAt: realmCampaign.createdAt)
+                        createdAt: realmCampaign.createdAt,
+                        updatedAt: realmCampaign.updatedAt,
+                        deletedAt: realmCampaign.deletedAt)
     }
 }
