@@ -293,7 +293,6 @@
 		AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */; };
 		AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */; };
 		ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA47211217F458D0078530E /* ScannerViewModel.swift */; };
-		ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAE9C36218AFDB400615125 /* AlertWithRx.swift */; };
 		ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADAE9C38218B08EA00615125 /* Assets.xcassets */; };
 		ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADB2739C218078DC00345A5E /* UnsyncedScansView.xib */; };
 		ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */; };
@@ -608,7 +607,6 @@
 		AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceStateReporter.swift; sourceTree = "<group>"; };
 		AD9FE5B521AEDE4700D6A4B6 /* AlertStateReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStateReporter.swift; sourceTree = "<group>"; };
 		ADA47211217F458D0078530E /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
-		ADAE9C36218AFDB400615125 /* AlertWithRx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWithRx.swift; sourceTree = "<group>"; };
 		ADAE9C38218B08EA00615125 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADB2739C218078DC00345A5E /* UnsyncedScansView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnsyncedScansView.xib; sourceTree = "<group>"; };
 		ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsyncedScansView.swift; sourceTree = "<group>"; };
@@ -1948,7 +1946,6 @@
 		AD28F6EF2182120A00A41BB8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				ADAE9C35218AFD8700615125 /* AlertWithRx */,
 				AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */,
 				AD28F6F02182122200A41BB8 /* RxExtensions.swift */,
 				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
@@ -2108,14 +2105,6 @@
 				AD24E30B21807243008E35F8 /* ModelStructsAndNamespaces.swift */,
 			);
 			path = ModelData;
-			sourceTree = "<group>";
-		};
-		ADAE9C35218AFD8700615125 /* AlertWithRx */ = {
-			isa = PBXGroup;
-			children = (
-				ADAE9C36218AFDB400615125 /* AlertWithRx.swift */,
-			);
-			path = AlertWithRx;
 			sourceTree = "<group>";
 		};
 		C144544588EC78E4B476DBC2 /* Pods */ = {
@@ -2408,7 +2397,6 @@
 				7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
-				ADAE9C37218AFDB400615125 /* AlertWithRx.swift in Sources */,
 				7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
