@@ -7,9 +7,14 @@
 //
 
 import RxSwift
-import RealmSwift
 
-protocol IDelegatesRepository {
+protocol IDelegatesRepository: IDelegatesMutableRepository, IDelegatesImmutableRepository {}
+
+protocol IDelegatesMutableRepository {
     func save(delegates: [Delegate]) -> Observable<Bool>
     func deleteAllDelegates() -> Observable<Bool>
+}
+
+protocol IDelegatesImmutableRepository {
+    func delegateHasAccessToSession(code: String, sessionId: Int) -> Bool
 }

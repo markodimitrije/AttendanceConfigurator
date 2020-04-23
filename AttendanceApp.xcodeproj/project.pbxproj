@@ -34,6 +34,7 @@
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
+		7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */; };
 		7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */; };
 		7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
@@ -335,6 +336,7 @@
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidationFactory.swift; sourceTree = "<group>"; };
 		7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
 		7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
@@ -1433,6 +1435,7 @@
 			isa = PBXGroup;
 			children = (
 				7C855DA3229C078A00E4C985 /* DelegatesSessionValidation.swift */,
+				7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */,
 			);
 			path = FetchDelegates;
 			sourceTree = "<group>";
@@ -2325,6 +2328,7 @@
 				7C81677A244B4EB70059BDA1 /* ILogoutRemoteApi.swift in Sources */,
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
 				7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */,
+				7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */,
 				7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,

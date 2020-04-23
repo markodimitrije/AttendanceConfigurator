@@ -17,7 +17,10 @@ struct DelegatesRepository: IDelegatesRepository {
     init(genericRepo: IGenericRealmRepository) {
         self.genericRepo = genericRepo
     }
-    
+}
+
+extension DelegatesRepository {
+
     func save(delegates: [Delegate]) -> Observable<Bool> {
         
         let realmDelegates = delegates.map(RealmDelegateFactory.make)
@@ -30,4 +33,19 @@ struct DelegatesRepository: IDelegatesRepository {
         return self.genericRepo.deleteAllObjects(ofTypes: [RealmDelegate.self])
     }
     
+}
+
+extension DelegatesRepository {
+    func delegateHasAccessToSession(code: String, sessionId: Int) -> Bool {
+        guard code.count >= 6 else {
+            return false // hard-coded, odbij ga da nema pravo, a hostese neka ga puste da udje....
+        }
+
+        let trimedToSixCharCode = trimmedToSixCharactersCode(code: code)
+        guard let realm = try? Realm.init(),
+            let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: trimedToSixCharCode) else {
+                return false
+        }
+        return delegate.sessionIds.contains(sessionId)
+    }
 }

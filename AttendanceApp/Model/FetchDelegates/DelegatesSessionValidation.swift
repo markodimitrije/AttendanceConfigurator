@@ -10,37 +10,39 @@ import RealmSwift
 
 // MARK:- Fetch (querry) data
 
-class DelegatesSessionValidation {
-    
-    func isScannedDelegate(withBarcode code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
+protocol IDelegatesSessionValidation {
+    func isScannedDelegate(withBarcode code: String, sessionId: Int) -> Bool
+}
+
+extension DelegatesSessionValidation: IDelegatesSessionValidation {
+    func isScannedDelegate(withBarcode code: String, sessionId: Int) -> Bool {
         
         if isClosedSession(sessionId: sessionId) == false { // free session
             return true
         } else {
-            return delegateHasAccessToSession(code: code, allowedToAttendSessionWithId: sessionId)
+            return delegateHasAccessToSession(code: code, sessionId: sessionId)
         }
+    }
+}
+
+class DelegatesSessionValidation {
+    private let blockRepo: IBlockImmutableRepository
+    private let delegateRepo: IDelegatesImmutableRepository
+    init(blockRepo: IBlockImmutableRepository, delegateRepo: IDelegatesImmutableRepository) {
+        self.blockRepo = blockRepo
+        self.delegateRepo = delegateRepo
     }
     
     private func isClosedSession(sessionId: Int) -> Bool {
-        guard let realm = try? Realm.init(),
-            let session = realm.object(ofType: RealmBlock.self, forPrimaryKey: sessionId) else {
-                return false // fall back, realno je fatalError....
+        
+        guard let session = blockRepo.getBlock(id: sessionId) else {
+            return false
         }
-        return session.closed
+        return session.getClosed()
     }
     
-    private func delegateHasAccessToSession(code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
-
-        guard code.count >= 6 else {
-            return false // hard-coded, odbij ga da nema pravo, a hostese neka ga puste da udje....
-        }
-
-        let trimedToSixCharCode = trimmedToSixCharactersCode(code: code)
-        guard let realm = try? Realm.init(),
-            let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: trimedToSixCharCode) else {
-                return false
-        }
-        return delegate.sessionIds.contains(sessionId)
+    private func delegateHasAccessToSession(code: String, sessionId: Int) -> Bool {
+        delegateRepo.delegateHasAccessToSession(code: code, sessionId: sessionId)
     }
     
 }

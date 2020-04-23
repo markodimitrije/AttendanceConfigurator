@@ -27,6 +27,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     var viewModel: ScannerViewModel!
+    var delegatesSessionValidation: IDelegatesSessionValidation!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
     private var code: String {
@@ -34,12 +35,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     override var shouldAutorotate: Bool { return false }
-    
-    private let delegatesSessionValidation = DelegatesSessionValidation()
-    
     private var scanner: Scanning!
-    
-    // interna upotreba:
     fileprivate let disposeBag = DisposeBag()
     
     // MARK:- Controller Life cycle
@@ -116,7 +112,7 @@ class ScannerViewController: UIViewController, Storyboarded {
         
         // hard-coded off - main event
         if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
-                                                        allowedToAttendSessionWithId: viewModel.sessionId) {
+                                                        sessionId: viewModel.sessionId) {
             delegateIsAllowedToAttendSession(code: code)
         } else {
             delegateAttendanceInvalid(code: code)
