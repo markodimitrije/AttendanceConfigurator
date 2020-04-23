@@ -26,16 +26,16 @@ class ScannerViewController: UIViewController, Storyboarded {
         navigateToNextScreen()
     }
     
-    lazy private var scanerViewModel = ScannerViewModelFactory.make()
+    var viewModel: ScannerViewModel!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
-    var code: String {
+    private var code: String {
         return try! scanedCode.value()
     }
     
     override var shouldAutorotate: Bool { return false }
     
-    private let delegatesSessionValidation = RealmDelegatesSessionValidation()
+    private let delegatesSessionValidation = DelegatesSessionValidation()
     
     private var scanner: Scanning!
     
@@ -47,9 +47,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     override func viewDidLoad() { super.viewDidLoad()
         
         loadScanner()
-        
         sessionConstLbl.text = SessionTextData.sessionConst
-        
         bindUI()
     }
     
@@ -68,12 +66,12 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     private func bindUI() { // glue code for selected Room
         
-        scanerViewModel.scannerInfoDriver
+        viewModel.scannerInfoDriver
             .map {$0.getTitle()}
             .drive(sessionNameLbl.rx.text)
             .disposed(by: disposeBag)
         
-        scanerViewModel.scannerInfoDriver
+        viewModel.scannerInfoDriver
             .map {$0.getDescription()}
             .drive(sessionTimeAndRoomLbl.rx.text)
             .disposed(by: disposeBag)
@@ -118,7 +116,7 @@ class ScannerViewController: UIViewController, Storyboarded {
         
         // hard-coded off - main event
         if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
-                                                        allowedToAttendSessionWithId: scanerViewModel.sessionId) {
+                                                        allowedToAttendSessionWithId: viewModel.sessionId) {
             delegateIsAllowedToAttendSession(code: code)
         } else {
             delegateAttendanceInvalid(code: code)
@@ -134,11 +132,11 @@ class ScannerViewController: UIViewController, Storyboarded {
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
         self.scannerView.addSubview(getArrowImgView(frame: scannerView.bounds, validAttendance: true))
-        self.scanerViewModel.scannedCode(code: code, accepted: true)
+        self.viewModel.scannedCode(code: code, accepted: true)
     }
     
     private func delegateAttendanceInvalid(code: String) {
-        self.scanerViewModel.scannedCode(code: code, accepted: false)
+        self.viewModel.scannedCode(code: code, accepted: false)
         uiEffectsForAttendanceInvalid()
     }
     
@@ -161,7 +159,7 @@ extension ScannerViewController: BarcodeListening {
         
         scanner.stopScanning()
         
-        if scanerViewModel.sessionId != -1 {
+        if viewModel.sessionId != -1 {
             scanditSuccessfull(code: code)
         } else {
             showAlertFailedDueToNoRoomOrSessionSettings()

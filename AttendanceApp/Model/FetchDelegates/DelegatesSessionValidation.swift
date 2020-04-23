@@ -1,20 +1,16 @@
 //
-//  FetchDelegates.swift
+//  DelegatesSessionValidation.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 27/05/2019.
 //  Copyright © 2019 Navus. All rights reserved.
 //
 
-import RxSwift
-import RxCocoa
 import RealmSwift
-import Realm
-import RxRealm
 
 // MARK:- Fetch (querry) data
 
-class RealmDelegatesSessionValidation {
+class DelegatesSessionValidation {
     
     func isScannedDelegate(withBarcode code: String, allowedToAttendSessionWithId sessionId: Int) -> Bool {
         
