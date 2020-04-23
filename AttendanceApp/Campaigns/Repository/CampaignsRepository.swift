@@ -23,7 +23,8 @@ extension CampaignsRepository: ICampaignsRepository {
     }
     func getAll() -> Observable<[ICampaign]> {
         let realm = try! Realm()
-        let obsResults = Observable.collection(from: realm.objects(RealmCampaign.self))
+        let valid = realm.objects(RealmCampaign.self).filter("deletedAt == nil")
+        let obsResults = Observable.collection(from: valid)
         return obsResults.map {$0.toArray().map(CampaignFactory.make)}
     }
     func getLogoUpdateInfos() -> [ILogoUpdateInfo] {

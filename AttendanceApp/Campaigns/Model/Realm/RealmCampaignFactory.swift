@@ -15,7 +15,11 @@ class RealmCampaignFactory {
         rCampaign.name = campaign.name
         rCampaign.desc = campaign.description
         rCampaign.logo = campaign.logo
+        rCampaign.conferenceId = campaign.conferenceId
+        rCampaign.restrictedAccess = campaign.restrictedAccess
         rCampaign.createdAt = campaign.createdAt
+        rCampaign.updatedAt = campaign.updatedAt
+        rCampaign.deletedAt = campaign.deletedAt
         rCampaign.imgData = campaign.image?.pngData()
         return rCampaign
     }
