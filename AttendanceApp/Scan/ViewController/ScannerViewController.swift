@@ -30,6 +30,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     var viewModel: ScannerViewModel!
+    var alertInfo: AlertInfo!
     var delegatesSessionValidation: IDelegatesSessionValidation!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
@@ -93,9 +94,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     private func showAlertFailedDueToNoRoomOrSessionSettings() {
         
-        self.alert(title: AlertInfo.Scan.NoSettings.title,
-                   text: AlertInfo.Scan.NoSettings.msg,
-                   btnText: AlertInfo.ok)
+        self.alert(alertInfo: self.alertInfo, sourceView: self.view)
             .subscribe {
                 self.dismiss(animated: true)
             }

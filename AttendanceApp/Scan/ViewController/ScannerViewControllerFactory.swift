@@ -13,6 +13,7 @@ class ScannerViewControllerFactory {
         let scannerVC = StoryboardedViewControllerFactory.make(type: ScannerViewController.self) as! ScannerViewController
         scannerVC.viewModel = ScannerViewModelFactory.make()
         scannerVC.delegatesSessionValidation = DelegatesSessionValidationFactory.make()
+        scannerVC.alertInfo = ScannerSettingsAlertInfoFactory.make()
         return scannerVC
     }
 }
