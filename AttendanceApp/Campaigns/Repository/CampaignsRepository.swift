@@ -27,18 +27,6 @@ extension CampaignsRepository: ICampaignsRepository {
         let obsResults = Observable.collection(from: valid)
         return obsResults.map {$0.toArray().map(CampaignFactory.make)}
     }
-    func getLogoUpdateInfos() -> [ILogoUpdateInfo] {
-        let realm = try! Realm()
-        let results = realm.objects(RealmCampaign.self).filter("imgData == nil").toArray()
-        return results.compactMap { LogoUpdateInfo(id: $0.id, address: $0.logo) }
-    }
-    func updateLogo(id: String, data: Data) {
-        let realm = try! Realm()
-        let campaign = realm.object(ofType: RealmCampaign.self, forPrimaryKey: id)
-        try? realm.write {
-            campaign?.imgData = data
-        }
-    }
     
 }
 
@@ -51,15 +39,12 @@ class CampaignsRepository {
 
 class CampaignFactory {
     static func make(realmCampaign: RealmCampaign) -> ICampaign {
-        let image = (realmCampaign.imgData != nil) ? UIImage(data: realmCampaign.imgData!)!
-                                                   : CAMPAIGN_DEF_IMG
         return Campaign(id: realmCampaign.id,
                         name: realmCampaign.name,
                         description: realmCampaign.desc,
                         logo: realmCampaign.logo,
                         conferenceId: realmCampaign.conferenceId,
                         restrictedAccess: realmCampaign.restrictedAccess,
-                        createdAt: realmCampaign.createdAt,
-                        image: image)
+                        createdAt: realmCampaign.createdAt)
     }
 }

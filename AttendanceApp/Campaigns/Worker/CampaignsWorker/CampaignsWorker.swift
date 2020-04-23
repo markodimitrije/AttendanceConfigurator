@@ -13,9 +13,6 @@ extension CampaignsWorker: ICampaignsWorker {
         remoteApi.getCampaigns()
             .flatMap(campaignsRepo.save)
             .map {_ in return ()}
-            .do(onNext: { _ in
-                self.logoWorker.fetchLogos()
-            })
             .observeOn(MainScheduler.instance)
     }
 }
@@ -23,16 +20,11 @@ extension CampaignsWorker: ICampaignsWorker {
 class CampaignsWorker {
     private let remoteApi: ICampaignsRemoteApi
     private let campaignsRepo: ICampaignsMutableRepository
-    private let logoWorker: ICampaignLogosWorker
     private let bag = DisposeBag()
     
-    init(remoteApi: ICampaignsRemoteApi,
-         campaignsRepo: ICampaignsMutableRepository,
-         logoWorker: ICampaignLogosWorker) {
-        
+    init(remoteApi: ICampaignsRemoteApi, campaignsRepo: ICampaignsMutableRepository) {
         self.remoteApi = remoteApi
         self.campaignsRepo = campaignsRepo
-        self.logoWorker = logoWorker
     }
 }
 

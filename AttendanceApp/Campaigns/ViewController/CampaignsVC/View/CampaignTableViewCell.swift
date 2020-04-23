@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol ICampaignCellUpdate {
     func update(item: ICampaignItem)
@@ -15,7 +16,7 @@ protocol ICampaignCellUpdate {
 extension CampaignTableViewCell: ICampaignCellUpdate {
     func update(item: ICampaignItem) {
         
-        imgView.image = item.image
+        imgView.kf.setImage(with: URL(string: item.logo ?? ""), placeholder: CAMPAIGN_DEF_IMG)
         titleLbl.text = item.title
         descLbl.text = item.description
     }

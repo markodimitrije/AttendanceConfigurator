@@ -27,7 +27,6 @@ class GenericRealmRepository: IGenericRealmRepository {
         }
         
         return Observable<Bool>.just(true) // all good here
-        
     }
     
     // MARK: All data (delete)

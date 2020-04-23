@@ -6,8 +6,6 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import RealmSwift
-
 class RealmCampaignFactory {
     static func make(campaign: ICampaign) -> RealmCampaign {
         let rCampaign = RealmCampaign()
@@ -20,7 +18,7 @@ class RealmCampaignFactory {
         rCampaign.createdAt = campaign.createdAt
         rCampaign.updatedAt = campaign.updatedAt
         rCampaign.deletedAt = campaign.deletedAt
-        rCampaign.imgData = campaign.image?.pngData()
+        //rCampaign.imgData = campaign.image?.pngData() BUG! img should be updated only through dedicated method (func update in campaignRepo)
         return rCampaign
     }
 }

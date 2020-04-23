@@ -14,6 +14,7 @@ target 'AttendanceApp' do
     pod 'ReachabilitySwift', '~> 4.0.0'
     pod 'Zip'
     pod 'ScanditBarcodeCapture', "6.0.3"
+    pod 'Kingfisher'
     
     target 'AttendanceAppUnitTests' do
       inherit! :search_paths

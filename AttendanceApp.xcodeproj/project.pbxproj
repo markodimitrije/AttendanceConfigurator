@@ -32,8 +32,6 @@
 		7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E574F244EF916003EDAC7 /* CampaignItemsFactory.swift */; };
 		7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5753244EFA21003EDAC7 /* RealmCampaign.swift */; };
 		7C2E5756244EFB01003EDAC7 /* RealmCampaignFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5755244EFB01003EDAC7 /* RealmCampaignFactory.swift */; };
-		7C2E575A244F18BB003EDAC7 /* ICampaignLogosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5759244F18BB003EDAC7 /* ICampaignLogosWorker.swift */; };
-		7C2E575C244F18C0003EDAC7 /* CampaignLogosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E575B244F18C0003EDAC7 /* CampaignLogosWorker.swift */; };
 		7C2E5760244F197C003EDAC7 /* IDownloadImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E575F244F197C003EDAC7 /* IDownloadImageAPI.swift */; };
 		7C2E5762244F19FD003EDAC7 /* DownloadImageRemoteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5761244F19FD003EDAC7 /* DownloadImageRemoteAPI.swift */; };
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
@@ -341,8 +339,6 @@
 		7C2E574F244EF916003EDAC7 /* CampaignItemsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignItemsFactory.swift; sourceTree = "<group>"; };
 		7C2E5753244EFA21003EDAC7 /* RealmCampaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaign.swift; sourceTree = "<group>"; };
 		7C2E5755244EFB01003EDAC7 /* RealmCampaignFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignFactory.swift; sourceTree = "<group>"; };
-		7C2E5759244F18BB003EDAC7 /* ICampaignLogosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignLogosWorker.swift; sourceTree = "<group>"; };
-		7C2E575B244F18C0003EDAC7 /* CampaignLogosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignLogosWorker.swift; sourceTree = "<group>"; };
 		7C2E575F244F197C003EDAC7 /* IDownloadImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDownloadImageAPI.swift; sourceTree = "<group>"; };
 		7C2E5761244F19FD003EDAC7 /* DownloadImageRemoteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageRemoteAPI.swift; sourceTree = "<group>"; };
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
@@ -733,15 +729,6 @@
 				7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */,
 			);
 			path = CampaignsWorker;
-			sourceTree = "<group>";
-		};
-		7C2E5758244F18A7003EDAC7 /* CampaignLogosWorker */ = {
-			isa = PBXGroup;
-			children = (
-				7C2E5759244F18BB003EDAC7 /* ICampaignLogosWorker.swift */,
-				7C2E575B244F18C0003EDAC7 /* CampaignLogosWorker.swift */,
-			);
-			path = CampaignLogosWorker;
 			sourceTree = "<group>";
 		};
 		7C2E575D244F1945003EDAC7 /* CampaignsRemoteApi */ = {
@@ -1584,7 +1571,6 @@
 		7CB24694244E180A0035F311 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
-				7C2E5758244F18A7003EDAC7 /* CampaignLogosWorker */,
 				7C2E5757244F189E003EDAC7 /* CampaignsWorker */,
 			);
 			path = Worker;
@@ -2286,6 +2272,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -2302,6 +2289,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -2433,7 +2421,6 @@
 				7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
-				7C2E575A244F18BB003EDAC7 /* ICampaignLogosWorker.swift in Sources */,
 				7C7DCBD92448B9050072CDAE /* LoginValidationSignalFactory.swift in Sources */,
 				7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */,
 				7C816770244B492B0059BDA1 /* INetworkResponseHandler.swift in Sources */,
@@ -2549,7 +2536,6 @@
 				7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
-				7C2E575C244F18C0003EDAC7 /* CampaignLogosWorker.swift in Sources */,
 				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,
 				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,

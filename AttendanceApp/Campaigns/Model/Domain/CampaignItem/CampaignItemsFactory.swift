@@ -18,7 +18,7 @@ class CampaignItemsFactory {
         CampaignItem(id: campaign.id,
                      title: campaign.name,
                      description: campaign.description ?? "",
-                     image: campaign.image ?? CAMPAIGN_DEF_IMG)
+                     logo: campaign.logo)
     }
     
 }

@@ -10,18 +10,7 @@ class CampaignsWorkerFactory {
     static func make() -> ICampaignsWorker {
         let remoteApi = CampaignsRemoteApiFactory.make()
         let campaignsRepo = CampaignsRepositoryFactory.make()
-        let logoWorker = CampaignLogosWorkerFactory.make()
-        return CampaignsWorker(remoteApi: remoteApi,
-                               campaignsRepo: campaignsRepo,
-                               logoWorker: logoWorker)
-    }
-}
-
-class CampaignLogosWorkerFactory {
-    static func make() -> CampaignLogosWorker {
-        let remoteApi = DownloadImageApiFactory.make()
-        let repository = CampaignsRepositoryFactory.make()
-        return CampaignLogosWorker(campaignsRepo: repository, downloadImageApi: remoteApi)
+        return CampaignsWorker(remoteApi: remoteApi, campaignsRepo: campaignsRepo)
     }
 }
 

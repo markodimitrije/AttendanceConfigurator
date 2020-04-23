@@ -19,7 +19,6 @@ class RealmCampaign: Object {
     @objc dynamic var createdAt: Date = Date.init(timeIntervalSince1970: 0)
     @objc dynamic var updatedAt: Date?
     @objc dynamic var deletedAt: Date?
-    @objc dynamic var imgData: Data?
     
     override static func primaryKey() -> String? {
         return "id"

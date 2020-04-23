@@ -50,7 +50,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
     private func bindCampaignsViewModel() {
-        viewModel.getCampaigns()
+        viewModel.getCampaigns()//.debounce(1, scheduler: MainScheduler.instance)
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
                 guard let cell = cell as? CampaignTableViewCell else {
                     return

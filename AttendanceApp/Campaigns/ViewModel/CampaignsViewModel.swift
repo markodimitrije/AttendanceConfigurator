@@ -14,7 +14,7 @@ extension CampaignsViewModel: ICampaignsViewModel{
         campaignsRepository.getAll().map(CampaignItemsFactory.make)
     }
     func refreshCampaigns() {
-        campaignsWorker.fetchCampaigns()
+        campaignsWorker.fetchCampaigns().debounce(1, scheduler: MainScheduler.instance)
             .subscribe(onError: errorHandler.handle)
             .disposed(by: bag)
     }

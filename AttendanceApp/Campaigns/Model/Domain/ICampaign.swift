@@ -18,5 +18,4 @@ protocol ICampaign {
     var createdAt: Date {get set}
     var updatedAt: Date? {get set}
     var deletedAt: Date? {get set}
-    var image: UIImage? {get set}
 }
