@@ -40,6 +40,10 @@
 		7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
 		7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */; };
+		7C4AFAA42457526C0038B8D5 /* ICampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */; };
+		7C4AFAA6245752930038B8D5 /* CampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA5245752930038B8D5 /* CampaignResources.swift */; };
+		7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */; };
+		7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA92457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift */; };
 		7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */; };
 		7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
@@ -183,6 +187,9 @@
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
 		7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E5242D022800ECD1E5 /* RoomFactory.swift */; };
 		7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */; };
+		7CC99DE52457448C0057309D /* CampaignResourcesApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE42457448C0057309D /* CampaignResourcesApiController.swift */; };
+		7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE7245748F40057309D /* ICampaignResourcesWorker.swift */; };
+		7CC99DEA2457495B0057309D /* CampaignResourcesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE92457495B0057309D /* CampaignResourcesWorker.swift */; };
 		7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */; };
 		7CC9DD432448C23B0035B2AE /* CampaignsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */; };
 		7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD442448C2550035B2AE /* CampaignsVC.swift */; };
@@ -347,6 +354,10 @@
 		7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
 		7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC_iPad.storyboard; sourceTree = "<group>"; };
+		7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResources.swift; sourceTree = "<group>"; };
+		7C4AFAA5245752930038B8D5 /* CampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResources.swift; sourceTree = "<group>"; };
+		7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesWorkerFactory.swift; sourceTree = "<group>"; };
+		7C4AFAA92457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesApiControllerFactory.swift; sourceTree = "<group>"; };
 		7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
 		7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
@@ -492,6 +503,9 @@
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
 		7CC796E5242D022800ECD1E5 /* RoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFactory.swift; sourceTree = "<group>"; };
 		7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
+		7CC99DE42457448C0057309D /* CampaignResourcesApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesApiController.swift; sourceTree = "<group>"; };
+		7CC99DE7245748F40057309D /* ICampaignResourcesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesWorker.swift; sourceTree = "<group>"; };
+		7CC99DE92457495B0057309D /* CampaignResourcesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesWorker.swift; sourceTree = "<group>"; };
 		7CC9DD3E2448BE2D0035B2AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CC9DD422448C23B0035B2AE /* CampaignsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignsVC.storyboard; sourceTree = "<group>"; };
 		7CC9DD442448C2550035B2AE /* CampaignsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsVC.swift; sourceTree = "<group>"; };
@@ -758,6 +772,15 @@
 				7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */,
 			);
 			path = SettingsViewModel;
+			sourceTree = "<group>";
+		};
+		7C4AFAA2245752570038B8D5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */,
+				7C4AFAA5245752930038B8D5 /* CampaignResources.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		7C4C175D245046A5009AE1F5 /* View */ = {
@@ -1470,6 +1493,7 @@
 		7CAA2A492431317B00CA184F /* ResourcesState */ = {
 			isa = PBXGroup;
 			children = (
+				7CC99DE6245748CA0057309D /* CampaignResourcesProvider */,
 				AD697BD721887CCE002BC579 /* ResourcesState.swift */,
 				7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */,
 				7CAA2A4F2431336500CA184F /* RoomsProvider */,
@@ -1611,6 +1635,26 @@
 				7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */,
 			);
 			path = RealmBlockFactory;
+			sourceTree = "<group>";
+		};
+		7CC99DE3245744740057309D /* CampaignResourcesApiController */ = {
+			isa = PBXGroup;
+			children = (
+				7CC99DE42457448C0057309D /* CampaignResourcesApiController.swift */,
+				7C4AFAA92457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift */,
+			);
+			path = CampaignResourcesApiController;
+			sourceTree = "<group>";
+		};
+		7CC99DE6245748CA0057309D /* CampaignResourcesProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7C4AFAA2245752570038B8D5 /* Domain */,
+				7CC99DE7245748F40057309D /* ICampaignResourcesWorker.swift */,
+				7CC99DE92457495B0057309D /* CampaignResourcesWorker.swift */,
+				7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */,
+			);
+			path = CampaignResourcesProvider;
 			sourceTree = "<group>";
 		};
 		7CC9DD402448C1A50035B2AE /* Campaigns */ = {
@@ -1960,6 +2004,7 @@
 		AD29522A217B5E8A002DDE32 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				7CC99DE3245744740057309D /* CampaignResourcesApiController */,
 				7C2E5742244EEB57003EDAC7 /* Error */,
 				7CD5297A2433A90900170D0A /* ReportApiController */,
 				AD295220217B5B24002DDE32 /* APIController.swift */,
@@ -2346,6 +2391,7 @@
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
+				7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
 				7C7DCBE12448B9050072CDAE /* UserStateRepository.swift in Sources */,
 				7C578557243A1DFD006531CC /* RealmDelegateFactory.swift in Sources */,
@@ -2412,6 +2458,7 @@
 				7C5908CE2437BA64006199B1 /* MostRecentBlockUtility.swift in Sources */,
 				7CC9DD682448DB950035B2AE /* ICampaignsViewModel.swift in Sources */,
 				7CAA2A53243133FD00CA184F /* RoomProviderWorker.swift in Sources */,
+				7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */,
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
@@ -2447,19 +2494,23 @@
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */,
 				7C816775244B4A1D0059BDA1 /* SignInToken.swift in Sources */,
+				7C4AFAA6245752930038B8D5 /* CampaignResources.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				7CF30191244DF4D10055174D /* CampaignItem.swift in Sources */,
 				7C2E5739244EDA7C003EDAC7 /* CampaignsRemoteApiFactory.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
+				7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */,
 				7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
 				7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */,
+				7CC99DEA2457495B0057309D /* CampaignResourcesWorker.swift in Sources */,
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
+				7CC99DE52457448C0057309D /* CampaignResourcesApiController.swift in Sources */,
 				7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */,
 				7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */,
 				7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */,
@@ -2500,6 +2551,7 @@
 				7C7DCBED2448B9050072CDAE /* IRemoteUserSession.swift in Sources */,
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
 				7C7DCBD42448B9050072CDAE /* EmailFieldValidator.swift in Sources */,
+				7C4AFAA42457526C0038B8D5 /* ICampaignResources.swift in Sources */,
 				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
