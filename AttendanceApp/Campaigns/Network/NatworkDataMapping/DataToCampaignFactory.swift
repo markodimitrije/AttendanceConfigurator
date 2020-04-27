@@ -50,7 +50,7 @@ class DataToCampaignFactory: IDataToCampaignFactory {
                         name: name,
                         description: dict["description"] as? String,
                         logo: dict["logo"] as? String,
-                        conferenceId: conferenceId,
+                        conferenceId: "\(conferenceId)",
                         restrictedAccess: restrictedAccess,
                         createdAt: createdAt,
                         updatedAt: updatedAt,

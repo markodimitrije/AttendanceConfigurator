@@ -63,7 +63,7 @@ class CampaignsVC: UIViewController, Storyboarded {
             .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
             .bind { [weak self] indexPath, item in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
-                print("open scanning screen for campaignId = \(item.id)") // TODO marko
+                print("open scanning screen for campaignId = \(item.id) and confId = \(item.confId)") // TODO marko
                 let nextVC = ScannerViewControllerFactory.make()
                 self?.navigationController?.pushViewController(nextVC, animated: true)
             }

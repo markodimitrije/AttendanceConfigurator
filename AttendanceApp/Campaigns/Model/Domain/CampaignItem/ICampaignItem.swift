@@ -10,6 +10,7 @@ import UIKit
 
 protocol ICampaignItem {
     var id: String {get}
+    var confId: String {get}
     var title: String {get}
     var description: String {get}
     var logo: String? {get}
