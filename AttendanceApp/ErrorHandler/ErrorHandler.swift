@@ -11,7 +11,7 @@ import Foundation
 
 extension ErrorHandler: IErrorHandler {
     func handle(error: Error) {
-        errorPresenter.showAlert(error: error)
+        errorPresenter.present(error: error)
     }
 }
 

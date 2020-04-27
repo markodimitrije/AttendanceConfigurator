@@ -9,5 +9,5 @@
 import UIKit
 
 protocol IAlertErrorPresenter {
-    func showAlert(error: Error)
+    func present(error: Error)
 }

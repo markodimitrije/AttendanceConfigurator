@@ -9,7 +9,7 @@
 import UIKit
 
 class AlertErrorPresenter: IAlertErrorPresenter {
-    func showAlert(error: Error) {
+    func present(error: Error) {
         let alertVC = ErrorAlertControllerFactory.make(error: error)
         UIViewController.topViewController().present(alertVC, animated: true)
     }

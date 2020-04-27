@@ -83,7 +83,7 @@ class LoginViewController: UIViewController, Storyboarded {
     
     private func errorCatched(error: Error) {
         refreshController()
-        alertErrPresenter.showAlert(error: error)
+        alertErrPresenter.present(error: error)
     }
     
     private func loginCompleted() {
