@@ -24,8 +24,4 @@ class RealmDelegate: Object {
         return "code"
     }
     
-    static func delegateExists(withCode code: String, withRealm realm: Realm) -> Bool {
-        return realm.objects(RealmDelegate.self).filter("code = %@", code).first != nil
-    }
-    
 }
