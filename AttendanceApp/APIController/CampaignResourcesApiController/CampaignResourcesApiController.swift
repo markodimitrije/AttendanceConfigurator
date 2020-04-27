@@ -16,8 +16,11 @@ protocol ICampaignResourcesApiController {
 
 class CampaignResourcesApiController: ICampaignResourcesApiController {
  //https://service.e-materials.com/data/attendance/CONF_ID/CAMPAIGN_ID.zip
+    
     private let apiController: ApiController!
     private let unziper: IUnziper!
+    private let resourcesFactory: ICampaignResourcesFromDataFactory
+    
     private let bag = DisposeBag()
 
     struct Domain {
@@ -33,10 +36,11 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
         return conferenceState.conferenceId ?? 0 // hard-coded
     }
  
-    init(apiController: ApiController, unziper: IUnziper, ) {
+    init(apiController: ApiController, unziper: IUnziper, resourcesFactory: ICampaignResourcesFromDataFactory) {
      
         self.apiController = apiController
         self.unziper = unziper
+        self.resourcesFactory = resourcesFactory
         Logging.URLRequests = { request in return true }
     }
 
@@ -51,44 +55,8 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
                           params: [])
             .flatMap(unziper.saveDataAsFile)
             .flatMap(unziper.unzipData)
-            .flatMap(convertFrom)
-    }
- 
-    private func convertFrom(data: Data) -> Observable<ICampaignResources>{
-        return Observable.create { (observer) -> Disposable in
-            
-            observer.onNext(CampaignResourcesEmptyMock())//hard-coded
-            return Disposables.create()
-        }
+            //.flatMap(convertFrom)
+            .map(resourcesFactory.make)
     }
 
-}
-
-protocol ICampaignResourcesFromDataFactory {
-    func make(data: Data) -> ICampaignResources
-}
-
-class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
-    func make(data: Data) -> ICampaignResources {
-        let confDataVersionId = 1 // hard-coded
-        let locations = [Room]()
-        let sessions = [Block]()
-        let delegates = [Delegate]()
-        return CampaignResources(confDataVersionId: confDataVersionId,
-                                 locations: locations,
-                                 sessions: sessions,
-                                 delegates: delegates)
-    }
-}
-
-class CampaignResourcesEmptyMock: ICampaignResources {
-    
-    func getConfDataVersionId() -> Int { 1 }
-    
-    func getLocations() -> [IRoom] {[IRoom]()}
-    
-    func getSessions() -> [IBlock] {[IBlock]()}
-    
-    func getDelegates() -> [IDelegate] {[IDelegate]()}
-    
 }

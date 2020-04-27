@@ -11,6 +11,7 @@ class CampaignResourcesApiControllerFactory {
         let apiController = ApiController.shared
         let unziper = Unziper(conferenceId: 1) // hard-coded
         return CampaignResourcesApiController(apiController: apiController,
-                                              unziper: unziper)
+                                              unziper: unziper,
+                                              resourcesFactory: CampaignResourcesFactory())
     }
 }

@@ -44,6 +44,8 @@
 		7C4AFAA6245752930038B8D5 /* CampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA5245752930038B8D5 /* CampaignResources.swift */; };
 		7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */; };
 		7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA92457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift */; };
+		7C4AFAAC245763EE0038B8D5 /* ICampaignResourcesFromDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAAB245763EE0038B8D5 /* ICampaignResourcesFromDataFactory.swift */; };
+		7C4AFAB02457643F0038B8D5 /* CampaignResourcesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAAF2457643F0038B8D5 /* CampaignResourcesFactory.swift */; };
 		7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */; };
 		7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
@@ -358,6 +360,8 @@
 		7C4AFAA5245752930038B8D5 /* CampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResources.swift; sourceTree = "<group>"; };
 		7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesWorkerFactory.swift; sourceTree = "<group>"; };
 		7C4AFAA92457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesApiControllerFactory.swift; sourceTree = "<group>"; };
+		7C4AFAAB245763EE0038B8D5 /* ICampaignResourcesFromDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesFromDataFactory.swift; sourceTree = "<group>"; };
+		7C4AFAAF2457643F0038B8D5 /* CampaignResourcesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesFactory.swift; sourceTree = "<group>"; };
 		7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
 		7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
@@ -777,10 +781,28 @@
 		7C4AFAA2245752570038B8D5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				7C4AFAAD245763F60038B8D5 /* CampaignResources */,
+				7C4AFAAE245764010038B8D5 /* CampaignResourcesFromDataFactory */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		7C4AFAAD245763F60038B8D5 /* CampaignResources */ = {
+			isa = PBXGroup;
+			children = (
 				7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */,
 				7C4AFAA5245752930038B8D5 /* CampaignResources.swift */,
 			);
-			path = Domain;
+			path = CampaignResources;
+			sourceTree = "<group>";
+		};
+		7C4AFAAE245764010038B8D5 /* CampaignResourcesFromDataFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C4AFAAB245763EE0038B8D5 /* ICampaignResourcesFromDataFactory.swift */,
+				7C4AFAAF2457643F0038B8D5 /* CampaignResourcesFactory.swift */,
+			);
+			path = CampaignResourcesFromDataFactory;
 			sourceTree = "<group>";
 		};
 		7C4C175D245046A5009AE1F5 /* View */ = {
@@ -2541,6 +2563,7 @@
 				7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
 				7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */,
+				7C4AFAB02457643F0038B8D5 /* CampaignResourcesFactory.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
@@ -2569,6 +2592,7 @@
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				7CC9DD4D2448C5B40035B2AE /* CampaignsViewModel.swift in Sources */,
 				7C7DCBE92448B9050072CDAE /* LoginError.swift in Sources */,
+				7C4AFAAC245763EE0038B8D5 /* ICampaignResourcesFromDataFactory.swift in Sources */,
 				7CEC6742242B6B0800CC56FF /* RoomRepository.swift in Sources */,
 				7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
