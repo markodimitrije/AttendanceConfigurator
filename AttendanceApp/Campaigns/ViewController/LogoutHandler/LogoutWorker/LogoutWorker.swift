@@ -36,12 +36,11 @@ extension LogoutWorker: ILogoutWorker {
     
 }
 
-class LogoutButtonFactory: NSObject {
+struct LogoutButtonFactory {
     func make(target: Any) -> UIBarButtonItem {
         return UIBarButtonItem(title: "Log out",
                                style: .plain,
                                target: target,
-                               action: #selector(CampaignsVC.logoutTap))
+                               action: #selector(LogoutHandler.logoutTap))
     }
-    
 }

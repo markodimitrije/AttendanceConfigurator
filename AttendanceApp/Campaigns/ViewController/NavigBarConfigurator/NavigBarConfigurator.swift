@@ -8,11 +8,10 @@
 
 import UIKit
 
-class NavigBarConfigurator: INavigBarConfigurator {
-    func configure(navigationItem: UINavigationItem, viewController: UIViewController) {
+struct NavigBarConfigurator: INavigBarConfigurator {
+    func configure(navigationItem: UINavigationItem, btn: UIBarButtonItem) {
         navigationItem.hidesBackButton = true
         navigationItem.title = "CAMPAIGNS"
-        let btn = LogoutButtonFactory().make(target: viewController)
         navigationItem.setRightBarButton(btn, animated: false)
     }
 }

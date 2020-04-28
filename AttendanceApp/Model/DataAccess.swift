@@ -64,4 +64,8 @@ class DataAccess: NSObject {
         super.init()
     }
     
+    deinit {
+        print("DataAccess.deinit")
+    }
+    
 }

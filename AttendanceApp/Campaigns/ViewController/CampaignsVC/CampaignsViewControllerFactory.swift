@@ -11,10 +11,9 @@ import UIKit
 class CampaignsViewControllerFactory {
     static func make() -> CampaignsVC {
         let campaignsVC = StoryboardedViewControllerFactory.make(type: CampaignsVC.self) as! CampaignsVC
-        campaignsVC.logoutWorker = LogoutWorkerFactory.make()
         campaignsVC.viewModel = CampaignsViewModelFactory.make()
         campaignsVC.navBarConfigurator = NavigBarConfigurator()
-        campaignsVC.alertInfo = LogoutAlertInfoFactory.make()
+        campaignsVC.logoutHandler = LogoutHandlerFactory.make()
         return campaignsVC
     }
 }

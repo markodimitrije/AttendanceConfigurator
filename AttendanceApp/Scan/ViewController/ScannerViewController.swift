@@ -152,6 +152,10 @@ class ScannerViewController: UIViewController, Storyboarded {
         return .landscape //[.landscapeLeft, .landscapeRight]
     }
     
+    deinit {
+        print("ScannerViewController. deinit!")
+    }
+    
 }
 
 // MARK: BarcodeListening

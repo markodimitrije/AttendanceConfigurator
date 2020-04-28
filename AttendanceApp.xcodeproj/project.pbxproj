@@ -169,6 +169,9 @@
 		7CA97FD3245843960091F556 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* Mock.swift */; };
 		7CA97FD6245845AE0091F556 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD4245845AD0091F556 /* Blocks.json */; };
 		7CA97FD7245845AE0091F556 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD5245845AD0091F556 /* Rooms.json */; };
+		7CA97FDA2458813C0091F556 /* LogoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FD92458813C0091F556 /* LogoutHandler.swift */; };
+		7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FDB2458815A0091F556 /* ILogoutHandler.swift */; };
+		7CA97FDE2458817E0091F556 /* LogoutHandlerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FDD2458817E0091F556 /* LogoutHandlerFactory.swift */; };
 		7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */; };
 		7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */; };
 		7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */; };
@@ -490,6 +493,9 @@
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
 		7CA97FD4245845AD0091F556 /* Blocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
 		7CA97FD5245845AD0091F556 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
+		7CA97FD92458813C0091F556 /* LogoutHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutHandler.swift; sourceTree = "<group>"; };
+		7CA97FDB2458815A0091F556 /* ILogoutHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILogoutHandler.swift; sourceTree = "<group>"; };
+		7CA97FDD2458817E0091F556 /* LogoutHandlerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutHandlerFactory.swift; sourceTree = "<group>"; };
 		7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsProviderWorker.swift; sourceTree = "<group>"; };
@@ -1454,7 +1460,6 @@
 		7C8166C6244AFEB70059BDA1 /* CampaignsViewControllerFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */,
 			);
 			path = CampaignsViewControllerFactory;
 			sourceTree = "<group>";
@@ -1527,6 +1532,18 @@
 				7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */,
 			);
 			path = AutoSessionTimer;
+			sourceTree = "<group>";
+		};
+		7CA97FD8245880EF0091F556 /* LogoutHandler */ = {
+			isa = PBXGroup;
+			children = (
+				7CA97FDB2458815A0091F556 /* ILogoutHandler.swift */,
+				7CA97FD92458813C0091F556 /* LogoutHandler.swift */,
+				7CA97FDD2458817E0091F556 /* LogoutHandlerFactory.swift */,
+				7CC9DD582448D2B50035B2AE /* LogoutWorker */,
+				7C8166C7244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift */,
+			);
+			path = LogoutHandler;
 			sourceTree = "<group>";
 		};
 		7CAA2A492431317B00CA184F /* ResourcesState */ = {
@@ -1714,10 +1731,10 @@
 		7CC9DD412448C2110035B2AE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7CA97FD8245880EF0091F556 /* LogoutHandler */,
 				7C8166C6244AFEB70059BDA1 /* CampaignsViewControllerFactory */,
 				7CC9DD482448C5020035B2AE /* CampaignsVC */,
 				7CC9DD692448DEF00035B2AE /* NavigBarConfigurator */,
-				7CC9DD582448D2B50035B2AE /* LogoutWorker */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2584,8 +2601,10 @@
 				7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */,
 				7CD529862433D37F00170D0A /* ReportSessionApiController.swift in Sources */,
 				7C7DCBD82448B9050072CDAE /* LoginViewModel+Input+Output.swift in Sources */,
+				7CA97FDA2458813C0091F556 /* LogoutHandler.swift in Sources */,
 				7C4AFAB02457643F0038B8D5 /* CampaignResourcesFactory.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */,
+				7CA97FDE2458817E0091F556 /* LogoutHandlerFactory.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
 				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,
@@ -2631,6 +2650,7 @@
 				7C816778244B4E9B0059BDA1 /* LogoutRemoteApi.swift in Sources */,
 				7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */,
 				7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */,
+				7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
 				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,

@@ -12,6 +12,7 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
     func work() -> Observable<Void> {
         resourcesApiController.fetch()
             .do(onNext: { (resources) in
+                print("CampaignResourcesWorker.work PERSIST resources")
                 self.roomsRepo.save(rooms: resources.getLocations())
                 self.blocksRepo.save(blocks: resources.getSessions())
                 self.delegatesRepo.save(delegates: resources.getDelegates())

@@ -13,17 +13,17 @@ import RxDataSources
 class CampaignsVC: UIViewController, Storyboarded {
     
     var viewModel: ICampaignsViewModel!
-    var logoutWorker: ILogoutWorker!
     var navBarConfigurator: INavigBarConfigurator!
-    var alertInfo: AlertInfo!
+    var logoutHandler: ILogoutHandler!
     
     @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logoutBtn = LogoutButtonFactory().make(target: self.logoutHandler)
+        navBarConfigurator.configure(navigationItem: navigationItem, btn: logoutBtn)
         self.bindCampaignsViewModel()
-        navBarConfigurator.configure(navigationItem: navigationItem, viewController: self)
         registerTableViewCells()
     }
     
@@ -32,21 +32,8 @@ class CampaignsVC: UIViewController, Storyboarded {
         viewModel.refreshCampaigns()
     }
     
-    @objc func logoutTap() {
-        
-        alert(alertInfo: self.alertInfo, preferredStyle: .alert)
-            .subscribe(onNext: { (tag) in
-                switch tag {
-                case 0: self.onLogoutConfirmed();
-                case 1: print("dismisses alert")
-                default: break
-                }
-            }).disposed(by: bag)
-    }
-    
-    private func onLogoutConfirmed() {
-        logoutWorker.logoutConfirmed()
-        navigationController?.popViewController(animated: true)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     private func bindCampaignsViewModel() {
@@ -72,6 +59,10 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     private func registerTableViewCells() {
         tableView.register(UINib.init(nibName: "CampaignTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+    }
+    
+    deinit {
+        print("CampaignsVC.deinit")
     }
     
 }

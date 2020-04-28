@@ -76,4 +76,8 @@ class ScannerViewModel {
             })
             .disposed(by: bag)
     }
+    
+    deinit {
+        print("ScannerViewModel. deinit")
+    }
 }

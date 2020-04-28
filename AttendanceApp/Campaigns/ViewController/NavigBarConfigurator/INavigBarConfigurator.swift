@@ -9,5 +9,5 @@
 import UIKit
 
 protocol INavigBarConfigurator {
-    func configure(navigationItem: UINavigationItem, viewController: UIViewController)
+    func configure(navigationItem: UINavigationItem, btn: UIBarButtonItem)
 }
