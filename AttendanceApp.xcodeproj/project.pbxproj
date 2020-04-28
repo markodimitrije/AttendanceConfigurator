@@ -37,6 +37,7 @@
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
+		7C344F0D245816DE00CE7FBE /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* Mock.swift */; };
 		7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
 		7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */; };
@@ -353,6 +354,7 @@
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C344F0C245816DE00CE7FBE /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
 		7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC_iPad.storyboard; sourceTree = "<group>"; };
@@ -776,6 +778,14 @@
 				7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */,
 			);
 			path = SettingsViewModel;
+			sourceTree = "<group>";
+		};
+		7C344F0B245816BF00CE7FBE /* MockTemp */ = {
+			isa = PBXGroup;
+			children = (
+				7C344F0C245816DE00CE7FBE /* Mock.swift */,
+			);
+			path = MockTemp;
 			sourceTree = "<group>";
 		};
 		7C4AFAA2245752570038B8D5 /* Domain */ = {
@@ -2085,6 +2095,7 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C344F0B245816BF00CE7FBE /* MockTemp */,
 				7C2E574A244EF8CE003EDAC7 /* ErrorHandler */,
 				AD29522A217B5E8A002DDE32 /* APIController */,
 				7CB7D556225DF965007B9BB0 /* AppDelegate.swift */,
@@ -2618,6 +2629,7 @@
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */,
+				7C344F0D245816DE00CE7FBE /* Mock.swift in Sources */,
 				7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */,
 				7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,
