@@ -12,8 +12,7 @@ import RxCocoa
 
 extension ScannerViewModel: IScannerViewModel {
     func getScannerInfoDriver() -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
-//        self.scannerInfoDriver
-        Observable.just(ScannerInfo(title: "", description: "", blockId: 1)).asDriver(onErrorJustReturn: ScannerInfo())
+        createOutput(dataAccess: dataAccess)
     }
     
     func getActualSessionId() -> Int {
@@ -41,7 +40,7 @@ class ScannerViewModel {
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
-//        self.scannerInfoDriver = createOutput(dataAccess: dataAccess)
+        //self.scannerInfoDriver = createOutput(dataAccess: dataAccess)
         
         handleCampaignResources()
     }
@@ -51,7 +50,6 @@ class ScannerViewModel {
     private var _oSessionId = BehaviorRelay<Int>.init(value: -1) // err state
     var sessionId: Int {return _oSessionId.value}
     
-    private (set) var scannerInfoDriver: SharedSequence<DriverSharingStrategy, IScannerInfo>!
     fileprivate let bag = DisposeBag()
     
     private func createOutput(dataAccess: DataAccess)
