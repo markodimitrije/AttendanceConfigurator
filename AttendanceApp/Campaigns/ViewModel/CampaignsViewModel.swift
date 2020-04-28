@@ -32,4 +32,7 @@ class CampaignsViewModel {
         self.campaignsWorker = campaignsWorker
         self.errorHandler = errorHandler
     }
+    deinit {
+        print("CampaignsViewModel.deinit")
+    }
 }

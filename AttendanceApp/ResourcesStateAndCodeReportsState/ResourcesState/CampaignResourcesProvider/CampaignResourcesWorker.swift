@@ -17,6 +17,8 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
                 self.blocksRepo.save(blocks: resources.getSessions())
                 self.delegatesRepo.save(delegates: resources.getDelegates())
             }).map {_ in return ()}
+            .subscribeOn(MainScheduler.instance)
+            
     }
 }
 

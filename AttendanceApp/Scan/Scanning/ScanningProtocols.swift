@@ -10,7 +10,7 @@ import UIKit
 import ScanditCaptureCore
 import ScanditBarcodeCapture
 
-protocol BarcodeListening {
+protocol BarcodeListening: class {
     func found(code: String)
 }
 
@@ -20,8 +20,9 @@ protocol ScanTrafficking {
     func startScanning()
     func stopScanning()
 }
-protocol ScanedBarcodeForwarding {
-    var barcodeListener: BarcodeListening {get set}
+protocol ScanedBarcodeForwarding: class {
+    //var barcodeListener: BarcodeListening {get set}
+    var barcodeListener: BarcodeListening? {get set}
 }
 protocol ScanInitializing {
     init(frame: CGRect, barcodeListener: BarcodeListening)

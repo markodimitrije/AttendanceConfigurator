@@ -14,7 +14,7 @@ import ScanditBarcodeCapture
 
 class Scanner: NSObject, Scanning {
     
-    internal var barcodeListener: BarcodeListening
+    weak var barcodeListener: BarcodeListening?
     var captureView: UIView
     
     private var camera: Camera!
@@ -66,7 +66,7 @@ extension Scanner: BarcodeCaptureListener {
         
         DispatchQueue.main.async { [weak self] in
             
-            self?.barcodeListener.found(code: code.data)
+            self?.barcodeListener?.found(code: code.data)
             
         }
     }

@@ -13,14 +13,18 @@ import RxCocoa
 protocol IResourcesState {
     func downloadResources()
     var oResourcesDownloaded: Observable<Bool> {get}
+    func stopTimer()
 }
 
+/*
 class ResourcesState: IResourcesState {
     
     private let roomProviderWorker: IRoomProviderWorker
     private let blockProviderWorker: IBlockProviderWorker
     private let delegateProviderWorker: IDelegateProviderWorker
     private let dataAccess: DataAccess
+    
+    func stopTimer() {}
     
     init(dataAccess: DataAccess,
          roomProviderWorker: IRoomProviderWorker,
@@ -128,23 +132,12 @@ class ResourcesState: IResourcesState {
     deinit { print("ResourcesState.deinit is called") }
     
 }
+*/
 
 extension CampaignResourcesState: IResourcesState {
     
     func downloadResources() {
-        
         fetchResourcesFromWeb()
-        
-        if timer == nil { print("creating timer to fetch resources")
-            
-            timer = Timer.scheduledTimer(
-                timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
-                target: self,
-                selector: #selector(CampaignResourcesState.fetchResourcesFromWeb),
-                userInfo: nil,
-                repeats: true)
-        }
-        
     }
     var oResourcesDownloaded: Observable<Bool> {
         return _oResourcesDownloaded
@@ -153,16 +146,24 @@ extension CampaignResourcesState: IResourcesState {
 
 class CampaignResourcesState {
     private let bag = DisposeBag()
-    private var timer: Timer?
+    private weak var timer: Timer?
     private var _oResourcesDownloaded = PublishSubject<Bool>()
     
     private let campaignResourcesWorker: ICampaignResourcesWorker
     init(campaignResourcesWorker: ICampaignResourcesWorker) {
         self.campaignResourcesWorker = campaignResourcesWorker
+        if timer == nil { print("creating timer to fetch resources")
+            timer = Timer.scheduledTimer(
+                        timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
+                        target: self,
+                        selector: #selector(CampaignResourcesState.fetchResourcesFromWeb),
+                        userInfo: nil,
+                        repeats: true)
+        }
     }
     
     @objc private func fetchResourcesFromWeb() {
-        
+        print("fetchResourcesFromWeb")
         self.campaignResourcesWorker.work()
         .subscribe(onError: { [weak self] (err) in
             self?._oResourcesDownloaded.onNext(false)
@@ -171,10 +172,11 @@ class CampaignResourcesState {
         }).disposed(by: bag)
     }
     
-    deinit {
+    func stopTimer() {
         timer?.invalidate()
         timer = nil
     }
+    
 }
 
 class CampaignResourcesStateFactory {
