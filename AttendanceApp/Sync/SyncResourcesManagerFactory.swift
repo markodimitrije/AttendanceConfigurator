@@ -6,12 +6,12 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
-
-class SyncResourcesManagerFactory {
-    static func make(confId: Int) -> ISyncResourcesManager {
-        let resourceState = ResourceStateFactory.make(confId: confId)
-        return SyncResourcesManager(dataAccess: DataAccess.shared,
-                                    resourceState: resourceState)
-    }
-}
+//import Foundation
+//
+//class SyncResourcesManagerFactory {
+//    static func make(confId: Int) -> ISyncResourcesManager {
+//        let resourceState = ResourceStateFactory.make(confId: confId)
+//        return SyncResourcesManager(dataAccess: DataAccess.shared,
+//                                    resourceState: resourceState)
+//    }
+//}

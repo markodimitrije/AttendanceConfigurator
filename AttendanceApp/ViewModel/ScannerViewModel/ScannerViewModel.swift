@@ -31,13 +31,18 @@ class ScannerViewModel {
     private var dataAccess: DataAccess!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
+    private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
     
-    init(dataAccess: DataAccess, scannerInfoFactory: IScannerInfoFactory, codeReportsState: CodeReportsState) {
+    init(dataAccess: DataAccess,
+         scannerInfoFactory: IScannerInfoFactory,
+         codeReportsState: CodeReportsState) {
+        
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
-        
         self.scannerInfoDriver = createOutput(dataAccess: dataAccess)
+        
+        handleCampaignResources()
     }
     
     // OUTPUT
@@ -50,7 +55,7 @@ class ScannerViewModel {
     
     private func createOutput(dataAccess: DataAccess)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
-            
+        
         return dataAccess.output
             .delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
             .map { (roomId, blockId, _, _) -> IScannerInfo in
@@ -59,5 +64,16 @@ class ScannerViewModel {
                 self._oSessionId.accept(scannerInfo.getBlockId())
             })
             .asDriver(onErrorJustReturn: ScannerInfo())
+    }
+    
+    private func handleCampaignResources() {
+        resourceState.downloadResources()
+        resourceState.oResourcesDownloaded
+            .subscribe(onNext: { (success) in
+                if !success {
+                    print("cant download resources show error!!")
+                }
+            })
+            .disposed(by: bag)
     }
 }

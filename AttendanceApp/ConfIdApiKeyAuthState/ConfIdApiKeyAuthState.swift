@@ -48,7 +48,7 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
 //            UserDefaults.standard.set(7498, forKey: UserDefaults.keyConferenceId)
         }
         
-        listenToResourcesDowloaded()
+//        listenToResourcesDowloaded()
     }
     
     func syncApiKeyIsNeeded() {
@@ -63,25 +63,25 @@ class ConferenceApiKeyState: ConfIdApiKeyAuthSupplying {
                     if newApiKey == "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T" {
                         self.conferenceId = 7520
                     }
-                    syncResourcesManager.downloadResources() // side-effect...
+//                    syncResourcesManager.downloadResources() // side-effect...
                     DataAccess.shared.userSelection = (roomId: nil, blockId: nil, selectedDate: nil, autoSwitch: true)
                 }
             })
             .disposed(by: self.bag)
     }
     
-    private func listenToResourcesDowloaded() {
-        
-        delay(1) { // hack: resourcesState is initialized in didFinishLaunching which is later than global
-            syncResourcesManager.oResourcesDownloaded
-            .subscribe(onNext: { downloaded in
-                UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
-                UserDefaults.standard.set(self.apiKey, forKey: UserDefaults.keyConferenceApiKey)
-            })
-            .disposed(by: self.bag)
-        }
-        
-    }
+//    private func listenToResourcesDowloaded() {
+//
+//        delay(1) { // hack: resourcesState is initialized in didFinishLaunching which is later than global
+//            syncResourcesManager.oResourcesDownloaded
+//            .subscribe(onNext: { downloaded in
+//                UserDefaults.standard.set(downloaded, forKey: UserDefaults.keyResourcesDownloaded)
+//                UserDefaults.standard.set(self.apiKey, forKey: UserDefaults.keyConferenceApiKey)
+//            })
+//            .disposed(by: self.bag)
+//        }
+//
+//    }
     
     private func getNewApiKey() -> Observable<String?> {
         return ApiController.shared.getApiKey()

@@ -7,7 +7,7 @@
 //
 
 class ResourceStateFactory {
-    static func make(confId: Int) -> ResourcesState {
+    static func make(confId: Int) -> IResourcesState {
         let object =
             ResourcesState(dataAccess: DataAccess.shared,
                            roomProviderWorker: RoomProviderWorkerFactory.make(confId: confId),

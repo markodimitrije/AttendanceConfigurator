@@ -25,6 +25,7 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
 
     struct Domain {
         static let ematerialsUrl = URL(string: "https://service.e-materials.com/data/attendance/")!
+        static let minjonUrl = URL(string: "https://minjon.e-materials.com/")!
 //        static let minjonUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io")!
     }
  
@@ -47,16 +48,21 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
  //MARK: - API Calls
     
     func fetch() -> Observable<ICampaignResources> {
+//        return
+//            apiController
+//            .buildRequest(base: Domain.ematerialsUrl,
+//                          method: "GET",
+//                          pathComponent: "data/attendance/" + "\(conferenceId)" + "\(campaignId)" + ".zip",
+//                          params: [])
         return
-            apiController
-            .buildRequest(base: Domain.ematerialsUrl,
+            apiController // hard-coded
+            .buildRequest(base: Domain.minjonUrl,
                           method: "GET",
-                          pathComponent: "data/attendance/" + "\(conferenceId)" + "\(campaignId)" + ".zip",
+                          pathComponent: "data/delegates/" + "\(conferenceId)" + ".zip",
                           params: [])
-            .flatMap(unziper.saveDataAsFile)
-            .flatMap(unziper.unzipData)
-            //.flatMap(convertFrom)
-            .map(resourcesFactory.make)
+                .flatMap(unziper.saveDataAsFile)
+                .flatMap(unziper.unzipData)
+                .map(resourcesFactory.make)
     }
 
 }

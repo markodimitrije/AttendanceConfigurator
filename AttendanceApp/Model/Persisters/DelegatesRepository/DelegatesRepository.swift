@@ -21,7 +21,7 @@ struct DelegatesRepository: IDelegatesRepository {
 
 extension DelegatesRepository {
 
-    func save(delegates: [Delegate]) -> Observable<Bool> {
+    func save(delegates: [IDelegate]) -> Observable<Bool> {
         
         let realmDelegates = delegates.map(RealmDelegateFactory.make)
         return genericRepo.saveToRealm(objects: realmDelegates)

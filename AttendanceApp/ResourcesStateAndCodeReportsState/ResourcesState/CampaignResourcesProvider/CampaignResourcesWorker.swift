@@ -9,11 +9,13 @@
 import RxSwift
 
 extension CampaignResourcesWorker: ICampaignResourcesWorker {
-    func work() -> Observable<Void> { // hard-coded
-        return Observable.create { (observer) -> Disposable in
-            observer.onCompleted()
-            return Disposables.create()
-        }
+    func work() -> Observable<Void> {
+        resourcesApiController.fetch()
+            .do(onNext: { (resources) in
+                self.roomsRepo.save(rooms: resources.getLocations())
+                self.blocksRepo.save(blocks: resources.getSessions())
+                self.delegatesRepo.save(delegates: resources.getDelegates())
+            }).map {_ in return ()}
     }
 }
 

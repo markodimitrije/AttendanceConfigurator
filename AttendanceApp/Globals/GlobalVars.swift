@@ -14,7 +14,7 @@ var defaultAutoSessionDate: Date {
     return Date.init(timeIntervalSinceNow: -MyTimeInterval.waitToMostRecentSession)
 }
 
-var syncResourcesManager: ISyncResourcesManager!
+//var syncResourcesManager: ISyncResourcesManager!
 
 var codesDumper: CodesDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
 

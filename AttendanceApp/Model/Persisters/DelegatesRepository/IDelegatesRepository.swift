@@ -11,7 +11,7 @@ import RxSwift
 protocol IDelegatesRepository: IDelegatesMutableRepository, IDelegatesImmutableRepository {}
 
 protocol IDelegatesMutableRepository {
-    func save(delegates: [Delegate]) -> Observable<Bool>
+    func save(delegates: [IDelegate]) -> Observable<Bool>
     func deleteAllDelegates() -> Observable<Bool>
 }
 

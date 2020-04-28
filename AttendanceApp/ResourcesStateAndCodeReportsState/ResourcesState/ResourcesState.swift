@@ -9,10 +9,13 @@
 import Foundation
 import RxSwift
 import RxCocoa
-//import RealmSwift
-//import Realm
 
-class ResourcesState {
+protocol IResourcesState {
+    func downloadResources()
+    var oResourcesDownloaded: Observable<Bool> {get}
+}
+
+class ResourcesState: IResourcesState {
     
     private let roomProviderWorker: IRoomProviderWorker
     private let blockProviderWorker: IBlockProviderWorker
@@ -43,14 +46,14 @@ class ResourcesState {
         downloadsState.downloads.subscribe(onNext: { resources in
             let successDownloads = resources.count >= 3
             self.resourcesDownloaded = successDownloads // bez veze je ovo
-            self.oResourcesDownloaded.accept(successDownloads) // na 2 mesta sync !
+            self._oResourcesDownloaded.accept(successDownloads) // na 2 mesta sync !
 //            if resources.count >= 2 { // rooms and blocks
 //                dataAccess.userSelection = (nil, nil, nil, false)
 //            }
         }).disposed(by: bag)
     }
     
-    lazy var oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)
+    lazy var _oResourcesDownloaded = BehaviorRelay<Bool>.init(value: false)
     
     var resourcesDownloaded: Bool? {
         get {
@@ -73,6 +76,10 @@ class ResourcesState {
         
         oAppDidBecomeActive.onNext(())
         downloadResources()
+    }
+    
+    var oResourcesDownloaded: Observable<Bool> {
+        return _oResourcesDownloaded.asObservable()
     }
     
     func downloadResources() {
@@ -120,4 +127,59 @@ class ResourcesState {
     
     deinit { print("ResourcesState.deinit is called") }
     
+}
+
+extension CampaignResourcesState: IResourcesState {
+    
+    func downloadResources() {
+        
+        fetchResourcesFromWeb()
+        
+        if timer == nil { print("creating timer to fetch resources")
+            
+            timer = Timer.scheduledTimer(
+                timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
+                target: self,
+                selector: #selector(CampaignResourcesState.fetchResourcesFromWeb),
+                userInfo: nil,
+                repeats: true)
+        }
+        
+    }
+    var oResourcesDownloaded: Observable<Bool> {
+        return _oResourcesDownloaded
+    }
+}
+
+class CampaignResourcesState {
+    private let bag = DisposeBag()
+    private var timer: Timer?
+    private var _oResourcesDownloaded = PublishSubject<Bool>()
+    
+    private let campaignResourcesWorker: ICampaignResourcesWorker
+    init(campaignResourcesWorker: ICampaignResourcesWorker) {
+        self.campaignResourcesWorker = campaignResourcesWorker
+    }
+    
+    @objc private func fetchResourcesFromWeb() {
+        
+        self.campaignResourcesWorker.work()
+        .subscribe(onError: { [weak self] (err) in
+            self?._oResourcesDownloaded.onNext(false)
+        }, onCompleted: { [weak self] in
+            self?._oResourcesDownloaded.onNext(true)
+        }).disposed(by: bag)
+    }
+    
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
+}
+
+class CampaignResourcesStateFactory {
+    static func make() -> IResourcesState {
+        let worker = CampaignResourcesWorkerFactory.make()
+        return CampaignResourcesState(campaignResourcesWorker: worker)
+    }
 }

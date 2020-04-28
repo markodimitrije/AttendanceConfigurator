@@ -166,6 +166,9 @@
 		7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
+		7CA97FD3245843960091F556 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* Mock.swift */; };
+		7CA97FD6245845AE0091F556 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD4245845AD0091F556 /* Blocks.json */; };
+		7CA97FD7245845AE0091F556 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD5245845AD0091F556 /* Rooms.json */; };
 		7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */; };
 		7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */; };
 		7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */; };
@@ -485,6 +488,8 @@
 		7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
+		7CA97FD4245845AD0091F556 /* Blocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
+		7CA97FD5245845AD0091F556 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsProviderWorker.swift; sourceTree = "<group>"; };
@@ -784,6 +789,8 @@
 			isa = PBXGroup;
 			children = (
 				7C344F0C245816DE00CE7FBE /* Mock.swift */,
+				7CA97FD4245845AD0091F556 /* Blocks.json */,
+				7CA97FD5245845AD0091F556 /* Rooms.json */,
 			);
 			path = MockTemp;
 			sourceTree = "<group>";
@@ -2270,6 +2277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
+				7CA97FD6245845AE0091F556 /* Blocks.json in Resources */,
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
@@ -2290,6 +2298,7 @@
 				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
+				7CA97FD7245845AE0091F556 /* Rooms.json in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
 				7CECECDC2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard in Resources */,
@@ -2401,6 +2410,7 @@
 				7CFDEC5C242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift in Sources */,
 				7CFDEC4F242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift in Sources */,
 				7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */,
+				7CA97FD3245843960091F556 /* Mock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
