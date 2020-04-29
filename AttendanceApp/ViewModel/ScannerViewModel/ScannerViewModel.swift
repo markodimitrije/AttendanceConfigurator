@@ -71,6 +71,8 @@ class ScannerViewModel {
         resourceState.oResourcesDownloaded
             .subscribe(onNext: { [weak self] (success) in
                 if success {
+                    print("all good..")
+                } else {
                     self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
                 }
             })

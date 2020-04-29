@@ -15,7 +15,7 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
                 print("CampaignResourcesWorker.work PERSIST resources")
                 self.roomsRepo.save(rooms: resources.getLocations())
                 self.blocksRepo.save(blocks: resources.getSessions())
-                self.delegatesRepo.save(delegates: resources.getDelegates())
+                _ = self.delegatesRepo.save(delegates: resources.getDelegates())
             }).map {_ in return ()}
             .subscribeOn(MainScheduler.instance)
             
