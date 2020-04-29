@@ -10,9 +10,6 @@ import RxSwift
 
 extension CampaignResourcesState: IResourcesState {
     
-    func downloadResources() {
-        fetchResourcesFromWeb()
-    }
     var oResourcesDownloaded: Observable<Bool> {
         return _oResourcesDownloaded
     }
@@ -26,6 +23,7 @@ class CampaignResourcesState {
     private let campaignResourcesWorker: ICampaignResourcesWorker
     init(campaignResourcesWorker: ICampaignResourcesWorker) {
         self.campaignResourcesWorker = campaignResourcesWorker
+        fetchResourcesFromWeb()
         if timer == nil { print("creating timer to fetch resources")
             timer = Timer.scheduledTimer(
                         timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,

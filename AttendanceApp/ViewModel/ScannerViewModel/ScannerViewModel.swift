@@ -40,7 +40,6 @@ class ScannerViewModel {
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
-        //self.scannerInfoDriver = createOutput(dataAccess: dataAccess)
         
         handleCampaignResources()
     }
@@ -66,7 +65,6 @@ class ScannerViewModel {
     }
     
     private func handleCampaignResources() {
-        resourceState.downloadResources()
         resourceState.oResourcesDownloaded
             .subscribe(onNext: { (success) in
                 if !success {
