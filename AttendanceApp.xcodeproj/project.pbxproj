@@ -176,10 +176,6 @@
 		7CA97FE02458BEBA0091F556 /* CampaignResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FDF2458BEBA0091F556 /* CampaignResourcesState.swift */; };
 		7CA97FE22458BF0D0091F556 /* IResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FE12458BF0D0091F556 /* IResourcesState.swift */; };
 		7CA97FE42458BF270091F556 /* CampaignResourcesStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FE32458BF270091F556 /* CampaignResourcesStateFactory.swift */; };
-		7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */; };
-		7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */; };
-		7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */; };
-		7CAA2A53243133FD00CA184F /* RoomProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */; };
 		7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */; };
 		7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */; };
 		7CAA2A5D24313A3300CA184F /* IRoomApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAA2A5C24313A3300CA184F /* IRoomApiController.swift */; };
@@ -224,12 +220,12 @@
 		7CCB5D422459B07C00DEA198 /* CampaignSelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D412459B07C00DEA198 /* CampaignSelectionRepository.swift */; };
 		7CCB5D442459B08B00DEA198 /* ICampaignSelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D432459B08B00DEA198 /* ICampaignSelectionRepository.swift */; };
 		7CCB5D462459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D452459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift */; };
+		7CCB5D492459BFD800DEA198 /* IMutableCampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D482459BFD800DEA198 /* IMutableCampaignResourcesRepository.swift */; };
+		7CCB5D4B2459BFEE00DEA198 /* MutableCampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D4A2459BFEE00DEA198 /* MutableCampaignResourcesRepository.swift */; };
+		7CCB5D4D2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D4C2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
 		7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */; };
-		7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */; };
-		7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */; };
-		7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */; };
 		7CD5296B24332F2200170D0A /* DelegateProviderWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */; };
 		7CD5296E24334AA900170D0A /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5296D24334AA900170D0A /* Unziper.swift */; };
 		7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5297024334AFD00170D0A /* IUnziper.swift */; };
@@ -245,8 +241,6 @@
 		7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */; };
 		7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298F2433D86800170D0A /* IReportSessionApiController.swift */; };
 		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
-		7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */; };
-		7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */; };
 		7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63ACB22A86324008E477B /* ConfIdApiKeyAuthState.swift */; };
 		7CE63ACE22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE63ACD22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
@@ -296,7 +290,6 @@
 		AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */; };
 		AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */; };
 		AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD42188623A002BC579 /* GlobalVars.swift */; };
-		AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD697BD721887CCE002BC579 /* ResourcesState.swift */; };
 		AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */; };
 		AD6C784B22551228003CAFF6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6C784A22551228003CAFF6 /* libz.tbd */; };
 		AD6C784D2255123A003CAFF6 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6C784C2255123A003CAFF6 /* libc++.tbd */; };
@@ -509,10 +502,6 @@
 		7CA97FDF2458BEBA0091F556 /* CampaignResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesState.swift; sourceTree = "<group>"; };
 		7CA97FE12458BF0D0091F556 /* IResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IResourcesState.swift; sourceTree = "<group>"; };
 		7CA97FE32458BF270091F556 /* CampaignResourcesStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesStateFactory.swift; sourceTree = "<group>"; };
-		7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockProviderWorker.swift; sourceTree = "<group>"; };
-		7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProviderWorker.swift; sourceTree = "<group>"; };
-		7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsProviderWorker.swift; sourceTree = "<group>"; };
-		7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A55243136E700CA184F /* IDelegatesProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegatesProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A57243136EF00CA184F /* DelegateProviderWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProviderWorker.swift; sourceTree = "<group>"; };
 		7CAA2A5C24313A3300CA184F /* IRoomApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomApiController.swift; sourceTree = "<group>"; };
@@ -557,12 +546,12 @@
 		7CCB5D412459B07C00DEA198 /* CampaignSelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSelectionRepository.swift; sourceTree = "<group>"; };
 		7CCB5D432459B08B00DEA198 /* ICampaignSelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignSelectionRepository.swift; sourceTree = "<group>"; };
 		7CCB5D452459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSelectionRepositoryFactory.swift; sourceTree = "<group>"; };
+		7CCB5D482459BFD800DEA198 /* IMutableCampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMutableCampaignResourcesRepository.swift; sourceTree = "<group>"; };
+		7CCB5D4A2459BFEE00DEA198 /* MutableCampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCampaignResourcesRepository.swift; sourceTree = "<group>"; };
+		7CCB5D4C2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCampaignResourcesRepositoryFactory.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
 		7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
-		7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceStateFactory.swift; sourceTree = "<group>"; };
-		7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProviderWorkerFactory.swift; sourceTree = "<group>"; };
-		7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockProviderWorkerFactory.swift; sourceTree = "<group>"; };
 		7CD5296A24332F2200170D0A /* DelegateProviderWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateProviderWorkerFactory.swift; sourceTree = "<group>"; };
 		7CD5296D24334AA900170D0A /* Unziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
 		7CD5297024334AFD00170D0A /* IUnziper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUnziper.swift; sourceTree = "<group>"; };
@@ -578,8 +567,6 @@
 		7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportApiController.swift; sourceTree = "<group>"; };
 		7CD5298F2433D86800170D0A /* IReportSessionApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReportSessionApiController.swift; sourceTree = "<group>"; };
 		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
-		7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceApiKeyState.swift; sourceTree = "<group>"; };
-		7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadResourcesState.swift; sourceTree = "<group>"; };
 		7CE63ACB22A86324008E477B /* ConfIdApiKeyAuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthState.swift; sourceTree = "<group>"; };
 		7CE63ACD22A86358008E477B /* ConfIdApiKeyAuthSupplying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfIdApiKeyAuthSupplying.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -631,7 +618,6 @@
 		AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCodeReport.swift; sourceTree = "<group>"; };
 		AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		AD697BD42188623A002BC579 /* GlobalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVars.swift; sourceTree = "<group>"; };
-		AD697BD721887CCE002BC579 /* ResourcesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesState.swift; sourceTree = "<group>"; };
 		AD69BB692190948200EF80F9 /* UnsyncScansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsyncScansViewModel.swift; sourceTree = "<group>"; };
 		AD6C784A22551228003CAFF6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		AD6C784C2255123A003CAFF6 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -866,13 +852,13 @@
 			path = CodeReportsRepository;
 			sourceTree = "<group>";
 		};
-		7C516F70243C983E002CF6BF /* Block */ = {
+		7C516F70243C983E002CF6BF /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
 				7C516F72243C985B002CF6BF /* BlockMutableRepository */,
 				7C516F71243C9855002CF6BF /* BlockImmutableRepository */,
 			);
-			path = Block;
+			path = Blocks;
 			sourceTree = "<group>";
 		};
 		7C516F71243C9855002CF6BF /* BlockImmutableRepository */ = {
@@ -949,14 +935,14 @@
 			path = GenericRealmRepository;
 			sourceTree = "<group>";
 		};
-		7C57854D243A15FA006531CC /* DelegatesRepository */ = {
+		7C57854D243A15FA006531CC /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				7C57854E243A1608006531CC /* IDelegatesRepository.swift */,
 				7CB1E44D22983107008C23F8 /* DelegatesRepository.swift */,
 				7C578550243A1678006531CC /* DelegatesRepositoryFactory.swift */,
 			);
-			path = DelegatesRepository;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		7C578552243A1C60006531CC /* Delegate */ = {
@@ -1589,33 +1575,9 @@
 			isa = PBXGroup;
 			children = (
 				7CC99DE6245748CA0057309D /* CampaignResourcesProvider */,
-				AD697BD721887CCE002BC579 /* ResourcesState.swift */,
-				7CD5296424332E0D00170D0A /* ResourceStateFactory.swift */,
-				7CAA2A4F2431336500CA184F /* RoomsProvider */,
-				7CAA2A4A243131C300CA184F /* BlocksProvider */,
 				7CAA2A54243136C500CA184F /* DelegatesProvider */,
 			);
 			path = ResourcesState;
-			sourceTree = "<group>";
-		};
-		7CAA2A4A243131C300CA184F /* BlocksProvider */ = {
-			isa = PBXGroup;
-			children = (
-				7CAA2A4B243131D400CA184F /* IBlockProviderWorker.swift */,
-				7CAA2A4D2431332200CA184F /* BlockProviderWorker.swift */,
-				7CD5296824332F0200170D0A /* BlockProviderWorkerFactory.swift */,
-			);
-			path = BlocksProvider;
-			sourceTree = "<group>";
-		};
-		7CAA2A4F2431336500CA184F /* RoomsProvider */ = {
-			isa = PBXGroup;
-			children = (
-				7CAA2A502431337D00CA184F /* IRoomsProviderWorker.swift */,
-				7CAA2A52243133FD00CA184F /* RoomProviderWorker.swift */,
-				7CD5296624332E5E00170D0A /* RoomProviderWorkerFactory.swift */,
-			);
-			path = RoomsProvider;
 			sourceTree = "<group>";
 		};
 		7CAA2A54243136C500CA184F /* DelegatesProvider */ = {
@@ -1651,7 +1613,6 @@
 			children = (
 				7C578558243A2FC0006531CC /* CodeReportsRepositories */,
 				7C578548243A150E006531CC /* GenericRealmRepository */,
-				7C57854D243A15FA006531CC /* DelegatesRepository */,
 			);
 			path = Persisters;
 			sourceTree = "<group>";
@@ -1876,6 +1837,16 @@
 			path = CampaignSelectionRepository;
 			sourceTree = "<group>";
 		};
+		7CCB5D472459BFB900DEA198 /* MutableCampaignResources */ = {
+			isa = PBXGroup;
+			children = (
+				7CCB5D482459BFD800DEA198 /* IMutableCampaignResourcesRepository.swift */,
+				7CCB5D4A2459BFEE00DEA198 /* MutableCampaignResourcesRepository.swift */,
+				7CCB5D4C2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift */,
+			);
+			path = MutableCampaignResources;
+			sourceTree = "<group>";
+		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2009,18 +1980,20 @@
 		7CEC673F242B6AEF00CC56FF /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				7C516F70243C983E002CF6BF /* Block */,
-				7CEC6740242B6AFE00CC56FF /* Room */,
+				7CEC6740242B6AFE00CC56FF /* Rooms */,
+				7C516F70243C983E002CF6BF /* Blocks */,
+				7C57854D243A15FA006531CC /* Delegates */,
+				7CCB5D472459BFB900DEA198 /* MutableCampaignResources */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		7CEC6740242B6AFE00CC56FF /* Room */ = {
+		7CEC6740242B6AFE00CC56FF /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
 				7CEC6741242B6B0800CC56FF /* RoomRepository.swift */,
 			);
-			path = Room;
+			path = Rooms;
 			sourceTree = "<group>";
 		};
 		7CED41BA2268825D00FFB34E /* Report */ = {
@@ -2236,8 +2209,6 @@
 				7C57855D243A4937006531CC /* CodesDumper */,
 				AD9FE5B321AEBA2C00D6A4B6 /* DeviceStateReporter.swift */,
 				7CD5297524339BEA00170D0A /* AlertStateReporter */,
-				7CD6D5A822A5A78A0077D80F /* ConferenceApiKeyState.swift */,
-				7CD6D5AA22A5A8150077D80F /* DownloadResourcesState.swift */,
 			);
 			path = ResourcesStateAndCodeReportsState;
 			sourceTree = "<group>";
@@ -2515,7 +2486,6 @@
 				7CCB5D3D2459B04400DEA198 /* ICampaignSelection.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
-				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7CAA2A58243136EF00CA184F /* DelegateProviderWorker.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
@@ -2560,6 +2530,7 @@
 				7C516F74243C9870002CF6BF /* IBlockMutableRepository.swift in Sources */,
 				7CC9DD5C2448D2DB0035B2AE /* ILogoutWorker.swift in Sources */,
 				7CAA2A56243136E700CA184F /* IDelegatesProviderWorker.swift in Sources */,
+				7CCB5D492459BFD800DEA198 /* IMutableCampaignResourcesRepository.swift in Sources */,
 				7C578554243A1C6B006531CC /* IDelegate.swift in Sources */,
 				7CC9DD5A2448D2D00035B2AE /* LogoutWorker.swift in Sources */,
 				7C57855F243A4949006531CC /* CodesDumperFactory.swift in Sources */,
@@ -2587,7 +2558,6 @@
 				AD6F49A521AFE6410085D730 /* UserSelectionManager.swift in Sources */,
 				7C5908CE2437BA64006199B1 /* MostRecentBlockUtility.swift in Sources */,
 				7CC9DD682448DB950035B2AE /* ICampaignsViewModel.swift in Sources */,
-				7CAA2A53243133FD00CA184F /* RoomProviderWorker.swift in Sources */,
 				7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */,
@@ -2621,7 +2591,6 @@
 				7C592BFB242BD32300294E71 /* IBlock.swift in Sources */,
 				7CB1E453229832E5008C23F8 /* RealmBlock.swift in Sources */,
 				7CB1E45522983331008C23F8 /* RealmDelegate.swift in Sources */,
-				7CD5296924332F0200170D0A /* BlockProviderWorkerFactory.swift in Sources */,
 				7C7DCBE82448B9050072CDAE /* Storyboarded.swift in Sources */,
 				7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */,
 				7C578551243A1678006531CC /* DelegatesRepositoryFactory.swift in Sources */,
@@ -2660,6 +2629,7 @@
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
 				7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */,
+				7CCB5D4D2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift in Sources */,
 				7C5865E3244A0BD600426FBC /* UIApplication+Extension.swift in Sources */,
 				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
 				7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */,
@@ -2691,7 +2661,6 @@
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
 				7C7DCBD42448B9050072CDAE /* EmailFieldValidator.swift in Sources */,
 				7C4AFAA42457526C0038B8D5 /* ICampaignResources.swift in Sources */,
-				7CD6D5A922A5A78A0077D80F /* ConferenceApiKeyState.swift in Sources */,
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,
 				7CAA2A6124313A7600CA184F /* BlockApiController.swift in Sources */,
 				7C8166C8244AFECB0059BDA1 /* LogoutAlertInfoFactory.swift in Sources */,
@@ -2699,7 +2668,6 @@
 				AD697BD52188623A002BC579 /* GlobalVars.swift in Sources */,
 				7C2E5744244EEB61003EDAC7 /* ApiError.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* DelegatesSessionValidation.swift in Sources */,
-				7CD5296724332E5E00170D0A /* RoomProviderWorkerFactory.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,
@@ -2717,11 +2685,9 @@
 				7C2E5756244EFB01003EDAC7 /* RealmCampaignFactory.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
 				7C6A5EF9243DFB5600CD5C9C /* RoomsSectionOfCustomDataFactory.swift in Sources */,
-				7CAA2A4C243131D400CA184F /* IBlockProviderWorker.swift in Sources */,
 				7CF3018D244DF18F0055174D /* ICampaignItem.swift in Sources */,
 				7C816773244B4A0F0059BDA1 /* LoginResponsePayload.swift in Sources */,
 				7C7DCBF42448B9050072CDAE /* LoginViewModelInputFactory.swift in Sources */,
-				7CAA2A4E2431332200CA184F /* BlockProviderWorker.swift in Sources */,
 				7CEEA2E9243CD30F006FCDDB /* BlocksDataSourceFactory.swift in Sources */,
 				7C816778244B4E9B0059BDA1 /* LogoutRemoteApi.swift in Sources */,
 				7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */,
@@ -2729,7 +2695,6 @@
 				7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
-				7CD5296524332E0D00170D0A /* ResourceStateFactory.swift in Sources */,
 				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
@@ -2742,7 +2707,7 @@
 				7C516F7E243C9922002CF6BF /* BlockMutableRepositoryFactory.swift in Sources */,
 				7C2E5749244EEBD7003EDAC7 /* DefaultHeadersCreator.swift in Sources */,
 				7C67288B243B9309006D271A /* UnsyncScansViewModelFactory.swift in Sources */,
-				7CAA2A512431337D00CA184F /* IRoomsProviderWorker.swift in Sources */,
+				7CCB5D4B2459BFEE00DEA198 /* MutableCampaignResourcesRepository.swift in Sources */,
 				7C516F6F243C741A002CF6BF /* CodeReportsMutableRepository.swift in Sources */,
 				7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */,
 				7C7DCBE32448B9050072CDAE /* LoginRemoteApi.swift in Sources */,
@@ -2766,7 +2731,6 @@
 				AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */,
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
-				7CD6D5AB22A5A8150077D80F /* DownloadResourcesState.swift in Sources */,
 				7C5ED625243B525900FEEAAE /* WebReportedCodesDataSource.swift in Sources */,
 				AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */,
 			);

@@ -35,30 +35,3 @@ class CampaignSelectionRepository {
         self.userDefaults = userDefaults
     }
 }
-
-protocol IMutableCampaignResourcesRepository {
-    func deleteResources()
-}
-
-extension MutableCampaignResourcesRepository: IMutableCampaignResourcesRepository {
-    func deleteResources() {
-        roomsRepo.deleteAllRooms()
-        blocksRepo.deleteAllBlocks()
-        _ = delegatesRepo.deleteAllDelegates()
-    }
-}
-
-struct MutableCampaignResourcesRepository {
-    let roomsRepo: IRoomRepository
-    let blocksRepo: IBlockMutableRepository
-    let delegatesRepo: IDelegatesMutableRepository
-}
-
-class MutableCampaignResourcesRepositoryFactory {
-    static func make() -> IMutableCampaignResourcesRepository {
-        return MutableCampaignResourcesRepository(
-            roomsRepo: RoomRepository(),
-            blocksRepo: BlockMutableRepositoryFactory.make(),
-            delegatesRepo: DelegatesRepositoryFactory.make())
-    }
-}
