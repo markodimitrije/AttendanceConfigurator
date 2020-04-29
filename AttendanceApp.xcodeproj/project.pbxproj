@@ -219,6 +219,11 @@
 		7CC9DD682448DB950035B2AE /* ICampaignsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD672448DB950035B2AE /* ICampaignsViewModel.swift */; };
 		7CC9DD6B2448DF230035B2AE /* NavigBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD6A2448DF230035B2AE /* NavigBarConfigurator.swift */; };
 		7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC9DD6C2448DF430035B2AE /* INavigBarConfigurator.swift */; };
+		7CCB5D3D2459B04400DEA198 /* ICampaignSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D3C2459B04400DEA198 /* ICampaignSelection.swift */; };
+		7CCB5D3F2459B05C00DEA198 /* CampaignSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D3E2459B05C00DEA198 /* CampaignSelection.swift */; };
+		7CCB5D422459B07C00DEA198 /* CampaignSelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D412459B07C00DEA198 /* CampaignSelectionRepository.swift */; };
+		7CCB5D442459B08B00DEA198 /* ICampaignSelectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D432459B08B00DEA198 /* ICampaignSelectionRepository.swift */; };
+		7CCB5D462459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCB5D452459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift */; };
 		7CD2C829228D7CD9006DA60C /* JsonFromBundleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */; };
 		7CD3F7112428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */; };
 		7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */; };
@@ -547,6 +552,11 @@
 		7CC9DD672448DB950035B2AE /* ICampaignsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignsViewModel.swift; sourceTree = "<group>"; };
 		7CC9DD6A2448DF230035B2AE /* NavigBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigBarConfigurator.swift; sourceTree = "<group>"; };
 		7CC9DD6C2448DF430035B2AE /* INavigBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INavigBarConfigurator.swift; sourceTree = "<group>"; };
+		7CCB5D3C2459B04400DEA198 /* ICampaignSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignSelection.swift; sourceTree = "<group>"; };
+		7CCB5D3E2459B05C00DEA198 /* CampaignSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSelection.swift; sourceTree = "<group>"; };
+		7CCB5D412459B07C00DEA198 /* CampaignSelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSelectionRepository.swift; sourceTree = "<group>"; };
+		7CCB5D432459B08B00DEA198 /* ICampaignSelectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignSelectionRepository.swift; sourceTree = "<group>"; };
+		7CCB5D452459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSelectionRepositoryFactory.swift; sourceTree = "<group>"; };
 		7CD2C828228D7CD9006DA60C /* JsonFromBundleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFromBundleParser.swift; sourceTree = "<group>"; };
 		7CD3F7102428DC0F001272D1 /* NavusLicenseBarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavusLicenseBarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
 		7CD3F7122428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProvider.swift; sourceTree = "<group>"; };
@@ -1744,6 +1754,7 @@
 		7CC9DD402448C1A50035B2AE /* Campaigns */ = {
 			isa = PBXGroup;
 			children = (
+				7CCB5D3A2459B01F00DEA198 /* CampaignSelection */,
 				7C2E5740244EE62F003EDAC7 /* Constants.swift */,
 				7C2E573D244EDD60003EDAC7 /* Error */,
 				7CC9DD5F2448D9000035B2AE /* Network */,
@@ -1835,6 +1846,34 @@
 				7CC9DD6A2448DF230035B2AE /* NavigBarConfigurator.swift */,
 			);
 			path = NavigBarConfigurator;
+			sourceTree = "<group>";
+		};
+		7CCB5D3A2459B01F00DEA198 /* CampaignSelection */ = {
+			isa = PBXGroup;
+			children = (
+				7CCB5D402459B07500DEA198 /* CampaignSelectionRepository */,
+				7CCB5D3B2459B03A00DEA198 /* CampaignSelection */,
+			);
+			path = CampaignSelection;
+			sourceTree = "<group>";
+		};
+		7CCB5D3B2459B03A00DEA198 /* CampaignSelection */ = {
+			isa = PBXGroup;
+			children = (
+				7CCB5D3C2459B04400DEA198 /* ICampaignSelection.swift */,
+				7CCB5D3E2459B05C00DEA198 /* CampaignSelection.swift */,
+			);
+			path = CampaignSelection;
+			sourceTree = "<group>";
+		};
+		7CCB5D402459B07500DEA198 /* CampaignSelectionRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7CCB5D432459B08B00DEA198 /* ICampaignSelectionRepository.swift */,
+				7CCB5D412459B07C00DEA198 /* CampaignSelectionRepository.swift */,
+				7CCB5D452459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift */,
+			);
+			path = CampaignSelectionRepository;
 			sourceTree = "<group>";
 		};
 		7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */ = {
@@ -2473,6 +2512,7 @@
 				7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */,
 				7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */,
 				7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */,
+				7CCB5D3D2459B04400DEA198 /* ICampaignSelection.swift in Sources */,
 				7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				AD697BD821887CCE002BC579 /* ResourcesState.swift in Sources */,
@@ -2534,6 +2574,8 @@
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
+				7CCB5D422459B07C00DEA198 /* CampaignSelectionRepository.swift in Sources */,
+				7CCB5D3F2459B05C00DEA198 /* CampaignSelection.swift in Sources */,
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
 				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
 				7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */,
@@ -2587,6 +2629,7 @@
 				7C4AFAA6245752930038B8D5 /* CampaignResources.swift in Sources */,
 				AD191487218EEFC000CD5B2F /* CodesDumper.swift in Sources */,
 				7CF30191244DF4D10055174D /* CampaignItem.swift in Sources */,
+				7CCB5D462459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift in Sources */,
 				7C2E5739244EDA7C003EDAC7 /* CampaignsRemoteApiFactory.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportSessionApiController.swift in Sources */,
 				7CE63ACC22A86324008E477B /* ConfIdApiKeyAuthState.swift in Sources */,
@@ -2628,6 +2671,7 @@
 				7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */,
 				7CC9DD552448D1740035B2AE /* ICampaign.swift in Sources */,
 				7C7DCBD62448B9050072CDAE /* LoginValidatorFactory.swift in Sources */,
+				7CCB5D442459B08B00DEA198 /* ICampaignSelectionRepository.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,
 				ADA47212217F458D0078530E /* ScannerViewModel.swift in Sources */,
 				7C5865E6244A0CA100426FBC /* AlertInfo.swift in Sources */,

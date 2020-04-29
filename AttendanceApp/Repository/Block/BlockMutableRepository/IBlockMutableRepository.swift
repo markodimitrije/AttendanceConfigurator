@@ -12,4 +12,5 @@ protocol IBlockMutableRepository {
     //SAVE
     func save(blocks: [IBlock])
     func replaceExistingWith(blocks: [IBlock])
+    func deleteAllBlocks()
 }

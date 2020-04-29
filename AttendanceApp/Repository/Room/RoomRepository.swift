@@ -15,6 +15,7 @@ protocol IRoomRepository {
     func getObsAllRooms() -> Observable<[IRoom]>
     func save(rooms: [IRoom])
     func replaceExistingWith(rooms: [IRoom])
+    func deleteAllRooms()
 }
 
 class RoomRepository: IRoomRepository {
@@ -57,7 +58,7 @@ class RoomRepository: IRoomRepository {
         save(rooms: rooms)
     }
     
-    private func deleteAllRooms() {
+    func deleteAllRooms() {
         let realm = try! Realm()
         let previousRooms = realm.objects(RealmRoom.self)
         try! realm.write {

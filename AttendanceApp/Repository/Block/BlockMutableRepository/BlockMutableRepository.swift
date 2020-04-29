@@ -23,7 +23,7 @@ class BlockMutableRepository: IBlockMutableRepository {
         save(blocks: blocks)
     }
     
-    private func deleteAllBlocks() {
+    func deleteAllBlocks() {
         let realm = try! Realm()
         let previousBlocks = realm.objects(RealmBlock.self)
         try! realm.write {

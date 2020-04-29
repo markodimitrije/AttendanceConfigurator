@@ -66,13 +66,11 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     private func bindUI() { // glue code for selected Room
         
-        //viewModel.scannerInfoDriver
         viewModel.getScannerInfoDriver()
             .map {$0.getTitle()}
             .drive(sessionNameLbl.rx.text)
             .disposed(by: disposeBag)
 
-//        viewModel.scannerInfoDriver
         viewModel.getScannerInfoDriver()
             .map {$0.getDescription()}
             .drive(sessionTimeAndRoomLbl.rx.text)

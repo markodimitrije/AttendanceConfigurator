@@ -15,6 +15,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     var viewModel: ICampaignsViewModel!
     var navBarConfigurator: INavigBarConfigurator!
     var logoutHandler: ILogoutHandler!
+    var campaignSelectionRepo: ICampaignSelectionRepository = CampaignSelectionRepositoryFactory.make()
     
     @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
@@ -29,6 +30,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        campaignSelectionRepo.userSelected(campaignItem: nil)
         viewModel.refreshCampaigns()
     }
     
@@ -50,7 +52,7 @@ class CampaignsVC: UIViewController, Storyboarded {
             .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
             .bind { [weak self] indexPath, item in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
-                print("open scanning screen for campaignId = \(item.id) and confId = \(item.confId)") // TODO marko
+                self?.campaignSelectionRepo.userSelected(campaignItem: item)
                 let nextVC = ScannerViewControllerFactory.make()
                 self?.navigationController?.pushViewController(nextVC, animated: true)
             }

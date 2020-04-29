@@ -45,6 +45,17 @@ class DataAccess: NSObject {
         }
     }
     
+    func deleteAll() {
+        UserDefaults.standard.set(nil, forKey: "roomId")
+        UserDefaults.standard.set(nil, forKey: "sessionId")
+        UserDefaults.standard.set(nil, forKey: "date")
+        UserDefaults.standard.set(nil, forKey: "autoSwitch")
+        _roomSelected.accept(nil)
+        _blockSelected.accept(nil)
+        _dateSelected.accept(nil)
+        _autoSwitchSelected.accept(false)
+    }
+    
     // API: output
     var output: Observable<(Int?, Int?, Date?, Bool)> {
         return Observable.combineLatest(_roomSelected.asObservable(),
