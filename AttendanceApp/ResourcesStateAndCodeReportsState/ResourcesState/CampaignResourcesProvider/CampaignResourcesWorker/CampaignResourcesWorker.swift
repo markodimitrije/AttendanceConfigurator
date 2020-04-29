@@ -10,7 +10,7 @@ import RxSwift
 
 extension CampaignResourcesWorker: ICampaignResourcesWorker {
     func work() -> Observable<Void> {
-        resourcesApiController.fetch()
+        resourcesApiController.fetch().take(1)
             .do(onNext: { (resources) in
                 print("CampaignResourcesWorker.work PERSIST resources")
                 self.roomsRepo.save(rooms: resources.getLocations())

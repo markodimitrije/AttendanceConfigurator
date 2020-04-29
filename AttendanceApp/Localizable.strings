@@ -50,6 +50,9 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 "fieldIsEmpty.title" = "Validation error";
 "fieldIsEmpty.text" = "Field can't be left empty";
 
+"campaignResources.title" = "Resources Error";
+"campaignResources.text" = "Can't update campaign resources. Please try again later";
+
 "logout.title" = "Logout warning!";
 "logout.text" = "You are about to Log out. This will delete all your data from device. Want to proceed anyway?";
 "logout.no" = "No";

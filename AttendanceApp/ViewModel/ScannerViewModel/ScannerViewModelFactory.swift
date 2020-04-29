@@ -13,6 +13,7 @@ class ScannerViewModelFactory {
         let codeReportsState = CodeReportsStateFactory.make()
         return ScannerViewModel(dataAccess: DataAccess.shared,
                                 scannerInfoFactory: scannerInfoFactory,
-                                codeReportsState: codeReportsState)
+                                codeReportsState: codeReportsState,
+                                alertErrPresenter: AlertErrorPresenter())
     }
 }

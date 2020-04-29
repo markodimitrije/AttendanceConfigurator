@@ -20,6 +20,8 @@ class ErrorAlertInfoDictionaryFactory {
         dict += emailNotValidPair()
         dict += passNotValidPair()
         dict += fieldIsEmptyPair()
+        // CampaignResourcesError pairs
+        dict += campaignResourcesPair()
         return dict
     }
     
@@ -63,6 +65,12 @@ class ErrorAlertInfoDictionaryFactory {
         let alertInfo = getAlertInfo(titleKeyString: "fieldIsEmpty.title",
                                      textKeyString: "fieldIsEmpty.text")
         return [LoginValidationError.fieldIsEmpty.getHash(): alertInfo]
+    }
+    
+    static private func campaignResourcesPair() -> [String: Any] {
+        let alertInfo = getAlertInfo(titleKeyString: "campaignResources.title",
+                                     textKeyString: "campaignResources.text")
+        return [CampaignResourcesError.badData.getHash(): alertInfo]
     }
     
     static private func getAlertInfo(titleKeyString: String, textKeyString: String) -> ErrorAlertInfo {

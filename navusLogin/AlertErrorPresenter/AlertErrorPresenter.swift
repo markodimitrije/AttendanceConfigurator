@@ -10,7 +10,13 @@ import UIKit
 
 class AlertErrorPresenter: IAlertErrorPresenter {
     func present(error: Error) {
-        let alertVC = ErrorAlertControllerFactory.make(error: error)
-        UIViewController.topViewController().present(alertVC, animated: true)
+        DispatchQueue.main.async {
+            let topVC = UIViewController.topViewController()
+            if topVC is UIAlertController {
+                return
+            }
+            let alertVC = ErrorAlertControllerFactory.make(error: error)
+            topVC.present(alertVC, animated: true)
+        }
     }
 }

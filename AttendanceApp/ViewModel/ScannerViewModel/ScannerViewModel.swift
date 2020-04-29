@@ -31,15 +31,18 @@ class ScannerViewModel {
     private var dataAccess: DataAccess!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
+    private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
     
     init(dataAccess: DataAccess,
          scannerInfoFactory: IScannerInfoFactory,
-         codeReportsState: CodeReportsState) {
+         codeReportsState: CodeReportsState,
+         alertErrPresenter: IAlertErrorPresenter) {
         
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
+        self.alertErrPresenter = alertErrPresenter
         
         handleCampaignResources()
     }
@@ -66,9 +69,9 @@ class ScannerViewModel {
     
     private func handleCampaignResources() {
         resourceState.oResourcesDownloaded
-            .subscribe(onNext: { (success) in
-                if !success {
-                    print("cant download resources show error!!")
+            .subscribe(onNext: { [weak self] (success) in
+                if success {
+                    self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
                 }
             })
             .disposed(by: bag)

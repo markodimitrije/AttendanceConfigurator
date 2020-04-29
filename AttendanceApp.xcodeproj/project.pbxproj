@@ -49,6 +49,7 @@
 		7C4AFAB02457643F0038B8D5 /* CampaignResourcesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAAF2457643F0038B8D5 /* CampaignResourcesFactory.swift */; };
 		7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */; };
 		7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */; };
+		7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4C587824597A3000359C60 /* CampaignResourceError.swift */; };
 		7C4FE48D2297FF4D0064A491 /* DelegatesAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */; };
 		7C516F6D243C73E1002CF6BF /* CodeReportsImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F6C243C73E1002CF6BF /* CodeReportsImmutableRepository.swift */; };
 		7C516F6F243C741A002CF6BF /* CodeReportsMutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F6E243C741A002CF6BF /* CodeReportsMutableRepository.swift */; };
@@ -375,6 +376,7 @@
 		7C4AFAAF2457643F0038B8D5 /* CampaignResourcesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesFactory.swift; sourceTree = "<group>"; };
 		7C4C1760245046ED009AE1F5 /* CampaignTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignTableViewCell.swift; sourceTree = "<group>"; };
 		7C4C1761245046ED009AE1F5 /* CampaignTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignTableViewCell.xib; sourceTree = "<group>"; };
+		7C4C587824597A3000359C60 /* CampaignResourceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourceError.swift; sourceTree = "<group>"; };
 		7C4FE48C2297FF4D0064A491 /* DelegatesAPIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegatesAPIController.swift; sourceTree = "<group>"; };
 		7C516F6C243C73E1002CF6BF /* CodeReportsImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsImmutableRepository.swift; sourceTree = "<group>"; };
 		7C516F6E243C741A002CF6BF /* CodeReportsMutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsMutableRepository.swift; sourceTree = "<group>"; };
@@ -810,6 +812,7 @@
 		7C4AFAA2245752570038B8D5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				7C4C587824597A3000359C60 /* CampaignResourceError.swift */,
 				7C4AFAAD245763F60038B8D5 /* CampaignResources */,
 				7C4AFAAE245764010038B8D5 /* CampaignResourcesFromDataFactory */,
 			);
@@ -2590,6 +2593,7 @@
 				7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */,
 				7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
+				7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
 				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
