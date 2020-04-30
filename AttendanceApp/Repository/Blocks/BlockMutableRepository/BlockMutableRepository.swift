@@ -18,11 +18,6 @@ class BlockMutableRepository: IBlockMutableRepository {
         }
     }
     
-    func replaceExistingWith(blocks: [IBlock]) {
-        deleteAllBlocks()
-        save(blocks: blocks)
-    }
-    
     func deleteAllBlocks() {
         let realm = try! Realm()
         let previousBlocks = realm.objects(RealmBlock.self)

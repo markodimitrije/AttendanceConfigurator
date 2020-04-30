@@ -14,7 +14,6 @@ protocol IRoomRepository {
     func getAllRooms() -> [IRoom]
     func getObsAllRooms() -> Observable<[IRoom]>
     func save(rooms: [IRoom])
-    func replaceExistingWith(rooms: [IRoom])
     func deleteAllRooms()
 }
 
@@ -51,11 +50,6 @@ class RoomRepository: IRoomRepository {
         try? realm.write {
             realm.add(rRooms, update: .modified)
         }
-    }
-    
-    func replaceExistingWith(rooms: [IRoom]) {
-        deleteAllRooms()
-        save(rooms: rooms)
     }
     
     func deleteAllRooms() {
