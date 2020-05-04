@@ -62,4 +62,19 @@ class GenericRealmRepository: IGenericRealmRepository {
         return Observable<Bool>.just(true) // all good
     }
     
+    func delete<T: Object>(objects: [T]) -> Observable<Void> {
+        guard let realm = try? Realm() else {
+            return Observable<Void>.empty()
+        }
+        do {
+            try realm.write {
+                realm.delete(objects)
+            }
+        } catch {
+            return Observable<Void>.empty()
+        }
+        return Observable<Void>.just(())
+    }
+    
 }
+
