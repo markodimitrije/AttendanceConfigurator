@@ -31,7 +31,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     var viewModel: ScannerViewModel!
     var alertInfo: AlertInfo!
-    var delegatesSessionValidation: IDelegatesSessionValidation!
+    var delegatesAttendanceValidation: IDelegatesAttendanceValidation!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
     private var code: String {
@@ -92,7 +92,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     // MARK:- Show Failed Alerts
     
-    private func showAlertFailedDueToNoRoomOrSessionSettings() {
+    private func showAlertFailedDueToNoRoomOrBlockSettings() {
         
         self.alert(alertInfo: self.alertInfo, sourceView: self.view)
             .subscribe {
@@ -118,19 +118,19 @@ class ScannerViewController: UIViewController, Storyboarded {
         if self.scannerView.subviews.contains(where: {$0.tag == 20}) { return } // already arr on screen...
         
         // hard-coded off - main event
-        if delegatesSessionValidation.isScannedDelegate(withBarcode: code,
-                                                        sessionId: viewModel.sessionId) {
-            delegateIsAllowedToAttendSession(code: code)
+        if delegatesAttendanceValidation.isScannedDelegate(withBarcode: code,
+                                                        blockId: viewModel.blockId) {
+            delegateAttendanceAllowed(code: code)
         } else {
             delegateAttendanceInvalid(code: code)
         }
         // hard-coded on
-//        delegateIsAllowedToAttendSession(code: code)
+//        delegateAttendanceAllowed(code: code)
     }
     
     // MARK:- Delegate attendance
     
-    private func delegateIsAllowedToAttendSession(code: String) {
+    private func delegateAttendanceAllowed(code: String) {
         
         scanedCode.onNext(code)
         playSound(name: "codeSuccess")
@@ -166,10 +166,10 @@ extension ScannerViewController: BarcodeListening {
         
         scanner.stopScanning()
         
-        if viewModel.sessionId != -1 {
+        if viewModel.blockId != -1 {
             scanditSuccessfull(code: code)
         } else {
-            showAlertFailedDueToNoRoomOrSessionSettings()
+            showAlertFailedDueToNoRoomOrBlockSettings()
         }
         
         restartCameraForScaning()

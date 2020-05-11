@@ -1,5 +1,5 @@
 //
-//  AutoSessionViewModelFactory.swift
+//  AutoBlockViewModelFactory.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 08/04/2020.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class AutoSessionViewModelFactory {
-    static func make(roomId: Int, date: Date?) -> AutoSessionViewModel {
+class AutoBlockViewModelFactory {
+    static func make(roomId: Int, date: Date?) -> AutoBlockViewModel {
         let blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: date)
-        return AutoSessionViewModel(blockViewModel: blockViewModel)
+        return AutoBlockViewModel(blockViewModel: blockViewModel)
     }
 }

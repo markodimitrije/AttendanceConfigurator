@@ -28,8 +28,8 @@ class UserSelectionManager: NSObject {
         
         if let roomId = keyPath, roomId == "roomId" {
             _location.accept(UserDefaults.standard.value(forKey: "roomId") as? Int)
-        } else if let sessionId = keyPath, sessionId == "sessionId" {
-            _block.accept(UserDefaults.standard.value(forKey: "sessionId") as? Int)
+        } else if let blockId = keyPath, blockId == "blockId" {
+            _block.accept(UserDefaults.standard.value(forKey: "blockId") as? Int)
         }
     }
     

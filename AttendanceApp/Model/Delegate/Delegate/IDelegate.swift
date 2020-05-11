@@ -11,5 +11,5 @@ import Foundation
 protocol IDelegate {
     func getId() -> Int
     func getCode() -> String
-    func sessionIds() -> [Int]
+    func blockIds() -> [Int]
 }

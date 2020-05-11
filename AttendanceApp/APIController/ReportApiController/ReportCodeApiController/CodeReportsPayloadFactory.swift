@@ -15,7 +15,7 @@ class CodeReportsPayloadFactory {
     }
     static func makeSinglePayload(report: ICodeReport) -> [String: Any] {
         return [
-            "block_id": "\(report.getSessionId())",
+            "block_id": "\(report.getBlockId())",
             "code": trimmedToSixCharactersCode(code: report.getCode()),
             "time_of_scan": report.getDate().toString(format: Date.defaultFormatString) ?? ""
         ]

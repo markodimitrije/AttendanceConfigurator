@@ -20,6 +20,6 @@ class DelegateFactory {
     static func make(from rDelegate: RealmDelegate) -> IDelegate {
         return Delegate(id: rDelegate.id,
                         c: rDelegate.code,
-                        s: rDelegate.sessionIds.toArray())
+                        s: rDelegate.blockIds.toArray())
     }
 }

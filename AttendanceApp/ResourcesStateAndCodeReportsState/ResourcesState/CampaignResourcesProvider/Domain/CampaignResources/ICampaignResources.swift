@@ -11,6 +11,6 @@ import Foundation
 protocol ICampaignResources {
     func getConfDataVersionId() -> Int
     func getLocations() -> [IRoom]
-    func getSessions() -> [IBlock]
+    func getBlocks() -> [IBlock]
     func getDelegates() -> [IDelegate]
 }

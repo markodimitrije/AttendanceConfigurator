@@ -1,5 +1,5 @@
 //
-//  AutoSessionViewModel.swift
+//  AutoBlockViewModel.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 24/10/2018.
@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class AutoSessionViewModel {
+class AutoBlockViewModel {
     
     private let bag = DisposeBag()
     private let blockViewModel: BlockViewModel
@@ -21,16 +21,16 @@ class AutoSessionViewModel {
     }
     
     // OUTPUT
-    var selectedSession = BehaviorSubject<IBlock?>.init(value: nil)
+    var selectedBlock = BehaviorSubject<IBlock?>.init(value: nil)
     
     private func bindInputWithOutput() {
         
-        blockViewModel.oAutomaticSession // output svog slave-a
+        blockViewModel.oAutomaticBlock // output svog slave-a
             .asDriver(onErrorJustReturn: nil)
             .do(onNext: { (block) in
                 DataAccess.shared.userSelection.blockId = block?.getId() // hazardous hard-coded?
             })
-            .drive(selectedSession) // prosledi na svoj output
+            .drive(selectedBlock) // prosledi na svoj output
             .disposed(by: bag)
     }
     

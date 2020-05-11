@@ -36,7 +36,7 @@ class AutoSessionTimer {
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,
                                                             date: actualSettings.selectedDate)
                 //BlockViewModel.init(roomId: actualSettings.roomId)
-            blockViewModel.oAutomaticSession.subscribe(onNext: { [weak self] block in
+            blockViewModel.oAutomaticBlock.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
                 var updateData = sSelf.dataAccess.userSelection
                 updateData.blockId = block?.getId()

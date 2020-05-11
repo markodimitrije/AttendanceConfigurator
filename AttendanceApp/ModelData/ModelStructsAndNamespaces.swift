@@ -12,7 +12,3 @@ extension UIColor {
     static var wiFiConnected = UIColor.green
     static var wiFiDisconnected = UIColor.red
 }
-
-enum AnError: Error {
-    case sessionNotSelected
-}

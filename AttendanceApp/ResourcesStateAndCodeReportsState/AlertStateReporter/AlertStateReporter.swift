@@ -13,25 +13,25 @@ import RxCocoa
 class AlertStateReporter {
     
     let monitor: AlertStateMonitor
-    let webAPI: IReportSessionApiController
+    let webAPI: IReportBlockApiController
     
-    init(dataAccess: DataAccess, monitor: AlertStateMonitor, webAPI: IReportSessionApiController) {
+    init(dataAccess: DataAccess, monitor: AlertStateMonitor, webAPI: IReportBlockApiController) {
         
         self.monitor = monitor
         self.webAPI = webAPI
         
-        makeObsSessionReport(dataAccess: dataAccess, monitor: self.monitor)
+        makeObsBlockReport(dataAccess: dataAccess, monitor: self.monitor)
             .debounce(1.0, scheduler: MainScheduler.instance)
             .subscribe(onNext: { report in
                     
 //                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
                 
-                _ = webAPI.reportSelectedSession(report: report)
+                _ = webAPI.reportSelected(report: report)
             })
             .disposed(by: bag)
     }
     
-    private func makeObsSessionReport(dataAccess: DataAccess, monitor: AlertStateMonitor) -> Observable<SessionReport> {
+    private func makeObsBlockReport(dataAccess: DataAccess, monitor: AlertStateMonitor) -> Observable<BlockReport> {
         
         let obsRoomId = dataAccess.output.map {$0.0 ?? -1 }
         let obsBlockId = dataAccess.output.map {$0.1 ?? -1 }
@@ -45,9 +45,9 @@ class AlertStateReporter {
             .map(makeReport)
     }
     
-    private func makeReport(reportInfo: (roomId: Int, blockId: Int, appInFg: Bool, batLevel: Int, batStatus: String)) -> SessionReport {
+    private func makeReport(reportInfo: (roomId: Int, blockId: Int, appInFg: Bool, batLevel: Int, batStatus: String)) -> BlockReport {
         
-        return SessionReport(location_id: reportInfo.roomId,
+        return BlockReport(location_id: reportInfo.roomId,
                              block_id: reportInfo.blockId,
                              battery_level: reportInfo.batLevel,
                              battery_status: reportInfo.batStatus,

@@ -10,5 +10,5 @@ import RxCocoa
 
 protocol IScanningInfoProviding {
     func getScannerInfoDriver() -> SharedSequence<DriverSharingStrategy, IScannerInfo>
-    func getActualSessionId() -> Int
+    func getActualBlockId() -> Int
 }

@@ -15,12 +15,12 @@ extension ScannerViewModel: IScannerViewModel {
         createOutput(dataAccess: dataAccess)
     }
     
-    func getActualSessionId() -> Int {
-        self.sessionId
+    func getActualBlockId() -> Int {
+        self.blockId
     }
     
     func scannedCode(code: String, accepted: Bool) {
-        let report = CodeReportFactory.make(code: code, sessionId: self.sessionId, date: Date.now, accepted: accepted)
+        let report = CodeReportFactory.make(code: code, blockId: self.blockId, date: Date.now, accepted: accepted)
         codeReportsState.codeReport.onNext(report)
     }
     
@@ -49,8 +49,8 @@ class ScannerViewModel {
     
     // OUTPUT
     
-    private var _oSessionId = BehaviorRelay<Int>.init(value: -1) // err state
-    var sessionId: Int {return _oSessionId.value}
+    private var _oBlockId = BehaviorRelay<Int>.init(value: -1) // err state
+    var blockId: Int {return _oBlockId.value}
     
     fileprivate let bag = DisposeBag()
     
@@ -62,7 +62,7 @@ class ScannerViewModel {
             .map { (roomId, blockId, _, _) -> IScannerInfo in
                 return self.scannerInfoFactory.make(roomId: roomId, blockId: blockId)
             }.do(onNext: { scannerInfo in
-                self._oSessionId.accept(scannerInfo.getBlockId())
+                self._oBlockId.accept(scannerInfo.getBlockId())
             })
             .asDriver(onErrorJustReturn: ScannerInfo())
     }

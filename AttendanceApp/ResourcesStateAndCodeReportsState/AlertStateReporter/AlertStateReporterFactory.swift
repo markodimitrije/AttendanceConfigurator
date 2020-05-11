@@ -8,7 +8,7 @@
 
 class AlertStateReporterFactory {
     static func make() -> AlertStateReporter {
-        let webAPI = ReportSessionApiControllerFactory.make()
+        let webAPI = ReportBlockApiControllerFactory.make()
         return AlertStateReporter(dataAccess: DataAccess.shared,
                                   monitor: AlertStateMonitor(),
                                   webAPI: webAPI)

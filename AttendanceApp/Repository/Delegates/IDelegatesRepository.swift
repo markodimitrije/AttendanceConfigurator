@@ -16,5 +16,5 @@ protocol IDelegatesMutableRepository {
 }
 
 protocol IDelegatesImmutableRepository {
-    func delegateHasAccessToSession(code: String, sessionId: Int) -> Bool
+    func delegateHasAccessToBlock(code: String, blockId: Int) -> Bool
 }

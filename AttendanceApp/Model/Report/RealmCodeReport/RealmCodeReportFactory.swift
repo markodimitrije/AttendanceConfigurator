@@ -11,11 +11,11 @@ class RealmCodeReportFactory {
     static func make(with codeReport: ICodeReport) -> RealmCodeReport {
         let object = RealmCodeReport()
         let barcode = codeReport.getCode()
-        let sessionId = codeReport.getSessionId()
+        let blockId = codeReport.getBlockId()
         
-        object.id = barcode + "\(sessionId)"
+        object.id = barcode + "\(blockId)"
         object.code = barcode
-        object.sessionId = sessionId
+        object.blockId = blockId
         object.date = codeReport.getDate()
         object.reported = codeReport.isReported()
         object.accepted = codeReport.isAccepted()

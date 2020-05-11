@@ -14,12 +14,12 @@ import RealmSwift
 class DataAccess: NSObject {
     
     lazy private var _roomSelected = BehaviorRelay<Int?>.init(value: roomInitial)
-    lazy private var _blockSelected = BehaviorRelay<Int?>.init(value: sessionInitial)
+    lazy private var _blockSelected = BehaviorRelay<Int?>.init(value: blockInitial)
     lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: dateInitial)
     lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: autoSwitchInitial)
     
     private var roomInitial: Int?
-    private var sessionInitial: Int?
+    private var blockInitial: Int?
     private var dateInitial: Date?
     private var autoSwitchInitial: Bool
     
@@ -29,13 +29,13 @@ class DataAccess: NSObject {
     var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {
         get {
             return (UserDefaults.standard.value(forKey: "roomId") as? Int,
-                    UserDefaults.standard.value(forKey: "sessionId") as? Int,
+                    UserDefaults.standard.value(forKey: "blockId") as? Int,
                     UserDefaults.standard.value(forKey: "date") as? Date,
                     UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true)
         }
         set {
             UserDefaults.standard.set(newValue.0, forKey: "roomId")
-            UserDefaults.standard.set(newValue.1, forKey: "sessionId")
+            UserDefaults.standard.set(newValue.1, forKey: "blockId")
             UserDefaults.standard.set(newValue.2, forKey: "date")
             UserDefaults.standard.set(newValue.3, forKey: "autoSwitch")
             _roomSelected.accept(newValue.0)
@@ -47,7 +47,7 @@ class DataAccess: NSObject {
     
     func deleteAll() {
         UserDefaults.standard.set(nil, forKey: "roomId")
-        UserDefaults.standard.set(nil, forKey: "sessionId")
+        UserDefaults.standard.set(nil, forKey: "blockId")
         UserDefaults.standard.set(nil, forKey: "date")
         UserDefaults.standard.set(nil, forKey: "autoSwitch")
         _roomSelected.accept(nil)
@@ -69,7 +69,7 @@ class DataAccess: NSObject {
     
     override init() {
         self.roomInitial = UserDefaults.standard.value(forKey: "roomId") as? Int
-        self.sessionInitial = UserDefaults.standard.value(forKey: "sessionId") as? Int
+        self.blockInitial = UserDefaults.standard.value(forKey: "blockId") as? Int
         self.dateInitial = UserDefaults.standard.value(forKey: "date") as? Date
         self.autoSwitchInitial = UserDefaults.standard.value(forKey: "autoSwitch") as? Bool ?? true
         super.init()

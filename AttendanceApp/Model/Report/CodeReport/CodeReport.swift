@@ -10,7 +10,7 @@ import Foundation
 
 extension CodeReport: ICodeReport {
     func getCode() -> String { self.code }
-    func getSessionId() -> Int { self.sessionId }
+    func getBlockId() -> Int { self.blockId }
     func getDate() -> Date { self.date }
     func isReported() -> Bool {self.reported}
     func isAccepted() -> Bool {self.accepted}
@@ -19,21 +19,21 @@ extension CodeReport: ICodeReport {
 struct CodeReport {
     
     private let code: String
-    private let sessionId: Int
+    private let blockId: Int
     private var date: Date = Date(timeIntervalSinceNow: 0)
     var reported = false
     private let accepted: Bool
     
-    init(code: String, sessionId: Int, date: Date, accepted: Bool) {
+    init(code: String, blockId: Int, date: Date, accepted: Bool) {
         self.code = code
-        self.sessionId = sessionId
+        self.blockId = blockId
         self.date = date
         self.accepted = accepted
     }
     
     init(realmCodeReport: RealmCodeReport) {
         self.code = realmCodeReport.code
-        self.sessionId = realmCodeReport.sessionId
+        self.blockId = realmCodeReport.blockId
         self.date = realmCodeReport.date
         self.reported = realmCodeReport.reported
         self.accepted = realmCodeReport.accepted

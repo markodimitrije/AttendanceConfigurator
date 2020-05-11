@@ -11,7 +11,7 @@ import Foundation
 extension Delegate: IDelegate {
     func getId() -> Int {self.id}
     func getCode() -> String { self.c }
-    func sessionIds() -> [Int] { self.s }
+    func blockIds() -> [Int] { self.s }
 }
 
 struct Delegate: Codable {

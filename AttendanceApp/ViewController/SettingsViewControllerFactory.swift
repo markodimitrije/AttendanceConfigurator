@@ -31,14 +31,14 @@ class SettingsViewControllerFactory {
             let roomId = DataAccess.shared.userSelection.roomId
             return BehaviorSubject<Int?>.init(value: roomId)
         }()
-        settingsVC.sessionManuallySelected = {
+        settingsVC.blockManuallySelected = {
             let blockId = DataAccess.shared.userSelection.blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }
     
     private static func attachOutputSignal(toSettingsVC settingsVC: SettingsViewController) {
-        settingsVC.sessionSelected = {
+        settingsVC.blockSelected = {
             let blockId = DataAccess.shared.userSelection.blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()

@@ -1,5 +1,5 @@
 //
-//  SessionReport.swift
+//  BlockReport.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 18/04/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SessionReport: CustomStringConvertible {
+struct BlockReport: CustomStringConvertible {
     
     var location_id: Int
     var block_id: Int

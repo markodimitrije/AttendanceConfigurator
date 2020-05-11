@@ -8,16 +8,4 @@
 
 import Foundation
 
-let hourMinuteSet = Set<Calendar.Component>.init(arrayLiteral: .hour, .minute)
-
-var defaultAutoSessionDate: Date {
-    return Date.init(timeIntervalSinceNow: -MyTimeInterval.waitToMostRecentSession)
-}
-
-//var syncResourcesManager: ISyncResourcesManager!
-
 var codesDumper: CodesDumper! // prazni codes (saved in Realm), koji su failed da se prijave pojedinacno na web
-
-//let conferenceId = 7498 // hard-coded!
-
-//let conferenceState = ConferenceApiKeyState()

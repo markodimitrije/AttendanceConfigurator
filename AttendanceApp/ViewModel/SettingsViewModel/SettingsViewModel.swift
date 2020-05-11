@@ -48,8 +48,8 @@ final class SettingsViewModel: ViewModelType {
             guard let roomId = roomId else { return nil }
             if switchIsOn {
                 
-                let autoModelView = AutoSessionViewModelFactory.make(roomId: roomId, date: date)
-                return try! autoModelView.selectedSession.value()?.getId() ?? nil // pazi ovde !! try !
+                let autoModelView = AutoBlockViewModelFactory.make(roomId: roomId, date: date)
+                return try! autoModelView.selectedBlock.value()?.getId() ?? nil // pazi ovde !! try !
             }
             return nil
         }.skip(1)
@@ -143,6 +143,6 @@ final class SettingsViewModel: ViewModelType {
     
     private func sendDeviceReport(info: (Int, Int)) {
         let batInfo = BatteryManager.init().info
-        deviceStateReporter.sessionIsSet(info: info, battery_info: batInfo, app_active: true)
+        deviceStateReporter.blockIsSet(info: info, battery_info: batInfo, app_active: true)
     }
 }

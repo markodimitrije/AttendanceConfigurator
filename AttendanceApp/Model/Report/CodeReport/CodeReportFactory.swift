@@ -10,14 +10,14 @@ import Foundation
 
 class CodeReportFactory {
     static func make(code: String,
-                     sessionId: Int,
+                     blockId: Int,
                      date: Date,
                      accepted: Bool) -> ICodeReport {
-        return CodeReport(code: code, sessionId: sessionId, date: date, accepted: accepted)
+        return CodeReport(code: code, blockId: blockId, date: date, accepted: accepted)
     }
     static func make(realmCodeReport: RealmCodeReport) -> ICodeReport {
         var codeReport = CodeReport(code: realmCodeReport.code,
-                                    sessionId: realmCodeReport.sessionId,
+                                    blockId: realmCodeReport.blockId,
                                     date: realmCodeReport.date,
                                     accepted: realmCodeReport.accepted)
         codeReport.reported = realmCodeReport.reported

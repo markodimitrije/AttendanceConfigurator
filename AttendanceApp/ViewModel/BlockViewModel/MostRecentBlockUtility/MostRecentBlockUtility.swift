@@ -9,12 +9,12 @@
 import Foundation
 
 protocol IMostRecentBlockUtility {
-    func getMostRecentSession(blocksSortedByDate: [IBlock]) -> IBlock?
+    func getMostRecentBlock(blocksSortedByDate: [IBlock]) -> IBlock?
 }
 
 class MostRecentBlockUtility: IMostRecentBlockUtility {
     
-    func getMostRecentSession(blocksSortedByDate: [IBlock]) -> IBlock? {
+    func getMostRecentBlock(blocksSortedByDate: [IBlock]) -> IBlock? {
         
         let todayBlocks = blocksSortedByDate.filter {
             return Calendar.current.compare(Date.now,
@@ -25,7 +25,7 @@ class MostRecentBlockUtility: IMostRecentBlockUtility {
         let actualOrNextInFiftheenMinutes =
             todayBlocks.filter { block -> Bool in
                 let startsAt = block.getStartsAt()
-                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentSession) < Date.now
+                return startsAt.addingTimeInterval(-MyTimeInterval.waitToMostRecentBlock) < Date.now
             }.last
         
         return actualOrNextInFiftheenMinutes

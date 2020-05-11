@@ -36,7 +36,7 @@ extension DelegatesRepository {
 }
 
 extension DelegatesRepository {
-    func delegateHasAccessToSession(code: String, sessionId: Int) -> Bool {
+    func delegateHasAccessToBlock(code: String, blockId: Int) -> Bool {
         guard code.count >= 6 else {
             return false // hard-coded, odbij ga da nema pravo, a hostese neka ga puste da udje....
         }
@@ -46,6 +46,6 @@ extension DelegatesRepository {
             let delegate = realm.object(ofType: RealmDelegate.self, forPrimaryKey: trimedToSixCharCode) else {
                 return false
         }
-        return delegate.sessionIds.contains(sessionId)
+        return delegate.blockIds.contains(blockId)
     }
 }

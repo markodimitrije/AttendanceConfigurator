@@ -1,5 +1,5 @@
 //
-//  ReportSelectedSessionApiController.swift
+//  ReportBlockApiController.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 31/03/2020.
@@ -8,14 +8,14 @@
 
 import RxSwift
 
-class ReportSessionApiController: IReportSessionApiController {
+class ReportBlockApiController: IReportBlockApiController {
     static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
     private let apiController: ApiController
     init(apiController: ApiController) {
         self.apiController = apiController
     }
     
-    func reportSelectedSession(report: SessionReport?) -> Observable<(SessionReport,Bool)> {
+    func reportSelected(report: BlockReport?) -> Observable<(BlockReport,Bool)> {
         guard let report = report else {return Observable.empty()}
         
         let params = report.getPayload()
@@ -23,7 +23,7 @@ class ReportSessionApiController: IReportSessionApiController {
         let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
         
         return apiController
-            .buildRequest(base: ReportSessionApiController.baseTrackerURL,
+            .buildRequest(base: ReportBlockApiController.baseTrackerURL,
                 method: "PUT",
                 pathComponent: "devices/\(deviceId)",
                 params: params,

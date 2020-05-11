@@ -11,11 +11,11 @@ import RxSwift
 
 // ideja je da ova klasa ima nekoliko API-ja i da onda javlja web-u (i manage na device) report vezano za:
 // battery level opao ispod 20%
-// session i room selected
+// block i room selected
 // device se vratio iz background-a
 // i slicno ...
 
-// za sada implementiram samo input da je roomId i sessionId selected, i tome pridruzujem aktuelni battery level
+// za sada implementiram samo input da je roomId i blockId selected, i tome pridruzujem aktuelni battery level
 
 class DeviceStateReporter {
     
@@ -23,27 +23,27 @@ class DeviceStateReporter {
     
     // API
     
-    func sessionIsSet(info: (location_id: Int, block_id: Int),
-                      battery_info: BatteryInfo,
-                      app_active: Bool) {
+    func blockIsSet(info: (location_id: Int, block_id: Int),
+                    battery_info: BatteryInfo,
+                    app_active: Bool) {
         
-        let session = SessionReport.init(location_id: info.location_id,
-                                         block_id: info.block_id,
-                                         battery_level: battery_info.level,
-                                         battery_status: battery_info.status,
-                                         app_active: app_active)
+        let blockReport = BlockReport.init(location_id: info.location_id,
+                                           block_id: info.block_id,
+                                           battery_level: battery_info.level,
+                                           battery_status: battery_info.status,
+                                           app_active: app_active)
         
-        reportToWeb(session: session)
+        reportToWeb(blockReport: blockReport)
         
     }
     
-    private func reportToWeb(session: SessionReport) {
+    private func reportToWeb(blockReport: BlockReport) {
         
-        let apiController = ReportSessionApiControllerFactory.make()
+        let apiController = ReportBlockApiControllerFactory.make()
         apiController
-            .reportSelectedSession(report: session)
+            .reportSelected(report: blockReport)
             .subscribe(onNext: { (report, success) in
-//                print("DeviceStateReporter.sessionIsSet: \(report), success \(success)")
+//                print("DeviceStateReporter.blockIsSet: \(report), success \(success)")
             })
             .disposed(by: bag)
         

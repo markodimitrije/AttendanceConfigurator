@@ -11,14 +11,14 @@ import Foundation
 extension CampaignResources: ICampaignResources {
     func getConfDataVersionId() -> Int {self.confDataVersionId}
     func getLocations() -> [IRoom] {self.locations}
-    func getSessions() -> [IBlock] {self.sessions}
+    func getBlocks() -> [IBlock] {self.blocks}
     func getDelegates() -> [IDelegate] {self.delegates}
 }
 
 struct CampaignResources {
     private let confDataVersionId: Int
     private let locations: [IRoom]
-    private let sessions: [IBlock]
+    private let blocks: [IBlock]
     private let delegates: [IDelegate]
     init(data: Data) throws {
         let dictionary = try DataToDictFactory.make(data: data)
@@ -29,7 +29,7 @@ struct CampaignResources {
                 throw ApiError.invalidJson
         }
         self.locations = locDicts.compactMap(RoomFactory.make)
-        self.sessions = tsDicts.compactMap(BlockFactory.make)
+        self.blocks = tsDicts.compactMap(BlockFactory.make)
         self.delegates = delDicts.compactMap(DelegateFactory.make)
         self.confDataVersionId = confDataVersionId
     }

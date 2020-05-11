@@ -29,10 +29,10 @@ class SettingsViewController: UITableViewController, Storyboarded {
     // INPUTS: property injection
     var dateSelected: BehaviorRelay<Date?>!
     var roomSelected: BehaviorSubject<Int?>!
-    var sessionManuallySelected: BehaviorSubject<Int?>!
+    var blockManuallySelected: BehaviorSubject<Int?>!
     
     // OUTPUTS:
-    var sessionSelected: BehaviorSubject<Int?>!
+    var blockSelected: BehaviorSubject<Int?>!
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModelFactory.make(syncScansTap: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
@@ -56,12 +56,12 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .asDriver(onErrorJustReturn: false)//.debug()
         
         let savedAutoSwitchState = DataAccess.shared.userSelection.3
-        let sessionSwitchSignal = autoSelectSessionsView.controlSwitch
+        let blockSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)
                     .asDriver(onErrorJustReturn: true)
         
-        let sessionManuallyDriver = sessionManuallySelected.share(replay:1)
+        let blockManuallyDriver = blockManuallySelected.share(replay:1)
             .asDriver(onErrorJustReturn: nil)
         
         let input = SettingsViewModel.Input.init(
@@ -69,8 +69,8 @@ class SettingsViewController: UITableViewController, Storyboarded {
                         saveSettingsTrigger: saveSettingsAndExitBtn.rx.tap.asDriver(),
                         dateSelected: dateSelected.asDriver(onErrorJustReturn: nil),
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
-                        sessionSelected: sessionManuallyDriver,
-                        sessionSwitch: sessionSwitchSignal,
+                        sessionSelected: blockManuallyDriver,
+                        sessionSwitch: blockSwitchSignal,
                         blockSelectedManually: manuallySelectedSignal
         )
         
@@ -91,7 +91,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .do(onNext: { [weak self] block in guard let sSelf = self else {return}
                 sSelf.dismiss(animated: true, completion: nil)
             })
-            .drive(self.sessionSelected)
+            .drive(self.blockSelected)
             .disposed(by: disposeBag)
         
         // holds ref to output.sessionInfo and code inside viewmodel
@@ -179,8 +179,8 @@ class SettingsViewController: UITableViewController, Storyboarded {
             blocksVC.selectedBlock
                 .subscribe(onNext: { [weak self] blockId in
                     guard let sSelf = self else {return}
-                    sSelf.sessionManuallySelected.onNext(blockId)
-                    sSelf.sessionSelected.onNext(blockId) // moze li ovo bolje....
+                    sSelf.blockManuallySelected.onNext(blockId)
+                    sSelf.blockSelected.onNext(blockId) // moze li ovo bolje....
                 })
                 .disposed(by: disposeBag)
             

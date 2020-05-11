@@ -9,14 +9,14 @@
 import UIKit
 
 enum SessionTextData {
-    static let sessionConst = NSLocalizedString("Strings.Scaner.session.SessionConst", comment: "")
-    static let noActiveSession = NSLocalizedString("Strings.Scaner.session.noActiveSession", comment: "")
-    static let noActiveSessionForRoom = NSLocalizedString("Strings.Scaner.session.noActiveSessionForRoom", comment: "")
-    static let selectSession = NSLocalizedString("Strings.Scaner.session.selectSession", comment: "")
-    static let noAutoSelSessionsAvailable = NSLocalizedString("Strings.Scaner.session.noAutoSelSessionsAvailable", comment: "")
-    static let selectSessManuallyOrTryAuto = NSLocalizedString("Strings.Scaner.session.selSessionManuallyOrTryAuto", comment: "")
-    static let noAutoSessAvailable = NSLocalizedString("Strings.Scaner.session.noAutoSessionAvailable", comment: "")
-    static let selectSessionManually = NSLocalizedString("Strings.Scaner.session.selSessionManually", comment: "")
+    static let sessionConst = NSLocalizedString("Strings.Scaner.block.SessionConst", comment: "")
+    static let noActiveSession = NSLocalizedString("Strings.Scaner.block.noActiveSession", comment: "")
+    static let noActiveSessionForRoom = NSLocalizedString("Strings.Scaner.block.noActiveSessionForRoom", comment: "")
+    static let selectSession = NSLocalizedString("Strings.Scaner.block.selectSession", comment: "")
+    static let noAutoSelSessionsAvailable = NSLocalizedString("Strings.Scaner.block.noAutoSelSessionsAvailable", comment: "")
+    static let selectSessManuallyOrTryAuto = NSLocalizedString("Strings.Scaner.block.selSessionManuallyOrTryAuto", comment: "")
+    static let noAutoSessAvailable = NSLocalizedString("Strings.Scaner.block.noAutoSessionAvailable", comment: "")
+    static let selectSessionManually = NSLocalizedString("Strings.Scaner.block.selSessionManually", comment: "")
     
 }
 
@@ -26,7 +26,7 @@ enum RoomTextData {
 }
 
 struct MyTimeInterval {
-    static let waitToMostRecentSession: TimeInterval = 1*60//15*60 // 15 minutes
+    static let waitToMostRecentBlock: TimeInterval = 1*60//15*60 // 15 minutes
     //static let waitToMostRecentSession: TimeInterval = 180*60 // 120 minutes // 180 minutes
 //    static let waitToMostRecentSession: TimeInterval = 3*60 // 120 minutes // 180 minutes // 3 minutes hard-coded (testing)
     //static var waitToMostRecentSession: TimeInterval = 60*60 // 1 hours

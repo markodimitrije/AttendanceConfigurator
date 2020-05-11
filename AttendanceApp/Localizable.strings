@@ -6,15 +6,15 @@
   Copyright © 2018 Marko Dimitrijevic. All rights reserved.
 */
 
-Strings.Scaner.session.SessionConst = "Session: ";
-Strings.Scaner.session.noActiveSession = "No active session.";
-Strings.Scaner.session.selectSession = "Select session";
-Strings.Scaner.session.noActiveSessionForRoom = "No active session in this room.";
-Strings.Scaner.session.noAutoSelSessionsAvailable = "No automatic selection session available.";
+Strings.Scaner.block.SessionConst = "Session: ";
+Strings.Scaner.block.noActiveSession = "No active session.";
+Strings.Scaner.block.selectSession = "Select session";
+Strings.Scaner.block.noActiveSessionForRoom = "No active session in this room.";
+Strings.Scaner.block.noAutoSelSessionsAvailable = "No automatic selection session available.";
 
-Strings.Scaner.session.noAutoSessionAvailable = "No automatic session available";
-Strings.Scaner.session.selSessionManuallyOrTryAuto = "Select session manually or try automatic";
-Strings.Scaner.session.selSessionManually = "Select session manually";
+Strings.Scaner.block.noAutoSessionAvailable = "No automatic session available";
+Strings.Scaner.block.selSessionManuallyOrTryAuto = "Select session manually or try automatic";
+Strings.Scaner.block.selSessionManually = "Select session manually";
 
 Strings.Scaner.room.SelectRoom = "Select room";
 Strings.Scaner.room.noRoomSelected = "No room selected";

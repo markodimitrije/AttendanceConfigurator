@@ -1,15 +1,15 @@
 //
-//  DelegatesSessionValidationFactory.swift
+//  DelegatesAttendanceValidationFactory.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 23/04/2020.
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-class DelegatesSessionValidationFactory {
-    static func make() -> IDelegatesSessionValidation {
+class DelegatesAttendanceValidationFactory {
+    static func make() -> IDelegatesAttendanceValidation {
         let blockRepo = BlockImmutableRepositoryFactory.make()
         let delegateRepo = DelegatesRepository(genericRepo: GenericRealmRepository())
-        return DelegatesSessionValidation(blockRepo: blockRepo, delegateRepo: delegateRepo)
+        return DelegatesAttendanceValidation(blockRepo: blockRepo, delegateRepo: delegateRepo)
     }
 }

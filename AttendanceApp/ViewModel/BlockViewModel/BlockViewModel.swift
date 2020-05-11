@@ -24,15 +24,15 @@ class BlockViewModel: IBlockViewModel {
     private let mostRecentBlockUtility: IMostRecentBlockUtility
     private let disposeBag = DisposeBag()
     
-    private var mostRecentSessionBlock: IBlock? {
+    private var mostRecentBlock: IBlock? {
         let blocksSortedByDate = blockRepository.getBlocks(roomId: roomId)
         return mostRecentBlockUtility
-            .getMostRecentSession(blocksSortedByDate: blocksSortedByDate)
+            .getMostRecentBlock(blocksSortedByDate: blocksSortedByDate)
     }
     
     // output:
     private var oSectionsHeadersAndItems = BehaviorRelay<[BlocksSectionOfCustomData]>.init(value: [])
-    var oAutomaticSession = BehaviorRelay<IBlock?>.init(value: nil)
+    var oAutomaticBlock = BehaviorRelay<IBlock?>.init(value: nil)
     
     // API:
     func getItems() -> Observable<[BlocksSectionOfCustomData]> {
@@ -50,7 +50,7 @@ class BlockViewModel: IBlockViewModel {
         self.blockRepository = blockRepository
         self.mostRecentBlockUtility = mostRecentBlockUtility
         bindOutput()
-        bindAutomaticSession()
+        bindAutomaticBlock()
     }
     
     private func bindOutput() { // hook-up se za Realm, sada su Rooms synced sa bazom
@@ -64,13 +64,13 @@ class BlockViewModel: IBlockViewModel {
             }).disposed(by: disposeBag)
     }
     
-    private func bindAutomaticSession() {
+    private func bindAutomaticBlock() {
         
-        if mostRecentSessionBlock != nil {
-            //print("emitujem na oAutomaticSession: \(mostRecentSessionBlock!.getId())")
-            oAutomaticSession.accept(mostRecentSessionBlock)
+        if mostRecentBlock != nil {
+            //print("emitujem na oAutomaticBlock: \(mostRecentBlock!.getId())")
+            oAutomaticBlock.accept(mostRecentBlock)
         } else {
-            oAutomaticSession.accept(nil)
+            oAutomaticBlock.accept(nil)
         }
          
     }
