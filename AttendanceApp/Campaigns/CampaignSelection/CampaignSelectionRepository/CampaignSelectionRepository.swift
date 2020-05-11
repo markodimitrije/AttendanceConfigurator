@@ -15,10 +15,10 @@ extension CampaignSelectionRepository: ICampaignSelectionRepository {
             self.resourcesRepo.deleteResources()
         }
         self.userDefaults.setValue(campaignItem?.id, forKey: CampaignSelection.campaignIdKEY)
-        self.userDefaults.setValue(campaignItem?.id, forKey: CampaignSelection.conferenceIdKEY)
+        self.userDefaults.setValue(campaignItem?.confId, forKey: CampaignSelection.conferenceIdKEY)
     }
     func getSelected() -> CampaignSelection? {
-        return nil
+        CampaignSelection()
     }
 }
 

@@ -9,7 +9,7 @@
 class CampaignResourcesApiControllerFactory {
     static func make() -> ICampaignResourcesApiController {
         let apiController = ApiController.shared
-        let unziper = Unziper(conferenceId: 7520) // hard-coded
+        let unziper = Unziper()
         return CampaignResourcesApiController(apiController: apiController,
                                               unziper: unziper,
                                               resourcesFactory: CampaignResourcesFactory())

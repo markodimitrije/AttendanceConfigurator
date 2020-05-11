@@ -9,19 +9,19 @@
 import Foundation
 
 extension CampaignSelection: ICampaignSelection {
-    func getCampaignId() -> Int {self.campaignId}
-    func getConferenceId() -> Int {self.conferenceId}
+    func getCampaignId() -> String {self.campaignId}
+    func getConferenceId() -> String {self.conferenceId}
 }
 
 struct CampaignSelection {
     static var campaignIdKEY = "campaignId"
     static var conferenceIdKEY = "conferenceId"
     
-    private var campaignId: Int
-    private var conferenceId: Int
+    private var campaignId: String
+    private var conferenceId: String
     init?(userDefaults: UserDefaults = UserDefaults.standard) {
-        guard let campaignId = userDefaults.value(forKey: Self.campaignIdKEY) as? Int,
-            let conferenceId = userDefaults.value(forKey: Self.conferenceIdKEY) as? Int else {
+        guard let campaignId = userDefaults.value(forKey: Self.campaignIdKEY) as? String,
+            let conferenceId = userDefaults.value(forKey: Self.conferenceIdKEY) as? String else {
                 return nil
         }
         self.campaignId = campaignId

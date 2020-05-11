@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ICampaignSelection {
-    func getCampaignId() -> Int
-    func getConferenceId() -> Int
+    func getCampaignId() -> String
+    func getConferenceId() -> String
 }
