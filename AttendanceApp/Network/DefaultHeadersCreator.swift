@@ -8,12 +8,14 @@
 
 import UIKit
 
+let API_KEY = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
+
 class DefaultHeadersCreator {
     private let userState: IUserStateRepository
     init(userState: IUserStateRepository) {
         self.userState = userState
     }
-    func createHeaders(contentType: String = "application/json", apiKey: String? = conferenceState.apiKey) -> [String: String] {
+    func createHeaders(contentType: String = "application/json", apiKey: String? = API_KEY) -> [String: String] {
         let deviceUdid = UIDevice.current.identifierForVendor?.uuidString ?? ""
         var headers = ["device-id": deviceUdid,
                        "Content-Type": contentType]

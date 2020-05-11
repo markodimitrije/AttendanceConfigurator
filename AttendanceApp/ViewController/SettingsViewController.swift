@@ -34,9 +34,6 @@ class SettingsViewController: UITableViewController, Storyboarded {
     // OUTPUTS:
     var sessionSelected: BehaviorSubject<Int?>!
     
-    // MARK:- ViewModels
-
-//    lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModel.init(syncScans: unsyncedScansView.syncBtn.rx.tap.asDriver())
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModelFactory.make(syncScansTap: unsyncedScansView.syncBtn.rx.tap.asDriver())
     
     override func viewDidLoad() { super.viewDidLoad()
@@ -44,7 +41,6 @@ class SettingsViewController: UITableViewController, Storyboarded {
         bindUI()
         bindReachability()
         bindUnsyncedScans()
-        bindSyncApiKey()
 //        bindState() // ovde je rano za tableView.visibleCells !!
     }
     
@@ -129,13 +125,6 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .map(!)
             .bind(to: unsyncedScansView.syncBtn.rx.isHidden)
             .disposed(by: disposeBag)
-    }
-    
-    private func bindSyncApiKey() {
-        syncApiKeyView.oSyncBtnTap
-            .subscribe(onNext: { _ in
-                conferenceState.syncApiKeyIsNeeded()
-            }).disposed(by: disposeBag)
     }
     
     private func enableOrDisableBlockAreaUponRoomSelected() {

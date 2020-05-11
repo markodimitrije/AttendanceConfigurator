@@ -18,40 +18,13 @@ class ApiController: IApiController {
     
     struct Domain {
         static let baseUrl = URL(string: "https://service.e-materials.com/api")!
-        static let minjonUrl = URL(string: "https://minjon.e-materials.com/api")!
-        static let baseTrackerURL = URL(string: "http://tracker.e-materials.com/")!
-        static let resourcesBaseUrl = URL(string: "https://service.e-materials.com/api/conferences/")!
     }
     
     /// The shared instance
     static var shared = ApiController()
     
-    /// The api key to communicate with Navus
-    private var apiKey: String {
-        return conferenceState.apiKey ?? "fatal"
-    }
-    
     init() {
         Logging.URLRequests = { request in return true }
-    }
-    
-    // MARK: - Api Key Sync
-    func getApiKey() -> Observable<String?> {
-        let deviceId = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        let pathComponent = "devices" + "/" + deviceId
-        return buildRequest(base: Domain.baseTrackerURL,
-//        return buildRequest(base: Domain.mockURL,
-                            method: "GET",
-                            pathComponent: pathComponent,
-                            params: [],
-                            headers: [:], // hard-coded
-                            responseHandler: NetworkResponseHandlerDefault())
-            .map() { data in
-                guard let jsonObject = try? JSONSerialization.jsonObject(with: data),
-                    let json = jsonObject as? [String: Any] else {return nil}
-                print("vracam api_key = \(String(describing: json["api_key"] as? String))")
-                return json["api_key"] as? String
-            }
     }
     
     func buildRequest(base: URL = Domain.baseUrl,

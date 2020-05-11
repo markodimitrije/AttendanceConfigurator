@@ -25,11 +25,11 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
     private let bag = DisposeBag()
 
     private var conferenceId: Int {
-        return conferenceState.conferenceId ?? 0 // hard-coded
+        return 7520 // hard-coded TODO: implement me
     }
     
     private var campaignId: Int {
-        return conferenceState.conferenceId ?? 0 // hard-coded
+        return 123456 // hard-coded TODO: implement me
     }
  
     init(apiController: ApiController, unziper: IUnziper, resourcesFactory: ICampaignResourcesFromDataFactory) {

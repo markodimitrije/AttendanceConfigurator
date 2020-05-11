@@ -20,4 +20,4 @@ var codesDumper: CodesDumper! // prazni codes (saved in Realm), koji su failed d
 
 //let conferenceId = 7498 // hard-coded!
 
-let conferenceState = ConferenceApiKeyState()
+//let conferenceState = ConferenceApiKeyState()
