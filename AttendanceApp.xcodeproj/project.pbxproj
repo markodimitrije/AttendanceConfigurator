@@ -37,10 +37,12 @@
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
-		7C344F0D245816DE00CE7FBE /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* Mock.swift */; };
+		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesSessionValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
 		7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */; };
+		7C39705824695D1B007E5E5F /* DelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39705724695D1B007E5E5F /* DelegateFactory.swift */; };
+		7C39705A246966C9007E5E5F /* Resources.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C397059246966C9007E5E5F /* Resources.json */; };
 		7C4AFAA42457526C0038B8D5 /* ICampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */; };
 		7C4AFAA6245752930038B8D5 /* CampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA5245752930038B8D5 /* CampaignResources.swift */; };
 		7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */; };
@@ -167,9 +169,7 @@
 		7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
-		7CA97FD3245843960091F556 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* Mock.swift */; };
-		7CA97FD6245845AE0091F556 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD4245845AD0091F556 /* Blocks.json */; };
-		7CA97FD7245845AE0091F556 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CA97FD5245845AD0091F556 /* Rooms.json */; };
+		7CA97FD3245843960091F556 /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7CA97FDA2458813C0091F556 /* LogoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FD92458813C0091F556 /* LogoutHandler.swift */; };
 		7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FDB2458815A0091F556 /* ILogoutHandler.swift */; };
 		7CA97FDE2458817E0091F556 /* LogoutHandlerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA97FDD2458817E0091F556 /* LogoutHandlerFactory.swift */; };
@@ -362,10 +362,12 @@
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
-		7C344F0C245816DE00CE7FBE /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
+		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesSessionValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesSessionValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
 		7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC_iPad.storyboard; sourceTree = "<group>"; };
+		7C39705724695D1B007E5E5F /* DelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateFactory.swift; sourceTree = "<group>"; };
+		7C397059246966C9007E5E5F /* Resources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources.json; sourceTree = "<group>"; };
 		7C4AFAA32457526C0038B8D5 /* ICampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResources.swift; sourceTree = "<group>"; };
 		7C4AFAA5245752930038B8D5 /* CampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResources.swift; sourceTree = "<group>"; };
 		7C4AFAA7245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesWorkerFactory.swift; sourceTree = "<group>"; };
@@ -494,8 +496,6 @@
 		7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
-		7CA97FD4245845AD0091F556 /* Blocks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
-		7CA97FD5245845AD0091F556 /* Rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		7CA97FD92458813C0091F556 /* LogoutHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutHandler.swift; sourceTree = "<group>"; };
 		7CA97FDB2458815A0091F556 /* ILogoutHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILogoutHandler.swift; sourceTree = "<group>"; };
 		7CA97FDD2458817E0091F556 /* LogoutHandlerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutHandlerFactory.swift; sourceTree = "<group>"; };
@@ -798,11 +798,18 @@
 		7C344F0B245816BF00CE7FBE /* MockTemp */ = {
 			isa = PBXGroup;
 			children = (
-				7C344F0C245816DE00CE7FBE /* Mock.swift */,
-				7CA97FD4245845AD0091F556 /* Blocks.json */,
-				7CA97FD5245845AD0091F556 /* Rooms.json */,
+				7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */,
+				7C397059246966C9007E5E5F /* Resources.json */,
 			);
 			path = MockTemp;
+			sourceTree = "<group>";
+		};
+		7C39705624695CF1007E5E5F /* DelegateFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C39705724695D1B007E5E5F /* DelegateFactory.swift */,
+			);
+			path = DelegateFactory;
 			sourceTree = "<group>";
 		};
 		7C4AFAA2245752570038B8D5 /* Domain */ = {
@@ -948,6 +955,7 @@
 		7C578552243A1C60006531CC /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				7C39705624695CF1007E5E5F /* DelegateFactory */,
 				7C578553243A1C6B006531CC /* IDelegate.swift */,
 				7CB1E44722982DC5008C23F8 /* Delegate.swift */,
 			);
@@ -2332,7 +2340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
-				7CA97FD6245845AE0091F556 /* Blocks.json in Resources */,
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
@@ -2344,6 +2351,7 @@
 				7CC9DD3F2448BE2D0035B2AE /* Assets.xcassets in Resources */,
 				7CF874A82451975F00C39AEF /* DatesViewController_iPad.storyboard in Resources */,
 				7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */,
+				7C39705A246966C9007E5E5F /* Resources.json in Resources */,
 				7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */,
 				7CF874A62451975800C39AEF /* DatesViewController.storyboard in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
@@ -2353,7 +2361,6 @@
 				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
-				7CA97FD7245845AE0091F556 /* Rooms.json in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
 				7CECECDC2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard in Resources */,
@@ -2465,7 +2472,7 @@
 				7CFDEC5C242CD0A20060A2C7 /* RoomsFromJsonFileLoader.swift in Sources */,
 				7CFDEC4F242CB8190060A2C7 /* ImmutableBlockRepositoryTest.swift in Sources */,
 				7C640B64242C99BD004A9D58 /* JsonBundleDataProvider.swift in Sources */,
-				7CA97FD3245843960091F556 /* Mock.swift in Sources */,
+				7CA97FD3245843960091F556 /* JsonBundleDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2544,6 +2551,7 @@
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
+				7C39705824695D1B007E5E5F /* DelegateFactory.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
 				7CCB5D422459B07C00DEA198 /* CampaignSelectionRepository.swift in Sources */,
 				7CCB5D3F2459B05C00DEA198 /* CampaignSelection.swift in Sources */,
@@ -2700,7 +2708,7 @@
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */,
-				7C344F0D245816DE00CE7FBE /* Mock.swift in Sources */,
+				7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */,
 				7C8166C3244AF9230059BDA1 /* IAlertActionPresentation.swift in Sources */,
 				7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */,
 				7CAA2A5F24313A5000CA184F /* IBlockApiController.swift in Sources */,

@@ -18,6 +18,11 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
         resourcesApiController.fetch().take(1)
         .do(onNext: { (resources) in
             print("CampaignResourcesWorker.work PERSIST resources")
+            let locs = resources.getLocations()
+            let blks = resources.getSessions()
+            let dels = resources.getDelegates()
+            
+            
             self.roomsRepo.save(rooms: resources.getLocations())
             self.blocksRepo.save(blocks: resources.getSessions())
             _ = self.delegatesRepo.save(delegates: resources.getDelegates())
