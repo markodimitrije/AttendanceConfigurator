@@ -21,28 +21,22 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
     private let apiController: ApiController!
     private let unziper: IUnziper!
     private let resourcesFactory: ICampaignResourcesFromDataFactory
+    private let campaignSelection: ICampaignSelection
     
-    private let bag = DisposeBag()
-
-    private var conferenceId: Int {
-        return 7520 // hard-coded TODO: implement me
-    }
-    
-    private var campaignId: Int {
-        return 123456 // hard-coded TODO: implement me
-    }
- 
-    init(apiController: ApiController, unziper: IUnziper, resourcesFactory: ICampaignResourcesFromDataFactory) {
+    init(apiController: ApiController, unziper: IUnziper, resourcesFactory: ICampaignResourcesFromDataFactory, campaignSelection: ICampaignSelection) {
      
         self.apiController = apiController
         self.unziper = unziper
         self.resourcesFactory = resourcesFactory
+        self.campaignSelection = campaignSelection
         Logging.URLRequests = { request in return true }
     }
 
  //MARK: - API Calls
     
     func fetch() -> Observable<ICampaignResources> {
+        let conferenceId = campaignSelection.getConferenceId()
+        let campaignId = campaignSelection.getCampaignId()
 //        return
 //            apiController
 //            .buildRequest(base: Domain.ematerialsUrl,
