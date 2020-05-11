@@ -8,7 +8,12 @@
 
 import Foundation
 
-protocol ICampaignSelection {
+protocol ICampaignSelection: CustomStringConvertible {
     func getCampaignId() -> String
     func getConferenceId() -> String
+}
+extension ICampaignSelection {
+    var description: String {
+        return "campaignId: \(getCampaignId())" + " conferenceId: \(getConferenceId())"
+    }
 }

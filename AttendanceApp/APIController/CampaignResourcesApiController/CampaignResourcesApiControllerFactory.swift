@@ -10,8 +10,10 @@ class CampaignResourcesApiControllerFactory {
     static func make() -> ICampaignResourcesApiController {
         let apiController = ApiController.shared
         let unziper = Unziper()
+        let campaignSelection = CampaignSelectionRepositoryFactory.make().getSelected()
         return CampaignResourcesApiController(apiController: apiController,
                                               unziper: unziper,
-                                              resourcesFactory: CampaignResourcesFactory())
+                                              resourcesFactory: CampaignResourcesFactory(),
+                                              campaignSelection: campaignSelection!)
     }
 }
