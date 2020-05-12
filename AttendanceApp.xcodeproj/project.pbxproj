@@ -41,6 +41,11 @@
 		7C30206E246AA0A9004C343A /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30206D246AA0A9004C343A /* StatsView.swift */; };
 		7C302071246AAFB8004C343A /* StatsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302070246AAFB8004C343A /* StatsProtocol.swift */; };
 		7C302073246AAFC6004C343A /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302072246AAFC6004C343A /* Stats.swift */; };
+		7C30207B246AC366004C343A /* GenRealmImmutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302076246AC365004C343A /* GenRealmImmutableRepo.swift */; };
+		7C30207C246AC366004C343A /* IGenRealmImmutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302077246AC365004C343A /* IGenRealmImmutableRepo.swift */; };
+		7C30207D246AC366004C343A /* GenRealmMutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302079246AC366004C343A /* GenRealmMutableRepo.swift */; };
+		7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30207A246AC366004C343A /* IGenRealmMutableRepo.swift */; };
+		7C302080246AC8D5004C343A /* SortDescriptor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */; };
 		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
@@ -361,6 +366,11 @@
 		7C30206D246AA0A9004C343A /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		7C302070246AAFB8004C343A /* StatsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsProtocol.swift; sourceTree = "<group>"; };
 		7C302072246AAFC6004C343A /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		7C302076246AC365004C343A /* GenRealmImmutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenRealmImmutableRepo.swift; sourceTree = "<group>"; };
+		7C302077246AC365004C343A /* IGenRealmImmutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGenRealmImmutableRepo.swift; sourceTree = "<group>"; };
+		7C302079246AC366004C343A /* GenRealmMutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenRealmMutableRepo.swift; sourceTree = "<group>"; };
+		7C30207A246AC366004C343A /* IGenRealmMutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGenRealmMutableRepo.swift; sourceTree = "<group>"; };
+		7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SortDescriptor+Ext.swift"; sourceTree = "<group>"; };
 		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
@@ -828,6 +838,33 @@
 				7C302072246AAFC6004C343A /* Stats.swift */,
 			);
 			path = Stats;
+			sourceTree = "<group>";
+		};
+		7C302074246AC341004C343A /* GenericRealmRepo */ = {
+			isa = PBXGroup;
+			children = (
+				7C302075246AC365004C343A /* Immutable */,
+				7C302078246AC366004C343A /* Mutable */,
+			);
+			path = GenericRealmRepo;
+			sourceTree = "<group>";
+		};
+		7C302075246AC365004C343A /* Immutable */ = {
+			isa = PBXGroup;
+			children = (
+				7C302076246AC365004C343A /* GenRealmImmutableRepo.swift */,
+				7C302077246AC365004C343A /* IGenRealmImmutableRepo.swift */,
+			);
+			path = Immutable;
+			sourceTree = "<group>";
+		};
+		7C302078246AC366004C343A /* Mutable */ = {
+			isa = PBXGroup;
+			children = (
+				7C302079246AC366004C343A /* GenRealmMutableRepo.swift */,
+				7C30207A246AC366004C343A /* IGenRealmMutableRepo.swift */,
+			);
+			path = Mutable;
 			sourceTree = "<group>";
 		};
 		7C344F0B245816BF00CE7FBE /* MockTemp */ = {
@@ -2060,6 +2097,7 @@
 				AD28F6F02182122200A41BB8 /* RxExtensions.swift */,
 				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
 				7C302065246A9D29004C343A /* NSObject+Extension.swift */,
+				7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2153,6 +2191,7 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				7C302074246AC341004C343A /* GenericRealmRepo */,
 				7C344F0B245816BF00CE7FBE /* MockTemp */,
 				7C2E574A244EF8CE003EDAC7 /* ErrorHandler */,
 				AD29522A217B5E8A002DDE32 /* APIController */,
@@ -2481,6 +2520,7 @@
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
+				7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */,
 				7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
 				7C7DCBE12448B9050072CDAE /* UserStateRepository.swift in Sources */,
@@ -2491,12 +2531,14 @@
 				ADBCCB472180973E009D7753 /* AutoBlockViewModel.swift in Sources */,
 				7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */,
 				AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */,
+				7C302080246AC8D5004C343A /* SortDescriptor+Ext.swift in Sources */,
 				7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */,
 				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
 				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
 				AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */,
 				7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */,
+				7C30207D246AC366004C343A /* GenRealmMutableRepo.swift in Sources */,
 				7C2E573F244EDD67003EDAC7 /* CampaignsError.swift in Sources */,
 				7C2E5735244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift in Sources */,
 				AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */,
@@ -2511,6 +2553,7 @@
 				7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7C302071246AAFB8004C343A /* StatsProtocol.swift in Sources */,
+				7C30207C246AC366004C343A /* IGenRealmImmutableRepo.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
@@ -2649,6 +2692,7 @@
 				7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */,
 				7C7DCBED2448B9050072CDAE /* IRemoteUserSession.swift in Sources */,
 				7CEC6746242B727F00CC56FF /* Date+Extension.swift in Sources */,
+				7C30207B246AC366004C343A /* GenRealmImmutableRepo.swift in Sources */,
 				7C7DCBD42448B9050072CDAE /* EmailFieldValidator.swift in Sources */,
 				7C4AFAA42457526C0038B8D5 /* ICampaignResources.swift in Sources */,
 				7CD5297124334AFD00170D0A /* IUnziper.swift in Sources */,

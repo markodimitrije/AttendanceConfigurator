@@ -65,13 +65,18 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
 
 struct StatsFactory {
     static func make(repository: ICodeReportsRepository) -> StatsProtocol {
-        Stats(totalTitle: NSLocalizedString("total.title", comment: ""),
-              totalValue: "3232",
-              approvedTitle: NSLocalizedString("approved.title", comment: ""),
-              approvedValue: "3230/3232",
-              rejectedTitle: NSLocalizedString("rejected.title", comment: ""),
-              rejectedValue: "2/3232",
-              syncedTitle: NSLocalizedString("synced.title", comment: ""),
-              syncedValue: "3232")
+        let total = repository.getTotalScansCount()
+        let approved = repository.getTotalScansCount()
+        let rejected = repository.getTotalScansCount()
+        let synced = repository.getTotalScansCount()
+        
+        return Stats(totalTitle: NSLocalizedString("total.title", comment: ""),
+                     totalValue: "\(total)",
+                    approvedTitle: NSLocalizedString("approved.title", comment: ""),
+                    approvedValue: "\(approved)" + "/" + "\(total)",
+                    rejectedTitle: NSLocalizedString("rejected.title", comment: ""),
+                    rejectedValue: "\(rejected)" + "/" + "\(total)",
+                    syncedTitle: NSLocalizedString("synced.title", comment: ""),
+                    syncedValue: "\(synced)" + "/" + "\(total)")
     }
 }

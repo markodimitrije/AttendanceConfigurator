@@ -15,10 +15,17 @@ protocol ICodeReportsImmutableRepository {
     func getObsUnsynced() -> Observable<[ICodeReport]>
 }
 
+protocol ICodeReportsQueryImmutableRepository: ICodeReportsImmutableRepository {
+    func getTotalScansCount() -> Int
+    func getApprovedScansCount() -> Int
+    func getRejectedScansCount() -> Int
+    func getSyncedScansCount() -> Int
+}
+
 protocol ICodeReportsMutableRepository {
     func deleteAllCodeReports() -> Observable<Bool>
     func save(codeReport: ICodeReport) -> Observable<Bool>
     func update(codesAcceptedFromWeb: [ICodeReport]) -> Observable<Bool>
 }
 
-protocol ICodeReportsRepository: ICodeReportsImmutableRepository, ICodeReportsMutableRepository {}
+protocol ICodeReportsRepository: ICodeReportsQueryImmutableRepository, ICodeReportsMutableRepository {}

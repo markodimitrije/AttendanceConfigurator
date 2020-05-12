@@ -13,22 +13,23 @@ import RealmSwift
 
 extension CodeReportsRepository: ICodeReportsRepository {
     
+    // MARK:- Query for count of
+    func getTotalScansCount() -> Int { readRepo.getTotalScansCount() }
+    
+    func getApprovedScansCount() -> Int { readRepo.getApprovedScansCount() }
+    
+    func getRejectedScansCount() -> Int { readRepo.getRejectedScansCount() }
+    
+    func getSyncedScansCount() -> Int { readRepo.getSyncedScansCount() }
+    
     // MARK:- Get
-    func getCodeReports() -> [ICodeReport] {
-        return readRepo.getCodeReports()
-    }
+    func getCodeReports() -> [ICodeReport] { readRepo.getCodeReports() }
 
-    func getUnsynced() -> [ICodeReport] {
-        return readRepo.getUnsynced()
-    }
+    func getUnsynced() -> [ICodeReport] { readRepo.getUnsynced() }
 
-    func getObsUnsynced() -> Observable<[ICodeReport]> {
-        return readRepo.getObsUnsynced()
-    }
+    func getObsUnsynced() -> Observable<[ICodeReport]> { readRepo.getObsUnsynced() }
 
-    func getObsCodeReports() -> Observable<[ICodeReport]> {
-        return readRepo.getObsCodeReports()
-    }
+    func getObsCodeReports() -> Observable<[ICodeReport]> { readRepo.getObsCodeReports() }
  
     // MARK:- Delete
     func deleteAllCodeReports() -> Observable<Bool> {
@@ -47,9 +48,9 @@ extension CodeReportsRepository: ICodeReportsRepository {
 }
 
 class CodeReportsRepository {
-    private let readRepo: ICodeReportsImmutableRepository
+    private let readRepo: ICodeReportsQueryImmutableRepository
     private let writeRepo: ICodeReportsMutableRepository
-    init(readRepo: ICodeReportsImmutableRepository, writeRepo: ICodeReportsMutableRepository) {
+    init(readRepo: ICodeReportsQueryImmutableRepository, writeRepo: ICodeReportsMutableRepository) {
         self.readRepo = readRepo
         self.writeRepo = writeRepo
     }

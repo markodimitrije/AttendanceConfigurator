@@ -59,7 +59,7 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 "logout.yes" = "Yes";
 
 "campaign.stats" = "Campaign stats";
-"total.title" = "Total:";
-"approved.title" = "Attendance approved:";
-"rejected.title" = "Attendance rejected:";
-"synced.title" = "Synced:";
+"total.title" = "Total scans:";
+"approved.title" = "Attendandees approved:";
+"rejected.title" = "Attendandees rejected:";
+"synced.title" = "Synced scans:";
