@@ -36,6 +36,11 @@
 		7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */; };
 		7C2E842B243600A9005B5C7F /* AutoBlocksOneDay.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */; };
 		7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */; };
+		7C302066246A9D29004C343A /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302065246A9D29004C343A /* NSObject+Extension.swift */; };
+		7C30206C246AA09E004C343A /* StatsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C30206B246AA09E004C343A /* StatsView.xib */; };
+		7C30206E246AA0A9004C343A /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30206D246AA0A9004C343A /* StatsView.swift */; };
+		7C302071246AAFB8004C343A /* StatsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302070246AAFB8004C343A /* StatsProtocol.swift */; };
+		7C302073246AAFC6004C343A /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302072246AAFC6004C343A /* Stats.swift */; };
 		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
@@ -351,6 +356,11 @@
 		7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsViewModel+Input+Output.swift"; sourceTree = "<group>"; };
 		7C2E842A243600A9005B5C7F /* AutoBlocksOneDay.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AutoBlocksOneDay.json; sourceTree = "<group>"; };
 		7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelFactory.swift; sourceTree = "<group>"; };
+		7C302065246A9D29004C343A /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		7C30206B246AA09E004C343A /* StatsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsView.xib; sourceTree = "<group>"; };
+		7C30206D246AA0A9004C343A /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		7C302070246AAFB8004C343A /* StatsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsProtocol.swift; sourceTree = "<group>"; };
+		7C302072246AAFC6004C343A /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
@@ -773,6 +783,51 @@
 				7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */,
 			);
 			path = SettingsViewModel;
+			sourceTree = "<group>";
+		};
+		7C302067246AA06A004C343A /* AutoSelectSessionsView */ = {
+			isa = PBXGroup;
+			children = (
+				ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */,
+				ADB273A321807EFD00345A5E /* AutoSelectSessionsView.swift */,
+			);
+			path = AutoSelectSessionsView;
+			sourceTree = "<group>";
+		};
+		7C302068246AA076004C343A /* UnsyncedScansView */ = {
+			isa = PBXGroup;
+			children = (
+				ADB2739C218078DC00345A5E /* UnsyncedScansView.xib */,
+				ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */,
+			);
+			path = UnsyncedScansView;
+			sourceTree = "<group>";
+		};
+		7C302069246AA085004C343A /* WiFiConnectionView */ = {
+			isa = PBXGroup;
+			children = (
+				AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */,
+				AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */,
+			);
+			path = WiFiConnectionView;
+			sourceTree = "<group>";
+		};
+		7C30206A246AA08C004C343A /* StatsView */ = {
+			isa = PBXGroup;
+			children = (
+				7C30206B246AA09E004C343A /* StatsView.xib */,
+				7C30206D246AA0A9004C343A /* StatsView.swift */,
+			);
+			path = StatsView;
+			sourceTree = "<group>";
+		};
+		7C30206F246AAFAD004C343A /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				7C302070246AAFB8004C343A /* StatsProtocol.swift */,
+				7C302072246AAFC6004C343A /* Stats.swift */,
+			);
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		7C344F0B245816BF00CE7FBE /* MockTemp */ = {
@@ -1990,12 +2045,10 @@
 		AD24E30621806C22008E35F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ADB273A421807EFD00345A5E /* AutoSelectSessionsView.xib */,
-				ADB273A321807EFD00345A5E /* AutoSelectSessionsView.swift */,
-				ADB2739C218078DC00345A5E /* UnsyncedScansView.xib */,
-				ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */,
-				AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */,
-				AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */,
+				7C30206A246AA08C004C343A /* StatsView */,
+				7C302067246AA06A004C343A /* AutoSelectSessionsView */,
+				7C302068246AA076004C343A /* UnsyncedScansView */,
+				7C302069246AA085004C343A /* WiFiConnectionView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2006,6 +2059,7 @@
 				AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */,
 				AD28F6F02182122200A41BB8 /* RxExtensions.swift */,
 				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
+				7C302065246A9D29004C343A /* NSObject+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2053,6 +2107,7 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C30206F246AAFAD004C343A /* Stats */,
 				7C5865E4244A0C9A00426FBC /* AlertInfo */,
 				7C855DA2229C077100E4C985 /* FetchDelegates */,
 				7CB1E451229832C8008C23F8 /* Delegate */,
@@ -2290,6 +2345,7 @@
 				7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */,
 				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
+				7C30206C246AA09E004C343A /* StatsView.xib in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
@@ -2411,6 +2467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C7DCBFE2448B9050072CDAE /* IKeyboardHandler.swift in Sources */,
+				7C302073246AAFC6004C343A /* Stats.swift in Sources */,
 				7C2E5741244EE62F003EDAC7 /* Constants.swift in Sources */,
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
@@ -2453,6 +2510,7 @@
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */,
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
+				7C302071246AAFB8004C343A /* StatsProtocol.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
@@ -2476,6 +2534,7 @@
 				7C57855A243A2FD4006531CC /* CodeReportsRepository.swift in Sources */,
 				7CED41BC2268827700FFB34E /* CodeReport.swift in Sources */,
 				7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */,
+				7C30206E246AA0A9004C343A /* StatsView.swift in Sources */,
 				7C39705824695D1B007E5E5F /* DelegateFactory.swift in Sources */,
 				AD295225217B5B24002DDE32 /* APIController.swift in Sources */,
 				7CCB5D422459B07C00DEA198 /* CampaignSelectionRepository.swift in Sources */,
@@ -2493,6 +2552,7 @@
 				7CC9DD682448DB950035B2AE /* ICampaignsViewModel.swift in Sources */,
 				7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
+				7C302066246A9D29004C343A /* NSObject+Extension.swift in Sources */,
 				7C2E842D24360D9A005B5C7F /* SettingsViewModelFactory.swift in Sources */,
 				7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */,
 				7C57854A243A1527006531CC /* IGenericRealmRepository.swift in Sources */,

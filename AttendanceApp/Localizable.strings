@@ -57,3 +57,9 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 "logout.text" = "You are about to Log out. This will delete all your data from device. Want to proceed anyway?";
 "logout.no" = "No";
 "logout.yes" = "Yes";
+
+"campaign.stats" = "Campaign stats";
+"total.title" = "Total:";
+"approved.title" = "Attendance approved:";
+"rejected.title" = "Attendance rejected:";
+"synced.title" = "Synced:";

@@ -10,12 +10,15 @@ import UIKit
 
 class WebReportedCodesVC: UIViewController, Storyboarded {
     
+    @IBOutlet weak var statsView: StatsView!
     @IBOutlet weak var tableView: UITableView!
     
-    lazy private var dataSource = WebReportedCodesDataSourceFactory.make(tableView: tableView)
+    lazy private var dataSource = WebReportedCodesDataSourceFactory.make(tableView: tableView,
+                                                                         statsView: statsView)
     
     override func viewDidLoad() { super.viewDidLoad()
         self.tableView.dataSource = dataSource
-        navigationItem.title = "Synced codes"
+        navigationItem.title = NSLocalizedString(key: "campaign.stats")
     }
+    
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class WebReportedCodesDataSourceFactory {
-    static func make(tableView: UITableView) -> WebReportedCodesDataSource {
+    static func make(tableView: UITableView, statsView: StatsViewRendering) -> WebReportedCodesDataSource {
         let repository = CodeReportsRepositoryFactory.make()
-        return WebReportedCodesDataSource(tableView: tableView, repository: repository)
+        return WebReportedCodesDataSource(tableView: tableView, statsView: statsView, repository: repository)
     }
 }
