@@ -21,7 +21,6 @@ class SettingsViewController: UITableViewController, Storyboarded {
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
-    @IBOutlet weak var syncApiKeyView: SyncApiKeyView!
     
     var settingsViewModel: SettingsViewModel!
     private let disposeBag = DisposeBag()

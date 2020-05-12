@@ -154,28 +154,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7oN-qG-nuf">
-                                        <rect key="frame" x="0.0" y="476" width="1024" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7oN-qG-nuf" id="q7h-d8-IB3">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqk-r6-igM" customClass="SyncApiKeyView" customModule="AttendanceApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="qqk-r6-igM" secondAttribute="trailing" id="9cb-yj-a0t"/>
-                                                <constraint firstAttribute="bottom" secondItem="qqk-r6-igM" secondAttribute="bottom" id="HVZ-29-vKf"/>
-                                                <constraint firstItem="qqk-r6-igM" firstAttribute="top" secondItem="q7h-d8-IB3" secondAttribute="top" id="IKa-fB-00R"/>
-                                                <constraint firstItem="qqk-r6-igM" firstAttribute="leading" secondItem="q7h-d8-IB3" secondAttribute="leading" id="KeO-QC-UsU"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="olo-qa-0tu">
-                                        <rect key="frame" x="0.0" y="520" width="1024" height="44"/>
+                                        <rect key="frame" x="0.0" y="476" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="olo-qa-0tu" id="en1-Ji-Ewg">
                                             <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
@@ -210,7 +190,6 @@
                         <outlet property="roomLbl" destination="ayo-oM-IFV" id="Gqv-tt-EUE"/>
                         <outlet property="saveSettingsAndExitBtn" destination="xkc-bs-6fN" id="2OJ-xW-H7M"/>
                         <outlet property="sessionLbl" destination="9hW-KG-dg1" id="gGG-7B-tXb"/>
-                        <outlet property="syncApiKeyView" destination="qqk-r6-igM" id="avh-CE-Oy3"/>
                         <outlet property="unsyncedScansView" destination="2EM-lZ-3vL" id="XTz-Wg-X2E"/>
                         <outlet property="wiFiConnectionView" destination="Pki-9x-D5S" id="Vxt-xb-GFO"/>
                     </connections>

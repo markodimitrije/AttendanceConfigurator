@@ -233,7 +233,6 @@
 		7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */; };
 		7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */; };
 		7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */; };
-		7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
@@ -550,7 +549,6 @@
 		7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportApiControllerFactory.swift; sourceTree = "<group>"; };
 		7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportApiController.swift; sourceTree = "<group>"; };
 		7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReportBlockApiController.swift; sourceTree = "<group>"; };
-		7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncAPIKey.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
@@ -1998,7 +1996,6 @@
 				ADB2739D218078DC00345A5E /* UnsyncedScansView.swift */,
 				AD24E30721806C3A008E35F8 /* WiFiConnectionView.xib */,
 				AD24E30921806C4A008E35F8 /* WiFiConnectionView.swift */,
-				7CD6D5A622A555FB0077D80F /* SyncAPIKey.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2587,7 +2584,6 @@
 				7CA97FDE2458817E0091F556 /* LogoutHandlerFactory.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
-				7CD6D5A722A555FB0077D80F /* SyncAPIKey.swift in Sources */,
 				7CED41B9226881E700FFB34E /* BlockReport.swift in Sources */,
 				ADB273A521807EFD00345A5E /* AutoSelectSessionsView.swift in Sources */,
 				7CFDEC55242CC6C50060A2C7 /* IRoom.swift in Sources */,

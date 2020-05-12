@@ -27,9 +27,6 @@ enum RoomTextData {
 
 struct MyTimeInterval {
     static let waitToMostRecentBlock: TimeInterval = 15*60//1*60// // 15 minutes
-    //static let waitToMostRecentSession: TimeInterval = 180*60 // 120 minutes // 180 minutes
-//    static let waitToMostRecentSession: TimeInterval = 3*60 // 120 minutes // 180 minutes // 3 minutes hard-coded (testing)
-    //static var waitToMostRecentSession: TimeInterval = 60*60 // 1 hours
     static let timerForFetchingRoomBlockDelegateResources: Double = 15*60//27 // 10 seconds
     static let timeoutForFetchingRoomAndBlockResources = 30 // 10 seconds
 }

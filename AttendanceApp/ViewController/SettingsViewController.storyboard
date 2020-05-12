@@ -153,28 +153,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ERl-HO-p9Z">
-                                        <rect key="frame" x="0.0" y="476" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ERl-HO-p9Z" id="iQY-Zt-qgD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="okb-IV-kgI" customClass="SyncApiKeyView" customModule="AttendanceApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="okb-IV-kgI" secondAttribute="trailing" id="BN9-gn-els"/>
-                                                <constraint firstAttribute="bottom" secondItem="okb-IV-kgI" secondAttribute="bottom" id="Z3l-vY-2af"/>
-                                                <constraint firstItem="okb-IV-kgI" firstAttribute="top" secondItem="iQY-Zt-qgD" secondAttribute="top" id="n5K-LC-1BU"/>
-                                                <constraint firstItem="okb-IV-kgI" firstAttribute="leading" secondItem="iQY-Zt-qgD" secondAttribute="leading" id="pth-m9-ByD"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="X2u-3T-xlY">
-                                        <rect key="frame" x="0.0" y="520" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="476" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X2u-3T-xlY" id="W0C-Eb-Bke">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -209,7 +189,6 @@
                         <outlet property="roomLbl" destination="0LJ-RJ-fCg" id="pNE-H6-edB"/>
                         <outlet property="saveSettingsAndExitBtn" destination="1cS-LP-JsG" id="Vif-Fp-KW4"/>
                         <outlet property="sessionLbl" destination="PVg-rg-fX5" id="Zj7-ed-tPw"/>
-                        <outlet property="syncApiKeyView" destination="okb-IV-kgI" id="A9s-Cd-Jeh"/>
                         <outlet property="unsyncedScansView" destination="6g3-wk-rjD" id="W00-M9-wQC"/>
                         <outlet property="wiFiConnectionView" destination="6Dw-oe-TNn" id="jM8-GN-Zp2"/>
                     </connections>
