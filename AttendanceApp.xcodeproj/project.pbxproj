@@ -46,6 +46,9 @@
 		7C30207D246AC366004C343A /* GenRealmMutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302079246AC366004C343A /* GenRealmMutableRepo.swift */; };
 		7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30207A246AC366004C343A /* IGenRealmMutableRepo.swift */; };
 		7C302080246AC8D5004C343A /* SortDescriptor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */; };
+		7C302088246AE057004C343A /* ICodeReportsImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302087246AE057004C343A /* ICodeReportsImmutableRepository.swift */; };
+		7C30208A246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302089246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift */; };
+		7C30208C246AE090004C343A /* ICodeReportsMutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30208B246AE090004C343A /* ICodeReportsMutableRepository.swift */; };
 		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
@@ -371,6 +374,9 @@
 		7C302079246AC366004C343A /* GenRealmMutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenRealmMutableRepo.swift; sourceTree = "<group>"; };
 		7C30207A246AC366004C343A /* IGenRealmMutableRepo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGenRealmMutableRepo.swift; sourceTree = "<group>"; };
 		7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SortDescriptor+Ext.swift"; sourceTree = "<group>"; };
+		7C302087246AE057004C343A /* ICodeReportsImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsImmutableRepository.swift; sourceTree = "<group>"; };
+		7C302089246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsQueryImmutableRepository.swift; sourceTree = "<group>"; };
+		7C30208B246AE090004C343A /* ICodeReportsMutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsMutableRepository.swift; sourceTree = "<group>"; };
 		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
@@ -867,6 +873,17 @@
 			path = Mutable;
 			sourceTree = "<group>";
 		};
+		7C30208D246AE0B3004C343A /* ICodeReportsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				7C67288C243B964E006D271A /* ICodeReportsRepository.swift */,
+				7C30208B246AE090004C343A /* ICodeReportsMutableRepository.swift */,
+				7C302089246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift */,
+				7C302087246AE057004C343A /* ICodeReportsImmutableRepository.swift */,
+			);
+			path = ICodeReportsRepository;
+			sourceTree = "<group>";
+		};
 		7C344F0B245816BF00CE7FBE /* MockTemp */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,7 +1063,7 @@
 		7C578558243A2FC0006531CC /* CodeReportsRepositories */ = {
 			isa = PBXGroup;
 			children = (
-				7C67288C243B964E006D271A /* ICodeReportsRepository.swift */,
+				7C30208D246AE0B3004C343A /* ICodeReportsRepository */,
 				7C516F6B243C73B7002CF6BF /* CodeReportsRepository */,
 				7C57855B243A2FF8006531CC /* CodeReportsRepositoryFactory.swift */,
 			);
@@ -2519,6 +2536,7 @@
 				7CCB5D3D2459B04400DEA198 /* ICampaignSelection.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
+				7C30208C246AE090004C343A /* ICodeReportsMutableRepository.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
 				7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */,
 				7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */,
@@ -2637,6 +2655,7 @@
 				7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */,
 				7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */,
 				7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */,
+				7C30208A246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift in Sources */,
 				AD80EFFC217DCE27003CEDD0 /* Block.swift in Sources */,
 				7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
@@ -2726,6 +2745,7 @@
 				7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */,
 				7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */,
 				7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */,
+				7C302088246AE057004C343A /* ICodeReportsImmutableRepository.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
 				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
