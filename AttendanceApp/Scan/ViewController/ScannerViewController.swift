@@ -86,8 +86,9 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     private func navigateToReportsScreen() {
         let reportsVC = WebReportedCodesVCFactory.make()
-        let nextVC = UINavigationController(rootViewController: reportsVC)
-        self.present(nextVC, animated: true)
+        //let nextVC = UINavigationController(rootViewController: reportsVC)
+        //self.present(nextVC, animated: true)
+        navigationController?.pushViewController(reportsVC, animated: true)
     }
     
     // MARK:- Show Failed Alerts

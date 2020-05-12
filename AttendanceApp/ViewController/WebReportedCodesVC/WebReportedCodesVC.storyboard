@@ -36,7 +36,6 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNn-ra-czZ" customClass="StatsView" customModule="AttendanceApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="160"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="Wso-jD-pdh"/>
                                 </constraints>
