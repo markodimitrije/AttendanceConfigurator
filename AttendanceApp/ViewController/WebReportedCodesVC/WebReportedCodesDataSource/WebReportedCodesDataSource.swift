@@ -18,12 +18,6 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-//    private var data = [CodeReportCellModel]() {
-//        didSet {
-//            self.tableView.reloadData()
-//        }
-//    } // hooked with realm in func: "hookUpDataFromRealm"
-    
     private var blockData = [IBlockStatsTableViewCellModel]() {
         didSet {
             self.tableView.reloadData()
