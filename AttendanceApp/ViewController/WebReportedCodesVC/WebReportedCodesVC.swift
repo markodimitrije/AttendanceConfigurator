@@ -19,6 +19,13 @@ class WebReportedCodesVC: UIViewController, Storyboarded {
     override func viewDidLoad() { super.viewDidLoad()
         self.tableView.dataSource = dataSource
         navigationItem.title = NSLocalizedString(key: "campaign.stats")
+        registerCells()
+    }
+    
+    private func registerCells() {
+//        tableView.register(UINib(nibName: ChairsTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: ChairsTableViewCell.typeName)
+        tableView.register(UINib(nibName: "StatsViewCell", bundle: nil),
+                           forCellReuseIdentifier: "StatsViewCell")
     }
     
 }

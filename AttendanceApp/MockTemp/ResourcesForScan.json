@@ -57,13 +57,13 @@
           "id": 10331,
           "name": "Canapi woods",
           "location_id": 4456,
-          "starts_at": "2019-06-14 08:00:00",
-          "ends_at": "2019-06-14 09:30:00",
+          "starts_at": "2019-06-14 10:00:00",
+          "ends_at": "2019-06-14 12:30:00",
           "closed": false
       },
       {
           "id": 10338,
-          "name": "Indonesia - Thomas leave monkeys",
+          "name": "Indonesia - Thomas leaf monkeys. Joungle flying experts.",
           "location_id": 4457,
           "starts_at": "2019-06-14 11:45:00",
           "ends_at": "2019-06-14 13:15:00",
@@ -71,18 +71,18 @@
       },
       {
           "id": 10339,
-          "name": "Borneo - Comodo domain",
+          "name": "Borneo - Comodo domain. Check latest info on how water monitors rule the beaches on third bigest island on the World",
           "location_id": 4457,
-          "starts_at": "2019-06-14 11:45:00",
-          "ends_at": "2019-06-14 13:15:00",
+          "starts_at": "2019-06-14 13:45:00",
+          "ends_at": "2019-06-14 15:15:00",
           "closed": true
       },
       {
           "id": 10340,
-          "name": "Java - Wolcano island",
+          "name": "Java - Wolcano island. Participate to learn more about marine life. Hear about Coral reefs which provide home to 15% of all know world species",
           "location_id": 4457,
-          "starts_at": "2019-06-14 11:45:00",
-          "ends_at": "2019-06-14 13:15:00",
+          "starts_at": "2019-06-14 15:45:00",
+          "ends_at": "2019-06-14 17:15:00",
           "closed": true
       }
   ]

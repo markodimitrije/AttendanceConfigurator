@@ -24,9 +24,14 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         }
     } // hooked with realm in func: "hookUpDataFromRealm"
     
+    private var blockData: [IBlock] {
+        blockRepo.getBlocks(roomId: 4457)
+    }
+    
     private let tableView: UITableView
     private let statsView: StatsViewRendering
     private let repository: ICodeReportsRepository
+    private let blockRepo = BlockImmutableRepository()
     
     init(tableView: UITableView, statsView: StatsViewRendering, repository: ICodeReportsRepository) {
         self.tableView = tableView
@@ -40,11 +45,21 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        //return data.count
+        blockRepo.getBlocks(roomId: 4457).count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "code= \(data[indexPath.row].code)" + " acc= \(data[indexPath.row].accepted)" + " synced= \(data[indexPath.row].reported)"
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StatsViewCell", for: indexPath) as! StatsViewCell
+        
+        let block = blockData[indexPath.row]
+        let scansPerBlock = repository.getTotalScansCount()
+        
+        let cellModel = BlockStatsTableViewCellModel(title: block.getName(),
+                                                     date: block.getStartsAt(),
+                                                     count: "Scans: " + "\(scansPerBlock)")
+        cell.configure(with: cellModel)
+        
         return cell
     }
     
