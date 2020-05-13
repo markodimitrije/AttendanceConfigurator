@@ -10,7 +10,10 @@ import Foundation
 
 class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
     func make(data: DataProtocol) -> ICampaignResources {
-        let data = JsonBundleDataProvider().jsonData(filename: "Resources", inBundle: Bundle.main)
+        // hard-coded
+        //let data = JsonBundleDataProvider().jsonData(filename: "Resources", inBundle: Bundle.main)
+        let data = JsonBundleDataProvider().jsonData(filename: "ResourcesForScan",
+                                                     inBundle: Bundle.main)
         return try! CampaignResources(data: data) // TODO: should handle errors
     }
 }

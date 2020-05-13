@@ -66,9 +66,9 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
 struct StatsFactory {
     static func make(repository: ICodeReportsRepository) -> StatsProtocol {
         let total = repository.getTotalScansCount()
-        let approved = repository.getTotalScansCount()
-        let rejected = repository.getTotalScansCount()
-        let synced = repository.getTotalScansCount()
+        let approved = repository.getApprovedScansCount()
+        let rejected = repository.getRejectedScansCount()
+        let synced = repository.getSyncedScansCount()
         
         return Stats(totalTitle: NSLocalizedString("total.title", comment: ""),
                      totalValue: "\(total)",

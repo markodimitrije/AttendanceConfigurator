@@ -74,7 +74,7 @@ extension CodeReportsImmutableRepository: ICodeReportsQueryImmutableRepository {
     }
     
     func getSyncedScansCount() -> Int {
-        self.getCountFor(predicate: NSPredicate(format: "reported = false"))
+        self.getCountFor(predicate: NSPredicate(format: "reported = true"))
     }
     
     private func getCountFor(predicate: NSPredicate) -> Int {
