@@ -61,8 +61,12 @@ class CodeReportsImmutableRepository {}
 */
 
 extension CodeReportsImmutableRepository: ICodeReportsQueryImmutableRepository {
-    func getTotalScansCount() -> Int {
-        self.getCountFor(predicate: NSPredicate(format: "TRUEPREDICATE"))
+    func getTotalScansCount(blockId: Int? = nil) -> Int {
+        if let blockId = blockId {
+            return self.getCountFor(predicate: NSPredicate(format: "blockId == %i", blockId))
+        } else {
+            return self.getCountFor(predicate: NSPredicate(format: "TRUEPREDICATE"))
+        }
     }
     
     func getApprovedScansCount() -> Int {

@@ -49,7 +49,8 @@ class CodesDumper: ICodesDumperWorker {
         isRunning.asObservable()
             //.debug("isRunning")
             .flatMapLatest {  isRunning in
-                isRunning ? Observable<Int>.interval(8, scheduler: MainScheduler.instance) : .empty()
+                isRunning ? Observable<Int>.interval(MyTimeInterval.sendScanReportsToWebEvery,
+                                                     scheduler: MainScheduler.instance) : .empty()
             }
             .enumerated().flatMap { (int, index) in
                 return Observable.just(index)

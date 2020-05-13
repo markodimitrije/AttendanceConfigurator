@@ -7,7 +7,7 @@
 //
 
 protocol ICodeReportsQueryImmutableRepository: ICodeReportsImmutableRepository {
-    func getTotalScansCount() -> Int
+    func getTotalScansCount(blockId: Int?) -> Int
     func getApprovedScansCount() -> Int
     func getRejectedScansCount() -> Int
     func getSyncedScansCount() -> Int

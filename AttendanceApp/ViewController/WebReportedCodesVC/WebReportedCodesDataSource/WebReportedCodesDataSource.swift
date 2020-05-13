@@ -18,20 +18,23 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    private var data = [CodeReportCellModel]() {
+//    private var data = [CodeReportCellModel]() {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//    } // hooked with realm in func: "hookUpDataFromRealm"
+    
+    private var blockData = [IBlockStatsTableViewCellModel]() {
         didSet {
             self.tableView.reloadData()
         }
-    } // hooked with realm in func: "hookUpDataFromRealm"
-    
-    private var blockData: [IBlock] {
-        blockRepo.getBlocks(roomId: 4457)
     }
     
     private let tableView: UITableView
     private let statsView: StatsViewRendering
     private let repository: ICodeReportsRepository
     private let blockRepo = BlockImmutableRepository()
+    private let roomRepo = RoomRepository()
     
     init(tableView: UITableView, statsView: StatsViewRendering, repository: ICodeReportsRepository) {
         self.tableView = tableView
@@ -45,19 +48,13 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return data.count
-        blockRepo.getBlocks(roomId: 4457).count
+        blockData.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "StatsViewCell", for: indexPath) as! StatsViewCell
-        
-        let block = blockData[indexPath.row]
-        let scansPerBlock = repository.getTotalScansCount()
-        
-        let cellModel = BlockStatsTableViewCellModel(title: block.getName(),
-                                                     date: block.getStartsAt(),
-                                                     count: "Scans: " + "\(scansPerBlock)")
+                
+        let cellModel = blockData[indexPath.row]
         cell.configure(with: cellModel)
         
         return cell
@@ -69,7 +66,8 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
             .subscribeOn(MainScheduler.init())
             .subscribe(onNext: { [weak self] reports in
             guard let sSelf = self else {return}
-                sSelf.data = reports.map(CodeReportCellModelFactory.make)
+                //sSelf.data = reports.map(CodeReportCellModelFactory.make)
+                sSelf.blockData = BlockStatsCellModelsFactory.make(codeRepo: sSelf.repository, roomRepo: sSelf.roomRepo, blockRepo: sSelf.blockRepo)
                 sSelf.stats = StatsFactory.make(repository: sSelf.repository)
             })
             .disposed(by: bag)
@@ -80,7 +78,7 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
 
 struct StatsFactory {
     static func make(repository: ICodeReportsRepository) -> StatsProtocol {
-        let total = repository.getTotalScansCount()
+        let total = repository.getTotalScansCount(blockId: nil)
         let approved = repository.getApprovedScansCount()
         let rejected = repository.getRejectedScansCount()
         let synced = repository.getSyncedScansCount()
@@ -93,5 +91,23 @@ struct StatsFactory {
                     rejectedValue: "\(rejected)" + "/" + "\(total)",
                     syncedTitle: NSLocalizedString("synced.title", comment: ""),
                     syncedValue: "\(synced)" + "/" + "\(total)")
+    }
+}
+
+struct BlockStatsCellModelsFactory {
+    static func make(codeRepo: ICodeReportsRepository,
+                     roomRepo: IRoomRepository,
+                     blockRepo: IBlockImmutableRepository) -> [IBlockStatsTableViewCellModel] {
+        let blocks = blockRepo.getBlocks()
+        let scans = blocks.map { codeRepo.getTotalScansCount(blockId: $0.getId()) }.sorted(by: >)
+        let cellModels = scans.enumerated().map { (index, scans) -> BlockStatsTableViewCellModel in
+            let block = blocks[index]
+            let roomName = roomRepo.getRoom(id: block.getLocationId())?.getName() ?? ""
+            return BlockStatsTableViewCellModel(date: block.getStartsAt(),
+                                                room: roomName,
+                                                title: block.getName(),
+                                                count: "Scans: \(scans)")
+        }
+        return cellModels
     }
 }

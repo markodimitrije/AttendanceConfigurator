@@ -47,7 +47,7 @@
   "timeslot_distributions": [
       {
           "id": 10330,
-          "name": "Mangrove tree forest",
+          "name": "Mangrove tree forest - trees which thrives in salt water",
           "location_id": 4456,
           "starts_at": "2019-06-14 08:00:00",
           "ends_at": "2019-06-14 09:30:00",
@@ -55,7 +55,7 @@
       },
       {
           "id": 10331,
-          "name": "Canapi woods",
+          "name": "Canapi woods - learn about trees 60m high that streem above all known plants in tropical rain forest",
           "location_id": 4456,
           "starts_at": "2019-06-14 10:00:00",
           "ends_at": "2019-06-14 12:30:00",

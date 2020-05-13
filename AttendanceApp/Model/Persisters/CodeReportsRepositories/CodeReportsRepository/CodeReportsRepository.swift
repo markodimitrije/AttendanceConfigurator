@@ -14,7 +14,7 @@ import RealmSwift
 extension CodeReportsRepository: ICodeReportsRepository {
     
     // MARK:- Query for count of
-    func getTotalScansCount() -> Int { readRepo.getTotalScansCount() }
+    func getTotalScansCount(blockId: Int?) -> Int { readRepo.getTotalScansCount(blockId: blockId) }
     
     func getApprovedScansCount() -> Int { readRepo.getApprovedScansCount() }
     

@@ -9,6 +9,7 @@
 import RxSwift
 
 protocol IBlockImmutableRepository {
+    func getBlocks() -> [IBlock]
     func getBlocks(roomId: Int) -> [IBlock]
     func getBlocks(roomId: Int, date: Date) -> [IBlock]
     func getBlock(id: Int) -> IBlock?

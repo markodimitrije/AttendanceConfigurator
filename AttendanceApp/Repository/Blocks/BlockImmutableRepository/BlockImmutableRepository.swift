@@ -24,6 +24,11 @@ class BlockImmutableRepository: IBlockImmutableRepository {
             .sorted(byKeyPath: "starts_at", ascending: true)
     }
     
+    func getBlocks() -> [IBlock] {
+        let rBlocks = getAllBlockResults().toArray()
+        return rBlocks.map(BlockFactory.make)
+    }
+    
     func getBlocks(roomId: Int) -> [IBlock] {
         let rBlocks = getBlockResults(roomId: roomId).toArray()
         return rBlocks.map(BlockFactory.make)
