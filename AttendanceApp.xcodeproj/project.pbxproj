@@ -49,6 +49,7 @@
 		7C302088246AE057004C343A /* ICodeReportsImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302087246AE057004C343A /* ICodeReportsImmutableRepository.swift */; };
 		7C30208A246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C302089246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift */; };
 		7C30208C246AE090004C343A /* ICodeReportsMutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30208B246AE090004C343A /* ICodeReportsMutableRepository.swift */; };
+		7C30208F246AF00B004C343A /* ResourcesForScan.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C30208E246AF00B004C343A /* ResourcesForScan.json */; };
 		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */; };
 		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
@@ -377,6 +378,7 @@
 		7C302087246AE057004C343A /* ICodeReportsImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsImmutableRepository.swift; sourceTree = "<group>"; };
 		7C302089246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsQueryImmutableRepository.swift; sourceTree = "<group>"; };
 		7C30208B246AE090004C343A /* ICodeReportsMutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportsMutableRepository.swift; sourceTree = "<group>"; };
+		7C30208E246AF00B004C343A /* ResourcesForScan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan.json; sourceTree = "<group>"; };
 		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidationFactory.swift; sourceTree = "<group>"; };
 		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 			children = (
 				7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */,
 				7C397059246966C9007E5E5F /* Resources.json */,
+				7C30208E246AF00B004C343A /* ResourcesForScan.json */,
 			);
 			path = MockTemp;
 			sourceTree = "<group>";
@@ -2384,6 +2387,7 @@
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
+				7C30208F246AF00B004C343A /* ResourcesForScan.json in Resources */,
 				7C082A65245194AE007424E8 /* RoomsViewController.storyboard in Resources */,
 				7CF874A22451961500C39AEF /* BlocksViewController.storyboard in Resources */,
 				7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */,
