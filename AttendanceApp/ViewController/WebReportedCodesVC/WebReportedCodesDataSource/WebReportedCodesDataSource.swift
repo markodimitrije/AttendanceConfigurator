@@ -29,10 +29,10 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
     
     private let codeReportsRepo: ICodeReportsRepository
     private var statsFactory: IStatsFactory
-    private let cellModelsFactory: IBlockStatsCellModelsFactory
+    private let cellModelsFactory: IBlockScansCellModelsFactory
     
     init(tableView: UITableView, statsView: StatsViewRendering, codeReportsRepo: ICodeReportsRepository,
-         statsFactory: IStatsFactory, cellModelsFactory: IBlockStatsCellModelsFactory) {
+         statsFactory: IStatsFactory, cellModelsFactory: IBlockScansCellModelsFactory) {
         self.tableView = tableView
         self.statsView = statsView
         self.codeReportsRepo = codeReportsRepo
@@ -50,7 +50,7 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StatsViewCell", for: indexPath) as! StatsViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BlockScansCell", for: indexPath) as! BlockScansCell
                 
         let cellModel = blockData[indexPath.row]
         cell.configure(with: cellModel)
@@ -71,52 +71,5 @@ class WebReportedCodesDataSource: NSObject, UITableViewDataSource {
     }
     
     private let bag = DisposeBag()
-}
-
-protocol IStatsFactory {
-    func make() -> StatsProtocol
-}
-
-struct StatsFactory: IStatsFactory {
-    let repository: ICodeReportsRepository
-    func make() -> StatsProtocol {
-        let total = repository.getTotalScansCount(blockId: nil)
-        let approved = repository.getApprovedScansCount()
-        let rejected = repository.getRejectedScansCount()
-        let synced = repository.getSyncedScansCount()
-        
-        return Stats(totalTitle: NSLocalizedString("total.title", comment: ""),
-                     totalValue: "\(total)",
-                    approvedTitle: NSLocalizedString("approved.title", comment: ""),
-                    approvedValue: "\(approved)" + "/" + "\(total)",
-                    rejectedTitle: NSLocalizedString("rejected.title", comment: ""),
-                    rejectedValue: "\(rejected)" + "/" + "\(total)",
-                    syncedTitle: NSLocalizedString("synced.title", comment: ""),
-                    syncedValue: "\(synced)" + "/" + "\(total)")
-    }
-}
-
-protocol IBlockStatsCellModelsFactory {
-    func make() -> [IBlockStatsTableViewCellModel]
-}
-
-struct BlockStatsCellModelsFactory: IBlockStatsCellModelsFactory {
-    let codeRepo: ICodeReportsRepository
-    let roomRepo: IRoomRepository
-    let blockRepo: IBlockImmutableRepository
-    
-    func make() -> [IBlockStatsTableViewCellModel] {
-        let blocks = blockRepo.getBlocks()
-        let scans = blocks.map { codeRepo.getTotalScansCount(blockId: $0.getId()) }.sorted(by: >)
-        let cellModels = scans.enumerated().map { (index, scans) -> BlockStatsTableViewCellModel in
-            let block = blocks[index]
-            let roomName = roomRepo.getRoom(id: block.getLocationId())?.getName() ?? ""
-            return BlockStatsTableViewCellModel(date: block.getStartsAt(),
-                                                room: roomName,
-                                                title: block.getName(),
-                                                count: "Scans: \(scans)")
-        }
-        return cellModels
-    }
 }
 

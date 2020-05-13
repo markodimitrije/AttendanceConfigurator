@@ -23,9 +23,8 @@ class WebReportedCodesVC: UIViewController, Storyboarded {
     }
     
     private func registerCells() {
-//        tableView.register(UINib(nibName: ChairsTableViewCell.typeName, bundle: nil), forCellReuseIdentifier: ChairsTableViewCell.typeName)
-        tableView.register(UINib(nibName: "StatsViewCell", bundle: nil),
-                           forCellReuseIdentifier: "StatsViewCell")
+        tableView.register(UINib(nibName: "BlockScansCell", bundle: nil),
+                           forCellReuseIdentifier: "BlockScansCell")
     }
     
 }

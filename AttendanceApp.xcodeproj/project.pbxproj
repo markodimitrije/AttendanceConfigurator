@@ -74,8 +74,12 @@
 		7C516F7A243C98E0002CF6BF /* BlockImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F79243C98E0002CF6BF /* BlockImmutableRepository.swift */; };
 		7C516F7C243C9912002CF6BF /* BlockImmutableRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F7B243C9912002CF6BF /* BlockImmutableRepositoryFactory.swift */; };
 		7C516F7E243C9922002CF6BF /* BlockMutableRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C516F7D243C9922002CF6BF /* BlockMutableRepositoryFactory.swift */; };
-		7C53A5BA246BEBD5008685EE /* StatsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C53A5B9246BEBD5008685EE /* StatsViewCell.xib */; };
-		7C53A5BC246BEDBE008685EE /* StatsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5BB246BEDBE008685EE /* StatsViewCell.swift */; };
+		7C53A5BA246BEBD5008685EE /* BlockScansCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C53A5B9246BEBD5008685EE /* BlockScansCell.xib */; };
+		7C53A5BC246BEDBE008685EE /* BlockScansCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5BB246BEDBE008685EE /* BlockScansCell.swift */; };
+		7C53A5C0246C46F1008685EE /* IStatsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5BF246C46F1008685EE /* IStatsFactory.swift */; };
+		7C53A5C2246C4708008685EE /* StatsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C1246C4708008685EE /* StatsFactory.swift */; };
+		7C53A5C5246C4736008685EE /* IBlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */; };
+		7C53A5C7246C474A008685EE /* BlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
@@ -405,8 +409,12 @@
 		7C516F79243C98E0002CF6BF /* BlockImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockImmutableRepository.swift; sourceTree = "<group>"; };
 		7C516F7B243C9912002CF6BF /* BlockImmutableRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockImmutableRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C516F7D243C9922002CF6BF /* BlockMutableRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockMutableRepositoryFactory.swift; sourceTree = "<group>"; };
-		7C53A5B9246BEBD5008685EE /* StatsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatsViewCell.xib; sourceTree = "<group>"; };
-		7C53A5BB246BEDBE008685EE /* StatsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewCell.swift; sourceTree = "<group>"; };
+		7C53A5B9246BEBD5008685EE /* BlockScansCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockScansCell.xib; sourceTree = "<group>"; };
+		7C53A5BB246BEDBE008685EE /* BlockScansCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansCell.swift; sourceTree = "<group>"; };
+		7C53A5BF246C46F1008685EE /* IStatsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IStatsFactory.swift; sourceTree = "<group>"; };
+		7C53A5C1246C4708008685EE /* StatsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsFactory.swift; sourceTree = "<group>"; };
+		7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
+		7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -984,13 +992,40 @@
 			path = BlockMutableRepository;
 			sourceTree = "<group>";
 		};
-		7C53A5B8246BEBB6008685EE /* StstsCell */ = {
+		7C53A5B8246BEBB6008685EE /* BlockScansCell */ = {
 			isa = PBXGroup;
 			children = (
-				7C53A5B9246BEBD5008685EE /* StatsViewCell.xib */,
-				7C53A5BB246BEDBE008685EE /* StatsViewCell.swift */,
+				7C53A5B9246BEBD5008685EE /* BlockScansCell.xib */,
+				7C53A5BB246BEDBE008685EE /* BlockScansCell.swift */,
 			);
-			path = StstsCell;
+			path = BlockScansCell;
+			sourceTree = "<group>";
+		};
+		7C53A5BD246C46C3008685EE /* ModelFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C53A5C3246C4727008685EE /* BlockStatsCellModelsFactory */,
+				7C53A5BE246C46E8008685EE /* StatsFactory */,
+			);
+			path = ModelFactory;
+			sourceTree = "<group>";
+		};
+		7C53A5BE246C46E8008685EE /* StatsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C53A5BF246C46F1008685EE /* IStatsFactory.swift */,
+				7C53A5C1246C4708008685EE /* StatsFactory.swift */,
+			);
+			path = StatsFactory;
+			sourceTree = "<group>";
+		};
+		7C53A5C3246C4727008685EE /* BlockStatsCellModelsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */,
+				7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */,
+			);
+			path = BlockStatsCellModelsFactory;
 			sourceTree = "<group>";
 		};
 		7C55BA5B242A9029005BF038 /* RoomsVC */ = {
@@ -1196,20 +1231,21 @@
 		7C5ED626243B525D00FEEAAE /* WebReportedCodesDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				7C53A5BD246C46C3008685EE /* ModelFactory */,
 				7C5ED624243B525900FEEAAE /* WebReportedCodesDataSource.swift */,
 				7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */,
-				7C5ED629243B52C800FEEAAE /* CodeReportCellModel */,
+				7C5ED629243B52C800FEEAAE /* CodeReportCellModel_depricated */,
 			);
 			path = WebReportedCodesDataSource;
 			sourceTree = "<group>";
 		};
-		7C5ED629243B52C800FEEAAE /* CodeReportCellModel */ = {
+		7C5ED629243B52C800FEEAAE /* CodeReportCellModel_depricated */ = {
 			isa = PBXGroup;
 			children = (
 				7C5ED62A243B52DD00FEEAAE /* CodeReportCellModel.swift */,
 				7C5ED62C243B52EA00FEEAAE /* CodeReportCellModelFactory.swift */,
 			);
-			path = CodeReportCellModel;
+			path = CodeReportCellModel_depricated;
 			sourceTree = "<group>";
 		};
 		7C5ED62E243B5DAF00FEEAAE /* CodeReportsState */ = {
@@ -2115,7 +2151,7 @@
 		AD24E30621806C22008E35F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7C53A5B8246BEBB6008685EE /* StstsCell */,
+				7C53A5B8246BEBB6008685EE /* BlockScansCell */,
 				7C30206A246AA08C004C343A /* StatsView */,
 				7C302067246AA06A004C343A /* AutoSelectSessionsView */,
 				7C302068246AA076004C343A /* UnsyncedScansView */,
@@ -2399,7 +2435,7 @@
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
 				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
-				7C53A5BA246BEBD5008685EE /* StatsViewCell.xib in Resources */,
+				7C53A5BA246BEBD5008685EE /* BlockScansCell.xib in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
 				7C30208F246AF00B004C343A /* ResourcesForScan.json in Resources */,
@@ -2543,6 +2579,7 @@
 			files = (
 				7C7DCBFE2448B9050072CDAE /* IKeyboardHandler.swift in Sources */,
 				7C302073246AAFC6004C343A /* Stats.swift in Sources */,
+				7C53A5C2246C4708008685EE /* StatsFactory.swift in Sources */,
 				7C2E5741244EE62F003EDAC7 /* Constants.swift in Sources */,
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
@@ -2585,6 +2622,7 @@
 				7C7DCBDA2448B9050072CDAE /* LoginRemoteSignalFactory.swift in Sources */,
 				7C8361742436724F00DB1F59 /* ISyncResourcesManager.swift in Sources */,
 				7C7DCBE22448B9050072CDAE /* UIViewController+Extension.swift in Sources */,
+				7C53A5C0246C46F1008685EE /* IStatsFactory.swift in Sources */,
 				7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */,
 				7CB1E44E22983107008C23F8 /* DelegatesRepository.swift in Sources */,
 				7C2E5750244EF916003EDAC7 /* CampaignItemsFactory.swift in Sources */,
@@ -2621,7 +2659,7 @@
 				7CCB5D3F2459B05C00DEA198 /* CampaignSelection.swift in Sources */,
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
 				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
-				7C53A5BC246BEDBE008685EE /* StatsViewCell.swift in Sources */,
+				7C53A5BC246BEDBE008685EE /* BlockScansCell.swift in Sources */,
 				7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */,
 				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
 				7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */,
@@ -2753,6 +2791,7 @@
 				7C4C1762245046ED009AE1F5 /* CampaignTableViewCell.swift in Sources */,
 				7CB1E44822982DC5008C23F8 /* Delegate.swift in Sources */,
 				7CC9DD532448C8650035B2AE /* CampaignsRepository.swift in Sources */,
+				7C53A5C5246C4736008685EE /* IBlockScansCellModelsFactory.swift in Sources */,
 				7CE8153B2273471200B33986 /* SoundManager.swift in Sources */,
 				7C2E5756244EFB01003EDAC7 /* RealmCampaignFactory.swift in Sources */,
 				AD9FE5B621AEDE4700D6A4B6 /* AlertStateReporter.swift in Sources */,
@@ -2764,6 +2803,7 @@
 				7C816778244B4E9B0059BDA1 /* LogoutRemoteApi.swift in Sources */,
 				7C7DCBD52448B9050072CDAE /* LoginValidator.swift in Sources */,
 				7C7DCC012448B9050072CDAE /* IKeyboardInfo.swift in Sources */,
+				7C53A5C7246C474A008685EE /* BlockScansCellModelsFactory.swift in Sources */,
 				7CA97FDC2458815A0091F556 /* ILogoutHandler.swift in Sources */,
 				7C302088246AE057004C343A /* ICodeReportsImmutableRepository.swift in Sources */,
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,

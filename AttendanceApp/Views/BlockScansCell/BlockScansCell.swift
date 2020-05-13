@@ -1,5 +1,5 @@
 //
-//  StatsViewCell.swift
+//  BlockScansCell.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 13/05/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol IBlockStatsTableViewCellModel {
+protocol IBlockStatsTableViewCellModel { //TODO marko - own files...
     var date: Date {get}
     var room: String {get}
     var title: String {get}
@@ -22,7 +22,7 @@ struct BlockStatsTableViewCellModel: IBlockStatsTableViewCellModel {
     let count: String
 }
 
-class StatsViewCell: UITableViewCell {
+class BlockScansCell: UITableViewCell {
     
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var roomLbl: UILabel!

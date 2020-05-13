@@ -12,7 +12,7 @@ class WebReportedCodesDataSourceFactory {
     static func make(tableView: UITableView, statsView: StatsViewRendering) -> WebReportedCodesDataSource {
         let codeReportsRepo = CodeReportsRepositoryFactory.make()
         let statsFactory = StatsFactory(repository: codeReportsRepo)
-        let cellModelsFactory = BlockStatsCellModelsFactory(codeRepo: codeReportsRepo,
+        let cellModelsFactory = BlockScansCellModelsFactory(codeRepo: codeReportsRepo,
                                                             roomRepo: RoomRepository(),
                                                             blockRepo: BlockImmutableRepository())
         return WebReportedCodesDataSource(tableView: tableView, statsView: statsView, codeReportsRepo: codeReportsRepo, statsFactory: statsFactory, cellModelsFactory: cellModelsFactory)
