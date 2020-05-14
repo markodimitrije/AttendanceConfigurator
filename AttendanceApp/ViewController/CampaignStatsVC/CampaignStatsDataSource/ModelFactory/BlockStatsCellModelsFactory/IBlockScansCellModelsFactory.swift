@@ -7,5 +7,5 @@
 //
 
 protocol IBlockScansCellModelsFactory {
-    func make() -> [IBlockStatsTableViewCellModel]
+    func make() -> [IBlockScansTableViewCellModel]
 }

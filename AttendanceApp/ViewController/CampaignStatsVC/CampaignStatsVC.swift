@@ -1,5 +1,5 @@
 //
-//  WebReportedCodesVC.swift
+//  CampaignStatsVC.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 15/05/2019.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class WebReportedCodesVC: UIViewController, Storyboarded {
+class CampaignStatsVC: UIViewController, Storyboarded {
     
     @IBOutlet weak var statsView: StatsView!
     @IBOutlet weak var tableView: UITableView!
     
-    lazy private var dataSource = WebReportedCodesDataSourceFactory.make(tableView: tableView,
+    lazy private var dataSource = CampaignStatsDataSourceFactory.make(tableView: tableView,
                                                                          statsView: statsView)
     
     override func viewDidLoad() { super.viewDidLoad()

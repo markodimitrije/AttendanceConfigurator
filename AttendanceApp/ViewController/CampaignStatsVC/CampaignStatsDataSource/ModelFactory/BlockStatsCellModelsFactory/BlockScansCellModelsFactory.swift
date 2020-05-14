@@ -11,13 +11,13 @@ struct BlockScansCellModelsFactory: IBlockScansCellModelsFactory {
     let roomRepo: IRoomRepository
     let blockRepo: IBlockImmutableRepository
     
-    func make() -> [IBlockStatsTableViewCellModel] {
+    func make() -> [IBlockScansTableViewCellModel] {
         let blocks = blockRepo.getBlocks()
         let scans = blocks.map { codeRepo.getTotalScansCount(blockId: $0.getId()) }.sorted(by: >)
-        let cellModels = scans.enumerated().map { (index, scans) -> BlockStatsTableViewCellModel in
+        let cellModels = scans.enumerated().map { (index, scans) -> BlockScansTableViewCellModel in
             let block = blocks[index]
             let roomName = roomRepo.getRoom(id: block.getLocationId())?.getName() ?? ""
-            return BlockStatsTableViewCellModel(date: block.getStartsAt(),
+            return BlockScansTableViewCellModel(date: block.getStartsAt(),
                                                 room: roomName,
                                                 title: block.getName(),
                                                 count: "Scans: \(scans)")

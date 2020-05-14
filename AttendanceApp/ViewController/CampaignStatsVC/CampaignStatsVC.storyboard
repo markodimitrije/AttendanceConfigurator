@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Web Reported CodesVC-->
+        <!--Campaign StatsVC-->
         <scene sceneID="IRv-a0-q10">
             <objects>
-                <viewController storyboardIdentifier="WebReportedCodesVC" id="A1m-jL-3CZ" customClass="WebReportedCodesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignStatsVC" id="A1m-jL-3CZ" customClass="CampaignStatsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gTl-hV-MT8"/>
                         <viewControllerLayoutGuide type="bottom" id="Ubl-nl-nea"/>

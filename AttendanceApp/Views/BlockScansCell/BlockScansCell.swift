@@ -8,20 +8,6 @@
 
 import UIKit
 
-protocol IBlockStatsTableViewCellModel { //TODO marko - own files...
-    var date: Date {get}
-    var room: String {get}
-    var title: String {get}
-    var count: String {get}
-}
-
-struct BlockStatsTableViewCellModel: IBlockStatsTableViewCellModel {
-    let date: Date
-    let room: String
-    let title: String
-    let count: String
-}
-
 class BlockScansCell: UITableViewCell {
     
     @IBOutlet weak var dateLbl: UILabel!
@@ -30,7 +16,7 @@ class BlockScansCell: UITableViewCell {
     @IBOutlet weak var countLbl: UILabel!
     
     
-    public func configure(with model: IBlockStatsTableViewCellModel) {
+    public func configure(with model: IBlockScansTableViewCellModel) {
         dateLbl.text = model.date.toString(format: Date.defaultFormatString) ?? ""
         roomLbl.text = model.room
         titleLbl.text = model.title

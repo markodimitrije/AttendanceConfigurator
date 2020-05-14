@@ -85,7 +85,7 @@ class ScannerViewController: UIViewController, Storyboarded {
         self.present(nextVC, animated: true)
     }
     private func navigateToReportsScreen() {
-        let reportsVC = WebReportedCodesVCFactory.make()
+        let reportsVC = CampaignStatsVCFactory.make()
         //let nextVC = UINavigationController(rootViewController: reportsVC)
         //self.present(nextVC, animated: true)
         navigationController?.pushViewController(reportsVC, animated: true)

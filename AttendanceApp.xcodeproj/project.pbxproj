@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
-		7C082A5F245187CC007424E8 /* WebReportedCodesVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */; };
+		7C082A5F245187CC007424E8 /* CampaignStatsVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082A5E245187CC007424E8 /* CampaignStatsVCFactory.swift */; };
 		7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */; };
 		7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */; };
 		7C082A65245194AE007424E8 /* RoomsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A64245194AE007424E8 /* RoomsViewController.storyboard */; };
@@ -52,8 +52,8 @@
 		7C30208F246AF00B004C343A /* ResourcesForScan.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C30208E246AF00B004C343A /* ResourcesForScan.json */; };
 		7C344F0D245816DE00CE7FBE /* JsonBundleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */; };
 		7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */; };
-		7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */; };
-		7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */; };
+		7C3756F62451868100292429 /* CampaignStatsVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F52451868100292429 /* CampaignStatsVC.storyboard */; };
+		7C3756F8245186BF00292429 /* CampaignStatsVC_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C3756F7245186BF00292429 /* CampaignStatsVC_iPad.storyboard */; };
 		7C39705824695D1B007E5E5F /* DelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39705724695D1B007E5E5F /* DelegateFactory.swift */; };
 		7C39705A246966C9007E5E5F /* Resources.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C397059246966C9007E5E5F /* Resources.json */; };
 		7C39705C24699E56007E5E5F /* IDelegatesAttendanceValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C39705B24699E56007E5E5F /* IDelegatesAttendanceValidation.swift */; };
@@ -80,6 +80,7 @@
 		7C53A5C2246C4708008685EE /* StatsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C1246C4708008685EE /* StatsFactory.swift */; };
 		7C53A5C5246C4736008685EE /* IBlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */; };
 		7C53A5C7246C474A008685EE /* BlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */; };
+		7C53A5C9246C5E84008685EE /* BlockScansTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C8246C5E84008685EE /* BlockScansTableViewCellModel.swift */; };
 		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
@@ -107,8 +108,8 @@
 		7C592BFE242BDC1900294E71 /* Blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFD242BDC1900294E71 /* Blocks.json */; };
 		7C592C00242BDD0600294E71 /* Rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C592BFF242BDD0600294E71 /* Rooms.json */; };
 		7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C5DEBE122E871380058ED6B /* Images.xcassets */; };
-		7C5ED625243B525900FEEAAE /* WebReportedCodesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED624243B525900FEEAAE /* WebReportedCodesDataSource.swift */; };
-		7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */; };
+		7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED624243B525900FEEAAE /* CampaignStatsDataSource.swift */; };
+		7C5ED628243B529D00FEEAAE /* CampaignStatsDataSourceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED627243B529D00FEEAAE /* CampaignStatsDataSourceFactory.swift */; };
 		7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62A243B52DD00FEEAAE /* CodeReportCellModel.swift */; };
 		7C5ED62D243B52EA00FEEAAE /* CodeReportCellModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62C243B52EA00FEEAAE /* CodeReportCellModelFactory.swift */; };
 		7C5ED630243B5DBD00FEEAAE /* CodeReportsStateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5ED62F243B5DBC00FEEAAE /* CodeReportsStateFactory.swift */; };
@@ -203,7 +204,7 @@
 		7CB24696244E18220035F311 /* ICampaignsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB24695244E18220035F311 /* ICampaignsWorker.swift */; };
 		7CB24698244E187C0035F311 /* CampaignsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB24697244E187C0035F311 /* CampaignsWorker.swift */; };
 		7CB2469A244E18F50035F311 /* ICampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB24699244E18F50035F311 /* ICampaignsRemoteApi.swift */; };
-		7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */; };
+		7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* CampaignStatsVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
 		7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */; };
 		7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */; };
@@ -344,7 +345,7 @@
 		4CDE23CC13BE03E3BB6C67F5 /* Pods-AttendanceAppUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
-		7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVCFactory.swift; sourceTree = "<group>"; };
+		7C082A5E245187CC007424E8 /* CampaignStatsVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsVCFactory.swift; sourceTree = "<group>"; };
 		7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController_iPad.storyboard; sourceTree = "<group>"; };
 		7C082A64245194AE007424E8 /* RoomsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomsViewController.storyboard; sourceTree = "<group>"; };
@@ -387,8 +388,8 @@
 		7C30208E246AF00B004C343A /* ResourcesForScan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan.json; sourceTree = "<group>"; };
 		7C344F0C245816DE00CE7FBE /* JsonBundleDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonBundleDataProvider.swift; sourceTree = "<group>"; };
 		7C3756F32451843100292429 /* DelegatesAttendanceValidationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidationFactory.swift; sourceTree = "<group>"; };
-		7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC.storyboard; sourceTree = "<group>"; };
-		7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebReportedCodesVC_iPad.storyboard; sourceTree = "<group>"; };
+		7C3756F52451868100292429 /* CampaignStatsVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignStatsVC.storyboard; sourceTree = "<group>"; };
+		7C3756F7245186BF00292429 /* CampaignStatsVC_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampaignStatsVC_iPad.storyboard; sourceTree = "<group>"; };
 		7C39705724695D1B007E5E5F /* DelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateFactory.swift; sourceTree = "<group>"; };
 		7C397059246966C9007E5E5F /* Resources.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Resources.json; sourceTree = "<group>"; };
 		7C39705B24699E56007E5E5F /* IDelegatesAttendanceValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDelegatesAttendanceValidation.swift; sourceTree = "<group>"; };
@@ -415,6 +416,7 @@
 		7C53A5C1246C4708008685EE /* StatsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsFactory.swift; sourceTree = "<group>"; };
 		7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
 		7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
+		7C53A5C8246C5E84008685EE /* BlockScansTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansTableViewCellModel.swift; sourceTree = "<group>"; };
 		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -444,8 +446,8 @@
 		7C592BFD242BDC1900294E71 /* Blocks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Blocks.json; sourceTree = "<group>"; };
 		7C592BFF242BDD0600294E71 /* Rooms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Rooms.json; sourceTree = "<group>"; };
 		7C5DEBE122E871380058ED6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7C5ED624243B525900FEEAAE /* WebReportedCodesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesDataSource.swift; sourceTree = "<group>"; };
-		7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesDataSourceFactory.swift; sourceTree = "<group>"; };
+		7C5ED624243B525900FEEAAE /* CampaignStatsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsDataSource.swift; sourceTree = "<group>"; };
+		7C5ED627243B529D00FEEAAE /* CampaignStatsDataSourceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsDataSourceFactory.swift; sourceTree = "<group>"; };
 		7C5ED62A243B52DD00FEEAAE /* CodeReportCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportCellModel.swift; sourceTree = "<group>"; };
 		7C5ED62C243B52EA00FEEAAE /* CodeReportCellModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportCellModelFactory.swift; sourceTree = "<group>"; };
 		7C5ED62F243B5DBC00FEEAAE /* CodeReportsStateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportsStateFactory.swift; sourceTree = "<group>"; };
@@ -539,7 +541,7 @@
 		7CB24695244E18220035F311 /* ICampaignsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignsWorker.swift; sourceTree = "<group>"; };
 		7CB24697244E187C0035F311 /* CampaignsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWorker.swift; sourceTree = "<group>"; };
 		7CB24699244E18F50035F311 /* ICampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignsRemoteApi.swift; sourceTree = "<group>"; };
-		7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReportedCodesVC.swift; sourceTree = "<group>"; };
+		7CB3DA57228C030600E29DA5 /* CampaignStatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProviding.swift; sourceTree = "<group>"; };
 		7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
@@ -995,6 +997,7 @@
 		7C53A5B8246BEBB6008685EE /* BlockScansCell */ = {
 			isa = PBXGroup;
 			children = (
+				7C53A5C8246C5E84008685EE /* BlockScansTableViewCellModel.swift */,
 				7C53A5B9246BEBD5008685EE /* BlockScansCell.xib */,
 				7C53A5BB246BEDBE008685EE /* BlockScansCell.swift */,
 			);
@@ -1216,27 +1219,27 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
-		7C5ED623243B524700FEEAAE /* WebReportedCodesVC */ = {
+		7C5ED623243B524700FEEAAE /* CampaignStatsVC */ = {
 			isa = PBXGroup;
 			children = (
-				7CB3DA57228C030600E29DA5 /* WebReportedCodesVC.swift */,
-				7C082A5E245187CC007424E8 /* WebReportedCodesVCFactory.swift */,
-				7C3756F52451868100292429 /* WebReportedCodesVC.storyboard */,
-				7C3756F7245186BF00292429 /* WebReportedCodesVC_iPad.storyboard */,
-				7C5ED626243B525D00FEEAAE /* WebReportedCodesDataSource */,
+				7CB3DA57228C030600E29DA5 /* CampaignStatsVC.swift */,
+				7C082A5E245187CC007424E8 /* CampaignStatsVCFactory.swift */,
+				7C3756F52451868100292429 /* CampaignStatsVC.storyboard */,
+				7C3756F7245186BF00292429 /* CampaignStatsVC_iPad.storyboard */,
+				7C5ED626243B525D00FEEAAE /* CampaignStatsDataSource */,
 			);
-			path = WebReportedCodesVC;
+			path = CampaignStatsVC;
 			sourceTree = "<group>";
 		};
-		7C5ED626243B525D00FEEAAE /* WebReportedCodesDataSource */ = {
+		7C5ED626243B525D00FEEAAE /* CampaignStatsDataSource */ = {
 			isa = PBXGroup;
 			children = (
 				7C53A5BD246C46C3008685EE /* ModelFactory */,
-				7C5ED624243B525900FEEAAE /* WebReportedCodesDataSource.swift */,
-				7C5ED627243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift */,
+				7C5ED624243B525900FEEAAE /* CampaignStatsDataSource.swift */,
+				7C5ED627243B529D00FEEAAE /* CampaignStatsDataSourceFactory.swift */,
 				7C5ED629243B52C800FEEAAE /* CodeReportCellModel_depricated */,
 			);
-			path = WebReportedCodesDataSource;
+			path = CampaignStatsDataSource;
 			sourceTree = "<group>";
 		};
 		7C5ED629243B52C800FEEAAE /* CodeReportCellModel_depricated */ = {
@@ -2196,7 +2199,7 @@
 				7C55BA63242AB581005BF038 /* DatesVC */,
 				7C55BA5B242A9029005BF038 /* RoomsVC */,
 				7C55BA60242AA427005BF038 /* BlocksVC */,
-				7C5ED623243B524700FEEAAE /* WebReportedCodesVC */,
+				7C5ED623243B524700FEEAAE /* CampaignStatsVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2434,7 +2437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADB2739E218078DD00345A5E /* UnsyncedScansView.xib in Resources */,
-				7C3756F62451868100292429 /* WebReportedCodesVC.storyboard in Resources */,
+				7C3756F62451868100292429 /* CampaignStatsVC.storyboard in Resources */,
 				7C53A5BA246BEBD5008685EE /* BlockScansCell.xib in Resources */,
 				7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */,
 				7CF874A42451962000C39AEF /* BlocksViewController_iPad.storyboard in Resources */,
@@ -2448,7 +2451,7 @@
 				7CF874A82451975F00C39AEF /* DatesViewController_iPad.storyboard in Resources */,
 				7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */,
 				7C39705A246966C9007E5E5F /* Resources.json in Resources */,
-				7C3756F8245186BF00292429 /* WebReportedCodesVC_iPad.storyboard in Resources */,
+				7C3756F8245186BF00292429 /* CampaignStatsVC_iPad.storyboard in Resources */,
 				7CF874A62451975800C39AEF /* DatesViewController.storyboard in Resources */,
 				7C5DEBE222E871380058ED6B /* Images.xcassets in Resources */,
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
@@ -2584,11 +2587,11 @@
 				7CEBFB782438F47900D2983C /* ScannerViewModelFactory.swift in Sources */,
 				AD24E305217F74D8008E35F8 /* ReachabilityManager.swift in Sources */,
 				7C81677A244B4EB70059BDA1 /* ILogoutRemoteApi.swift in Sources */,
-				7C082A5F245187CC007424E8 /* WebReportedCodesVCFactory.swift in Sources */,
+				7C082A5F245187CC007424E8 /* CampaignStatsVCFactory.swift in Sources */,
 				7C516F78243C98CC002CF6BF /* IBlockImmutableRepository.swift in Sources */,
 				7C5865E1244A0AD700426FBC /* Alert+Rx.swift in Sources */,
 				7C3756F42451843100292429 /* DelegatesAttendanceValidationFactory.swift in Sources */,
-				7C5ED628243B529D00FEEAAE /* WebReportedCodesDataSourceFactory.swift in Sources */,
+				7C5ED628243B529D00FEEAAE /* CampaignStatsDataSourceFactory.swift in Sources */,
 				7CCB5D3D2459B04400DEA198 /* ICampaignSelection.swift in Sources */,
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
@@ -2631,6 +2634,7 @@
 				7C30207C246AC366004C343A /* IGenRealmImmutableRepo.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
+				7C53A5C9246C5E84008685EE /* BlockScansTableViewCellModel.swift in Sources */,
 				7C5F05082438AAB200AC72DB /* ScannerInfoFactory.swift in Sources */,
 				7C7DCBFD2448B9050072CDAE /* KeyboardListener.swift in Sources */,
 				7CFDEC51242CBC240060A2C7 /* RealmBlockFactory.swift in Sources */,
@@ -2660,7 +2664,7 @@
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
 				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
 				7C53A5BC246BEDBE008685EE /* BlockScansCell.swift in Sources */,
-				7CB3DA58228C030600E29DA5 /* WebReportedCodesVC.swift in Sources */,
+				7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */,
 				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
 				7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */,
 				7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */,
@@ -2843,7 +2847,7 @@
 				AD28F6F12182122200A41BB8 /* RxExtensions.swift in Sources */,
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
-				7C5ED625243B525900FEEAAE /* WebReportedCodesDataSource.swift in Sources */,
+				7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */,
 				AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

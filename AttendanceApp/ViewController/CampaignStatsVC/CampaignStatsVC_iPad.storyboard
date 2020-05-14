@@ -11,7 +11,7 @@
         <!--Synced codes-->
         <scene sceneID="4S9-rn-ag7">
             <objects>
-                <viewController storyboardIdentifier="WebReportedCodesVC" id="Zbt-AD-HJH" customClass="WebReportedCodesVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignStatsVC" id="Zbt-AD-HJH" customClass="CampaignStatsVC" customModule="AttendanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hn0-Ed-G7a"/>
                         <viewControllerLayoutGuide type="bottom" id="AgF-xh-xAu"/>
@@ -21,37 +21,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ve-ko-8Ka">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="256" y="168" width="512" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="jbA-Cq-tvQ">
-                                        <rect key="frame" x="0.0" y="28" width="1024" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="512" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jbA-Cq-tvQ" id="Tka-Ed-MTf">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="512" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cv-Cf-HXK" customClass="StatsView" customModule="AttendanceApp" customModuleProvider="target">
+                                <rect key="frame" x="256" y="0.0" width="512" height="160"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="8h0-cz-Dcu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9ve-ko-8Ka" firstAttribute="bottom" secondItem="AgF-xh-xAu" secondAttribute="top" id="0Nt-eO-tZB"/>
-                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="trailing" secondItem="dfR-Sx-P93" secondAttribute="trailing" id="9SZ-b7-aLx"/>
-                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="top" secondItem="hn0-Ed-G7a" secondAttribute="bottom" id="RAL-RC-sbK"/>
-                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="leading" secondItem="dfR-Sx-P93" secondAttribute="leading" id="nEn-S8-dfs"/>
+                            <constraint firstItem="6cv-Cf-HXK" firstAttribute="width" secondItem="9ve-ko-8Ka" secondAttribute="width" id="40x-tA-zPA"/>
+                            <constraint firstItem="6cv-Cf-HXK" firstAttribute="centerX" secondItem="dfR-Sx-P93" secondAttribute="centerX" id="APv-Ag-roH"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="top" secondItem="6cv-Cf-HXK" secondAttribute="bottom" constant="8" symbolic="YES" id="EWy-vK-p2F"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="width" secondItem="dfR-Sx-P93" secondAttribute="width" multiplier="0.5" id="MzD-aD-cPp"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="centerX" secondItem="dfR-Sx-P93" secondAttribute="centerX" id="SbN-Q6-pb0"/>
+                            <constraint firstItem="6cv-Cf-HXK" firstAttribute="top" secondItem="hn0-Ed-G7a" secondAttribute="bottom" id="kzd-Yp-8lp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0e-9H-stI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Synced codes" id="zcF-D5-Fx0"/>
                     <connections>
+                        <outlet property="statsView" destination="6cv-Cf-HXK" id="rn1-6H-hqH"/>
                         <outlet property="tableView" destination="9ve-ko-8Ka" id="I8w-9W-VPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyQ-uo-QxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="1174"/>
+            <point key="canvasLocation" x="-69.140625" y="1173.4375"/>
         </scene>
     </scenes>
 </document>
