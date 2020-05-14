@@ -19,31 +19,65 @@ func connectedToInternet() -> Observable<Bool> {
 }
 
 private class ReachabilityManager {
-    private let reachability: Reachability
+    private let reachability: Reachability?
     let _reach = ReplaySubject<Bool>.create(bufferSize: 1)
     var reach: Observable<Bool> {
-        return _reach.asObservable()
+        return _reach.asObservable().share(replay: 1)
     }
     init?() {
-        guard let reach = Reachability() else {
-            return nil
-        }
-        self.reachability = reach
         do {
-            try self.reachability.startNotifier()
+            reachability = try Reachability()
+            try reachability?.startNotifier()
         } catch {
             return nil
         }
-        self._reach.onNext(self.reachability.connection != .none)
-        self.reachability.whenReachable = { _ in
+
+        self._reach.onNext(self.reachability!.connection != .unavailable)
+        self.reachability!.whenReachable = { _ in
             DispatchQueue.main.async { self._reach.onNext(true) }
         }
-        self.reachability.whenUnreachable = { _ in
+        self.reachability!.whenUnreachable = { _ in
             DispatchQueue.main.async { self._reach.onNext(false) }
         }
     }
     deinit {
-        reachability.stopNotifier()
+        reachability!.stopNotifier()
     }
 }
 
+
+
+/*
+final class ReachabilityManager {
+    private let reachability: Reachability?
+    private let reachReplaySubject = ReplaySubject<Bool>.create(bufferSize: 1)
+    var reach: Observable<Bool> {
+        return reachReplaySubject.asObservable()
+    }
+
+    init?() {
+        do {
+            reachability = try Reachability()
+            try reachability?.startNotifier()
+        } catch {
+            return nil
+        }
+        
+        reachReplaySubject.onNext(reachability!.connection != .unavailable)
+        reachability!.whenReachable = { [weak self] _ in
+            DispatchQueue.main.async { self?.reachReplaySubject.onNext(true) }
+        }
+        reachability!.whenUnreachable = { [weak self] _ in
+            DispatchQueue.main.async { self?.reachReplaySubject.onNext(false) }
+        }
+    }
+    
+    func isConnectionActive() -> Observable<Bool> {
+        return reachReplaySubject.asObservable()
+    }
+    
+    deinit {
+        reachability?.stopNotifier()
+    }
+}
+*/

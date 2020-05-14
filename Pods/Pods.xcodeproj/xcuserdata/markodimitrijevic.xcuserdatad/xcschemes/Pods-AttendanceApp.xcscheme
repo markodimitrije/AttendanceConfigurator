@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "778B2A052156CB5F98C2271DA9CF1274"
+               BlueprintIdentifier = "C9A988A7B0CB502D4B28AC8ADCBE51A3"
                BuildableName = "Pods_AttendanceApp.framework"
                BlueprintName = "Pods-AttendanceApp"
                ReferencedContainer = "container:Pods.xcodeproj">
