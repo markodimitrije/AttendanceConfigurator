@@ -8,9 +8,15 @@
 
 import UIKit
 
+// TODO marko:
+// 1. CampaignSelection da nije optional
+// 2. dont set to NIL if user comes back to campaigns live selection, it will updated on next iPath
+// 3. on selected check if previous is the same? if so, dont delete campaign settings
+
 class CampaignStatsDataSourceFactory {
     static func make(tableView: UITableView, statsView: StatsViewRendering) -> CampaignStatsDataSource {
         let codeReportsRepo = CodeReportsRepositoryFactory.make()
+        let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
         let statsFactory = StatsFactory(repository: codeReportsRepo)
         let cellModelsFactory = BlockScansCellModelsFactory(codeRepo: codeReportsRepo,
                                                             roomRepo: RoomRepository(),

@@ -149,5 +149,213 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E7D8AD1-C3A4-4574-9C3E-F557A4C04DB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Report/RealmCodeReport/RealmCodeReportFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "make(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3628ABF1-48E6-44B3-BE38-653544601CFD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/ViewController/CampaignStatsVC/CampaignStatsDataSource/CampaignStatsDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "hookUpCodeReports()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7499E83F-B168-492F-8749-4B0D970C0DD5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/ViewController/CampaignStatsVC/CampaignStatsDataSource/ModelFactory/StatsFactory/StatsFactory.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "make()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C690752-06BB-4D9C-A805-02004567AE35"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Persisters/CodeReportsRepositories/CodeReportsRepository/CodeReportsImmutableRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "getTotalScansCount(blockId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CD9FBC5-D10E-4C94-ADCC-8F31471C0563"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Persisters/CodeReportsRepositories/CodeReportsRepository/CodeReportsImmutableRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getCountFor(predicate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "34421EDC-AB1D-4727-98A2-2C9DA20C898F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Persisters/CodeReportsRepositories/CodeReportsRepository/CodeReportsImmutableRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getCountFor(predicate:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EB00EC5-15EF-4995-896B-8A26AFD16430"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getObjects(ofType:filter:sortDescriptors:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2EB00EC5-15EF-4995-896B-8A26AFD16430 - 99d929aaa477fbca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendanceApp.GenRealmImmutableRepo.getObjects&lt;A where A: RealmSwift.Object&gt;(ofType: A.Type, filter: __C.NSPredicate, sortDescriptors: Swift.Array&lt;RealmSwift.SortDescriptor&gt;) throws -&gt; RealmSwift.Results&lt;A&gt;"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "2EB00EC5-15EF-4995-896B-8A26AFD16430 - 99d929aaa477fbca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendanceApp.GenRealmImmutableRepo.getObjects&lt;A where A: RealmSwift.Object&gt;(ofType: A.Type, filter: __C.NSPredicate, sortDescriptors: Swift.Array&lt;RealmSwift.SortDescriptor&gt;) throws -&gt; RealmSwift.Results&lt;A&gt;"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "288">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDA58F41-0398-46FC-816B-3FF2E0BBCE41"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getObjects(ofType:filter:sortDescriptors:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BDA58F41-0398-46FC-816B-3FF2E0BBCE41 - 99d929aaa477fbca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendanceApp.GenRealmImmutableRepo.getObjects&lt;A where A: RealmSwift.Object&gt;(ofType: A.Type, filter: __C.NSPredicate, sortDescriptors: Swift.Array&lt;RealmSwift.SortDescriptor&gt;) throws -&gt; RealmSwift.Results&lt;A&gt;"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "388">
+               </Location>
+               <Location
+                  uuid = "BDA58F41-0398-46FC-816B-3FF2E0BBCE41 - 99d929aaa477fbca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AttendanceApp.GenRealmImmutableRepo.getObjects&lt;A where A: RealmSwift.Object&gt;(ofType: A.Type, filter: __C.NSPredicate, sortDescriptors: Swift.Array&lt;RealmSwift.SortDescriptor&gt;) throws -&gt; RealmSwift.Results&lt;A&gt;"
+                  moduleName = "AttendanceApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Immutable/GenRealmImmutableRepo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "424">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B77DE1BE-28EA-40FB-AF3D-415E90C69B8A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Model/Persisters/CodeReportsRepositories/CodeReportsRepository/CodeReportsImmutableRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getRejectedScansCount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

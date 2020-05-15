@@ -18,9 +18,12 @@ extension CodeReportsRepository: ICodeReportsRepository {
     
     func getApprovedScansCount() -> Int { readRepo.getApprovedScansCount() }
     
-    func getRejectedScansCount() -> Int { readRepo.getRejectedScansCount() }
+    func getRejectedScansCount() -> Int { readRepo.getRejectedScansCount()
+    }
     
-    func getSyncedScansCount() -> Int { readRepo.getSyncedScansCount() }
+    func getSyncedScansCount() -> Int {
+        readRepo.getSyncedScansCount()
+    }
     
     // MARK:- Get
     func getCodeReports() -> [ICodeReport] { readRepo.getCodeReports() }
@@ -50,7 +53,8 @@ extension CodeReportsRepository: ICodeReportsRepository {
 class CodeReportsRepository {
     private let readRepo: ICodeReportsQueryImmutableRepository
     private let writeRepo: ICodeReportsMutableRepository
-    init(readRepo: ICodeReportsQueryImmutableRepository, writeRepo: ICodeReportsMutableRepository) {
+    init(readRepo: ICodeReportsQueryImmutableRepository,
+         writeRepo: ICodeReportsMutableRepository) {
         self.readRepo = readRepo
         self.writeRepo = writeRepo
     }

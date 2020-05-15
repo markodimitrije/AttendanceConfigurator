@@ -8,8 +8,10 @@
 
 class CodeReportsRepositoryFactory {
     static func make() -> ICodeReportsRepository {
-        let readRepo = CodeReportsImmutableRepository()
+        let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
+        let readRepo = CodeReportsImmutableRepository(campaignId: campaignId)
         let writeRepo = CodeReportsMutableRepository(genericRepo: GenericRealmRepository())
-        return CodeReportsRepository(readRepo: readRepo, writeRepo: writeRepo)
+        return CodeReportsRepository(readRepo: readRepo,
+                                     writeRepo: writeRepo)
     }
 }

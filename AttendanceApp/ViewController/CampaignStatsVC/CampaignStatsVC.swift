@@ -14,7 +14,7 @@ class CampaignStatsVC: UIViewController, Storyboarded {
     @IBOutlet weak var tableView: UITableView!
     
     lazy private var dataSource = CampaignStatsDataSourceFactory.make(tableView: tableView,
-                                                                         statsView: statsView)
+                                                                      statsView: statsView)
     
     override func viewDidLoad() { super.viewDidLoad()
         self.tableView.dataSource = dataSource

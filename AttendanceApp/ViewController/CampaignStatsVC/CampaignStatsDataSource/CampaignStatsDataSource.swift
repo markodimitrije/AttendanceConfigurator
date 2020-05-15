@@ -31,8 +31,11 @@ class CampaignStatsDataSource: NSObject {
     private var statsFactory: IStatsFactory
     private let cellModelsFactory: IBlockScansCellModelsFactory
     
-    init(tableView: UITableView, statsView: StatsViewRendering, codeReportsRepo: ICodeReportsRepository,
-         statsFactory: IStatsFactory, cellModelsFactory: IBlockScansCellModelsFactory) {
+    init(tableView: UITableView,
+         statsView: StatsViewRendering,
+         codeReportsRepo: ICodeReportsRepository,
+         statsFactory: IStatsFactory,
+         cellModelsFactory: IBlockScansCellModelsFactory) {
         self.tableView = tableView
         self.statsView = statsView
         self.codeReportsRepo = codeReportsRepo
