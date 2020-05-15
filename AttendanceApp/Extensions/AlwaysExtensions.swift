@@ -68,7 +68,7 @@ extension String {
 
 extension Date { // (*)
     
-    func toString(format:String) -> String? {
+    func toString(format: String = Date.defaultFormatString) -> String? {
         return DateFormatter(format: format).string(from: self)
     }
     

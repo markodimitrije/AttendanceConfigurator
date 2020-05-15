@@ -10,6 +10,7 @@ import Foundation
 
 protocol ICodeReport {
     func getCode() -> String
+    func getCampaignId() -> String
     func getBlockId() -> Int
     func getDate() -> Date
     func isReported() -> Bool

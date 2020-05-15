@@ -20,7 +20,10 @@ extension ScannerViewModel: IScannerViewModel {
     }
     
     func scannedCode(code: String, accepted: Bool) {
-        let report = CodeReportFactory.make(code: code, blockId: self.blockId, date: Date.now, accepted: accepted)
+        guard let campaignId = campaignSelectionRepo.getSelected()?.getCampaignId() else {
+            fatalError("cant scan if campaign not selected")
+        }
+        let report = CodeReportFactory.make(code: code, campaignId: campaignId, blockId: self.blockId, date: Date.now, accepted: accepted)
         codeReportsState.codeReport.onNext(report)
     }
     
@@ -33,6 +36,7 @@ class ScannerViewModel {
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
+    private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     
     init(dataAccess: DataAccess,
          scannerInfoFactory: IScannerInfoFactory,

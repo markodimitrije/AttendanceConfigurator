@@ -13,6 +13,7 @@ import RealmSwift
 class RealmCodeReport: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var code: String = ""
+    @objc dynamic var campaignId: String = ""
     @objc dynamic var blockId: Int = 0
     @objc dynamic var reported = false
     @objc dynamic var accepted = false

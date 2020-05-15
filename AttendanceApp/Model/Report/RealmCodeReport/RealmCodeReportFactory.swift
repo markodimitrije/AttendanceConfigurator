@@ -10,13 +10,13 @@ class RealmCodeReportFactory {
     
     static func make(with codeReport: ICodeReport) -> RealmCodeReport {
         let object = RealmCodeReport()
-        let barcode = codeReport.getCode()
-        let blockId = codeReport.getBlockId()
+        let date = codeReport.getDate()
         
-        object.id = barcode + "\(blockId)"
-        object.code = barcode
-        object.blockId = blockId
-        object.date = codeReport.getDate()
+        object.id = date.toString() ?? ""
+        object.code = codeReport.getCode()
+        object.campaignId = codeReport.getCampaignId()
+        object.blockId = codeReport.getBlockId()
+        object.date = date
         object.reported = codeReport.isReported()
         object.accepted = codeReport.isAccepted()
         return object
