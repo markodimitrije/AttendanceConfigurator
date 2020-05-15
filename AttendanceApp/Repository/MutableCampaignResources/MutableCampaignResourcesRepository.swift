@@ -10,6 +10,7 @@ import Foundation
 
 extension MutableCampaignResourcesRepository: IMutableCampaignResourcesRepository {
     func deleteResources() {
+        try? genMutRepo.delete(type: RealmCampaignResources.self, filter: NSPredicate.truePredicate)
         roomsRepo.deleteAllRooms()
         blocksRepo.deleteAllBlocks()
         _ = delegatesRepo.deleteAllDelegates()

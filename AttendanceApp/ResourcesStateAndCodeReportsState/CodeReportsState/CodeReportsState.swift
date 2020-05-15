@@ -46,7 +46,7 @@ class CodeReportsState { // ovo je trebalo da zoves viewModel-om !
                 
                     .subscribe(onNext: { (report, success) in
                         if success {
-                            sSelf.repository.update(codesAcceptedFromWeb: [report])
+                            _ = sSelf.repository.update(codesAcceptedFromWeb: [report])
                         } else {
                             sSelf.codeReportFailed(report)
                         }

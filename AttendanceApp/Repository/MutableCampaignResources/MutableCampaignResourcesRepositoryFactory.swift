@@ -9,6 +9,7 @@
 import Foundation
 
 struct MutableCampaignResourcesRepository {
+    let genMutRepo: IGenRealmMutableRepo
     let roomsRepo: IRoomRepository
     let blocksRepo: IBlockMutableRepository
     let delegatesRepo: IDelegatesMutableRepository

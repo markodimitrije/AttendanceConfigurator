@@ -15,6 +15,7 @@ protocol IMutableCampaignResourcesRepository {
 class MutableCampaignResourcesRepositoryFactory {
     static func make() -> IMutableCampaignResourcesRepository {
         return MutableCampaignResourcesRepository(
+            genMutRepo: GenRealmMutableRepo(),
             roomsRepo: RoomRepository(),
             blocksRepo: BlockMutableRepositoryFactory.make(),
             delegatesRepo: DelegatesRepositoryFactory.make())

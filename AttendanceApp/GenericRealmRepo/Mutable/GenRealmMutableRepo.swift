@@ -17,6 +17,7 @@ extension GenRealmMutableRepo: IGenRealmMutableRepo {
             realm.add(objects, update: .modified)
         }
     }
+    
     func delete<T: Object>(type: T.Type, filter: NSPredicate) throws {
         do {
             let results = try genericImmutableRepo.getObjects(ofType: type, filter: filter, sortDescriptors: [])

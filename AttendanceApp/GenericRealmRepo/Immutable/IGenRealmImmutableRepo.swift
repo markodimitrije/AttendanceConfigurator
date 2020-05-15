@@ -23,7 +23,7 @@ protocol IGenRealmImmutableRepo {
 extension IGenRealmImmutableRepo {
     
     func getObjects<T: Object>(ofType type: T.Type,
-                               filter: NSPredicate = NSPredicate(format: "TRUEPREDICATE"),
+                               filter: NSPredicate = NSPredicate.truePredicate,
                                sortDescriptors: [SortDescriptor] = [ ]) throws -> Results<T> {
         
         do {
@@ -35,7 +35,7 @@ extension IGenRealmImmutableRepo {
     }
 
     func getObsObjects<T: Object>(ofType type: T.Type,
-                                  filter: NSPredicate = NSPredicate(format: "TRUEPREDICATE"),
+                                  filter: NSPredicate = NSPredicate.truePredicate,
                                   sortDescriptors: [SortDescriptor] = [ ]) -> Observable<Results<T>> {
         do {
             let results = try self.getObjects(ofType: type, filter: filter, sortDescriptors: sortDescriptors)
