@@ -186,6 +186,7 @@
 		7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8361752436726800DB1F59 /* SyncResourcesManager.swift */; };
 		7C837BB82451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C837BB72451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift */; };
 		7C855DA4229C078A00E4C985 /* DelegatesAttendanceValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* DelegatesAttendanceValidation.swift */; };
+		7C873913246E91B900F579D0 /* DataToDictFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873912246E91B900F579D0 /* DataToDictFactory.swift */; };
 		7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
@@ -524,6 +525,7 @@
 		7C8361752436726800DB1F59 /* SyncResourcesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncResourcesManager.swift; sourceTree = "<group>"; };
 		7C837BB72451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerSettingsAlertInfoFactory.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* DelegatesAttendanceValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidation.swift; sourceTree = "<group>"; };
+		7C873912246E91B900F579D0 /* DataToDictFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToDictFactory.swift; sourceTree = "<group>"; };
 		7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
@@ -1148,6 +1150,7 @@
 			children = (
 				7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */,
 				7C5865E0244A0AD700426FBC /* Alert+Rx.swift */,
+				7C873912246E91B900F579D0 /* DataToDictFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -2831,6 +2834,7 @@
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
 				7CC9DD5E2448D2FA0035B2AE /* LogoutWorkerFactory.swift in Sources */,
 				7CB24698244E187C0035F311 /* CampaignsWorker.swift in Sources */,
+				7C873913246E91B900F579D0 /* DataToDictFactory.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				7C7DCC002448B9050072CDAE /* KeyboardInfo.swift in Sources */,
 				7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */,

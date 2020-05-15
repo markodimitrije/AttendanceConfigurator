@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ICampaignResources {
+    func getCampaignId() -> String
     func getConfDataVersionId() -> Int
     func getLocations() -> [IRoom]
     func getBlocks() -> [IBlock]

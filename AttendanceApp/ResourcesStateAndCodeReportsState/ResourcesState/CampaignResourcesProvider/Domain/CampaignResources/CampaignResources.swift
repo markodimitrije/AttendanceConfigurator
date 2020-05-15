@@ -9,6 +9,7 @@
 import Foundation
 
 extension CampaignResources: ICampaignResources {
+    func getCampaignId() -> String {self.campaignId}
     func getConfDataVersionId() -> Int {self.confDataVersionId}
     func getLocations() -> [IRoom] {self.locations}
     func getBlocks() -> [IBlock] {self.blocks}
@@ -16,26 +17,14 @@ extension CampaignResources: ICampaignResources {
 }
 
 struct CampaignResources {
-    private let confDataVersionId: Int
-    private let locations: [IRoom]
-    private let blocks: [IBlock]
-    private let delegates: [IDelegate]
-    init(data: Data) throws {
-        let dictionary = try DataToDictFactory.make(data: data)
-        guard let confDataVersionId = dictionary["conference_data_version_id"] as? Int,
-            let locDicts = dictionary["locations"] as? [[String: Any]],
-            let tsDicts = dictionary["timeslot_distributions"] as? [[String: Any]],
-            let delDicts = dictionary["delegates"] as? [[String: Any]] else {
-                throw ApiError.invalidJson
-        }
-        self.locations = locDicts.compactMap(RoomFactory.make)
-        self.blocks = tsDicts.compactMap(BlockFactory.make)
-        self.delegates = delDicts.compactMap(DelegateFactory.make)
-        self.confDataVersionId = confDataVersionId
-    }
+    let campaignId: String
+    let confDataVersionId: Int
+    let locations: [IRoom]
+    let blocks: [IBlock]
+    let delegates: [IDelegate]
 }
 
-class DataToDictFactory {
+class DataToDictFactory { // TODO marko: pronblem with removing to its own file !!??
     static func make(data: Data) throws -> [String: Any] {
         do {
             let jsonObject = try JSONSerialization.jsonObject(with: data)

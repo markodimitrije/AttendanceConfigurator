@@ -19,7 +19,7 @@ extension CampaignsRepository: ICampaignsRepository {
             }
     }
     func deleteAll() {
-        genericRepo.deleteAllObjects(ofTypes: [RealmCampaign.self])
+        _ = genericRepo.deleteAllObjects(ofTypes: [RealmCampaign.self])
     }
     func getAll() -> Observable<[ICampaign]> {
         let realm = try! Realm()

@@ -14,7 +14,7 @@ class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
         //let data = JsonBundleDataProvider().jsonData(filename: "Resources", inBundle: Bundle.main)
         let data = JsonBundleDataProvider().jsonData(filename: "ResourcesForScan",
                                                      inBundle: Bundle.main)
-        return try! CampaignResources(data: data) // TODO: should handle errors
+        return try! MyCampaignResourcesFactory.make(data: data) // TODO: should handle errors
     }
 }
 

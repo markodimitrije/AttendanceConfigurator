@@ -46,7 +46,7 @@ extension GenRealmMutableRepo: IGenRealmMutableRepo {
 
 class GenRealmMutableRepo {
     private let genericImmutableRepo: IGenRealmImmutableRepo
-    init(genericImmutableRepo: IGenRealmImmutableRepo) {
+    init(genericImmutableRepo: IGenRealmImmutableRepo = GenRealmImmutableRepo()) {
         self.genericImmutableRepo = genericImmutableRepo
     }
 }
