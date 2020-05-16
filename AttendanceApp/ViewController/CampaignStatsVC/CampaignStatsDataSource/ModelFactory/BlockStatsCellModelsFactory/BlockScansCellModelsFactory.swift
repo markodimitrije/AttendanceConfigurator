@@ -13,15 +13,27 @@ struct BlockScansCellModelsFactory: IBlockScansCellModelsFactory {
     
     func make() -> [IBlockScansTableViewCellModel] {
         let blocks = blockRepo.getBlocks()
-        let scans = blocks.map { codeRepo.getTotalScansCount(blockId: $0.getId()) }.sorted(by: >)
-        let cellModels = scans.enumerated().map { (index, scans) -> BlockScansTableViewCellModel in
-            let block = blocks[index]
+        let scansPerBlockId = makeDictScansForBlockId(blocks: blocks)
+        
+        let blocksByScan = blocks.sorted { (blockA, blockB) -> Bool in
+            scansPerBlockId[blockA.getId()]! > scansPerBlockId[blockB.getId()]!
+        }
+        
+        let cellModels = blocksByScan.map { (block) -> BlockScansTableViewCellModel in
+            let scansCount = scansPerBlockId[block.getId()]!
             let roomName = roomRepo.getRoom(id: block.getLocationId())?.getName() ?? ""
             return BlockScansTableViewCellModel(date: block.getStartsAt(),
                                                 room: roomName,
                                                 title: block.getName(),
-                                                count: "Scans: \(scans)")
+                                                count: "Scans: \(scansCount)")
         }
         return cellModels
+        
+    }
+    
+    private func makeDictScansForBlockId(blocks: [IBlock]) -> [Int: Int] {
+        var scansForBlockId = [Int: Int]()
+        _ = blocks.map {scansForBlockId[$0.getId()] = codeRepo.getTotalScansCount(blockId: $0.getId())}
+        return scansForBlockId
     }
 }
