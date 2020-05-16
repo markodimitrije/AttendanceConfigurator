@@ -16,7 +16,6 @@ import UIKit
 class CampaignStatsDataSourceFactory {
     static func make(tableView: UITableView, statsView: StatsViewRendering) -> CampaignStatsDataSource {
         let codeReportsRepo = CodeReportsRepositoryFactory.make()
-        let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
         let statsFactory = StatsFactory(repository: codeReportsRepo)
         let cellModelsFactory = BlockScansCellModelsFactory(codeRepo: codeReportsRepo,
                                                             roomRepo: RoomRepository(),
