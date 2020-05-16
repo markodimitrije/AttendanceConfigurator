@@ -11,10 +11,13 @@ import RxSwift
 import RxCocoa
 
 class AutoSessionTimer {
-    private var dataAccess: DataAccess
+    private var dataAccess: CampaignSettingsRepository
+    private let campaignSelectionRepo: ICampaignSelectionRepository
     private var timer: Timer!
-    init(dataAccess: DataAccess) {
+    init(campaignSelectionRepo: ICampaignSelectionRepository,
+         dataAccess: CampaignSettingsRepository) {
         
+        self.campaignSelectionRepo = campaignSelectionRepo
         self.dataAccess = dataAccess
     
         loadTimer()
@@ -31,6 +34,9 @@ class AutoSessionTimer {
     }
     
     @objc func fire() { //print("AutoSessionTimer/fire, check for auto session = \(NOW)")
+        guard self.campaignSelectionRepo.getSelected() != nil else {
+            return
+        }
         let actualSettings = dataAccess.userSelection
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,

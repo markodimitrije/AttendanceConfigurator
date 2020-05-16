@@ -24,22 +24,22 @@ class SettingsViewControllerFactory {
     
     private static func attachExternalInputSignals(toSettingsVC settingsVC: SettingsViewController) {
         settingsVC.dateSelected = {
-            let date = DataAccess.shared.userSelection.selectedDate
+            let date = CampaignSettingsRepository.shared.userSelection.selectedDate
             return BehaviorRelay<Date?>.init(value: date)
         }()
         settingsVC.roomSelected = {
-            let roomId = DataAccess.shared.userSelection.roomId
+            let roomId = CampaignSettingsRepository.shared.userSelection.roomId
             return BehaviorSubject<Int?>.init(value: roomId)
         }()
         settingsVC.blockManuallySelected = {
-            let blockId = DataAccess.shared.userSelection.blockId
+            let blockId = CampaignSettingsRepository.shared.userSelection.blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }
     
     private static func attachOutputSignal(toSettingsVC settingsVC: SettingsViewController) {
         settingsVC.blockSelected = {
-            let blockId = DataAccess.shared.userSelection.blockId
+            let blockId = CampaignSettingsRepository.shared.userSelection.blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }

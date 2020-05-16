@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ICampaignSelectionRepository {
-    func userSelected(campaignItem: ICampaignItem?)
+    func userSelected(campaignItem: ICampaignItem)
     func getSelected() -> CampaignSelection?
 }

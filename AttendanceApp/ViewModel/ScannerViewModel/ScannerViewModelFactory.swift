@@ -11,7 +11,7 @@ class ScannerViewModelFactory {
         let blockRepo = BlockImmutableRepositoryFactory.make()
         let scannerInfoFactory = ScannerInfoFactory(roomRepo: RoomRepository(), blockRepo: blockRepo, blockPresenter: BlockPresenter())
         let codeReportsState = CodeReportsStateFactory.make()
-        return ScannerViewModel(dataAccess: DataAccess.shared,
+        return ScannerViewModel(dataAccess: CampaignSettingsRepository.shared,
                                 scannerInfoFactory: scannerInfoFactory,
                                 codeReportsState: codeReportsState,
                                 alertErrPresenter: AlertErrorPresenter())

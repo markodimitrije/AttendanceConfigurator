@@ -31,14 +31,14 @@ extension ScannerViewModel: IScannerViewModel {
 
 class ScannerViewModel {
     
-    private var dataAccess: DataAccess!
+    private var dataAccess: CampaignSettingsRepository!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     
-    init(dataAccess: DataAccess,
+    init(dataAccess: CampaignSettingsRepository,
          scannerInfoFactory: IScannerInfoFactory,
          codeReportsState: CodeReportsState,
          alertErrPresenter: IAlertErrorPresenter) {
@@ -58,7 +58,7 @@ class ScannerViewModel {
     
     fileprivate let bag = DisposeBag()
     
-    private func createOutput(dataAccess: DataAccess)
+    private func createOutput(dataAccess: CampaignSettingsRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
         return dataAccess.output

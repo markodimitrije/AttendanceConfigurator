@@ -54,7 +54,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .map {_ in return false}
             .asDriver(onErrorJustReturn: false)//.debug()
         
-        let savedAutoSwitchState = DataAccess.shared.userSelection.3
+        let savedAutoSwitchState = CampaignSettingsRepository.shared.userSelection.3
         let blockSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)
@@ -98,7 +98,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .subscribe(onNext: { _ in })
             .disposed(by: disposeBag)
         
-        DataAccess.shared.output.map {$0.3}
+        CampaignSettingsRepository.shared.output.map {$0.3}
             .take(1)
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)

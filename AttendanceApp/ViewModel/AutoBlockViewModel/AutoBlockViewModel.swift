@@ -28,7 +28,7 @@ class AutoBlockViewModel {
         blockViewModel.oAutomaticBlock // output svog slave-a
             .asDriver(onErrorJustReturn: nil)
             .do(onNext: { (block) in
-                DataAccess.shared.userSelection.blockId = block?.getId() // hazardous hard-coded?
+                CampaignSettingsRepository.shared.userSelection.blockId = block?.getId() // hazardous hard-coded?
             })
             .drive(selectedBlock) // prosledi na svoj output
             .disposed(by: bag)

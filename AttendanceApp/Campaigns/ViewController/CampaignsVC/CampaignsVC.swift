@@ -16,6 +16,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     var navBarConfigurator: INavigBarConfigurator!
     var logoutHandler: ILogoutHandler!
     var campaignSelectionRepo: ICampaignSelectionRepository = CampaignSelectionRepositoryFactory.make()
+    let resourcesRepo: IMutableCampaignResourcesRepository = MutableCampaignResourcesRepositoryFactory.make()
     
     @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
@@ -30,7 +31,8 @@ class CampaignsVC: UIViewController, Storyboarded {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        campaignSelectionRepo.userSelected(campaignItem: nil)
+        //campaignSelectionRepo.userSelected(campaignItem: nil) TODO marko: should be called when resources are updated but selected block is updated from saved in settings
+        resourcesRepo.deleteResources()
         viewModel.refreshCampaigns()
     }
     

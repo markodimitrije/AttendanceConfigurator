@@ -11,7 +11,7 @@ import RxCocoa
 
 final class SettingsViewModel: ViewModelType {
     
-    private let dataAccess: DataAccess
+    private let dataAccess: CampaignSettingsRepository
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockImmutableRepository
     private let deviceStateReporter: DeviceStateReporter
@@ -21,7 +21,7 @@ final class SettingsViewModel: ViewModelType {
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
-    init(dataAccess: DataAccess, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
+    init(dataAccess: CampaignSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
         self.dataAccess = dataAccess
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo

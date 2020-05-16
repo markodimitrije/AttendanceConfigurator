@@ -83,7 +83,6 @@
 		7C53A5C5246C4736008685EE /* IBlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */; };
 		7C53A5C7246C474A008685EE /* BlockScansCellModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */; };
 		7C53A5C9246C5E84008685EE /* BlockScansTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C53A5C8246C5E84008685EE /* BlockScansTableViewCellModel.swift */; };
-		7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */; };
 		7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */; };
 		7C55BA62242AA43D005BF038 /* BlocksViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */; };
 		7C55BA65242AB594005BF038 /* DatesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */; };
@@ -302,7 +301,7 @@
 		AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsViewController.swift */; };
 		AD295225217B5B24002DDE32 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD295220217B5B24002DDE32 /* APIController.swift */; };
 		AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */; };
-		AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */; };
+		AD2C3A1321B67D0F00E8A319 /* CampaignSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */; };
 		AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4CC2D921A5770A00222D5E /* Protocols.swift */; };
 		AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */; };
 		AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */; };
@@ -426,7 +425,6 @@
 		7C53A5C4246C4736008685EE /* IBlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IBlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
 		7C53A5C6246C474A008685EE /* BlockScansCellModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansCellModelsFactory.swift; sourceTree = "<group>"; };
 		7C53A5C8246C5E84008685EE /* BlockScansTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockScansTableViewCellModel.swift; sourceTree = "<group>"; };
-		7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsJourney.swift; sourceTree = "<group>"; };
 		7C55BA5C242A903D005BF038 /* RoomsViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA61242AA43D005BF038 /* BlocksViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C55BA64242AB594005BF038 /* DatesViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -646,7 +644,7 @@
 		AD29521F217B5B23002DDE32 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		AD295220217B5B24002DDE32 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
-		AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataAccess.swift; sourceTree = "<group>"; };
+		AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettings.swift; sourceTree = "<group>"; };
 		AD4CC2D921A5770A00222D5E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
 		AD53A011217B577400A3F9FC /* AttendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2263,8 +2261,7 @@
 				7CB1E44F229832B0008C23F8 /* Room */,
 				7CB1E44C229830E5008C23F8 /* Persisters */,
 				7CED41BA2268825D00FFB34E /* Report */,
-				AD2C3A1221B67D0F00E8A319 /* DataAccess.swift */,
-				7C55BA59242A8DFB005BF038 /* SettingsJourney.swift */,
+				AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2765,7 +2762,6 @@
 				7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
-				7C55BA5A242A8DFB005BF038 /* SettingsJourney.swift in Sources */,
 				7C8361762436726800DB1F59 /* SyncResourcesManager.swift in Sources */,
 				7CC99DEA2457495B0057309D /* CampaignResourcesWorker.swift in Sources */,
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
@@ -2894,7 +2890,7 @@
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
 				7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */,
-				AD2C3A1321B67D0F00E8A319 /* DataAccess.swift in Sources */,
+				AD2C3A1321B67D0F00E8A319 /* CampaignSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,8 @@
 
 import Foundation
 
-class CampaignSelectionRepositoryFactory {
+class CampaignSelectionRepositoryFactory { // TODO marko: inline class, use just CampaignSelectionRepository
     static func make() -> ICampaignSelectionRepository {
-        let resourcesRepo = MutableCampaignResourcesRepositoryFactory.make()
-        return CampaignSelectionRepository(dataAccess: DataAccess.shared,
-                                           resourcesRepo: resourcesRepo)
+        return CampaignSelectionRepository()
     }
 }
