@@ -48,6 +48,10 @@ class ScannerViewModel {
         self.codeReportsState = codeReportsState
         self.alertErrPresenter = alertErrPresenter
         
+        // TODO marko: bad design..
+        let campaignId = campaignSelectionRepo.getSelected()!.getCampaignId()
+        self.dataAccess.campaignSelected(campaignId: campaignId)
+        
         handleCampaignResources()
     }
     

@@ -11,7 +11,10 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
+typealias CampaignSettingsSelection = (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool)
+
 protocol ICampaignSettingsRepository {
+    func campaignSelected(campaignId: String)
     var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {get}
     var output: Observable<(Int?, Int?, Date?, Bool)> {get}
 }
@@ -29,12 +32,19 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     private var autoSwitchInitial: Bool
     
     static var shared = CampaignSettingsRepository()
-    private var campaignId: String {
-        CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
+    
+    private var campaignId: String = "" //{
+        //CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
+//    }
+    
+    func campaignSelected(campaignId: String) {
+        self.campaignId = campaignId
+        let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
+        postUpdateOnOutput(settings: settings)
     }
     
     // API: input, output
-    var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {
+    var userSelection: CampaignSettingsSelection {
         get {
             let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
             return (settings?["roomId"] as? Int,
@@ -48,13 +58,23 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
             if newValue.1 != nil { settings["blockId"] = newValue.1 }
             if newValue.2 != nil { settings["date"] = newValue.2 }
             settings["autoSwitch"] = newValue.3
-            
             UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
-            _roomSelected.accept(newValue.0)
-            _blockSelected.accept(newValue.1)
-            _dateSelected.accept(newValue.2)
-            _autoSwitchSelected.accept(newValue.3)
+            
+            postUpdateOnOutput(userSelection: newValue)
         }
+    }
+    
+    private func postUpdateOnOutput(userSelection: CampaignSettingsSelection) {
+        _roomSelected.accept(userSelection.0)
+        _blockSelected.accept(userSelection.1)
+        _dateSelected.accept(userSelection.2)
+        _autoSwitchSelected.accept(userSelection.3)
+    }
+    private func postUpdateOnOutput(settings: [String: Any]?) {
+        _roomSelected.accept(settings?["roomId"] as? Int)
+        _blockSelected.accept(settings?["blockId"] as? Int)
+        _dateSelected.accept(settings?["date"] as? Date)
+        _autoSwitchSelected.accept(settings?["autoSwitch"] as? Bool ?? true)
     }
     
     func deleteCampaignSettings() {

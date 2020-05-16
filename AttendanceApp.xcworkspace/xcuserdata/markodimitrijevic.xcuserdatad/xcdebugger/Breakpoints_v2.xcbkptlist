@@ -47,9 +47,9 @@
                   urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "20">
                </Location>
                <Location
                   uuid = "1D20CA2C-6AF7-4D64-A3F0-7558F2091437 - 1602027e1223c85b"
@@ -62,9 +62,9 @@
                   urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "80">
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "43">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -179,6 +179,20 @@
             endingLineNumber = "35"
             landmarkName = "getCountFor(predicate:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "738E0BC2-F6C7-4AEB-B03C-04C056113E7D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/ViewModel/ScannerViewModel/ScannerViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
