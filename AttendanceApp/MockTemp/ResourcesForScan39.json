@@ -18,7 +18,7 @@
   "locations": [
       {
           "id": 4456,
-          "name": "Plant room",
+          "name": "Chocolate room",
           "type": "Room",
           "color": null,
           "floor": 0,
@@ -32,7 +32,7 @@
       },
       {
           "id": 4457,
-          "name": "Animals room",
+          "name": "Cake room",
           "type": "Room",
           "color": null,
           "floor": 0,
@@ -48,7 +48,7 @@
   "timeslot_distributions": [
       {
           "id": 10330,
-          "name": "Mangrove tree forest - trees which thrives in salt water",
+          "name": "Dark chocolate - 70% vs. 80% vs. 90% ",
           "location_id": 4456,
           "starts_at": "2019-06-14 08:00:00",
           "ends_at": "2019-06-14 09:30:00",
@@ -56,7 +56,7 @@
       },
       {
           "id": 10331,
-          "name": "Canapi woods - learn about trees 60m high that streem above all known plants in tropical rain forest",
+          "name": "White chocolate, muffins or something else",
           "location_id": 4456,
           "starts_at": "2019-06-14 10:00:00",
           "ends_at": "2019-06-14 12:30:00",
@@ -64,7 +64,7 @@
       },
       {
           "id": 10338,
-          "name": "Indonesia - Thomas leaf monkeys. Joungle flying experts.",
+          "name": "Indonesia Cake - strawberry filled with cocoa powder on top of it",
           "location_id": 4457,
           "starts_at": "2019-06-14 11:45:00",
           "ends_at": "2019-06-14 13:15:00",
@@ -72,7 +72,7 @@
       },
       {
           "id": 10339,
-          "name": "Borneo - Comodo domain. Check latest info on how water monitors rule the beaches on third bigest island on the World",
+          "name": "7 floors ananas cake. Check latest info on how skyscrapers cakes are made. Witness the craft of best artists.",
           "location_id": 4457,
           "starts_at": "2019-06-14 13:45:00",
           "ends_at": "2019-06-14 15:15:00",
@@ -80,7 +80,7 @@
       },
       {
           "id": 10340,
-          "name": "Java - Wolcano island. Participate to learn more about marine life. Hear about Coral reefs which provide home to 15% of all know world species",
+          "name": "Cake Orange & Lemon - see how these are made with chocolate toppings and wonderfull dressings.",
           "location_id": 4457,
           "starts_at": "2019-06-14 15:45:00",
           "ends_at": "2019-06-14 17:15:00",

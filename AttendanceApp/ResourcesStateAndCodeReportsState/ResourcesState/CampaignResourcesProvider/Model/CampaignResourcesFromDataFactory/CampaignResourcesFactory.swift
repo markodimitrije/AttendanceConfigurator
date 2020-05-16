@@ -12,7 +12,9 @@ class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
     func make(data: DataProtocol) -> ICampaignResources {
         // hard-coded
         //let data = JsonBundleDataProvider().jsonData(filename: "Resources", inBundle: Bundle.main)
-        let data = JsonBundleDataProvider().jsonData(filename: "ResourcesForScan",
+        let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
+        
+        let data = JsonBundleDataProvider().jsonData(filename: "ResourcesForScan" + campaignId,
                                                      inBundle: Bundle.main)
         return try! MyCampaignResourcesFactory.make(data: data) // TODO marko: should handle errors
     }
