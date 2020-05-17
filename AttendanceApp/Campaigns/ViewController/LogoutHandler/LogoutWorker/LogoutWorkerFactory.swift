@@ -12,6 +12,7 @@ class LogoutWorkerFactory {
     static func make() -> ILogoutWorker {
         LogoutWorker(logoutRemoteApi: LogoutRemoteApiControllerFactory.make(),
                      userState: UserStateRepository(),
-                     genericRepo: GenericRealmRepository())
+                     genericRepo: GenericRealmRepository(),
+                     campaignSettingsRepo: CampaignSettingsRepository())
     }
 }

@@ -11,7 +11,7 @@ import RxSwift
 
 extension CampaignsViewModel: ICampaignsViewModel{
     func getCampaigns() -> Observable<[ICampaignItem]> {
-        campaignsRepository.getAll().map(CampaignItemsFactory.make)
+        campaignsRepository.obsGetAll().map(CampaignItemsFactory.make)
     }
     func refreshCampaigns() {
         campaignsWorker.fetchCampaigns().debounce(1, scheduler: MainScheduler.instance)

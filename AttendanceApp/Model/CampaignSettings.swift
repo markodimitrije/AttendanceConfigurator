@@ -17,6 +17,8 @@ protocol ICampaignSettingsRepository {
     func campaignSelected(campaignId: String)
     var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {get}
     var output: Observable<(Int?, Int?, Date?, Bool)> {get}
+    func deleteActualCampaignSettings()
+    func deleteAllCampaignsSettings()
 }
 
 class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
@@ -33,9 +35,8 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
     static var shared = CampaignSettingsRepository()
     
-    private var campaignId: String = "" //{
-        //CampaignSelectionRepositoryFactory.make().getSelected()!.getCampaignId()
-//    }
+    private var campaignId: String = ""
+    private var campaignIds = Set<String>()
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
@@ -59,6 +60,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
             if newValue.2 != nil { settings["date"] = newValue.2 }
             settings["autoSwitch"] = newValue.3
             UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
+            campaignIds.insert(campaignId)
             
             postUpdateOnOutput(userSelection: newValue)
         }
@@ -77,8 +79,20 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
         _autoSwitchSelected.accept(settings?["autoSwitch"] as? Bool ?? true)
     }
     
-    func deleteCampaignSettings() {
+    func deleteActualCampaignSettings() {
         UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
+        campaignIds.remove(campaignId)
+        _roomSelected.accept(nil)
+        _blockSelected.accept(nil)
+        _dateSelected.accept(nil)
+        _autoSwitchSelected.accept(false)
+    }
+    
+    func deleteAllCampaignsSettings() {
+        _ = campaignIds.map { campaignId in
+            UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
+        }
+        campaignIds.removeAll()
         _roomSelected.accept(nil)
         _blockSelected.accept(nil)
         _dateSelected.accept(nil)

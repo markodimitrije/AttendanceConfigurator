@@ -14,7 +14,8 @@ protocol ICampaignsMutableRepository {
 }
 
 protocol ICampaignsImmutableRepository {
-    func getAll() -> Observable<[ICampaign]>
+    func obsGetAll() -> Observable<[ICampaign]>
+    func getAll() -> [ICampaign]
 }
 
 protocol ICampaignsRepository: ICampaignsMutableRepository, ICampaignsImmutableRepository {}

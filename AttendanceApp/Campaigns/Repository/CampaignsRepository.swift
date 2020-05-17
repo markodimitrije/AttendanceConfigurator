@@ -21,11 +21,16 @@ extension CampaignsRepository: ICampaignsRepository {
     func deleteAll() {
         _ = genericRepo.deleteAllObjects(ofTypes: [RealmCampaign.self])
     }
-    func getAll() -> Observable<[ICampaign]> {
+    func obsGetAll() -> Observable<[ICampaign]> {
         let realm = try! Realm()
         let valid = realm.objects(RealmCampaign.self).filter("deletedAt == nil")
         let obsResults = Observable.collection(from: valid)
         return obsResults.map {$0.toArray().map(CampaignFactory.make)}
+    }
+    func getAll() -> [ICampaign] {
+        let realm = try! Realm()
+        let rCampaigns = realm.objects(RealmCampaign.self).filter("deletedAt == nil").toArray()
+        return rCampaigns.map(CampaignFactory.make)
     }
     
 }
