@@ -17,9 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private var alertStateReporter: AlertStateReporter!
-    let autoSessionTimer =
-        AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
-                         dataAccess: CampaignSettingsRepository.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
@@ -30,11 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIDevice.current.isBatteryMonitoringEnabled = true
         UIApplication.shared.isIdleTimerDisabled = true // stop the iOS screen sleeping
-        
-//        if syncResourcesManager == nil {
-//            let confId = conferenceState.conferenceId!
-//            syncResourcesManager = SyncResourcesManagerFactory.make(confId: confId)
-//        }
         
         alertStateReporter = AlertStateReporterFactory.make()
         

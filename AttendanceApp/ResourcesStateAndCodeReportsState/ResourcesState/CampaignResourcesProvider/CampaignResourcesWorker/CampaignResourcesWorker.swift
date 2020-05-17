@@ -20,7 +20,7 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
             print("CampaignResourcesWorker.work PERSIST resources")
             self.campaignResourcesRepo.save(resources: resources)
         }).map {_ in return ()}
-        .subscribeOn(MainScheduler.instance)
+        .observeOn(MainScheduler.asyncInstance)
     }
     
     private func fetchCampaignResourcesGotError() -> Observable<Void> { // test

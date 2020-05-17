@@ -36,7 +36,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     static var shared = CampaignSettingsRepository()
     
     private var campaignId: String = ""
-    private var campaignIds = Set<String>()
+    private var campaignIds = CampaignIds()
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
@@ -60,7 +60,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
             if newValue.2 != nil { settings["date"] = newValue.2 }
             settings["autoSwitch"] = newValue.3
             UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
-            campaignIds.insert(campaignId)
+            campaignIds.add(campaignId: campaignId)
             
             postUpdateOnOutput(userSelection: newValue)
         }
@@ -81,7 +81,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
     func deleteActualCampaignSettings() {
         UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
-        campaignIds.remove(campaignId)
+        campaignIds.remove(campaignId: campaignId)
         _roomSelected.accept(nil)
         _blockSelected.accept(nil)
         _dateSelected.accept(nil)
@@ -89,10 +89,8 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     }
     
     func deleteAllCampaignsSettings() {
-        _ = campaignIds.map { campaignId in
-            UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
-        }
         campaignIds.removeAll()
+        
         _roomSelected.accept(nil)
         _blockSelected.accept(nil)
         _dateSelected.accept(nil)
@@ -130,4 +128,26 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
         print("CampaignSettingsRepository.deinit")
     }
     
+}
+
+struct CampaignIds {
+    func add(campaignId: String) {
+        let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
+        var updated = arr
+        updated.append(campaignId)
+        UserDefaults.standard.set(updated, forKey: "campaignIds")
+    }
+    func remove(campaignId: String) {
+        let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
+        var updated = arr
+        updated.removeAll(where: {$0 == campaignId})
+        UserDefaults.standard.set(updated, forKey: "campaignIds")
+    }
+    func removeAll() {
+        let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
+        _ = arr.map { (campaignId) in
+            UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
+            remove(campaignId: campaignId)
+        }
+    }
 }

@@ -37,6 +37,9 @@ class ScannerViewModel {
     private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
+    let autoSessionTimer =
+    AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
+                     dataAccess: CampaignSettingsRepository.shared)
     
     init(dataAccess: CampaignSettingsRepository,
          scannerInfoFactory: IScannerInfoFactory,
