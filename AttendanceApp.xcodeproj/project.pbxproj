@@ -17,7 +17,7 @@
 		7C13EAB62450BBA100F3D8E8 /* ScannerViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */; };
 		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C14DD39246FDDCD00093CED /* ResourcesForScan40.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */; };
-		7C14DD3B246FDFA700093CED /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD3A246FDFA700093CED /* ResourcesForScan42.json */; };
+		7C14DD3B246FDFA700093CED /* ResourcesForScan41.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */; };
 		7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */; };
 		7C2E5735244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */; };
 		7C2E5737244EDA64003EDAC7 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5736244EDA64003EDAC7 /* CampaignsRemoteApi.swift */; };
@@ -129,6 +129,7 @@
 		7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */; };
 		7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */; };
 		7C6DA511244B51250078CD8F /* LogoutRemoteApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DA510244B51250078CD8F /* LogoutRemoteApiFactory.swift */; };
+		7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C78AA222471423F00218DC8 /* ResourcesForScan42.json */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
 		7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */; };
@@ -359,7 +360,7 @@
 		7C13EAB52450BBA100F3D8E8 /* ScannerViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewControllerFactory.swift; sourceTree = "<group>"; };
 		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan40.json; sourceTree = "<group>"; };
-		7C14DD3A246FDFA700093CED /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
+		7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan41.json; sourceTree = "<group>"; };
 		7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWorkerFactory.swift; sourceTree = "<group>"; };
 		7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C2E5736244EDA64003EDAC7 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -473,6 +474,7 @@
 		7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsViewModel.swift; sourceTree = "<group>"; };
 		7C6DA510244B51250078CD8F /* LogoutRemoteApiFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRemoteApiFactory.swift; sourceTree = "<group>"; };
+		7C78AA222471423F00218DC8 /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
 		7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -919,7 +921,8 @@
 				7C397059246966C9007E5E5F /* Resources.json */,
 				7C30208E246AF00B004C343A /* ResourcesForScan39.json */,
 				7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */,
-				7C14DD3A246FDFA700093CED /* ResourcesForScan42.json */,
+				7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */,
+				7C78AA222471423F00218DC8 /* ResourcesForScan42.json */,
 			);
 			path = MockTemp;
 			sourceTree = "<group>";
@@ -2494,13 +2497,14 @@
 				7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */,
 				ADAE9C39218B08EA00615125 /* Assets.xcassets in Resources */,
 				7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */,
+				7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */,
 				7C082A67245194B5007424E8 /* RoomsViewController_iPad.storyboard in Resources */,
 				ADB273A621807EFD00345A5E /* AutoSelectSessionsView.xib in Resources */,
 				7C30206C246AA09E004C343A /* StatsView.xib in Resources */,
 				7CC9DD472448C35C0035B2AE /* CampaignsVC_iPad.storyboard in Resources */,
 				AD24E30821806C3A008E35F8 /* WiFiConnectionView.xib in Resources */,
 				7C4C1763245046ED009AE1F5 /* CampaignTableViewCell.xib in Resources */,
-				7C14DD3B246FDFA700093CED /* ResourcesForScan42.json in Resources */,
+				7C14DD3B246FDFA700093CED /* ResourcesForScan41.json in Resources */,
 				7CECECDC2450BCBB0069B9EF /* ScannerViewController_iPad.storyboard in Resources */,
 				7C7DCBF82448B9050072CDAE /* LoginViewController.storyboard in Resources */,
 				7C7DCBF62448B9050072CDAE /* LoginViewController_iPad.storyboard in Resources */,
