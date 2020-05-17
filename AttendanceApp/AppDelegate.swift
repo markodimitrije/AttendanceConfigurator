@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     private var alertStateReporter: AlertStateReporter!
-    private let autoSessionTimer =
-        AutoSessionTimer.init(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
-                              dataAccess: CampaignSettingsRepository.shared)
+    let autoSessionTimer =
+        AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
+                         dataAccess: CampaignSettingsRepository.shared)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     

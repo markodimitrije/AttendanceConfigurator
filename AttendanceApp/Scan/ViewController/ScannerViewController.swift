@@ -58,6 +58,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
         scanner.startScanning()
+        (UIApplication.shared.delegate as? AppDelegate)?.autoSessionTimer.fire() // TODO marko hack
     }
     
     override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated)
