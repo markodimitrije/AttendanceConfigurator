@@ -9,6 +9,6 @@
 import RxSwift
 
 protocol ICampaignsRemoteApi {
-    func getCampaigns() -> Observable<[ICampaign]>
+    func fetchCampaigns() -> Observable<[ICampaign]>
 }
 

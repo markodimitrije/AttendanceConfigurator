@@ -10,11 +10,18 @@ import RxSwift
 
 extension CampaignsWorker: ICampaignsWorker {
     func fetchCampaigns() -> Observable<Void> {
-        remoteApi.getCampaigns()
-            .flatMap(campaignsRepo.save)
-            .map {_ in return ()}
-            .observeOn(MainScheduler.instance)
+        Observable.deferred { [weak self] () -> Observable<Void> in
+            guard let sSelf = self else {
+                return Observable.just(())
+            }
+            return sSelf.remoteApi.fetchCampaigns()
+                        .flatMap(sSelf.campaignsRepo.save)
+                        .map {_ in return ()}
+        }
+        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        .observeOn(MainScheduler.instance)
     }
+    
 }
 
 class CampaignsWorker {

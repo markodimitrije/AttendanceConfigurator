@@ -32,8 +32,11 @@ class CampaignsVC: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //campaignSelectionRepo.userSelected(campaignItem: nil) TODO marko: should be called when resources are updated but selected block is updated from saved in settings
-        resourcesRepo.deleteResources() // TODO marko remove to scannerViewmodel.deinit
-        viewModel.refreshCampaigns()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.resourcesRepo.deleteResources() // TODO marko remove to scannerViewmodel.deinit
+            self?.viewModel.refreshCampaigns()
+        }
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {

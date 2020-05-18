@@ -9,7 +9,8 @@
 import RxSwift
 
 extension CampaignsRemoteApi: ICampaignsRemoteApi {
-    func getCampaigns() -> Observable<[ICampaign]> {
+    func fetchCampaigns() -> Observable<[ICampaign]> {
+        
         let mockUrl = URL(string:
             "https://bff3365d-8e5a-4f02-b824-8da11ce37caf.mock.pstmn.io/campaigns/4")!
         let headers = DefaultHeadersFactory.make().createHeaders(apiKey: nil)
@@ -20,7 +21,7 @@ extension CampaignsRemoteApi: ICampaignsRemoteApi {
     }
 }
 
-class CampaignsRemoteApi {
+struct CampaignsRemoteApi {
     private let apiController: ApiController
     private let dataToCampaignFactory: IDataToCampaignFactory
     init(apiController: ApiController, dataToCampaignFactory: IDataToCampaignFactory) {

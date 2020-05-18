@@ -34,6 +34,8 @@ class AutoBlockViewModel {
             .disposed(by: bag)
     }
     
-    deinit { print("AutoSelSessionViewModel.deinit") }
+    deinit {
+        print("AutoSelSessionViewModel.deinit")
+    }
     
 }
