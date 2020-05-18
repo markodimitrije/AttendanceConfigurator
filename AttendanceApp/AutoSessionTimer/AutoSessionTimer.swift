@@ -72,7 +72,7 @@ class AutoSessionTimer {
     private let disposeBag = DisposeBag()
     
     deinit {
-        print("o-o, auto timer deinitialized!!")
+        print("auto timer deinitialized!!")
     }
     
 }

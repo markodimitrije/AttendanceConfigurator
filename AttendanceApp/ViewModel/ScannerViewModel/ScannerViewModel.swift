@@ -36,20 +36,25 @@ class ScannerViewModel {
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
+    private let resourcesRepo: IMutableCampaignResourcesRepository
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
-    let autoSessionTimer =
-    AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
-                     dataAccess: CampaignSettingsRepository.shared)
+    let autoSessionTimer: AutoSessionTimer!
     
     init(dataAccess: CampaignSettingsRepository,
          scannerInfoFactory: IScannerInfoFactory,
          codeReportsState: CodeReportsState,
+         resourcesRepo: IMutableCampaignResourcesRepository,
          alertErrPresenter: IAlertErrorPresenter) {
         
         self.dataAccess = dataAccess
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
+        self.resourcesRepo = resourcesRepo
         self.alertErrPresenter = alertErrPresenter
+        
+        self.autoSessionTimer =
+            AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
+                             dataAccess: dataAccess)
         
         // TODO marko: bad design..
         let campaignId = campaignSelectionRepo.getSelected()!.getCampaignId()
@@ -92,7 +97,7 @@ class ScannerViewModel {
     
     deinit {
         print("ScannerViewModel.deinit")
-        
+        resourcesRepo.deleteResources()
         resourceState.stopTimer()
     }
     
