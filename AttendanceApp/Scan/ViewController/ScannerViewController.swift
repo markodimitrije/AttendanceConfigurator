@@ -58,11 +58,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
         scanner.startScanning()
-//        delay(0.1) { // TODO marko hack
-//            DispatchQueue.main.async { [weak self] in
-//                self?.viewModel.autoSessionTimer.fire()
-//            }
-//        }
+        delegateAttendanceAllowed(code: "000001")
     }
     
     override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated)
@@ -84,18 +80,6 @@ class ScannerViewController: UIViewController, Storyboarded {
             .debug()
             .drive(sessionTimeAndRoomLbl.rx.text)
             .disposed(by: disposeBag)
-        
-//        viewModel.getScannerInfoDriver()
-//            .map {$0.getTitle()}
-//            .debug()
-//            .drive(sessionNameLbl.rx.text)
-//            .disposed(by: disposeBag)
-//
-//        viewModel.getScannerInfoDriver()
-//            .map {$0.getDescription()}
-//            .debug()
-//            .drive(sessionTimeAndRoomLbl.rx.text)
-//            .disposed(by: disposeBag)
     }
     
     // MARK:- To next screen

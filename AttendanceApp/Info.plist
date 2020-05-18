@@ -28,7 +28,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>In order to scan barcodes, AttendanceApp would like to use your camera</string>
+	<string>In order to scan barcodes, Navus Attendance would like to use your camera</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
