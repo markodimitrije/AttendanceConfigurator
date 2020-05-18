@@ -47,6 +47,7 @@ class CampaignsVC: UIViewController, Storyboarded {
                 guard let cell = cell as? CampaignTableViewCell else {
                     return
                 }
+                cell.selectionStyle = .none
                 cell.update(item: item)
             }
             .disposed(by: bag)
@@ -54,7 +55,6 @@ class CampaignsVC: UIViewController, Storyboarded {
         Observable
             .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
             .bind { [weak self] indexPath, item in
-                self?.tableView.deselectRow(at: indexPath, animated: true)
                 self?.campaignSelectionRepo.userSelected(campaignItem: item)
                 let nextVC = ScannerViewControllerFactory.make()
                 self?.navigationController?.pushViewController(nextVC, animated: true)
