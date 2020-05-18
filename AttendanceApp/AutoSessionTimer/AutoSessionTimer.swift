@@ -60,12 +60,19 @@ class AutoSessionTimer {
     
     @objc func appWillEnterForeground() {
         loadTimer()
+        fire()
     }
     
     private func loadTimer() {
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         }
+    }
+    
+    // API:
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     private let disposeBag = DisposeBag()

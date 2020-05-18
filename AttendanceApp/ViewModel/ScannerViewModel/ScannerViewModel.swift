@@ -75,7 +75,7 @@ class ScannerViewModel {
         
             return dataAccess.output
             .debounce(0.5, scheduler: MainScheduler.instance)
-            .delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
+            //.delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
             .map { (roomId, blockId, _, _) -> IScannerInfo in
                 self.scannerInfoFactory.make(roomId: roomId, blockId: blockId)
             }.do(onNext: { scannerInfo in
@@ -98,8 +98,10 @@ class ScannerViewModel {
     
     deinit {
         print("ScannerViewModel.deinit")
-        resourcesRepo.deleteResources()
+        autoSessionTimer.stopTimer()
         resourceState.stopTimer()
+        resourcesRepo.deleteResources()
+        
     }
     
 }
