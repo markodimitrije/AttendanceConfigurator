@@ -92,6 +92,7 @@ class ScannerViewModel {
     
     deinit {
         print("ScannerViewModel.deinit")
+        
         resourceState.stopTimer()
     }
     
