@@ -64,7 +64,6 @@ class AutoSessionTimer {
     
     private func loadTimer() {
         if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(fire), userInfo: nil, repeats: false)
             timer = Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
         }
     }

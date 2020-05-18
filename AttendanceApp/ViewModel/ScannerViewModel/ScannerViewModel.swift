@@ -73,10 +73,11 @@ class ScannerViewModel {
     private func createOutput(dataAccess: CampaignSettingsRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
-        return dataAccess.output
+            return dataAccess.output
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
             .map { (roomId, blockId, _, _) -> IScannerInfo in
-                return self.scannerInfoFactory.make(roomId: roomId, blockId: blockId)
+                self.scannerInfoFactory.make(roomId: roomId, blockId: blockId)
             }.do(onNext: { scannerInfo in
                 self._oBlockId.accept(scannerInfo.getBlockId())
             })

@@ -18,9 +18,11 @@ extension ScannerInfoFactory: IScannerInfoFactory {
             let room = self.roomRepo.getRoom(id: roomId),
             let blockId = blockId,
             let block = self.blockRepo.getBlock(id: blockId) else {
+                print("updateujem SCANNER INFO sa NISTA")
             return ScannerInfo()
         }
         let duration = self.blockPresenter.getDuration(block: block)
+        print("updateujem SCANNER INFO")
         return ScannerInfo(title: block.getName(),
                            description: duration + ", " + room.getName(),
                            blockId: block.getId())
