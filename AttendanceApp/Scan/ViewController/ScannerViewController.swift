@@ -58,7 +58,6 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     override func viewDidAppear(_ animated: Bool) { super.viewDidAppear(animated)
         scanner.startScanning()
-        delegateAttendanceAllowed(code: "000001")
     }
     
     override func viewDidDisappear(_ animated: Bool) { super.viewDidDisappear(animated)
@@ -71,13 +70,11 @@ class ScannerViewController: UIViewController, Storyboarded {
         
         driver
             .map {$0.getTitle()}
-            .debug()
             .drive(sessionNameLbl.rx.text)
             .disposed(by: disposeBag)
         
         driver
             .map {$0.getDescription()}
-            .debug()
             .drive(sessionTimeAndRoomLbl.rx.text)
             .disposed(by: disposeBag)
     }
@@ -108,7 +105,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     fileprivate func restartCameraForScaning() {
-        delay(1.0) { // ovoliko traje anim kada prikazujes arrow
+        delay(1.0) {// ovoliko traje anim kada prikazujes arrow
             DispatchQueue.main.async { [weak self] in
                 guard let sSelf = self else {return}
                 sSelf.scannerView.subviews.first(where: {$0.tag == 20})?.removeFromSuperview()

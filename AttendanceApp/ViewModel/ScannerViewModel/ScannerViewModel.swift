@@ -97,11 +97,9 @@ class ScannerViewModel {
     }
     
     deinit {
-        print("ScannerViewModel.deinit")
         autoSessionTimer.stopTimer()
         resourceState.stopTimer()
         resourcesRepo.deleteResources()
-        
     }
     
 }

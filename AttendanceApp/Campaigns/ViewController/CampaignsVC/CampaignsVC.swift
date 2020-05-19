@@ -37,10 +37,6 @@ class CampaignsVC: UIViewController, Storyboarded {
 
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
-    
     private func bindCampaignsViewModel() {
         viewModel.getCampaigns()
             .bind(to: tableView.rx.items(cellIdentifier: "cell")) { _, item, cell in
