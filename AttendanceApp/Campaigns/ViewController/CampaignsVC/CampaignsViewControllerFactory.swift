@@ -14,6 +14,7 @@ class CampaignsViewControllerFactory {
         campaignsVC.viewModel = CampaignsViewModelFactory.make()
         campaignsVC.navBarConfigurator = NavigBarConfigurator()
         campaignsVC.logoutHandler = LogoutHandlerFactory.make()
+        campaignsVC.campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
         return campaignsVC
     }
 }

@@ -15,7 +15,7 @@ typealias CampaignSettingsSelection = (roomId: Int?, blockId: Int?, selectedDate
 
 protocol ICampaignSettingsRepository {
     func campaignSelected(campaignId: String)
-    var userSelection: (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool) {get}
+    var userSelection: CampaignSettingsSelection {get}
     var output: Observable<(Int?, Int?, Date?, Bool)> {get}
     func deleteActualCampaignSettings()
     func deleteAllCampaignsSettings()
@@ -23,15 +23,12 @@ protocol ICampaignSettingsRepository {
 
 class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
-    lazy private var _roomSelected = BehaviorRelay<Int?>.init(value: roomInitial)
-    lazy private var _blockSelected = BehaviorRelay<Int?>.init(value: blockInitial)
-    lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: dateInitial)
-    lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: autoSwitchInitial)
+    lazy private var _roomSelected = BehaviorRelay<Int?>.init(value: initialSettings.roomId)
+    lazy private var _blockSelected = BehaviorRelay<Int?>.init(value: initialSettings.blockId)
+    lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: initialSettings.selectedDate)
+    lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: initialSettings.autoSwitch)
     
-    private var roomInitial: Int?
-    private var blockInitial: Int?
-    private var dateInitial: Date?
-    private var autoSwitchInitial: Bool
+    private var initialSettings: CampaignSettings
     
     static var shared = CampaignSettingsRepository()
     
@@ -54,14 +51,8 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
                     settings?["autoSwitch"] as? Bool ?? true)
         }
         set {
-            var settings = [String : Any]()
-            if newValue.0 != nil { settings["roomId"] = newValue.0 }
-            if newValue.1 != nil { settings["blockId"] = newValue.1 }
-            if newValue.2 != nil { settings["date"] = newValue.2 }
-            settings["autoSwitch"] = newValue.3
-            UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
+            CampaignSettingsUserDefaultsRepo.save(selection: newValue, campaignId: campaignId)
             campaignIds.add(campaignId: campaignId)
-            
             postUpdateOnOutput(userSelection: newValue)
         }
     }
@@ -111,15 +102,9 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     override init() {
         if let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()?.getCampaignId() {
             let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
-            self.roomInitial = settings?["roomId"] as? Int
-            self.blockInitial = settings?["blockId"] as? Int
-            self.dateInitial = settings?["date"] as? Date
-            self.autoSwitchInitial = settings?["autoSwitch"] as? Bool ?? true
+            self.initialSettings = CampaignSettings(settings: settings)
         } else {
-            self.roomInitial = nil
-            self.blockInitial = nil
-            self.dateInitial = nil
-            self.autoSwitchInitial = true
+            initialSettings = CampaignSettings()
         }
         super.init()
     }
@@ -151,3 +136,53 @@ struct CampaignIds {
         }
     }
 }
+
+protocol ICampaignSettings {
+    var roomId: Int? {get}
+    var blockId: Int? {get}
+    var selectedDate: Date? {get}
+    var autoSwitch: Bool {get}
+}
+
+struct CampaignSettings: ICampaignSettings {
+    var roomId: Int?
+    var blockId: Int?
+    var selectedDate: Date?
+    var autoSwitch: Bool
+    init(roomId: Int? = nil, blockId: Int? = nil, selDate: Date? = nil, autoSwitch: Bool = true) {
+        self.roomId = roomId
+        self.blockId = blockId
+        self.selectedDate = selDate
+        self.autoSwitch = autoSwitch
+    }
+    init(settings: [String: Any]?) {
+        self.roomId = settings?["roomId"] as? Int
+        self.blockId = settings?["blockId"] as? Int
+        self.selectedDate = settings?["date"] as? Date
+        self.autoSwitch = settings?["autoSwitch"] as? Bool ?? true
+    }
+}
+
+class CampaignSettingsUserDefaultsRepo {
+    static func read(campaignId: String) -> ICampaignSettings {
+        guard let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any] else {
+            return CampaignSettings()
+        }
+        return CampaignSettings(roomId: settings["roomId"] as? Int,
+                                blockId: settings["blockId"] as? Int,
+                                selDate: settings["date"] as? Date,
+                                autoSwitch: settings["autoSwitch"] as? Bool ?? true)
+    }
+    static func save(selection: CampaignSettingsSelection, campaignId: String) {
+        var settings = [String : Any]()
+        if selection.0 != nil { settings["roomId"] = selection.0 }
+        if selection.1 != nil { settings["blockId"] = selection.1 }
+        if selection.2 != nil { settings["date"] = selection.2 }
+        settings["autoSwitch"] = selection.3
+        UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
+    }
+}
+
+
+
+

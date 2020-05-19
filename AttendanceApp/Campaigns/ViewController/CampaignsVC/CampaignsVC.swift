@@ -15,7 +15,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     var viewModel: ICampaignsViewModel!
     var navBarConfigurator: INavigBarConfigurator!
     var logoutHandler: ILogoutHandler!
-    var campaignSelectionRepo: ICampaignSelectionRepository = CampaignSelectionRepositoryFactory.make()
+    var campaignSelectionRepo: ICampaignSelectionRepository!
     
     @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
