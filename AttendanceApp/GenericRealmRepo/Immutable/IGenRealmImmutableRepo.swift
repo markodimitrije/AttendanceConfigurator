@@ -8,6 +8,7 @@
 
 import RxSwift
 import RealmSwift
+import RxRealm
 
 protocol IGenRealmImmutableRepo {
     

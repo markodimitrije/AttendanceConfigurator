@@ -17,7 +17,8 @@ extension CampaignsViewModel: ICampaignsViewModel{
 //        campaignsWorker.fetchCampaigns().debounce(1, scheduler: MainScheduler.instance)
 //            .subscribe(onError: errorHandler.handle)
 //            .disposed(by: bag)
-        campaignsWorker.fetchCampaigns().debounce(1, scheduler: MainScheduler.instance)
+        campaignsWorker.fetchCampaigns().debounce(RxTimeInterval.seconds(1),
+                                                  scheduler: MainScheduler.instance)
             .subscribe(onError: errorHandler.handle)
             .disposed(by: bag)
     }

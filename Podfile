@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '9.1'
+ platform :ios, '12.0'
 
 target 'AttendanceApp' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,10 +7,10 @@ target 'AttendanceApp' do
 
     pod 'RxSwift'
     pod 'RxCocoa'
-    pod 'SwiftyJSON'
-    pod 'RealmSwift'
-    pod 'RxRealmDataSources'
     pod 'RxDataSources'
+    pod 'RxRealm'
+    pod 'RealmSwift'
+    pod 'SwiftyJSON'
     pod 'ReachabilitySwift'
     pod 'Zip'
     pod 'ScanditBarcodeCapture', "6.0.3"

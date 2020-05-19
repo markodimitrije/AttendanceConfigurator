@@ -6,7 +6,7 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxRealm
 
 class DelegateFactory {
     static func make(from json: [String: Any]) -> IDelegate? {

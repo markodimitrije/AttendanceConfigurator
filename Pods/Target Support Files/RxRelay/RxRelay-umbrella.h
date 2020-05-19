@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double RxRealmDataSourcesVersionNumber;
-FOUNDATION_EXPORT const unsigned char RxRealmDataSourcesVersionString[];
+FOUNDATION_EXPORT double RxRelayVersionNumber;
+FOUNDATION_EXPORT const unsigned char RxRelayVersionString[];
 

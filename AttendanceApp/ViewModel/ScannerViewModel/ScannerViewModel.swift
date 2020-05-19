@@ -75,7 +75,7 @@ class ScannerViewModel {
         
             //return dataAccess.output
             return dataAccess.obsCampSettings
-            .debounce(0.5, scheduler: MainScheduler.instance)
+                .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             //.delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
             .map { (settings) -> IScannerInfo in
                 self.scannerInfoFactory.make(roomId: settings.roomId,

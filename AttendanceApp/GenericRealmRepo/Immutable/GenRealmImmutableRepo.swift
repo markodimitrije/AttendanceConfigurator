@@ -8,7 +8,6 @@
 
 import RxSwift
 import RealmSwift
-import RxRealm
 
 extension NSPredicate {
     static var truePredicate: NSPredicate {

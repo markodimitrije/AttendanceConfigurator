@@ -8,7 +8,6 @@
 
 import RealmSwift
 import RxSwift
-import RxRealm
 import RxCocoa
 
 protocol IBlockViewModel {

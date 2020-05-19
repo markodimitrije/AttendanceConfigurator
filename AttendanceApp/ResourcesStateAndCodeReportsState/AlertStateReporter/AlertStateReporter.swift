@@ -21,7 +21,7 @@ class AlertStateReporter {
         self.webAPI = webAPI
         
         makeObsBlockReport(dataAccess: dataAccess, monitor: self.monitor)
-            .debounce(1.0, scheduler: MainScheduler.instance)
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { report in
                     
 //                print("AlertStateReporter.javi web-u ovaj report = \(report.description)")
