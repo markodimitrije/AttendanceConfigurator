@@ -33,8 +33,8 @@ class AlertStateReporter {
     
     private func makeObsBlockReport(dataAccess: CampaignSettingsRepository, monitor: AlertStateMonitor) -> Observable<BlockReport> {
         
-        let obsRoomId = dataAccess.output.map {$0.0 ?? -1 }
-        let obsBlockId = dataAccess.output.map {$0.1 ?? -1 }
+        let obsRoomId = dataAccess.obsCampSettings.map({$0.roomId ?? -1})
+        let obsBlockId = dataAccess.obsCampSettings.map({$0.blockId ?? -1})
         
         return Observable
             .combineLatest(obsRoomId,

@@ -118,7 +118,7 @@ final class SettingsViewModel: ViewModelType {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            self.dataAccess.userSelection = (roomId, blockId, date, autoSwitch) // MUST !
+            self.dataAccess.userSelection = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
 
             guard let roomId = roomId, let blockId = blockId else { return nil}
                                                 

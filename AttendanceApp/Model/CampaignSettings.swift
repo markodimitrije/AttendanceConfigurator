@@ -11,24 +11,20 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 
-typealias CampaignSettingsSelection = (roomId: Int?, blockId: Int?, selectedDate: Date?, autoSwitch: Bool)
-
 protocol ICampaignSettingsRepository {
+    var userSelection: ICampaignSettings {get}
+    var obsCampSettings: Observable<ICampaignSettings> {get}
     func campaignSelected(campaignId: String)
-    var userSelection: CampaignSettingsSelection {get}
-    var output: Observable<(Int?, Int?, Date?, Bool)> {get}
     func deleteActualCampaignSettings()
     func deleteAllCampaignsSettings()
 }
 
 class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
-    lazy private var _roomSelected = BehaviorRelay<Int?>.init(value: initialSettings.roomId)
-    lazy private var _blockSelected = BehaviorRelay<Int?>.init(value: initialSettings.blockId)
-    lazy private var _dateSelected = BehaviorRelay<Date?>.init(value: initialSettings.selectedDate)
-    lazy private var _autoSwitchSelected = BehaviorRelay<Bool>.init(value: initialSettings.autoSwitch)
+    lazy private var _settingsSelected =
+        BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
     
-    private var initialSettings: CampaignSettings
+    private var initialSettings: ICampaignSettings
     
     static var shared = CampaignSettingsRepository()
     
@@ -37,18 +33,14 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
-        let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
-        postUpdateOnOutput(settings: settings)
+        let existingSettings = CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
+        postUpdateOnOutput(userSelection: existingSettings)
     }
     
     // API: input, output
-    var userSelection: CampaignSettingsSelection {
+    var userSelection: ICampaignSettings {
         get {
-            let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
-            return (settings?["roomId"] as? Int,
-                    settings?["blockId"] as? Int,
-                    settings?["date"] as? Date,
-                    settings?["autoSwitch"] as? Bool ?? true)
+            CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
         }
         set {
             CampaignSettingsUserDefaultsRepo.save(selection: newValue, campaignId: campaignId)
@@ -57,52 +49,30 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
         }
     }
     
-    private func postUpdateOnOutput(userSelection: CampaignSettingsSelection) {
-        _roomSelected.accept(userSelection.0)
-        _blockSelected.accept(userSelection.1)
-        _dateSelected.accept(userSelection.2)
-        _autoSwitchSelected.accept(userSelection.3)
-    }
-    private func postUpdateOnOutput(settings: [String: Any]?) {
-        _roomSelected.accept(settings?["roomId"] as? Int)
-        _blockSelected.accept(settings?["blockId"] as? Int)
-        _dateSelected.accept(settings?["date"] as? Date)
-        _autoSwitchSelected.accept(settings?["autoSwitch"] as? Bool ?? true)
+    private func postUpdateOnOutput(userSelection: ICampaignSettings) {
+        _settingsSelected.accept(userSelection)
     }
     
     func deleteActualCampaignSettings() {
         UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
         campaignIds.remove(campaignId: campaignId)
-        _roomSelected.accept(nil)
-        _blockSelected.accept(nil)
-        _dateSelected.accept(nil)
-        _autoSwitchSelected.accept(false)
+        _settingsSelected.accept(CampaignSettings())
     }
     
     func deleteAllCampaignsSettings() {
         campaignIds.removeAll()
-        
-        _roomSelected.accept(nil)
-        _blockSelected.accept(nil)
-        _dateSelected.accept(nil)
-        _autoSwitchSelected.accept(false)
+        _settingsSelected.accept(CampaignSettings())
     }
     
     // API: output
-    var output: Observable<(Int?, Int?, Date?, Bool)> {
-        return Observable.combineLatest(_roomSelected.asObservable(),
-                                        _blockSelected.asObservable(),
-                                        _dateSelected.asObservable(),
-                                        _autoSwitchSelected.asObservable(),
-            resultSelector: { (room, block, date, autoSwitch) -> (Int?, Int?, Date?, Bool) in
-            return (room, block, date, autoSwitch)
-        })
+    
+    var obsCampSettings: Observable<ICampaignSettings> {
+        return _settingsSelected.asObservable()
     }
     
     override init() {
         if let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()?.getCampaignId() {
-            let settings = UserDefaults.standard.value(forKey: "campaignId" + campaignId) as? [String: Any]
-            self.initialSettings = CampaignSettings(settings: settings)
+            self.initialSettings = CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
         } else {
             initialSettings = CampaignSettings()
         }
@@ -139,7 +109,7 @@ struct CampaignIds {
 
 protocol ICampaignSettings {
     var roomId: Int? {get}
-    var blockId: Int? {get}
+    var blockId: Int? {get set} // set because of autoSession timer
     var selectedDate: Date? {get}
     var autoSwitch: Bool {get}
 }
@@ -173,16 +143,12 @@ class CampaignSettingsUserDefaultsRepo {
                                 selDate: settings["date"] as? Date,
                                 autoSwitch: settings["autoSwitch"] as? Bool ?? true)
     }
-    static func save(selection: CampaignSettingsSelection, campaignId: String) {
+    static func save(selection: ICampaignSettings, campaignId: String) {
         var settings = [String : Any]()
-        if selection.0 != nil { settings["roomId"] = selection.0 }
-        if selection.1 != nil { settings["blockId"] = selection.1 }
-        if selection.2 != nil { settings["date"] = selection.2 }
-        settings["autoSwitch"] = selection.3
+        if selection.roomId != nil { settings["roomId"] = selection.roomId }
+        if selection.blockId != nil { settings["blockId"] = selection.blockId }
+        if selection.selectedDate != nil { settings["date"] = selection.selectedDate }
+        settings["autoSwitch"] = selection.autoSwitch
         UserDefaults.standard.set(settings, forKey: "campaignId" + campaignId)
     }
 }
-
-
-
-
