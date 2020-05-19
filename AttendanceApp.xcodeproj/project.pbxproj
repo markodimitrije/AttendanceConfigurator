@@ -129,6 +129,10 @@
 		7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */; };
 		7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */; };
 		7C6DA511244B51250078CD8F /* LogoutRemoteApiFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6DA510244B51250078CD8F /* LogoutRemoteApiFactory.swift */; };
+		7C6E4FB4247401A600970944 /* ICampaignSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4FB3247401A600970944 /* ICampaignSettings.swift */; };
+		7C6E4FB6247401AC00970944 /* CampaignSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4FB5247401AC00970944 /* CampaignSettings.swift */; };
+		7C6E4FB8247401E200970944 /* ICampaignSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4FB7247401E200970944 /* ICampaignSettingsRepository.swift */; };
+		7C6E4FBA2474020700970944 /* CampaignSettingsUserDefaultsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E4FB92474020700970944 /* CampaignSettingsUserDefaultsRepo.swift */; };
 		7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C78AA222471423F00218DC8 /* ResourcesForScan42.json */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
@@ -302,7 +306,7 @@
 		AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29521F217B5B23002DDE32 /* RoomsViewController.swift */; };
 		AD295225217B5B24002DDE32 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD295220217B5B24002DDE32 /* APIController.swift */; };
 		AD29522D217B5EB0002DDE32 /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */; };
-		AD2C3A1321B67D0F00E8A319 /* CampaignSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */; };
+		AD2C3A1321B67D0F00E8A319 /* CampaignSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2C3A1221B67D0F00E8A319 /* CampaignSettingsRepository.swift */; };
 		AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4CC2D921A5770A00222D5E /* Protocols.swift */; };
 		AD4DCF02218EFFCF0054527E /* GlobalFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */; };
 		AD5814AF2189B1AC009C593F /* RealmCodeReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5814AE2189B1AC009C593F /* RealmCodeReport.swift */; };
@@ -474,6 +478,10 @@
 		7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModelFactory.swift; sourceTree = "<group>"; };
 		7C6A5F02243E02D100CD5C9C /* IRoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRoomsViewModel.swift; sourceTree = "<group>"; };
 		7C6DA510244B51250078CD8F /* LogoutRemoteApiFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRemoteApiFactory.swift; sourceTree = "<group>"; };
+		7C6E4FB3247401A600970944 /* ICampaignSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignSettings.swift; sourceTree = "<group>"; };
+		7C6E4FB5247401AC00970944 /* CampaignSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettings.swift; sourceTree = "<group>"; };
+		7C6E4FB7247401E200970944 /* ICampaignSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignSettingsRepository.swift; sourceTree = "<group>"; };
+		7C6E4FB92474020700970944 /* CampaignSettingsUserDefaultsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettingsUserDefaultsRepo.swift; sourceTree = "<group>"; };
 		7C78AA222471423F00218DC8 /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -646,7 +654,7 @@
 		AD29521F217B5B23002DDE32 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		AD295220217B5B24002DDE32 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		AD29522C217B5EB0002DDE32 /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
-		AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettings.swift; sourceTree = "<group>"; };
+		AD2C3A1221B67D0F00E8A319 /* CampaignSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettingsRepository.swift; sourceTree = "<group>"; };
 		AD4CC2D921A5770A00222D5E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		AD4DCF01218EFFCF0054527E /* GlobalFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFuncs.swift; sourceTree = "<group>"; };
 		AD53A011217B577400A3F9FC /* AttendanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AttendanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1363,6 +1371,25 @@
 				7C6A5F00243E01C700CD5C9C /* RoomsViewModelFactory.swift */,
 			);
 			path = RoomViewModel;
+			sourceTree = "<group>";
+		};
+		7C6E4FB12474017300970944 /* CampaignSettings */ = {
+			isa = PBXGroup;
+			children = (
+				7C6E4FB7247401E200970944 /* ICampaignSettingsRepository.swift */,
+				AD2C3A1221B67D0F00E8A319 /* CampaignSettingsRepository.swift */,
+				7C6E4FB92474020700970944 /* CampaignSettingsUserDefaultsRepo.swift */,
+			);
+			path = CampaignSettings;
+			sourceTree = "<group>";
+		};
+		7C6E4FB22474019800970944 /* CampaignSettings */ = {
+			isa = PBXGroup;
+			children = (
+				7C6E4FB3247401A600970944 /* ICampaignSettings.swift */,
+				7C6E4FB5247401AC00970944 /* CampaignSettings.swift */,
+			);
+			path = CampaignSettings;
 			sourceTree = "<group>";
 		};
 		7C7CCE8B246FD65700E84506 /* CampaignResources */ = {
@@ -2125,6 +2152,7 @@
 		7CEC673F242B6AEF00CC56FF /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				7C6E4FB12474017300970944 /* CampaignSettings */,
 				7C7CCE8B246FD65700E84506 /* CampaignResources */,
 				7CEC6740242B6AFE00CC56FF /* Rooms */,
 				7C516F70243C983E002CF6BF /* Blocks */,
@@ -2256,6 +2284,7 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C6E4FB22474019800970944 /* CampaignSettings */,
 				7C30206F246AAFAD004C343A /* Stats */,
 				7C5865E4244A0C9A00426FBC /* AlertInfo */,
 				7C855DA2229C077100E4C985 /* FetchDelegates */,
@@ -2264,7 +2293,6 @@
 				7CB1E44F229832B0008C23F8 /* Room */,
 				7CB1E44C229830E5008C23F8 /* Persisters */,
 				7CED41BA2268825D00FFB34E /* Report */,
-				AD2C3A1221B67D0F00E8A319 /* CampaignSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2708,6 +2736,7 @@
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
 				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
 				7C53A5BC246BEDBE008685EE /* BlockScansCell.swift in Sources */,
+				7C6E4FB8247401E200970944 /* ICampaignSettingsRepository.swift in Sources */,
 				7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */,
 				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
 				7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */,
@@ -2772,6 +2801,7 @@
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
 				7CC99DE52457448C0057309D /* CampaignResourcesApiController.swift in Sources */,
 				7C2E5754244EFA21003EDAC7 /* RealmCampaign.swift in Sources */,
+				7C6E4FB4247401A600970944 /* ICampaignSettings.swift in Sources */,
 				7C7DCBDF2448B9050072CDAE /* AlertErrorPresenter.swift in Sources */,
 				7C7DCBF52448B9050072CDAE /* LoginViewControllerFactory.swift in Sources */,
 				7C516F6D243C73E1002CF6BF /* CodeReportsImmutableRepository.swift in Sources */,
@@ -2827,10 +2857,12 @@
 				7C2E5744244EEB61003EDAC7 /* ApiError.swift in Sources */,
 				7C855DA4229C078A00E4C985 /* DelegatesAttendanceValidation.swift in Sources */,
 				AD80EFFE217DD87D003CEDD0 /* ScannerViewController.swift in Sources */,
+				7C6E4FB6247401AC00970944 /* CampaignSettings.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportBlockApiControllerFactory.swift in Sources */,
 				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
+				7C6E4FBA2474020700970944 /* CampaignSettingsUserDefaultsRepo.swift in Sources */,
 				AD9FE5B221AEB17C00D6A4B6 /* BatteryStateManager.swift in Sources */,
 				7CC9DD4D2448C5B40035B2AE /* CampaignsViewModel.swift in Sources */,
 				7C7DCBE92448B9050072CDAE /* LoginError.swift in Sources */,
@@ -2894,7 +2926,7 @@
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
 				7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */,
-				AD2C3A1321B67D0F00E8A319 /* CampaignSettings.swift in Sources */,
+				AD2C3A1321B67D0F00E8A319 /* CampaignSettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
