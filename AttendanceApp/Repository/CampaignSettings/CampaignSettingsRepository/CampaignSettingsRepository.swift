@@ -9,6 +9,12 @@
 import RxSwift
 import RxCocoa
 
+class CampaignSettingsRepositoryFactory {
+    static func make() -> CampaignSettingsRepository {
+        CampaignSettingsRepository.shared
+    }
+}
+
 class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TODO marko:
     // replace with Realm version
     

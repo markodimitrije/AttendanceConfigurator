@@ -24,6 +24,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
     
     var settingsViewModel: SettingsViewModel!
     private let disposeBag = DisposeBag()
+    private let campaignSettingsRepository = CampaignSettingsRepositoryFactory.make()
     
     // INPUTS: property injection
     var dateSelected: BehaviorRelay<Date?>!
@@ -54,7 +55,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .map {_ in return false}
             .asDriver(onErrorJustReturn: false)//.debug()
         
-        let savedAutoSwitchState = CampaignSettingsRepository.shared.userSelection.autoSwitch
+        let savedAutoSwitchState = campaignSettingsRepository.userSelection.autoSwitch
         let blockSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)
@@ -98,8 +99,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .subscribe(onNext: { _ in })
             .disposed(by: disposeBag)
         
-        //CampaignSettingsRepository.shared.output.map {$0.3}
-        CampaignSettingsRepository.shared.obsCampSettings.map {$0.autoSwitch}
+        campaignSettingsRepository.obsCampSettings.map {$0.autoSwitch}
             .take(1)
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)

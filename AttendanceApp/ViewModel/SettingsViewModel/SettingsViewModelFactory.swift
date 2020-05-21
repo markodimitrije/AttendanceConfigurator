@@ -9,7 +9,8 @@
 class SettingsViewModelFactory {
     static func make() -> SettingsViewModel {
         let blockRepo = BlockImmutableRepositoryFactory.make()
-        return SettingsViewModel(dataAccess: CampaignSettingsRepository.shared,
+        let campaignSettings = CampaignSettingsRepositoryFactory.make()
+        return SettingsViewModel(dataAccess: campaignSettings,
                                  roomRepo: RoomRepository(),
                                  blockRepo: blockRepo,
                                  deviceStateReporter: DeviceStateReporter())
