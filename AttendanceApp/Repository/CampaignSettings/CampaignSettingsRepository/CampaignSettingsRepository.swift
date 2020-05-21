@@ -15,15 +15,14 @@ class CampaignSettingsRepositoryFactory {
     }
 }
 
-class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TODO marko:
-    // replace with Realm version
+class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
     
     lazy private var _settingsSelected =
         BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
     
     private var initialSettings: ICampaignSettings
     
-    private var campaignSettingsRepo: ICampaignSettingsRepo = CampaignSettingsRepoFactory.make()
+    private var campaignSettingsDataHelper: ICampaignSettingsDataHelper = CampaignSettingsRepoFactory.make()
     
     static var shared = CampaignSettingsRepository()
     
@@ -31,17 +30,17 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TOD
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
-        let existingSettings = campaignSettingsRepo.read()
+        let existingSettings = campaignSettingsDataHelper.read()
         postUpdateOnOutput(userSelection: existingSettings)
     }
     
     // API: input, output
     var userSelection: ICampaignSettings {
         get {
-            campaignSettingsRepo.read()
+            campaignSettingsDataHelper.read()
         }
         set {
-            campaignSettingsRepo.save(selection: newValue)
+            campaignSettingsDataHelper.save(selection: newValue)
             postUpdateOnOutput(userSelection: newValue)
         }
     }
@@ -65,7 +64,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TOD
     }
     
     override init() {
-        self.initialSettings = campaignSettingsRepo.read()
+        self.initialSettings = campaignSettingsDataHelper.read()
         super.init()
     }
     
