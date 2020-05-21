@@ -36,8 +36,8 @@ extension CampaignsRepository: ICampaignsRepository {
 }
 
 class CampaignsRepository {
-    private let genericRepo: GenericRealmRepository
-    init(genericRepo: GenericRealmRepository) {
+    private let genericRepo: GenMuttableRepository
+    init(genericRepo: GenMuttableRepository) {
         self.genericRepo = genericRepo
     }
 }

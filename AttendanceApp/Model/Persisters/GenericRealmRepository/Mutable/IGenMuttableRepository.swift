@@ -1,5 +1,5 @@
 //
-//  IGenericRealmRepository.swift
+//  IGenMuttableRepository.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 05/04/2020.
@@ -10,7 +10,7 @@ import RxSwift
 import RealmSwift
 import Realm
 
-protocol IGenericRealmRepository {
+protocol IGenMuttableRepository {
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool>
     func deleteAllObjects<T: Object>(ofTypes types: [T.Type]) -> Observable<Bool>
     func deleteAllDataIfAny() -> Observable<Bool>

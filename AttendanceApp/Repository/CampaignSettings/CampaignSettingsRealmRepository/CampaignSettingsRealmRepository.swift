@@ -9,14 +9,18 @@
 import RxSwift
 import RealmSwift
 
-extension CampaignSettingsRealmRepository: ICampaignSettingsRepository {
+extension CampaignSettingsRealmRepository: ICampaignSettingsRepository { // TODO marko: without Realm
     
     func campaignSelected(campaignId: String) {
         
-        campSettings = genericRepo.
+        let rCampSettings =
+            try! genericRepo.getObjects(ofType: RealmCampaignSettings.self,
+                                        filter: NSPredicate(format: "id == %@", campaignId)).first
+        
+        let campSettings = (rCampSettings != nil) ?
+            CampaignSettingsFactory.make(rCampaignSettings: rCampSettings!): CampaignSettings()
+        
         _obsCampSettings.onNext(campSettings)
-//        let existingSettings = CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
-//        postUpdateOnOutput(userSelection: existingSettings)
     }
     
     var obsCampSettings: Observable<ICampaignSettings> {
@@ -24,11 +28,11 @@ extension CampaignSettingsRealmRepository: ICampaignSettingsRepository {
     }
     
     func deleteActualCampaignSettings() {
-        fatalError("deleteActualCampaignSettings.implement me")
+        fatalError("deleteActualCampaignSettings.implement me") // TODO MARKO
     }
     
     func deleteAllCampaignsSettings() {
-        _ = genericRepo.deleteAllObjects(ofTypes: [RealmCampaignSettings.self])
+        try? genericRepo.delete(type: RealmCampaignSettings.self)
     }
     
 }
@@ -36,41 +40,6 @@ extension CampaignSettingsRealmRepository: ICampaignSettingsRepository {
 struct CampaignSettingsRealmRepository {
     var userSelection: ICampaignSettings
     private let _obsCampSettings = PublishSubject<ICampaignSettings>()
-    let genericRepo: IGenericRealmRepository
+    let genericRepo: IGenRepository
 }
 
-
-
-
-
-
-class RealmCampaignSettings: Object {
-    @objc dynamic var campaignId = ""
-    @objc dynamic var roomId = 0
-    @objc dynamic var blockId = 0
-    @objc dynamic var date: Date?
-    @objc dynamic var autoSwitch = true
-    
-    override class func primaryKey() -> String? {
-        "campaignId"
-    }
-}
-
-class CampaignSettingsFactory {
-    static func make(campaignSettings: ICampaignSettings) -> RealmCampaignSettings {
-        let object = RealmCampaignSettings()
-        object.roomId = Int(campaignSettings.roomId!)
-        object.blockId = Int(campaignSettings.blockId!)
-        object.date = campaignSettings.selectedDate
-        object.autoSwitch = campaignSettings.autoSwitch
-        
-        return object
-    }
-    
-    static func make(rCampaignSettings: RealmCampaignSettings) -> ICampaignSettings {
-        CampaignSettings(roomId: rCampaignSettings.roomId,
-                         blockId: rCampaignSettings.blockId,
-                         selDate: rCampaignSettings.date,
-                         autoSwitch: rCampaignSettings.autoSwitch)
-    }
-}

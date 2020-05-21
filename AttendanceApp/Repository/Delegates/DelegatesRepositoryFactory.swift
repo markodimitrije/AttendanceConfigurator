@@ -8,6 +8,6 @@
 
 class DelegatesRepositoryFactory {
     static func make() -> IDelegatesRepository {
-        return DelegatesRepository(genericRepo: GenericRealmRepository())
+        return DelegatesRepository(genericRepo: GenMuttableRepository())
     }
 }

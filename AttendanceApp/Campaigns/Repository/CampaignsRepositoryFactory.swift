@@ -8,7 +8,7 @@
 
 class CampaignsRepositoryFactory {
     static func make() -> ICampaignsRepository {
-        let genericRepo = GenericRealmRepository()
+        let genericRepo = GenMuttableRepository()
         return CampaignsRepository(genericRepo: genericRepo)
     }
 }

@@ -72,49 +72,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F889B1C1-5935-4424-B6B1-C0F493385060"
+            uuid = "59701FAE-7708-4A6E-89A8-495EC8A99A4D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/GenericRealmRepo/Mutable/GenRealmMutableRepo.swift"
+            filePath = "AttendanceApp/Repository/CampaignSettings/CampaignSettingsRealmRepository/CampaignSettingsRealmRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "writeTo(realm:closure:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "deleteAllCampaignsSettings()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F889B1C1-5935-4424-B6B1-C0F493385060 - 25a04184b0e298f4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AttendanceApp.GenRealmMutableRepo.(writeTo in _FDC82C2D67C2FB8FBAF40DF5B8D362E5)(realm: RealmSwift.Realm, closure: () -&gt; ()) throws -&gt; ()"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Mutable/GenRealmMutableRepo.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "F889B1C1-5935-4424-B6B1-C0F493385060 - 25a04184b0e298f4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "AttendanceApp.GenRealmMutableRepo.(writeTo in _FDC82C2D67C2FB8FBAF40DF5B8D362E5)(realm: RealmSwift.Realm, closure: () -&gt; ()) throws -&gt; ()"
-                  moduleName = "AttendanceApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/markodimitrijevic/development/AttendanceConfigurator/AttendanceApp/GenericRealmRepo/Mutable/GenRealmMutableRepo.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "296">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

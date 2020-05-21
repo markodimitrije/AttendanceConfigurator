@@ -9,7 +9,8 @@
 import RxSwift
 import RxCocoa
 
-class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
+class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TODO marko:
+    // replace with Realm version
     
     struct CampaignIds {
         func add(campaignId: String) {

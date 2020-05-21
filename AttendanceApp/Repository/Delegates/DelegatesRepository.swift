@@ -12,9 +12,9 @@ import Realm
 
 struct DelegatesRepository: IDelegatesRepository {
     
-    private let genericRepo: IGenericRealmRepository
+    private let genericRepo: IGenMuttableRepository
     
-    init(genericRepo: IGenericRealmRepository) {
+    init(genericRepo: IGenMuttableRepository) {
         self.genericRepo = genericRepo
     }
 }

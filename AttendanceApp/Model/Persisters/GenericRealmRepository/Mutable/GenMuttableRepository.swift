@@ -1,5 +1,5 @@
 //
-//  GenericRealmRepository.swift
+//  GenMuttableRepository.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 05/04/2020.
@@ -10,7 +10,7 @@ import RxSwift
 import RealmSwift
 import Realm
 
-class GenericRealmRepository: IGenericRealmRepository {
+class GenMuttableRepository: IGenMuttableRepository {
     
     func saveToRealm<T: Object>(objects: [T]) -> Observable<Bool> {
         

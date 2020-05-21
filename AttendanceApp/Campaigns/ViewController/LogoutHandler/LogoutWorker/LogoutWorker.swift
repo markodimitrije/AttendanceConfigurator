@@ -12,12 +12,12 @@ import RxSwift
 class LogoutWorker {
     private let logoutRemoteApi: ILogoutRemoteApi
     private let userState: IUserStateRepository
-    private let genericRepo: IGenericRealmRepository
+    private let genericRepo: IGenMuttableRepository
     private let campaignSettingsRepo: ICampaignSettingsRepository
     
     private let bag = DisposeBag()
     
-    init(logoutRemoteApi: ILogoutRemoteApi, userState: IUserStateRepository, genericRepo: IGenericRealmRepository, campaignSettingsRepo: ICampaignSettingsRepository) {
+    init(logoutRemoteApi: ILogoutRemoteApi, userState: IUserStateRepository, genericRepo: IGenMuttableRepository, campaignSettingsRepo: ICampaignSettingsRepository) {
         self.logoutRemoteApi = logoutRemoteApi
         self.userState = userState
         self.genericRepo = genericRepo

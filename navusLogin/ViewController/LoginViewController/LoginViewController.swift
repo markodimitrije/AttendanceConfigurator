@@ -14,13 +14,13 @@ class LoginViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var emailTxtField: UITextField!
     {
-        //didSet {emailTxtField.text = "nestle@mailinator.com"}
-        didSet {emailTxtField.text = ""}
+        didSet {emailTxtField.text = "nestle@mailinator.com"}
+//        didSet {emailTxtField.text = ""}
     }
     @IBOutlet weak var passTxtField: UITextField!
     {
-        //didSet {passTxtField.text = "timm2019"}
-        didSet {passTxtField.text = ""}
+        didSet {passTxtField.text = "timm2019"}
+//        didSet {passTxtField.text = ""}
     }
     @IBOutlet weak var logBtn: UIButton!
     @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
@@ -98,7 +98,7 @@ class LoginViewController: UIViewController, Storyboarded {
     
     private func navigateToNext() {
         let nextVC = CampaignsViewControllerFactory.make()
-        _ = [emailTxtField, passTxtField].map {$0?.text = ""}
+//        _ = [emailTxtField, passTxtField].map {$0?.text = ""}
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 

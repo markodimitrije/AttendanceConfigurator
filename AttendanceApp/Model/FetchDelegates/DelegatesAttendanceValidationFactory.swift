@@ -9,7 +9,7 @@
 class DelegatesAttendanceValidationFactory {
     static func make() -> IDelegatesAttendanceValidation {
         let blockRepo = BlockImmutableRepositoryFactory.make()
-        let delegateRepo = DelegatesRepository(genericRepo: GenericRealmRepository())
+        let delegateRepo = DelegatesRepository(genericRepo: GenMuttableRepository())
         return DelegatesAttendanceValidation(blockRepo: blockRepo, delegateRepo: delegateRepo)
     }
 }

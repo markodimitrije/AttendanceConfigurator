@@ -33,8 +33,8 @@ extension CodeReportsMutableRepository: ICodeReportsMutableRepository {
 }
 
 class CodeReportsMutableRepository {
-    private let genericRepo: IGenericRealmRepository
-    init(genericRepo: IGenericRealmRepository) {
+    private let genericRepo: IGenMuttableRepository
+    init(genericRepo: IGenMuttableRepository) {
         self.genericRepo = genericRepo
     }
 }
