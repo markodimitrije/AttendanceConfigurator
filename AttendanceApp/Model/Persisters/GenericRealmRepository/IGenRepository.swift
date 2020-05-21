@@ -9,3 +9,5 @@
 import Foundation
 
 protocol IGenRepository: IGenRealmMutableRepo, IGenImmutableRepo {}
+
+struct GenericRepository: IGenRepository {}

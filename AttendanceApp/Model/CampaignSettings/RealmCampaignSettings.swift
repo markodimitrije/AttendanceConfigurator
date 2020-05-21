@@ -10,8 +10,8 @@ import RealmSwift
 
 class RealmCampaignSettings: Object {
     @objc dynamic var campaignId = ""
-    @objc dynamic var roomId = 0
-    @objc dynamic var blockId = 0
+    @objc dynamic var roomId: String?
+    @objc dynamic var blockId: String?
     @objc dynamic var date: Date?
     @objc dynamic var autoSwitch = true
     

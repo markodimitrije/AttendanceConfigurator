@@ -11,8 +11,10 @@ import Foundation
 class CampaignSettingsFactory {
     static func make(campaignSettings: ICampaignSettings) -> RealmCampaignSettings {
         let object = RealmCampaignSettings()
-        object.roomId = Int(campaignSettings.roomId!)
-        object.blockId = Int(campaignSettings.blockId!)
+        let roomId = (campaignSettings.roomId != nil) ? "\(campaignSettings.roomId!)" : nil
+        let blockId = (campaignSettings.blockId != nil) ? "\(campaignSettings.blockId!)" : nil
+        object.roomId = roomId
+        object.blockId = blockId
         object.date = campaignSettings.selectedDate
         object.autoSwitch = campaignSettings.autoSwitch
         
@@ -20,9 +22,11 @@ class CampaignSettingsFactory {
     }
     
     static func make(rCampaignSettings: RealmCampaignSettings) -> ICampaignSettings {
-        CampaignSettings(roomId: rCampaignSettings.roomId,
-                         blockId: rCampaignSettings.blockId,
-                         selDate: rCampaignSettings.date,
-                         autoSwitch: rCampaignSettings.autoSwitch)
+        let roomId = (rCampaignSettings.roomId != nil) ? Int(rCampaignSettings.roomId!) : nil
+        let blockId = (rCampaignSettings.blockId != nil) ? Int(rCampaignSettings.blockId!) : nil
+        return CampaignSettings(roomId: roomId,
+                                blockId: blockId,
+                                selDate: rCampaignSettings.date,
+                                autoSwitch: rCampaignSettings.autoSwitch)
     }
 }

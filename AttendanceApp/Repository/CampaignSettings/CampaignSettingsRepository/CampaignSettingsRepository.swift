@@ -18,52 +18,30 @@ class CampaignSettingsRepositoryFactory {
 class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TODO marko:
     // replace with Realm version
     
-    struct CampaignIds {
-        func add(campaignId: String) {
-            let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
-            var updated = arr
-            updated.append(campaignId)
-            UserDefaults.standard.set(updated, forKey: "campaignIds")
-        }
-        func remove(campaignId: String) {
-            let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
-            var updated = arr
-            updated.removeAll(where: {$0 == campaignId})
-            UserDefaults.standard.set(updated, forKey: "campaignIds")
-        }
-        func removeAll() {
-            let arr = UserDefaults.standard.array(forKey: "campaignIds") as? [String] ?? [String]()
-            _ = arr.map { (campaignId) in
-                UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
-                remove(campaignId: campaignId)
-            }
-        }
-    }
-    
     lazy private var _settingsSelected =
         BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
     
     private var initialSettings: ICampaignSettings
     
+    private var campaignSettingsRepo: ICampaignSettingsRepo = CampaignSettingsRepoFactory.make()
+    
     static var shared = CampaignSettingsRepository()
     
     private var campaignId: String = ""
-    private var campaignIds = CampaignIds()
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
-        let existingSettings = CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
+        let existingSettings = campaignSettingsRepo.read()
         postUpdateOnOutput(userSelection: existingSettings)
     }
     
     // API: input, output
     var userSelection: ICampaignSettings {
         get {
-            CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
+            campaignSettingsRepo.read()
         }
         set {
-            CampaignSettingsUserDefaultsRepo.save(selection: newValue, campaignId: campaignId)
-            campaignIds.add(campaignId: campaignId)
+            campaignSettingsRepo.save(selection: newValue)
             postUpdateOnOutput(userSelection: newValue)
         }
     }
@@ -73,13 +51,10 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TOD
     }
     
     func deleteActualCampaignSettings() {
-        UserDefaults.standard.set(nil, forKey: "campaignId" + campaignId)
-        campaignIds.remove(campaignId: campaignId)
         _settingsSelected.accept(CampaignSettings())
     }
     
     func deleteAllCampaignsSettings() {
-        campaignIds.removeAll()
         _settingsSelected.accept(CampaignSettings())
     }
     
@@ -90,11 +65,7 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository { // TOD
     }
     
     override init() {
-        if let campaignId = CampaignSelectionRepositoryFactory.make().getSelected()?.getCampaignId() {
-            self.initialSettings = CampaignSettingsUserDefaultsRepo.read(campaignId: campaignId)
-        } else {
-            initialSettings = CampaignSettings()
-        }
+        self.initialSettings = campaignSettingsRepo.read()
         super.init()
     }
     
