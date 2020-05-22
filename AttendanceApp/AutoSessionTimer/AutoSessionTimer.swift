@@ -11,11 +11,11 @@ import RxSwift
 import RxCocoa
 
 class AutoSessionTimer {
-    private var dataAccess: CampaignSettingsRepository
+    private var dataAccess: ICampaignSettingsRepository
     private let campaignSelectionRepo: ICampaignSelectionRepository
     private var timer: Timer!
     init(campaignSelectionRepo: ICampaignSelectionRepository,
-         dataAccess: CampaignSettingsRepository) {
+         dataAccess: ICampaignSettingsRepository) {
         
         self.campaignSelectionRepo = campaignSelectionRepo
         self.dataAccess = dataAccess

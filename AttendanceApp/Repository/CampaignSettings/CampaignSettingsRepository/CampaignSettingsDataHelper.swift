@@ -41,10 +41,3 @@ struct CampaignSettingsDataHelper {
         campSelectionRepo.getSelected()?.getCampaignId()
     }
 }
-
-class CampaignSettingsRepoFactory {
-    static func make() -> ICampaignSettingsDataHelper {
-        CampaignSettingsDataHelper(genRepo: GenericRepository(),
-                                   campSelectionRepo: CampaignSelectionRepositoryFactory.make())
-    }
-}

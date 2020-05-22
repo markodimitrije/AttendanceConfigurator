@@ -18,6 +18,7 @@
 		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C14DD39246FDDCD00093CED /* ResourcesForScan40.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */; };
 		7C14DD3B246FDFA700093CED /* ResourcesForScan41.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */; };
+		7C23CF5A2476D3F0002F737E /* CampaignSettingsDataHelperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23CF592476D3F0002F737E /* CampaignSettingsDataHelperFactory.swift */; };
 		7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */; };
 		7C2E5735244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */; };
 		7C2E5737244EDA64003EDAC7 /* CampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5736244EDA64003EDAC7 /* CampaignsRemoteApi.swift */; };
@@ -370,6 +371,7 @@
 		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan40.json; sourceTree = "<group>"; };
 		7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan41.json; sourceTree = "<group>"; };
+		7C23CF592476D3F0002F737E /* CampaignSettingsDataHelperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignSettingsDataHelperFactory.swift; sourceTree = "<group>"; };
 		7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWorkerFactory.swift; sourceTree = "<group>"; };
 		7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepositoryFactory.swift; sourceTree = "<group>"; };
 		7C2E5736244EDA64003EDAC7 /* CampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRemoteApi.swift; sourceTree = "<group>"; };
@@ -1409,6 +1411,7 @@
 			children = (
 				AD2C3A1221B67D0F00E8A319 /* CampaignSettingsRepository.swift */,
 				7C6E4FB92474020700970944 /* CampaignSettingsDataHelper.swift */,
+				7C23CF592476D3F0002F737E /* CampaignSettingsDataHelperFactory.swift */,
 			);
 			path = CampaignSettingsRepository;
 			sourceTree = "<group>";
@@ -2810,6 +2813,7 @@
 				7CF3018F244DF38B0055174D /* CampaignsViewModelFactory.swift in Sources */,
 				7CEBFB8124390DBF00D2983C /* IScanningCodeReporting.swift in Sources */,
 				7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */,
+				7C23CF5A2476D3F0002F737E /* CampaignSettingsDataHelperFactory.swift in Sources */,
 				7C7DCBD32448B9050072CDAE /* IFieldValidator.swift in Sources */,
 				7C5908CB2437AC6F006199B1 /* BlockViewModelFactory.swift in Sources */,
 				7CD529792433A8F900170D0A /* ReportCodeApiController.swift in Sources */,

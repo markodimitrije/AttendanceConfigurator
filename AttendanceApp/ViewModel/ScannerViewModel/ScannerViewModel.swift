@@ -31,7 +31,7 @@ extension ScannerViewModel: IScannerViewModel {
 
 class ScannerViewModel {
     
-    private var dataAccess: CampaignSettingsRepository!
+    private var dataAccess: ICampaignSettingsRepository!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
@@ -40,7 +40,7 @@ class ScannerViewModel {
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     let autoSessionTimer: AutoSessionTimer!
     
-    init(dataAccess: CampaignSettingsRepository,
+    init(dataAccess: ICampaignSettingsRepository,
          scannerInfoFactory: IScannerInfoFactory,
          codeReportsState: CodeReportsState,
          resourcesRepo: IMutableCampaignResourcesRepository,
@@ -70,7 +70,7 @@ class ScannerViewModel {
     
     fileprivate let bag = DisposeBag()
     
-    private func createOutput(dataAccess: CampaignSettingsRepository)
+    private func createOutput(dataAccess: ICampaignSettingsRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
             //return dataAccess.output

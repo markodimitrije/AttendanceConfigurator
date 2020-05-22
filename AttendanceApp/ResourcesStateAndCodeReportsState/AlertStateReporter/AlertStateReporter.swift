@@ -15,7 +15,7 @@ class AlertStateReporter {
     let monitor: AlertStateMonitor
     let webAPI: IReportBlockApiController
     
-    init(dataAccess: CampaignSettingsRepository, monitor: AlertStateMonitor, webAPI: IReportBlockApiController) {
+    init(dataAccess: ICampaignSettingsRepository, monitor: AlertStateMonitor, webAPI: IReportBlockApiController) {
         
         self.monitor = monitor
         self.webAPI = webAPI
@@ -31,7 +31,7 @@ class AlertStateReporter {
             .disposed(by: bag)
     }
     
-    private func makeObsBlockReport(dataAccess: CampaignSettingsRepository, monitor: AlertStateMonitor) -> Observable<BlockReport> {
+    private func makeObsBlockReport(dataAccess: ICampaignSettingsRepository, monitor: AlertStateMonitor) -> Observable<BlockReport> {
         
         let obsRoomId = dataAccess.obsCampSettings.map({$0.roomId ?? -1})
         let obsBlockId = dataAccess.obsCampSettings.map({$0.blockId ?? -1})

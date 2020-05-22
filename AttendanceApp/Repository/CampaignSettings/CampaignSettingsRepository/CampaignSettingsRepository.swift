@@ -10,21 +10,20 @@ import RxSwift
 import RxCocoa
 
 class CampaignSettingsRepositoryFactory {
-    static func make() -> CampaignSettingsRepository {
-        CampaignSettingsRepository.shared
+    static func make() -> ICampaignSettingsRepository {
+        let dataHelper = CampaignSettingsDataHelperFactory.make()
+        return CampaignSettingsRepository(dataHelper: dataHelper)
     }
 }
 
-class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
+class CampaignSettingsRepository: ICampaignSettingsRepository {
     
     lazy private var _settingsSelected =
         BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
     
     private var initialSettings: ICampaignSettings
     
-    private var campaignSettingsDataHelper: ICampaignSettingsDataHelper = CampaignSettingsRepoFactory.make()
-    
-    static var shared = CampaignSettingsRepository()
+    private var campaignSettingsDataHelper: ICampaignSettingsDataHelper
     
     private var campaignId: String = ""
     
@@ -63,9 +62,9 @@ class CampaignSettingsRepository: NSObject, ICampaignSettingsRepository {
         return _settingsSelected.asObservable()
     }
     
-    override init() {
+    init(dataHelper: ICampaignSettingsDataHelper) {
+        self.campaignSettingsDataHelper = dataHelper
         self.initialSettings = campaignSettingsDataHelper.read()
-        super.init()
     }
     
     deinit {
