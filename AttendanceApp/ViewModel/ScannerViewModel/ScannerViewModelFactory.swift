@@ -13,10 +13,14 @@ class ScannerViewModelFactory {
         let codeReportsState = CodeReportsStateFactory.make()
         let resourcesRepo = MutableCampaignResourcesRepositoryFactory.make()
         let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
+        let autoSessionTimer =
+        AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
+                         scanSettingsRepo: scanSettingsRepo)
         return ScannerViewModel(scanSettingsRepo: scanSettingsRepo,
                                 scannerInfoFactory: scannerInfoFactory,
                                 codeReportsState: codeReportsState,
                                 resourcesRepo: resourcesRepo,
-                                alertErrPresenter: AlertErrorPresenter())
+                                alertErrPresenter: AlertErrorPresenter(),
+                                autoSessionTimer: autoSessionTimer)
     }
 }

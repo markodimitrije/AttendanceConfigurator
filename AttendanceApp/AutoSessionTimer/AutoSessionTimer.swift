@@ -41,12 +41,10 @@ class AutoSessionTimer {
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,
                                                             date: actualSettings.selectedDate)
-                //BlockViewModel.init(roomId: actualSettings.roomId)
+                
             blockViewModel.oAutomaticBlock.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
-                var updateData = sSelf.scanSettingsRepo.getScanSettings()
-                updateData.blockId = block?.getId()
-                sSelf.scanSettingsRepo.update(settings: updateData)
+                sSelf.scanSettingsRepo.update(blockId: block?.getId())
             }).disposed(by: disposeBag)
         }
     }

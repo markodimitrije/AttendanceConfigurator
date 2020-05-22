@@ -9,14 +9,13 @@
 import RxSwift
 
 protocol IScanSettingsMutableRepository {
-    //func setNew(settings: ICampaignSettings)
+    func update(settings: ICampaignSettings)
+    func update(blockId: Int?)
     func deleteActualCampaignSettings()
     func deleteAllCampaignsSettings()
 }
 
 protocol IScanSettingsImmutableRepository {
-    func update(settings: ICampaignSettings)
-    func update(blockId: Int?)
     func getObsScanSettings() -> Observable<ICampaignSettings>
     func getScanSettings() -> ICampaignSettings
 }

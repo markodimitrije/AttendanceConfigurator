@@ -14,11 +14,11 @@ class AutoBlockViewModel {
     
     private let bag = DisposeBag()
     private let blockViewModel: BlockViewModel
-    private var scanSettingsRepo: IScanSettingsRepository
+    private var scanSettingsRepo: IScanSettingsMutableRepository
     
-    init(blockViewModel: BlockViewModel, campaignSettingsRepo: IScanSettingsRepository) {
+    init(blockViewModel: BlockViewModel, scanSettingsRepo: IScanSettingsMutableRepository) {
         self.blockViewModel = blockViewModel
-        self.scanSettingsRepo = campaignSettingsRepo
+        self.scanSettingsRepo = scanSettingsRepo
         bindInputWithOutput()
     }
     

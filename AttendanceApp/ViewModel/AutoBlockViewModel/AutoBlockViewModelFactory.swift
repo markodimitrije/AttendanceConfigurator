@@ -13,6 +13,6 @@ class AutoBlockViewModelFactory {
         let blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: date)
         let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
         return AutoBlockViewModel(blockViewModel: blockViewModel,
-                                  campaignSettingsRepo: scanSettingsRepo)
+                                  scanSettingsRepo: scanSettingsRepo)
     }
 }

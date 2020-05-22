@@ -31,30 +31,28 @@ extension ScannerViewModel: IScannerViewModel {
 
 class ScannerViewModel {
     
-    private var scanSettingsRepo: IScanSettingsRepository!
+    private var scanSettingsRepo: IScanSettingsImmutableRepository!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
     private let resourceState: IResourcesState = CampaignResourcesStateFactory.make()
     private let resourcesRepo: IMutableCampaignResourcesRepository
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
-    let autoSessionTimer: AutoSessionTimer!
+    private let autoSessionTimer: AutoSessionTimer!
     
-    init(scanSettingsRepo: IScanSettingsRepository,
+    init(scanSettingsRepo: IScanSettingsImmutableRepository,
          scannerInfoFactory: IScannerInfoFactory,
          codeReportsState: CodeReportsState,
          resourcesRepo: IMutableCampaignResourcesRepository,
-         alertErrPresenter: IAlertErrorPresenter) {
+         alertErrPresenter: IAlertErrorPresenter,
+         autoSessionTimer: AutoSessionTimer) {
         
         self.scanSettingsRepo = scanSettingsRepo
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
         self.resourcesRepo = resourcesRepo
         self.alertErrPresenter = alertErrPresenter
-        
-        self.autoSessionTimer =
-            AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
-                             scanSettingsRepo: scanSettingsRepo)
+        self.autoSessionTimer = autoSessionTimer
                 
         handleCampaignResources()
     }
@@ -66,7 +64,7 @@ class ScannerViewModel {
     
     fileprivate let bag = DisposeBag()
     
-    private func createOutput(scanSettingsRepo: IScanSettingsRepository)
+    private func createOutput(scanSettingsRepo: IScanSettingsImmutableRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
             let resourcesReady =
