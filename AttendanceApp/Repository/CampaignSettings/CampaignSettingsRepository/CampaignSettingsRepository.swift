@@ -62,6 +62,14 @@ class CampaignSettingsRepository: ICampaignSettingsRepository {
         return _settingsSelected.asObservable()
     }
     
+    var obsDBCampSettings: Observable<ICampaignSettings> {
+        campaignSettingsDataHelper.getObsActualSettings()
+    }
+    
+    var dbCampSettings: ICampaignSettings {
+        campaignSettingsDataHelper.read()
+    }
+    
     init(dataHelper: ICampaignSettingsDataHelper) {
         self.campaignSettingsDataHelper = dataHelper
         self.initialSettings = campaignSettingsDataHelper.read()

@@ -73,17 +73,22 @@ class ScannerViewModel {
     private func createOutput(dataAccess: ICampaignSettingsRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
-            //return dataAccess.output
-            return dataAccess.obsCampSettings
-                .debounce(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
-            //.delay(0.05, scheduler: MainScheduler.instance) // HACK - ovaj signal emituje pre nego je izgradjen UI
-            .map { (settings) -> IScannerInfo in
-                self.scannerInfoFactory.make(roomId: settings.roomId,
-                                             blockId: settings.blockId)
-            }.do(onNext: { scannerInfo in
-                self._oBlockId.accept(scannerInfo.getBlockId())
-            })
-            .asDriver(onErrorJustReturn: ScannerInfo())
+            let resourcesReady =
+                resourceState.oResourcesDownloaded
+                    .filter {$0 == true}
+                    .map {_ in dataAccess.dbCampSettings}
+            let obsSettings = dataAccess.obsDBCampSettings.share(replay: 1)
+            
+            let campaignSettings = Observable.merge([obsSettings, resourcesReady])
+            
+            return campaignSettings
+                .map { (settings) -> IScannerInfo in
+                    self.scannerInfoFactory.make(roomId: settings.roomId,
+                                                 blockId: settings.blockId)
+                }.do(onNext: { scannerInfo in
+                    self._oBlockId.accept(scannerInfo.getBlockId())
+                })
+                .asDriver(onErrorJustReturn: ScannerInfo())
     }
     
     private func handleCampaignResources() {

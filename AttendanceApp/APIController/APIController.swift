@@ -24,7 +24,7 @@ class ApiController: IApiController {
     static var shared = ApiController()
     
     init() {
-        Logging.URLRequests = { request in return true }
+        Logging.URLRequests = { request in return false }
     }
     
     func buildRequest(base: URL = Domain.baseUrl,

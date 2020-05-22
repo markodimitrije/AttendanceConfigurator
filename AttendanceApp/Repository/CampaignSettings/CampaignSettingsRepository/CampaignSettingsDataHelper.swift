@@ -6,11 +6,12 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 protocol ICampaignSettingsDataHelper {
     func read() -> ICampaignSettings
     func save(selection: ICampaignSettings)
+    func getObsActualSettings() -> Observable<ICampaignSettings>
 }
 
 extension CampaignSettingsDataHelper: ICampaignSettingsDataHelper {
@@ -32,6 +33,17 @@ extension CampaignSettingsDataHelper: ICampaignSettingsDataHelper {
         rSettings.campaignId = campaignId!
         try! genRepo.save(objects: [rSettings])
     }
+    func getObsActualSettings() -> Observable<ICampaignSettings> {
+        let filter = NSPredicate(format: "campaignId == %@", self.campaignId!)
+        return genRepo
+            .getObsObjects(ofType: RealmCampaignSettings.self, filter: filter)
+            .map({ (arr) -> ICampaignSettings in
+                (arr.first != nil) ?
+                    CampaignSettingsFactory.make(rCampaignSettings: arr.first!) :
+                    CampaignSettings()
+            })
+    }
+    
 }
 
 struct CampaignSettingsDataHelper {

@@ -29,7 +29,7 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
         self.unziper = unziper
         self.resourcesFactory = resourcesFactory
         self.campaignSelection = campaignSelection
-        Logging.URLRequests = { request in return true }
+        Logging.URLRequests = { request in return false }
     }
 
  //MARK: - API Calls

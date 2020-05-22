@@ -72,65 +72,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2D73A43F-D3C4-4BC3-87DF-013136E6D28D"
+            uuid = "85005B04-359A-4EED-95F9-43625508F1DC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewModel/SettingsViewModel/SettingsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "transform(input:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F484A064-5AD3-4503-8ACC-FAF5AE433C24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
+            filePath = "AttendanceApp/Repository/Blocks/BlockImmutableRepository/BlockImmutableRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
-            landmarkName = "fire()"
+            landmarkName = "getBlock(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7CFFFBD7-225A-48C8-A750-AB71F62EBE40"
+            uuid = "395B608A-9ACA-403F-B718-F91C9AF44AEB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/AutoSessionTimer/AutoSessionTimer.swift"
+            filePath = "AttendanceApp/ViewModel/ScannerViewModel/ScannerInfoFactory.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "fire()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AC017E5D-FB50-4924-A57F-957E23CAAF93"
-            shouldBeEnabled = "Yes"
-            condition = "self.dataAccess.userSelection.autoSwitch == true"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewModel/SettingsViewModel/SettingsViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "init(dataAccess:roomRepo:blockRepo:deviceStateReporter:)"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "make(roomId:blockId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
