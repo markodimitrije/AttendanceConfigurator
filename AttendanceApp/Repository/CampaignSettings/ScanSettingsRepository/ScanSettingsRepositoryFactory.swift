@@ -9,6 +9,7 @@
 class ScanSettingsRepositoryFactory {
     static func make() -> IScanSettingsRepository {
         let dataHelper = ScanSettingsDataHelperFactory.make()
-        return ScanSettingsRepository(dataHelper: dataHelper)
+        return ScanSettingsRepository(dataHelper: dataHelper,
+                                      deviceStateReporterDelegate: DeviceStateReporter())
     }
 }

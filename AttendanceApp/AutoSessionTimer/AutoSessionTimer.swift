@@ -43,8 +43,8 @@ class AutoSessionTimer {
                                                             date: actualSettings.selectedDate)
                 
             blockViewModel.oAutomaticBlock.subscribe(onNext: { [weak self] block in
-                guard let sSelf = self else {return}
-                sSelf.scanSettingsRepo.update(blockId: block?.getId())
+                guard let sSelf = self, let blockId = block?.getId() else {return}
+                sSelf.scanSettingsRepo.update(blockId: blockId)
             }).disposed(by: disposeBag)
         }
     }

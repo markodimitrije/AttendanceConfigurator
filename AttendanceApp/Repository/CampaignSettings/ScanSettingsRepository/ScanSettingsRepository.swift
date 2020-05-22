@@ -11,19 +11,21 @@ import RxCocoa
 
 class ScanSettingsRepository: IScanSettingsRepository {
     
-    private var initialSettings: IScanSettings
-    
-    private var scanSettingsDataHelper: IScanSettingsDataHelper
+    private let initialSettings: IScanSettings
+    private let scanSettingsDataHelper: IScanSettingsDataHelper
+    private let deviceStateReporterDelegate: DeviceStateReporter
     
     // API: input, output
     
     func update(settings: IScanSettings) {
         scanSettingsDataHelper.save(selection: settings)
+        sendDeviceReport()
     }
-    func update(blockId: Int?) {
+    func update(blockId: Int) {
         var settings = scanSettingsDataHelper.read()
         settings.blockId = blockId
         scanSettingsDataHelper.save(selection: settings)
+        sendDeviceReport()
     }
     
     func deleteActualCampaignSettings() {
@@ -43,9 +45,16 @@ class ScanSettingsRepository: IScanSettingsRepository {
     func getScanSettings() -> IScanSettings {
         scanSettingsDataHelper.read()
     }
+
+    private func sendDeviceReport() {
+        let batInfo = BatteryManager.init().info
+        let info = (getScanSettings().roomId!, getScanSettings().blockId!)
+        deviceStateReporterDelegate.blockIsSet(info: info, battery_info: batInfo, app_active: true)
+    }
     
-    init(dataHelper: IScanSettingsDataHelper) {
+    init(dataHelper: IScanSettingsDataHelper, deviceStateReporterDelegate: DeviceStateReporter) {
         self.scanSettingsDataHelper = dataHelper
+        self.deviceStateReporterDelegate = deviceStateReporterDelegate
         self.initialSettings = scanSettingsDataHelper.read()
     }
     

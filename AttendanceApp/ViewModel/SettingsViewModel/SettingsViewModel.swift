@@ -14,15 +14,13 @@ final class SettingsViewModel: ViewModelType {
     private var scanSettingsRepo: IScanSettingsRepository
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockImmutableRepository
-    private let deviceStateReporter: DeviceStateReporter
     
     private let initialSettings: IScanSettings
     
-    init(scanSettingsRepo: IScanSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
+    init(scanSettingsRepo: IScanSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository) {
         self.scanSettingsRepo = scanSettingsRepo
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo
-        self.deviceStateReporter = deviceStateReporter
         // set initial selection
         self.initialSettings = self.scanSettingsRepo.getScanSettings()
     }
@@ -134,15 +132,10 @@ final class SettingsViewModel: ViewModelType {
     private func onUserSavedSettings(roomId: Int, blockId: Int, date: Date?, autoSwitch: Bool) {
         let settings = ScanSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch)
         self.persist(settings: settings)
-        self.sendDeviceReport(info: (roomId, blockId))
     }
     
     private func persist(settings: IScanSettings) {
         self.scanSettingsRepo.update(settings: settings)
     }
     
-    private func sendDeviceReport(info: (Int, Int)) {
-        let batInfo = BatteryManager.init().info
-        deviceStateReporter.blockIsSet(info: info, battery_info: batInfo, app_active: true)
-    }
 }

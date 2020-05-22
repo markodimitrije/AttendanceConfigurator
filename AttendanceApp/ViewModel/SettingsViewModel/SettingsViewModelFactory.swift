@@ -12,7 +12,6 @@ class SettingsViewModelFactory {
         let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
         return SettingsViewModel(scanSettingsRepo: scanSettingsRepo,
                                  roomRepo: RoomRepository(),
-                                 blockRepo: blockRepo,
-                                 deviceStateReporter: DeviceStateReporter())
+                                 blockRepo: blockRepo)
     }
 }

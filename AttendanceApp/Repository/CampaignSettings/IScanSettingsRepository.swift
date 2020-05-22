@@ -10,7 +10,7 @@ import RxSwift
 
 protocol IScanSettingsMutableRepository {
     func update(settings: IScanSettings)
-    func update(blockId: Int?)
+    func update(blockId: Int)
     func deleteActualCampaignSettings()
     func deleteAllCampaignsSettings()
 }

@@ -12,6 +12,7 @@ protocol IScanSettingsDataHelper {
     func read() -> IScanSettings
     func save(selection: IScanSettings)
     func getObsActualSettings() -> Observable<IScanSettings>
+    //TODO marko: delete
 }
 
 extension ScanSettingsDataHelper: IScanSettingsDataHelper {

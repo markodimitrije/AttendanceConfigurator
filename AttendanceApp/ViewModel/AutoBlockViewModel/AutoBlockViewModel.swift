@@ -29,9 +29,6 @@ class AutoBlockViewModel {
         
         blockViewModel.oAutomaticBlock // output svog slave-a
             .asDriver(onErrorJustReturn: nil)
-            .do(onNext: { (block) in
-                self.scanSettingsRepo.update(blockId: block?.getId())
-            })
             .drive(selectedBlock) // prosledi na svoj output
             .disposed(by: bag)
     }
