@@ -90,7 +90,7 @@ final class SettingsViewModel: ViewModelType {
         }
         
         //sessionDriver
-        let finalSession = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
+        let finalBlock = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
             $1 ? $0 : self.initialBlock
         }
         
@@ -111,10 +111,8 @@ final class SettingsViewModel: ViewModelType {
                 return (tap) ? block?.getStartsAt() : self.initialDate
         }
         
-        let sessionInfo = Driver.combineLatest(finalRoom,
-                                               finalSession,
-                                               finalDateSelected,
-                                               finalAutoSwitch) {
+        let sessionInfo =
+            Driver.combineLatest(finalRoom, finalBlock, finalDateSelected, finalAutoSwitch) {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
@@ -136,7 +134,7 @@ final class SettingsViewModel: ViewModelType {
                       dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      selectedBlock: finalSession,
+                      selectedBlock: finalBlock,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
     }
