@@ -10,10 +10,10 @@ import Foundation
 
 class LogoutWorkerFactory {
     static func make() -> ILogoutWorker {
-        let campaignSettingsRepo = CampaignSettingsRepositoryFactory.make()
+        let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
         return LogoutWorker(logoutRemoteApi: LogoutRemoteApiControllerFactory.make(),
-                     userState: UserStateRepository(),
-                     genericRepo: GenMuttableRepository(),
-                     campaignSettingsRepo: campaignSettingsRepo)
+                            userState: UserStateRepository(),
+                            genericRepo: GenMuttableRepository(),
+                            scanSettingsRepo: scanSettingsRepo)
     }
 }

@@ -11,7 +11,7 @@ import RxCocoa
 
 final class SettingsViewModel: ViewModelType {
     
-    private var dataAccess: ICampaignSettingsRepository
+    private var scanSettingsRepo: IScanSettingsRepository
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockImmutableRepository
     private let deviceStateReporter: DeviceStateReporter
@@ -21,16 +21,16 @@ final class SettingsViewModel: ViewModelType {
     private let initialDate: Date?
     private let initialAutoSwitch: Bool
     
-    init(dataAccess: ICampaignSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
-        self.dataAccess = dataAccess
+    init(scanSettingsRepo: IScanSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
+        self.scanSettingsRepo = scanSettingsRepo
         self.roomRepo = roomRepo
         self.blockRepo = blockRepo
         self.deviceStateReporter = deviceStateReporter
         // set initial selection
-        self.initialRoom = self.dataAccess.userSelection.roomId
-        self.initialBlock = self.dataAccess.userSelection.blockId
-        self.initialDate = self.dataAccess.userSelection.selectedDate
-        self.initialAutoSwitch = self.dataAccess.userSelection.autoSwitch
+        self.initialRoom = self.scanSettingsRepo.userSelection.roomId
+        self.initialBlock = self.scanSettingsRepo.userSelection.blockId
+        self.initialDate = self.scanSettingsRepo.userSelection.selectedDate
+        self.initialAutoSwitch = self.scanSettingsRepo.userSelection.autoSwitch
     }
     
     func transform(input: Input) -> Output {
@@ -116,7 +116,7 @@ final class SettingsViewModel: ViewModelType {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            self.dataAccess.userSelection = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
+            self.scanSettingsRepo.userSelection = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
 
             guard let roomId = roomId, let blockId = blockId else { return nil}
                                                 

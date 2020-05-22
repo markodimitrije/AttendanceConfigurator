@@ -15,12 +15,12 @@ class AlertStateReporter {
     let monitor: AlertStateMonitor
     let webAPI: IReportBlockApiController
     
-    init(dataAccess: ICampaignSettingsRepository, monitor: AlertStateMonitor, webAPI: IReportBlockApiController) {
+    init(scanSettingsRepo: IScanSettingsImmutableRepository, monitor: AlertStateMonitor, webAPI: IReportBlockApiController) {
         
         self.monitor = monitor
         self.webAPI = webAPI
         
-        makeObsBlockReport(dataAccess: dataAccess, monitor: self.monitor)
+        makeObsBlockReport(scanSettingsRepo: scanSettingsRepo, monitor: self.monitor)
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: { report in
                     
@@ -31,10 +31,11 @@ class AlertStateReporter {
             .disposed(by: bag)
     }
     
-    private func makeObsBlockReport(dataAccess: ICampaignSettingsRepository, monitor: AlertStateMonitor) -> Observable<BlockReport> {
+    private func makeObsBlockReport(scanSettingsRepo: IScanSettingsImmutableRepository,
+                                    monitor: AlertStateMonitor) -> Observable<BlockReport> {
         
-        let obsRoomId = dataAccess.obsCampSettings.map({$0.roomId ?? -1})
-        let obsBlockId = dataAccess.obsCampSettings.map({$0.blockId ?? -1})
+        let obsRoomId = scanSettingsRepo.obsDBCampSettings.map({$0.roomId ?? -1})
+        let obsBlockId = scanSettingsRepo.obsDBCampSettings.map({$0.blockId ?? -1})
         
         return Observable
             .combineLatest(obsRoomId,

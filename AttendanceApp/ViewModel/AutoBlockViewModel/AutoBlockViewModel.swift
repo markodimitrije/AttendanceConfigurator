@@ -14,11 +14,11 @@ class AutoBlockViewModel {
     
     private let bag = DisposeBag()
     private let blockViewModel: BlockViewModel
-    private var campaignSettingsRepo: ICampaignSettingsRepository
+    private var scanSettingsRepo: IScanSettingsRepository
     
-    init(blockViewModel: BlockViewModel, campaignSettingsRepo: ICampaignSettingsRepository) {
+    init(blockViewModel: BlockViewModel, campaignSettingsRepo: IScanSettingsRepository) {
         self.blockViewModel = blockViewModel
-        self.campaignSettingsRepo = campaignSettingsRepo
+        self.scanSettingsRepo = campaignSettingsRepo
         bindInputWithOutput()
     }
     
@@ -30,7 +30,7 @@ class AutoBlockViewModel {
         blockViewModel.oAutomaticBlock // output svog slave-a
             .asDriver(onErrorJustReturn: nil)
             .do(onNext: { (block) in
-                self.campaignSettingsRepo.userSelection.blockId = block?.getId() // hazardous hard-coded?
+                self.scanSettingsRepo.userSelection.blockId = block?.getId() // hazardous hard-coded?
             })
             .drive(selectedBlock) // prosledi na svoj output
             .disposed(by: bag)

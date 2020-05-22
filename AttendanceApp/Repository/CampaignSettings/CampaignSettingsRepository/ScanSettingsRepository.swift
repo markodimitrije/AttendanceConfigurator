@@ -1,5 +1,5 @@
 //
-//  CampaignSettingsRepository.swift
+//  ScanSettingsRepository.swift
 //  tryWebApiAndSaveToRealm
 //
 //  Created by Marko Dimitrijevic on 04/12/2018.
@@ -9,14 +9,7 @@
 import RxSwift
 import RxCocoa
 
-class CampaignSettingsRepositoryFactory {
-    static func make() -> ICampaignSettingsRepository {
-        let dataHelper = CampaignSettingsDataHelperFactory.make()
-        return CampaignSettingsRepository(dataHelper: dataHelper)
-    }
-}
-
-class CampaignSettingsRepository: ICampaignSettingsRepository {
+class ScanSettingsRepository: IScanSettingsRepository {
     
     lazy private var _settingsSelected =
         BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
@@ -34,6 +27,9 @@ class CampaignSettingsRepository: ICampaignSettingsRepository {
     }
     
     // API: input, output
+    
+    
+    
     var userSelection: ICampaignSettings {
         get {
             campaignSettingsDataHelper.read()
@@ -57,10 +53,6 @@ class CampaignSettingsRepository: ICampaignSettingsRepository {
     }
     
     // API: output
-    
-    var obsCampSettings: Observable<ICampaignSettings> {
-        return _settingsSelected.asObservable()
-    }
     
     var obsDBCampSettings: Observable<ICampaignSettings> {
         campaignSettingsDataHelper.getObsActualSettings()

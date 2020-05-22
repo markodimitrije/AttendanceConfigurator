@@ -11,14 +11,14 @@ import RxSwift
 import RxCocoa
 
 class AutoSessionTimer {
-    private var dataAccess: ICampaignSettingsRepository
+    private var scanSettingsRepo: IScanSettingsRepository
     private let campaignSelectionRepo: ICampaignSelectionRepository
     private var timer: Timer!
     init(campaignSelectionRepo: ICampaignSelectionRepository,
-         dataAccess: ICampaignSettingsRepository) {
+         scanSettingsRepo: IScanSettingsRepository) {
         
         self.campaignSelectionRepo = campaignSelectionRepo
-        self.dataAccess = dataAccess
+        self.scanSettingsRepo = scanSettingsRepo
     
         loadTimer()
         
@@ -37,16 +37,16 @@ class AutoSessionTimer {
         guard self.campaignSelectionRepo.getSelected() != nil else {
             return
         }
-        let actualSettings = dataAccess.userSelection
+        let actualSettings = scanSettingsRepo.userSelection
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,
                                                             date: actualSettings.selectedDate)
                 //BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticBlock.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
-                var updateData = sSelf.dataAccess.userSelection
+                var updateData = sSelf.scanSettingsRepo.userSelection
                 updateData.blockId = block?.getId()
-                sSelf.dataAccess.userSelection = updateData
+                sSelf.scanSettingsRepo.userSelection = updateData
             }).disposed(by: disposeBag)
         }
     }

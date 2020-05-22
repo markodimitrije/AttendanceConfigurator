@@ -11,8 +11,8 @@ import Foundation
 class AutoBlockViewModelFactory {
     static func make(roomId: Int, date: Date?) -> AutoBlockViewModel {
         let blockViewModel = BlockViewModelFactory.make(roomId: roomId, date: date)
-        let campaignSettingsRepo = CampaignSettingsRepositoryFactory.make()
+        let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
         return AutoBlockViewModel(blockViewModel: blockViewModel,
-                                  campaignSettingsRepo: campaignSettingsRepo)
+                                  campaignSettingsRepo: scanSettingsRepo)
     }
 }

@@ -13,15 +13,15 @@ class LogoutWorker {
     private let logoutRemoteApi: ILogoutRemoteApi
     private let userState: IUserStateRepository
     private let genericRepo: IGenMuttableRepository
-    private let campaignSettingsRepo: ICampaignSettingsRepository
+    private let scanSettingsRepo: IScanSettingsMutableRepository
     
     private let bag = DisposeBag()
     
-    init(logoutRemoteApi: ILogoutRemoteApi, userState: IUserStateRepository, genericRepo: IGenMuttableRepository, campaignSettingsRepo: ICampaignSettingsRepository) {
+    init(logoutRemoteApi: ILogoutRemoteApi, userState: IUserStateRepository, genericRepo: IGenMuttableRepository, scanSettingsRepo: IScanSettingsMutableRepository) {
         self.logoutRemoteApi = logoutRemoteApi
         self.userState = userState
         self.genericRepo = genericRepo
-        self.campaignSettingsRepo = campaignSettingsRepo
+        self.scanSettingsRepo = scanSettingsRepo
     }
 }
 
@@ -34,7 +34,7 @@ extension LogoutWorker: ILogoutWorker {
         
         userState.logout()
         _ = genericRepo.deleteAllDataIfAny()//TODO marko: should it delete all ??
-        campaignSettingsRepo.deleteAllCampaignsSettings()
+        scanSettingsRepo.deleteAllCampaignsSettings()
     }
     
 }

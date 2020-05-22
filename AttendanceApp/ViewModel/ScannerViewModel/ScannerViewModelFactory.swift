@@ -12,8 +12,8 @@ class ScannerViewModelFactory {
         let scannerInfoFactory = ScannerInfoFactory(roomRepo: RoomRepository(), blockRepo: blockRepo, blockPresenter: BlockPresenter())
         let codeReportsState = CodeReportsStateFactory.make()
         let resourcesRepo = MutableCampaignResourcesRepositoryFactory.make()
-        let campaignSettings = CampaignSettingsRepositoryFactory.make()
-        return ScannerViewModel(dataAccess: campaignSettings,
+        let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
+        return ScannerViewModel(scanSettingsRepo: scanSettingsRepo,
                                 scannerInfoFactory: scannerInfoFactory,
                                 codeReportsState: codeReportsState,
                                 resourcesRepo: resourcesRepo,

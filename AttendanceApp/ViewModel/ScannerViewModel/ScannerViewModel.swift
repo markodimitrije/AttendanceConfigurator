@@ -12,7 +12,7 @@ import RxCocoa
 
 extension ScannerViewModel: IScannerViewModel {
     func getScannerInfoDriver() -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
-        createOutput(dataAccess: dataAccess)
+        createOutput(scanSettingsRepo: scanSettingsRepo)
     }
     
     func getActualBlockId() -> Int {
@@ -31,7 +31,7 @@ extension ScannerViewModel: IScannerViewModel {
 
 class ScannerViewModel {
     
-    private var dataAccess: ICampaignSettingsRepository!
+    private var scanSettingsRepo: IScanSettingsRepository!
     private let scannerInfoFactory: IScannerInfoFactory
     private let codeReportsState: CodeReportsState
     private let alertErrPresenter: IAlertErrorPresenter
@@ -40,13 +40,13 @@ class ScannerViewModel {
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     let autoSessionTimer: AutoSessionTimer!
     
-    init(dataAccess: ICampaignSettingsRepository,
+    init(scanSettingsRepo: IScanSettingsRepository,
          scannerInfoFactory: IScannerInfoFactory,
          codeReportsState: CodeReportsState,
          resourcesRepo: IMutableCampaignResourcesRepository,
          alertErrPresenter: IAlertErrorPresenter) {
         
-        self.dataAccess = dataAccess
+        self.scanSettingsRepo = scanSettingsRepo
         self.scannerInfoFactory = scannerInfoFactory
         self.codeReportsState = codeReportsState
         self.resourcesRepo = resourcesRepo
@@ -54,11 +54,11 @@ class ScannerViewModel {
         
         self.autoSessionTimer =
             AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
-                             dataAccess: dataAccess)
+                             scanSettingsRepo: scanSettingsRepo)
         
         // TODO marko: bad design..
         let campaignId = campaignSelectionRepo.getSelected()!.getCampaignId()
-        self.dataAccess.campaignSelected(campaignId: campaignId)
+        self.scanSettingsRepo.campaignSelected(campaignId: campaignId)
         
         handleCampaignResources()
     }
@@ -70,14 +70,14 @@ class ScannerViewModel {
     
     fileprivate let bag = DisposeBag()
     
-    private func createOutput(dataAccess: ICampaignSettingsRepository)
+    private func createOutput(scanSettingsRepo: IScanSettingsRepository)
         -> SharedSequence<DriverSharingStrategy, IScannerInfo> {
         
             let resourcesReady =
                 resourceState.oResourcesDownloaded
                     .filter {$0 == true}
-                    .map {_ in dataAccess.dbCampSettings}
-            let obsSettings = dataAccess.obsDBCampSettings.share(replay: 1)
+                    .map {_ in scanSettingsRepo.dbCampSettings}
+            let obsSettings = scanSettingsRepo.obsDBCampSettings.share(replay: 1)
             
             let campaignSettings = Observable.merge([obsSettings, resourcesReady])
             
