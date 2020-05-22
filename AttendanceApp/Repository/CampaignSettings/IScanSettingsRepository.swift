@@ -15,7 +15,8 @@ protocol IScanSettingsMutableRepository {
 }
 
 protocol IScanSettingsImmutableRepository {
-    var userSelection: ICampaignSettings {get set}
+    func update(settings: ICampaignSettings)
+    func update(blockId: Int?)
     func getObsScanSettings() -> Observable<ICampaignSettings>
     func getScanSettings() -> ICampaignSettings
 }

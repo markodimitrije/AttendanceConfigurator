@@ -55,7 +55,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .map {_ in return false}
             .asDriver(onErrorJustReturn: false)//.debug()
         
-        let savedAutoSwitchState = scanSettingsRepo.userSelection.autoSwitch
+        let savedAutoSwitchState = scanSettingsRepo.getScanSettings().autoSwitch
         let blockSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)

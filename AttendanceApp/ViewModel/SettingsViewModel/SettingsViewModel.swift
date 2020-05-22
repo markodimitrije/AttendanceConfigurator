@@ -27,10 +27,10 @@ final class SettingsViewModel: ViewModelType {
         self.blockRepo = blockRepo
         self.deviceStateReporter = deviceStateReporter
         // set initial selection
-        self.initialRoom = self.scanSettingsRepo.userSelection.roomId
-        self.initialBlock = self.scanSettingsRepo.userSelection.blockId
-        self.initialDate = self.scanSettingsRepo.userSelection.selectedDate
-        self.initialAutoSwitch = self.scanSettingsRepo.userSelection.autoSwitch
+        self.initialRoom = self.scanSettingsRepo.getScanSettings().roomId
+        self.initialBlock = self.scanSettingsRepo.getScanSettings().blockId
+        self.initialDate = self.scanSettingsRepo.getScanSettings().selectedDate
+        self.initialAutoSwitch = self.scanSettingsRepo.getScanSettings().autoSwitch
     }
     
     func transform(input: Input) -> Output {
@@ -116,7 +116,8 @@ final class SettingsViewModel: ViewModelType {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            self.scanSettingsRepo.userSelection = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
+            let settings = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
+            self.scanSettingsRepo.update(settings: settings)
 
             guard let roomId = roomId, let blockId = blockId else { return nil}
                                                 

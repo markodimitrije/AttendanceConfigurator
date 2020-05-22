@@ -37,16 +37,16 @@ class AutoSessionTimer {
         guard self.campaignSelectionRepo.getSelected() != nil else {
             return
         }
-        let actualSettings = scanSettingsRepo.userSelection
+        let actualSettings = scanSettingsRepo.getScanSettings()
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,
                                                             date: actualSettings.selectedDate)
                 //BlockViewModel.init(roomId: actualSettings.roomId)
             blockViewModel.oAutomaticBlock.subscribe(onNext: { [weak self] block in
                 guard let sSelf = self else {return}
-                var updateData = sSelf.scanSettingsRepo.userSelection
+                var updateData = sSelf.scanSettingsRepo.getScanSettings()
                 updateData.blockId = block?.getId()
-                sSelf.scanSettingsRepo.userSelection = updateData
+                sSelf.scanSettingsRepo.update(settings: updateData)
             }).disposed(by: disposeBag)
         }
     }

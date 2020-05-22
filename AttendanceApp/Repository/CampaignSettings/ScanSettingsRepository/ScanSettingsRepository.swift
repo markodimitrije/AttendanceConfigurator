@@ -17,13 +17,13 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     // API: input, output
     
-    var userSelection: ICampaignSettings {
-        get {
-            scanSettingsDataHelper.read()
-        }
-        set {
-            scanSettingsDataHelper.save(selection: newValue)
-        }
+    func update(settings: ICampaignSettings) {
+        scanSettingsDataHelper.save(selection: settings)
+    }
+    func update(blockId: Int?) {
+        var settings = scanSettingsDataHelper.read()
+        settings.blockId = blockId
+        scanSettingsDataHelper.save(selection: settings)
     }
     
     func deleteActualCampaignSettings() {
