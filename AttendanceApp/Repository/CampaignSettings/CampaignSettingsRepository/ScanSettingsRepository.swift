@@ -11,9 +11,6 @@ import RxCocoa
 
 class ScanSettingsRepository: IScanSettingsRepository {
     
-    lazy private var _settingsSelected =
-        BehaviorRelay<ICampaignSettings>.init(value: initialSettings)
-    
     private var initialSettings: ICampaignSettings
     
     private var campaignSettingsDataHelper: ICampaignSettingsDataHelper
@@ -39,11 +36,11 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     // API: output
     
-    var obsDBCampSettings: Observable<ICampaignSettings> {
+    func getObsCampSettings() -> Observable<ICampaignSettings> {
         campaignSettingsDataHelper.getObsActualSettings()
     }
     
-    var dbCampSettings: ICampaignSettings {
+    func getCampSettings() -> ICampaignSettings {
         campaignSettingsDataHelper.read()
     }
     

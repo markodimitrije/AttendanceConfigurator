@@ -27,15 +27,15 @@ class SettingsViewControllerFactory {
                                                    toSettingsVC settingsVC: SettingsViewController) {
         
         settingsVC.dateSelected = {
-            let date = settings.dbCampSettings.selectedDate
+            let date = settings.getCampSettings().selectedDate
             return BehaviorRelay<Date?>.init(value: date)
         }()
         settingsVC.roomSelected = {
-            let roomId = settings.dbCampSettings.roomId
+            let roomId = settings.getCampSettings().roomId
             return BehaviorSubject<Int?>.init(value: roomId)
         }()
         settingsVC.blockManuallySelected = {
-            let blockId = settings.dbCampSettings.blockId
+            let blockId = settings.getCampSettings().blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }
@@ -43,7 +43,7 @@ class SettingsViewControllerFactory {
     private static func attachOutputSignal(from settings: IScanSettingsImmutableRepository,
                                            toSettingsVC settingsVC: SettingsViewController) {
         settingsVC.blockSelected = {
-            let blockId = settings.dbCampSettings.blockId
+            let blockId = settings.getCampSettings().blockId
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }

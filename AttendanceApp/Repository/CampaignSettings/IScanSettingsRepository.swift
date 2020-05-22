@@ -16,8 +16,8 @@ protocol IScanSettingsMutableRepository {
 
 protocol IScanSettingsImmutableRepository {
     var userSelection: ICampaignSettings {get set}
-    var obsDBCampSettings: Observable<ICampaignSettings> {get} // replace with this ? (DataBase)
-    var dbCampSettings: ICampaignSettings {get} // replace with this ? (DataBase)
+    func getObsCampSettings() -> Observable<ICampaignSettings>
+    func getCampSettings() -> ICampaignSettings
 }
 
 

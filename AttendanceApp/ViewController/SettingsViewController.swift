@@ -99,7 +99,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .subscribe(onNext: { _ in })
             .disposed(by: disposeBag)
         
-        scanSettingsRepo.obsDBCampSettings.map {$0.autoSwitch}
+        scanSettingsRepo.getObsCampSettings().map {$0.autoSwitch}
             .take(1)
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
