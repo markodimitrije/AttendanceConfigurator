@@ -18,12 +18,6 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     private var campaignSettingsDataHelper: ICampaignSettingsDataHelper
     
-    private var campaignId: String = ""
-    
-    func campaignSelected(campaignId: String) {
-        self.campaignId = campaignId
-    }
-    
     // API: input, output
     
     var userSelection: ICampaignSettings {

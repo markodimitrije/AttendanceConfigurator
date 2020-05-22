@@ -10,7 +10,6 @@ import RxSwift
 
 protocol IScanSettingsMutableRepository {
     //func setNew(settings: ICampaignSettings)
-    func campaignSelected(campaignId: String)
     func deleteActualCampaignSettings()
     func deleteAllCampaignsSettings()
 }

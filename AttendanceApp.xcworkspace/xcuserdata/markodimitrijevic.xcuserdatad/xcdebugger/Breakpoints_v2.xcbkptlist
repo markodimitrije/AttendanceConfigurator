@@ -95,25 +95,9 @@
             filePath = "AttendanceApp/Repository/CampaignSettings/CampaignSettingsRepository/ScanSettingsRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "deleteActualCampaignSettings()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7C278D00-1197-4AFD-B1F6-8C5B49AB61AE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/Repository/CampaignSettings/CampaignSettingsRepository/ScanSettingsRepository.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "campaignSelected(campaignId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -55,11 +55,7 @@ class ScannerViewModel {
         self.autoSessionTimer =
             AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
                              scanSettingsRepo: scanSettingsRepo)
-        
-        // TODO marko: bad design..
-        let campaignId = campaignSelectionRepo.getSelected()!.getCampaignId()
-        self.scanSettingsRepo.campaignSelected(campaignId: campaignId)
-        
+                
         handleCampaignResources()
     }
     
