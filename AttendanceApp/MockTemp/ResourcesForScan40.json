@@ -18,7 +18,7 @@
   "locations": [
       {
           "id": 5456,
-          "name": "Plant room",
+          "name": "Forests room",
           "type": "Room",
           "color": null,
           "floor": 0,
@@ -32,7 +32,7 @@
       },
       {
           "id": 5457,
-          "name": "Animals room",
+          "name": "Islands room",
           "type": "Room",
           "color": null,
           "floor": 0,
