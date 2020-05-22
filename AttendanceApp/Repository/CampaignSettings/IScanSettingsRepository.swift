@@ -22,11 +22,4 @@ protocol IScanSettingsImmutableRepository {
 }
 
 
-protocol IScanSettingsRepository: IScanSettingsMutableRepository, IScanSettingsImmutableRepository {
-//    var userSelection: ICampaignSettings {get set}
-//    var obsDBCampSettings: Observable<ICampaignSettings> {get} // replace with this ? (DataBase)
-//    var dbCampSettings: ICampaignSettings {get} // replace with this ? (DataBase)
-    
-    
-    
-}
+protocol IScanSettingsRepository: IScanSettingsMutableRepository, IScanSettingsImmutableRepository {}

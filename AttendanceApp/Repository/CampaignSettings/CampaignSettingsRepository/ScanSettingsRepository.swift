@@ -22,13 +22,9 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     func campaignSelected(campaignId: String) {
         self.campaignId = campaignId
-        let existingSettings = campaignSettingsDataHelper.read()
-        postUpdateOnOutput(userSelection: existingSettings)
     }
     
     // API: input, output
-    
-    
     
     var userSelection: ICampaignSettings {
         get {
@@ -36,20 +32,15 @@ class ScanSettingsRepository: IScanSettingsRepository {
         }
         set {
             campaignSettingsDataHelper.save(selection: newValue)
-            postUpdateOnOutput(userSelection: newValue)
         }
     }
     
-    private func postUpdateOnOutput(userSelection: ICampaignSettings) {
-        _settingsSelected.accept(userSelection)
-    }
-    
     func deleteActualCampaignSettings() {
-        _settingsSelected.accept(CampaignSettings())
+        
     }
     
     func deleteAllCampaignsSettings() {
-        _settingsSelected.accept(CampaignSettings())
+        
     }
     
     // API: output
