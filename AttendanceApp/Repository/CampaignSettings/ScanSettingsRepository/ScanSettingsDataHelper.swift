@@ -1,5 +1,5 @@
 //
-//  CampaignSettingsDataHelper.swift
+//  ScanSettingsDataHelper.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 19/05/2020.
@@ -8,13 +8,13 @@
 
 import RxSwift
 
-protocol ICampaignSettingsDataHelper {
+protocol IScanSettingsDataHelper {
     func read() -> ICampaignSettings
     func save(selection: ICampaignSettings)
     func getObsActualSettings() -> Observable<ICampaignSettings>
 }
 
-extension CampaignSettingsDataHelper: ICampaignSettingsDataHelper {
+extension ScanSettingsDataHelper: IScanSettingsDataHelper {
     func read() -> ICampaignSettings {
         guard let campaignId = campaignId else {
             return CampaignSettings.init()
@@ -46,7 +46,7 @@ extension CampaignSettingsDataHelper: ICampaignSettingsDataHelper {
     
 }
 
-struct CampaignSettingsDataHelper {
+struct ScanSettingsDataHelper {
     let genRepo: IGenRepository
     let campSelectionRepo: ICampaignSelectionRepository
     var campaignId: String? {

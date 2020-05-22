@@ -34,8 +34,8 @@ class AlertStateReporter {
     private func makeObsBlockReport(scanSettingsRepo: IScanSettingsImmutableRepository,
                                     monitor: AlertStateMonitor) -> Observable<BlockReport> {
         
-        let obsRoomId = scanSettingsRepo.getObsCampSettings().map({$0.roomId ?? -1})
-        let obsBlockId = scanSettingsRepo.getObsCampSettings().map({$0.blockId ?? -1})
+        let obsRoomId = scanSettingsRepo.getObsScanSettings().map({$0.roomId ?? -1})
+        let obsBlockId = scanSettingsRepo.getObsScanSettings().map({$0.blockId ?? -1})
         
         return Observable
             .combineLatest(obsRoomId,

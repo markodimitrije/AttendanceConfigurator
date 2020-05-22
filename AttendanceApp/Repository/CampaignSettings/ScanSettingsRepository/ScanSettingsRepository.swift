@@ -13,16 +13,16 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     private var initialSettings: ICampaignSettings
     
-    private var campaignSettingsDataHelper: ICampaignSettingsDataHelper
+    private var scanSettingsDataHelper: IScanSettingsDataHelper
     
     // API: input, output
     
     var userSelection: ICampaignSettings {
         get {
-            campaignSettingsDataHelper.read()
+            scanSettingsDataHelper.read()
         }
         set {
-            campaignSettingsDataHelper.save(selection: newValue)
+            scanSettingsDataHelper.save(selection: newValue)
         }
     }
     
@@ -36,17 +36,17 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     // API: output
     
-    func getObsCampSettings() -> Observable<ICampaignSettings> {
-        campaignSettingsDataHelper.getObsActualSettings()
+    func getObsScanSettings() -> Observable<ICampaignSettings> {
+        scanSettingsDataHelper.getObsActualSettings()
     }
     
-    func getCampSettings() -> ICampaignSettings {
-        campaignSettingsDataHelper.read()
+    func getScanSettings() -> ICampaignSettings {
+        scanSettingsDataHelper.read()
     }
     
-    init(dataHelper: ICampaignSettingsDataHelper) {
-        self.campaignSettingsDataHelper = dataHelper
-        self.initialSettings = campaignSettingsDataHelper.read()
+    init(dataHelper: IScanSettingsDataHelper) {
+        self.scanSettingsDataHelper = dataHelper
+        self.initialSettings = scanSettingsDataHelper.read()
     }
     
     deinit {

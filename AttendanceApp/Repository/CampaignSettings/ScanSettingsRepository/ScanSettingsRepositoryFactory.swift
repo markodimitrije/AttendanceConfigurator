@@ -8,7 +8,7 @@
 
 class ScanSettingsRepositoryFactory {
     static func make() -> IScanSettingsRepository {
-        let dataHelper = CampaignSettingsDataHelperFactory.make()
+        let dataHelper = ScanSettingsDataHelperFactory.make()
         return ScanSettingsRepository(dataHelper: dataHelper)
     }
 }

@@ -72,8 +72,8 @@ class ScannerViewModel {
             let resourcesReady =
                 resourceState.oResourcesDownloaded
                     .filter {$0 == true}
-                    .map {_ in scanSettingsRepo.getCampSettings()}
-            let obsSettings = scanSettingsRepo.getObsCampSettings().share(replay: 1)
+                    .map {_ in scanSettingsRepo.getScanSettings()}
+            let obsSettings = scanSettingsRepo.getObsScanSettings().share(replay: 1)
             
             let campaignSettings = Observable.merge([obsSettings, resourcesReady])
             
