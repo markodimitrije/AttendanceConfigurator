@@ -29,4 +29,5 @@ class ScanSettingsFactory {
                             selDate: rScanSettings.date,
                             autoSwitch: rScanSettings.autoSwitch)
     }
+    
 }

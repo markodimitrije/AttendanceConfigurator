@@ -110,12 +110,9 @@ final class SettingsViewModel: ViewModelType {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            let settings = ScanSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
-            self.scanSettingsRepo.update(settings: settings)
-
             guard let roomId = roomId, let blockId = blockId else { return nil}
-                                                
-            self.sendDeviceReport(info: (roomId, blockId))
+                
+            self.onUserSavedSettings(roomId: roomId, blockId: blockId, date: date, autoSwitch: autoSwitch)
                                                 
             return (roomId, blockId)
         }
@@ -132,6 +129,16 @@ final class SettingsViewModel: ViewModelType {
                       selectedBlock: finalBlock,
                       compositeSwitch: finalAutoSwitch,
                       sessionInfo: sessionInfo)
+    }
+    
+    private func onUserSavedSettings(roomId: Int, blockId: Int, date: Date?, autoSwitch: Bool) {
+        let settings = ScanSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch)
+        self.persist(settings: settings)
+        self.sendDeviceReport(info: (roomId, blockId))
+    }
+    
+    private func persist(settings: IScanSettings) {
+        self.scanSettingsRepo.update(settings: settings)
     }
     
     private func sendDeviceReport(info: (Int, Int)) {
