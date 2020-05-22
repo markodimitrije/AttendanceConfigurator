@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class RealmCampaignSettings: Object {
+class RealmScanSettings: Object {
     @objc dynamic var campaignId = ""
     @objc dynamic var roomId: String?
     @objc dynamic var blockId: String?

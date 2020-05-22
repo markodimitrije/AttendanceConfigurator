@@ -16,10 +16,7 @@ final class SettingsViewModel: ViewModelType {
     private let blockRepo: IBlockImmutableRepository
     private let deviceStateReporter: DeviceStateReporter
     
-    private let initialRoom: Int?
-    private let initialBlock: Int?
-    private let initialDate: Date?
-    private let initialAutoSwitch: Bool
+    private let initialSettings: IScanSettings
     
     init(scanSettingsRepo: IScanSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository, deviceStateReporter: DeviceStateReporter) {
         self.scanSettingsRepo = scanSettingsRepo
@@ -27,10 +24,7 @@ final class SettingsViewModel: ViewModelType {
         self.blockRepo = blockRepo
         self.deviceStateReporter = deviceStateReporter
         // set initial selection
-        self.initialRoom = self.scanSettingsRepo.getScanSettings().roomId
-        self.initialBlock = self.scanSettingsRepo.getScanSettings().blockId
-        self.initialDate = self.scanSettingsRepo.getScanSettings().selectedDate
-        self.initialAutoSwitch = self.scanSettingsRepo.getScanSettings().autoSwitch
+        self.initialSettings = self.scanSettingsRepo.getScanSettings()
     }
     
     func transform(input: Input) -> Output {
@@ -86,12 +80,12 @@ final class SettingsViewModel: ViewModelType {
         
         //roomDriver
         let finalRoom = Driver.combineLatest(input.roomSelected, saveCancelTrig).map {
-            $1 ? $0 : self.initialRoom
+            $1 ? $0 : self.initialSettings.roomId
         }
         
         //sessionDriver
         let finalBlock = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
-            $1 ? $0 : self.initialBlock
+            $1 ? $0 : self.initialSettings.blockId
         }
         
         //autoSwitchDriver
@@ -100,7 +94,7 @@ final class SettingsViewModel: ViewModelType {
                                                      input.sessionSwitch)//.debug()
         
         let finalAutoSwitch = Driver.combineLatest(compositeSwitch, saveCancelTrig).map {
-            $1 ? $0 : self.initialAutoSwitch
+            $1 ? $0 : self.initialSettings.autoSwitch
         }
         
         let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig)
@@ -108,7 +102,7 @@ final class SettingsViewModel: ViewModelType {
                 let blockId: Int? = arg.0
                 let tap: Bool = arg.1
                 let block = self.blockRepo.getBlock(id: blockId ?? -1)
-                return (tap) ? block?.getStartsAt() : self.initialDate
+                return (tap) ? block?.getStartsAt() : self.initialSettings.selectedDate
         }
         
         let sessionInfo =
@@ -116,7 +110,7 @@ final class SettingsViewModel: ViewModelType {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
-            let settings = CampaignSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
+            let settings = ScanSettings(roomId: roomId, blockId: blockId, selDate: date, autoSwitch: autoSwitch) // MUST !
             self.scanSettingsRepo.update(settings: settings)
 
             guard let roomId = roomId, let blockId = blockId else { return nil}

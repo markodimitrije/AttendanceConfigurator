@@ -1,5 +1,5 @@
 //
-//  ICampaignSettings.swift
+//  IScanSettings.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 19/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ICampaignSettings {
+protocol IScanSettings {
     var roomId: Int? {get}
     var blockId: Int? {get set} // set because of autoSession timer
     var selectedDate: Date? {get}

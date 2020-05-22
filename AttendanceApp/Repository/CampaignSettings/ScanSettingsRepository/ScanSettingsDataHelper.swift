@@ -9,38 +9,38 @@
 import RxSwift
 
 protocol IScanSettingsDataHelper {
-    func read() -> ICampaignSettings
-    func save(selection: ICampaignSettings)
-    func getObsActualSettings() -> Observable<ICampaignSettings>
+    func read() -> IScanSettings
+    func save(selection: IScanSettings)
+    func getObsActualSettings() -> Observable<IScanSettings>
 }
 
 extension ScanSettingsDataHelper: IScanSettingsDataHelper {
-    func read() -> ICampaignSettings {
+    func read() -> IScanSettings {
         guard let campaignId = campaignId else {
-            return CampaignSettings.init()
+            return ScanSettings()
         }
         let predicate = NSPredicate(format: "campaignId == %@", campaignId)
-        let rSettings = try! genRepo.getObjects(ofType: RealmCampaignSettings.self,
+        let rSettings = try! genRepo.getObjects(ofType: RealmScanSettings.self,
                                                 filter: predicate).first
         if rSettings != nil {
-            return CampaignSettingsFactory.make(rCampaignSettings: rSettings!)
+            return ScanSettingsFactory.make(rScanSettings: rSettings!)
         } else {
-            return CampaignSettings.init()
+            return ScanSettings()
         }
     }
-    func save(selection: ICampaignSettings) {
-        let rSettings = CampaignSettingsFactory.make(campaignSettings: selection)
+    func save(selection: IScanSettings) {
+        let rSettings = ScanSettingsFactory.make(scanSettings: selection)
         rSettings.campaignId = campaignId!
         try! genRepo.save(objects: [rSettings])
     }
-    func getObsActualSettings() -> Observable<ICampaignSettings> {
+    func getObsActualSettings() -> Observable<IScanSettings> {
         let filter = NSPredicate(format: "campaignId == %@", self.campaignId!)
         return genRepo
-            .getObsObjects(ofType: RealmCampaignSettings.self, filter: filter)
-            .map({ (arr) -> ICampaignSettings in
+            .getObsObjects(ofType: RealmScanSettings.self, filter: filter)
+            .map({ (arr) -> IScanSettings in
                 (arr.first != nil) ?
-                    CampaignSettingsFactory.make(rCampaignSettings: arr.first!) :
-                    CampaignSettings()
+                    ScanSettingsFactory.make(rScanSettings: arr.first!) :
+                    ScanSettings()
             })
     }
     

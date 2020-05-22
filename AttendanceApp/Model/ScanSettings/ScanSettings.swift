@@ -1,5 +1,5 @@
 //
-//  CampaignSettings.swift
+//  ScanSettings.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 19/05/2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CampaignSettings: ICampaignSettings {
+struct ScanSettings: IScanSettings {
     var roomId: Int?
     var blockId: Int?
     var selectedDate: Date?

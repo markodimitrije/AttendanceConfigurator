@@ -11,13 +11,13 @@ import RxCocoa
 
 class ScanSettingsRepository: IScanSettingsRepository {
     
-    private var initialSettings: ICampaignSettings
+    private var initialSettings: IScanSettings
     
     private var scanSettingsDataHelper: IScanSettingsDataHelper
     
     // API: input, output
     
-    func update(settings: ICampaignSettings) {
+    func update(settings: IScanSettings) {
         scanSettingsDataHelper.save(selection: settings)
     }
     func update(blockId: Int?) {
@@ -36,11 +36,11 @@ class ScanSettingsRepository: IScanSettingsRepository {
     
     // API: output
     
-    func getObsScanSettings() -> Observable<ICampaignSettings> {
+    func getObsScanSettings() -> Observable<IScanSettings> {
         scanSettingsDataHelper.getObsActualSettings()
     }
     
-    func getScanSettings() -> ICampaignSettings {
+    func getScanSettings() -> IScanSettings {
         scanSettingsDataHelper.read()
     }
     
@@ -50,7 +50,7 @@ class ScanSettingsRepository: IScanSettingsRepository {
     }
     
     deinit {
-        print("CampaignSettingsRepository.deinit")
+        print("ScanSettingsRepository.deinit")
     }
     
 }
