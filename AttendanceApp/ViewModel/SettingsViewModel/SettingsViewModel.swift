@@ -103,12 +103,17 @@ final class SettingsViewModel: ViewModelType {
                 return (tap) ? block?.getStartsAt() : self.initialSettings.selectedDate
         }
         
+        // TODO marko: can you refactor these final signals not to embed save-cancel switch
+        // and just observe saveSig and call "onUserSavedSettings" with selected values ?
+        
         let sessionInfo =
             Driver.combineLatest(finalRoom, finalBlock, finalDateSelected, finalAutoSwitch) {
 
             (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
 
             guard let roomId = roomId, let blockId = blockId else { return nil}
+                
+                // TODO marko:
                 
             self.onUserSavedSettings(roomId: roomId, blockId: blockId, date: date, autoSwitch: autoSwitch)
                                                 

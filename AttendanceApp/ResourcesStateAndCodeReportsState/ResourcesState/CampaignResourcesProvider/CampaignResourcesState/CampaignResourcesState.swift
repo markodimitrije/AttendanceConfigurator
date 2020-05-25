@@ -35,11 +35,12 @@ class CampaignResourcesState {
     }
     
     @objc private func fetchResourcesFromWeb() {
-        print("fetchResourcesFromWeb")
         self.campaignResourcesWorker.work()
         .subscribe(onError: { [weak self] (err) in
+            print("fetchResourcesFromWeb = false")
             self?._oResourcesDownloaded.onNext(false)
         }, onCompleted: { [weak self] in
+            print("fetchResourcesFromWeb = true")
             self?._oResourcesDownloaded.onNext(true)
         }).disposed(by: bag)
     }
