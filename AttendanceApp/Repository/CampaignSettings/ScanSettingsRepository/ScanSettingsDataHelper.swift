@@ -35,7 +35,7 @@ extension ScanSettingsDataHelper: IScanSettingsDataHelper {
         try! genRepo.save(objects: [rSettings])
     }
     func getObsActualSettings() -> Observable<IScanSettings> {
-        let filter = NSPredicate(format: "campaignId == %@", self.campaignId!)
+        let filter = NSPredicate(format: "campaignId == %@", self.campaignId ?? "")
         return genRepo
             .getObsObjects(ofType: RealmScanSettings.self, filter: filter)
             .map({ (arr) -> IScanSettings in
