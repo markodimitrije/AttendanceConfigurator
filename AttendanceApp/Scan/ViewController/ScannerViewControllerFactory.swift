@@ -11,7 +11,9 @@ import Foundation
 class ScannerViewControllerFactory {
     static func make() -> ScannerViewController {
         let scannerVC = StoryboardedViewControllerFactory.make(type: ScannerViewController.self) as! ScannerViewController
-        scannerVC.viewModel = ScannerViewModelFactory.make()
+        let viewModel = ScannerViewModelFactory.make()
+        viewModel.delegate = scannerVC // by weak var
+        scannerVC.viewModel = viewModel
         scannerVC.delegatesAttendanceValidation = DelegatesAttendanceValidationFactory.make()
         scannerVC.alertInfo = ScannerSettingsAlertInfoFactory.make()
         return scannerVC

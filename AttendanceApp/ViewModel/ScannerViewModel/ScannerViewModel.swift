@@ -39,6 +39,7 @@ class ScannerViewModel {
     private let resourcesRepo: IMutableCampaignResourcesRepository
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     private let autoSessionTimer: AutoSessionTimer!
+    weak var delegate: ScannerViewController?
     
     init(scanSettingsRepo: IScanSettingsImmutableRepository,
          scannerInfoFactory: IScannerInfoFactory,
@@ -87,12 +88,9 @@ class ScannerViewModel {
     }
     
     private func handleCampaignResources() {
-        var topVC: ScannerViewController {
-            UIApplication.topViewController() as! ScannerViewController
-        }
         delay(0.1) {
-            DispatchQueue.main.async {
-                topVC.activityIndicator.startAnimating()
+            DispatchQueue.main.async { [weak self] in
+                self?.delegate?.activityIndicator.startAnimating()
             }
         }
         
@@ -103,7 +101,7 @@ class ScannerViewModel {
                 } else {
                     self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
                 }
-                topVC.activityIndicator.stopAnimating()
+                self?.delegate?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
     }
