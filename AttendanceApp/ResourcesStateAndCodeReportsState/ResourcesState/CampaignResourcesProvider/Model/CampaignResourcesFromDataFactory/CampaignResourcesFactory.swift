@@ -10,7 +10,7 @@ import Foundation
 
 class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
     func make(data: Data) throws -> ICampaignResources {
-        return try CampaignResourcesFactory.make(data: data) // TODO marko: should handle errors
+        return try CampaignResourcesFactory.make(data: data)
     }
     
     static func make(data: Data) throws -> ICampaignResources {

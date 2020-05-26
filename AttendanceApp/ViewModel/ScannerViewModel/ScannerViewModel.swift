@@ -70,7 +70,7 @@ class ScannerViewModel {
         
             let resourcesReady =
                 resourceState.oResourcesDownloaded
-                    .filter {$0 == true}
+                    .filter {$0 == DownloadStatus.success}
                     .map {_ in scanSettingsRepo.getScanSettings()}
             let obsSettings = scanSettingsRepo.getObsScanSettings().share(replay: 1)
             
@@ -95,12 +95,18 @@ class ScannerViewModel {
         }
         
         resourceState.oResourcesDownloaded
-            .subscribe(onNext: { [weak self] (success) in
-                if success {
-                    print("all good..")
-                } else {
-                    self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
+            .subscribe(onNext: { [weak self] (status) in
+                switch status {
+                    case .success:
+                        print("all good..")
+                    case .fail(let err):
+                        self?.alertErrPresenter.present(error: err)
                 }
+//                if status == .success {
+//                    print("all good..")
+//                } else {
+//                    self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
+//                }
                 self?.delegate?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)

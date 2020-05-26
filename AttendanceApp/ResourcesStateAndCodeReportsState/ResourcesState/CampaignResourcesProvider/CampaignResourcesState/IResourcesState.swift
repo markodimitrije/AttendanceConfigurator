@@ -9,6 +9,6 @@
 import RxSwift
 
 protocol IResourcesState {
-    var oResourcesDownloaded: Observable<Bool> {get}
+    var oResourcesDownloaded: Observable<DownloadStatus> {get}
     func stopTimer()
 }

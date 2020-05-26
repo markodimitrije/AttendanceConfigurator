@@ -22,6 +22,7 @@ class ErrorAlertInfoDictionaryFactory {
         dict += fieldIsEmptyPair()
         // CampaignResourcesError pairs
         dict += campaignResourcesPair()
+        dict += invalidJsonPair()
         return dict
     }
     
@@ -71,6 +72,12 @@ class ErrorAlertInfoDictionaryFactory {
         let alertInfo = getAlertInfo(titleKeyString: "campaignResources.title",
                                      textKeyString: "campaignResources.text")
         return [CampaignResourcesError.badData.getHash(): alertInfo]
+    }
+    
+    static private func invalidJsonPair() -> [String: Any] {
+        let alertInfo = getAlertInfo(titleKeyString: "badParsing.title",
+                                     textKeyString: "badParsing.text")
+        return [ApiError.invalidJson.getHash(): alertInfo]
     }
     
     static private func getAlertInfo(titleKeyString: String, textKeyString: String) -> ErrorAlertInfo {
