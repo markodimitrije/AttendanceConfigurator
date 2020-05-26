@@ -88,23 +88,31 @@ class ScannerViewModel {
     }
     
     private func handleCampaignResources() {
-        delay(0.1) {
-            DispatchQueue.main.async { [weak self] in
-                self?.delegate?.activityIndicator.startAnimating()
-            }
-        }
         
-        resourceState.oResourcesDownloaded
-            .subscribe(onNext: { [weak self] (status) in
-                switch status {
-                    case .success:
-                        print("all good..")
-                    case .fail(let err):
-                        self?.alertErrPresenter.present(error: err)
+        connectedToInternet().distinctUntilChanged().share(replay: 1)
+            .subscribe(onNext: { [weak self] (success) in
+                guard let sSelf = self else {return}
+                if success {
+                    delay(0.1) {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.delegate?.activityIndicator.startAnimating()
+                        }
+                    }
                 }
-                self?.delegate?.activityIndicator.stopAnimating()
+                
+                sSelf.resourceState.oResourcesDownloaded
+                    .subscribe(onNext: { [weak self] (status) in
+                        switch status {
+                            case .success:
+                                print("all good..")
+                            case .fail(let err):
+                                self?.alertErrPresenter.present(error: err)
+                        }
+                        self?.delegate?.activityIndicator.stopAnimating()
+                    })
+                    .disposed(by: sSelf.bag)
             })
-            .disposed(by: bag)
+            .disposed(by: self.bag)
     }
     
     deinit {
