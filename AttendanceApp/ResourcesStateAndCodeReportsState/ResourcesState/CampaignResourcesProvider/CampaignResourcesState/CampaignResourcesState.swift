@@ -15,26 +15,6 @@ extension CampaignResourcesState: IResourcesState {
     }
 }
 
-enum DownloadStatus {
-    case success
-    case fail(Error)
-}
-
-extension DownloadStatus: Equatable {
-    static func == (lhs: DownloadStatus, rhs: DownloadStatus) -> Bool {
-        switch (lhs, rhs) {
-        case (.success, .success):
-            return true
-        case (fail(let err1), fail(let err2)):
-            return err1.localizedDescription == err2.localizedDescription
-        default:
-            return false
-        }
-    }
-    
-    
-}
-
 class CampaignResourcesState {
     private let bag = DisposeBag()
     private weak var timer: Timer?

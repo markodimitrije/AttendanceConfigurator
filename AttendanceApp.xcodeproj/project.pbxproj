@@ -139,6 +139,7 @@
 		7C7172E224768B9D00AB82AB /* GenImmutableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7172E124768B9D00AB82AB /* GenImmutableRepository.swift */; };
 		7C7172E424768BDA00AB82AB /* IGenImmutableRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7172E324768BDA00AB82AB /* IGenImmutableRepo.swift */; };
 		7C7172E824768CB500AB82AB /* IGenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7172E724768CB500AB82AB /* IGenRepository.swift */; };
+		7C773C5A247D799C00EC60D3 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C773C59247D799C00EC60D3 /* DownloadStatus.swift */; };
 		7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C78AA222471423F00218DC8 /* ResourcesForScan42.json */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
@@ -492,6 +493,7 @@
 		7C7172E124768B9D00AB82AB /* GenImmutableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenImmutableRepository.swift; sourceTree = "<group>"; };
 		7C7172E324768BDA00AB82AB /* IGenImmutableRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGenImmutableRepo.swift; sourceTree = "<group>"; };
 		7C7172E724768CB500AB82AB /* IGenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGenRepository.swift; sourceTree = "<group>"; };
+		7C773C59247D799C00EC60D3 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		7C78AA222471423F00218DC8 /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -1431,6 +1433,14 @@
 			path = Mutable;
 			sourceTree = "<group>";
 		};
+		7C773C58247D798E00EC60D3 /* DownloadStatus */ = {
+			isa = PBXGroup;
+			children = (
+				7C773C59247D799C00EC60D3 /* DownloadStatus.swift */,
+			);
+			path = DownloadStatus;
+			sourceTree = "<group>";
+		};
 		7C7CCE8B246FD65700E84506 /* CampaignResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2313,6 +2323,7 @@
 		AD29522B217B5E98002DDE32 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C773C58247D798E00EC60D3 /* DownloadStatus */,
 				7C6E4FB22474019800970944 /* ScanSettings */,
 				7C30206F246AAFAD004C343A /* Stats */,
 				7C5865E4244A0C9A00426FBC /* AlertInfo */,
@@ -2358,22 +2369,22 @@
 		AD53A013217B577400A3F9FC /* AttendanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				7C302074246AC341004C343A /* GenericRealmRepo */,
-				7C344F0B245816BF00CE7FBE /* MockTemp */,
-				7C2E574A244EF8CE003EDAC7 /* ErrorHandler */,
 				AD29522A217B5E8A002DDE32 /* APIController */,
 				7CB7D556225DF965007B9BB0 /* AppDelegate.swift */,
 				ADAE9C38218B08EA00615125 /* Assets.xcassets */,
 				7C93C9E8227CA64700D44A52 /* AutoSessionTimer */,
 				7CC9DD402448C1A50035B2AE /* Campaigns */,
 				AD4CC2D821A576F200222D5E /* Common */,
+				7C2E574A244EF8CE003EDAC7 /* ErrorHandler */,
 				AD28F6EF2182120A00A41BB8 /* Extensions */,
+				7C302074246AC341004C343A /* GenericRealmRepo */,
 				AD697BD32188622B002BC579 /* Globals */,
 				7C5DEBE122E871380058ED6B /* Images.xcassets */,
 				AD53A020217B577500A3F9FC /* Info.plist */,
 				7CD2C827228D7CBE006DA60C /* JsonFromBundleParser */,
 				7CAE889622E87EF100632EAC /* Launch Screen.xib */,
 				ADB64DA0217E23C00094EC45 /* Localizable.strings */,
+				7C344F0B245816BF00CE7FBE /* MockTemp */,
 				AD29522B217B5E98002DDE32 /* Model */,
 				AD80F000217DE651003CEDD0 /* ModelData */,
 				7C2E5745244EEBB3003EDAC7 /* Network */,
@@ -2767,6 +2778,7 @@
 				7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */,
 				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
 				7C7DCBF32448B9050072CDAE /* LoginWorker.swift in Sources */,
+				7C773C5A247D799C00EC60D3 /* DownloadStatus.swift in Sources */,
 				7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */,
 				7CD5297C2433AFA200170D0A /* ICodeReport.swift in Sources */,
 				7C7172DE24768A0A00AB82AB /* RealmScanSettings.swift in Sources */,

@@ -102,11 +102,6 @@ class ScannerViewModel {
                     case .fail(let err):
                         self?.alertErrPresenter.present(error: err)
                 }
-//                if status == .success {
-//                    print("all good..")
-//                } else {
-//                    self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
-//                }
                 self?.delegate?.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
