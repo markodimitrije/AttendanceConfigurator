@@ -21,6 +21,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     @IBOutlet weak var sessionConstLbl: UILabel!
     @IBOutlet weak var sessionNameLbl: UILabel!
     @IBOutlet weak var sessionTimeAndRoomLbl: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func settingsBtnTapped(_ sender: UIButton) {
         navigateToSettingsScreen()

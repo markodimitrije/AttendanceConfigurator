@@ -87,6 +87,15 @@ class ScannerViewModel {
     }
     
     private func handleCampaignResources() {
+        var topVC: ScannerViewController {
+            UIApplication.topViewController() as! ScannerViewController
+        }
+        delay(0.1) {
+            DispatchQueue.main.async {
+                topVC.activityIndicator.startAnimating()
+            }
+        }
+        
         resourceState.oResourcesDownloaded
             .subscribe(onNext: { [weak self] (success) in
                 if success {
@@ -94,6 +103,7 @@ class ScannerViewModel {
                 } else {
                     self?.alertErrPresenter.present(error: CampaignResourcesError.badData)
                 }
+                topVC.activityIndicator.stopAnimating()
             })
             .disposed(by: bag)
     }

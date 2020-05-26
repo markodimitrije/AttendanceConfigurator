@@ -111,21 +111,27 @@
                                     <constraint firstItem="BHH-xc-5FD" firstAttribute="leading" secondItem="fdf-ic-0Pd" secondAttribute="trailing" constant="16" id="zlH-hL-qx4"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Sk-Mg-mS9">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7Sk-Mg-mS9" firstAttribute="centerY" secondItem="ZL9-BT-0Up" secondAttribute="centerY" id="89Q-dX-kom"/>
                             <constraint firstItem="n09-dX-b0e" firstAttribute="leading" secondItem="ZL9-BT-0Up" secondAttribute="leading" id="Agr-eD-HTo"/>
                             <constraint firstItem="oMi-vT-b0u" firstAttribute="trailing" secondItem="ZL9-BT-0Up" secondAttribute="trailing" id="Fx2-VZ-MG5"/>
                             <constraint firstItem="oMi-vT-b0u" firstAttribute="top" secondItem="fx1-Af-Wgm" secondAttribute="bottom" id="Hcq-AR-1su"/>
                             <constraint firstItem="n09-dX-b0e" firstAttribute="trailing" secondItem="ZL9-BT-0Up" secondAttribute="trailing" id="JRb-1v-9Ao"/>
                             <constraint firstItem="n09-dX-b0e" firstAttribute="bottom" secondItem="0Ua-dS-BzB" secondAttribute="top" id="O9b-WD-9F9"/>
                             <constraint firstItem="n09-dX-b0e" firstAttribute="top" secondItem="oMi-vT-b0u" secondAttribute="bottom" constant="8" id="X6D-qR-g6U"/>
+                            <constraint firstItem="7Sk-Mg-mS9" firstAttribute="centerX" secondItem="ZL9-BT-0Up" secondAttribute="centerX" id="f7l-aC-ADZ"/>
                             <constraint firstItem="oMi-vT-b0u" firstAttribute="leading" secondItem="ZL9-BT-0Up" secondAttribute="leading" id="koV-Zv-6NT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hWh-oX-hec"/>
                     </view>
                     <navigationItem key="navigationItem" id="int-IJ-U0m"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="7Sk-Mg-mS9" id="HQa-Uh-lQg"/>
                         <outlet property="arrowImageView" destination="1uH-hV-BHD" id="B0N-mL-EZt"/>
                         <outlet property="scannerView" destination="n09-dX-b0e" id="8Zj-i0-H7o"/>
                         <outlet property="sessionConstLbl" destination="pnf-dr-kOJ" id="mau-QF-lh1"/>
