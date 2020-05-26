@@ -58,3 +58,36 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
     }
 
 }
+
+class MockCampaignResourcesApiController: ICampaignResourcesApiController {
+ //https://service.e-materials.com/data/attendance/CONF_ID/CAMPAIGN_ID.zip
+    
+    let ematerialsUrl = URL(string: "https://b276c755-37f6-44d2-85af-6f3e654511ad.mock.pstmn.io/")!
+    
+    private let apiController: ApiController!
+    private let resourcesFactory: ICampaignResourcesFromDataFactory
+    private let campaignSelection: ICampaignSelection
+    
+    init(apiController: ApiController, resourcesFactory: ICampaignResourcesFromDataFactory, campaignSelection: ICampaignSelection) {
+     
+        self.apiController = apiController
+        self.resourcesFactory = resourcesFactory
+        self.campaignSelection = campaignSelection
+        Logging.URLRequests = { request in return false }
+    }
+
+ //MARK: - API Calls
+    
+    func fetch() -> Observable<ICampaignResources> {
+        let campaignId = campaignSelection.getCampaignId()
+        print("campaignSelection = \(campaignSelection.description)")
+        return
+            apiController
+            .buildRequest(base: ematerialsUrl,
+                          method: "GET",
+                          pathComponent: "data/attendance/" + "\(campaignId)" + ".zip",
+                          params: [])
+                .map(resourcesFactory.make)
+    }
+
+}
