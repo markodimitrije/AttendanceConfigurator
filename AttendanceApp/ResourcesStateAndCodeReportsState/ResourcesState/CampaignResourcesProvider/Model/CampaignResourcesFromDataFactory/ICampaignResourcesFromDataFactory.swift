@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ICampaignResourcesFromDataFactory {
-    func make(data: Data) -> ICampaignResources
+    func make(data: Data) throws -> ICampaignResources
 }

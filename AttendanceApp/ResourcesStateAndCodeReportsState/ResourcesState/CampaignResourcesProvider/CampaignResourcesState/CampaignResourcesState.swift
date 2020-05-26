@@ -26,7 +26,7 @@ class CampaignResourcesState {
         fetchResourcesFromWeb()
         if timer == nil { print("creating timer to fetch resources")
             timer = Timer.scheduledTimer(
-                        timeInterval: MyTimeInterval.timerForFetchingRoomBlockDelegateResources,
+                        timeInterval: MyTimeInterval.campaignResourcesCheckEvery,
                         target: self,
                         selector: #selector(CampaignResourcesState.fetchResourcesFromWeb),
                         userInfo: nil,
@@ -37,10 +37,10 @@ class CampaignResourcesState {
     @objc private func fetchResourcesFromWeb() {
         self.campaignResourcesWorker.work()
         .subscribe(onError: { [weak self] (err) in
-            print("fetchResourcesFromWeb = false")
+            //print("fetchResourcesFromWeb = false")
             self?._oResourcesDownloaded.onNext(false)
         }, onCompleted: { [weak self] in
-            print("fetchResourcesFromWeb = true")
+            //print("fetchResourcesFromWeb = true")
             self?._oResourcesDownloaded.onNext(true)
         }).disposed(by: bag)
     }
