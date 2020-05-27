@@ -28,12 +28,12 @@ extension DatesViewController: UITableViewDataSource {// , UITableViewDelegate {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datesViewmodel.data.count
+        return datesViewmodel.dates.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let date = datesViewmodel.data[indexPath.row]
-        cell.textLabel?.text = date.toString(format: "yyyy-MM-dd")//"\(date)"
+        let date = datesViewmodel.dates[indexPath.row]
+        cell.textLabel?.text = date.toString(format: "yyyy-MM-dd")
         return cell
     }
 

@@ -12,8 +12,15 @@ class DatesViewControllerFactory {
     static func make() -> DatesViewController {
         
         let datesVC = StoryboardedViewControllerFactory.make(type: DatesViewController.self) as! DatesViewController
-        let blockRepo = BlockImmutableRepositoryFactory.make()
-        datesVC.datesViewmodel = DatesViewmodel(blockRepo: blockRepo)
+        let datesViewModel = DatesViewmodelFactory.make(delegate: datesVC)
+        datesVC.datesViewmodel = datesViewModel
         return datesVC
+    }
+}
+
+class DatesViewmodelFactory {
+    static func make(delegate: DatesViewController?) -> DatesViewmodel {
+        let blockRepo = BlockImmutableRepositoryFactory.make()
+        return DatesViewmodel(delegate: delegate, blockRepo: blockRepo)
     }
 }
