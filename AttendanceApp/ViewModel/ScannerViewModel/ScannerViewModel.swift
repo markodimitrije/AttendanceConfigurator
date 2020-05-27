@@ -89,7 +89,7 @@ class ScannerViewModel {
     
     private func handleCampaignResources() {
         
-        connectedToInternet().distinctUntilChanged().share(replay: 1)
+        connectedToInternet().distinctUntilChanged().share(replay: 1) // TODO marko: susspecious..
             .subscribe(onNext: { [weak self] (success) in
                 guard let sSelf = self else {return}
                 if success {
