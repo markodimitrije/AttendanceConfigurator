@@ -11,6 +11,8 @@ import RxCocoa
 
 final class SettingsViewModel: ViewModelType {
     
+    private let bag = DisposeBag()
+    
     private var scanSettingsRepo: IScanSettingsRepository
     private let roomRepo: IRoomRepository
     private let blockRepo: IBlockImmutableRepository
@@ -73,52 +75,31 @@ final class SettingsViewModel: ViewModelType {
                 }
         }
         
-        let saveCancelTrig = Driver.merge([input.cancelTrigger.map {return false},
-                                           input.saveSettingsTrigger.map {return true}])
-        
         //roomDriver
-        let finalRoom = Driver.combineLatest(input.roomSelected, saveCancelTrig).map {
-            $1 ? $0 : self.initialSettings.roomId
-        }
-        
+        let finalRoom = input.roomSelected
         //sessionDriver
-        let finalBlock = Driver.combineLatest(manualAndAutoSession, saveCancelTrig).map {
-            $1 ? $0 : self.initialSettings.blockId
-        }
-        
+        let finalBlock = manualAndAutoSession
         //autoSwitchDriver
-        let compositeSwitch: Driver<Bool> =
+        let finalAutoSwitch: Driver<Bool> =
         Driver.merge(input.blockSelectedManually.map {_ in return false},
                                                      input.sessionSwitch)//.debug()
-        
-        let finalAutoSwitch = Driver.combineLatest(compositeSwitch, saveCancelTrig).map {
-            $1 ? $0 : self.initialSettings.autoSwitch
-        }
-        
-        let finalDateSelected = Driver.combineLatest(manualAndAutoSession, saveCancelTrig)
-            .map { (arg) -> Date? in
-                let blockId: Int? = arg.0
-                let tap: Bool = arg.1
+        //dateDriver
+        let finalDateSelected = manualAndAutoSession
+            .map { (blockId) -> Date? in
                 let block = self.blockRepo.getBlock(id: blockId ?? -1)
-                return (tap) ? block?.getStartsAt() : self.initialSettings.selectedDate
+                return block?.getStartsAt()
         }
         
-        // TODO marko: can you refactor these final signals not to embed save-cancel switch
-        // and just observe saveSig and call "onUserSavedSettings" with selected values ?
-        
-        let sessionInfo =
-            Driver.combineLatest(finalRoom, finalBlock, finalDateSelected, finalAutoSwitch) {
-
-            (roomId, blockId, date, autoSwitch) -> (Int, Int)? in
-
-            guard let roomId = roomId, let blockId = blockId else { return nil}
-                
-                // TODO marko:
-                
-            self.onUserSavedSettings(roomId: roomId, blockId: blockId, date: date, autoSwitch: autoSwitch)
-                                                
-            return (roomId, blockId)
+        let settings = Driver.combineLatest(finalRoom, finalBlock, finalDateSelected, finalAutoSwitch) { (room, block, date, autoswitch) in
+            (room, block, date, autoswitch)
         }
+        
+        input.saveSettingsTrigger.withLatestFrom(settings)
+            .asObservable()
+            .subscribe(onNext: { [weak self] (roomId, blockId, date, autoSwitch) in
+                guard let roomId = roomId, let blockId = blockId else {return}
+                self?.onUserSavedSettings(roomId: roomId, blockId: blockId, date: date, autoSwitch: autoSwitch)
+            }).disposed(by: bag)
         
         let dateTxt = input.dateSelected.map { date -> String in
             guard let date = date else { return "Select date" }
@@ -130,8 +111,7 @@ final class SettingsViewModel: ViewModelType {
                       sessionTxt: sessionTxt,
                       saveSettingsAllowed: saveSettingsAllowed,
                       selectedBlock: finalBlock,
-                      compositeSwitch: finalAutoSwitch,
-                      sessionInfo: sessionInfo)
+                      compositeSwitch: finalAutoSwitch)
     }
     
     private func onUserSavedSettings(roomId: Int, blockId: Int, date: Date?, autoSwitch: Bool) {

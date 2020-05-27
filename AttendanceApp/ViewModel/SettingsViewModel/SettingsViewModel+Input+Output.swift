@@ -29,6 +29,5 @@ extension SettingsViewModel {
         let saveSettingsAllowed: Driver<Bool>
         let selectedBlock: Driver<Int?>
         let compositeSwitch: Driver<Bool>
-        let sessionInfo: Driver<(Int, Int)?>
     }
 }

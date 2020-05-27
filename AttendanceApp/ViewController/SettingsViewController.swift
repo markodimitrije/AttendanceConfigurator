@@ -87,17 +87,13 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .drive(saveSettingsAndExitBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        output.selectedBlock
-            .do(onNext: { [weak self] block in guard let sSelf = self else {return}
-                sSelf.dismiss(animated: true, completion: nil)
-            })
-            .drive(self.blockSelected)
-            .disposed(by: disposeBag)
+        let finishTrigger = Driver.merge([input.saveSettingsTrigger, input.cancelTrigger])
         
-        // holds ref to output.sessionInfo and code inside viewmodel
-        output.sessionInfo.asObservable()
-            .subscribe(onNext: { _ in })
-            .disposed(by: disposeBag)
+        finishTrigger.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                guard let sSelf = self else {return}
+                sSelf.dismiss(animated: true, completion: nil)
+            }).disposed(by: disposeBag)
         
         scanSettingsRepo.getObsScanSettings().map {$0.autoSwitch}
             .take(1)
