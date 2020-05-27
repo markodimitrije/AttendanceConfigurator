@@ -71,8 +71,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
                         roomSelected: roomSelected.asDriver(onErrorJustReturn: nil),
                         sessionSelected: blockManuallyDriver,
                         sessionSwitch: blockSwitchSignal,
-                        blockSelectedManually: manuallySelectedSignal
-        )
+                        blockSelectedManually: manuallySelectedSignal)
         
         let output = settingsViewModel.transform(input: input)
         

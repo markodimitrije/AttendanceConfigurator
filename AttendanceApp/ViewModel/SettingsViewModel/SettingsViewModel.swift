@@ -14,15 +14,18 @@ final class SettingsViewModel: ViewModelType {
     private let bag = DisposeBag()
     
     private var scanSettingsRepo: IScanSettingsRepository
-    private let roomRepo: IRoomRepository
     private let blockRepo: IBlockImmutableRepository
+    
+    private let roomTxtFactory: IRoomTxtFactory
+    private let blockTxtFactory: IBlockTxtFactory
     
     private let initialSettings: IScanSettings
     
-    init(scanSettingsRepo: IScanSettingsRepository, roomRepo: IRoomRepository, blockRepo: IBlockImmutableRepository) {
+    init(scanSettingsRepo: IScanSettingsRepository, blockRepo: IBlockImmutableRepository, roomTxtFactory: IRoomTxtFactory, blockTxtFactory: IBlockTxtFactory) {
         self.scanSettingsRepo = scanSettingsRepo
-        self.roomRepo = roomRepo
         self.blockRepo = blockRepo
+        self.roomTxtFactory = roomTxtFactory
+        self.blockTxtFactory = blockTxtFactory
         // set initial selection
         self.initialSettings = self.scanSettingsRepo.getScanSettings()
     }
@@ -30,10 +33,7 @@ final class SettingsViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         
         let roomTxt = input.roomSelected.map { roomId -> String in
-            guard let roomId = roomId else {
-                return RoomTextData.selectRoom
-            }
-            return self.roomRepo.getRoom(id: roomId)?.getName() ?? ""
+            self.roomTxtFactory.getText(roomId: roomId)
         }
         
         let autoSessionDriver =
@@ -62,17 +62,8 @@ final class SettingsViewModel: ViewModelType {
         
         let sessionTxt =
             Driver.combineLatest(manualAndAutoSession, input.sessionSwitch) {
-            (blockId, state) -> String in
-                if let blockId = blockId,
-                    let blockName = self.blockRepo.getBlock(id: blockId)?.getName() {
-                        return blockName
-                } else {
-                    if state {
-                        return SessionTextData.noAutoSessAvailable
-                    } else {
-                        return SessionTextData.selectSessionManually
-                    }
-                }
+            (blockId, autoSwitch) -> String in
+                self.blockTxtFactory.getText(blockId: blockId, autoSwitch: autoSwitch)
         }
         
         //roomDriver
