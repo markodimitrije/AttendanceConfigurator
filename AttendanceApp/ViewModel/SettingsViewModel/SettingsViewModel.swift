@@ -18,14 +18,16 @@ final class SettingsViewModel: ViewModelType {
     
     private let roomTxtFactory: IRoomTxtFactory
     private let blockTxtFactory: IBlockTxtFactory
+    private let dateTxtFactory: IDateTxtFactory
     
     private let initialSettings: IScanSettings
     
-    init(scanSettingsRepo: IScanSettingsRepository, blockRepo: IBlockImmutableRepository, roomTxtFactory: IRoomTxtFactory, blockTxtFactory: IBlockTxtFactory) {
+    init(scanSettingsRepo: IScanSettingsRepository, blockRepo: IBlockImmutableRepository, roomTxtFactory: IRoomTxtFactory, blockTxtFactory: IBlockTxtFactory, dateTxtFactory: IDateTxtFactory) {
         self.scanSettingsRepo = scanSettingsRepo
         self.blockRepo = blockRepo
         self.roomTxtFactory = roomTxtFactory
         self.blockTxtFactory = blockTxtFactory
+        self.dateTxtFactory = dateTxtFactory
         // set initial selection
         self.initialSettings = self.scanSettingsRepo.getScanSettings()
     }
@@ -93,8 +95,7 @@ final class SettingsViewModel: ViewModelType {
             }).disposed(by: bag)
         
         let dateTxt = input.dateSelected.map { date -> String in
-            guard let date = date else { return "Select date" }
-            return date.toString(format: "yyyy-MM-dd") ?? "error converting to date"
+            self.dateTxtFactory.getText(date: date)
         }
         
         let finishTrigger = Driver.merge([input.saveSettingsTrigger, input.cancelTrigger])

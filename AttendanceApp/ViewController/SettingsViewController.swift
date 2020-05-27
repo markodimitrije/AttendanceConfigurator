@@ -30,6 +30,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
     var dateSelected: BehaviorRelay<Date?>!
     var roomSelected: BehaviorSubject<Int?>!
     var blockManuallySelected: BehaviorSubject<Int?>!
+    //var savedAutoSwitchState = scanSettingsRepo.getScanSettings().autoSwitch // TODO marko DIP!
     
     // OUTPUTS:
     var blockSelected: BehaviorSubject<Int?>!
@@ -55,7 +56,8 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .map {_ in return false}
             .asDriver(onErrorJustReturn: false)//.debug()
         
-        let savedAutoSwitchState = scanSettingsRepo.getScanSettings().autoSwitch
+        let settings = scanSettingsRepo.getScanSettings()
+        let savedAutoSwitchState = (settings.blockId != nil) ? settings.autoSwitch : true
         let blockSwitchSignal = autoSelectSessionsView.controlSwitch
                     .rx.switchActiveSequence
                     .startWith(savedAutoSwitchState)

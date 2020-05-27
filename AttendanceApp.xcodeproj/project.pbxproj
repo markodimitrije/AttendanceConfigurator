@@ -270,6 +270,9 @@
 		7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */; };
 		7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */; };
 		7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */; };
+		7CD7922C247E95FF006879D1 /* RoomTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */; };
+		7CD7922E247E961D006879D1 /* BlockTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */; };
+		7CD79230247E968C006879D1 /* DateTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922F247E968C006879D1 /* DateTxtFactory.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
@@ -623,6 +626,9 @@
 		7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportApiControllerFactory.swift; sourceTree = "<group>"; };
 		7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportApiController.swift; sourceTree = "<group>"; };
 		7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReportBlockApiController.swift; sourceTree = "<group>"; };
+		7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTxtFactory.swift; sourceTree = "<group>"; };
+		7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTxtFactory.swift; sourceTree = "<group>"; };
+		7CD7922F247E968C006879D1 /* DateTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTxtFactory.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
@@ -842,6 +848,7 @@
 		7C2E84252435123D005B5C7F /* SettingsViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7CD7922A247E95EE006879D1 /* TxtFactories */,
 				AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */,
 				7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */,
 				7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */,
@@ -2160,6 +2167,16 @@
 			path = ReportBlockApiController;
 			sourceTree = "<group>";
 		};
+		7CD7922A247E95EE006879D1 /* TxtFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */,
+				7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */,
+				7CD7922F247E968C006879D1 /* DateTxtFactory.swift */,
+			);
+			path = TxtFactories;
+			sourceTree = "<group>";
+		};
 		7CE81539227346F700B33986 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -2718,6 +2735,7 @@
 				AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */,
 				7C302080246AC8D5004C343A /* SortDescriptor+Ext.swift in Sources */,
 				7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */,
+				7CD7922C247E95FF006879D1 /* RoomTxtFactory.swift in Sources */,
 				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
 				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
@@ -2795,6 +2813,7 @@
 				7C57854A243A1527006531CC /* IGenMuttableRepository.swift in Sources */,
 				7CB2469A244E18F50035F311 /* ICampaignsRemoteApi.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
+				7CD7922E247E961D006879D1 /* BlockTxtFactory.swift in Sources */,
 				7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
@@ -2830,6 +2849,7 @@
 				7CCB5D462459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift in Sources */,
 				7C2E5739244EDA7C003EDAC7 /* CampaignsRemoteApiFactory.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */,
+				7CD79230247E968C006879D1 /* DateTxtFactory.swift in Sources */,
 				7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */,
 				7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */,
 				7C30208A246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift in Sources */,
