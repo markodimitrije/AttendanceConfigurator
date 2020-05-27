@@ -24,10 +24,10 @@ extension SettingsViewModel {
     
     struct Output {
         let roomTxt: Driver<String>
-        let dateTxt: Driver<String>
         let sessionTxt: Driver<String>
-        let saveSettingsAllowed: Driver<Bool>
-        let selectedBlock: Driver<Int?>
+        let dateTxt: Driver<String>
         let compositeSwitch: Driver<Bool>
+        let saveSettingsAllowed: Driver<Bool>
+        let finishTrigger: Driver<Void>
     }
 }

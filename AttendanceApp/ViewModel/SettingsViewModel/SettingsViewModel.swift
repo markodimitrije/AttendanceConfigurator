@@ -106,12 +106,14 @@ final class SettingsViewModel: ViewModelType {
             return date.toString(format: "yyyy-MM-dd") ?? "error converting to date"
         }
         
+        let finishTrigger = Driver.merge([input.saveSettingsTrigger, input.cancelTrigger])
+        
         return Output(roomTxt: roomTxt,
-                      dateTxt: dateTxt,
                       sessionTxt: sessionTxt,
+                      dateTxt: dateTxt,
+                      compositeSwitch: finalAutoSwitch,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      selectedBlock: finalBlock,
-                      compositeSwitch: finalAutoSwitch)
+                      finishTrigger: finishTrigger)
     }
     
     private func onUserSavedSettings(roomId: Int, blockId: Int, date: Date?, autoSwitch: Bool) {

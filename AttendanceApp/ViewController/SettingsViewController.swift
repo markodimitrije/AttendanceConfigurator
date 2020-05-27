@@ -77,9 +77,9 @@ class SettingsViewController: UITableViewController, Storyboarded {
         let output = settingsViewModel.transform(input: input)
         
         output.dateTxt.drive(dateLbl.rx.text).disposed(by: disposeBag)
-        output.roomTxt.drive(roomLbl.rx.text).disposed(by: disposeBag)
         output.sessionTxt.drive(sessionLbl.rx.text).disposed(by: disposeBag)
-
+        output.roomTxt.drive(roomLbl.rx.text).disposed(by: disposeBag)
+        
         output.saveSettingsAllowed
             .do(onNext: { allowed in
                 self.saveSettingsAndExitBtn.alpha = allowed ? 1 : 0.6
@@ -87,9 +87,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .drive(saveSettingsAndExitBtn.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        let finishTrigger = Driver.merge([input.saveSettingsTrigger, input.cancelTrigger])
-        
-        finishTrigger.asObservable()
+        output.finishTrigger.asObservable()
             .subscribe(onNext: { [weak self] _ in
                 guard let sSelf = self else {return}
                 sSelf.dismiss(animated: true, completion: nil)
