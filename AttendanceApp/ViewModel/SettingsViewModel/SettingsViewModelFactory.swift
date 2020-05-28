@@ -13,6 +13,7 @@ class SettingsViewModelFactory {
         return SettingsViewModel(scanSettingsRepo: scanSettingsRepo,
                                  blockRepo: blockRepo,
                                  roomTxtFactory: RoomTxtFactory(roomRepo: RoomRepository()),
-                                 blockTxtFactory: BlockTxtFactory(blockRepo: blockRepo), dateTxtFactory: DateTxtFactory())
+                                 blockTxtFactory: BlockTxtFactory(blockRepo: blockRepo),
+                                 dateTxtFactory: DateTxtFactory())
     }
 }

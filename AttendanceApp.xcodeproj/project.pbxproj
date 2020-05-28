@@ -144,6 +144,10 @@
 		7C7AED05247FFFC500F1E01B /* InitialRoomCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */; };
 		7C7AED092480002C00F1E01B /* InitialDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */; };
 		7C7AED0B2480003200F1E01B /* InitialBlockCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */; };
+		7C7AED0D2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0C2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift */; };
+		7C7AED0F2480097700F1E01B /* InitialDateCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0E2480097700F1E01B /* InitialDateCalculatorFactory.swift */; };
+		7C7AED1124800B8C00F1E01B /* InitialRoomCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */; };
+		7C7AED1324800F0F00F1E01B /* SettingsInitialValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
 		7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */; };
@@ -504,6 +508,10 @@
 		7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculator.swift; sourceTree = "<group>"; };
 		7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDateCalculator.swift; sourceTree = "<group>"; };
 		7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBlockCalculator.swift; sourceTree = "<group>"; };
+		7C7AED0C2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IInitialBlockCalculatorFactory.swift; sourceTree = "<group>"; };
+		7C7AED0E2480097700F1E01B /* InitialDateCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDateCalculatorFactory.swift; sourceTree = "<group>"; };
+		7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculatorFactory.swift; sourceTree = "<group>"; };
+		7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInitialValues.swift; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
 		7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -1458,7 +1466,6 @@
 			isa = PBXGroup;
 			children = (
 				7C7AED02247FFFA200F1E01B /* InitialValueCalculators */,
-				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
 			);
 			path = SettingsViewControllerFactory;
 			sourceTree = "<group>";
@@ -1466,6 +1473,8 @@
 		7C7AED02247FFFA200F1E01B /* InitialValueCalculators */ = {
 			isa = PBXGroup;
 			children = (
+				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
+				7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */,
 				7C7AED072480001D00F1E01B /* InitialBlockCalculator */,
 				7C7AED062480001800F1E01B /* InitialDateCalculator */,
 				7C7AED03247FFFBC00F1E01B /* InitialRoomCalculator */,
@@ -1477,6 +1486,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */,
+				7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */,
 			);
 			path = InitialRoomCalculator;
 			sourceTree = "<group>";
@@ -1485,6 +1495,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */,
+				7C7AED0E2480097700F1E01B /* InitialDateCalculatorFactory.swift */,
 			);
 			path = InitialDateCalculator;
 			sourceTree = "<group>";
@@ -1493,6 +1504,7 @@
 			isa = PBXGroup;
 			children = (
 				7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */,
+				7C7AED0C2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift */,
 			);
 			path = InitialBlockCalculator;
 			sourceTree = "<group>";
@@ -2772,6 +2784,7 @@
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7C30208C246AE090004C343A /* ICodeReportsMutableRepository.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
+				7C7AED0F2480097700F1E01B /* InitialDateCalculatorFactory.swift in Sources */,
 				7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */,
 				7C4AFAA8245752F90038B8D5 /* CampaignResourcesWorkerFactory.swift in Sources */,
 				7CFDEC53242CC1D00060A2C7 /* RealmRoomFactory.swift in Sources */,
@@ -2907,6 +2920,7 @@
 				7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
+				7C7AED1324800F0F00F1E01B /* SettingsInitialValues.swift in Sources */,
 				7CC99DEA2457495B0057309D /* CampaignResourcesWorker.swift in Sources */,
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
@@ -2924,6 +2938,7 @@
 				7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */,
 				7CA97FE02458BEBA0091F556 /* CampaignResourcesState.swift in Sources */,
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
+				7C7AED1124800B8C00F1E01B /* InitialRoomCalculatorFactory.swift in Sources */,
 				7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */,
 				7C5F050A2438AAF500AC72DB /* ScannerInfo.swift in Sources */,
 				7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */,
@@ -2941,6 +2956,7 @@
 				7CB24696244E18220035F311 /* ICampaignsWorker.swift in Sources */,
 				7C6A5F01243E01C700CD5C9C /* RoomsViewModelFactory.swift in Sources */,
 				7CC9DD552448D1740035B2AE /* ICampaign.swift in Sources */,
+				7C7AED0D2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift in Sources */,
 				7C7DCBD62448B9050072CDAE /* LoginValidatorFactory.swift in Sources */,
 				7CCB5D442459B08B00DEA198 /* ICampaignSelectionRepository.swift in Sources */,
 				AD24E30C21807243008E35F8 /* ModelStructsAndNamespaces.swift in Sources */,

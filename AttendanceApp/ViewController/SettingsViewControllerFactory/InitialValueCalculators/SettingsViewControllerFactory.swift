@@ -17,26 +17,34 @@ class SettingsViewControllerFactory {
         let settingsVC = StoryboardedViewControllerFactory.make(type: SettingsViewController.self) as! SettingsViewController
         settingsVC.settingsViewModel = SettingsViewModelFactory.make()
         let campaignSettings = ScanSettingsRepositoryFactory.make()
+        
+        let settingsInitials =
+            SettingsInitialValues(roomCalculator: InitialRoomCalculatorFactory.make(),
+                                  blockCalculator: InitialBlockCalculatorFactory.make(),
+                                  dateCalculator: InitialDateCalculatorFactory.make())
 
-        attachExternalInputSignals(from: campaignSettings, toSettingsVC: settingsVC)
+        attachExternalInputSignals(from: campaignSettings,
+                                   toSettingsVC: settingsVC,
+                                   settingsInitials: settingsInitials)
         attachOutputSignal(from: campaignSettings, toSettingsVC: settingsVC)
         
         return settingsVC
     }
     
     private static func attachExternalInputSignals(from settings: IScanSettingsImmutableRepository,
-                                                   toSettingsVC settingsVC: SettingsViewController) {
+                                                   toSettingsVC settingsVC: SettingsViewController,
+                                                   settingsInitials: SettingsInitialValues) {
         
         settingsVC.dateSelected = {
-            let date = InitialDateCalculator().getDate()
+            let date = settingsInitials.dateCalculator.getDate()
             return BehaviorRelay<Date?>.init(value: date)
         }()
         settingsVC.roomSelected = {
-            let room = InitialRoomCalculator().getRoom()
+            let room = settingsInitials.roomCalculator.getRoom()
             return BehaviorSubject<Int?>.init(value: room)
         }()
         settingsVC.blockManuallySelected = {
-            let blockId = InitialBlockCalculator().getBlock()
+            let blockId = settingsInitials.blockCalculator.getBlock()
             return BehaviorSubject<Int?>.init(value: blockId)
         }()
     }

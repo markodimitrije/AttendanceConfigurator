@@ -13,8 +13,8 @@ protocol IInitialDateCalculator {
 }
 
 struct InitialDateCalculator: IInitialDateCalculator {
-    let settings = ScanSettingsRepositoryFactory.make()
-    let blockRepo = BlockImmutableRepository()
+    let settings: IScanSettingsRepository
+    let blockRepo: IBlockImmutableRepository
     func getDate() -> Date? {
         let savedDate = settings.getScanSettings().selectedDate
         var date: Date?

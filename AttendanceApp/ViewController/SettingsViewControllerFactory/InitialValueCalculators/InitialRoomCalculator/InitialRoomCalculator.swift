@@ -13,8 +13,8 @@ protocol IInitialRoomCalculator {
 }
 
 struct InitialRoomCalculator: IInitialRoomCalculator {
-    let settings = ScanSettingsRepositoryFactory.make()
-    let roomRepo = RoomRepository()
+    let settings: IScanSettingsRepository
+    let roomRepo: IRoomRepository
     func getRoom() -> Int? {
         let savedRoomId = settings.getScanSettings().roomId
         var room: Int?
