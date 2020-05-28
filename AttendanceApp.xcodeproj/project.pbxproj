@@ -141,6 +141,9 @@
 		7C7172E824768CB500AB82AB /* IGenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7172E724768CB500AB82AB /* IGenRepository.swift */; };
 		7C773C5A247D799C00EC60D3 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C773C59247D799C00EC60D3 /* DownloadStatus.swift */; };
 		7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C78AA222471423F00218DC8 /* ResourcesForScan42.json */; };
+		7C7AED05247FFFC500F1E01B /* InitialRoomCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */; };
+		7C7AED092480002C00F1E01B /* InitialDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */; };
+		7C7AED0B2480003200F1E01B /* InitialBlockCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
 		7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */; };
@@ -498,6 +501,9 @@
 		7C7172E724768CB500AB82AB /* IGenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGenRepository.swift; sourceTree = "<group>"; };
 		7C773C59247D799C00EC60D3 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		7C78AA222471423F00218DC8 /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
+		7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculator.swift; sourceTree = "<group>"; };
+		7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDateCalculator.swift; sourceTree = "<group>"; };
+		7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBlockCalculator.swift; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
 		7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -1448,6 +1454,49 @@
 			path = DownloadStatus;
 			sourceTree = "<group>";
 		};
+		7C7AED01247FFF9400F1E01B /* SettingsViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				7C7AED02247FFFA200F1E01B /* InitialValueCalculators */,
+				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
+			);
+			path = SettingsViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		7C7AED02247FFFA200F1E01B /* InitialValueCalculators */ = {
+			isa = PBXGroup;
+			children = (
+				7C7AED072480001D00F1E01B /* InitialBlockCalculator */,
+				7C7AED062480001800F1E01B /* InitialDateCalculator */,
+				7C7AED03247FFFBC00F1E01B /* InitialRoomCalculator */,
+			);
+			path = InitialValueCalculators;
+			sourceTree = "<group>";
+		};
+		7C7AED03247FFFBC00F1E01B /* InitialRoomCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */,
+			);
+			path = InitialRoomCalculator;
+			sourceTree = "<group>";
+		};
+		7C7AED062480001800F1E01B /* InitialDateCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */,
+			);
+			path = InitialDateCalculator;
+			sourceTree = "<group>";
+		};
+		7C7AED072480001D00F1E01B /* InitialBlockCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */,
+			);
+			path = InitialBlockCalculator;
+			sourceTree = "<group>";
+		};
 		7C7CCE8B246FD65700E84506 /* CampaignResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2315,7 +2364,7 @@
 			isa = PBXGroup;
 			children = (
 				AD993AB4217BC6C000803BE2 /* SettingsViewController.swift */,
-				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
+				7C7AED01247FFF9400F1E01B /* SettingsViewControllerFactory */,
 				7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */,
 				7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */,
 				7C55BA63242AB581005BF038 /* DatesVC */,
@@ -2792,6 +2841,7 @@
 				7CD3F7132428DC70001272D1 /* BarcodeCaptureSettingsProvider.swift in Sources */,
 				7C7DCBEE2448B9050072CDAE /* RemoteUserSession.swift in Sources */,
 				7C53A5BC246BEDBE008685EE /* BlockScansCell.swift in Sources */,
+				7C7AED0B2480003200F1E01B /* InitialBlockCalculator.swift in Sources */,
 				7C6E4FB8247401E200970944 /* IScanSettingsRepository.swift in Sources */,
 				7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */,
 				7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */,
@@ -2923,6 +2973,7 @@
 				7C6E4FB6247401AC00970944 /* ScanSettings.swift in Sources */,
 				7CEBFB7A2439078F00D2983C /* CodeReportsState.swift in Sources */,
 				7C5785462439E359006531CC /* CodeReportsPayloadFactory.swift in Sources */,
+				7C7AED092480002C00F1E01B /* InitialDateCalculator.swift in Sources */,
 				7CD529882433D7E100170D0A /* ReportBlockApiControllerFactory.swift in Sources */,
 				7C5908C824375261006199B1 /* SettingsViewControllerFactory.swift in Sources */,
 				7C6E4FBA2474020700970944 /* ScanSettingsDataHelper.swift in Sources */,
@@ -2953,6 +3004,7 @@
 				AD24E30A21806C4A008E35F8 /* WiFiConnectionView.swift in Sources */,
 				7C7DCBE02448B9050072CDAE /* IUserStateRepository.swift in Sources */,
 				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
+				7C7AED05247FFFC500F1E01B /* InitialRoomCalculator.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
