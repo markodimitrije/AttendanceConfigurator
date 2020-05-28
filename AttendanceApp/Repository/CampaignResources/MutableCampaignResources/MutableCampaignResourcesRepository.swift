@@ -15,4 +15,9 @@ extension MutableCampaignResourcesRepository: IMutableCampaignResourcesRepositor
         blocksRepo.deleteAllBlocks()
         _ = delegatesRepo.deleteAllDelegates()
     }
+    func save(resources: ICampaignResources) {
+        let realmCampaignResources = RealmCampaignResourcesFactory.make(resources: resources)
+        let genRepo = GenRealmMutableRepo()
+        try? genRepo.save(objects: [realmCampaignResources])
+    }
 }

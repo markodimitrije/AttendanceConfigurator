@@ -9,6 +9,7 @@
 import Foundation
 
 protocol IMutableCampaignResourcesRepository {
+    func save(resources: ICampaignResources)
     func deleteResources()
 }
 

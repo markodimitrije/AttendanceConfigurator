@@ -150,8 +150,6 @@
 		7C7AED1124800B8C00F1E01B /* InitialRoomCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */; };
 		7C7AED1324800F0F00F1E01B /* InitialSettingsValuesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1224800F0F00F1E01B /* InitialSettingsValuesCalculator.swift */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
-		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
-		7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */; };
 		7C7CCE92246FD8CF00E84506 /* RealmCampaignResourcesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE91246FD8CF00E84506 /* RealmCampaignResourcesFactory.swift */; };
 		7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB7F2448B9050072CDAE /* ValidationEnum.swift */; };
 		7C7DCBD22448B9050072CDAE /* PassFieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7DCB822448B9050072CDAE /* PassFieldValidator.swift */; };
@@ -515,8 +513,6 @@
 		7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculatorFactory.swift; sourceTree = "<group>"; };
 		7C7AED1224800F0F00F1E01B /* InitialSettingsValuesCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsValuesCalculator.swift; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
-		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
-		7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesRepository.swift; sourceTree = "<group>"; };
 		7C7CCE91246FD8CF00E84506 /* RealmCampaignResourcesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResourcesFactory.swift; sourceTree = "<group>"; };
 		7C7DCB7F2448B9050072CDAE /* ValidationEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationEnum.swift; sourceTree = "<group>"; };
 		7C7DCB822448B9050072CDAE /* PassFieldValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassFieldValidator.swift; sourceTree = "<group>"; };
@@ -1523,19 +1519,9 @@
 		7C7CCE8B246FD65700E84506 /* CampaignResources */ = {
 			isa = PBXGroup;
 			children = (
-				7C7CCE8C246FD67900E84506 /* CampaignResourcesRepository */,
 				7CCB5D472459BFB900DEA198 /* MutableCampaignResources */,
 			);
 			path = CampaignResources;
-			sourceTree = "<group>";
-		};
-		7C7CCE8C246FD67900E84506 /* CampaignResourcesRepository */ = {
-			isa = PBXGroup;
-			children = (
-				7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */,
-				7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */,
-			);
-			path = CampaignResourcesRepository;
 			sourceTree = "<group>";
 		};
 		7C7DCB7A2448B9050072CDAE /* navusLogin */ = {
@@ -2831,7 +2817,6 @@
 				7CD5297724339BFF00170D0A /* AlertStateMonitor.swift in Sources */,
 				7C302071246AAFB8004C343A /* StatsProtocol.swift in Sources */,
 				7C30207C246AC366004C343A /* IGenRealmImmutableRepo.swift in Sources */,
-				7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */,
 				7C7DCBEC2448B9050072CDAE /* ErrorAlertInfo.swift in Sources */,
 				7C57854F243A1608006531CC /* IDelegatesRepository.swift in Sources */,
 				7C53A5C9246C5E84008685EE /* BlockScansTableViewCellModel.swift in Sources */,
@@ -2955,7 +2940,6 @@
 				7C7DCBEB2448B9050072CDAE /* MyError.swift in Sources */,
 				7CCB5D4D2459C00200DEA198 /* MutableCampaignResourcesRepositoryFactory.swift in Sources */,
 				7C5865E3244A0BD600426FBC /* UIApplication+Extension.swift in Sources */,
-				7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */,
 				7C57855C243A2FF8006531CC /* CodeReportsRepositoryFactory.swift in Sources */,
 				7C6A5EF7243DF15300CD5C9C /* RoomsDataSourceFactory.swift in Sources */,
 				7C7DCBFF2448B9050072CDAE /* LoginKeyboardHandler.swift in Sources */,

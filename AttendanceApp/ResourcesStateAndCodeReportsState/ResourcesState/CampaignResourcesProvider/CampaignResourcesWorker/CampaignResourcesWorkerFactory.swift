@@ -11,16 +11,8 @@ import Foundation
 class CampaignResourcesWorkerFactory {
     static func make() -> ICampaignResourcesWorker {
         let remoteApi = CampaignResourcesApiControllerFactory.make()
-        let campaignResourcesRepo = CampaignResourcesRepositoryFactory.make()
+        let campaignResourcesRepo = MutableCampaignResourcesRepositoryFactory.make()
         return CampaignResourcesWorker(resourcesApiController: remoteApi,
                                        campaignResourcesRepo: campaignResourcesRepo)
-    }
-}
-
-class CampaignResourcesRepositoryFactory {
-    static func make() -> ICampaignResourcesRepository {
-        CampaignResourcesRepository(roomsRepo: RoomRepository(),
-                                    blocksRepo: BlockMutableRepositoryFactory.make(),
-                                    delegatesRepo: DelegatesRepositoryFactory.make())
     }
 }
