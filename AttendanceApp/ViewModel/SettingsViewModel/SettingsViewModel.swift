@@ -16,18 +16,21 @@ final class SettingsViewModel: ViewModelType {
     private var scanSettingsRepo: IScanSettingsRepository
     private let blockRepo: IBlockImmutableRepository
     
-    private let roomTxtFactory: IRoomTxtFactory
-    private let blockTxtFactory: IBlockTxtFactory
-    private let dateTxtFactory: IDateTxtFactory
+    private let roomTxtFactory: IRoomTxtCalculator
+    private let blockTxtFactory: IBlockTxtCalculator
+    private let dateTxtFactory: IDateTxtCalculator
     
     private let initialSettings: IScanSettings
     
-    init(scanSettingsRepo: IScanSettingsRepository, blockRepo: IBlockImmutableRepository, roomTxtFactory: IRoomTxtFactory, blockTxtFactory: IBlockTxtFactory, dateTxtFactory: IDateTxtFactory) {
+    init(scanSettingsRepo: IScanSettingsRepository,
+         blockRepo: IBlockImmutableRepository,
+         settingsTextCalculator: ISettingsTextCalculator) {
+        
         self.scanSettingsRepo = scanSettingsRepo
         self.blockRepo = blockRepo
-        self.roomTxtFactory = roomTxtFactory
-        self.blockTxtFactory = blockTxtFactory
-        self.dateTxtFactory = dateTxtFactory
+        self.roomTxtFactory = settingsTextCalculator.getRoomTxtCalculator()
+        self.blockTxtFactory = settingsTextCalculator.getBlockTxtCalculator()
+        self.dateTxtFactory = settingsTextCalculator.getDateTxtCalculator()
         // set initial selection
         self.initialSettings = self.scanSettingsRepo.getScanSettings()
     }

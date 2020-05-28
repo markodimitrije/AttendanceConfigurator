@@ -19,7 +19,7 @@ class SettingsViewControllerFactory {
         let campaignSettings = ScanSettingsRepositoryFactory.make()
         
         let settingsInitials =
-            SettingsInitialValues(roomCalculator: InitialRoomCalculatorFactory.make(),
+            InitialSettingsValuesCalculator(roomCalculator: InitialRoomCalculatorFactory.make(),
                                   blockCalculator: InitialBlockCalculatorFactory.make(),
                                   dateCalculator: InitialDateCalculatorFactory.make())
 
@@ -33,7 +33,7 @@ class SettingsViewControllerFactory {
     
     private static func attachExternalInputSignals(from settings: IScanSettingsImmutableRepository,
                                                    toSettingsVC settingsVC: SettingsViewController,
-                                                   settingsInitials: SettingsInitialValues) {
+                                                   settingsInitials: InitialSettingsValuesCalculator) {
         
         settingsVC.dateSelected = {
             let date = settingsInitials.dateCalculator.getDate()

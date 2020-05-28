@@ -1,5 +1,5 @@
 //
-//  RoomTxtFactory.swift
+//  RoomTxtCalculator.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 27/05/2020.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol IRoomTxtFactory {
+protocol IRoomTxtCalculator {
     func getText(roomId: Int?) -> String
 }
 
-struct RoomTxtFactory: IRoomTxtFactory {
+struct RoomTxtCalculator: IRoomTxtCalculator {
     let roomRepo: IRoomRepository
     func getText(roomId: Int?) -> String {
         if let roomId = roomId {

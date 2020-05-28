@@ -8,22 +8,16 @@
 
 import Foundation
 
-protocol IDateTxtFactory {
+protocol IDateTxtCalculator {
     func getText(date: Date?) -> String
 }
 
-struct DateTxtFactory: IDateTxtFactory {
+struct DateTxtCalculator: IDateTxtCalculator {
     func getText(date: Date?) -> String {
         if let date = date {
             return date.toString(format: "yyyy-MM-dd") ?? "error converting to date"
         } else {
             return "Select date"
         }
-//        let availableDates = blockRepo.getAvailableDates(roomId: roomId)
-//        if availableDates.count > 1 {
-//
-//        } else {
-//            return availableDates.first!.toString(format: "yyyy-MM-dd") ?? "error converting to date"
-//        }
     }
 }

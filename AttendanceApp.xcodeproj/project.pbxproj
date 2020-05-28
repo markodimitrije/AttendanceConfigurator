@@ -141,13 +141,14 @@
 		7C7172E824768CB500AB82AB /* IGenRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7172E724768CB500AB82AB /* IGenRepository.swift */; };
 		7C773C5A247D799C00EC60D3 /* DownloadStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C773C59247D799C00EC60D3 /* DownloadStatus.swift */; };
 		7C78AA232471423F00218DC8 /* ResourcesForScan42.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C78AA222471423F00218DC8 /* ResourcesForScan42.json */; };
+		7C7A74B4248028CF00700A9E /* SettingsTextCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A74B3248028CF00700A9E /* SettingsTextCalculator.swift */; };
 		7C7AED05247FFFC500F1E01B /* InitialRoomCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */; };
 		7C7AED092480002C00F1E01B /* InitialDateCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */; };
 		7C7AED0B2480003200F1E01B /* InitialBlockCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */; };
 		7C7AED0D2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0C2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift */; };
 		7C7AED0F2480097700F1E01B /* InitialDateCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED0E2480097700F1E01B /* InitialDateCalculatorFactory.swift */; };
 		7C7AED1124800B8C00F1E01B /* InitialRoomCalculatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */; };
-		7C7AED1324800F0F00F1E01B /* SettingsInitialValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */; };
+		7C7AED1324800F0F00F1E01B /* InitialSettingsValuesCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7AED1224800F0F00F1E01B /* InitialSettingsValuesCalculator.swift */; };
 		7C7CCE8A246FD4A300E84506 /* RealmCampaignResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */; };
 		7C7CCE8E246FD69300E84506 /* ICampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */; };
 		7C7CCE90246FD6A700E84506 /* CampaignResourcesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */; };
@@ -277,9 +278,9 @@
 		7CD5298B2433D80F00170D0A /* CodeReportApiControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */; };
 		7CD5298D2433D82500170D0A /* ICodeReportApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */; };
 		7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */; };
-		7CD7922C247E95FF006879D1 /* RoomTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */; };
-		7CD7922E247E961D006879D1 /* BlockTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */; };
-		7CD79230247E968C006879D1 /* DateTxtFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922F247E968C006879D1 /* DateTxtFactory.swift */; };
+		7CD7922C247E95FF006879D1 /* RoomTxtCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922B247E95FF006879D1 /* RoomTxtCalculator.swift */; };
+		7CD7922E247E961D006879D1 /* BlockTxtCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922D247E961D006879D1 /* BlockTxtCalculator.swift */; };
+		7CD79230247E968C006879D1 /* DateTxtCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7922F247E968C006879D1 /* DateTxtCalculator.swift */; };
 		7CE8153B2273471200B33986 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE8153A2273471200B33986 /* SoundManager.swift */; };
 		7CE8153F227347A600B33986 /* codeRejected.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153D227347A600B33986 /* codeRejected.mp3 */; };
 		7CE81540227347A600B33986 /* codeSuccess.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7CE8153E227347A600B33986 /* codeSuccess.mp3 */; };
@@ -505,13 +506,14 @@
 		7C7172E724768CB500AB82AB /* IGenRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGenRepository.swift; sourceTree = "<group>"; };
 		7C773C59247D799C00EC60D3 /* DownloadStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadStatus.swift; sourceTree = "<group>"; };
 		7C78AA222471423F00218DC8 /* ResourcesForScan42.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan42.json; sourceTree = "<group>"; };
+		7C7A74B3248028CF00700A9E /* SettingsTextCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTextCalculator.swift; sourceTree = "<group>"; };
 		7C7AED04247FFFC500F1E01B /* InitialRoomCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculator.swift; sourceTree = "<group>"; };
 		7C7AED082480002C00F1E01B /* InitialDateCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDateCalculator.swift; sourceTree = "<group>"; };
 		7C7AED0A2480003200F1E01B /* InitialBlockCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialBlockCalculator.swift; sourceTree = "<group>"; };
 		7C7AED0C2480087C00F1E01B /* IInitialBlockCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IInitialBlockCalculatorFactory.swift; sourceTree = "<group>"; };
 		7C7AED0E2480097700F1E01B /* InitialDateCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDateCalculatorFactory.swift; sourceTree = "<group>"; };
 		7C7AED1024800B8C00F1E01B /* InitialRoomCalculatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialRoomCalculatorFactory.swift; sourceTree = "<group>"; };
-		7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInitialValues.swift; sourceTree = "<group>"; };
+		7C7AED1224800F0F00F1E01B /* InitialSettingsValuesCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialSettingsValuesCalculator.swift; sourceTree = "<group>"; };
 		7C7CCE89246FD4A300E84506 /* RealmCampaignResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCampaignResources.swift; sourceTree = "<group>"; };
 		7C7CCE8D246FD69300E84506 /* ICampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignResourcesRepository.swift; sourceTree = "<group>"; };
 		7C7CCE8F246FD6A700E84506 /* CampaignResourcesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesRepository.swift; sourceTree = "<group>"; };
@@ -640,9 +642,9 @@
 		7CD5298A2433D80F00170D0A /* CodeReportApiControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeReportApiControllerFactory.swift; sourceTree = "<group>"; };
 		7CD5298C2433D82500170D0A /* ICodeReportApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICodeReportApiController.swift; sourceTree = "<group>"; };
 		7CD5298F2433D86800170D0A /* IReportBlockApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IReportBlockApiController.swift; sourceTree = "<group>"; };
-		7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTxtFactory.swift; sourceTree = "<group>"; };
-		7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTxtFactory.swift; sourceTree = "<group>"; };
-		7CD7922F247E968C006879D1 /* DateTxtFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTxtFactory.swift; sourceTree = "<group>"; };
+		7CD7922B247E95FF006879D1 /* RoomTxtCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTxtCalculator.swift; sourceTree = "<group>"; };
+		7CD7922D247E961D006879D1 /* BlockTxtCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTxtCalculator.swift; sourceTree = "<group>"; };
+		7CD7922F247E968C006879D1 /* DateTxtCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTxtCalculator.swift; sourceTree = "<group>"; };
 		7CE8153A2273471200B33986 /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		7CE8153D227347A600B33986 /* codeRejected.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeRejected.mp3; sourceTree = "<group>"; };
 		7CE8153E227347A600B33986 /* codeSuccess.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = codeSuccess.mp3; sourceTree = "<group>"; };
@@ -862,7 +864,7 @@
 		7C2E84252435123D005B5C7F /* SettingsViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7CD7922A247E95EE006879D1 /* TxtFactories */,
+				7C7A74B2248028A600700A9E /* SettingsTextCalculator */,
 				AD69206021A6AC0900E3C0F2 /* SettingsViewModel.swift */,
 				7C2E84262435125B005B5C7F /* SettingsViewModel+Input+Output.swift */,
 				7C2E842C24360D9A005B5C7F /* SettingsViewModelFactory.swift */,
@@ -1462,24 +1464,33 @@
 			path = DownloadStatus;
 			sourceTree = "<group>";
 		};
+		7C7A74B2248028A600700A9E /* SettingsTextCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				7C7A74B3248028CF00700A9E /* SettingsTextCalculator.swift */,
+				7CD7922A247E95EE006879D1 /* TxtCalculators */,
+			);
+			path = SettingsTextCalculator;
+			sourceTree = "<group>";
+		};
 		7C7AED01247FFF9400F1E01B /* SettingsViewControllerFactory */ = {
 			isa = PBXGroup;
 			children = (
-				7C7AED02247FFFA200F1E01B /* InitialValueCalculators */,
+				7C7AED02247FFFA200F1E01B /* InitialSettingsValuesCalculators */,
 			);
 			path = SettingsViewControllerFactory;
 			sourceTree = "<group>";
 		};
-		7C7AED02247FFFA200F1E01B /* InitialValueCalculators */ = {
+		7C7AED02247FFFA200F1E01B /* InitialSettingsValuesCalculators */ = {
 			isa = PBXGroup;
 			children = (
 				7C5908C724375261006199B1 /* SettingsViewControllerFactory.swift */,
-				7C7AED1224800F0F00F1E01B /* SettingsInitialValues.swift */,
+				7C7AED1224800F0F00F1E01B /* InitialSettingsValuesCalculator.swift */,
 				7C7AED072480001D00F1E01B /* InitialBlockCalculator */,
 				7C7AED062480001800F1E01B /* InitialDateCalculator */,
 				7C7AED03247FFFBC00F1E01B /* InitialRoomCalculator */,
 			);
-			path = InitialValueCalculators;
+			path = InitialSettingsValuesCalculators;
 			sourceTree = "<group>";
 		};
 		7C7AED03247FFFBC00F1E01B /* InitialRoomCalculator */ = {
@@ -2228,14 +2239,14 @@
 			path = ReportBlockApiController;
 			sourceTree = "<group>";
 		};
-		7CD7922A247E95EE006879D1 /* TxtFactories */ = {
+		7CD7922A247E95EE006879D1 /* TxtCalculators */ = {
 			isa = PBXGroup;
 			children = (
-				7CD7922B247E95FF006879D1 /* RoomTxtFactory.swift */,
-				7CD7922D247E961D006879D1 /* BlockTxtFactory.swift */,
-				7CD7922F247E968C006879D1 /* DateTxtFactory.swift */,
+				7CD7922B247E95FF006879D1 /* RoomTxtCalculator.swift */,
+				7CD7922D247E961D006879D1 /* BlockTxtCalculator.swift */,
+				7CD7922F247E968C006879D1 /* DateTxtCalculator.swift */,
 			);
-			path = TxtFactories;
+			path = TxtCalculators;
 			sourceTree = "<group>";
 		};
 		7CE81539227346F700B33986 /* Sounds */ = {
@@ -2797,7 +2808,7 @@
 				AD295224217B5B24002DDE32 /* RoomsViewController.swift in Sources */,
 				7C302080246AC8D5004C343A /* SortDescriptor+Ext.swift in Sources */,
 				7C2E574C244EF8D9003EDAC7 /* IErrorHandler.swift in Sources */,
-				7CD7922C247E95FF006879D1 /* RoomTxtFactory.swift in Sources */,
+				7CD7922C247E95FF006879D1 /* RoomTxtCalculator.swift in Sources */,
 				7C7DCBEA2448B9050072CDAE /* LoginValidationError.swift in Sources */,
 				7C7DCBDE2448B9050072CDAE /* ErrorAlertControllerFactory.swift in Sources */,
 				7CFDEC57242CC6DA0060A2C7 /* RealmRoom.swift in Sources */,
@@ -2876,7 +2887,7 @@
 				7C57854A243A1527006531CC /* IGenMuttableRepository.swift in Sources */,
 				7CB2469A244E18F50035F311 /* ICampaignsRemoteApi.swift in Sources */,
 				AD993AB3217BAA8800803BE2 /* BlockViewModel.swift in Sources */,
-				7CD7922E247E961D006879D1 /* BlockTxtFactory.swift in Sources */,
+				7CD7922E247E961D006879D1 /* BlockTxtCalculator.swift in Sources */,
 				7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
 				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
@@ -2912,7 +2923,7 @@
 				7CCB5D462459B1C800DEA198 /* CampaignSelectionRepositoryFactory.swift in Sources */,
 				7C2E5739244EDA7C003EDAC7 /* CampaignsRemoteApiFactory.swift in Sources */,
 				7CD529902433D86800170D0A /* IReportBlockApiController.swift in Sources */,
-				7CD79230247E968C006879D1 /* DateTxtFactory.swift in Sources */,
+				7CD79230247E968C006879D1 /* DateTxtCalculator.swift in Sources */,
 				7CC99DE8245748F40057309D /* ICampaignResourcesWorker.swift in Sources */,
 				7C6A5EFB243DFBA100CD5C9C /* BlocksSectionOfCustomData.swift in Sources */,
 				7C30208A246AE073004C343A /* ICodeReportsQueryImmutableRepository.swift in Sources */,
@@ -2920,7 +2931,7 @@
 				7C4C587924597A3000359C60 /* CampaignResourceError.swift in Sources */,
 				7CD5297424339B9000170D0A /* AlertStateReporterFactory.swift in Sources */,
 				7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */,
-				7C7AED1324800F0F00F1E01B /* SettingsInitialValues.swift in Sources */,
+				7C7AED1324800F0F00F1E01B /* InitialSettingsValuesCalculator.swift in Sources */,
 				7CC99DEA2457495B0057309D /* CampaignResourcesWorker.swift in Sources */,
 				7CC9DD452448C2550035B2AE /* CampaignsVC.swift in Sources */,
 				7CC9DD512448C84B0035B2AE /* ICampaignsRepository.swift in Sources */,
@@ -3058,6 +3069,7 @@
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
 				7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */,
+				7C7A74B4248028CF00700A9E /* SettingsTextCalculator.swift in Sources */,
 				AD2C3A1321B67D0F00E8A319 /* ScanSettingsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

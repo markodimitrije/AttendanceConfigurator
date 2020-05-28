@@ -1,5 +1,5 @@
 //
-//  BlockTxtFactory.swift
+//  BlockTxtCalculator.swift
 //  AttendanceApp
 //
 //  Created by Marko Dimitrijevic on 27/05/2020.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol IBlockTxtFactory {
+protocol IBlockTxtCalculator {
     func getText(blockId: Int?, autoSwitch: Bool) -> String
 }
 
-struct BlockTxtFactory: IBlockTxtFactory {
+struct BlockTxtCalculator: IBlockTxtCalculator {
     let blockRepo: IBlockImmutableRepository
     func getText(blockId: Int?, autoSwitch: Bool) -> String {
         if let blockId = blockId,
