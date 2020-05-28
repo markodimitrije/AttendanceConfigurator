@@ -24,7 +24,8 @@ extension ScanSettingsDataHelper: IScanSettingsDataHelper {
         let rSettings = try! genRepo.getObjects(ofType: RealmScanSettings.self,
                                                 filter: predicate).first
         if rSettings != nil {
-            return ScanSettingsFactory.make(rScanSettings: rSettings!)
+            let settings = ScanSettingsFactory.make(rScanSettings: rSettings!)
+            return settings
         } else {
             return ScanSettings()
         }

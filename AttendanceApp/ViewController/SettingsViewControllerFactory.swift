@@ -12,9 +12,6 @@ import RxCocoa
 
 class SettingsViewControllerFactory {
     
-    static let roomRepo = RoomRepository()
-    static let blockRepo = BlockImmutableRepository()
-    
     static func make() -> SettingsViewController {
         
         let settingsVC = StoryboardedViewControllerFactory.make(type: SettingsViewController.self) as! SettingsViewController
