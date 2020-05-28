@@ -86,7 +86,9 @@ class MockCampaignResourcesApiController: ICampaignResourcesApiController {
             .buildRequest(base: ematerialsUrl,
                           method: "GET",
                           pathComponent: "data/attendance/" + "\(campaignId)" + ".zip",
-                          params: [])
+                          params: [],
+//                          timeout: 0.01)
+                        timeout: 20)
                 .map(resourcesFactory.make)
     }
 

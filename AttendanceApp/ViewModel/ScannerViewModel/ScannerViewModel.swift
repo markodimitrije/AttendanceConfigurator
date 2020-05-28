@@ -55,7 +55,10 @@ class ScannerViewModel {
         self.alertErrPresenter = alertErrPresenter
         self.autoSessionTimer = autoSessionTimer
                 
-        handleCampaignResources()
+        delay(0.01) {
+            self.handleCampaignResources()
+        }
+        
     }
     
     // OUTPUT
@@ -89,28 +92,17 @@ class ScannerViewModel {
     
     private func handleCampaignResources() {
         
-        connectedToInternet().distinctUntilChanged().share(replay: 1) // TODO marko: susspecious..
-            .subscribe(onNext: { [weak self] (success) in
-                guard let sSelf = self else {return}
-                if success {
-                    delay(0.1) {
-                        DispatchQueue.main.async { [weak self] in
-                            self?.delegate?.activityIndicator.startAnimating()
-                        }
-                    }
+        self.delegate?.activityIndicator.startAnimating()
+        
+        self.resourceState.oResourcesDownloaded
+            .subscribe(onNext: { [weak self] (status) in
+                switch status {
+                    case .success:
+                        print("all good..")
+                    case .fail(let err):
+                        self?.alertErrPresenter.present(error: err)
                 }
-                
-                sSelf.resourceState.oResourcesDownloaded
-                    .subscribe(onNext: { [weak self] (status) in
-                        switch status {
-                            case .success:
-                                print("all good..")
-                            case .fail(let err):
-                                self?.alertErrPresenter.present(error: err)
-                        }
-                        self?.delegate?.activityIndicator.stopAnimating()
-                    })
-                    .disposed(by: sSelf.bag)
+                self?.delegate?.activityIndicator.stopAnimating()
             })
             .disposed(by: self.bag)
     }

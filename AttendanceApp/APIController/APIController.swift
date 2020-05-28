@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol IApiController {
-    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, headers: [String: String], responseHandler: INetworkResponseHandler) -> Observable<Data>
+    func buildRequest(base: URL, method: String, pathComponent: String, params: Any, contentType: String?, timeout: TimeInterval, headers: [String: String], responseHandler: INetworkResponseHandler) -> Observable<Data>
 }
 
 class ApiController: IApiController {
@@ -32,12 +32,15 @@ class ApiController: IApiController {
                       pathComponent: String = "",
                       params: Any = [],
                       contentType: String? = "application/json",
+                      timeout: TimeInterval = 60.0,
                       headers: [String: String] = DefaultHeadersFactory.make().createHeaders(),
                       responseHandler: INetworkResponseHandler = NetworkResponseHandlerDefault()) -> Observable<Data> {
     
         let url = (pathComponent != "") ? base.appendingPathComponent(pathComponent) : base
         
         var request = URLRequest(url: url)
+        
+        request.timeoutInterval = timeout
         
         let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)!
         
