@@ -10,8 +10,7 @@ import RxSwift
 
 extension CampaignResourcesWorker: ICampaignResourcesWorker {
     func work() -> Observable<Void> {
-        self.campaignResourcesRepo.deleteResources()
-        return fetchCampaignResourcesAndSaveToRealm()
+        fetchCampaignResourcesAndSaveToRealm()
 //        fetchCampaignResourcesGotError() //test
     }
     

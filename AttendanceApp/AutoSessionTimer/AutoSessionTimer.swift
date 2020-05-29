@@ -24,7 +24,7 @@ class AutoSessionTimer {
         
         NotificationCenter.default.addObserver(self,
                                        selector: #selector(appMovedToBackground),
-                                       name: UIApplication.willResignActiveNotification,
+                                       name: UIApplication.didEnterBackgroundNotification,
                                        object: nil)
         
         NotificationCenter.default.addObserver(self,
@@ -33,7 +33,8 @@ class AutoSessionTimer {
                                                object: nil)
     }
     
-    @objc func fire() { //print("AutoSessionTimer/fire, check for auto session = \(NOW)")
+    @objc func fire() {
+        print("AutoSessionTimer/fire, check for auto session = \(Date.now)")
         guard self.campaignSelectionRepo.getSelected() != nil else {
             return
         }

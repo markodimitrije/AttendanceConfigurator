@@ -15,7 +15,6 @@ class CampaignsVC: UIViewController, Storyboarded {
     var viewModel: ICampaignsViewModel!
     var navBarConfigurator: INavigBarConfigurator!
     var logoutHandler: ILogoutHandler!
-    var campaignSelectionRepo: ICampaignSelectionRepository!
     
     @IBOutlet weak var tableView: UITableView!
     private let bag = DisposeBag()
@@ -51,7 +50,7 @@ class CampaignsVC: UIViewController, Storyboarded {
         Observable
             .zip(tableView.rx.itemSelected, tableView.rx.modelSelected(ICampaignItem.self))
             .bind { [weak self] indexPath, item in
-                self?.campaignSelectionRepo.userSelected(campaignItem: item)
+                self?.viewModel.campaignSelected(campaignItem: item)
                 let nextVC = ScannerViewControllerFactory.make()
                 self?.navigationController?.pushViewController(nextVC, animated: true)
             }

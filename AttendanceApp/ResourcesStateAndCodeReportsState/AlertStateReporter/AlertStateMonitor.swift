@@ -29,7 +29,7 @@ class AlertStateMonitor {
         
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive(_:)), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground(_:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
     
     @objc func batteryLevelDidChange(_ notification: Notification) {
@@ -47,8 +47,8 @@ class AlertStateMonitor {
         deviceReport.appInForeground.accept(true)
     }
     
-    @objc func appWillResignActive(_ notification: Notification) {
-        print("AlertStateMonitor/appWillResignActive is called")
+    @objc func didEnterBackground(_ notification: Notification) {
+        print("AlertStateMonitor/didEnterBackground is called")
         deviceReport.appInForeground.accept(false)
     }
     

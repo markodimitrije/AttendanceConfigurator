@@ -30,7 +30,7 @@ struct MyTimeInterval {
     static let campaignResourcesCheckEvery: Double = 15//15*60//27 // 10 seconds
     static let timeoutForFetchingRoomAndBlockResources = 30 // 10 seconds
     static let sendScanReportsToWebEvery: Double = 10*60 // 8 seconds
-    static let autoSessionCheckEvery: TimeInterval = 15//1*60 // 15 seconds
+    static let autoSessionCheckEvery: TimeInterval = 20//1*60 // 15 seconds
 }
 
 struct MyConstants {

@@ -80,7 +80,6 @@ class ScannerViewModel {
             let campaignSettings = Observable.merge([obsSettings, resourcesReady])
             
             return campaignSettings
-            .debug()
                 .map { (settings) -> IScannerInfo in
                     self.scannerInfoFactory.make(roomId: settings.roomId,
                                                  blockId: settings.blockId)
@@ -110,7 +109,6 @@ class ScannerViewModel {
     deinit {
         autoSessionTimer.stopTimer()
         resourceState.stopTimer()
-        resourcesRepo.deleteResources()
     }
     
 }
