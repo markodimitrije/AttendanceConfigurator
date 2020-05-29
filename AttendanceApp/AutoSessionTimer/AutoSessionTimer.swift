@@ -20,7 +20,7 @@ class AutoSessionTimer {
         self.campaignSelectionRepo = campaignSelectionRepo
         self.scanSettingsRepo = scanSettingsRepo
     
-        loadTimer()
+        loadTimerAndFireImidiatelly()
         
         NotificationCenter.default.addObserver(self,
                                        selector: #selector(appMovedToBackground),
@@ -58,13 +58,13 @@ class AutoSessionTimer {
     }
     
     @objc func appWillEnterForeground() {
-        loadTimer()
-        fire()
+        loadTimerAndFireImidiatelly()
     }
     
-    private func loadTimer() {
+    private func loadTimerAndFireImidiatelly() {
         if timer == nil {
             timer = Timer.scheduledTimer(timeInterval: MyTimeInterval.autoSessionCheckEvery, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
+            fire()
         }
     }
     
