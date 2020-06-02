@@ -101,6 +101,11 @@ final class SettingsViewModel: ViewModelType {
             self.dateTxtFactory.getText(date: date)
         }
         
+        let dateColor = input.dateSelected.map { date -> UIColor in
+            guard let date = date else { return .black }
+            return date.isOnTheSameDay(asDate: Date.now) ? .black : .red
+        }
+        
         let finishTrigger = Driver.merge([input.saveSettingsTrigger, input.cancelTrigger])
         
         return Output(roomTxt: roomTxt,
@@ -108,7 +113,8 @@ final class SettingsViewModel: ViewModelType {
                       dateTxt: dateTxt,
                       compositeSwitch: finalAutoSwitch,
                       saveSettingsAllowed: saveSettingsAllowed,
-                      finishTrigger: finishTrigger)
+                      finishTrigger: finishTrigger,
+                      dateTxtColor: dateColor)
     }
     
     private func onUserSavedSettings(roomId: Int, blockId: Int, date: Date?, autoSwitch: Bool) {

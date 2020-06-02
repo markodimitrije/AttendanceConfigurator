@@ -29,5 +29,6 @@ extension SettingsViewModel {
         let compositeSwitch: Driver<Bool>
         let saveSettingsAllowed: Driver<Bool>
         let finishTrigger: Driver<Void>
+        let dateTxtColor: Driver<UIColor>
     }
 }

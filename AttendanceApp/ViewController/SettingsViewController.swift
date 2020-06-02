@@ -80,6 +80,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
         output.dateTxt.drive(dateLbl.rx.text).disposed(by: disposeBag)
         output.sessionTxt.drive(sessionLbl.rx.text).disposed(by: disposeBag)
         output.roomTxt.drive(roomLbl.rx.text).disposed(by: disposeBag)
+        output.dateTxtColor.drive(dateLbl.rx.textColor).disposed(by: disposeBag)
         
         output.saveSettingsAllowed
             .do(onNext: { allowed in

@@ -88,7 +88,7 @@ class MockCampaignResourcesApiController: ICampaignResourcesApiController {
                           pathComponent: "data/attendance/" + "\(campaignId)" + ".zip",
                           params: [],
 //                          timeout: 0.01)
-                        timeout: 20)
+                        timeout: 60)
                 .map(resourcesFactory.make)
     }
 
