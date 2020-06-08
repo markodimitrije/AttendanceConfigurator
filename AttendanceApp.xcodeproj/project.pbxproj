@@ -18,6 +18,8 @@
 		7C13EAB82450BC1F00F3D8E8 /* ScannerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */; };
 		7C14DD39246FDDCD00093CED /* ResourcesForScan40.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */; };
 		7C14DD3B246FDFA700093CED /* ResourcesForScan41.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */; };
+		7C1DD19A248E5B990043EFEA /* ActionUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DD199248E5B990043EFEA /* ActionUIButton.swift */; };
+		7C1DD19C248E5C2F0043EFEA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1DD19B248E5C2E0043EFEA /* UIColor+Hex.swift */; };
 		7C23CF5A2476D3F0002F737E /* ScanSettingsDataHelperFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C23CF592476D3F0002F737E /* ScanSettingsDataHelperFactory.swift */; };
 		7C2E5733244EDA12003EDAC7 /* CampaignsWorkerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */; };
 		7C2E5735244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */; };
@@ -207,7 +209,6 @@
 		7C81677A244B4EB70059BDA1 /* ILogoutRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C816779244B4EB70059BDA1 /* ILogoutRemoteApi.swift */; };
 		7C837BB82451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C837BB72451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift */; };
 		7C855DA4229C078A00E4C985 /* DelegatesAttendanceValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C855DA3229C078A00E4C985 /* DelegatesAttendanceValidation.swift */; };
-		7C873913246E91B900F579D0 /* DataToDictFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C873912246E91B900F579D0 /* DataToDictFactory.swift */; };
 		7C93C9DF2276ED4E00D44A52 /* DatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */; };
 		7C93C9E1227704DC00D44A52 /* DatesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */; };
 		7C93C9EA227CA65A00D44A52 /* AutoSessionTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */; };
@@ -380,6 +381,8 @@
 		7C13EAB72450BC1F00F3D8E8 /* ScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScannerViewController.storyboard; sourceTree = "<group>"; };
 		7C14DD38246FDDCD00093CED /* ResourcesForScan40.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan40.json; sourceTree = "<group>"; };
 		7C14DD3A246FDFA700093CED /* ResourcesForScan41.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ResourcesForScan41.json; sourceTree = "<group>"; };
+		7C1DD199248E5B990043EFEA /* ActionUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionUIButton.swift; sourceTree = "<group>"; };
+		7C1DD19B248E5C2E0043EFEA /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		7C23CF592476D3F0002F737E /* ScanSettingsDataHelperFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanSettingsDataHelperFactory.swift; sourceTree = "<group>"; };
 		7C2E5732244EDA12003EDAC7 /* CampaignsWorkerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsWorkerFactory.swift; sourceTree = "<group>"; };
 		7C2E5734244EDA3B003EDAC7 /* CampaignsRepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignsRepositoryFactory.swift; sourceTree = "<group>"; };
@@ -571,7 +574,6 @@
 		7C816779244B4EB70059BDA1 /* ILogoutRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ILogoutRemoteApi.swift; sourceTree = "<group>"; };
 		7C837BB72451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerSettingsAlertInfoFactory.swift; sourceTree = "<group>"; };
 		7C855DA3229C078A00E4C985 /* DelegatesAttendanceValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatesAttendanceValidation.swift; sourceTree = "<group>"; };
-		7C873912246E91B900F579D0 /* DataToDictFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToDictFactory.swift; sourceTree = "<group>"; };
 		7C93C9DE2276ED4E00D44A52 /* DatesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewController.swift; sourceTree = "<group>"; };
 		7C93C9E0227704DC00D44A52 /* DatesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesViewModel.swift; sourceTree = "<group>"; };
 		7C93C9E9227CA65A00D44A52 /* AutoSessionTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSessionTimer.swift; sourceTree = "<group>"; };
@@ -766,6 +768,14 @@
 				7C837BB72451A7A000D078F3 /* ScannerSettingsAlertInfoFactory.swift */,
 			);
 			path = AlertInfoFactory;
+			sourceTree = "<group>";
+		};
+		7C1DD198248E5B820043EFEA /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				7C1DD199248E5B990043EFEA /* ActionUIButton.swift */,
+			);
+			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		7C2E573A244EDB81003EDAC7 /* NatworkDataMapping */ = {
@@ -1215,7 +1225,6 @@
 			children = (
 				7C5908C524371D7D006199B1 /* StoryboardUtilities.swift */,
 				7C5865E0244A0AD700426FBC /* Alert+Rx.swift */,
-				7C873912246E91B900F579D0 /* DataToDictFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -2356,6 +2365,7 @@
 		AD28F6EF2182120A00A41BB8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7C1DD19B248E5C2E0043EFEA /* UIColor+Hex.swift */,
 				AD29521E217B5B23002DDE32 /* AlwaysExtensions.swift */,
 				AD28F6F02182122200A41BB8 /* RxExtensions.swift */,
 				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
@@ -2433,6 +2443,7 @@
 		AD53A008217B577400A3F9FC = {
 			isa = PBXGroup;
 			children = (
+				7C1DD198248E5B820043EFEA /* UIComponents */,
 				7C4F164F24868BF200395ACF /* RxExtensions */,
 				7C7DCB7A2448B9050072CDAE /* navusLogin */,
 				AD53A013217B577400A3F9FC /* AttendanceApp */,
@@ -2886,6 +2897,7 @@
 				7CD7922E247E961D006879D1 /* BlockTxtCalculator.swift in Sources */,
 				7C7DCBD02448B9050072CDAE /* ValidationEnum.swift in Sources */,
 				7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */,
+				7C1DD19C248E5C2F0043EFEA /* UIColor+Hex.swift in Sources */,
 				7C7DCBDB2448B9050072CDAE /* ILoginViewModel.swift in Sources */,
 				7C7DCBD92448B9050072CDAE /* LoginValidationSignalFactory.swift in Sources */,
 				7C7DCBF92448B9050072CDAE /* ErrorAlertInfoDictionaryFactory.swift in Sources */,
@@ -3046,7 +3058,7 @@
 				7CD5297E2433AFB000170D0A /* CodeReportFactory.swift in Sources */,
 				7CC9DD5E2448D2FA0035B2AE /* LogoutWorkerFactory.swift in Sources */,
 				7CB24698244E187C0035F311 /* CampaignsWorker.swift in Sources */,
-				7C873913246E91B900F579D0 /* DataToDictFactory.swift in Sources */,
+				7C1DD19A248E5B990043EFEA /* ActionUIButton.swift in Sources */,
 				AD69206121A6AC0900E3C0F2 /* SettingsViewModel.swift in Sources */,
 				7C7CCE92246FD8CF00E84506 /* RealmCampaignResourcesFactory.swift in Sources */,
 				7C7DCC002448B9050072CDAE /* KeyboardInfo.swift in Sources */,

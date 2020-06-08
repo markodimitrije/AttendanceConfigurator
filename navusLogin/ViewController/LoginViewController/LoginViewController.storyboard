@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,9 +44,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpc-N3-s3c">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mpc-N3-s3c" customClass="ActionUIButton" customModule="AttendanceApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="138" width="374" height="57"/>
-                                                <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="ViN-my-H5u"/>
                                                 </constraints>
@@ -54,6 +54,20 @@
                                                 <state key="normal" title="Log in">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
+                                                        <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
+                                                        <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="txtColorBtnEnabled">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="txtColorBtnDisabled">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -63,18 +77,12 @@
                                     <constraint firstItem="28T-RM-TyZ" firstAttribute="centerX" secondItem="Gvx-GS-mZk" secondAttribute="centerX" id="ShR-DM-clt"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="syv-Ux-QuO">
-                                <rect key="frame" x="197" y="563" width="20" height="20"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Gvx-GS-mZk" firstAttribute="centerX" secondItem="uhW-y9-4ZO" secondAttribute="centerX" id="2nC-hD-F35"/>
-                            <constraint firstItem="syv-Ux-QuO" firstAttribute="centerX" secondItem="Mpc-N3-s3c" secondAttribute="centerX" id="WaF-ID-Uze"/>
                             <constraint firstItem="Gvx-GS-mZk" firstAttribute="centerY" secondItem="uhW-y9-4ZO" secondAttribute="centerY" id="bPT-gK-Pjf"/>
                             <constraint firstItem="r1m-9x-Oiq" firstAttribute="trailing" secondItem="Gvx-GS-mZk" secondAttribute="trailing" constant="20" id="iNe-Lf-7hm"/>
-                            <constraint firstItem="syv-Ux-QuO" firstAttribute="centerY" secondItem="Mpc-N3-s3c" secondAttribute="centerY" id="ihP-Ot-Zpd"/>
                             <constraint firstItem="Gvx-GS-mZk" firstAttribute="leading" secondItem="r1m-9x-Oiq" secondAttribute="leading" constant="20" id="kQN-uQ-VBa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="r1m-9x-Oiq"/>
@@ -82,7 +90,6 @@
                     <navigationItem key="navigationItem" id="gue-Rs-rVD"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="activeIndicator" destination="syv-Ux-QuO" id="7ac-Iq-EET"/>
                         <outlet property="emailTxtField" destination="fmF-h8-hsb" id="zdd-Zk-0ch"/>
                         <outlet property="logBtn" destination="Mpc-N3-s3c" id="voZ-9W-XVC"/>
                         <outlet property="logStackViewYConstraint" destination="bPT-gK-Pjf" id="L2v-YG-RVR"/>

@@ -11,4 +11,5 @@ import UIKit
 extension UIColor {
     static var wiFiConnected = UIColor.green
     static var wiFiDisconnected = UIColor.red
+    static var loginBtn = UIColor(red: 4/255, green: 51/255, blue: 154/255, alpha: 1)
 }

@@ -22,8 +22,7 @@ class LoginViewController: UIViewController, Storyboarded {
         didSet {passTxtField.text = "timm2019"}
 //        didSet {passTxtField.text = ""}
     }
-    @IBOutlet weak var logBtn: UIButton!
-    @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var logBtn: ActionUIButton!
     @IBOutlet weak var logStackViewYConstraint: NSLayoutConstraint!
     
     // MARK:- dependencies
@@ -35,9 +34,13 @@ class LoginViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.activeIndicator.hidesWhenStopped = true
         bindToAndFromViewModel()
         manageKeyboardEvents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.logBtn.reload()
     }
     
     private func bindToAndFromViewModel() {
@@ -71,14 +74,12 @@ class LoginViewController: UIViewController, Storyboarded {
     private func disableUI() {
         print("disableUI() is called...")
         _ = [emailTxtField, passTxtField, logBtn].map {$0.isEnabled = false}
-            logBtn.setTitle("", for: .normal)
-            activeIndicator.startAnimating()
+            logBtn.setLoading(true)
     }
     
     private func enableUI() {
         _ = [emailTxtField, passTxtField, logBtn].map {$0.isEnabled = true}
-            logBtn.setTitle("Log in", for: .normal)
-            activeIndicator.stopAnimating()
+            logBtn.setLoading(false)
     }
     
     private func errorCatched(error: Error) {

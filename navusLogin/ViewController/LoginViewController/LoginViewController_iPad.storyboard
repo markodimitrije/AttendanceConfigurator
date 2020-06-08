@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -45,7 +45,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rou-zw-cVF">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rou-zw-cVF" customClass="ActionUIButton" customModule="AttendanceApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="154" width="350" height="57"/>
                                                 <color key="backgroundColor" red="0.0" green="0.20000000000000001" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -55,6 +55,14 @@
                                                 <state key="normal" title="Log in">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
+                                                        <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
+                                                        <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -64,16 +72,10 @@
                                     <constraint firstItem="GMM-oS-isq" firstAttribute="centerX" secondItem="qoJ-8v-wi9" secondAttribute="centerX" id="sM3-U2-EEX"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ioi-MJ-D9h">
-                                <rect key="frame" x="502" y="509" width="20" height="20"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ioi-MJ-D9h" firstAttribute="centerY" secondItem="rou-zw-cVF" secondAttribute="centerY" id="fxV-ux-p3y"/>
                             <constraint firstItem="qoJ-8v-wi9" firstAttribute="centerY" secondItem="OYx-Qf-OB4" secondAttribute="centerY" id="jl0-PU-r3L"/>
-                            <constraint firstItem="ioi-MJ-D9h" firstAttribute="centerX" secondItem="rou-zw-cVF" secondAttribute="centerX" id="mAz-4i-7zc"/>
                             <constraint firstItem="qoJ-8v-wi9" firstAttribute="centerX" secondItem="5dF-fw-WGd" secondAttribute="centerX" id="mxu-Gy-tzi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5dF-fw-WGd"/>
@@ -81,7 +83,6 @@
                     <navigationItem key="navigationItem" id="VN0-CS-niK"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="activeIndicator" destination="ioi-MJ-D9h" id="yJN-fb-OK2"/>
                         <outlet property="emailTxtField" destination="0hK-A2-FxB" id="zlX-DQ-zCJ"/>
                         <outlet property="logBtn" destination="rou-zw-cVF" id="gtN-Z3-eDe"/>
                         <outlet property="logStackViewYConstraint" destination="jl0-PU-r3L" id="REb-oS-zen"/>
