@@ -23,14 +23,13 @@ class SettingsViewController: UITableViewController, Storyboarded {
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
     
     var settingsViewModel: SettingsViewModel!
+    var scanSettingsRepo: IScanSettingsRepository!
     private let disposeBag = DisposeBag()
-    private let scanSettingsRepo = ScanSettingsRepositoryFactory.make()
     
     // INPUTS: property injection
     var dateSelected: BehaviorRelay<Date?>!
     var roomSelected: BehaviorSubject<Int?>!
     var blockManuallySelected: BehaviorSubject<Int?>!
-    //var savedAutoSwitchState = scanSettingsRepo.getScanSettings().autoSwitch // TODO marko DIP!
     
     // OUTPUTS:
     var blockSelected: BehaviorSubject<Int?>!
@@ -59,9 +58,9 @@ class SettingsViewController: UITableViewController, Storyboarded {
         let settings = scanSettingsRepo.getScanSettings()
         let savedAutoSwitchState = (settings.blockId != nil) ? settings.autoSwitch : true
         let blockSwitchSignal = autoSelectSessionsView.controlSwitch
-                    .rx.switchActiveSequence
-                    .startWith(savedAutoSwitchState)
-                    .asDriver(onErrorJustReturn: true)
+                                            .rx.switchActiveSequence
+                                            .startWith(savedAutoSwitchState)
+                                            .asDriver(onErrorJustReturn: true)
         
         let blockManuallyDriver = blockManuallySelected.share(replay:1)
             .asDriver(onErrorJustReturn: nil)

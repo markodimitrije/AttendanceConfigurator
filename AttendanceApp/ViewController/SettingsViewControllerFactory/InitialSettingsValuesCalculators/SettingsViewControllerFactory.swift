@@ -16,6 +16,7 @@ class SettingsViewControllerFactory {
         
         let settingsVC = StoryboardedViewControllerFactory.make(type: SettingsViewController.self) as! SettingsViewController
         settingsVC.settingsViewModel = SettingsViewModelFactory.make()
+        settingsVC.scanSettingsRepo = ScanSettingsRepositoryFactory.make()
         let campaignSettings = ScanSettingsRepositoryFactory.make()
         
         let settingsInitials =
