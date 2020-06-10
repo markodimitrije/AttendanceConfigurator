@@ -19,6 +19,8 @@ class SettingsViewController: UITableViewController, Storyboarded {
     @IBOutlet weak var cancelSettingsBtn: UIBarButtonItem!
     
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
+    
+    @IBOutlet weak var refreshResourcesBtn: ActionUIButton!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
     
@@ -35,10 +37,15 @@ class SettingsViewController: UITableViewController, Storyboarded {
     var blockSelected: BehaviorSubject<Int?>!
     
     lazy fileprivate var unsyncScansViewModel = UnsyncScansViewModelFactory.make(syncScansTap: unsyncedScansView.syncBtn.rx.tap.asDriver())
+    var refreshResourcesViewModelFactory: RefreshResourcesViewModelFactory!
+    private var refreshResourcesVM: RefreshResourcesViewModel {
+        return refreshResourcesViewModelFactory.make()
+    }
     
     override func viewDidLoad() { super.viewDidLoad()
 
         bindUI()
+        bindRefreshResources()
         bindReachability()
         bindUnsyncedScans()
 //        bindState() // ovde je rano za tableView.visibleCells !!
@@ -99,6 +106,29 @@ class SettingsViewController: UITableViewController, Storyboarded {
             .asDriver(onErrorJustReturn: true)
             .drive(autoSelectSessionsView.controlSwitch.rx.isOn)
             .disposed(by: disposeBag)
+    }
+    
+    private func bindRefreshResources() {
+        
+        let refreshResourcesInput = RefreshResourcesViewModel.Input.init(tap: refreshResourcesBtn.rx.tap.asObservable())
+        
+        let refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
+        
+        refreshResourcesOutput.resourcesDownloaded.asObservable()
+            .subscribe(onNext: { [weak self] (_) in
+                self?.refreshResourcesBtn.setLoading(true)
+            }, onError: { [weak self] (err) in
+                self?.refreshResourcesFinished()
+                print("err catched, display err")
+            }, onCompleted: { [weak self] in
+                self?.refreshResourcesFinished()
+                print("finished catched")
+            }).disposed(by: disposeBag)
+    }
+    
+    private func refreshResourcesFinished() {
+        self.refreshResourcesBtn.reload()
+        self.bindRefreshResources()
     }
     
     private func bindReachability() {
@@ -185,4 +215,49 @@ class SettingsViewController: UITableViewController, Storyboarded {
     
     override var shouldAutorotate: Bool { return false }
     
+}
+
+extension RefreshResourcesViewModel: ViewModelType {
+    struct Input {
+        var tap: Observable<Void>
+    }
+    struct Output {
+        var resourcesDownloaded: Observable<Void>
+    }
+//    func transform(input: Input) -> Output {
+//        let errorSignal: Observable<Void> =
+//            input.tap.delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
+//            .map { (_) in
+//                throw LoginError.badParsing
+//            }
+//        let signal = Observable.merge([input.tap, errorSignal])
+//        return Output(resourcesDownloaded: signal)
+//    }
+    func transform(input: Input) -> Output {
+        let errorSignal: Observable<Void> =
+            input.tap//.delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
+                .flatMap { (_) -> Observable<Void> in
+                    return Observable.create { (observer) -> Disposable in
+                        //observer.onCompleted()
+                        observer.on(.completed)
+                        return Disposables.create()
+                    }
+        }
+        let signal = Observable.merge([input.tap, errorSignal])
+        return Output(resourcesDownloaded: signal)
+    }
+}
+
+class RefreshResourcesViewModel {
+    private var resourcesWorker: ICampaignResourcesWorker
+    init(resourcesWorker: ICampaignResourcesWorker) {
+        self.resourcesWorker = resourcesWorker
+    }
+    
+}
+
+class RefreshResourcesViewModelFactory {
+    func make() -> RefreshResourcesViewModel {
+        RefreshResourcesViewModel(resourcesWorker: CampaignResourcesWorkerFactory.make())
+    }
 }

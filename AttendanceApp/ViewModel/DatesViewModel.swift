@@ -34,7 +34,7 @@ class DatesViewmodel: NSObject, UITableViewDelegate {
     }
     
     private func loadDates() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             print("Thread = \(Thread.current)")
             guard let sSelf = self else {return}
             sSelf.dates = sSelf.blockRepo.getAvailableDates(roomId: nil)

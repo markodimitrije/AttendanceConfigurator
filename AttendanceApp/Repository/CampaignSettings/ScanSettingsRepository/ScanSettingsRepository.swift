@@ -59,7 +59,7 @@ class ScanSettingsRepository: IScanSettingsRepository {
     }
     
     deinit {
-        print("ScanSettingsRepository.deinit")
+//        print("ScanSettingsRepository.deinit")
     }
     
 }

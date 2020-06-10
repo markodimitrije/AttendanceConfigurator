@@ -59,7 +59,7 @@
                                                         <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
-                                                        <color key="value" red="0.1062902287" green="0.27787587050000001" blue="0.64317590000000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="txtColorBtnEnabled">
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

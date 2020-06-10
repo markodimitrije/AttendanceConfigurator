@@ -15,15 +15,18 @@ class SettingsViewControllerFactory {
     static func make() -> SettingsViewController {
         
         let settingsVC = StoryboardedViewControllerFactory.make(type: SettingsViewController.self) as! SettingsViewController
+        // property injection
         settingsVC.settingsViewModel = SettingsViewModelFactory.make()
         settingsVC.scanSettingsRepo = ScanSettingsRepositoryFactory.make()
-        let campaignSettings = ScanSettingsRepositoryFactory.make()
+        settingsVC.refreshResourcesViewModelFactory = RefreshResourcesViewModelFactory()
         
+        // attach signals
         let settingsInitials =
             InitialSettingsValuesCalculator(roomCalculator: InitialRoomCalculatorFactory.make(),
                                   blockCalculator: InitialBlockCalculatorFactory.make(),
                                   dateCalculator: InitialDateCalculatorFactory.make())
-
+        let campaignSettings = ScanSettingsRepositoryFactory.make()
+        
         attachExternalInputSignals(from: campaignSettings,
                                    toSettingsVC: settingsVC,
                                    settingsInitials: settingsInitials)

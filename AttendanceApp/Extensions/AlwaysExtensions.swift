@@ -75,6 +75,7 @@ extension Date { // (*)
     static var defaultFormatString = "yyyy-MM-dd HH:mm:ss"
     static var shortDateFormatString = "yyyy-MM-dd"
     static var timeFormatString = "HH:mm:ss"
+    static var milisecTimeFormatString = "HH:mm:ss.SSS"
 }
 
 extension Date { // (*)

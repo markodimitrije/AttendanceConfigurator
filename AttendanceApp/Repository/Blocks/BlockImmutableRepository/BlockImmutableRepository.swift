@@ -52,11 +52,14 @@ class BlockImmutableRepository: IBlockImmutableRepository {
     }
     
     func getAvailableDates(roomId: Int?) -> [Date] {
-        print("getAvailableDates.timestamp/start = \(Date.now)")
+        
+        print("getAvailableDates.timestamp/start = \(Date.now.toString(format: Date.milisecTimeFormatString))")
         let blocks = (roomId == nil) ?
             getAllBlockResults().toArray().map(BlockFactory.make) :
             getBlocks(roomId: roomId!)
+        print("getAvailableDates.timestamp/blocks = \(Date.now.toString(format: Date.milisecTimeFormatString))")
         let blockDates = blocks.map {$0.getStartsAt()}
+        print("getAvailableDates.timestamp/blocksStartsAt = \(Date.now.toString(format: Date.milisecTimeFormatString))")
         var daysSet = Set<Date>()
         _ = blockDates.map { date in
             let shortDateStr = date.toString(format: Date.shortDateFormatString)!
@@ -64,7 +67,7 @@ class BlockImmutableRepository: IBlockImmutableRepository {
             let shortDate = formatter.date(from: shortDateStr)!
             daysSet.insert(shortDate)
         }
-        print("getAvailableDates.timestamp/end = \(Date.now)")
+        print("getAvailableDates.timestamp/end = \(Date.now.toString(format: Date.milisecTimeFormatString))")
         return daysSet.sorted()
     }
     

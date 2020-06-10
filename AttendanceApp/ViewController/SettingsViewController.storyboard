@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gZn-bF-Okf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gZn-bF-Okf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -113,8 +113,46 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="STATUS" id="SC2-Lq-7n0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="j1C-P3-ZrW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sks-zq-d7f">
                                         <rect key="frame" x="0.0" y="388" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sks-zq-d7f" id="XxP-bd-czj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jW1-zk-ccB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EtQ-Jk-wx9" customClass="ActionUIButton" customModule="AttendanceApp" customModuleProvider="target">
+                                                            <rect key="frame" x="41.5" y="2" width="331" height="40"/>
+                                                            <state key="normal" title="Refresh resources"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
+                                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
+                                                                    <color key="value" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="EtQ-Jk-wx9" firstAttribute="centerX" secondItem="jW1-zk-ccB" secondAttribute="centerX" id="8Qa-zR-u8k"/>
+                                                        <constraint firstItem="EtQ-Jk-wx9" firstAttribute="width" secondItem="jW1-zk-ccB" secondAttribute="width" multiplier="0.8" id="Bjo-Fa-xJA"/>
+                                                        <constraint firstItem="EtQ-Jk-wx9" firstAttribute="centerY" secondItem="jW1-zk-ccB" secondAttribute="centerY" id="Qgv-Bo-w42"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jW1-zk-ccB" firstAttribute="leading" secondItem="XxP-bd-czj" secondAttribute="leading" id="7jV-fY-UZX"/>
+                                                <constraint firstAttribute="trailing" secondItem="jW1-zk-ccB" secondAttribute="trailing" id="IEK-ZV-v7S"/>
+                                                <constraint firstAttribute="bottom" secondItem="jW1-zk-ccB" secondAttribute="bottom" id="pKI-uo-M6L"/>
+                                                <constraint firstItem="jW1-zk-ccB" firstAttribute="top" secondItem="XxP-bd-czj" secondAttribute="top" id="vXp-Vf-LW9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="j1C-P3-ZrW">
+                                        <rect key="frame" x="0.0" y="432" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j1C-P3-ZrW" id="AGW-2h-99h">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -134,7 +172,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Tt9-zY-XCj">
-                                        <rect key="frame" x="0.0" y="432" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="476" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tt9-zY-XCj" id="zdW-Ca-BXy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -154,7 +192,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="X2u-3T-xlY">
-                                        <rect key="frame" x="0.0" y="476" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="520" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X2u-3T-xlY" id="W0C-Eb-Bke">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -186,6 +224,7 @@
                         <outlet property="autoSelectSessionsView" destination="ncN-J9-AG0" id="30m-vr-tsy"/>
                         <outlet property="cancelSettingsBtn" destination="Kh4-n0-tUp" id="v4h-zz-e6D"/>
                         <outlet property="dateLbl" destination="Qni-To-LyS" id="bKW-8P-jBc"/>
+                        <outlet property="refreshResourcesBtn" destination="EtQ-Jk-wx9" id="sTR-SB-2xP"/>
                         <outlet property="roomLbl" destination="0LJ-RJ-fCg" id="pNE-H6-edB"/>
                         <outlet property="saveSettingsAndExitBtn" destination="1cS-LP-JsG" id="Vif-Fp-KW4"/>
                         <outlet property="sessionLbl" destination="PVg-rg-fX5" id="Zj7-ed-tPw"/>

@@ -76,6 +76,7 @@ class ActionUIButton: UIButton, ILoadingAnimating {
     func reload() {
         backgroundColor = bgColorBtnEnabled
         setTitleColor(txtColorBtnEnabled, for: .normal)
+        self.setLoading(false)
     }
     
     private func manageBtnColors(isLoading: Bool) {

@@ -33,13 +33,6 @@ struct Block: Codable {
     var startsShort: String {
         starts_at.toString(format: "yyyy-MM-dd") ?? "error"
     }
-    
-//    var duration: String {
-//         let timeStartsAt = self.getStartsAt().toString(format: Date.timeFormatString) ?? "err"
-//         let timeEndsAt = self.getEndsAt().toString(format: Date.timeFormatString) ?? "err"
-//
-//         return timeStartsAt + "-" + timeEndsAt
-//    }
 
 }
 

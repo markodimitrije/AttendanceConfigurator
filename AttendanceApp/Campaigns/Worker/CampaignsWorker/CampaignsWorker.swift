@@ -18,7 +18,7 @@ extension CampaignsWorker: ICampaignsWorker {
                         .flatMap(sSelf.campaignsRepo.save)
                         .map {_ in return ()}
         }
-        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+        .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
         .observeOn(MainScheduler.instance)
     }
     

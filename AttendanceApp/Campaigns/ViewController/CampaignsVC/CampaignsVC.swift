@@ -30,7 +30,7 @@ class CampaignsVC: UIViewController, Storyboarded {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //campaignSelectionRepo.userSelected(campaignItem: nil) TODO marko: should be called when resources are updated but selected block is updated from saved in settings
-        DispatchQueue.global(qos: .background).async { [weak self] in
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
             self?.viewModel.refreshCampaigns()
         }
 
