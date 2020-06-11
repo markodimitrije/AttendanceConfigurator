@@ -10,7 +10,7 @@ import UIKit
 
 protocol ILoadingAnimating {
     func setLoading(_ loading: Bool)
-    func reload()
+//    func reload()
 }
 
 @IBDesignable
@@ -50,7 +50,8 @@ class ActionUIButton: UIButton, ILoadingAnimating {
     }
     
     private func setup() {
-        backgroundColor = bgColorBtnEnabled
+        backgroundColor = .green//bgColorBtnEnabled
+        setTitleColor(txtColorBtnEnabled, for: .normal)
         layer.cornerRadius = 5
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
@@ -59,8 +60,8 @@ class ActionUIButton: UIButton, ILoadingAnimating {
     }
     
     func setLoading(_ loading: Bool) {
-        manageBtnColors(isLoading: loading)
-        if loading && activityIndicator.superview == nil {
+        if loading {
+            guard activityIndicator.superview == nil else {return}
             self.isUserInteractionEnabled = false
             addSubview(activityIndicator)
             bringSubviewToFront(activityIndicator)
@@ -70,18 +71,19 @@ class ActionUIButton: UIButton, ILoadingAnimating {
         } else {
             self.isUserInteractionEnabled = true
             activityIndicator.removeFromSuperview()
+            manageBtnColors(isLoading: false)
         }
+        manageBtnColors(isLoading: loading)
     }
     
-    func reload() {
-        backgroundColor = bgColorBtnEnabled
-        setTitleColor(txtColorBtnEnabled, for: .normal)
-        self.setLoading(false)
-    }
+//    private func reload() {
+//        backgroundColor = .green//bgColorBtnEnabled
+//        setTitleColor(txtColorBtnEnabled, for: .normal)
+//    }
     
     private func manageBtnColors(isLoading: Bool) {
-        backgroundColor = isLoading ? bgColorBtnEnabled : bgColorBtnDisabled
-        let color = isLoading ? txtColorBtnEnabled : txtColorBtnDisabled
+        backgroundColor = isLoading ? .red : .green//bgColorBtnEnabled : bgColorBtnDisabled
+        let color = isLoading ? txtColorBtnDisabled : txtColorBtnEnabled
         setTitleColor(color, for: .normal)
     }
 

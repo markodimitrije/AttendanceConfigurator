@@ -42,6 +42,8 @@ class SettingsViewController: UITableViewController, Storyboarded {
         return refreshResourcesViewModelFactory.make()
     }
     
+    private var refreshResourcesOutput: RefreshResourcesViewModel.Output!
+    
     override func viewDidLoad() { super.viewDidLoad()
 
         bindUI()
@@ -112,22 +114,21 @@ class SettingsViewController: UITableViewController, Storyboarded {
         
         let refreshResourcesInput = RefreshResourcesViewModel.Input.init(tap: refreshResourcesBtn.rx.tap.asObservable())
         
-        let refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
+        //let refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
+        self.refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
         
-        refreshResourcesOutput.resourcesDownloaded.asObservable()
-            .subscribe(onNext: { [weak self] (_) in
+        refreshResourcesOutput.resourcesDownloaded
+            .subscribe(onNext: { [weak self] (_) in// print("refreshRes: set loading")
                 self?.refreshResourcesBtn.setLoading(true)
-            }, onError: { [weak self] (err) in
+            }, onError: { [weak self] (err) in//print("refreshRes: err catched, display err")
                 self?.refreshResourcesFinished()
-                print("err catched, display err")
-            }, onCompleted: { [weak self] in
+            }, onCompleted: { [weak self] in//print("refreshRes: finished catched")
                 self?.refreshResourcesFinished()
-                print("finished catched")
             }).disposed(by: disposeBag)
     }
     
     private func refreshResourcesFinished() {
-        self.refreshResourcesBtn.reload()
+        self.refreshResourcesBtn.setLoading(false)
         self.bindRefreshResources()
     }
     
@@ -234,17 +235,12 @@ extension RefreshResourcesViewModel: ViewModelType {
 //        return Output(resourcesDownloaded: signal)
 //    }
     func transform(input: Input) -> Output {
-        let errorSignal: Observable<Void> =
-            input.tap//.delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
-                .flatMap { (_) -> Observable<Void> in
-                    return Observable.create { (observer) -> Disposable in
-                        //observer.onCompleted()
-                        observer.on(.completed)
-                        return Disposables.create()
-                    }
-        }
-        let signal = Observable.merge([input.tap, errorSignal])
-        return Output(resourcesDownloaded: signal)
+        let completeSignal: Observable<Void> =
+            input.tap
+                .delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance)
+        
+        let composite = input.tap.takeUntil(completeSignal)
+        return Output(resourcesDownloaded: composite)
     }
 }
 

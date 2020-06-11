@@ -38,10 +38,10 @@ class LoginViewController: UIViewController, Storyboarded {
         manageKeyboardEvents()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.logBtn.reload()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.logBtn.reload()
+//    }
     
     private func bindToAndFromViewModel() {
         let input = LoginViewModelInputFactory.make(emailField: emailTxtField,
