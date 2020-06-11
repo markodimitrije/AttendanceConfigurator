@@ -58,7 +58,8 @@ class CampaignsVC: UIViewController, Storyboarded {
     }
     
     private func registerTableViewCells() {
-        tableView.register(UINib.init(nibName: "CampaignTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        tableView.register(UINib.init(nibName: "CampaignTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "cell")
     }
     
     deinit {

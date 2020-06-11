@@ -11,7 +11,7 @@ import UIKit
 struct NavigBarConfigurator: INavigBarConfigurator {
     func configure(navigationItem: UINavigationItem, btn: UIBarButtonItem) {
         navigationItem.hidesBackButton = true
-        navigationItem.title = "CAMPAIGNS"
+        navigationItem.title = "SELECT CAMPAIGN"
         navigationItem.setRightBarButton(btn, animated: false)
     }
 }

@@ -19,7 +19,6 @@ extension CampaignTableViewCell: ICampaignCellUpdate {
         //imgView.kf.setImage(with: URL(string: item.logo ?? ""), placeholder: CAMPAIGN_DEF_IMG)
         imgView.kf.setImage(with: URL(string: item.logo ?? ""))
         titleLbl.text = item.title
-        descLbl.text = item.description
     }
 }
 
@@ -27,7 +26,6 @@ class CampaignTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var descLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
