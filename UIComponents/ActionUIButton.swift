@@ -10,7 +10,6 @@ import UIKit
 
 protocol ILoadingAnimating {
     func setLoading(_ loading: Bool)
-//    func reload()
 }
 
 @IBDesignable
@@ -75,11 +74,6 @@ class ActionUIButton: UIButton, ILoadingAnimating {
         }
         manageBtnColors(isLoading: loading)
     }
-    
-//    private func reload() {
-//        backgroundColor = .green//bgColorBtnEnabled
-//        setTitleColor(txtColorBtnEnabled, for: .normal)
-//    }
     
     private func manageBtnColors(isLoading: Bool) {
         backgroundColor = isLoading ? .red : .green//bgColorBtnEnabled : bgColorBtnDisabled
