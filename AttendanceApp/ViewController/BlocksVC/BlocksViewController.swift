@@ -38,8 +38,10 @@ class BlocksViewController: UIViewController, Storyboarded {
     private func bindViewModelItems(to dataSource: RxTableViewSectionedReloadDataSource<BlocksSectionOfCustomData>) {
         
         blockViewModel.getItems()
-        .debug()
             .asDriver(onErrorJustReturn: [])
+            .do(onNext: { (sections) in
+                print("sections.first.count = \(String(describing: sections.first?.items.count))")
+            })
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }

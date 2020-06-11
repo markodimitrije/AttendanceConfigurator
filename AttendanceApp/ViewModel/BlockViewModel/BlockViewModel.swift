@@ -59,6 +59,7 @@ class BlockViewModel: IBlockViewModel {
             .subscribe(onNext: { (groups) in
                 let sections = BlocksSectionOfCustomDataFactory.make(blockSections: groups,
                                                                      onDate: self.date)
+                print("emitting sections with blocks!!")
                 self.oSectionsHeadersAndItems.accept(sections)
             }).disposed(by: disposeBag)
     }

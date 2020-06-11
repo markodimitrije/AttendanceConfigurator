@@ -15,7 +15,8 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
     }
     
     private func fetchCampaignResourcesAndSaveToRealm() -> Observable<Void> {
-        resourcesApiController.fetch().take(1).delay(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance) // TODO marko: campaignResourcesRepo.save should be Observable!
+        resourcesApiController.fetch().take(1)//simulate async delay .delay(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance)
+            // TODO marko: campaignResourcesRepo.save should be Observable!
         .do(onNext: { (resources) in
             print("CampaignResourcesWorker.work PERSIST resources")
             self.campaignResourcesRepo.save(resources: resources)

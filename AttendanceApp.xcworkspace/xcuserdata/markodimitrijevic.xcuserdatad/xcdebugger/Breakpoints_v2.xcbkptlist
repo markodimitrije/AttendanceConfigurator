@@ -184,32 +184,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "71055532-D3F6-45F8-B2D0-E8F14F57D9AF"
+            uuid = "86A4545B-0F9B-4285-9EDA-BB7391356926"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewController/SettingsViewControllerFactory/InitialSettingsValuesCalculators/InitialDateCalculator/InitialDateCalculator.swift"
+            filePath = "AttendanceApp/Model/FetchDelegates/DelegatesAttendanceValidation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "getDate()"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "isScannedDelegate(withBarcode:blockId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FBA7165-48AE-4869-B59E-8CF362C244F4"
+            uuid = "F9A1119B-5902-4F7E-BBA7-FD966BA25025"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AttendanceApp/ViewModel/DatesViewModel.swift"
+            filePath = "AttendanceApp/Repository/Delegates/DelegatesRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "loadDates()"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "delegateHasAccessToBlock(code:blockId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "84648F26-FBF2-434B-A550-D5BB2F605283"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Repository/Delegates/DelegatesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "delegateHasAccessToBlock(code:blockId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8021F490-DAFB-4F41-82C8-3C794D56B9A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AttendanceApp/Repository/Delegates/DelegatesRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "delegateHasAccessToBlock(code:blockId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

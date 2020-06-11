@@ -48,6 +48,10 @@ extension String {
         return DateFormatter(format: format).date(from: self)
     }
     
+    func toDate(using dateFormatter: DateFormatter) -> Date? {
+        return dateFormatter.date(from: self)
+    }
+    
     func toDateString(inputFormat: String, outputFormat:String) -> String? {
         if let date = toDate(format: inputFormat) {
             return DateFormatter(format: outputFormat).string(from: date)
@@ -70,6 +74,10 @@ extension Date { // (*)
     
     func toString(format: String = Date.defaultFormatString) -> String? {
         return DateFormatter(format: format).string(from: self)
+    }
+    
+    func toString(using dateFormatter: DateFormatter) -> String? {
+        return dateFormatter.string(from: self)
     }
     
     static var defaultFormatString = "yyyy-MM-dd HH:mm:ss"

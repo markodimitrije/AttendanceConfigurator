@@ -53,22 +53,19 @@ class BlockImmutableRepository: IBlockImmutableRepository {
     
     func getAvailableDates(roomId: Int?) -> [Date] {
         
-        print("getAvailableDates.timestamp/start = \(Date.now.toString(format: Date.milisecTimeFormatString))")
+        let formatter = DateFormatter(format: Date.shortDateFormatString)
+        
+//        print("getAvailableDates.timestamp/start = \(String(describing: Date.now.toString(format: Date.milisecTimeFormatString)))")
         let blocks = (roomId == nil) ?
             getAllBlockResults().toArray().map(BlockFactory.make) :
             getBlocks(roomId: roomId!)
-        print("getAvailableDates.timestamp/blocks = \(Date.now.toString(format: Date.milisecTimeFormatString))")
-        let blockDates = blocks.map {$0.getStartsAt()}
-        print("getAvailableDates.timestamp/blocksStartsAt = \(Date.now.toString(format: Date.milisecTimeFormatString))")
-        var daysSet = Set<Date>()
-        _ = blockDates.map { date in
-            let shortDateStr = date.toString(format: Date.shortDateFormatString)!
-            let formatter = DateFormatter(format: Date.shortDateFormatString)
-            let shortDate = formatter.date(from: shortDateStr)!
-            daysSet.insert(shortDate)
-        }
-        print("getAvailableDates.timestamp/end = \(Date.now.toString(format: Date.milisecTimeFormatString))")
-        return daysSet.sorted()
+        let blockDates = blocks
+            .map {$0.getStartsAt()}
+            .compactMap {$0.toString(using: formatter)}
+        let myDates = Set(blockDates).compactMap {$0.toDate(format: Date.shortDateFormatString)}
+//        print("getAvailableDates.timestamp/end = \(String(describing: Date.now.toString(format: Date.milisecTimeFormatString)))")
+        
+        return myDates
     }
     
     func getBlockGroupedByDate(roomId: Int, date: Date?) -> [[IBlock]] {
