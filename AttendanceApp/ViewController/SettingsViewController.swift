@@ -42,8 +42,6 @@ class SettingsViewController: UITableViewController, Storyboarded {
         return refreshResourcesViewModelFactory.make()
     }
     
-    private var refreshResourcesOutput: RefreshResourcesViewModel.Output!
-    
     override func viewDidLoad() { super.viewDidLoad()
 
         bindUI()
@@ -114,8 +112,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
         
         let refreshResourcesInput = RefreshResourcesViewModel.Input.init(tap: refreshResourcesBtn.rx.tap.asObservable())
         
-        //let refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
-        self.refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
+        let refreshResourcesOutput = refreshResourcesVM.transform(input: refreshResourcesInput)
         
         refreshResourcesOutput.resourcesDownloaded
             .subscribe(onNext: { [weak self] (_) in// print("refreshRes: set loading")
