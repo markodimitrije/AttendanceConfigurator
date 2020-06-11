@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol IMutableCampaignResourcesRepository {
     func save(resources: ICampaignResources)
+    func obsSave(resources: ICampaignResources) -> Observable<Void>
     func deleteResources()
 }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Navus. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 extension MutableCampaignResourcesRepository: IMutableCampaignResourcesRepository {
     func deleteResources() {
@@ -19,5 +19,19 @@ extension MutableCampaignResourcesRepository: IMutableCampaignResourcesRepositor
         let realmCampaignResources = RealmCampaignResourcesFactory.make(resources: resources)
         let genRepo = GenRealmMutableRepo()
         try? genRepo.save(objects: [realmCampaignResources])
+    }
+    func obsSave(resources: ICampaignResources) -> Observable<Void> {
+        Observable.create { (observer) -> Disposable in
+            let realmCampaignResources = RealmCampaignResourcesFactory.make(resources: resources)
+            let genRepo = GenRealmMutableRepo()
+            do {
+                try genRepo.save(objects: [realmCampaignResources])
+                observer.onNext(())
+                observer.onCompleted()
+            } catch let err {
+                observer.onError(err)
+            }
+            return Disposables.create()
+        }
     }
 }

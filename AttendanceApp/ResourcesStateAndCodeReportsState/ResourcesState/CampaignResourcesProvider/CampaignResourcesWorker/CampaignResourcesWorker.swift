@@ -15,12 +15,8 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
     }
     
     private func fetchCampaignResourcesAndSaveToRealm() -> Observable<Void> {
-        resourcesApiController.fetch().take(1)//simulate async delay .delay(RxTimeInterval.seconds(5), scheduler: MainScheduler.instance)
-            // TODO marko: campaignResourcesRepo.save should be Observable!
-        .do(onNext: { (resources) in
-            print("CampaignResourcesWorker.work PERSIST resources")
-            self.campaignResourcesRepo.save(resources: resources)
-        }).map {_ in return ()}
+        resourcesApiController.fetch().take(1)
+            .flatMap(campaignResourcesRepo.obsSave)
         .observeOn(MainScheduler.asyncInstance)
     }
     
@@ -28,7 +24,7 @@ extension CampaignResourcesWorker: ICampaignResourcesWorker {
         return Observable.create { (observer) -> Disposable in
             observer.onError(LoginValidationError.emailNotValid)
             return Disposables.create()
-        }.delaySubscription(1, scheduler: MainScheduler.instance)
+        }.delaySubscription(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
     }
     
 }
