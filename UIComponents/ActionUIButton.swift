@@ -15,7 +15,9 @@ protocol ILoadingAnimating {
 @IBDesignable
 class ActionUIButton: UIButton, ILoadingAnimating {
     @IBInspectable var bgColorBtnEnabled: UIColor = .blue {
-        didSet { self.backgroundColor = bgColorBtnEnabled }
+        didSet {
+            self.backgroundColor = bgColorBtnEnabled
+        }
     }
     @IBInspectable var bgColorBtnDisabled: UIColor = .darkGray {
         didSet { self.backgroundColor = bgColorBtnDisabled }

@@ -167,16 +167,20 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-E8-Lo4">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tys-ze-NAG" customClass="ActionUIButton" customModule="AttendanceApp" customModuleProvider="target">
-                                                            <rect key="frame" x="145.5" y="10" width="248.5" height="40"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tys-ze-NAG" customClass="RefreshResourcesBtn" customModule="AttendanceApp" customModuleProvider="target">
+                                                            <rect key="frame" x="145.5" y="12" width="248.5" height="36"/>
+                                                            <color key="backgroundColor" red="0.85703819989999996" green="0.32624718549999998" blue="0.31370738149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="36" id="JUT-hg-h9S"/>
+                                                            </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="Refresh resources"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
-                                                                    <color key="value" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="value" red="0.85703819989999996" green="0.32624718549999998" blue="0.31370738149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
-                                                                    <color key="value" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="value" red="0.85703819989999996" green="0.32624718549999998" blue="0.31370738149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="txtColorBtnEnabled">
                                                                     <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -188,9 +192,9 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="centerY" secondItem="XO2-E8-Lo4" secondAttribute="centerY" id="2me-Zy-PD4"/>
-                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="width" relation="greaterThanOrEqual" secondItem="XO2-E8-Lo4" secondAttribute="width" multiplier="0.6" id="DKp-Ma-yNJ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="tys-ze-NAG" secondAttribute="trailing" constant="20" symbolic="YES" id="cEN-aY-aoy"/>
+                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="width" secondItem="XO2-E8-Lo4" secondAttribute="width" multiplier="0.6" id="3bc-1v-JQ9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tys-ze-NAG" secondAttribute="trailing" constant="20" id="dHS-Tp-mPO"/>
+                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="centerY" secondItem="XO2-E8-Lo4" secondAttribute="centerY" id="rgd-Ei-3EF"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -209,14 +213,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4Y-ya-hkG">
-                                                    <rect key="frame" x="131.5" y="35" width="151" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4Y-ya-hkG" customClass="SaveSettingsAndExitBtn" customModule="AttendanceApp" customModuleProvider="target">
+                                                    <rect key="frame" x="83" y="32" width="248" height="36"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="9qb-vG-qZI"/>
+                                                    </constraints>
                                                     <state key="normal" title="Save settings and Exit"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
+                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="k4Y-ya-hkG" firstAttribute="centerY" secondItem="4vR-Rq-q8K" secondAttribute="centerY" id="AXR-GO-viH"/>
-                                                <constraint firstItem="k4Y-ya-hkG" firstAttribute="centerX" secondItem="4vR-Rq-q8K" secondAttribute="centerX" id="Yp4-Yk-clj"/>
+                                                <constraint firstItem="k4Y-ya-hkG" firstAttribute="width" secondItem="4vR-Rq-q8K" secondAttribute="width" multiplier="0.6" id="3Mw-Ad-sxI"/>
+                                                <constraint firstItem="k4Y-ya-hkG" firstAttribute="centerX" secondItem="4vR-Rq-q8K" secondAttribute="centerX" id="CzN-AW-hXv"/>
+                                                <constraint firstItem="k4Y-ya-hkG" firstAttribute="centerY" secondItem="4vR-Rq-q8K" secondAttribute="centerY" id="Pj5-4R-Z2q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

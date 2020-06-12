@@ -20,7 +20,7 @@ class SettingsViewController: UITableViewController, Storyboarded {
     
     @IBOutlet weak var autoSelectSessionsView: AutoSelectSessionsView!
     
-    @IBOutlet weak var refreshResourcesBtn: ActionUIButton!
+    @IBOutlet weak var refreshResourcesBtn: RefreshResourcesBtn!
     @IBOutlet weak var unsyncedScansView: UnsyncedScansView!
     @IBOutlet weak var wiFiConnectionView: WiFiConnectionView!
     
