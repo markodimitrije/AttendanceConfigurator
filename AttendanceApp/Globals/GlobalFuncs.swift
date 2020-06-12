@@ -15,11 +15,15 @@ func +=<Key, Value> (lhs: inout [Key: Value], rhs: [Key: Value]) {
 }
 
 func getArrowImgView(frame: CGRect, validAttendance valid: Bool) -> UIImageView {
-    let v = UIImageView.init(frame: frame)
+    let insetX = 0.4 * frame.width
+    let insetY = 0.4 * frame.height
+    let imgFrame = frame.insetBy(dx: insetX, dy: insetY)
+    let v = UIImageView.init(frame: imgFrame)
     let imgName = valid ? "success" : "rejected"
     v.image = UIImage.init(named: imgName)
     v.tag = 20
-    v.contentMode = UIView.ContentMode.scaleAspectFill
+    //v.contentMode = UIView.ContentMode.scaleAspectFill
+    v.contentMode = UIView.ContentMode.scaleAspectFit
     return v
 }
 
