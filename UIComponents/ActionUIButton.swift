@@ -65,7 +65,6 @@ class ActionUIButton: UIButton, ILoadingAnimating {
         layer.shadowOpacity = 0.25
         layer.shadowRadius = 5
         layer.shadowOffset = CGSize(width: 0, height: 2)
-        heightAnchor.constraint(greaterThanOrEqualToConstant: 40).isActive = true
     }
     
     func setLoading(_ loading: Bool) {

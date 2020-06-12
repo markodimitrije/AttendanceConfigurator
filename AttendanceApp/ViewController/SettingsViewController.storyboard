@@ -167,14 +167,12 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XO2-E8-Lo4">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tys-ze-NAG" customClass="RefreshResourcesBtn" customModule="AttendanceApp" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DvD-jA-7p0" customClass="RefreshResourcesBtn" customModule="AttendanceApp" customModuleProvider="target">
                                                             <rect key="frame" x="145.5" y="12" width="248.5" height="36"/>
-                                                            <color key="backgroundColor" red="0.85703819989999996" green="0.32624718549999998" blue="0.31370738149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="36" id="JUT-hg-h9S"/>
+                                                                <constraint firstAttribute="height" constant="36" id="s0t-Hp-3DW"/>
                                                             </constraints>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <state key="normal" title="Refresh resources"/>
+                                                            <state key="normal" title="Button"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
                                                                     <color key="value" red="0.85703819989999996" green="0.32624718549999998" blue="0.31370738149999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -192,9 +190,9 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="width" secondItem="XO2-E8-Lo4" secondAttribute="width" multiplier="0.6" id="3bc-1v-JQ9"/>
-                                                        <constraint firstAttribute="trailing" secondItem="tys-ze-NAG" secondAttribute="trailing" constant="20" id="dHS-Tp-mPO"/>
-                                                        <constraint firstItem="tys-ze-NAG" firstAttribute="centerY" secondItem="XO2-E8-Lo4" secondAttribute="centerY" id="rgd-Ei-3EF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="DvD-jA-7p0" secondAttribute="trailing" constant="20" symbolic="YES" id="5o9-OF-5Hb"/>
+                                                        <constraint firstItem="DvD-jA-7p0" firstAttribute="centerY" secondItem="XO2-E8-Lo4" secondAttribute="centerY" id="dwU-TQ-p1l"/>
+                                                        <constraint firstItem="DvD-jA-7p0" firstAttribute="width" secondItem="XO2-E8-Lo4" secondAttribute="width" multiplier="0.6" id="qDd-VM-LiA"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -220,14 +218,6 @@
                                                         <constraint firstAttribute="height" constant="36" id="9qb-vG-qZI"/>
                                                     </constraints>
                                                     <state key="normal" title="Save settings and Exit"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnEnabled">
-                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="bgColorBtnDisabled">
-                                                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -252,7 +242,7 @@
                         <outlet property="autoSelectSessionsView" destination="ncN-J9-AG0" id="30m-vr-tsy"/>
                         <outlet property="cancelSettingsBtn" destination="Kh4-n0-tUp" id="v4h-zz-e6D"/>
                         <outlet property="dateLbl" destination="Qni-To-LyS" id="bKW-8P-jBc"/>
-                        <outlet property="refreshResourcesBtn" destination="tys-ze-NAG" id="vw0-VC-Slf"/>
+                        <outlet property="refreshResourcesBtn" destination="DvD-jA-7p0" id="0C0-3W-Qaw"/>
                         <outlet property="roomLbl" destination="0LJ-RJ-fCg" id="pNE-H6-edB"/>
                         <outlet property="saveSettingsAndExitBtn" destination="k4Y-ya-hkG" id="WsN-WY-XLc"/>
                         <outlet property="sessionLbl" destination="PVg-rg-fX5" id="Zj7-ed-tPw"/>
@@ -262,7 +252,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5e-zG-tsb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506.4000000000001" y="404.34782608695656"/>
+            <point key="canvasLocation" x="1505.7971014492755" y="403.79464285714283"/>
         </scene>
     </scenes>
 </document>

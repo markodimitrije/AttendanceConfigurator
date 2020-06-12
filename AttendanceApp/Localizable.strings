@@ -63,3 +63,6 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 "approved.title" = "Attendandees approved:";
 "rejected.title" = "Attendandees rejected:";
 "synced.title" = "Synced scans:";
+
+"saveSettingsAndExit" = "Save settings and Exit";
+"refreshResources" = "Refresh resources";

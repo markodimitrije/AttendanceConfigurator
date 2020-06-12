@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		54C44D582A3C4E40169E34FE /* Pods_AttendanceAppUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3922F4EF85785A4CD55E2410 /* Pods_AttendanceAppUnitTests.framework */; };
 		575495532CCA2AC12DFC9BE3 /* Pods_AttendanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E533D6E95C9595418FD1C4 /* Pods_AttendanceApp.framework */; };
-		7C0445522493AFE0002177A9 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0445512493AFE0002177A9 /* UIView+Extensions.swift */; };
 		7C082A5F245187CC007424E8 /* CampaignStatsVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C082A5E245187CC007424E8 /* CampaignStatsVCFactory.swift */; };
 		7C082A6124518FB5007424E8 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */; };
 		7C082A6324518FC1007424E8 /* SettingsViewController_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */; };
@@ -230,6 +229,10 @@
 		7CB2469A244E18F50035F311 /* ICampaignsRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB24699244E18F50035F311 /* ICampaignsRemoteApi.swift */; };
 		7CB3DA58228C030600E29DA5 /* CampaignStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3DA57228C030600E29DA5 /* CampaignStatsVC.swift */; };
 		7CB7D557225DF966007B9BB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7D556225DF965007B9BB0 /* AppDelegate.swift */; };
+		7CB865FB2493D4C400D5E28E /* RefreshResourcesBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB865FA2493D4C400D5E28E /* RefreshResourcesBtn.swift */; };
+		7CB865FD2493D4DB00D5E28E /* SaveSettingsAndExitBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB865FC2493D4DB00D5E28E /* SaveSettingsAndExitBtn.swift */; };
+		7CB865FF2493D50D00D5E28E /* ViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB865FE2493D50D00D5E28E /* ViewRounding.swift */; };
+		7CB866012493D55900D5E28E /* ViewBordering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB866002493D55900D5E28E /* ViewBordering.swift */; };
 		7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */; };
 		7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */; };
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
@@ -373,7 +376,6 @@
 		4CDE23CC13BE03E3BB6C67F5 /* Pods-AttendanceAppUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceAppUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceAppUnitTests/Pods-AttendanceAppUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5417D6DCB607BDFB0EEA9675 /* Pods-tryWebApiAndSaveToRealm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tryWebApiAndSaveToRealm/Pods-tryWebApiAndSaveToRealm.debug.xcconfig"; sourceTree = "<group>"; };
 		5B4AC0EA4CAED87DD7474AA7 /* Pods-AttendanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AttendanceApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AttendanceApp/Pods-AttendanceApp.debug.xcconfig"; sourceTree = "<group>"; };
-		7C0445512493AFE0002177A9 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		7C082A5E245187CC007424E8 /* CampaignStatsVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsVCFactory.swift; sourceTree = "<group>"; };
 		7C082A6024518FB5007424E8 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		7C082A6224518FC1007424E8 /* SettingsViewController_iPad.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController_iPad.storyboard; sourceTree = "<group>"; };
@@ -595,6 +597,10 @@
 		7CB24699244E18F50035F311 /* ICampaignsRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICampaignsRemoteApi.swift; sourceTree = "<group>"; };
 		7CB3DA57228C030600E29DA5 /* CampaignStatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignStatsVC.swift; sourceTree = "<group>"; };
 		7CB7D556225DF965007B9BB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CB865FA2493D4C400D5E28E /* RefreshResourcesBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshResourcesBtn.swift; sourceTree = "<group>"; };
+		7CB865FC2493D4DB00D5E28E /* SaveSettingsAndExitBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSettingsAndExitBtn.swift; sourceTree = "<group>"; };
+		7CB865FE2493D50D00D5E28E /* ViewRounding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRounding.swift; sourceTree = "<group>"; };
+		7CB866002493D55900D5E28E /* ViewBordering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBordering.swift; sourceTree = "<group>"; };
 		7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProviding.swift; sourceTree = "<group>"; };
 		7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
@@ -1970,6 +1976,24 @@
 			path = Worker;
 			sourceTree = "<group>";
 		};
+		7CB865F92493D4B600D5E28E /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				7CB865FA2493D4C400D5E28E /* RefreshResourcesBtn.swift */,
+				7CB865FC2493D4DB00D5E28E /* SaveSettingsAndExitBtn.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		7CB866022493D58C00D5E28E /* UIView+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CB865FE2493D50D00D5E28E /* ViewRounding.swift */,
+				7CB866002493D55900D5E28E /* ViewBordering.swift */,
+			);
+			path = "UIView+Extensions";
+			sourceTree = "<group>";
+		};
 		7CBDC28022D8A8D800B7D43F /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -2355,6 +2379,7 @@
 		AD24E30621806C22008E35F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CB865F92493D4B600D5E28E /* Buttons */,
 				7C53A5B8246BEBB6008685EE /* BlockScansCell */,
 				7C30206A246AA08C004C343A /* StatsView */,
 				7C302067246AA06A004C343A /* AutoSelectSessionsView */,
@@ -2373,7 +2398,7 @@
 				7CEC6745242B727F00CC56FF /* Date+Extension.swift */,
 				7C302065246A9D29004C343A /* NSObject+Extension.swift */,
 				7C30207F246AC8D5004C343A /* SortDescriptor+Ext.swift */,
-				7C0445512493AFE0002177A9 /* UIView+Extensions.swift */,
+				7CB866022493D58C00D5E28E /* UIView+Extensions */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2805,6 +2830,7 @@
 				7C6A5EF1243DC89300CD5C9C /* BlocksCustomDataItemFactory.swift in Sources */,
 				7C6A5F03243E02D100CD5C9C /* IRoomsViewModel.swift in Sources */,
 				7C30208C246AE090004C343A /* ICodeReportsMutableRepository.swift in Sources */,
+				7CB865FD2493D4DB00D5E28E /* SaveSettingsAndExitBtn.swift in Sources */,
 				7C7DCBF22448B9050072CDAE /* ILoginWorker.swift in Sources */,
 				7C7AED0F2480097700F1E01B /* InitialDateCalculatorFactory.swift in Sources */,
 				7C30207E246AC366004C343A /* IGenRealmMutableRepo.swift in Sources */,
@@ -2889,6 +2915,7 @@
 				7C5908CE2437BA64006199B1 /* MostRecentBlockUtility.swift in Sources */,
 				7CC9DD682448DB950035B2AE /* ICampaignsViewModel.swift in Sources */,
 				7C7172E024768A3400AB82AB /* ScanSettingsFactory.swift in Sources */,
+				7CB865FB2493D4C400D5E28E /* RefreshResourcesBtn.swift in Sources */,
 				7C4AFAAA2457534D0038B8D5 /* CampaignResourcesApiControllerFactory.swift in Sources */,
 				AD69BB6A2190948200EF80F9 /* UnsyncScansViewModel.swift in Sources */,
 				7C302066246A9D29004C343A /* NSObject+Extension.swift in Sources */,
@@ -2957,7 +2984,6 @@
 				7C5ED62D243B52EA00FEEAAE /* CodeReportCellModelFactory.swift in Sources */,
 				7C55BA5D242A903D005BF038 /* RoomsViewControllerFactory.swift in Sources */,
 				AD9FE5B421AEBA2C00D6A4B6 /* DeviceStateReporter.swift in Sources */,
-				7C0445522493AFE0002177A9 /* UIView+Extensions.swift in Sources */,
 				7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */,
 				7CA97FE02458BEBA0091F556 /* CampaignResourcesState.swift in Sources */,
 				7C5908C624371D7D006199B1 /* StoryboardUtilities.swift in Sources */,
@@ -3045,6 +3071,7 @@
 				7C7DCBE42448B9050072CDAE /* ILoginRemoteApi.swift in Sources */,
 				7C7AED05247FFFC500F1E01B /* InitialRoomCalculator.swift in Sources */,
 				7C516F76243C988C002CF6BF /* BlockMutableRepository.swift in Sources */,
+				7CB865FF2493D50D00D5E28E /* ViewRounding.swift in Sources */,
 				AD80EFFA217DCDEA003CEDD0 /* Room.swift in Sources */,
 				ADB2739F218078DD00345A5E /* UnsyncedScansView.swift in Sources */,
 				7C7DCBDD2448B9050072CDAE /* AlertInfoFactory.swift in Sources */,
@@ -3081,6 +3108,7 @@
 				7C2E84272435125B005B5C7F /* SettingsViewModel+Input+Output.swift in Sources */,
 				7CC9DD6D2448DF430035B2AE /* INavigBarConfigurator.swift in Sources */,
 				7C5ED625243B525900FEEAAE /* CampaignStatsDataSource.swift in Sources */,
+				7CB866012493D55900D5E28E /* ViewBordering.swift in Sources */,
 				7C7A74B4248028CF00700A9E /* SettingsTextCalculator.swift in Sources */,
 				AD2C3A1321B67D0F00E8A319 /* ScanSettingsRepository.swift in Sources */,
 			);
