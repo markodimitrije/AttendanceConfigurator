@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w8J-Jv-4Cj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w8J-Jv-4Cj">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -24,8 +24,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PG0-Yb-zM6" userLabel="scanView">
                                 <rect key="frame" x="0.0" y="0.0" width="606.5" height="768"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="error" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-OF-eyk">
-                                        <rect key="frame" x="0.0" y="0.0" width="606.5" height="768"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="Y2k-OF-eyk">
+                                        <rect key="frame" x="203" y="284" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="FOm-0M-76S"/>
+                                            <constraint firstAttribute="width" constant="200" id="HiT-cf-W0k"/>
+                                        </constraints>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wy7-5f-i7s">
                                         <rect key="frame" x="284.5" y="365.5" width="37" height="37"/>
@@ -33,12 +37,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Y2k-OF-eyk" secondAttribute="trailing" id="AYx-sb-AgI"/>
                                     <constraint firstItem="wy7-5f-i7s" firstAttribute="centerY" secondItem="PG0-Yb-zM6" secondAttribute="centerY" id="DKJ-4f-jaK"/>
                                     <constraint firstItem="wy7-5f-i7s" firstAttribute="centerX" secondItem="PG0-Yb-zM6" secondAttribute="centerX" id="DOv-gv-ImO"/>
-                                    <constraint firstItem="Y2k-OF-eyk" firstAttribute="leading" secondItem="PG0-Yb-zM6" secondAttribute="leading" id="H9S-Ws-CpC"/>
-                                    <constraint firstItem="Y2k-OF-eyk" firstAttribute="top" secondItem="PG0-Yb-zM6" secondAttribute="top" id="taW-gN-ble"/>
-                                    <constraint firstAttribute="bottom" secondItem="Y2k-OF-eyk" secondAttribute="bottom" id="uSV-bZ-f1r"/>
+                                    <constraint firstItem="Y2k-OF-eyk" firstAttribute="centerY" secondItem="PG0-Yb-zM6" secondAttribute="centerY" id="GnS-Vs-vXt"/>
+                                    <constraint firstItem="Y2k-OF-eyk" firstAttribute="centerX" secondItem="PG0-Yb-zM6" secondAttribute="centerX" id="Kg6-Za-jtb"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqt-2J-maI" userLabel="infoView">
@@ -78,7 +80,7 @@
                                             <constraint firstAttribute="width" secondItem="RQw-pG-tY1" secondAttribute="height" multiplier="1:1" id="Ger-VE-2mm"/>
                                             <constraint firstAttribute="width" constant="44" id="rEa-3J-Dmp"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="settings"/>
+                                        <state key="normal" backgroundImage="icSettings"/>
                                         <connections>
                                             <action selector="settingsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="E0D-2L-r3v"/>
                                         </connections>
@@ -102,7 +104,7 @@
                                             <constraint firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="N6o-HC-01S"/>
                                             <constraint firstAttribute="width" constant="44" id="xT0-mi-mMw"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="qrCode"/>
+                                        <state key="normal" backgroundImage="icStats"/>
                                         <connections>
                                             <action selector="reportsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="XSO-F9-0dc"/>
                                         </connections>
@@ -157,9 +159,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="error" width="466" height="466"/>
+        <image name="icSettings" width="13.5" height="13.5"/>
+        <image name="icStats" width="13.5" height="13.5"/>
         <image name="navusLogo" width="350" height="63"/>
-        <image name="qrCode" width="60" height="60"/>
-        <image name="settings" width="60" height="60"/>
+        <image name="success" width="50" height="50"/>
     </resources>
 </document>

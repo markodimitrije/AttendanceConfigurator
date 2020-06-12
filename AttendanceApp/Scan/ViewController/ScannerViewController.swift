@@ -46,7 +46,6 @@ class ScannerViewController: UIViewController, Storyboarded {
     // MARK:- Controller Life cycle
     
     override func viewDidLoad() { super.viewDidLoad()
-        
         loadScanner()
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()

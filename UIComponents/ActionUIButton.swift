@@ -14,10 +14,18 @@ protocol ILoadingAnimating {
 
 @IBDesignable
 class ActionUIButton: UIButton, ILoadingAnimating {
-    @IBInspectable var bgColorBtnEnabled: UIColor = .blue
-    @IBInspectable var bgColorBtnDisabled: UIColor = .darkGray
-    @IBInspectable var txtColorBtnEnabled: UIColor = .white
-    @IBInspectable var txtColorBtnDisabled: UIColor = .white
+    @IBInspectable var bgColorBtnEnabled: UIColor = .blue {
+        didSet { self.backgroundColor = bgColorBtnEnabled }
+    }
+    @IBInspectable var bgColorBtnDisabled: UIColor = .darkGray {
+        didSet { self.backgroundColor = bgColorBtnDisabled }
+    }
+    @IBInspectable var txtColorBtnEnabled: UIColor = .white {
+        didSet { self.setTitleColor(txtColorBtnEnabled, for: .normal) }
+    }
+    @IBInspectable var txtColorBtnDisabled: UIColor = .white {
+        didSet { self.setTitleColor(txtColorBtnDisabled, for: .normal) }
+    }
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
         let temp = UIActivityIndicatorView()
@@ -30,7 +38,7 @@ class ActionUIButton: UIButton, ILoadingAnimating {
         super.init(frame: frame)
         setup()
     }
-    
+
     init(frame: CGRect? = nil,
          bgColorBtnEnabled: UIColor = .blue,
          bgColorBtnDisabled: UIColor = .darkGray,
@@ -49,7 +57,7 @@ class ActionUIButton: UIButton, ILoadingAnimating {
     }
     
     private func setup() {
-        backgroundColor = .green//bgColorBtnEnabled
+        backgroundColor = bgColorBtnEnabled
         setTitleColor(txtColorBtnEnabled, for: .normal)
         layer.cornerRadius = 5
         layer.shadowOpacity = 0.25
@@ -70,13 +78,12 @@ class ActionUIButton: UIButton, ILoadingAnimating {
         } else {
             self.isUserInteractionEnabled = true
             activityIndicator.removeFromSuperview()
-            manageBtnColors(isLoading: false)
         }
         manageBtnColors(isLoading: loading)
     }
     
     private func manageBtnColors(isLoading: Bool) {
-        backgroundColor = isLoading ? .red : .green//bgColorBtnEnabled : bgColorBtnDisabled
+        backgroundColor = isLoading ? bgColorBtnDisabled : bgColorBtnEnabled
         let color = isLoading ? txtColorBtnDisabled : txtColorBtnEnabled
         setTitleColor(color, for: .normal)
     }

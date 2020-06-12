@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afS-N2-iwq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afS-N2-iwq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -25,15 +25,17 @@
                                 <rect key="frame" x="0.0" y="292" width="414" height="570"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="1uH-hV-BHD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="570"/>
+                                        <rect key="frame" x="107" y="185" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="aZo-Vc-ine"/>
+                                            <constraint firstAttribute="height" constant="200" id="fx9-Vk-xvc"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="1uH-hV-BHD" secondAttribute="trailing" id="4vs-98-Cut"/>
-                                    <constraint firstAttribute="bottom" secondItem="1uH-hV-BHD" secondAttribute="bottom" id="7YK-HM-A40"/>
-                                    <constraint firstItem="1uH-hV-BHD" firstAttribute="top" secondItem="n09-dX-b0e" secondAttribute="top" id="ejz-EB-f3e"/>
-                                    <constraint firstItem="1uH-hV-BHD" firstAttribute="leading" secondItem="n09-dX-b0e" secondAttribute="leading" id="s8I-8W-GY6"/>
+                                    <constraint firstItem="1uH-hV-BHD" firstAttribute="centerX" secondItem="n09-dX-b0e" secondAttribute="centerX" id="8I0-Mb-whg"/>
+                                    <constraint firstItem="1uH-hV-BHD" firstAttribute="centerY" secondItem="n09-dX-b0e" secondAttribute="centerY" id="key-At-46f"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMi-vT-b0u" userLabel="infoView">
@@ -73,7 +75,7 @@
                                             <constraint firstAttribute="width" secondItem="BHH-xc-5FD" secondAttribute="height" multiplier="1:1" id="JP0-dM-O1r"/>
                                             <constraint firstAttribute="width" constant="44" id="u2n-tx-2hL"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="settings"/>
+                                        <state key="normal" backgroundImage="icSettings"/>
                                         <connections>
                                             <action selector="settingsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="FJx-kU-aFA"/>
                                         </connections>
@@ -87,7 +89,7 @@
                                             <constraint firstAttribute="width" constant="44" id="WuC-Yg-UkE"/>
                                             <constraint firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="yqL-eE-I35"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="qrCode"/>
+                                        <state key="normal" backgroundImage="icStats"/>
                                         <connections>
                                             <action selector="reportsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="B1e-kc-n25"/>
                                         </connections>
@@ -145,9 +147,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icSettings" width="13.5" height="13.5"/>
+        <image name="icStats" width="13.5" height="13.5"/>
         <image name="navusLogo" width="350" height="63"/>
-        <image name="qrCode" width="60" height="60"/>
-        <image name="settings" width="60" height="60"/>
-        <image name="success" width="466" height="466"/>
+        <image name="success" width="50" height="50"/>
     </resources>
 </document>
