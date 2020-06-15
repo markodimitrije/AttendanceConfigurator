@@ -46,6 +46,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqt-2J-maI" userLabel="infoView">
                                 <rect key="frame" x="614.5" y="0.0" width="409.5" height="768"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="gI8-bP-Sv6" userLabel="logoAndBtnsStackView">
+                                        <rect key="frame" x="345.5" y="34" width="44" height="114"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-pG-tY1" userLabel="settingsBtn">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RQw-pG-tY1" secondAttribute="height" multiplier="1:1" id="Ger-VE-2mm"/>
+                                                    <constraint firstAttribute="width" constant="44" id="rEa-3J-Dmp"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="icSettings"/>
+                                                <connections>
+                                                    <action selector="settingsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="E0D-2L-r3v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS4-9w-k9N" userLabel="qrCodeBtn">
+                                                <rect key="frame" x="0.0" y="70" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="N6o-HC-01S"/>
+                                                    <constraint firstAttribute="width" constant="44" id="xT0-mi-mMw"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="icStats"/>
+                                                <connections>
+                                                    <action selector="reportsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="XSO-F9-0dc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="IS4-9w-k9N" firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="51s-U1-bU2"/>
+                                            <constraint firstItem="IS4-9w-k9N" firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="iMX-ob-yfC"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ofV-WU-33k" userLabel="infoStackView">
                                         <rect key="frame" x="8" y="206" width="393.5" height="78.5"/>
                                         <subviews>
@@ -74,59 +105,34 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-pG-tY1" userLabel="settingsBtn">
-                                        <rect key="frame" x="357.5" y="34" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="RQw-pG-tY1" secondAttribute="height" multiplier="1:1" id="Ger-VE-2mm"/>
-                                            <constraint firstAttribute="width" constant="44" id="rEa-3J-Dmp"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="icSettings"/>
-                                        <connections>
-                                            <action selector="settingsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="E0D-2L-r3v"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="69p-E0-RXQ">
-                                        <rect key="frame" x="16" y="16" width="325.5" height="150"/>
+                                        <rect key="frame" x="16" y="16" width="313.5" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="7NH-PI-Q5x"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nFj-lu-vnQ" userLabel="dummyView">
-                                        <rect key="frame" x="374.5" y="86" width="10" height="10"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="one-4F-rdg">
+                                        <rect key="frame" x="158" y="404.5" width="93" height="45"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="10" id="6Jq-5v-TJh"/>
-                                            <constraint firstAttribute="width" constant="10" id="aVD-ro-J17"/>
+                                            <constraint firstAttribute="height" constant="45" id="LZt-a0-piU"/>
+                                            <constraint firstAttribute="width" constant="93" id="uM8-cv-eYs"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS4-9w-k9N" userLabel="qrCodeBtn">
-                                        <rect key="frame" x="357.5" y="104" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="N6o-HC-01S"/>
-                                            <constraint firstAttribute="width" constant="44" id="xT0-mi-mMw"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="icStats"/>
-                                        <connections>
-                                            <action selector="reportsBtnTapped:" destination="w8J-Jv-4Cj" eventType="touchUpInside" id="XSO-F9-0dc"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="nFj-lu-vnQ" firstAttribute="leading" secondItem="69p-E0-RXQ" secondAttribute="trailing" constant="33" id="2yl-nR-qt1"/>
                                     <constraint firstAttribute="trailing" secondItem="ofV-WU-33k" secondAttribute="trailing" constant="8" id="5QQ-fo-7gk"/>
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="top" secondItem="69p-E0-RXQ" secondAttribute="bottom" constant="40" id="5mq-4L-crU"/>
+                                    <constraint firstAttribute="trailing" secondItem="gI8-bP-Sv6" secondAttribute="trailing" constant="20" symbolic="YES" id="62z-kb-u84"/>
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="8" id="72u-b2-DEP"/>
-                                    <constraint firstItem="IS4-9w-k9N" firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="9yZ-uP-YYA"/>
+                                    <constraint firstItem="gI8-bP-Sv6" firstAttribute="leading" secondItem="69p-E0-RXQ" secondAttribute="trailing" constant="16" id="CXy-CQ-DdE"/>
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="centerX" secondItem="Qqt-2J-maI" secondAttribute="centerX" id="CZz-fj-rk4"/>
-                                    <constraint firstItem="nFj-lu-vnQ" firstAttribute="centerY" secondItem="69p-E0-RXQ" secondAttribute="centerY" id="P4M-gV-JPt"/>
                                     <constraint firstItem="69p-E0-RXQ" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="16" id="VHd-il-9Vh"/>
-                                    <constraint firstAttribute="trailing" secondItem="RQw-pG-tY1" secondAttribute="trailing" constant="8" id="VhF-M5-j0b"/>
-                                    <constraint firstItem="IS4-9w-k9N" firstAttribute="top" secondItem="nFj-lu-vnQ" secondAttribute="bottom" constant="8" id="ahb-1a-jmJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="IS4-9w-k9N" secondAttribute="trailing" constant="8" id="ltV-R9-h5L"/>
-                                    <constraint firstItem="nFj-lu-vnQ" firstAttribute="top" secondItem="RQw-pG-tY1" secondAttribute="bottom" constant="8" id="mZy-nO-fhz"/>
+                                    <constraint firstItem="one-4F-rdg" firstAttribute="top" secondItem="96O-wu-GgE" secondAttribute="bottom" constant="140" id="eIl-Me-8rJ"/>
+                                    <constraint firstItem="one-4F-rdg" firstAttribute="centerX" secondItem="L9O-2r-ewx" secondAttribute="centerX" id="etw-Sh-7qW"/>
                                     <constraint firstItem="69p-E0-RXQ" firstAttribute="top" secondItem="Qqt-2J-maI" secondAttribute="top" constant="16" id="naq-Iu-hIQ"/>
-                                    <constraint firstItem="RQw-pG-tY1" firstAttribute="leading" secondItem="69p-E0-RXQ" secondAttribute="trailing" constant="16" id="s2Z-xL-vgM"/>
-                                    <constraint firstItem="IS4-9w-k9N" firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="ykR-uM-1rf"/>
+                                    <constraint firstItem="gI8-bP-Sv6" firstAttribute="centerY" secondItem="69p-E0-RXQ" secondAttribute="centerY" id="pOY-tp-Gvp"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -147,6 +153,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="wy7-5f-i7s" id="dbl-Y0-Lie"/>
                         <outlet property="arrowImageView" destination="Y2k-OF-eyk" id="mMq-g7-kvH"/>
+                        <outlet property="popUpAnchorView" destination="one-4F-rdg" id="CWq-iY-sQZ"/>
                         <outlet property="scannerView" destination="PG0-Yb-zM6" id="T65-PH-bGj"/>
                         <outlet property="sessionConstLbl" destination="L9O-2r-ewx" id="hes-za-xYO"/>
                         <outlet property="sessionNameLbl" destination="96O-wu-GgE" id="A9V-yH-zk4"/>
@@ -155,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjI-QT-cac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906" y="406"/>
+            <point key="canvasLocation" x="-906.44531249999989" y="405.46875"/>
         </scene>
     </scenes>
     <resources>

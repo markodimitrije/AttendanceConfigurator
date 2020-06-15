@@ -22,6 +22,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     @IBOutlet weak var sessionNameLbl: UILabel!
     @IBOutlet weak var sessionTimeAndRoomLbl: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var popUpAnchorView: UIView!
     
     @IBAction func settingsBtnTapped(_ sender: UIButton) {
         navigateToSettingsScreen()
@@ -114,7 +115,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     private func showPopUpScannerSettingsMissing() {
         let alertInfo = alertInfoFactory.make(alertType: .scanSettingMissing)
-        self.alert(alertInfo: alertInfo, sourceView: self.sessionConstLbl)//self.view)
+        self.alert(alertInfo: alertInfo, sourceView: self.popUpAnchorView)//self.view)
             .subscribe(onNext: { tag in
                 if tag == 0 {self.dismiss(animated: true)}
                 else if tag == 1 {self.navigateToSettingsScreen()}
