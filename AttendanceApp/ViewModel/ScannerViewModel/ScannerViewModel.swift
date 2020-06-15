@@ -40,6 +40,9 @@ class ScannerViewModel {
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     private let autoSessionTimer: AutoSessionTimer!
     weak var delegate: ScannerViewController?
+    var hasScanSettings: Bool {
+        scanSettingsRepo.getScanSettings().blockId != nil
+    }
     
     init(scanSettingsRepo: IScanSettingsImmutableRepository,
          scannerInfoFactory: IScannerInfoFactory,

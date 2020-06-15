@@ -23,6 +23,10 @@ struct AlertInfo {
             static let title = NSLocalizedString("Strings.Scan.NoSettings.title", comment: "")
             static let msg = NSLocalizedString("Strings.Scan.NoSettings.msg", comment: "")
         }
+        struct ScanSettingsMissing { //
+            static let title = NSLocalizedString("scanner.popUp.noSettings.title", comment: "")
+            static let msg = NSLocalizedString("scanner.popUp.noSettings.msg", comment: "")
+        }
     }
     
     struct Logout { // device
@@ -31,4 +35,6 @@ struct AlertInfo {
         static let yesBtn = NSLocalizedString("logout.yes", comment: "")
         static let noBtn = NSLocalizedString("logout.no", comment: "")
     }
+    
+    //TODO marko: implement common.yes and common.no (remove from Logout)
 }

@@ -9,10 +9,25 @@
 import Foundation
 
 class ScannerSettingsAlertInfoFactory {
-    static func make() -> AlertInfo {
-        let title = AlertInfo.Scan.NoSettings.title
-        let text = AlertInfo.Scan.NoSettings.msg
-        let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn)
-        return AlertInfo(title: title, text: text, btnText: [yesPresentation])
+    func make(alertType: ScannerAlertType) -> AlertInfo {
+        switch alertType {
+        case .noSettings:
+            let title = AlertInfo.Scan.NoSettings.title
+            let text = AlertInfo.Scan.NoSettings.msg
+            let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn)
+            return AlertInfo(title: title, text: text, btnText: [yesPresentation])
+        case .scanSettingMissing:
+            let title = AlertInfo.Scan.ScanSettingsMissing.title
+            let text = AlertInfo.Scan.ScanSettingsMissing.msg
+            let noPresentation = AlertActionPresentation(title: AlertInfo.Logout.noBtn)
+            let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn)
+            return AlertInfo(title: title, text: text, btnText: [noPresentation, yesPresentation])
+        }
     }
 }
+
+enum ScannerAlertType {
+    case scanSettingMissing
+    case noSettings
+}
+

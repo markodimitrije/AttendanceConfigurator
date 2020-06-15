@@ -66,3 +66,9 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 
 "saveSettingsAndExit" = "Save settings and Exit";
 "refreshResources" = "Refresh resources";
+
+"scanner.popUp.noSettings.title" = "Scanner settings missing";
+"scanner.popUp.noSettings.msg" = "Would you like to choose Room and Session?";
+
+"common.no" = "No";
+"common.yes" = "Yes";

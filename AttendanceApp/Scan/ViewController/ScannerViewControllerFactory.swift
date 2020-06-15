@@ -15,7 +15,7 @@ class ScannerViewControllerFactory {
         viewModel.delegate = scannerVC // by weak var
         scannerVC.viewModel = viewModel
         scannerVC.delegatesAttendanceValidation = DelegatesAttendanceValidationFactory.make()
-        scannerVC.alertInfo = ScannerSettingsAlertInfoFactory.make()
+        scannerVC.alertInfoFactory = ScannerSettingsAlertInfoFactory()
         return scannerVC
     }
 }

@@ -31,7 +31,8 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     var viewModel: ScannerViewModel!
-    var alertInfo: AlertInfo!
+    //var alertInfo: AlertInfo!
+    var alertInfoFactory: ScannerSettingsAlertInfoFactory!
     var delegatesAttendanceValidation: IDelegatesAttendanceValidation!
     
     private (set) var scanedCode = BehaviorSubject<String>.init(value: "")
@@ -49,6 +50,7 @@ class ScannerViewController: UIViewController, Storyboarded {
         loadScanner()
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()
+        checkIfScanSettingsExist()
     }
     
     private func loadScanner() {
@@ -79,6 +81,12 @@ class ScannerViewController: UIViewController, Storyboarded {
             .disposed(by: disposeBag)
     }
     
+    private func checkIfScanSettingsExist() {
+        if !viewModel.hasScanSettings {
+            showPopUpScannerSettingsMissing()
+        }
+    }
+    
     // MARK:- To next screen
     
     private func navigateToSettingsScreen() {
@@ -96,11 +104,21 @@ class ScannerViewController: UIViewController, Storyboarded {
     // MARK:- Show Failed Alerts
     
     private func showAlertFailedDueToNoRoomOrBlockSettings() {
-        
-        self.alert(alertInfo: self.alertInfo, sourceView: self.view)
+        let alertInfo = alertInfoFactory.make(alertType: .noSettings)
+        self.alert(alertInfo: alertInfo, sourceView: self.view)
             .subscribe {
                 self.dismiss(animated: true)
             }
+            .disposed(by: disposeBag)
+    }
+    
+    private func showPopUpScannerSettingsMissing() {
+        let alertInfo = alertInfoFactory.make(alertType: .scanSettingMissing)
+        self.alert(alertInfo: alertInfo, sourceView: self.sessionConstLbl)//self.view)
+            .subscribe(onNext: { tag in
+                if tag == 0 {self.dismiss(animated: true)}
+                else if tag == 1 {self.navigateToSettingsScreen()}
+            })
             .disposed(by: disposeBag)
     }
     
