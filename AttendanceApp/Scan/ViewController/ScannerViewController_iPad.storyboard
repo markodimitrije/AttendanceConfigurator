@@ -111,12 +111,11 @@
                                             <constraint firstAttribute="height" constant="150" id="7NH-PI-Q5x"/>
                                         </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="one-4F-rdg">
-                                        <rect key="frame" x="158" y="404.5" width="93" height="45"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-FF-1b6">
+                                        <rect key="frame" x="20" y="284.5" width="369.5" height="369.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="LZt-a0-piU"/>
-                                            <constraint firstAttribute="width" constant="93" id="uM8-cv-eYs"/>
+                                            <constraint firstAttribute="width" secondItem="xgx-FF-1b6" secondAttribute="height" multiplier="1:1" id="pXA-jy-6Tv"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -128,11 +127,13 @@
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="8" id="72u-b2-DEP"/>
                                     <constraint firstItem="gI8-bP-Sv6" firstAttribute="leading" secondItem="69p-E0-RXQ" secondAttribute="trailing" constant="16" id="CXy-CQ-DdE"/>
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="centerX" secondItem="Qqt-2J-maI" secondAttribute="centerX" id="CZz-fj-rk4"/>
+                                    <constraint firstItem="xgx-FF-1b6" firstAttribute="top" secondItem="96O-wu-GgE" secondAttribute="bottom" constant="20" id="N66-tN-VNv"/>
+                                    <constraint firstAttribute="trailing" secondItem="xgx-FF-1b6" secondAttribute="trailing" constant="20" symbolic="YES" id="OJz-Ac-DCl"/>
                                     <constraint firstItem="69p-E0-RXQ" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="16" id="VHd-il-9Vh"/>
-                                    <constraint firstItem="one-4F-rdg" firstAttribute="top" secondItem="96O-wu-GgE" secondAttribute="bottom" constant="140" id="eIl-Me-8rJ"/>
-                                    <constraint firstItem="one-4F-rdg" firstAttribute="centerX" secondItem="L9O-2r-ewx" secondAttribute="centerX" id="etw-Sh-7qW"/>
                                     <constraint firstItem="69p-E0-RXQ" firstAttribute="top" secondItem="Qqt-2J-maI" secondAttribute="top" constant="16" id="naq-Iu-hIQ"/>
+                                    <constraint firstItem="xgx-FF-1b6" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="20" symbolic="YES" id="o8b-UJ-1A3"/>
                                     <constraint firstItem="gI8-bP-Sv6" firstAttribute="centerY" secondItem="69p-E0-RXQ" secondAttribute="centerY" id="pOY-tp-Gvp"/>
+                                    <constraint firstItem="xgx-FF-1b6" firstAttribute="centerX" secondItem="Qqt-2J-maI" secondAttribute="centerX" id="ufa-Kw-B1I"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -153,7 +154,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="wy7-5f-i7s" id="dbl-Y0-Lie"/>
                         <outlet property="arrowImageView" destination="Y2k-OF-eyk" id="mMq-g7-kvH"/>
-                        <outlet property="popUpAnchorView" destination="one-4F-rdg" id="CWq-iY-sQZ"/>
+                        <outlet property="popUpAnchorView" destination="xgx-FF-1b6" id="YYT-iD-Chx"/>
                         <outlet property="scannerView" destination="PG0-Yb-zM6" id="T65-PH-bGj"/>
                         <outlet property="sessionConstLbl" destination="L9O-2r-ewx" id="hes-za-xYO"/>
                         <outlet property="sessionNameLbl" destination="96O-wu-GgE" id="A9V-yH-zk4"/>

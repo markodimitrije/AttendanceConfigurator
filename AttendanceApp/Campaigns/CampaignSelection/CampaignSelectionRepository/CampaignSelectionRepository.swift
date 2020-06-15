@@ -10,6 +10,7 @@ import Foundation
 
 extension CampaignSelectionRepository: ICampaignSelectionRepository {
     func userSelected(campaignItem: ICampaignItem) {
+        print("userSelected(campaignItem = \(campaignItem.id)")
         self.userDefaults.setValue(campaignItem.id, forKey: CampaignSelection.campaignIdKEY)
         self.userDefaults.setValue(campaignItem.confId, forKey: CampaignSelection.conferenceIdKEY)
     }

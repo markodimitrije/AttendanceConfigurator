@@ -14,14 +14,14 @@ class ScannerSettingsAlertInfoFactory {
         case .noSettings:
             let title = AlertInfo.Scan.NoSettings.title
             let text = AlertInfo.Scan.NoSettings.msg
-            let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn)
-            return AlertInfo(title: title, text: text, btnText: [yesPresentation])
+            let okPresentation = AlertActionPresentation(title: AlertInfo.Common.okBtn)
+            return AlertInfo(title: title, text: text, btnText: [okPresentation])
         case .scanSettingMissing:
             let title = AlertInfo.Scan.ScanSettingsMissing.title
             let text = AlertInfo.Scan.ScanSettingsMissing.msg
-            let noPresentation = AlertActionPresentation(title: AlertInfo.Logout.noBtn)
-            let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn)
-            return AlertInfo(title: title, text: text, btnText: [noPresentation, yesPresentation])
+            let noPresentation = AlertActionPresentation(title: AlertInfo.Common.noBtn)
+            let yesPresentation = AlertActionPresentation(title: AlertInfo.Common.yesBtn)
+            return AlertInfo(title: title, text: text, btnText: [yesPresentation, noPresentation])
         }
     }
 }

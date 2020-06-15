@@ -38,10 +38,21 @@ extension UIViewController {
                     })
                 )
             }
+            alertVC.pruneNegativeWidthConstraints() // temp on (apple bugfix?)
             self?.present(alertVC, animated: true, completion: nil)
             
             return Disposables.create()
         }
     }
     
+}
+
+extension UIAlertController {
+    func pruneNegativeWidthConstraints() {
+        for subView in self.view.subviews {
+            for constraint in subView.constraints where constraint.debugDescription.contains("width == - 16") {
+                subView.removeConstraint(constraint)
+            }
+        }
+    }
 }

@@ -115,10 +115,10 @@ class ScannerViewController: UIViewController, Storyboarded {
     
     private func showPopUpScannerSettingsMissing() {
         let alertInfo = alertInfoFactory.make(alertType: .scanSettingMissing)
-        self.alert(alertInfo: alertInfo, sourceView: self.popUpAnchorView)//self.view)
-            .subscribe(onNext: { tag in
-                if tag == 0 {self.dismiss(animated: true)}
-                else if tag == 1 {self.navigateToSettingsScreen()}
+        self.alert(alertInfo: alertInfo, sourceView: self.popUpAnchorView)
+            .subscribe(onNext: { [weak self] tag in
+                if tag == 0 {self?.navigateToSettingsScreen()}
+                else if tag == 1 {self?.dismiss(animated: true)}
             })
             .disposed(by: disposeBag)
     }

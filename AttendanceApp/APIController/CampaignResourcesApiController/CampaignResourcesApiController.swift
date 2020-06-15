@@ -39,7 +39,7 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
 //        let campaignSelection = repo.getSelected()!
         let conferenceId = campaignSelection.getConferenceId()
         let campaignId = campaignSelection.getCampaignId()
-        print("campaignSelection = \(campaignSelection.description)")
+        print("campaignSelection.description = \(campaignSelection.description)")
 //        return
 //            apiController
 //            .buildRequest(base: Domain.ematerialsUrl,
@@ -80,7 +80,7 @@ class MockCampaignResourcesApiController: ICampaignResourcesApiController {
     
     func fetch() -> Observable<ICampaignResources> {
         let campaignId = campaignSelection.getCampaignId()
-        print("campaignSelection = \(campaignSelection.description)")
+        print("campaignSelection.description = \(campaignSelection.description)")
         return
             apiController
             .buildRequest(base: ematerialsUrl,

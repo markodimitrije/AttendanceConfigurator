@@ -12,9 +12,9 @@ class LogoutAlertInfoFactory {
     static func make() -> AlertInfo {
         let title = AlertInfo.Logout.title
         let text = AlertInfo.Logout.msg
-        let yesPresentation = AlertActionPresentation(title: AlertInfo.Logout.yesBtn,
+        let yesPresentation = AlertActionPresentation(title: AlertInfo.Common.yesBtn,
                                                style: UIAlertAction.Style.destructive)
-        let noPresentation = AlertActionPresentation(title: AlertInfo.Logout.noBtn)
+        let noPresentation = AlertActionPresentation(title: AlertInfo.Common.noBtn)
         return AlertInfo(title: title, text: text, btnText: [yesPresentation, noPresentation])
     }
 }

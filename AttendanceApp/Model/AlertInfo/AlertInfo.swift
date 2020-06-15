@@ -32,9 +32,11 @@ struct AlertInfo {
     struct Logout { // device
         static let title = NSLocalizedString("logout.title", comment: "")
         static let msg = NSLocalizedString("logout.text", comment: "")
-        static let yesBtn = NSLocalizedString("logout.yes", comment: "")
-        static let noBtn = NSLocalizedString("logout.no", comment: "")
     }
     
-    //TODO marko: implement common.yes and common.no (remove from Logout)
+    struct Common {
+        static let yesBtn = NSLocalizedString("common.yes", comment: "")
+        static let noBtn = NSLocalizedString("common.no", comment: "")
+        static let okBtn = NSLocalizedString("common.ok", comment: "")
+    }
 }

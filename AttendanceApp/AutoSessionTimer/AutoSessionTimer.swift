@@ -34,11 +34,11 @@ class AutoSessionTimer {
     }
     
     @objc func fire() {
-        print("AutoSessionTimer/fire, check for auto session = \(Date.now)")
         guard self.campaignSelectionRepo.getSelected() != nil else {
             return
         }
         let actualSettings = scanSettingsRepo.getScanSettings()
+        print("AutoSessionTimer/fire, check for auto session = \(Date.now), for blockId = \(actualSettings.blockId)")
         if actualSettings.roomId != nil && actualSettings.autoSwitch { //print("dozvoljeno je da emitujes BLOCK")
             let blockViewModel = BlockViewModelFactory.make(roomId: actualSettings.roomId!,
                                                             date: actualSettings.selectedDate)
