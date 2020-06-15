@@ -25,10 +25,9 @@ struct BlockScansCellModelsFactory: IBlockScansCellModelsFactory {
             return BlockScansTableViewCellModel(date: block.getStartsAt(),
                                                 room: roomName,
                                                 title: block.getName(),
-                                                count: "Scans: \(scansCount)")
+                                                count: scansCount)
         }
         return cellModels
-        
     }
     
     private func makeDictScansForBlockId(blocks: [IBlock]) -> [Int: Int] {

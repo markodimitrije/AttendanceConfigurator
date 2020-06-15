@@ -13,14 +13,13 @@ class BlockScansCell: UITableViewCell {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var roomLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var countLbl: UILabel!
-    
+    @IBOutlet weak var countLbl: ScanLabel!
     
     public func configure(with model: IBlockScansTableViewCellModel) {
         dateLbl.text = model.date.toString(format: Date.defaultFormatString) ?? ""
         roomLbl.text = model.room
         titleLbl.text = model.title
-        countLbl.text = model.count
+        countLbl.scans = model.count
     }
     
 }

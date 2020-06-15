@@ -72,4 +72,6 @@ Strings.Scan.NoSettings.msg = "Go to Settings to select Room and Session, than c
 
 "common.no" = "No";
 "common.yes" = "Yes";
-"common.ok" = "Ok";"
+"common.ok" = "Ok";
+
+"stats.scans" = "Scans: ";

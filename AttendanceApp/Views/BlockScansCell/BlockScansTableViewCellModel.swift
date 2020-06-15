@@ -12,12 +12,12 @@ protocol IBlockScansTableViewCellModel {
     var date: Date {get}
     var room: String {get}
     var title: String {get}
-    var count: String {get}
+    var count: Int {get}
 }
 
 struct BlockScansTableViewCellModel: IBlockScansTableViewCellModel {
     let date: Date
     let room: String
     let title: String
-    let count: String
+    let count: Int
 }
