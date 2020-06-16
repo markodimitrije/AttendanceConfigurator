@@ -13,7 +13,7 @@ class BlockScansCell: UITableViewCell {
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var roomLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
-    @IBOutlet weak var countLbl: ScanLabel!
+    @IBOutlet weak var countLbl: ScanBtn!
     
     public func configure(with model: IBlockScansTableViewCellModel) {
         dateLbl.text = model.date.toString(format: Date.defaultFormatString) ?? ""

@@ -239,7 +239,7 @@
 		7CBDC28222D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */; };
 		7CBDC28422D8C07700B7D43F /* ScanningImplementations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */; };
 		7CBDC28722D8C8C000B7D43F /* ScanningProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */; };
-		7CBE0F892497BAEF00071F3B /* ScanLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBE0F882497BAEF00071F3B /* ScanLabel.swift */; };
+		7CBE0F892497BAEF00071F3B /* ScanBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBE0F882497BAEF00071F3B /* ScanBtn.swift */; };
 		7CC796E6242D022800ECD1E5 /* RoomFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E5242D022800ECD1E5 /* RoomFactory.swift */; };
 		7CC796E9242D06FB00ECD1E5 /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */; };
 		7CC99DE52457448C0057309D /* CampaignResourcesApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC99DE42457448C0057309D /* CampaignResourcesApiController.swift */; };
@@ -611,7 +611,7 @@
 		7CBDC28122D8A91100B7D43F /* BarcodeCaptureSettingsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureSettingsProviding.swift; sourceTree = "<group>"; };
 		7CBDC28322D8C07700B7D43F /* ScanningImplementations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningImplementations.swift; sourceTree = "<group>"; };
 		7CBDC28622D8C8C000B7D43F /* ScanningProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningProtocols.swift; sourceTree = "<group>"; };
-		7CBE0F882497BAEF00071F3B /* ScanLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanLabel.swift; sourceTree = "<group>"; };
+		7CBE0F882497BAEF00071F3B /* ScanBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanBtn.swift; sourceTree = "<group>"; };
 		7CC796E5242D022800ECD1E5 /* RoomFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFactory.swift; sourceTree = "<group>"; };
 		7CC796E8242D06FB00ECD1E5 /* BlockFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
 		7CC99DE42457448C0057309D /* CampaignResourcesApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResourcesApiController.swift; sourceTree = "<group>"; };
@@ -2042,7 +2042,7 @@
 		7CBE0F872497BAE000071F3B /* ScanLabel */ = {
 			isa = PBXGroup;
 			children = (
-				7CBE0F882497BAEF00071F3B /* ScanLabel.swift */,
+				7CBE0F882497BAEF00071F3B /* ScanBtn.swift */,
 			);
 			path = ScanLabel;
 			sourceTree = "<group>";
@@ -3055,7 +3055,7 @@
 				7C4AFAB02457643F0038B8D5 /* CampaignResourcesFactory.swift in Sources */,
 				AD993AB5217BC6C000803BE2 /* SettingsViewController.swift in Sources */,
 				7CA97FDE2458817E0091F556 /* LogoutHandlerFactory.swift in Sources */,
-				7CBE0F892497BAEF00071F3B /* ScanLabel.swift in Sources */,
+				7CBE0F892497BAEF00071F3B /* ScanBtn.swift in Sources */,
 				AD4CC2DA21A5770A00222D5E /* Protocols.swift in Sources */,
 				7C5ED62B243B52DD00FEEAAE /* CodeReportCellModel.swift in Sources */,
 				7CED41B9226881E700FFB34E /* BlockReport.swift in Sources */,
