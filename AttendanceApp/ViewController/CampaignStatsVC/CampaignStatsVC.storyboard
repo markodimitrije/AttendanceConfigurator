@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b9Z-0J-o0N">
-                                <rect key="frame" x="8" y="298" width="398" height="564"/>
+                                <rect key="frame" x="8" y="288" width="398" height="574"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="yJX-qf-wdc">
@@ -35,15 +35,15 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hNn-ra-czZ" customClass="StatsView" customModule="AttendanceApp" customModuleProvider="target">
-                                <rect key="frame" x="8" y="170" width="398" height="120"/>
+                                <rect key="frame" x="8" y="160" width="398" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Wso-jD-pdh"/>
+                                    <constraint firstAttribute="height" constant="120" id="DfW-1t-dnd"/>
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tQs-rt-mqp">
-                                <rect key="frame" x="8" y="52" width="250" height="110"/>
+                                <rect key="frame" x="8" y="52" width="227.5" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="KcM-4M-LJF"/>
+                                    <constraint firstAttribute="height" constant="100" id="KcM-4M-LJF"/>
                                     <constraint firstAttribute="width" secondItem="tQs-rt-mqp" secondAttribute="height" multiplier="250:110" id="LOL-wl-EB0"/>
                                 </constraints>
                             </imageView>
