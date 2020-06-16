@@ -41,8 +41,44 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMi-vT-b0u" userLabel="infoView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="240"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-ic-0Pd">
+                                        <rect key="frame" x="16" y="8" width="260" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="tIC-GF-2LK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-qN-Jpm" userLabel="btnsStackView">
+                                        <rect key="frame" x="292" y="36" width="106" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHH-xc-5FD" userLabel="settingsBtn">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="BHH-xc-5FD" secondAttribute="height" multiplier="1:1" id="JP0-dM-O1r"/>
+                                                    <constraint firstAttribute="width" constant="44" id="u2n-tx-2hL"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="icSettings"/>
+                                                <connections>
+                                                    <action selector="settingsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="FJx-kU-aFA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiQ-5A-v1m" userLabel="qrCodeBtn">
+                                                <rect key="frame" x="62" y="0.0" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="WuC-Yg-UkE"/>
+                                                    <constraint firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="yqL-eE-I35"/>
+                                                </constraints>
+                                                <state key="normal" backgroundImage="icStats"/>
+                                                <connections>
+                                                    <action selector="reportsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="B1e-kc-n25"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RiQ-5A-v1m" firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="rO6-Pb-FnS"/>
+                                        </constraints>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gle-U7-ziD" userLabel="infoStackView">
-                                        <rect key="frame" x="8" y="124" width="398" height="45.5"/>
+                                        <rect key="frame" x="8" y="116" width="398" height="45.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ueg-cf-VKP" userLabel="upperLblsStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="45.5"/>
@@ -69,48 +105,19 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHH-xc-5FD" userLabel="settingsBtn">
-                                        <rect key="frame" x="362" y="8" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="BHH-xc-5FD" secondAttribute="height" multiplier="1:1" id="JP0-dM-O1r"/>
-                                            <constraint firstAttribute="width" constant="44" id="u2n-tx-2hL"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="icSettings"/>
-                                        <connections>
-                                            <action selector="settingsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="FJx-kU-aFA"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-ic-0Pd">
-                                        <rect key="frame" x="16" y="8" width="330" height="108"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RiQ-5A-v1m" userLabel="qrCodeBtn">
-                                        <rect key="frame" x="362" y="72" width="44" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="WuC-Yg-UkE"/>
-                                            <constraint firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="yqL-eE-I35"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="icStats"/>
-                                        <connections>
-                                            <action selector="reportsBtnTapped:" destination="afS-N2-iwq" eventType="touchUpInside" id="B1e-kc-n25"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="gle-U7-ziD" firstAttribute="top" secondItem="fdf-ic-0Pd" secondAttribute="bottom" constant="8" id="73V-aw-VDQ"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gle-U7-ziD" secondAttribute="bottom" constant="8" id="AxW-MO-Nmd"/>
                                     <constraint firstItem="gle-U7-ziD" firstAttribute="leading" secondItem="oMi-vT-b0u" secondAttribute="leading" constant="8" id="CDd-pd-6IM"/>
-                                    <constraint firstItem="RiQ-5A-v1m" firstAttribute="width" secondItem="RiQ-5A-v1m" secondAttribute="height" multiplier="1:1" id="GJ6-T7-9aT"/>
-                                    <constraint firstItem="fdf-ic-0Pd" firstAttribute="top" secondItem="BHH-xc-5FD" secondAttribute="top" id="Lii-Pm-5Xo"/>
-                                    <constraint firstItem="BHH-xc-5FD" firstAttribute="top" secondItem="oMi-vT-b0u" secondAttribute="top" constant="8" id="PrK-Gc-qjb"/>
+                                    <constraint firstAttribute="trailing" secondItem="zSt-qN-Jpm" secondAttribute="trailing" constant="16" id="QOP-Ce-HxY"/>
+                                    <constraint firstItem="fdf-ic-0Pd" firstAttribute="top" secondItem="oMi-vT-b0u" secondAttribute="top" constant="8" id="TNx-aQ-EOK"/>
                                     <constraint firstItem="gle-U7-ziD" firstAttribute="centerX" secondItem="oMi-vT-b0u" secondAttribute="centerX" id="WJp-sO-J9n"/>
+                                    <constraint firstItem="zSt-qN-Jpm" firstAttribute="centerY" secondItem="fdf-ic-0Pd" secondAttribute="centerY" id="XDc-nH-ySn"/>
                                     <constraint firstItem="fdf-ic-0Pd" firstAttribute="leading" secondItem="oMi-vT-b0u" secondAttribute="leading" constant="16" id="ZVk-o6-DM9"/>
-                                    <constraint firstItem="RiQ-5A-v1m" firstAttribute="bottom" secondItem="fdf-ic-0Pd" secondAttribute="bottom" id="gvG-f7-QPi"/>
                                     <constraint firstAttribute="trailing" secondItem="gle-U7-ziD" secondAttribute="trailing" constant="8" id="ifz-hC-u3e"/>
                                     <constraint firstAttribute="height" constant="240" id="kZd-69-BiU"/>
-                                    <constraint firstAttribute="trailing" secondItem="BHH-xc-5FD" secondAttribute="trailing" constant="8" id="oaN-bd-nsi"/>
-                                    <constraint firstItem="fdf-ic-0Pd" firstAttribute="height" secondItem="oMi-vT-b0u" secondAttribute="height" multiplier="0.45" id="sMy-aL-ckg"/>
-                                    <constraint firstAttribute="trailing" secondItem="RiQ-5A-v1m" secondAttribute="trailing" constant="8" id="wrG-fB-Thw"/>
-                                    <constraint firstItem="BHH-xc-5FD" firstAttribute="leading" secondItem="fdf-ic-0Pd" secondAttribute="trailing" constant="16" id="zlH-hL-qx4"/>
+                                    <constraint firstItem="zSt-qN-Jpm" firstAttribute="leading" secondItem="fdf-ic-0Pd" secondAttribute="trailing" constant="16" id="nWN-CY-3cn"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Sk-Mg-mS9">
@@ -144,13 +151,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCz-kh-KkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="403.44827586206901"/>
+            <point key="canvasLocation" x="24.637681159420293" y="403.125"/>
         </scene>
     </scenes>
     <resources>
         <image name="icSettings" width="13.5" height="13.5"/>
         <image name="icStats" width="13.5" height="13.5"/>
-        <image name="navusLogo" width="350" height="63"/>
         <image name="success" width="50" height="50"/>
     </resources>
 </document>

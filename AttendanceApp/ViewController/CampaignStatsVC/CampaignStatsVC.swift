@@ -23,6 +23,7 @@ class CampaignStatsVC: UIViewController, Storyboarded {
         navigationItem.title = NSLocalizedString(key: "campaign.stats")
         registerCells()
         logoImgView.image = logoProvider.getLogo().image
+
     }
     
     private func registerCells() {
