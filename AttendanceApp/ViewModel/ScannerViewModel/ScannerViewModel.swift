@@ -27,6 +27,10 @@ extension ScannerViewModel: IScannerViewModel {
         codeReportsState.codeReport.onNext(report)
     }
     
+    func getLogo() -> UIImageView {
+        logoProvider.getLogo()
+    }
+    
 }
 
 class ScannerViewModel {
@@ -39,6 +43,7 @@ class ScannerViewModel {
     private let resourcesRepo: IMutableCampaignResourcesRepository
     private let campaignSelectionRepo = CampaignSelectionRepositoryFactory.make()
     private let autoSessionTimer: AutoSessionTimer!
+    private let logoProvider: ICampaignLogoProvider!
     weak var delegate: ScannerViewController?
     var hasScanSettings: Bool {
         scanSettingsRepo.getScanSettings().blockId != nil
@@ -49,7 +54,8 @@ class ScannerViewModel {
          codeReportsState: CodeReportsState,
          resourcesRepo: IMutableCampaignResourcesRepository,
          alertErrPresenter: IAlertErrorPresenter,
-         autoSessionTimer: AutoSessionTimer) {
+         autoSessionTimer: AutoSessionTimer,
+         logoProvider: ICampaignLogoProvider) {
         
         self.scanSettingsRepo = scanSettingsRepo
         self.scannerInfoFactory = scannerInfoFactory
@@ -57,6 +63,7 @@ class ScannerViewModel {
         self.resourcesRepo = resourcesRepo
         self.alertErrPresenter = alertErrPresenter
         self.autoSessionTimer = autoSessionTimer
+        self.logoProvider = logoProvider
                 
         delay(0.01) {
             self.handleCampaignResources()

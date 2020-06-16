@@ -11,6 +11,7 @@ import Foundation
 class CampaignStatsVCFactory {
     static func make() -> CampaignStatsVC {
         let viewController = StoryboardedViewControllerFactory.make(type: CampaignStatsVC.self) as! CampaignStatsVC
+        viewController.logoProvider = CampaignLogoProviderFactory.make()
         return viewController
     }
 }

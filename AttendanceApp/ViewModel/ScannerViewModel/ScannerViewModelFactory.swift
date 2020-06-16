@@ -16,11 +16,13 @@ class ScannerViewModelFactory {
         let autoSessionTimer =
         AutoSessionTimer(campaignSelectionRepo: CampaignSelectionRepositoryFactory.make(),
                          scanSettingsRepo: scanSettingsRepo)
+        let logoProvider = CampaignLogoProviderFactory.make()
         return ScannerViewModel(scanSettingsRepo: scanSettingsRepo,
                                 scannerInfoFactory: scannerInfoFactory,
                                 codeReportsState: codeReportsState,
                                 resourcesRepo: resourcesRepo,
                                 alertErrPresenter: AlertErrorPresenter(),
-                                autoSessionTimer: autoSessionTimer)
+                                autoSessionTimer: autoSessionTimer,
+                                logoProvider: logoProvider)
     }
 }

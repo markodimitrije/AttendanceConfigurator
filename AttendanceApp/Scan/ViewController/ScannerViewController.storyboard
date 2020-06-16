@@ -135,6 +135,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="7Sk-Mg-mS9" id="HQa-Uh-lQg"/>
                         <outlet property="arrowImageView" destination="1uH-hV-BHD" id="B0N-mL-EZt"/>
+                        <outlet property="logoImgView" destination="fdf-ic-0Pd" id="rij-Xx-kHt"/>
                         <outlet property="scannerView" destination="n09-dX-b0e" id="8Zj-i0-H7o"/>
                         <outlet property="sessionConstLbl" destination="pnf-dr-kOJ" id="mau-QF-lh1"/>
                         <outlet property="sessionNameLbl" destination="QUz-ob-0Kh" id="yzV-gB-fFd"/>

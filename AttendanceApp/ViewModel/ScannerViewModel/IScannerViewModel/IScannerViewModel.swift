@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol IScannerViewModel: IScanningInfoProviding, IScanningCodeReporting {}
+protocol IScannerViewModel: IScanningInfoProviding, IScanningCodeReporting, ICampaignLogoProvider {}

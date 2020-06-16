@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ve-ko-8Ka">
-                                <rect key="frame" x="256" y="168" width="512" height="600"/>
+                                <rect key="frame" x="256" y="244" width="512" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="jbA-Cq-tvQ">
@@ -35,27 +35,37 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cv-Cf-HXK" customClass="StatsView" customModule="AttendanceApp" customModuleProvider="target">
-                                <rect key="frame" x="256" y="0.0" width="512" height="160"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="256" y="96" width="512" height="140"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="160" id="8h0-cz-Dcu"/>
+                                    <constraint firstAttribute="height" constant="140" id="dcW-7o-HKM"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ErL-dt-tOa">
+                                <rect key="frame" x="256" y="8" width="182" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="A1W-Lf-Ofa"/>
+                                    <constraint firstAttribute="width" secondItem="ErL-dt-tOa" secondAttribute="height" multiplier="250:110" id="zlp-ry-8p5"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9ve-ko-8Ka" firstAttribute="bottom" secondItem="AgF-xh-xAu" secondAttribute="top" id="0Nt-eO-tZB"/>
                             <constraint firstItem="6cv-Cf-HXK" firstAttribute="width" secondItem="9ve-ko-8Ka" secondAttribute="width" id="40x-tA-zPA"/>
                             <constraint firstItem="6cv-Cf-HXK" firstAttribute="centerX" secondItem="dfR-Sx-P93" secondAttribute="centerX" id="APv-Ag-roH"/>
-                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="top" secondItem="6cv-Cf-HXK" secondAttribute="bottom" constant="8" symbolic="YES" id="EWy-vK-p2F"/>
                             <constraint firstItem="9ve-ko-8Ka" firstAttribute="width" secondItem="dfR-Sx-P93" secondAttribute="width" multiplier="0.5" id="MzD-aD-cPp"/>
+                            <constraint firstItem="ErL-dt-tOa" firstAttribute="top" secondItem="hn0-Ed-G7a" secondAttribute="bottom" constant="8" id="QUP-qb-peE"/>
                             <constraint firstItem="9ve-ko-8Ka" firstAttribute="centerX" secondItem="dfR-Sx-P93" secondAttribute="centerX" id="SbN-Q6-pb0"/>
-                            <constraint firstItem="6cv-Cf-HXK" firstAttribute="top" secondItem="hn0-Ed-G7a" secondAttribute="bottom" id="kzd-Yp-8lp"/>
+                            <constraint firstItem="ErL-dt-tOa" firstAttribute="leading" secondItem="6cv-Cf-HXK" secondAttribute="leading" id="Yto-Tc-VoD"/>
+                            <constraint firstItem="6cv-Cf-HXK" firstAttribute="top" secondItem="ErL-dt-tOa" secondAttribute="bottom" constant="8" id="dct-x5-6D4"/>
+                            <constraint firstItem="9ve-ko-8Ka" firstAttribute="top" secondItem="6cv-Cf-HXK" secondAttribute="bottom" constant="8" id="hcM-7C-T5X"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K0e-9H-stI"/>
                     </view>
                     <navigationItem key="navigationItem" title="Synced codes" id="zcF-D5-Fx0"/>
                     <connections>
+                        <outlet property="logoImgView" destination="ErL-dt-tOa" id="f48-cT-SdT"/>
                         <outlet property="statsView" destination="6cv-Cf-HXK" id="rn1-6H-hqH"/>
                         <outlet property="tableView" destination="9ve-ko-8Ka" id="I8w-9W-VPa"/>
                     </connections>

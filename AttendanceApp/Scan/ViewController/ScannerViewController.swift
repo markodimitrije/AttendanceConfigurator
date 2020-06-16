@@ -16,6 +16,7 @@ import ScanditBarcodeCapture
 
 class ScannerViewController: UIViewController, Storyboarded {
 
+    @IBOutlet weak var logoImgView: UIImageView!
     @IBOutlet weak var scannerView: UIView!
     @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var sessionConstLbl: UILabel!
@@ -52,6 +53,7 @@ class ScannerViewController: UIViewController, Storyboarded {
         sessionConstLbl.text = SessionTextData.sessionConst
         bindUI()
         checkIfScanSettingsExist()
+        logoImgView.image = viewModel.getLogo().image
     }
     
     private func loadScanner() {

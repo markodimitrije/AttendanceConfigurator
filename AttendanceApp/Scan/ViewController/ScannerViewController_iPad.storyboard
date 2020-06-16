@@ -46,8 +46,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qqt-2J-maI" userLabel="infoView">
                                 <rect key="frame" x="614.5" y="0.0" width="409.5" height="768"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="gI8-bP-Sv6" userLabel="logoAndBtnsStackView">
-                                        <rect key="frame" x="345.5" y="34" width="44" height="114"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gI8-bP-Sv6" userLabel="logoAndBtnsStackView">
+                                        <rect key="frame" x="281.5" y="49" width="108" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RQw-pG-tY1" userLabel="settingsBtn">
                                                 <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
@@ -61,7 +61,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS4-9w-k9N" userLabel="qrCodeBtn">
-                                                <rect key="frame" x="0.0" y="70" width="44" height="44"/>
+                                                <rect key="frame" x="64" y="0.0" width="44" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="IS4-9w-k9N" secondAttribute="height" multiplier="1:1" id="N6o-HC-01S"/>
                                                     <constraint firstAttribute="width" constant="44" id="xT0-mi-mMw"/>
@@ -78,7 +78,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ofV-WU-33k" userLabel="infoStackView">
-                                        <rect key="frame" x="8" y="206" width="393.5" height="78.5"/>
+                                        <rect key="frame" x="8" y="186" width="393.5" height="78.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6L0-DL-NSs" userLabel="upperLblsStackView">
                                                 <rect key="frame" x="0.0" y="0.0" width="393.5" height="58.5"/>
@@ -105,14 +105,14 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navusLogo" translatesAutoresizingMaskIntoConstraints="NO" id="69p-E0-RXQ">
-                                        <rect key="frame" x="16" y="16" width="313.5" height="150"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="69p-E0-RXQ">
+                                        <rect key="frame" x="16" y="16" width="249.5" height="110"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="7NH-PI-Q5x"/>
+                                            <constraint firstAttribute="height" constant="110" id="7NH-PI-Q5x"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgx-FF-1b6">
-                                        <rect key="frame" x="20" y="284.5" width="369.5" height="369.5"/>
+                                        <rect key="frame" x="20" y="264.5" width="369.5" height="369.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="xgx-FF-1b6" secondAttribute="height" multiplier="1:1" id="pXA-jy-6Tv"/>
@@ -122,7 +122,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ofV-WU-33k" secondAttribute="trailing" constant="8" id="5QQ-fo-7gk"/>
-                                    <constraint firstItem="ofV-WU-33k" firstAttribute="top" secondItem="69p-E0-RXQ" secondAttribute="bottom" constant="40" id="5mq-4L-crU"/>
+                                    <constraint firstItem="ofV-WU-33k" firstAttribute="top" secondItem="69p-E0-RXQ" secondAttribute="bottom" constant="60" id="5mq-4L-crU"/>
                                     <constraint firstAttribute="trailing" secondItem="gI8-bP-Sv6" secondAttribute="trailing" constant="20" symbolic="YES" id="62z-kb-u84"/>
                                     <constraint firstItem="ofV-WU-33k" firstAttribute="leading" secondItem="Qqt-2J-maI" secondAttribute="leading" constant="8" id="72u-b2-DEP"/>
                                     <constraint firstItem="gI8-bP-Sv6" firstAttribute="leading" secondItem="69p-E0-RXQ" secondAttribute="trailing" constant="16" id="CXy-CQ-DdE"/>
@@ -154,6 +154,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="wy7-5f-i7s" id="dbl-Y0-Lie"/>
                         <outlet property="arrowImageView" destination="Y2k-OF-eyk" id="mMq-g7-kvH"/>
+                        <outlet property="logoImgView" destination="69p-E0-RXQ" id="5SY-r4-EdW"/>
                         <outlet property="popUpAnchorView" destination="xgx-FF-1b6" id="YYT-iD-Chx"/>
                         <outlet property="scannerView" destination="PG0-Yb-zM6" id="T65-PH-bGj"/>
                         <outlet property="sessionConstLbl" destination="L9O-2r-ewx" id="hes-za-xYO"/>
@@ -169,7 +170,6 @@
     <resources>
         <image name="icSettings" width="13.5" height="13.5"/>
         <image name="icStats" width="13.5" height="13.5"/>
-        <image name="navusLogo" width="350" height="63"/>
         <image name="success" width="50" height="50"/>
     </resources>
 </document>
