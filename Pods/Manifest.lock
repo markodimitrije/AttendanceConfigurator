@@ -1,12 +1,14 @@
 PODS:
   - Differentiator (4.0.1)
-  - Kingfisher (4.10.1)
+  - Kingfisher (5.15.5):
+    - Kingfisher/Core (= 5.15.5)
+  - Kingfisher/Core (5.15.5)
   - ReachabilitySwift (5.0.0)
-  - Realm (3.21.0):
-    - Realm/Headers (= 3.21.0)
-  - Realm/Headers (3.21.0)
-  - RealmSwift (3.21.0):
-    - Realm (= 3.21.0)
+  - Realm (5.4.8):
+    - Realm/Headers (= 5.4.8)
+  - Realm/Headers (5.4.8)
+  - RealmSwift (5.4.8):
+    - Realm (= 5.4.8)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -14,8 +16,8 @@ PODS:
     - Differentiator (~> 4.0)
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - RxRealm (1.0.0):
-    - RealmSwift (~> 3.14)
+  - RxRealm (3.1.0):
+    - RealmSwift (~> 5.2)
     - RxSwift (~> 5.0)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
@@ -24,7 +26,7 @@ PODS:
     - ScanditCaptureCore (= 6.0.3)
   - ScanditCaptureCore (6.0.3)
   - SwiftyJSON (5.0.0)
-  - Zip (1.1.0)
+  - Zip (2.1.1)
 
 DEPENDENCIES:
   - Kingfisher
@@ -57,19 +59,19 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Kingfisher: e3ec347a5ab8817b7585ef46923a2d2b9a7d8fbe
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  Realm: 38e9dcb19104b58407167d99f70d4995f7c16023
-  RealmSwift: 3183cc1ad48378fbcd634311b22c0e6c44021152
+  Realm: 042bbb59227a0159eda397b8a5a49fbd67495ce7
+  RealmSwift: 15ddd6b3398ebfc99810811c44f095df1313adb3
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
-  RxRealm: 1e81dcfca1fb50c3e9b3e1f8102bc875c5156a2e
+  RxRealm: 50e5fe5c1f22518205afbb313fbc5580d73bc586
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   ScanditBarcodeCapture: a57a1c7392aea546766332444d3f56a6c56fd5dd
   ScanditCaptureCore: b9eb50d9ea9d05a32e5eb9c3c9490867fcaaaf6d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  Zip: 8877eede3dda76bcac281225c20e71c25270774c
+  Zip: 414f59909701fda9a84ab774ebe0f5449b1082cc
 
 PODFILE CHECKSUM: 959ca1bc617a9201d391a615fa49681b3e04b5b9
 
