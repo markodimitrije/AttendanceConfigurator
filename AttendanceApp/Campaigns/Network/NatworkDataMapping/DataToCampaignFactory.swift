@@ -28,22 +28,29 @@ class DataToCampaignFactory: IDataToCampaignFactory {
     
     private func singleCampaignFactory(dict: [String: Any]) -> ICampaign? {
         guard let id = dict["id"] as? String,
-            let name = dict["name"] as? String,
-            let conferenceId = dict["conference_id"] as? Int,
-            let restrictedAccess = dict["restricted_access"] as? Bool,
-            let created_at = dict["created_at"] as? String,
-            let createdAt = created_at.toDate(format: Date.defaultFormatString)
+              let conferenceId = dict["conference_id"] as? Int,
+              let name = dict["name"] as? String,
+              let active = dict["active"] as? Bool
         else {
             return nil
         }
         
         var updatedAt: Date?
         var deletedAt: Date?
+        var createdAt: Date = Date.now
+        var restrictedAccess = false
         if let updated_at = dict["updated_at"] as? String {
             updatedAt = updated_at.toDate(format: Date.defaultFormatString)
         }
         if let deleted_at = dict["deleted_at"] as? String {
             deletedAt = deleted_at.toDate(format: Date.defaultFormatString)
+        }
+        if let created_at = dict["created_at"] as? String {
+            createdAt = created_at.toDate(format: Date.defaultFormatString) ?? Date.now
+        }
+        
+        if let hasAccess = dict["restricted_access"] as? Bool {
+            restrictedAccess = hasAccess
         }
         
         return Campaign(id: id,

@@ -14,12 +14,14 @@ class LoginViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var emailTxtField: UITextField!
     {
-        didSet {emailTxtField.text = "nestle@mailinator.com"}
+//        didSet {emailTxtField.text = "nestle@mailinator.com"}
+        didSet {emailTxtField.text = "dule1013@gmail.com"}
 //        didSet {emailTxtField.text = ""}
     }
     @IBOutlet weak var passTxtField: UITextField!
     {
-        didSet {passTxtField.text = "timm2019"}
+//        didSet {passTxtField.text = "timm2019"}
+        didSet {passTxtField.text = "test1234"}
 //        didSet {passTxtField.text = ""}
     }
     @IBOutlet weak var logBtn: ActionUIButton!

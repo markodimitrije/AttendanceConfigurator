@@ -8,7 +8,7 @@
 
 import UIKit
 
-let API_KEY = "Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
+let API_KEY = "Y6POl7EL2ch6Rn87oQEvT92I8b0ZhoPR"//"Kx8YQFIFvC0VJK7xU5p8hOVVF5hHPO6T"
 
 class DefaultHeadersCreator {
     private let userState: IUserStateRepository
@@ -21,6 +21,7 @@ class DefaultHeadersCreator {
                        "Content-Type": contentType]
         if userState.getToken().token != "" {
             headers["Authorization"] = "Bearer " + userState.getToken().token
+            print("token = ", "Bearer " + userState.getToken().token)
         }
         if apiKey != nil {
             headers["ApiKey"] = apiKey
