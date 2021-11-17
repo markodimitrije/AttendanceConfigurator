@@ -57,7 +57,7 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     private func loadScanner() {
-        scanner = Scanner(frame: self.scannerView.bounds, barcodeListener: self)
+        scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
         self.scannerView.addSubview(scanner.captureView)
     }
     
