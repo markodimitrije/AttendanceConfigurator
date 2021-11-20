@@ -9,7 +9,7 @@
 import Foundation
 
 extension CampaignResources: ICampaignResources {
-    func getCampaignId() -> String {self.campaignId}
+    func getConfId() -> String {self.confId}
     func getConfDataVersionId() -> Int {self.confDataVersionId}
     func getLocations() -> [IRoom] {self.locations}
     func getBlocks() -> [IBlock] {self.blocks}
@@ -17,7 +17,7 @@ extension CampaignResources: ICampaignResources {
 }
 
 struct CampaignResources {
-    let campaignId: String
+    let confId: String
     let confDataVersionId: Int
     let locations: [IRoom]
     let blocks: [IBlock]

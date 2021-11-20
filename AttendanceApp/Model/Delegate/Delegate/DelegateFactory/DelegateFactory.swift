@@ -11,10 +11,10 @@ import RxRealm
 class DelegateFactory {
     static func make(from json: [String: Any]) -> IDelegate? {
         guard
-            let code = json["code"] as? String,
-            let tds = json["td"] as? [Int] else {
+            let code = json["code"] as? String else {
                 return nil
         }
+        let tds = json["td"] as? [Int] ?? [Int]()
         return Delegate(c: code, s: tds)
     }
     static func make(from rDelegate: RealmDelegate) -> IDelegate {

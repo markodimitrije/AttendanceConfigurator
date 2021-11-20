@@ -9,20 +9,19 @@
 import Foundation
 
 class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
-    func make(data: Data) throws -> ICampaignResources {
-        return try CampaignResourcesFactory.make(data: data)
+    func make(data: Data, confId: String) throws -> ICampaignResources {
+        return try CampaignResourcesFactory.make(data: data, confId: confId)
     }
     
-    static func make(data: Data) throws -> ICampaignResources {
+    static func make(data: Data, confId: String) throws -> ICampaignResources {
         let dictionary = try DataToDictFactory.make(data: data)
-        guard let campaignId = dictionary["campaign_id"] as? String,
-            let confDataVersionId = dictionary["conference_data_version_id"] as? Int,
+        guard let confDataVersionId = dictionary["conference_data_version_id"] as? Int,
             let locDicts = dictionary["locations"] as? [[String: Any]],
             let tsDicts = dictionary["timeslot_distributions"] as? [[String: Any]],
             let delDicts = dictionary["delegates"] as? [[String: Any]] else {
                 throw ApiError.invalidJson
         }
-        return CampaignResources(campaignId: campaignId,
+        return CampaignResources(confId: confId,
                                  confDataVersionId: confDataVersionId,
                                  locations: locDicts.compactMap(RoomFactory.make),
                                  blocks: tsDicts.compactMap(BlockFactory.make),
@@ -30,7 +29,7 @@ class CampaignResourcesFactory: ICampaignResourcesFromDataFactory {
 
     }
     static func make(rResources: RealmCampaignResources) -> ICampaignResources {
-        CampaignResources(campaignId: rResources.id,
+        CampaignResources(confId: rResources.id,
                           confDataVersionId: rResources.confDataVersion,
                           locations: rResources.rooms.map(RoomFactory.make),
                           blocks: rResources.blocks.map(BlockFactory.make),

@@ -17,6 +17,7 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
  //https://service.e-materials.com/data/attendance/CONF_ID/CAMPAIGN_ID.zip
     
     let ematerialsUrl = URL(string: "https://service.e-materials.com/")!
+    let stagingUrl = URL(string: "https://staging.e-materials.com/")!
     
     private let apiController: ApiController!
     private let unziper: IUnziper!
@@ -33,27 +34,20 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
     }
 
  //MARK: - API Calls
-    
+    // marko: confId a ne campaignId (dule shit...)
     func fetch() -> Observable<ICampaignResources> {
-//        let repo = CampaignSelectionRepositoryFactory.make()
-//        let campaignSelection = repo.getSelected()!
-        let conferenceId = campaignSelection.getConferenceId()
-        let campaignId = campaignSelection.getCampaignId()
+        let confId = campaignSelection.getConferenceId()
         print("campaignSelection.description = \(campaignSelection.description)")
-//        return
-//            apiController
-//            .buildRequest(base: Domain.ematerialsUrl,
-//                          method: "GET",
-//                          pathComponent: "data/attendance/" + "\(conferenceId)" + "\(campaignId)" + ".zip",
-//                          params: [])
+
         return
             apiController // hard-coded
-            .buildRequest(base: ematerialsUrl,
+            .buildRequest(base: stagingUrl,
                           method: "GET",
-                          pathComponent: "data/attendance/" + "\(7520)" + ".zip",
+                          pathComponent: "data/attendance/" + "\(confId)" + ".zip",
                           params: [])
                 .flatMap(unziper.saveDataAsFile)
                 .flatMap(unziper.unzipData)
+                .map({ (data) -> (data: Data, confId: String) in (data, confId) })
                 .map(resourcesFactory.make)
     }
 
@@ -79,17 +73,18 @@ class MockCampaignResourcesApiController: ICampaignResourcesApiController {
  //MARK: - API Calls
     
     func fetch() -> Observable<ICampaignResources> {
-        let campaignId = campaignSelection.getCampaignId()
+        let confId = campaignSelection.getConferenceId()
         print("campaignSelection.description = \(campaignSelection.description)")
         return
             apiController
             .buildRequest(base: ematerialsUrl,
                           method: "GET",
-                          pathComponent: "data/attendance/" + "\(campaignId)" + ".zip",
+                          pathComponent: "data/attendance/" + "\(confId)" + ".zip",
                           params: [],
 //                          timeout: 0.01)
                         timeout: 60)
-                .map(resourcesFactory.make)
+            .map({ (data) -> (data: Data, confId: String) in (data, confId) })
+            .map(resourcesFactory.make)
     }
 
 }

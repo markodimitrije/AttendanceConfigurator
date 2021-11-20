@@ -10,8 +10,8 @@ import Foundation
 
 protocol IBlock {
     func getId() -> Int
-    func getName() -> String
     func getLocationId() -> Int
+    func getName() -> String
     func getStartsAt() -> Date
     func getEndsAt() -> Date
     func getClosed() -> Bool

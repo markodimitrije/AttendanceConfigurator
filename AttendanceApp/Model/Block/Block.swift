@@ -15,8 +15,8 @@ struct Blocks: Codable {
 
 extension Block: IBlock {
     func getId() -> Int { return self.id }
-    func getName() -> String { return self.name }
     func getLocationId() -> Int { return self.location_id }
+    func getName() -> String { return self.name }
     func getStartsAt() -> Date { return self.starts_at }
     func getEndsAt() -> Date { return self.ends_at }
     func getClosed() -> Bool { return self.closed }
@@ -24,8 +24,8 @@ extension Block: IBlock {
 
 struct Block: Codable {
     var id: Int
-    var name: String
     var location_id: Int
+    var name: String
     var starts_at: Date
     var ends_at: Date
     var closed: Bool

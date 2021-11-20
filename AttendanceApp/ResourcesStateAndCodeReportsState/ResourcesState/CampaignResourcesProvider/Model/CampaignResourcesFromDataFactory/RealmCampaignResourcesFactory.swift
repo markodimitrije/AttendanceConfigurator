@@ -12,7 +12,7 @@ class RealmCampaignResourcesFactory {
     static func make(resources: ICampaignResources) -> RealmCampaignResources {
         
         let rResources = RealmCampaignResources()
-        rResources.id = resources.getCampaignId()
+        rResources.id = resources.getConfId()
         rResources.confDataVersion = resources.getConfDataVersionId()
         
         let rooms = resources.getLocations().map(RealmRoomFactory.make)

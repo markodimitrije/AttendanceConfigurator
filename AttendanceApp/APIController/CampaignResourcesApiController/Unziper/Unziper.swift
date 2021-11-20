@@ -11,7 +11,7 @@ import Zip
 
 class Unziper: NSObject, IUnziper {
     var conferenceId: Int
-    init(conferenceId: Int = 7520) {
+    init(conferenceId: Int) {
         self.conferenceId = conferenceId
     }
  
