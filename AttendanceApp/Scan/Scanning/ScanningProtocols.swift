@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import ScanditCaptureCore
-import ScanditBarcodeCapture
+//import ScanditCaptureCore
+//import ScanditBarcodeCapture
 
 protocol BarcodeListening: class {
     func found(code: String)

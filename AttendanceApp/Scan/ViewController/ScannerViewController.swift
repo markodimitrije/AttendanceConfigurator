@@ -11,8 +11,8 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 
-import ScanditCaptureCore
-import ScanditBarcodeCapture
+//import ScanditCaptureCore
+//import ScanditBarcodeCapture
 
 class ScannerViewController: UIViewController, Storyboarded {
 
@@ -57,7 +57,8 @@ class ScannerViewController: UIViewController, Storyboarded {
     }
     
     private func loadScanner() {
-        scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
+        //scanner = ScanditScanner(frame: self.scannerView.bounds, barcodeListener: self)
+        scanner = NativeScanner(frame: self.scannerView.bounds, barcodeListener: self)
         self.scannerView.addSubview(scanner.captureView)
     }
     

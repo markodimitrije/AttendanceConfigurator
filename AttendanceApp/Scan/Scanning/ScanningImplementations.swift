@@ -71,3 +71,83 @@ extension ScanditScanner: BarcodeCaptureListener {
         }
     }
 }
+
+import AVFoundation
+
+class NativeScanner: NSObject, Scanning {
+    
+    weak var barcodeListener: BarcodeListening?
+    var captureView: UIView
+    
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    required init(frame: CGRect, barcodeListener: BarcodeListening) {
+        
+        self.barcodeListener = barcodeListener
+        self.captureView = UIView(frame: frame)
+        captureSession = AVCaptureSession()
+        
+        super.init()
+
+        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        let videoInput: AVCaptureDeviceInput
+
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            return
+        }
+
+        if (captureSession.canAddInput(videoInput)) {
+            captureSession.addInput(videoInput)
+        } else {
+//            failed() marko
+            return
+        }
+
+        let metadataOutput = AVCaptureMetadataOutput()
+
+        if (captureSession.canAddOutput(metadataOutput)) {
+            captureSession.addOutput(metadataOutput)
+            metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+        } else {
+//            failed() marko
+            return
+        }
+
+        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer.frame = frame
+        previewLayer.videoGravity = .resizeAspectFill
+        self.captureView.layer.addSublayer(previewLayer)
+    }
+    
+    func startScanning() {
+        captureSession.startRunning()
+    }
+    
+    func stopScanning() {
+        captureSession.stopRunning()
+    }
+}
+
+extension NativeScanner: AVCaptureMetadataOutputObjectsDelegate {
+    
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+            captureSession.stopRunning()
+
+        if let metadataObject = metadataObjects.first {
+            guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else {
+                return
+            }
+            guard let codeValue = readableObject.stringValue else { return }
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            DispatchQueue.main.async { [weak self] in
+                print("codeValue = \(codeValue)")
+                self?.barcodeListener?.found(code: codeValue)
+                
+            }
+        }
+    }
+}
