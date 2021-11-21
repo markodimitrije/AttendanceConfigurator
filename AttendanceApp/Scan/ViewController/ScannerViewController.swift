@@ -11,9 +11,6 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 
-//import ScanditCaptureCore
-//import ScanditBarcodeCapture
-
 class ScannerViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var logoImgView: UIImageView!

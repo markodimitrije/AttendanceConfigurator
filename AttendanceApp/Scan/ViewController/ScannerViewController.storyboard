@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afS-N2-iwq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="afS-N2-iwq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,7 +41,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMi-vT-b0u" userLabel="infoView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="240"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-ic-0Pd">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-ic-0Pd">
                                         <rect key="frame" x="16" y="8" width="260" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="tIC-GF-2LK"/>
@@ -124,6 +124,7 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="hWh-oX-hec"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7Sk-Mg-mS9" firstAttribute="centerY" secondItem="ZL9-BT-0Up" secondAttribute="centerY" id="89Q-dX-kom"/>
@@ -136,7 +137,6 @@
                             <constraint firstItem="7Sk-Mg-mS9" firstAttribute="centerX" secondItem="ZL9-BT-0Up" secondAttribute="centerX" id="f7l-aC-ADZ"/>
                             <constraint firstItem="oMi-vT-b0u" firstAttribute="leading" secondItem="ZL9-BT-0Up" secondAttribute="leading" id="koV-Zv-6NT"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hWh-oX-hec"/>
                     </view>
                     <navigationItem key="navigationItem" id="int-IJ-U0m"/>
                     <connections>
