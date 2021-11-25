@@ -111,7 +111,7 @@ class NativeScanner: NSObject, Scanning {
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417]
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .pdf417, .code39, .code128, .code93, .qr, .aztec, .dataMatrix, .code39Mod43, .interleaved2of5, .face, .upce]
         } else {
 //            failed() marko
             return
