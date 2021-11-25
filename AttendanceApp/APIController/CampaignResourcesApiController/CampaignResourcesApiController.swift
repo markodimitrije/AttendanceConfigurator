@@ -17,7 +17,6 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
  //https://service.e-materials.com/data/attendance/CONF_ID/CAMPAIGN_ID.zip
     
     let ematerialsUrl = URL(string: "https://service.e-materials.com/")!
-    let stagingUrl = URL(string: "https://staging.e-materials.com/")!
     
     private let apiController: ApiController!
     private let unziper: IUnziper!
@@ -38,10 +37,10 @@ class CampaignResourcesApiController: ICampaignResourcesApiController {
     func fetch() -> Observable<ICampaignResources> {
         let confId = campaignSelection.getConferenceId()
         print("campaignSelection.description = \(campaignSelection.description)")
-
+        
         return
-            apiController // hard-coded
-            .buildRequest(base: stagingUrl,
+            apiController
+            .buildRequest(base: URL(string: "https://service.e-materials.com")!,
                           method: "GET",
                           pathComponent: "data/attendance/" + "\(confId)" + ".zip",
                           params: [])
